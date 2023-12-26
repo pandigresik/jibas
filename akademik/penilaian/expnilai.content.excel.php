@@ -21,13 +21,16 @@
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
 <?php
+include_once('../library/excel/PhpOffice/autoload.php');
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 require_once('../include/errorhandler.php');
 require_once('../include/sessioninfo.php');
 require_once('../include/common.php');
 require_once('../include/config.php');
 require_once('../include/db_functions.php');
 require_once('../library/departemen.php');
-require_once('../library/excel/PHPExcel.php');
 require_once('../cek.php');
 
 require_once('expnilai.content.func.php');
@@ -37,7 +40,7 @@ OpenDb();
 ReadParam();
 
 // Create new PHPExcel object
-$objPHPExcel = new PHPExcel();
+$objPHPExcel = new Spreadsheet();
 
 // Set document properties
 $objPHPExcel->getProperties()->setCreator("JIBAS Akademik")
@@ -115,7 +118,7 @@ header ('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); // Date in the past
 header ('Last-Modified: '.gmdate('D, d M Y H:i:s').' GMT'); // always modified
 header ('Cache-Control: cache, must-revalidate'); // HTTP/1.1
 header ('Pragma: public'); // HTTP/1.0
-
-$objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+   
+$objWriter = new Xlsx($objPHPExcel);
 $objWriter->save('php://output');
 ?>

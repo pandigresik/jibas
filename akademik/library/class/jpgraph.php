@@ -19,7 +19,7 @@ require_once('jpgraph_theme.inc.php');
 require_once('gd_image.inc.php');
 
 // Version info
-define('JPG_VERSION','3.5.0b1');
+define('JPG_VERSION','4.4.2');
 
 // Minimum required PHP version
 define('MIN_PHPVERSION','5.1.0');
@@ -231,13 +231,16 @@ function CheckPHPVersion($aMinVersion) {
     list($majorC, $minorC, $editC) = preg_split('/[\/.-]/', PHP_VERSION);
     list($majorR, $minorR, $editR) = preg_split('/[\/.-]/', $aMinVersion);
 
-    if ($majorC != $majorR) return false;
     if ($majorC < $majorR) return false;
-    // same major - check minor
-    if ($minorC > $minorR) return true;
-    if ($minorC < $minorR) return false;
-    // and same minor
-    if ($editC  >= $editR)  return true;
+
+    if ($majorC == $majorR) {
+        if($minorC < $minorR) return false;
+
+        if($minorC == $minorR){
+            if($editC < $editR) return false;
+        }
+    }
+
     return true;
 }
 
@@ -389,15 +392,15 @@ class DateLocale {
         }
 
         $this->iLocale = $aLocale;
-        for( $i = 0, $ofs = 0 - strftime('%w'); $i < 7; $i++, $ofs++ ) {
-            $day = strftime('%a', strtotime("$ofs day"));
+        for( $i = 0, $ofs = 0 - date('w'); $i < 7; $i++, $ofs++ ) {
+            $day = date('D', strtotime("$ofs day"));
             $day[0] = strtoupper($day[0]);
             $this->iDayAbb[$aLocale][]= $day[0];
             $this->iShortDay[$aLocale][]= $day;
         }
 
         for($i=1; $i<=12; ++$i) {
-            list($short ,$full) = explode('|', strftime("%b|%B",strtotime("2001-$i-01")));
+            list($short ,$full) = explode('|', date("M|F",strtotime("2001-$i-01")));
             $this->iShortMonth[$aLocale][] = ucfirst($short);
             $this->iMonthName [$aLocale][] = ucfirst($full);
         }
@@ -490,7 +493,7 @@ class Footer {
 // CLASS Graph
 // Description: Main class to handle graphs
 //===================================================
-class Graph {
+class Graph extends stdClass {
     public $cache=null;   // Cache object (singleton)
     public $img=null;   // Img object (singleton)
     public $plots=array();  // Array of all plot object in the graph (for Y 1 axis)
@@ -737,11 +740,6 @@ class Graph {
     // Rotate the graph 90 degrees and set the margin
     // when we have done a 90 degree rotation
     function Set90AndMargin($lm=0,$rm=0,$tm=0,$bm=0) {
-        $lm = $lm ==0 ? floor(0.2 * $this->img->width)  : $lm ;
-        $rm = $rm ==0 ? floor(0.1 * $this->img->width)  : $rm ;
-        $tm = $tm ==0 ? floor(0.2 * $this->img->height) : $tm ;
-        $bm = $bm ==0 ? floor(0.1 * $this->img->height) : $bm ;
-
         $adj = ($this->img->height - $this->img->width)/2;
         $this->img->SetMargin($tm-$adj,$bm-$adj,$rm+$adj,$lm+$adj);
         $this->img->SetCenter(floor($this->img->width/2),floor($this->img->height/2));
@@ -1287,9 +1285,11 @@ class Graph {
             }
         }
 
-        $n = count($this->iTables);
-        for( $i=0; $i < $n; ++$i ) {
-            $csim .= $this->iTables[$i]->GetCSIMareas();
+        if($this->iTables != null) {
+            $n = count($this->iTables);
+            for ($i = 0; $i < $n; ++$i) {
+                $csim .= $this->iTables[$i]->GetCSIMareas();
+            }
         }
 
         return $csim;
@@ -1364,7 +1364,7 @@ class Graph {
 
         // Now reconstruct any user URL argument
         reset($_GET);
-        while( list($key,$value) = each($_GET) ) {
+        foreach ($_GET as $key => $value) {
             if( is_array($value) ) {
                 foreach ( $value as $k => $v ) {
                     $urlarg .= '&amp;'.$key.'%5B'.$k.'%5D='.urlencode($v);
@@ -1379,7 +1379,7 @@ class Graph {
         // but there is little else we can do. One idea for the
         // future might be recreate the POST header in case.
         reset($_POST);
-        while( list($key,$value) = each($_POST) ) {
+        foreach ($_POST as $key => $value) {
             if( is_array($value) ) {
                 foreach ( $value as $k => $v ) {
                     $urlarg .= '&amp;'.$key.'%5B'.$k.'%5D='.urlencode($v);
@@ -1411,7 +1411,7 @@ class Graph {
 
         $urlarg = $this->GetURLArguments(true);
 
-        if( empty($_GET['_CSIM_DISPLAY']) ) {
+        if( empty($_GET[_CSIM_DISPLAY]) ) {
             // First determine if we need to check for a cached version
             // This differs from the standard cache in the sense that the
             // image and CSIM map HTML file is written relative to the directory
@@ -1469,7 +1469,7 @@ class Graph {
     }
 
     function StrokeCSIMImage() {
-        if( @$_GET['_CSIM_DISPLAY'] == 1 ) {
+        if( @$_GET[_CSIM_DISPLAY] == 1 ) {
             $this->Stroke();
         }
     }
@@ -1489,7 +1489,7 @@ class Graph {
         else {
             $txts = $this->texts;
         }
-        $n = count($txts);
+        $n = is_array($txts) ? count($txts) : 0;
         $min=null;
         $max=null;
         for( $i=0; $i < $n; ++$i ) {
@@ -1518,7 +1518,7 @@ class Graph {
         else {
             $txts = $this->texts;
         }
-        $n = count($txts);
+        $n = is_array($txts) ? count($txts) : 0;
         $min=null;
         $max=null;
         for( $i=0; $i < $n; ++$i ) {
@@ -1569,8 +1569,10 @@ class Graph {
             foreach( $this->y2plots as $p ) {
                 list($xmin,$ymin) = $p->Min();
                 list($xmax,$ymax) = $p->Max();
-                $min = Min($xmin,$min);
-                $max = Max($xmax,$max);
+                if( $xmin !== null && $xmax !== null ) {
+                    $min = Min($xmin, $min);
+                    $max = Max($xmax, $max);
+                }
             }
         }
 
@@ -1580,8 +1582,10 @@ class Graph {
                 foreach( $this->ynplots[$i] as $p ) {
                     list($xmin,$ymin) = $p->Min();
                     list($xmax,$ymax) = $p->Max();
-                    $min = Min($xmin,$min);
-                    $max = Max($xmax,$max);
+                    if( $xmin !== null && $xmax !== null ) {
+                        $min = Min($xmin, $min);
+                        $max = Max($xmax, $max);
+                    }
                 }
             }
         }
@@ -3018,7 +3022,7 @@ class Graph {
 
     // Get Y min and max values for added lines
     function GetLinesYMinMax( $aLines ) {
-        $n = count($aLines);
+        $n = is_array($aLines) ? count($aLines) : 0;
         if( $n == 0 ) return false;
         $min = $aLines[0]->scaleposition ;
         $max = $min ;
@@ -3036,7 +3040,7 @@ class Graph {
 
     // Get X min and max values for added lines
     function GetLinesXMinMax( $aLines ) {
-        $n = count($aLines);
+        $n = is_array($aLines) ? count($aLines) : 0;
         if( $n == 0 ) return false ;
         $min = $aLines[0]->scaleposition ;
         $max = $min ;
@@ -3585,7 +3589,7 @@ class Grid {
 
             if( $this->fill ) {
                 // Draw filled areas
-                $y2 = $aTicksPos[0];
+                $y2 = !empty($aTicksPos) ? $aTicksPos[0] : null;
                 $i=1;
                 while( $i < $nbrgrids ) {
                     $y1 = $y2;
@@ -3638,7 +3642,6 @@ class Grid {
             // assumption offset==0 so we might end up drawing one
             // to many gridlines
             $i=0;
-            $x=$aTicksPos[$i];
             while( $i<count($aTicksPos) && ($x=$aTicksPos[$i]) <= $limit ) {
                 if    ( $aType == 'solid' )      $this->img->Line($x,$yl,$x,$yu);
                 elseif( $aType == 'dotted' )     $this->img->DashedLineForGrid($x,$yl,$x,$yu,1,6);
@@ -3648,7 +3651,7 @@ class Grid {
             }
         }
         else {
-            JpGraphError::RaiseL(25054,$this->scale->type);//('Internal error: Unknown grid axis ['.$this->scale->type.']." ');
+            JpGraphError::RaiseL(25054,$this->scale->type);//('Internal error: Unknown grid axis ['.$this->scale->type.']');
         }
         return true;
     }
@@ -4056,7 +4059,7 @@ class Axis extends AxisPrototype {
                 // that holds the labels set by the user. If the user hasn't
                 // specified any values we use whats in the automatically asigned
                 // labels in the maj_ticks_label
-                if( isset($this->ticks_label[$i*$m]) ) {
+                if( isset($this->ticks_label[$i *(int)$m]) ) {
                     $label=$this->ticks_label[$i*$m];
                 }
                 else {
@@ -4156,7 +4159,7 @@ class Axis extends AxisPrototype {
 // Description: Abstract base class for drawing linear and logarithmic
 // tick marks on axis
 //===================================================
-class Ticks {
+class Ticks extends stdClass {
     public $label_formatstr='';   // C-style format string to use for labels
     public $label_formfunc='';
     public $label_dateformatstr='';
@@ -4332,14 +4335,14 @@ class LinearTicks extends Ticks {
     }
 
     function HaveManualLabels() {
-        return count($this->iManualTickLabels) > 0;
+        return is_array($this->iManualTickLabels) ? count($this->iManualTickLabels) > 0 : false;
     }
 
     // Specify all the tick positions manually and possible also the exact labels
     function _doManualTickPos($aScale) {
         $n=count($this->iManualTickPos);
-        $m=count($this->iManualMinTickPos);
-        $doLbl=count($this->iManualTickLabels) > 0;
+        $m= is_array($this->iManualMinTickPos) ? count($this->iManualMinTickPos) : 0;
+        $doLbl= is_array($this->iManualTickLabels) ? count($this->iManualTickLabels) > 0 : false;
 
         $this->maj_ticks_pos = array();
         $this->maj_ticklabels_pos = array();
@@ -4481,7 +4484,7 @@ class LinearTicks extends Ticks {
         // If precision hasn't been specified set it to a sensible value
         if( $this->precision==-1 ) {
             $t = log10($this->minor_step);
-            if( $t > 0 ) {
+            if( $t > 0 || $t === 0.0) {
                 $precision = 0;
             }
             else {
@@ -5006,7 +5009,7 @@ class LinearScale {
             $this->off=$img->left_margin;
             $this->scale_factor = 0;
             if( $this->world_size > 0 ) {
-                $this->scale_factor=$this->world_abs_size/($this->world_size*1.0);
+                $this->scale_factor=$this->world_abs_size/($this->world_size*0.999999);
             }
         }
         else { // y scale
@@ -5014,7 +5017,7 @@ class LinearScale {
             $this->off=$img->top_margin+$this->world_abs_size;
             $this->scale_factor = 0;
             if( $this->world_size > 0 ) {
-                $this->scale_factor=-$this->world_abs_size/($this->world_size*1.0);
+                $this->scale_factor=-$this->world_abs_size/($this->world_size*0.999999);
             }
         }
         $size = $this->world_size * $this->scale_factor;
@@ -5368,7 +5371,7 @@ class DisplayValue {
 // CLASS Plot
 // Description: Abstract base class for all concrete plot classes
 //===================================================
-class Plot {
+class Plot extends stdClass {
     public $numpoints=0;
     public $value;
     public $legend='';
@@ -5566,7 +5569,7 @@ class Plot {
 
     function Clear() {
         $this->isRunningClear = true;
-        $this->__construct($this->inputValues['aDatay'], $this->inputValues['aDatax']);
+        Plot::__construct($this->inputValues['aDatay'], $this->inputValues['aDatax']);
         $this->isRunningClear = false;
     }
 
