@@ -42,9 +42,9 @@ $num=@mysqli_num_rows($result);
 $cnt=1;
 while ($row=@mysqli_fetch_array($result))
 {
-	$ket[$cnt]=$row[keterangan];
-	$nama[$cnt]=$row[nama];
-	$fn[$cnt]=$row[filename];
+	$ket[$cnt]=$row['keterangan'];
+	$nama[$cnt]=$row['nama'];
+	$fn[$cnt]=$row['filename'];
 	$rep[$cnt]=$row['replid'];
 	$cnt++;
 }

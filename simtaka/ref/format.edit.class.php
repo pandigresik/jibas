@@ -41,9 +41,9 @@ class CFormatEdit{
 			$result = QueryDb($sql);
 			$row = @mysqli_fetch_array($result);
 			$this->replid = $_REQUEST['id'];
-			$this->kode = $row[kode];
-			$this->nama = $row[nama];
-			$this->keterangan = $row[keterangan];
+			$this->kode = $row['kode'];
+			$this->nama = $row['nama'];
+			$this->keterangan = $row['keterangan'];
 		}
 	}
 	function exist(){

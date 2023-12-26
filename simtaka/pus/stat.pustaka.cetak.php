@@ -110,7 +110,7 @@ $to		= split('-',$to);
 			
 		$sql = "SELECT count(*) as num, judul, pu.replid
 				  FROM pinjam p, daftarpustaka d, pustaka pu
-			     WHERE p.tglpinjam BETWEEN '".$_REQUEST['from']." ' AND '$_REQUEST['to']."'
+			     WHERE p.tglpinjam BETWEEN '".$_REQUEST['from']."' AND '$_REQUEST['to']."'
 				   AND d.kodepustaka=p.kodepustaka
 				   AND pu.replid=d.pustaka $filter
 			     GROUP BY judul

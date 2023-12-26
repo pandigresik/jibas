@@ -2771,13 +2771,13 @@ class GanttScale {
                 $m=$ln;
                 break;
             case MONTHSTYLE_SHORTNAMEYEAR2:
-                $m=$sn." '".substr("".$year,2);
+                $m=$sn."'".substr("".$year,2);
                 break;
             case MONTHSTYLE_SHORTNAMEYEAR4:
                 $m=$sn." ".$year;
                 break;
             case MONTHSTYLE_LONGNAMEYEAR2:
-                $m=$ln." '".substr("".$year,2);
+                $m=$ln."'".substr("".$year,2);
                 break;
             case MONTHSTYLE_LONGNAMEYEAR4:
                 $m=$ln." ".$year;

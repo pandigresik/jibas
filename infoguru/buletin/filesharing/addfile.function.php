@@ -33,7 +33,7 @@ $rootname = $row[0];
 $sql = "SELECT * FROM jbsvcr.dirshare WHERE replid = '$iddir'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
-$dirfullpath = $row[dirfullpath];
+$dirfullpath = $row['dirfullpath'];
 CloseDb();
 
 $fullpath = str_replace($rootname, "", $dirfullpath);

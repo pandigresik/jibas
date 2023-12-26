@@ -60,14 +60,14 @@ class CKembali
 			$row = @mysqli_fetch_array($result);
 			
 			$this->idpinjam = $row['replid'];
-			$this->tglpinjam = $row[tglpinjam];
-			$this->tglkembali = $row[tglkembali];
-			$this->keterangan = $row[keterangan];
-			$this->idanggota = $row[idanggota];
-			$this->jenisanggota = $row[info1];
-			$this->kodepustaka = $row[kodepustaka];
+			$this->tglpinjam = $row['tglpinjam'];
+			$this->tglkembali = $row['tglkembali'];
+			$this->keterangan = $row['keterangan'];
+			$this->idanggota = $row['idanggota'];
+			$this->jenisanggota = $row['info1'];
+			$this->kodepustaka = $row['kodepustaka'];
 			$this->namaanggota = $this->GetMemberName();
-			$this->isavailable = (0 == (int)$row[status]) ? 1 : -1;
+			$this->isavailable = (0 == (int)$row['status']) ? 1 : -1;
 			
 			$sql = "SELECT DATEDIFF(NOW(),'".$this->tglkembali."')";
 			$result = QueryDb($sql);
@@ -89,7 +89,7 @@ class CKembali
 					   AND d.kodepustaka = '" . $this->kodepustaka . "'";
 			$result = QueryDb($sql);
 			$row = @mysqli_fetch_array($result);
-			$this->judul = $row[judul];
+			$this->judul = $row['judul'];
 		}
 		
 		if ($this->op=="KembalikanPustaka")

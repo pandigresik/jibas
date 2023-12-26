@@ -158,8 +158,8 @@ function show_msg(){
               <tr>
                 <td>
           <em><?php echo $tglberita3?></em>      <br />
-          <font color="#3C859C" size="-2"><?php echo $row3[judul]?></font>
-          <span class="style8"><?php echo $row3[abstrak]?></span>
+          <font color="#3C859C" size="-2"><?php echo $row3['judul']?></font>
+          <span class="style8"><?php echo $row3['abstrak']?></span>
           <div align="right" style="text-align:right"><img src="images/ico/arr1.gif" />&nbsp;&nbsp;<a href="#" onclick="bacaberitasekolah('<?php echo $row3['replid']?>')" >Baca Selengkapnya</a></div>
           		</td>
           	</tr>
@@ -211,32 +211,32 @@ function show_msg(){
        <tr>
          <td width="53"><span class="style18">Nama</span></td>
          <td width="12"><span class="style20">: </span></td>
-         <td width="359"><span class="style22"><?php echo  $row[nama]; ?></span></td>
+         <td width="359"><span class="style22"><?php echo  $row['nama']; ?></span></td>
        </tr>
        <tr>
          <td height="22"><span class="style18">Alamat</span></td>
          <td><span class="style20">:</span></td>
-         <td><span class="style22"><?php echo  $row[alamat]; ?></span></td>
+         <td><span class="style22"><?php echo  $row['alamat']; ?></span></td>
        </tr>
        <tr>
          <td><span class="style18">Telepon</span></td>
          <td><span class="style20">:</span></td>
-         <td><span class="style22"><?php echo  $row[telpon]; ?></span></td>
+         <td><span class="style22"><?php echo  $row['telpon']; ?></span></td>
        </tr>
        <tr>
          <td><span class="style18">Hp</span></td>
          <td><span class="style20">:</span></td>
-         <td><span class="style22"><?php echo  $row[hp]; ?></span></td>
+         <td><span class="style22"><?php echo  $row['hp']; ?></span></td>
        </tr>
        <tr>
          <td><span class="style18">Email</span></td>
          <td><span class="style20">:</span></td>
-         <td><span class="style22"><?php echo  $row[email]; ?></span></td>
+         <td><span class="style22"><?php echo  $row['email']; ?></span></td>
        </tr>
        <tr>
          <td><span class="style18">Hobi</span></td>
          <td><span class="style20">:</span></td>
-         <td><span class="style22"><?php echo  $row[hobi]; ?></span></td>
+         <td><span class="style22"><?php echo  $row['hobi']; ?></span></td>
        </tr>
        <tr>
          <td colspan="2">&nbsp;</td>

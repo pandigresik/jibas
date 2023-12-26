@@ -90,7 +90,7 @@ $to		= split('-',$to);
 		$filter="";
 		if ($perpustakaan!='-1')
 			$filter=" AND d.perpustakaan=".$perpustakaan;
-		$sql = "SELECT count(*) as num, judul, pu.replid FROM $db_name_perpus.pinjam p, $db_name_perpus.daftarpustaka d, $db_name_perpus.pustaka pu WHERE p.tglpinjam BETWEEN '".$_REQUEST['from']." ' AND '$_REQUEST['to']."' AND d.kodepustaka=p.kodepustaka AND pu.replid=d.pustaka $filter GROUP BY judul ORDER BY num DESC LIMIT $limit";		
+		$sql = "SELECT count(*) as num, judul, pu.replid FROM $db_name_perpus.pinjam p, $db_name_perpus.daftarpustaka d, $db_name_perpus.pustaka pu WHERE p.tglpinjam BETWEEN '".$_REQUEST['from']."' AND '$_REQUEST['to']."' AND d.kodepustaka=p.kodepustaka AND pu.replid=d.pustaka $filter GROUP BY judul ORDER BY num DESC LIMIT $limit";		
 		$result = QueryDb($sql);
 		//echo $sql;
 		?>

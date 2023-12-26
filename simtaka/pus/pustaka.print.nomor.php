@@ -41,13 +41,13 @@ if ($perpustakaan=="-1")
 $sql = "SELECT judul FROM pustaka WHERE replid='$replid'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
-$judul = $row[judul];
+$judul = $row['judul'];
 
 if ($filter!=""){
 	$sql = "SELECT nama FROM perpustakaan WHERE replid='$perpustakaan'";
 	$result = QueryDb($sql);
 	$row = @mysqli_fetch_array($result);
-	$nama = $row[nama];
+	$nama = $row['nama'];
 } else {
 	$nama = "<i>(Semua)</i>";
 }

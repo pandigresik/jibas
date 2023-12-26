@@ -120,7 +120,7 @@ if (@mysqli_num_rows($result)>0 || @mysqli_num_rows($result2)>0){
 
 	while ($row=@mysqli_fetch_array($result)){
 	echo "<tr>
-    <td class=\"style8\"><a class=\"style11\"  style=\"text-decoration:none; color:#666666\" href='#' onclick=tampil('".$row['replid']."')>".$row[nip]."-".substr($row[nama],0,20)."</a></td>
+    <td class=\"style8\"><a class=\"style11\"  style=\"text-decoration:none; color:#666666\" href='#' onclick=tampil('".$row['replid']."')>".$row['nip']."-".substr($row['nama'],0,20)."</a></td>
   </tr><tr>
     <td background=\"../../images/box_hr1.gif\" style=\"background-repeat:repeat-x; background-position:center\">&nbsp;</td>
   </tr>";

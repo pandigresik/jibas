@@ -40,7 +40,7 @@ $theme="";
 $replid="";
 $res=QueryDb("SELECT replid,theme FROM jbsuser.hakakses WHERE modul='KEUANGAN' AND login='".getIdUser()."'");
 $row=@mysqli_fetch_array($res);
-$theme=$row[theme];
+$theme=$row['theme'];
 $replid=$row['replid'];
 CloseDb();
 $op="";

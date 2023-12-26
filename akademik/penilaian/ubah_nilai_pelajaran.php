@@ -76,11 +76,11 @@ if (isset($_POST['simpan'])) {
 	if (!$_POST['tanggal_baru']==""){
 	//$tgl=unformat_tgl($_POST['tanggal']);
     $query = "UPDATE jbsakad.ujian SET deskripsi = '".CQ($_POST['deskripsi'])."',tanggal='$_POST['tanggal_baru']' ".
-             "WHERE replid = '$_POST['iduj']'";
+             "WHERE replid = '$_POST['iduj']."'";
     } else {
 	$tgl=unformat_tgl($_POST['tanggal']);
 	$query = "UPDATE jbsakad.ujian SET deskripsi = '".CQ($_POST['deskripsi'])."',tanggal='$tgl' ".
-             "WHERE replid = '$_POST['iduj']'";
+             "WHERE replid = '$_POST['iduj']."'";
 	}
 	$result = QueryDb($query);
 		
@@ -240,7 +240,7 @@ if (isset($_POST['simpan'])) {
 			<td colspan="4">
 			<fieldset><legend><b>Jenis Penilaian : <?=$row_jp['jenisujian'] ?></b></legend>
 			<?php
-			$query_uj = "SELECT * FROM jbsakad.ujian WHERE replid = '$_GET['id']'";
+			$query_uj = "SELECT * FROM jbsakad.ujian WHERE replid = '$_GET['id']."'";
 			$result_uj = QueryDb($query_uj);
 			$row_uj = @mysqli_fetch_array($result_uj);
 			

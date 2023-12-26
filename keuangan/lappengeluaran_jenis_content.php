@@ -120,7 +120,7 @@ function excel() {
 			$jenisinfo = "siswa";
 		} else {
 			$idpemohon = "";
-			$sql = "SELECT nama FROM pemohonlain WHERE replid = '".$row[pemohonlain]'";
+			$sql = "SELECT nama FROM pemohonlain WHERE replid = '".$row['pemohonlain']."'";
 			$jenisinfo = "pemohon lain";
 		}
 		$result2 = QueryDb($sql);

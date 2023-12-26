@@ -116,7 +116,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
 			$jenisinfo = "siswa";
 		} else {
 			$idpemohon = "";
-			$sql = "SELECT nama FROM $db_name_fina.pemohonlain WHERE replid = '".$row[pemohonlain]'" ;
+			$sql = "SELECT nama FROM $db_name_fina.pemohonlain WHERE replid = '".$row['pemohonlain']'" ;
 			$jenisinfo = "pemohon lain";
 		}
 		$result2 = QueryDb($sql);

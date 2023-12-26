@@ -65,7 +65,7 @@ if ($op == "12134892y428442323x423") {
 }
 
 if ($op == "d28xen32hxbd32dn239dx") {
-	$sql = "UPDATE datapengeluaran SET aktif='".$_REQUEST['newaktif']." ' WHERE replid='".$_REQUEST['id']."'";
+	$sql = "UPDATE datapengeluaran SET aktif='".$_REQUEST['newaktif']."' WHERE replid='".$_REQUEST['id']."'";
 	
 	OpenDb();
 	QueryDb($sql);
@@ -255,12 +255,12 @@ function change_baris() {
     	<td align="center"><?=++$cnt?></td>
         <td><?=$row['nama'] ?></td>
         <td>
-<?php 		$sql = "SELECT nama FROM rekakun WHERE kode = '".$row[rekkredit]'";
+<?php 		$sql = "SELECT nama FROM rekakun WHERE kode = '".$row['rekkredit']."'";
 			$result = QueryDb($sql);
 			$row2 = mysqli_fetch_row($result);
 			$namarekkredit = $row2[0];
 	
-			$sql = "SELECT nama FROM rekakun WHERE kode = '".$row[rekdebet]'";
+			$sql = "SELECT nama FROM rekakun WHERE kode = '".$row['rekdebet']."'";
 			$result = QueryDb($sql);
 			$row2 = mysqli_fetch_row($result);
 			$namarekdebet = $row2[0]; ?>

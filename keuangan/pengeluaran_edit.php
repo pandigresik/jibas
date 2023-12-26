@@ -147,8 +147,8 @@ else if ($row['jenispemohon'] == 2)
 } 
 else 
 {
-	$idpemohon = $row[pemohonlain];
-	$sql = "SELECT nama FROM pemohonlain WHERE replid = '".$row[pemohonlain]'";
+	$idpemohon = $row['pemohonlain'];
+	$sql = "SELECT nama FROM pemohonlain WHERE replid = '".$row['pemohonlain']."'";
 	$jenisinfo = "pemohon lain";
 }
 $result = QueryDb($sql);

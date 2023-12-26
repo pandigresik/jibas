@@ -76,7 +76,7 @@ if (isset($_REQUEST['Simpan']))
 		$sql = "INSERT INTO jbsfina.barang SET kode='".trim($_REQUEST['kode'])."', nama='".trim($_REQUEST['nama'])."',
 					   jumlah='".trim($_REQUEST['jumlah'])."',kondisi='".addslashes(trim($_REQUEST['kondisi']))."',tglperolehan='$tgl',
 					   keterangan='".addslashes(trim($_REQUEST['keterangan']))."',idkelompok='".$_REQUEST['idkelompok']."',
-					   satuan='".$_REQUEST['satuan']." ', info1='".$_REQUEST['angkaharga']."' $isifoto";
+					   satuan='".$_REQUEST['satuan']."', info1='".$_REQUEST['angkaharga']."' $isifoto";
 		$result = QueryDb($sql);
 		if ($result){
 			?>

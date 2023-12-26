@@ -62,7 +62,7 @@ while ($row_get_pelajaran_presensi=@mysqli_fetch_array($result_get_pelajaran_pre
     $sql_get_all_presensi=
         "SELECT count(*) as jumlah 
            FROM jbsakad.presensipelajaran pel, jbsakad.ppsiswa pp 
-          WHERE pel.idpelajaran ='$row_get_pelajaran_presensi['replid']." ' 
+          WHERE pel.idpelajaran ='$row_get_pelajaran_presensi['replid']."' 
             AND pel.idsemester ='$semester' 
             AND pel.idkelas ='$kelas' 
             AND pel.replid =pp.idpp 
@@ -77,7 +77,7 @@ while ($row_get_pelajaran_presensi=@mysqli_fetch_array($result_get_pelajaran_pre
     $sql_get_hadir=
         "SELECT count(*) as hadir 
            FROM jbsakad.presensipelajaran pel, jbsakad.ppsiswa pp 
-          WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']." ' 
+          WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']."' 
             AND pel.idsemester='$semester' 
             AND pel.idkelas='$kelas' 
             AND pel.replid=pp.idpp 
@@ -93,7 +93,7 @@ while ($row_get_pelajaran_presensi=@mysqli_fetch_array($result_get_pelajaran_pre
     $sql_get_sakit=
         "SELECT count(*) as sakit 
            FROM jbsakad.presensipelajaran pel, jbsakad.ppsiswa pp 
-          WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']." ' 
+          WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']."' 
             AND pel.idsemester='$semester' 
             AND pel.idkelas='$kelas' 
             AND pel.replid=pp.idpp 
@@ -109,7 +109,7 @@ while ($row_get_pelajaran_presensi=@mysqli_fetch_array($result_get_pelajaran_pre
     $sql_get_ijin=
         "SELECT count(*) as ijin 
            FROM jbsakad.presensipelajaran pel, jbsakad.ppsiswa pp 
-          WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']." ' 
+          WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']."' 
             AND pel.idsemester='$semester' 
             AND pel.idkelas='$kelas' 
             AND pel.replid=pp.idpp 
@@ -125,7 +125,7 @@ while ($row_get_pelajaran_presensi=@mysqli_fetch_array($result_get_pelajaran_pre
     $sql_get_alpa=
         "SELECT count(*) as alpa 
            FROM jbsakad.presensipelajaran pel, jbsakad.ppsiswa pp 
-          WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']." ' 
+          WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']."' 
             AND pel.idsemester='$semester' 
             AND pel.idkelas='$kelas' 
             AND pel.replid=pp.idpp 

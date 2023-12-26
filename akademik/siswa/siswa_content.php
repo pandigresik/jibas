@@ -63,7 +63,7 @@ OpenDb();
 $op = $_REQUEST['op'];
 if ($op == "dw8dxn8w9ms8zs22") 
 {
-	$sql = "UPDATE siswa SET aktif = '".$_REQUEST['newaktif']." ' WHERE replid = '".$_REQUEST['replid']."' ";
+	$sql = "UPDATE siswa SET aktif = '".$_REQUEST['newaktif']."' WHERE replid = '".$_REQUEST['replid']."' ";
 	QueryDb($sql);
 } 
 else if ($op == "xm8r389xemx23xb2378e23") 

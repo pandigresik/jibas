@@ -44,7 +44,7 @@ if(isset($_REQUEST["simpan"])){
 	$result=QueryDbTrans($sql, $success);
 	$row=@mysqli_fetch_array($result);
 	if ($success){
-		$sql="INSERT INTO jbsakad.alumni SET nis='$row[nis]',klsakhir='$row[idkelas]',tktakhir='$row[tingkat]',tgllulus='$tgl',keterangan='".CQ($_REQUEST['keterangan'])."'";
+		$sql="INSERT INTO jbsakad.alumni SET nis='$row['nis']',klsakhir='$row['idkelas']',tktakhir='$row['tingkat']',tgllulus='$tgl',keterangan='".CQ($_REQUEST['keterangan'])."'";
 		//echo $sql;
 		//exit;
 		QueryDbTrans($sql, $success);

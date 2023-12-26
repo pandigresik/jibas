@@ -33,7 +33,7 @@ require_once("../include/sessionchecker.php");
 
 <?php
 OpenDb();
-$query3 = "DELETE FROM jbsakad.nau WHERE idjenis = '$_GET['id']'";
+$query3 = "DELETE FROM jbsakad.nau WHERE idjenis = '$_GET['id']."'";
 $result3 = QueryDb($query3);
 
 $row3 = @mysqli_fetch_array($result3);

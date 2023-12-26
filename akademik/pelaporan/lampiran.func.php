@@ -95,8 +95,8 @@ function ShowList()
         
         echo "<tr>";
         echo "<td align='center' valign='top'>$no</td>";
-        echo "<td align='left' valign='top'>$row[xtanggal]<br><strong>$nama</strong></td>";
-        echo "<td align='left' valign='top'><strong>$row[judul]</strong><br>";
+        echo "<td align='left' valign='top'>$row['xtanggal']<br><strong>$nama</strong></td>";
+        echo "<td align='left' valign='top'><strong>$row['judul']</strong><br>";
         echo "<div style='height: 200px; overflow: auto;'>";
         echo $row['pengantar'];
         echo "</div></td>";

@@ -159,7 +159,7 @@ function ShowRincianStatistikHarian()
             $sql = "SELECT ts.nomor
                       FROM jbsfina.tagihansiswainfo tsi, jbsfina.tagihanset ts
                      WHERE tsi.idtagihanset = ts.replid
-                       AND tsi.notagihan = '".$row[nomor]'";
+                       AND tsi.notagihan = '".$row['nomor']."'";
             $res2 = QueryDb($sql);
             if ($row2 = mysqli_fetch_row($res2))
                 $nomorTs = $row2[0];
@@ -172,11 +172,11 @@ function ShowRincianStatistikHarian()
         echo "<table border='0' cellpadding='2' cellspacing='0' width='100%'>";
         echo "<tr>";
         echo "<td width='80%'>";
-        echo "<strong>$row[namasiswa]</strong>  |  $row[nis]<br>";
-        echo "<strong>$row[transaksi]</strong>";
+        echo "<strong>$row['namasiswa']</strong>  |  $row['nis']<br>";
+        echo "<strong>$row['transaksi']</strong>";
         echo "</td>";
         echo "<td width='20%' align='right'>";
-        echo "<i>$row[fwaktu]</i>";
+        echo "<i>$row['fwaktu']</i>";
         echo "</td>";
         echo "</tr>";
         echo "</table>";
@@ -238,12 +238,12 @@ function ShowRincianStatistikHarian()
         echo "</td>";
         echo "<td align='left' valign='top'>";
         if ($jenis == 1)
-            echo "<b>$row[nomor]</b><br><i>$nomorTs</i><br><i>$row[paymentid]</i>";
+            echo "<b>$row['nomor']</b><br><i>$nomorTs</i><br><i>$row['paymentid']</i>";
         else
-            echo "<b>$row[nomor]</b><br><i>$row[paymentid]</i>";
+            echo "<b>$row['nomor']</b><br><i>$row['paymentid']</i>";
         echo "</td>";
-        echo "<td align='left' valign='top'><strong>$row[bank]</strong><br><i>$row[bankno]</i></td>";
-        echo "<td align='left' valign='top'>$row[petugas]<br>$row[idpetugas]<br><i>$row[ketver]</i></td>";
+        echo "<td align='left' valign='top'><strong>$row['bank']</strong><br><i>$row['bankno']</i></td>";
+        echo "<td align='left' valign='top'>$row['petugas']<br>$row['idpetugas']<br><i>$row['ketver']</i></td>";
 
         echo "</tr>";
     }

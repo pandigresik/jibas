@@ -86,7 +86,7 @@ $x=1;
 	$result_get_ujian=QueryDb($sql_get_ujian);
 	//$i=1;
 	while ($row_get_ujian=@mysqli_fetch_array($result_get_ujian)){
-	$sql_hapus_bobotnau="DELETE FROM jbsakad.infobobotnau WHERE idujian='$row_get_ujian['replid']." '";
+	$sql_hapus_bobotnau="DELETE FROM jbsakad.infobobotnau WHERE idujian='$row_get_ujian['replid']."'";
 	//echo $sql_hapus_bobotnau."<br>";
 	$result_hapus_bobotnau=QueryDb($sql_hapus_bobotnau);
 	if ($result_hapus_bobotnau){
@@ -154,17 +154,17 @@ $x=1;
 	$ujian_culip=0;
 	while ($row_get_ujian=@mysqli_fetch_array($result_get_ujian)){
 	//Ambil info bobot
-	$sql_get_info_bobot="SELECT replid FROM jbsakad.infobobotnau WHERE idujian='$row_get_ujian['replid']." '";
+	$sql_get_info_bobot="SELECT replid FROM jbsakad.infobobotnau WHERE idujian='$row_get_ujian['replid']."'";
 	//echo $sql_get_info_bobot."<br>";
 	$result_get_info_bobot=QueryDb($sql_get_info_bobot);
 	$row_get_info_bobot=@mysqli_fetch_array($result_get_info_bobot);
 	//Ambil bobot
-	$sql_get_bobot="SELECT bobot FROM jbsakad.bobotnau WHERE idinfo='$row_get_info_bobot['replid']." '";
+	$sql_get_bobot="SELECT bobot FROM jbsakad.bobotnau WHERE idinfo='$row_get_info_bobot['replid']."'";
 	//echo $sql_get_bobot."<br>";
 	$result_get_bobot=QueryDb($sql_get_bobot);
 	$row_get_bobot=@mysqli_fetch_array($result_get_bobot);
 	//Ambil nilai ujian
-	$sql_get_nilai="SELECT nilaiujian FROM jbsakad.nilaiujian WHERE idujian='$row_get_ujian['replid']." ' AND nis='$row_get_nis_siswa[nis]'";
+	$sql_get_nilai="SELECT nilaiujian FROM jbsakad.nilaiujian WHERE idujian='$row_get_ujian['replid']."' AND nis='$row_get_nis_siswa[nis]'";
 	//echo $sql_get_nilai."<br>";
 	$result_get_nilai=QueryDb($sql_get_nilai);
 	$row_get_nilai=@mysqli_fetch_array($result_get_nilai);
@@ -521,7 +521,7 @@ function hapus_nau(){
 <?php  $sql_cek_ujian_ratakelas="SELECT replid FROM jbsakad.ujian WHERE idkelas='$kelas' AND idsemester='$semester' AND idaturan='$idaturan' ORDER by tanggal ASC";
 	$result_cek_ujian_ratakelas=QueryDb($sql_cek_ujian_ratakelas);
 	while ($row_cek_ujian_ratakelas=@mysqli_fetch_array($result_cek_ujian_ratakelas)){
-		$sql_hitung_ratakelas="SELECT SUM(nilaiujian) as nilaiujian, COUNT(*) as jumlahnya FROM jbsakad.nilaiujian WHERE idujian='$row_cek_ujian_ratakelas['replid']." '";
+		$sql_hitung_ratakelas="SELECT SUM(nilaiujian) as nilaiujian, COUNT(*) as jumlahnya FROM jbsakad.nilaiujian WHERE idujian='$row_cek_ujian_ratakelas['replid']."'";
 		//echo $sql_hitung_ratakelas;
 		$result_hitung_ratakelas=QueryDb($sql_hitung_ratakelas);
 		$row_hitung_ratakelas=@mysqli_fetch_array($result_hitung_ratakelas);
@@ -583,7 +583,7 @@ if ($perubahan==1){
 	$result_cek_ujian=QueryDb($sql_cek_ujian);
 	$ibobot=1;
 	while ($row_cek_ujian=@mysqli_fetch_array($result_cek_ujian)){
-	$sql_get_bobotnya="SELECT b.bobot FROM jbsakad.infobobotnau i, jbsakad.bobotnau b WHERE i.idujian='$row_cek_ujian['replid']." ' AND b.idinfo=i.replid";
+	$sql_get_bobotnya="SELECT b.bobot FROM jbsakad.infobobotnau i, jbsakad.bobotnau b WHERE i.idujian='$row_cek_ujian['replid']."' AND b.idinfo=i.replid";
 	//echo $sql_get_bobotnya;
 	$result_get_bobotnya=QueryDb($sql_get_bobotnya);
 	$nilai_bobotnya=@mysqli_fetch_row($result_get_bobotnya);

@@ -32,16 +32,16 @@ OpenDb();
 $sql = "SELECT * FROM jbsperpus.pustaka WHERE replid='$replid'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
-$judul = $row[judul];
-$harga = $row[harga];
-$katalog = $row[katalog];
-$penerbit = $row[penerbit];
-$penulis = $row[penulis];
-$tahun = $row[tahun];
-$format = $row[format];
-$keyword = $row[keyword];
-$keteranganfisik = $row[keteranganfisik];
-$abstraksi = $row[abstraksi];
+$judul = $row['judul'];
+$harga = $row['harga'];
+$katalog = $row['katalog'];
+$penerbit = $row['penerbit'];
+$penulis = $row['penulis'];
+$tahun = $row['tahun'];
+$format = $row['format'];
+$keyword = $row['keyword'];
+$keteranganfisik = $row['keteranganfisik'];
+$abstraksi = $row['abstraksi'];
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

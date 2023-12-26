@@ -206,7 +206,7 @@ function panggil(elem){
 				if ($kelompok == "") 
 					$kelompok = $row['replid'];
 				
-				$sql1 = "SELECT COUNT(replid) FROM calonsiswa WHERE idkelompok = '".$row['replid']." ' AND aktif = 1";
+				$sql1 = "SELECT COUNT(replid) FROM calonsiswa WHERE idkelompok = '".$row['replid']."' AND aktif = 1";
 				$result1 = QueryDb($sql1);				
 				$row1 = mysqli_fetch_row($result1);	?>
 	    		<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $kelompok)?> ><?=$row['kelompok'].', kapasitas: '.$row['kapasitas'] .', terisi: '.$row1[0]?></option>

@@ -119,18 +119,18 @@ function validate()
   <tr>
     <td scope="row"><div align="left"><strong>Tanggal</strong></div></td>
     <td scope="row"><div align="left">
-      <input title="Klik untuk membuka kalender !" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=RegularDateFormat($row[tanggal]); ?>"/>
+      <input title="Klik untuk membuka kalender !" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=RegularDateFormat($row['tanggal']); ?>"/>
     <img title="Klik untuk membuka kalender !" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></div></td>
   </tr>
   <tr>
     <td  scope="row"><div align="left"><strong>Judul</strong></div></td>
     <td  scope="row"><div align="left">
-      <input type="text" name="judul" id="judul" size="50" value="<?=$row[judul]?>" />
+      <input type="text" name="judul" id="judul" size="50" value="<?=$row['judul']?>" />
 	  <input type="hidden" name="replid" id="replid" size="50" value="<?=$replid?>" />
     </div></td>
   </tr>
   <tr>
-    <th colspan="2" valign="top" scope="row"><fieldset><legend>Deskripsi</legend><textarea name="komentar" rows="20" id="komentar"><?=$row[komentar]?>
+    <th colspan="2" valign="top" scope="row"><fieldset><legend>Deskripsi</legend><textarea name="komentar" rows="20" id="komentar"><?=$row['komentar']?>
       </textarea></fieldset></th>
     </tr>
   <tr>

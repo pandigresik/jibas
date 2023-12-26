@@ -34,12 +34,12 @@ function coba() {
 			$pilih = $_REQUEST['pilih'.$i];
 			$nis = $_REQUEST['nis'.$i];
 			if ($pilih) {
-				$GLOBALS[nisa][$i] = $nis;
+				$GLOBALS['nisa'][$i] = $nis;
 				//lagi($nisa);
 			//echo '<br>pilih '.$nis.' '.$i;	
 			}
 		}		
-	return $GLOBALS[nisa];
+	return $GLOBALS['nisa'];
 }
 
 
@@ -47,8 +47,8 @@ function coba() {
 
 
 function coba1() {
-	$GLOBALS[nisa][] = $a;
-	//$GLOBALS[nisa][$i] = $nis;
+	$GLOBALS['nisa'][] = $a;
+	//$GLOBALS['nisa'][$i] = $nis;
 	
 }	
 

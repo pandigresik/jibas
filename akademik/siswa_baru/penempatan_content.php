@@ -394,7 +394,7 @@ function refresh_isi() {
 				if ($kelas == "") 
 					$kelas = $row['replid'];
 				
-				$sql1 = "SELECT COUNT(*) FROM siswa WHERE idkelas = '".$row['replid']." ' AND idangkatan = '$angkatan' AND aktif = 1";
+				$sql1 = "SELECT COUNT(*) FROM siswa WHERE idkelas = '".$row['replid']."' AND idangkatan = '$angkatan' AND aktif = 1";
 				$result1 = QueryDb($sql1);
 				$row1 = @mysqli_fetch_row($result1); ?>
 	    		<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $kelas)?> ><?=$row['kelas'].', kapasitas: '.$row['kapasitas'].', terisi: '.$row1[0]?></option>

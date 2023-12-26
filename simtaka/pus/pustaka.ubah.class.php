@@ -34,17 +34,17 @@ class CPustaka
 		$sql = "SELECT * FROM pustaka WHERE replid=".$this->replid;
 		$result = QueryDb($sql);
 		$row = @mysqli_fetch_array($result);
-		$this->judul = stripslashes($row[judul]);
-		$this->harga = $row[harga];
-		$this->katalog = $row[katalog];
-		$this->penerbit = $row[penerbit];
-		$this->penulis = $row[penulis];
-		$this->tahun = $row[tahun];
-		$this->format = stripslashes($row[format]);
-		$this->keyword = stripslashes($row[keyword]);
-		$this->keteranganfisik = stripslashes($row[keteranganfisik]);
-		$this->abstraksi = stripslashes($row[abstraksi]);
-		$this->keterangan = stripslashes($row[keterangan]);
+		$this->judul = stripslashes($row['judul']);
+		$this->harga = $row['harga'];
+		$this->katalog = $row['katalog'];
+		$this->penerbit = $row['penerbit'];
+		$this->penulis = $row['penulis'];
+		$this->tahun = $row['tahun'];
+		$this->format = stripslashes($row['format']);
+		$this->keyword = stripslashes($row['keyword']);
+		$this->keteranganfisik = stripslashes($row['keteranganfisik']);
+		$this->abstraksi = stripslashes($row['abstraksi']);
+		$this->keterangan = stripslashes($row['keterangan']);
 		//echo $this->katalog."<hr>";
 		//echo $this->penulis."<hr>";
 		if (isset($_REQUEST['simpan']))
@@ -339,11 +339,11 @@ class CPustaka
 				$sql = "SELECT COUNT(replid)
 						  FROM daftarpustaka
 						 WHERE pustaka = '" . $this->replid . "'
-						   AND perpustakaan = '".$row['replid']." '";
+						   AND perpustakaan = '".$row['replid']."'";
 				$res = QueryDb($sql);		   
 			 	$num = @mysqli_fetch_row($res); ?>
 				<tr>
-					<td width="70%" valign="middle">&nbsp;<?=$row[nama]?></td>
+					<td width="70%" valign="middle">&nbsp;<?=$row['nama']?></td>
 					<td width="30%" align="left" valign="middle">
 						<input type="text" readonly='readonly' maxlength='3' size='4' name="jumlah<?=$cnt?>" id="jumlah<?=$cnt?>" class="inputtxt" value="<?=$num[0]?>" style="background-color: #ccc; height: 22px; font-size: 16px;" />&nbsp;buah
 						<input type="hidden" readonly='readonly' style='background-color: #ccc;' name="replid<?=$cnt?>" id="replid<?=$cnt?>" class="inputtxt" value="<?=$row['replid']?>" />     
@@ -366,7 +366,7 @@ class CPustaka
 				$sql = "SELECT COUNT(replid)
 						  FROM daftarpustaka
 						 WHERE pustaka = '".$this->replid."'
-						   AND perpustakaan = '".$row['replid']." '";
+						   AND perpustakaan = '".$row['replid']."'";
 				$res = QueryDb($sql);		   
 				$num = @mysqli_fetch_row($res);	?>
 				<input type="hidden" name="jumlah<?=$cnt?>" id="jumlah<?=$cnt?>" class="inputtxt" value="<?=$num[0]?>" />

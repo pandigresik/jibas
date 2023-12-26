@@ -176,7 +176,7 @@ if ($iddasar!="12"){
 	
 	$result3 = QueryDb($query3);
 	$row3 = @mysqli_fetch_array($result3);
-	$j3 = $row3[Jum];
+	$j3 = $row3['Jum'];
 	
 	$result4 = QueryDb($query4);
 	$row4 = @mysqli_fetch_array($result4);

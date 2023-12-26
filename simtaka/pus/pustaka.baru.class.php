@@ -329,7 +329,7 @@ class CPustaka
 		{
 			?>
             <tr>
-               <td width="70%" valign="middle">&nbsp;<?=$row[nama]?></td>
+               <td width="70%" valign="middle">&nbsp;<?=$row['nama']?></td>
                <td width="30%" align="left" valign="middle">
                		<input type="text" name="jumlah<?=$cnt?>" maxlength='3' size='4' id="jumlah<?=$cnt?>" class="inputtxt" style="height: 22px; font-size: 16px;" />&nbsp;buah
  		            <input type="hidden" name="replid<?=$cnt?>" id="replid<?=$cnt?>" class="inputtxt" value="<?=$row['replid']?>" />     
@@ -498,7 +498,7 @@ class CPustaka
 			{
 				$replid = $_REQUEST['replid'.$i];
 				$parm = "jumlah$i";
-				if ($_REQUEST[$parm] != "" && {$_REQUEST[$parm]} > 0)
+				if ($_REQUEST[$parm] != "" && $_REQUEST[$parm] > 0)
 				{
 					for ($j = 1; $success && $j <= $_REQUEST[$parm]; $j++)
 					{

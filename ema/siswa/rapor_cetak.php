@@ -147,7 +147,7 @@ function ShowKomentar()
 			{
 				$sql_get_komentar = "SELECT k.komentar 
 		          FROM jbsakad.komennap k, jbsakad.infonap i 
-				 WHERE k.nis='$nis' AND i.idpelajaran='$row_get_pelajaran_komentar['replid']." ' AND i.replid = k.idinfo 
+				 WHERE k.nis='$nis' AND i.idpelajaran='$row_get_pelajaran_komentar['replid']."' AND i.replid = k.idinfo 
 				   AND i.idsemester = '$semester' AND i.idkelas = '$kelas'";
 				$result_get_komentar=QueryDb($sql_get_komentar);
 				$row_get_komentar=@mysqli_fetch_row($result_get_komentar); ?>

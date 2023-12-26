@@ -86,22 +86,22 @@ if ($num > 0)
     	if ($cnt==1 || $cnt%(int)$varkolom==1)
             echo "<tr>";
 	
-        $jumlah = (int)$row[jumlah];
-        $satuan = $row[satuan];
-        $harga = (int)$row[info1];
+        $jumlah = (int)$row['jumlah'];
+        $satuan = $row['satuan'];
+        $harga = (int)$row['info1'];
         $total = $jumlah * $harga;	
     ?>
     <td valign="top" align="center">
         <div id="div<?=$row['replid']?>" style="padding:5px; width:200px; margin:5px; border:2px solid #eaf4ff; cursor:default">
         <div align="left">
-            <span style="font-family:Arial; font-size:14px; font-weight:bold; color:#990000"><?=$row[kode]?></span><br />
-            <span style="font-family:Arial; font-size:12px; font-weight:bold; color:#006600; cursor:pointer"><?=$row[nama]?></span><br />
+            <span style="font-family:Arial; font-size:14px; font-weight:bold; color:#990000"><?=$row['kode']?></span><br />
+            <span style="font-family:Arial; font-size:12px; font-weight:bold; color:#006600; cursor:pointer"><?=$row['nama']?></span><br />
         </div>
         <img src="gambar.php?table=jbsfina.barang&replid=<?=$row['replid']?>"  style="padding:2px" />
         <div align="left">
             Jumlah: <?=$jumlah?>&nbsp;<?=$satuan?>&nbsp;@<?=FormatRupiah($harga)?><br />
             Total: <?=FormatRupiah($total)?><br>
-            Tanggal: <?=substr($row[tglperolehan],8,2)."-".substr($row[tglperolehan],5,2)."-".substr($row[tglperolehan],0,4)?><br />
+            Tanggal: <?=substr($row['tglperolehan'],8,2)."-".substr($row['tglperolehan'],5,2)."-".substr($row['tglperolehan'],0,4)?><br />
         </div>
         </div>
     </td>

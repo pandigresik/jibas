@@ -48,11 +48,11 @@ function loadJam($id) {
 	       "FROM jam WHERE departemen = '$id' ORDER BY jamke";
 	
 	$result = QueryDb($sql);
-	$GLOBALS[maxJam] = mysqli_num_rows($result);
+	$GLOBALS['maxJam'] = mysqli_num_rows($result);
 	
 	while($row = mysqli_fetch_array($result)) {
-		$GLOBALS[jam]['row'][$row[0]][jam1] = $row[1];
-		$GLOBALS[jam]['row'][$row[0]][jam2] = $row[2];
+		$GLOBALS['jam']['row'][$row[0]][jam1] = $row[1];
+		$GLOBALS['jam']['row'][$row[0]][jam2] = $row[2];
 	}
 	return true;
 }
@@ -71,12 +71,12 @@ function loadJadwal() {
 	$result = QueryDb($sql);
 	
 	while($row = mysqli_fetch_assoc($result)) {
-		$GLOBALS[jadwal]['row'][$row[hari]][$row[jam]][id] = $row[id];
-		$GLOBALS[jadwal]['row'][$row[hari]][$row[jam]][njam] = $row[njam];
-		$GLOBALS[jadwal]['row'][$row[hari]][$row[jam]][pelajaran] = $row[pelajaran];
-		$GLOBALS[jadwal]['row'][$row[hari]][$row[jam]][kelas] = $row[kelas];
-		$GLOBALS[jadwal]['row'][$row[hari]][$row[jam]][status] = $row[status];
-		$GLOBALS[jadwal]['row'][$row[hari]][$row[jam]][ket] = $row[ket];
+		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']][id] = $row['id'];
+		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']][njam] = $row['njam'];
+		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']][pelajaran] = $row['pelajaran'];
+		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']][kelas] = $row['kelas'];
+		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']][status] = $row['status'];
+		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']][ket] = $row['ket'];
 	}
 	return true;
 }

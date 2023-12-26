@@ -77,11 +77,11 @@ $bulan_pjg = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','
         {
 		  	$sql_cnt = "SELECT COUNT(*)
                           FROM jbsvcr.catatansiswa
-                         WHERE nis='$nis' AND MONTH(tanggal)='$row[bulan]' AND YEAR(tanggal)='$tahun'";
+                         WHERE nis='$nis' AND MONTH(tanggal)='$row['bulan']' AND YEAR(tanggal)='$tahun'";
 		  	$res_cnt = QueryDb($sql_cnt);
 			$row_cnt = @mysqli_fetch_row($res_cnt); ?>
-            <tr onClick="ShowCatatanSiswa('<?=$nis?>', '<?=$row[bulan]?>', '<?=$tahun?>')" style="cursor:pointer;" title="Klik untuk menampilkan daftar Catatan Siswa">
-                <td width="50"><?=$bulan_pjg[$row[bulan]]?></td>
+            <tr onClick="ShowCatatanSiswa('<?=$nis?>', '<?=$row['bulan']?>', '<?=$tahun?>')" style="cursor:pointer;" title="Klik untuk menampilkan daftar Catatan Siswa">
+                <td width="50"><?=$bulan_pjg[$row['bulan']]?></td>
                 <td><div align="center"><?=$row_cnt[0]?></div></td>
             </tr>
 <?php   	}

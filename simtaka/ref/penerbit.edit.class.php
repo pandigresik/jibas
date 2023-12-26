@@ -41,15 +41,15 @@ class CPenerbitEdit{
 			$result = QueryDb($sql);
 			$row = @mysqli_fetch_array($result);
 			$this->replid = $_REQUEST['id'];
-			$this->kode = $row[kode];
-			$this->nama = $row[nama];
-			$this->alamat = $row[alamat];
-			$this->telpon = $row[telpon];
-			$this->fax = $row[fax];
-			$this->email = $row[email];
-			$this->website = $row[website];
-			$this->kontak = $row[kontak];
-			$this->keterangan = $row[keterangan];
+			$this->kode = $row['kode'];
+			$this->nama = $row['nama'];
+			$this->alamat = $row['alamat'];
+			$this->telpon = $row['telpon'];
+			$this->fax = $row['fax'];
+			$this->email = $row['email'];
+			$this->website = $row['website'];
+			$this->kontak = $row['kontak'];
+			$this->keterangan = $row['keterangan'];
 		}
 	}
 	function exist(){

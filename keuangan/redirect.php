@@ -111,10 +111,10 @@ else
 				if ($num3 > 0)
 				{
 					$_SESSION['login'] = $login;
-					$_SESSION['namakeuangan'] = $row3[nama];
-					$_SESSION['tingkatkeuangan'] = $row3[tingkat];
-					$_SESSION['temakeuangan'] = $row3[tema];
-					if ($row3[tingkat]==2)
+					$_SESSION['namakeuangan'] = $row3['nama'];
+					$_SESSION['tingkatkeuangan'] = $row3['tingkat'];
+					$_SESSION['temakeuangan'] = $row3['tema'];
+					if ($row3['tingkat']==2)
 						$_SESSION['departemenkeuangan'] = $row3['departemen'];
 					else 
 						$_SESSION['departemenkeuangan'] = "ALL";

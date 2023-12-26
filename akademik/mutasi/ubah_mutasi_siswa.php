@@ -50,10 +50,10 @@ if ($Simpan=="Simpan"){
 	OpenDb();
 	BeginTrans();
 	$success=0;
-	$sql_siswa_update="UPDATE jbsakad.siswa SET aktif=0,statusmutasi='".$_REQUEST['mutasi']." ' WHERE nis='".$_REQUEST['nis']."'";
+	$sql_siswa_update="UPDATE jbsakad.siswa SET aktif=0,statusmutasi='".$_REQUEST['mutasi']."' WHERE nis='".$_REQUEST['nis']."'";
 	QueryDbTrans($sql_siswa_update, $success);
 	if ($success){
-		$sql_mutasi_simpan="UPDATE jbsakad.mutasisiswa SET nis='".$_REQUEST['nis']." ',jenismutasi='".$_REQUEST['mutasi']." ',tglmutasi='$tglmutasi',keterangan='".CQ($_REQUEST['keterangan'])."' WHERE nis='".$_REQUEST['nis']."'";
+		$sql_mutasi_simpan="UPDATE jbsakad.mutasisiswa SET nis='".$_REQUEST['nis']."',jenismutasi='".$_REQUEST['mutasi']."',tglmutasi='$tglmutasi',keterangan='".CQ($_REQUEST['keterangan'])."' WHERE nis='".$_REQUEST['nis']."'";
 		QueryDbTrans($sql_mutasi_simpan, $success);
 	}
 

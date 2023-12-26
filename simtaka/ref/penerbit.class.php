@@ -78,21 +78,21 @@ class CPenerbit{
 					$cnt = (int)$this->page*(int)$this->numlines+1;
 				}
 			  while ($row=@mysqli_fetch_array($result)){
-		            $num_judul = @mysqli_num_rows(QueryDb("SELECT * FROM pustaka p, penerbit pb WHERE pb.replid='$row['replid']." ' AND pb.replid=p.penerbit"));
-					$num_pustaka = @mysqli_fetch_row(QueryDb("SELECT COUNT(d.replid) FROM pustaka p, daftarpustaka d, penerbit pb WHERE d.pustaka=p.replid AND pb.replid='$row['replid']." ' AND p.penerbit=pb.replid"));			  
+		            $num_judul = @mysqli_num_rows(QueryDb("SELECT * FROM pustaka p, penerbit pb WHERE pb.replid='".$row['replid']."' AND pb.replid=p.penerbit"));
+					$num_pustaka = @mysqli_fetch_row(QueryDb("SELECT COUNT(d.replid) FROM pustaka p, daftarpustaka d, penerbit pb WHERE d.pustaka=p.replid AND pb.replid='".$row['replid']."' AND p.penerbit=pb.replid"));			  
 			  ?>
 			  <tr>
 			    <td align="center"><?=$cnt?></td>
-				<td height="25" align="center"><?=$row[kode]?></td>
-				<td height="25"><div class="tab_content"><?=$row[nama]?></div></td>
+				<td height="25" align="center"><?=$row['kode']?></td>
+				<td height="25"><div class="tab_content"><?=$row['nama']?></div></td>
 				<td height="25" align="center"><?=$num_judul?>
                 	<?php if ($num_judul!=0){ ?>
                     &nbsp;<img src="../img/ico/lihat.png" style="cursor:pointer" onclick="ViewByTitle('<?=$row['replid']?>')" />
                 	<?php } ?>                </td>
 				<td height="25" align="center"><?=(int)$num_pustaka[0]?></td>
-				<td height="25"><div class="tab_content"><?=$row[alamat]?></div></td>
-				<td height="25"><div class="tab_content"><?=$row[telpon]?></div></td>
-				<td height="25"><div class="tab_content"><?=$row[keterangan]?></div></td>
+				<td height="25"><div class="tab_content"><?=$row['alamat']?></div></td>
+				<td height="25"><div class="tab_content"><?=$row['telpon']?></div></td>
+				<td height="25"><div class="tab_content"><?=$row['keterangan']?></div></td>
 				<td height="25" align="center" bgcolor="#FFFFFF">
                 	<table width="100%" border="0" cellspacing="2" cellpadding="0">
                       <tr>

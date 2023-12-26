@@ -571,7 +571,7 @@ var Template = Class.create({
       if (match == null) return before;
 
       while (match != null) {
-        var comp = match[1].startsWith('[') ? match[2].gsub('\\\\]', ']." ') : match[1];
+        var comp = match[1].startsWith('[') ? match[2].gsub('\\\\]', ']."') : match[1];
         ctx = ctx[comp];
         if (null == ctx || '' == match[3]) break;
         expr = expr.substring('[' == match[3] ? match[1].length : match[0].length);
@@ -899,7 +899,7 @@ Object.extend(Array.prototype, {
   },
 
   inspect: function() {
-    return '[' + this.map(Object.inspect).join(', ') + ']." ';
+    return '[' + this.map(Object.inspect).join(', ') + ']."';
   },
 
   toJSON: function() {
@@ -908,7 +908,7 @@ Object.extend(Array.prototype, {
       var value = Object.toJSON(object);
       if (!Object.isUndefined(value)) results.push(value);
     });
-    return '[' + results.join(', ') + ']." ';
+    return '[' + results.join(', ') + ']."';
   }
 });
 
@@ -2921,7 +2921,7 @@ Object.extend(Selector, {
         if (formula == 'even') formula = '2n+0';
         if (formula == 'odd')  formula = '2n+1';
         if (mm = formula.match(/^(\d+)$/)) // digit only
-          return '[' + fragment + "= " + mm[1] + ']." ';
+          return '[' + fragment + "= " + mm[1] + ']."';
         if (mm = formula.match(/^(-?\d*)?n(([+-])(\d+))?/)) { // an+b
           if (mm[1] == "-") mm[1] = -1;
           var a = mm[1] ? Number(mm[1]) : 1;

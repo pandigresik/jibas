@@ -66,8 +66,8 @@ function ShowBankSaldo()
         $saldo = $row["saldo"];
         $rp = FormatRupiah($saldo);
 
-        echo "<tr style='cursor: pointer;' onclick='showMutasiBank(\"$row[bank]\",\"$row[bankno]\")'>";
-        echo "<td><strong>$row[bank]</strong><br><i>$row[bankno]</i></td>";
+        echo "<tr style='cursor: pointer;' onclick='showMutasiBank(\"$row['bank']\",\"$row['bankno']\")'>";
+        echo "<td><strong>$row['bank']</strong><br><i>$row['bankno']</i></td>";
         echo "<td align='right'><span style='font-size: 13px; font-weight: bold'>$rp</span></td>";
         echo "</tr>";
     }

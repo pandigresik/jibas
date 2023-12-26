@@ -35,7 +35,7 @@ $nip = $_REQUEST['nip'];
 OpenDb();
 $sql = "SELECT j.departemen, j.nama, p.nip, p.nama 
 		  FROM guru g, jbssdm.pegawai p, pelajaran j 
-		  WHERE g.nip=p.nip AND g.idpelajaran = j.replid AND j.replid = '".$_REQUEST['id']." ' AND g.nip = '".$_REQUEST['nip']."'"; 
+		  WHERE g.nip=p.nip AND g.idpelajaran = j.replid AND j.replid = '".$_REQUEST['id']."' AND g.nip = '".$_REQUEST['nip']."'"; 
 $result = QueryDb($sql);
 $row = @mysqli_fetch_row($result);
 $departemen = $row[0];
@@ -84,7 +84,7 @@ $guru = $row[2].' - '.$row[3];
 			$sql1 = "SELECT g.dasarpenilaian, g.grade, g.nmin, g.nmax, dp.keterangan
 						FROM aturangrading g, tingkat t, dasarpenilaian dp 
 						WHERE t.replid = g.idtingkat AND t.departemen = '$departemen' AND g.idpelajaran = '$id' 
-						AND g.idtingkat = '".$row['replid']." ' AND g.nipguru = '$nip' AND dp.aktif = 1
+						AND g.idtingkat = '".$row['replid']."' AND g.nipguru = '$nip' AND dp.aktif = 1
 						AND g.dasarpenilaian = dp.dasarpenilaian
 						GROUP BY g.dasarpenilaian";
 			$result1 = QueryDb($sql1);
@@ -110,7 +110,7 @@ $guru = $row[2].' - '.$row[3];
 			$sql2 = "SELECT g.dasarpenilaian, g.grade, g.nmin, g.nmax
 						FROM aturangrading g, tingkat t
 						WHERE t.replid = g.idtingkat AND t.departemen = '$departemen' 
-						AND g.idpelajaran = '$id' AND g.idtingkat = '".$row['replid']." ' AND g.dasarpenilaian = '".$row1[0]' 
+						AND g.idpelajaran = '$id' AND g.idtingkat = '".$row['replid']."' AND g.dasarpenilaian = '".$row1[0]' 
 						AND g.nipguru = '$nip' 
 						ORDER BY grade";
 			$result2 = QueryDb($sql2);			

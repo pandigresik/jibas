@@ -239,7 +239,7 @@ if (!isset($_POST['lihat'])) {
                     $sel[$i] = "";
                 }
                 echo "
-                    <option value='$row_t['replid']." ' $sel[$i]>$row_t[tingkat]</option>
+                    <option value='$row_t['replid']."' $sel[$i]>$row_t[tingkat]</option>
                 ";
                 $i++;
             }
@@ -273,7 +273,7 @@ if (!isset($_POST['lihat'])) {
                     $sel[$i] = "";
                 }
                 echo "
-                    <option value='$row_k['replid']." ' $sel[$i]>$row_k[kelas]</option>
+                    <option value='$row_k['replid']."' $sel[$i]>$row_k[kelas]</option>
                 ";
                 $i++;
             }

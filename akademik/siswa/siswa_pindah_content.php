@@ -239,7 +239,7 @@ function focusNext(elemName, evt) {
             $idkelas = $row_kelas['replid'];
             
         $kelas = $row_kelas['kelas'];			
-        $sql1 = "SELECT COUNT(*) FROM siswa WHERE idkelas = '".$row_kelas['replid']." ' AND aktif = 1";				
+        $sql1 = "SELECT COUNT(*) FROM siswa WHERE idkelas = '".$row_kelas['replid']."' AND aktif = 1";				
         $result1 = QueryDb($sql1);
         $row1 = @mysqli_fetch_row($result1); 				
         

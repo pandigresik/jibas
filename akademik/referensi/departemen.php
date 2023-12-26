@@ -36,7 +36,7 @@ if (isset($_REQUEST['op']))
 
 if ($op == "dw8dxn8w9ms8zs22") 
 {
-	$sql = "UPDATE departemen SET aktif = '".$_REQUEST['newaktif']." ' WHERE replid = '".$_REQUEST['replid']."' ";
+	$sql = "UPDATE departemen SET aktif = '".$_REQUEST['newaktif']."' WHERE replid = '".$_REQUEST['replid']."' ";
 	QueryDb($sql);
 } 
 

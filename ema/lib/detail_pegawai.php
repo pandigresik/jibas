@@ -84,7 +84,7 @@ function cetak(replid) {
     <td bgcolor="#FFFFFF">&nbsp;</td>
     <td width="16%">a. Lengkap</td>
     <td width="36%">:
-      <?=$row['nama']?><?php if ($row['gelar']!="") echo ", ".$row[gelar]; ?></td>
+      <?=$row['nama']?><?php if ($row['gelar']!="") echo ", ".$row['gelar']; ?></td>
   </tr>
   <tr height="20">
     <td bgcolor="#FFFFFF">&nbsp;</td>

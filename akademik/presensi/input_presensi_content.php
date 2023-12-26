@@ -153,7 +153,7 @@ function jumhari($tgl1, $tgl2) {
 	$result = QueryDb($sql);
 	
 	$row = mysqli_fetch_row($result);
-	$GLOBALS[hari] = $row[0];
+	$GLOBALS['hari'] = $row[0];
 	$waktu = $row[0];
 	//echo "<input type='hidden' name='hari' id='hari' value=$waktu />";
 	return true;
@@ -570,7 +570,7 @@ function focusNext(elemName, evt) {
 			} 	
 			
 			if ($id <> "") {						
-				$sql1 = "SELECT * FROM phsiswa WHERE idpresensi = '$id' AND nis='$row[nis]'";
+				$sql1 = "SELECT * FROM phsiswa WHERE idpresensi = '$id' AND nis='$row['nis']."'";
 				$result1 = QueryDb($sql1);
 				$row1 = mysqli_fetch_array($result1);
 				if (mysqli_num_rows($result1) > 0) {

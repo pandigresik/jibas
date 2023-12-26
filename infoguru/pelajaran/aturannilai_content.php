@@ -163,7 +163,7 @@ function cetak() {
 		$sql1 = "SELECT g.dasarpenilaian, dp.keterangan
 					  FROM aturangrading g, tingkat t, dasarpenilaian dp 
 					 WHERE t.replid = g.idtingkat AND t.departemen = '$departemen' AND g.idpelajaran = '$id' 
-					   AND g.idtingkat = '".$row['replid']." ' AND g.nipguru = '$nip'  AND dp.aktif = 1
+					   AND g.idtingkat = '".$row['replid']."' AND g.nipguru = '$nip'  AND dp.aktif = 1
 						AND g.dasarpenilaian = dp.dasarpenilaian
 				 GROUP BY g.dasarpenilaian";
 		$result1 = QueryDb($sql1);	?>
@@ -195,7 +195,7 @@ function cetak() {
 <?php 		$sql2 = "SELECT g.replid, grade, nmin, nmax 
 						  FROM aturangrading g, tingkat t 
 						 WHERE t.replid = g.idtingkat AND t.departemen = '$departemen' AND g.idpelajaran = $id 
-						   AND g.idtingkat = '".$row['replid']." ' AND g.dasarpenilaian = '".$row1[0]' AND g.nipguru = '$nip' 
+						   AND g.idtingkat = '".$row['replid']."' AND g.dasarpenilaian = '".$row1[0]' AND g.nipguru = '$nip' 
 					 ORDER BY grade";
 			$result2 = QueryDb($sql2);			
 			while ($row2 = @mysqli_fetch_row($result2)) {

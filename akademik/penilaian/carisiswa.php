@@ -154,7 +154,7 @@ if ((isset($_POST["cari"]))){
 	$cnt = 0;
 	while($row = @mysqli_fetch_array($result_sis)){
 	  
-	  $qq = "SELECT kelas, departemen FROM kelas WHERE replid = '".$row[idkelas]'";
+	  $qq = "SELECT kelas, departemen FROM kelas WHERE replid = '".$row['idkelas']."'";
 	  $rr = QueryDb($qq);
 	  $rw = mysqli_fetch_array($rr);
 	?>

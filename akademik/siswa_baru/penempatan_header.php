@@ -120,7 +120,7 @@ function focusNext(elemName, evt) {
         	$row = @mysqli_fetch_array($result);
 			$jumkel = 0;
 			if ($row['replid'] <> "") {
-				$sql1 = "SELECT * FROM kelompokcalonsiswa WHERE idproses='$row['replid']." '";
+				$sql1 = "SELECT * FROM kelompokcalonsiswa WHERE idproses='".$row['replid']."'";
 				$result1 = QueryDb($sql1);
 				$jumkel = mysqli_num_rows($result1);
 			}

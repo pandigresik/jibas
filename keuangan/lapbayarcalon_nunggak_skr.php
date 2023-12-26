@@ -203,7 +203,7 @@ $totalbayarall = 0;
 
 $totalbiayaallB = 0;
 while ($rowA = @mysqli_fetch_array($result_tot)) {
-	$sqlB = "SELECT jumlah FROM penerimaaniurancalon WHERE idcalon = '".$rowA['replid']." ' AND idpenerimaan = '$idpenerimaan' ";
+	$sqlB = "SELECT jumlah FROM penerimaaniurancalon WHERE idcalon = '".$rowA['replid']."' AND idpenerimaan = '$idpenerimaan' ";
 	$resultB = QueryDb($sqlB);
 	while ($rowB = mysqli_fetch_row($resultB)) {
 		$totalbiayaallB += $rowB[0];

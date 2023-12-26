@@ -64,7 +64,7 @@ OpenDb();
 $op = $_REQUEST['op'];
 if ($op == "dw8dxn8w9ms8zs22") 
 {
-	$sql = "UPDATE calonsiswa SET aktif = '".$_REQUEST['newaktif']." ' WHERE replid = '".$_REQUEST['replid']."' ";
+	$sql = "UPDATE calonsiswa SET aktif = '".$_REQUEST['newaktif']."' WHERE replid = '".$_REQUEST['replid']."' ";
 	QueryDb($sql);
 } 
 else if ($op == "xm8r389xemx23xb2378e23") 
@@ -387,7 +387,7 @@ function change_baris() {
 			$pjg = "80px";
 			if ($row["replidsiswa"] <> 0) 
 			{
-				$sql3 = "SELECT nis FROM jbsakad.siswa WHERE replid = '".$row[replidsiswa]'";
+				$sql3 = "SELECT nis FROM jbsakad.siswa WHERE replid = '".$row['replidsiswa']."'";
 				$result3 = QueryDb($sql3);
 				$row3 = @mysqli_fetch_array($result3);
 				$siswa = "<br>NIS Siswa: <b>".$row3['nis']."</b>";

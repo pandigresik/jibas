@@ -225,10 +225,10 @@ function panggil(elem){
 			//echo $sql;
 			$result = QueryDb($sql);
 			$row = mysqli_fetch_array($result);
-			$idtahunbuku = $row[id];
+			$idtahunbuku = $row['id'];
 			if (isset($_REQUEST['idtahunbuku']))
 				$idtahunbuku = $_REQUEST['idtahunbuku'];
-			$tahunbuku = $row[tahunbuku];
+			$tahunbuku = $row['tahunbuku'];
 			if (isset($_REQUEST['tahunbuku']))
 				$tahunbuku = $_REQUEST['tahunbuku'];			
 		}

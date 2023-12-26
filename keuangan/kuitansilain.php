@@ -55,7 +55,7 @@ $sql = "SELECT replid, nama, alamat1 FROM jbsumum.identitas WHERE departemen='$d
 $result = QueryDb($sql); 
 $row = @mysqli_fetch_array($result);
 $idHeader = $row['replid'];
-$namaHeader = $row[nama];
+$namaHeader = $row['nama'];
 $alamatHeader = $row[alamat1];
 
 CloseDb();

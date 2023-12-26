@@ -45,7 +45,7 @@ if (isset($_REQUEST['Simpan'])) {
 		CloseDb();
 		$ERROR_MSG = "Status guru $status sudah digunakan!";
 	} else {
-   		$sql_update= "UPDATE jbsakad.statusguru SET status='".$_REQUEST['status']." ',keterangan='".$_REQUEST['keterangan']."' WHERE replid='$replid_baru'";
+   		$sql_update= "UPDATE jbsakad.statusguru SET status='".$_REQUEST['status']."',keterangan='".$_REQUEST['keterangan']."' WHERE replid='$replid_baru'";
 		$hasil_update=QueryDb($sql_update); 
 		if ($hasil_update){
 ?>

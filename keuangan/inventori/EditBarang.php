@@ -31,18 +31,18 @@ OpenDb();
 $sql = "SELECT * FROM jbsfina.barang WHERE replid='".$_REQUEST['idbarang']."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_array($result);
-$kode = $row[kode];
-$nama = $row[nama];
-$jumlah = (int)$row[jumlah];
-$kondisi = $row[kondisi];
-$keterangan = $row[keterangan];
-$satuan = $row[satuan];
-$tgl = substr($row[tglperolehan],8,2)."-".substr($row[tglperolehan],5,2)."-".substr($row[tglperolehan],0,4);
-$harga = (int)$row[info1];
+$kode = $row['kode'];
+$nama = $row['nama'];
+$jumlah = (int)$row['jumlah'];
+$kondisi = $row['kondisi'];
+$keterangan = $row['keterangan'];
+$satuan = $row['satuan'];
+$tgl = substr($row['tglperolehan'],8,2)."-".substr($row['tglperolehan'],5,2)."-".substr($row['tglperolehan'],0,4);
+$harga = (int)$row['info1'];
 $total = $harga * $jumlah;
 
 if (isset($_REQUEST['Simpan'])){
-	$sql = "SELECT kode FROM jbsfina.barang WHERE kode='".$_REQUEST['kode']." ' AND replid<>'$_REQUEST['idbarang']."'";
+	$sql = "SELECT kode FROM jbsfina.barang WHERE kode='".$_REQUEST['kode']."' AND replid<>'$_REQUEST['idbarang']."'";
 	$result = QueryDb($sql);
 	$num = @mysqli_num_rows($result);
 	if ($num>0){
@@ -81,7 +81,7 @@ if (isset($_REQUEST['Simpan'])){
 				   SET kode='".trim($_REQUEST['kode'])."', nama='".trim($_REQUEST['nama'])."',
 					   jumlah='".trim($_REQUEST['jumlah'])."',kondisi='".addslashes(trim($_REQUEST['kondisi']))."',tglperolehan='$tgl',
 					   keterangan='".addslashes(trim($_REQUEST['keterangan']))."',idkelompok='".$_REQUEST['idkelompok']."',
-					   satuan='".$_REQUEST['satuan']." ', info1='".$_REQUEST['angkaharga']."' $isifoto
+					   satuan='".$_REQUEST['satuan']."', info1='".$_REQUEST['angkaharga']."' $isifoto
 				 WHERE replid='".$_REQUEST['idbarang']."'";
 		$result = QueryDb($sql);
 		if ($result){

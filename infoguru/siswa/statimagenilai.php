@@ -57,7 +57,7 @@ OpenDb();
 		$result=Querydb($sql);
 		$row = @mysqli_fetch_array($result);
 		
-		if(($row[nmin] >= 0) AND ($row[nmax] <= 10)){
+		if(($row['nmin'] >= 0) AND ($row['nmax'] <= 10)){
 			$dasar = '1'; //satuan
 		}else{
 			$dasar = '10'; //satuan

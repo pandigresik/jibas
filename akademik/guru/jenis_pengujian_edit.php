@@ -33,14 +33,14 @@ $replid = $_REQUEST['replid'];
 $ERROR_MSG = "";
 if (isset($_REQUEST['Simpan'])) {
 	OpenDb();
-	$sql = "SELECT * FROM jenisujian WHERE jenisujian = '".CQ($_REQUEST['jenisujianbaru'])."' AND replid<>'$replid' AND idpelajaran = '".$_REQUEST['idpelajaran']." ' AND info1='".$_REQUEST['singkatan']."'";
+	$sql = "SELECT * FROM jenisujian WHERE jenisujian = '".CQ($_REQUEST['jenisujianbaru'])."' AND replid<>'$replid' AND idpelajaran = '".$_REQUEST['idpelajaran']."' AND info1='".$_REQUEST['singkatan']."'";
 	$result = QueryDb($sql);
 	if (mysqli_num_rows($result) > 0) {
 		$jenisujian=$_REQUEST['jenisujianbaru'];
 		CloseDb();
 		$ERROR_MSG = "Jenis Ujian $jenisujian sudah digunakan!";
 	} else {
-		$sql = "UPDATE jenisujian SET replid='".$_REQUEST['replid']." ',jenisujian='".CQ($_REQUEST['jenisujianbaru'])."',info1='".CQ($_REQUEST['singkatan'])."',keterangan='".CQ($_REQUEST['keterangan'])."' WHERE jenisujian='".$_REQUEST['jenisujian']." ' AND replid='".$_REQUEST['replid']."'";
+		$sql = "UPDATE jenisujian SET replid='".$_REQUEST['replid']."',jenisujian='".CQ($_REQUEST['jenisujianbaru'])."',info1='".CQ($_REQUEST['singkatan'])."',keterangan='".CQ($_REQUEST['keterangan'])."' WHERE jenisujian='".$_REQUEST['jenisujian']."' AND replid='".$_REQUEST['replid']."'";
 		$result = QueryDb($sql);
 		CloseDb();
 	

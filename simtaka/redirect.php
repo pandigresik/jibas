@@ -114,8 +114,8 @@ else
 					$_SESSION['login'] = $login;
 					$_SESSION['tingkat'] = $r[tingkat];
 					$_SESSION['perpustakaan'] = $r['departemen'];
-					$_SESSION['idperpustakaan'] = $r[info1];
-					$_SESSION['nama'] = $row[nama];
+					$_SESSION['idperpustakaan'] = $r['info1'];
+					$_SESSION['nama'] = $row['nama'];
 					$user_exists = true;
 				}
 			}

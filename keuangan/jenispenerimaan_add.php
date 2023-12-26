@@ -49,8 +49,8 @@ if (isset($_REQUEST['simpan']))
 		$besar = UnformatRupiah($besar);
 		$sql = "INSERT INTO datapenerimaan
 				   SET nama='".CQ($_REQUEST['nama'])."', rekkas='".$_REQUEST['norekkas']."',
-				       idkategori='".$_REQUEST['idkategori']." ', departemen='".$_REQUEST['departemen']."',
-					   rekpendapatan='".$_REQUEST['norekpendapatan']." ', rekpiutang='".$_REQUEST['norekpiutang']."',
+				       idkategori='".$_REQUEST['idkategori']."', departemen='".$_REQUEST['departemen']."',
+					   rekpendapatan='".$_REQUEST['norekpendapatan']."', rekpiutang='".$_REQUEST['norekpiutang']."',
 					   info1='".$_REQUEST['norekdiskon']."',
 					   keterangan='".CQ($_REQUEST['keterangan'])."',
 					   aktif=1,

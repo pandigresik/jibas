@@ -31,16 +31,16 @@ class CAnggotaEdit{
 			$sql = "SELECT * FROM anggota WHERE replid='".$_REQUEST['replid']."'";
 			$result = QueryDb($sql);
 			$row = @mysqli_fetch_array($result);
-			$this->noreg = $row[noregistrasi];
-			$this->nama = $row[nama];
-			$this->alamat = $row[alamat];
-			$this->telpon = $row[telpon];
-			$this->email = $row[email];
-			$this->hp = $row[HP];
-			$this->kodepos = $row[kodepos];
-			$this->pekerjaan = $row[pekerjaan];
-			$this->institusi = $row[institusi];
-			$this->keterangan = $row[keterangan];
+			$this->noreg = $row['noregistrasi'];
+			$this->nama = $row['nama'];
+			$this->alamat = $row['alamat'];
+			$this->telpon = $row['telpon'];
+			$this->email = $row['email'];
+			$this->hp = $row['HP'];
+			$this->kodepos = $row['kodepos'];
+			$this->pekerjaan = $row['pekerjaan'];
+			$this->institusi = $row['institusi'];
+			$this->keterangan = $row['keterangan'];
 		}
 	}
 	function exist(){

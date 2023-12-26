@@ -130,9 +130,9 @@ $ada=@mysqli_num_rows($result);
 CloseDb();
 if ($ada>0){
 OpenDb();
-$sql="UPDATE jbsvcr.profil SET nip='".SI_USER_ID()."',nama='".$_REQUEST['nama']." ',alamat='".$_REQUEST['alamat']."',".
-	 " telpon='".$_REQUEST['telpon']." ', hp='".$_REQUEST['hp']." ', email='".$_REQUEST['email']." ',hobi='".$_REQUEST['hobi']."',".
-	 " buku='".$_REQUEST['buku']." ', riwayat='".$_REQUEST['riwayat']." ', tentang='".$_REQUEST['tentang']."' ".$gantifoto.$gantifoto_bg."  WHERE replid=$_REQUEST['replid']";
+$sql="UPDATE jbsvcr.profil SET nip='".SI_USER_ID()."',nama='".$_REQUEST['nama']."',alamat='".$_REQUEST['alamat']."',".
+	 " telpon='".$_REQUEST['telpon']."', hp='".$_REQUEST['hp']."', email='".$_REQUEST['email']."',hobi='".$_REQUEST['hobi']."',".
+	 " buku='".$_REQUEST['buku']."', riwayat='".$_REQUEST['riwayat']."', tentang='".$_REQUEST['tentang']."' ".$gantifoto.$gantifoto_bg."  WHERE replid=$_REQUEST['replid']";
 
 $result=QueryDb($sql);
 if ($result)
@@ -143,9 +143,9 @@ $sql_client="SELECT * FROM jbsclient.localinfo ORDER BY region,location,clientid
 	$result_client=QueryDb($sql_client);
 	$row_client=@mysqli_fetch_array($result_client);
 	
-$sql="INSERT INTO jbsvcr.profil SET region='$row_client[region]',location='$row_client[location]',clientid='$row_client[clientid]',nip='".SI_USER_ID()."',nama='".$_REQUEST['nama']." ',alamat='".$_REQUEST['alamat']."',".
-	 " telpon='".$_REQUEST['telpon']." ', hp='".$_REQUEST['hp']." ', email='".$_REQUEST['email']." ',hobi='".$_REQUEST['hobi']."',".
-	 " buku='".$_REQUEST['buku']." ', riwayat='".$_REQUEST['riwayat']." ', tentang='".$_REQUEST['tentang']."' ".$gantifoto.$gantifoto_bg;
+$sql="INSERT INTO jbsvcr.profil SET region='$row_client[region]',location='$row_client[location]',clientid='$row_client[clientid]',nip='".SI_USER_ID()."',nama='".$_REQUEST['nama']."',alamat='".$_REQUEST['alamat']."',".
+	 " telpon='".$_REQUEST['telpon']."', hp='".$_REQUEST['hp']."', email='".$_REQUEST['email']."',hobi='".$_REQUEST['hobi']."',".
+	 " buku='".$_REQUEST['buku']."', riwayat='".$_REQUEST['riwayat']."', tentang='".$_REQUEST['tentang']."' ".$gantifoto.$gantifoto_bg;
 $result=QueryDb($sql);	 
 CloseDb();
 if ($result)
@@ -235,41 +235,41 @@ function change_page(page) {
     <th width="57" height="25" scope="row"><div align="left">Nama </div></th>
     <th width="2" scope="row">:</th>
     <td width="294" height="25"><div align="left">
-    <input name="nama" id="nama" type="text" value="<?=$row[nama]?>" />
+    <input name="nama" id="nama" type="text" value="<?=$row['nama']?>" />
     </div></td>
   </tr>
   <tr>
     <th height="25" scope="row"><div align="left">Alamat </div></th>
     <th width="2" height="25" scope="row">:</th>
     <td height="25"><div align="left">
-    <input name="alamat" id="alamat" type="text" value="<?=$row[alamat]?>" />
+    <input name="alamat" id="alamat" type="text" value="<?=$row['alamat']?>" />
     </div></td>
   </tr>
   <tr>
     <th height="25" scope="row"><div align="left">Telepon </div></th>
     <th width="2" height="25" scope="row">:</th>
     <td height="25"><div align="left">
-    <input name="telpon" id="telpon" type="text" value="<?=$row[telpon]?>" /></div></td>
+    <input name="telpon" id="telpon" type="text" value="<?=$row['telpon']?>" /></div></td>
   </tr>
   <tr>
     <th height="25" scope="row"><div align="left">HP </div></th>
     <th width="2" height="25" scope="row">:</th>
     <td height="25"><div align="left">
-    <input name="hp" id="hp" type="text" value="<?=$row[hp]?>" /></div></td>
+    <input name="hp" id="hp" type="text" value="<?=$row['hp']?>" /></div></td>
   	</tr>
   <tr>
     <th height="25" scope="row"><div align="left">Email </div></th>
     <th width="2" height="25" scope="row">:</th>
     <td height="25"><div align="left">
   
-    <input name="email" id="email" type="text" value="<?=$row[email]?>" /></div></td>
+    <input name="email" id="email" type="text" value="<?=$row['email']?>" /></div></td>
   </tr>
    <tr>
     <th width="57" valign="top" scope="row"><div align="left">Hobby </div>      
       <div align="left"></div></th>
     <th width="2" valign="top" scope="row">:</th>
     <th width="294" align="left" valign="top" scope="row"><div align="left">
-      <textarea name="hobi" ><?=$row[hobi]?></textarea>
+      <textarea name="hobi" ><?=$row['hobi']?></textarea>
      
     </div></th>
   </tr>
@@ -298,7 +298,7 @@ function change_page(page) {
     <th width="2" valign="top" scope="row">:</th>
     <th align="left" valign="top" scope="row"><div align="left">
       
-      <textarea name="buku" ><?=$row[buku]?></textarea>
+      <textarea name="buku" ><?=$row['buku']?></textarea>
      
     </div></th>
   </tr>
@@ -308,14 +308,14 @@ function change_page(page) {
     <th width="2" valign="top" scope="row">:</th>
     <th align="left" valign="top" scope="row"><div align="left">
       
-      		<textarea name="riwayat" ><?=$row[riwayat]?></textarea>
+      		<textarea name="riwayat" ><?=$row['riwayat']?></textarea>
       
     </div></th>
   </tr>
   <tr>
     <th valign="top" scope="row"><div align="left">Tentang&nbsp;Saya</div></th>
     <th width="2" valign="top" scope="row">:</th>
-    <th align="left" valign="top" scope="row"><textarea name="tentang" ><?=$row[tentang]?></textarea></th>
+    <th align="left" valign="top" scope="row"><textarea name="tentang" ><?=$row['tentang']?></textarea></th>
   </tr>
   <tr>
     

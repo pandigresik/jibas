@@ -52,7 +52,7 @@ $op = $_REQUEST['op'];
 
 if ($op == "dw8dxn8w9ms8zs22") {	
 	OpenDb();
-	$sql = "UPDATE kalenderakademik SET aktif = '".$_REQUEST['newaktif']." ' WHERE replid = '".$_REQUEST['replid']."' ";
+	$sql = "UPDATE kalenderakademik SET aktif = '".$_REQUEST['newaktif']."' WHERE replid = '".$_REQUEST['replid']."' ";
 	QueryDb($sql);
 	CloseDb();
 	$kalender = $_REQUEST['replid'];

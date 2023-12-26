@@ -68,7 +68,7 @@ $res_pp=QueryDb($sql_pp);
 	OpenDb();
 	$r=QueryDb("SELECT nis,nama FROM jbsakad.siswa WHERE nis='$nis'");
 	$row=@mysqli_fetch_array($r);
-	echo "[".$row[nis]."] ".$row[nama];
+	echo "[".$row['nis']."] ".$row['nama'];
 	CloseDb();
     ?>
 	</td>
@@ -80,7 +80,7 @@ $res_pp=QueryDb($sql_pp);
 	OpenDb();
 	$r=QueryDb("SELECT nama FROM jbsakad.pelajaran WHERE replid='$pelajaran'");
 	$row=@mysqli_fetch_array($r);
-	echo $row[nama];
+	echo $row['nama'];
 	CloseDb();
     ?>
     </td>

@@ -65,7 +65,7 @@ OpenDb();
 
 if(isset($_POST['ubah'])) {
 
-    $query_up = "UPDATE jbsakad.nau SET nilaiAU = '$_POST['nilai']' WHERE replid = '$_POST['id']'";
+    $query_up = "UPDATE jbsakad.nau SET nilaiAU = '$_POST['nilai']' WHERE replid = '$_POST['id']."'";
 	$result_up = QueryDb($query_up) or die (mysqli_error($mysqlconnection));
 		
 	  if(mysqli_affected_rows> 0){
@@ -87,7 +87,7 @@ if(isset($_POST['ubah'])) {
         }
 
 }
-$query = "SELECT * FROM jbsakad.nau WHERE replid = '$_GET['id']'";
+$query = "SELECT * FROM jbsakad.nau WHERE replid = '$_GET['id']."'";
 $result = QueryDb($query);
 $row = @mysqli_fetch_array($result);
  
@@ -96,7 +96,7 @@ $row = @mysqli_fetch_array($result);
     <form action="ubah_nilai_au.php" method="post" name="ubah_nilai_au" onSubmit="return cek_form()">
 	
     <input type="hidden" name="id" value="<?=$row['replid'] ?>">
-	<input type="hidden" name="idujian" value="<?=$row[idujian] ?>">
+	<input type="hidden" name="idujian" value="<?=$row['idujian'] ?>">
 	<input type="hidden" name="jenis_penilaian" value="<?=$_GET['jenis_penilaian'] ?>">
 	<input type="hidden" name="pelajaran" value="<?=$_GET['pelajaran'] ?>">
 	<input type="hidden" name="kelas" value="<?=$_GET['kelas'] ?>">
@@ -115,13 +115,13 @@ $row = @mysqli_fetch_array($result);
         <tr>
             <td width="19%">NIS</td>
             <td width="81%">
-            <input type="hidden" name="u_nis" value="<?=$row[nis]; ?>">
-            <input type="text" size="45" name="nis" value="<?=$row[nis]; ?>" readonly></td>
+            <input type="hidden" name="u_nis" value="<?=$row['nis']; ?>">
+            <input type="text" size="45" name="nis" value="<?=$row['nis']; ?>" readonly></td>
         </tr>
         <tr>
             <td>Nama</td><td>
 			<?php
-			$query_nm = "SELECT * FROM jbsakad.siswa WHERE siswa.nis = '".$row[nis]'";
+			$query_nm = "SELECT * FROM jbsakad.siswa WHERE siswa.nis = '".$row['nis']."'";
 			$result_nm = QueryDb($query_nm);
 			$row_nm = @mysqli_fetch_array($result_nm);
 			?>
@@ -130,7 +130,7 @@ $row = @mysqli_fetch_array($result);
        
 		<tr>
 			<td>Nilai Akhir</td>
-			<td><input type="text" name="nilai" size="5" value="<?=$row[nilaiAU] ?>" maxlength="8"></td>
+			<td><input type="text" name="nilai" size="5" value="<?=$row['nilaiAU'] ?>" maxlength="8"></td>
 		</tr>
 		</table>
 		</fieldset>		</td>

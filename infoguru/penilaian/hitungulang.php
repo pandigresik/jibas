@@ -71,7 +71,7 @@ OpenDb();
 
 if (isset($_POST['simpan'])) {
 	$sql = "UPDATE jbsakad.komennap SET predikat = '$_POST['predikat']' ".
-    	   " WHERE nis = '$nois' AND idinfo = '$_POST['idinfo']'";	
+    	   " WHERE nis = '$nois' AND idinfo = '$_POST['idinfo']."'";	
 	$rs = QueryDb($sql);
 
 	$nnilai = $_POST['nnilai'];
@@ -145,8 +145,8 @@ $num = @mysqli_num_rows($result);
 
 $my_data = "";
 while($row = @mysqli_fetch_array($result)) {
-    $my_data[$row[NIS]][nama] = $row[Nama];
-    $my_data[$row[NIS]][$row[IdJenis]] = $row[NilaiAU];
+    $my_data[$row['NIS']][nama] = $row['Nama'];
+    $my_data[$row['NIS']][$row['IdJenis']] = $row['NilaiAU'];
 }
 
 $query_cek = "SELECT Replid, NilaiMin FROM sistoakademik.infonap ".

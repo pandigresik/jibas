@@ -41,7 +41,7 @@ $theme="";
 $replid="";
 $res=QueryDb("SELECT replid,theme FROM jbsuser.hakakses WHERE modul='INFOGURU' AND login='".SI_USER_ID()."'");
 $row=@mysqli_fetch_array($res);
-$theme=$row[theme];
+$theme=$row['theme'];
 $replid=$row['replid'];
 CloseDb();
 $op="";

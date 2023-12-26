@@ -168,7 +168,7 @@ function focusNext(elemName, evt) {
 					$sel[$i] = "";
 				}
 				echo "
-					<option value='$row_t['replid']." ' $sel[$i]>$row_t[tingkat]</option>
+					<option value='$row_t['replid']."' $sel[$i]>$row_t[tingkat]</option>
 				";
 				$i++;
 			}
@@ -194,7 +194,7 @@ function focusNext(elemName, evt) {
 					$sel[$i] = "";
 				}
 				echo "
-					<option value='$row_p['replid']." ' $sel[$i]>$row_p[nama]</option>
+					<option value='$row_p['replid']."' $sel[$i]>$row_p[nama]</option>
 				";
 				$i++;
 			}

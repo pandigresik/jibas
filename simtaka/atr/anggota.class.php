@@ -29,7 +29,7 @@ class CAnggota{
 			QueryDb($sql);
 		}
 		if ($op=="nyd6j287sy388s3h8s8"){
-			$sql = "UPDATE anggota SET aktif='".$_REQUEST['newaktif']." ' WHERE replid='".$_REQUEST['replid']."'";
+			$sql = "UPDATE anggota SET aktif='".$_REQUEST['newaktif']."' WHERE replid='".$_REQUEST['replid']."'";
 			QueryDb($sql);
 		}
 	}
@@ -66,13 +66,13 @@ class CAnggota{
 			  while ($row=@mysqli_fetch_array($result)){
 			  ?>
 			  <tr>
-				<td height="25" align="center"><?=stripslashes($row[noregistrasi])?></td>
-				<td height="25" align="center">&nbsp;<?=stripslashes($row[nama])?></td>
-				<td height="25" align="center">&nbsp;<?=stripslashes($row[email])?></td>
-				<td height="25" align="center">&nbsp;<?=stripslashes($row[telpon])?></td>
-				<td height="25" align="center">&nbsp;<?=stripslashes($row[keterangan])?></td>
+				<td height="25" align="center"><?=stripslashes($row['noregistrasi'])?></td>
+				<td height="25" align="center">&nbsp;<?=stripslashes($row['nama'])?></td>
+				<td height="25" align="center">&nbsp;<?=stripslashes($row['email'])?></td>
+				<td height="25" align="center">&nbsp;<?=stripslashes($row['telpon'])?></td>
+				<td height="25" align="center">&nbsp;<?=stripslashes($row['keterangan'])?></td>
 				<td align="center">
-                	<?php if ($row[aktif]==1) { ?>
+                	<?php if ($row['aktif']==1) { ?>
 						<a href="javascript:setaktif(<?=$row['replid']?>,'0')"><img src="../img/ico/aktif.png" width="16" height="16" border="0" /></a>
 					<?php } else { ?>    
 						<a href="javascript:setaktif(<?=$row['replid']?>,'1')"><img src="../img/ico/nonaktif.png" width="16" height="16" border="0" /></a>

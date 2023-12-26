@@ -74,7 +74,7 @@ OpenDb();
 
 if(isset($_POST['ubah'])) {
 
-    $query_up = "UPDATE jbsakad.nau SET nilaiAU = '$_POST['nilai']' WHERE replid = '$_POST['id']'";
+    $query_up = "UPDATE jbsakad.nau SET nilaiAU = '$_POST['nilai']' WHERE replid = '$_POST['id']."'";
 	$result_up = QueryDb($query_up) or die (mysqli_error($mysqlconnection));
 		
 	  if(mysqli_affected_rows> 0){
@@ -96,7 +96,7 @@ if(isset($_POST['ubah'])) {
         }
 
 }
-$query = "SELECT * FROM jbsakad.nau WHERE replid = '$_GET['id']'";
+$query = "SELECT * FROM jbsakad.nau WHERE replid = '$_GET['id']."'";
 $result = QueryDb($query);
 $row = @mysqli_fetch_array($result);
  
@@ -130,7 +130,7 @@ $row = @mysqli_fetch_array($result);
         <tr>
             <td>Nama</td><td>
 			<?php
-			$query_nm = "SELECT * FROM jbsakad.siswa WHERE siswa.nis = '".$row[nis]'";
+			$query_nm = "SELECT * FROM jbsakad.siswa WHERE siswa.nis = '".$row['nis']."'";
 			$result_nm = QueryDb($query_nm);
 			$row_nm = @mysqli_fetch_array($result_nm);
 			?>

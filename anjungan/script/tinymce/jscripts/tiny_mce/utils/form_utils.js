@@ -13,7 +13,7 @@ var themeBaseURL = tinyMCEPopup.editor.baseURI.toAbsolute('themes/' + tinyMCEPop
 function getColorPickerHTML(id, target_form_element) {
 	var h = "", dom = tinyMCEPopup.dom;
 
-	if (label = dom.select('label[for=' + target_form_element + ']." ')[0]) {
+	if (label = dom.select('label[for=' + target_form_element + ']."')[0]) {
 		label.id = label.id || dom.uniqueId();
 	}
 

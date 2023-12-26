@@ -40,12 +40,12 @@ if (isset($_REQUEST['idkategori']))
 OpenDb();
 $res=QueryDb("SELECT kategori FROM jbsvcr.catatankategori WHERE replid='$idkategori'");
 $row=@mysqli_fetch_array($res);
-$namakat=$row[kategori];
+$namakat=$row['kategori'];
 CloseDb();	
 OpenDb();
 $res=QueryDb("SELECT tahunajaran FROM jbsakad.tahunajaran WHERE replid='$tahunajaran'");
 $row=@mysqli_fetch_array($res);
-$namathnajrn=$row[tahunajaran];
+$namathnajrn=$row['tahunajaran'];
 CloseDb();
 $op = "";
 if (isset($_REQUEST['op']))
@@ -121,14 +121,14 @@ Tahun Ajaran:<?=$namathnajrn?>
   ?>
   <tr>
     <td height="25" valign="top" align="center"><?=$cnt?></td>
-    <td height="25" valign="top"><i><?=ShortDateFormat($row[tanggal])?></i><br />
-        <strong><?=$row[nama]?><br><?=$row[nip]?><strong>
+    <td height="25" valign="top"><i><?=ShortDateFormat($row['tanggal'])?></i><br />
+        <strong><?=$row['nama']?><br><?=$row['nip']?><strong>
     </td>
-    <td height="25" valign="top"><strong><?=$row[judul]?></strong><br />
-    <?=$row[catatan]?></td>
+    <td height="25" valign="top"><strong><?=$row['judul']?></strong><br />
+    <?=$row['catatan']?></td>
     <td height="25" valign="top">
 	<?php
-    if ($row[nip]==SI_USER_ID()){
+    if ($row['nip']==SI_USER_ID()){
 	?>
     <table width="100%" border="0" cellspacing="2" cellpadding="0">
       <tr>

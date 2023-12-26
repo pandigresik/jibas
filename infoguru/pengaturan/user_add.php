@@ -129,7 +129,7 @@ if (!isset($_POST['simpan'])) {
             </td>
         </tr>
         <?php
-        $sql_cek = "SELECT * FROM jbsuser.login WHERE login = '$_GET['nip']'";
+        $sql_cek = "SELECT * FROM jbsuser.login WHERE login = '$_GET['nip']."'";
         $res_cek = QueryDb($sql_cek);
         $jum_cek = @mysqli_num_rows($res_cek);
 		$row_cek = @mysqli_fetch_array($res_cek);
@@ -169,7 +169,7 @@ if (!isset($_POST['simpan'])) {
 
 <?php
 } else {
-    $query_cek = "SELECT * FROM jbsuser.login WHERE login = '$_POST['nip']'";
+    $query_cek = "SELECT * FROM jbsuser.login WHERE login = '$_POST['nip']."'";
     $result_cek = QueryDb($query_cek);
     $num_cek = @mysqli_num_rows($result_cek);
     //echo $query_cek;
@@ -184,14 +184,14 @@ if (!isset($_POST['simpan'])) {
 	if ($tingkat==1){
 	//Kalo manajer
 	if ($num_cek>0){
-	$sql_login="UPDATE jbsuser.login SET keterangan='$_POST['keterangan']' WHERE login='$_POST['nip']'";
+	$sql_login="UPDATE jbsuser.login SET keterangan='$_POST['keterangan']' WHERE login='$_POST['nip']."'";
 	//$result_login=QueryDb($sql_login);
 	} elseif ($num_cek==0){
 	$sql_login="INSERT INTO jbsuser.login SET login='$_POST['nip']',password='$pass',keterangan='$_POST['keterangan']',aktif=1";
 	//$result_login=QueryDb($sql_login);
 	}
 	if ($num_c>0){
-	$sql_hakakses="UPDATE jbsuser.hakakses SET tingkat=1 WHERE modul='INFOGURU' AND login='$_POST['nip']'";
+	$sql_hakakses="UPDATE jbsuser.hakakses SET tingkat=1 WHERE modul='INFOGURU' AND login='$_POST['nip']."'";
 	//$result_hakakses=QueryDb($sql_hakakses);
 	} elseif ($num_c==0){
 	$sql_hakakses="INSERT INTO jbsuser.hakakses SET login='$_POST['nip']',tingkat=1,modul='INFOGURU'";
@@ -200,17 +200,17 @@ if (!isset($_POST['simpan'])) {
 	} elseif ($tingkat==2){
 	//Kalo staf
 	if ($num_cek>0){
-	$sql_login="UPDATE jbsuser.login SET keterangan='$_POST['keterangan']' WHERE login='$_POST['nip']'";
+	$sql_login="UPDATE jbsuser.login SET keterangan='$_POST['keterangan']' WHERE login='$_POST['nip']."'";
 	//$result_login=QueryDb($sql_login);
 	} elseif ($num_cek==0){
 	$sql_login="INSERT INTO jbsuser.login SET login='$_POST['nip']', password='$pass', keterangan='$_POST['keterangan']', aktif=1";
 	
 	}
 	if ($num_c>0){
-	$sql_hakakses="UPDATE jbsuser.hakakses SET departemen='$_POST['departemen']." ',tingkat=2 WHERE modul='INFOGURU' AND login='$_POST['nip']'";
+	$sql_hakakses="UPDATE jbsuser.hakakses SET departemen='$_POST['departemen']."',tingkat=2 WHERE modul='INFOGURU' AND login='$_POST['nip']."'";
 	//$result_hakakses=QueryDb($sql_hakakses);
 	} elseif ($num_c==0){
-	$sql_hakakses="INSERT INTO jbsuser.hakakses SET login='$_POST['nip']',departemen='$_POST['departemen']." ',tingkat=2,modul='INFOGURU'";
+	$sql_hakakses="INSERT INTO jbsuser.hakakses SET login='$_POST['nip']',departemen='$_POST['departemen']."',tingkat=2,modul='INFOGURU'";
 	
 	}
 	}

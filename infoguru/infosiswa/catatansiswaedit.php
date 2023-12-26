@@ -130,7 +130,7 @@ function validate(){
 	if (@mysqli_num_rows($result) > 0){
 	$cnt=1;
 	while ($row=@mysqli_fetch_array($result)){
-		echo "<option value='".$row['replid']."'".StringIsSelected($row['replid'],$idkategori).">".$row[kategori]."</option>";
+		echo "<option value='".$row['replid']."'".StringIsSelected($row['replid'],$idkategori).">".$row['kategori']."</option>";
 	}
 	} else {
 		echo "<option value=''>Tidak ada kategori</option>";

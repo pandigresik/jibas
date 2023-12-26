@@ -366,14 +366,14 @@ function cetak(nip){
           <?php if ($num>0){ ?>
           <?php while ($row = @mysqli_fetch_array($result)){ ?>
           <?php
-		  $s = "SELECT nama FROM $db_name_sdm.pegawai WHERE nip='$row[nip]'";
+		  $s = "SELECT nama FROM $db_name_sdm.pegawai WHERE nip='$row['nip']."'";
 		  $re = QueryDb($s);
 		  $r = @mysqli_fetch_array($re);
 		  ?>
           <tr>
-            <td>&nbsp;<?=$row[nip]?></td>
+            <td>&nbsp;<?=$row['nip']?></td>
             <td>&nbsp;<?=$r[nama]?></td>
-            <td align="center"><input name="" type="button" onclick="pilihguru('<?=$row[nip]?>')" value=">" class="cmbfrm2" /></td>
+            <td align="center"><input name="" type="button" onclick="pilihguru('<?=$row['nip']?>')" value=">" class="cmbfrm2" /></td>
           </tr>
           <?php } ?>
           <?php } else { ?>

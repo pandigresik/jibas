@@ -366,7 +366,7 @@ function focusNext(elemName, evt) {
 		$sisbedkel=0;
 		while ($row = @mysqli_fetch_array($result)) {		
 			if ($id) {
-				$sql1 = "SELECT * FROM ppsiswa WHERE idpp = '$id' AND nis='$row[nis]'";
+				$sql1 = "SELECT * FROM ppsiswa WHERE idpp = '$id' AND nis='$row['nis']."'";
 				
 				$result1 = QueryDb($sql1);
 				$jml = mysqli_num_rows($result1);
@@ -385,9 +385,9 @@ function focusNext(elemName, evt) {
 			<?php if ($row['idkelas'] <> $kelas) { 
 			$sisbedkel+=1;
 			?>
-            <td align="center" onMouseOver="showhint('Kelas tetap di <?=$row[kelas]?>', this, event, '80px')">
+            <td align="center" onMouseOver="showhint('Kelas tetap di <?=$row['kelas']?>', this, event, '80px')">
             <font color="#FF0000"><?=$row['nis']?></font></td>
-            <td onMouseOver="showhint('Kelas tetap di <?=$row[kelas]?>', this, event, '80px')">
+            <td onMouseOver="showhint('Kelas tetap di <?=$row['kelas']?>', this, event, '80px')">
             <font color="#FF0000"><?=$row['nama']?></font></td>			
 		<?php } else if ($row['aktif'] == 0) { ?>			
             <td align="center" onMouseOver="showhint('Status siswa tidak aktif lagi!', this, event, '80px')">

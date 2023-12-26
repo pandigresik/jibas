@@ -174,38 +174,38 @@ class PresensiListAjax{
               <tr>
                 <td align="center" class="tdTop" valign="top"><?=$cnt?></td>
                 <td class="tdTop" valign="top">
-				<span id='SpanNumber<?=$row[ID]?>'>
+				<span id='SpanNumber<?=$row['ID']?>'>
 				<?=$row['DestinationNumber']?>
 				</span>
-				<input type="text" id="Input<?=$row[ID]?>" class="InputTxt" value="<?=$row['DestinationNumber']?>" style="width:95%; display:none">
+				<input type="text" id="Input<?=$row['ID']?>" class="InputTxt" value="<?=$row['DestinationNumber']?>" style="width:95%; display:none">
 				</td>
                 <td class="td">
-				<span id='SpanTxt<?=$row[ID]?>'>
+				<span id='SpanTxt<?=$row['ID']?>'>
 				<?=$row['Text']?>
 				</span>
-				<textarea id="TxtArea<?=$row[ID]?>" style="width:99%; display:none" class="AreaTxt"><?=$row['Text']?></textarea>
+				<textarea id="TxtArea<?=$row['ID']?>" style="width:99%; display:none" class="AreaTxt"><?=$row['Text']?></textarea>
 				</td>
                 <td class="td" align='center'>
-					<table border='0' cellpadding='0' cellspacing='0' id="Utility1<?=$row[ID]?>">
+					<table border='0' cellpadding='0' cellspacing='0' id="Utility1<?=$row['ID']?>">
 						<tr>
 							<td style='padding-right:2px'>
-								<img title='Ubah lalu kirim ulang' onclick="EditDetailInfoGenList('<?=$row[ID]?>','1')" src="../images/ico/ubah.png" width="16" height="16" border="0" style="cursor:pointer" />
+								<img title='Ubah lalu kirim ulang' onclick="EditDetailInfoGenList('<?=$row['ID']?>','1')" src="../images/ico/ubah.png" width="16" height="16" border="0" style="cursor:pointer" />
 							</td>
 							<td style='padding-right:2px'>
-								<img title='Kirim Ulang' onclick="ResendDetailInfoGenList('<?=$row[ID]?>')" src="../images/ico/refresh.png" width="16" height="16" border="0" style="cursor:pointer" />
+								<img title='Kirim Ulang' onclick="ResendDetailInfoGenList('<?=$row['ID']?>')" src="../images/ico/refresh.png" width="16" height="16" border="0" style="cursor:pointer" />
 							</td>
 							<td style='padding-right:2px'>
-								<img title='Hapus' onclick="DeleteDetailInfoGenList('<?=$row[ID]?>')" src="../images/ico/hapus.png" width="16" height="16" border="0" style="cursor:pointer" />
+								<img title='Hapus' onclick="DeleteDetailInfoGenList('<?=$row['ID']?>')" src="../images/ico/hapus.png" width="16" height="16" border="0" style="cursor:pointer" />
 							</td>
 						</tr>
 					</table>
-                    <table border='0' cellpadding='0' cellspacing='0' id="Utility2<?=$row[ID]?>" style="display:none">
+                    <table border='0' cellpadding='0' cellspacing='0' id="Utility2<?=$row['ID']?>" style="display:none">
 						<tr>
 							<td style='padding-right:2px'>
-								<img title='Batalkan perubahan' onclick="EditDetailInfoGenList('<?=$row[ID]?>','0')" src="../images/ico/hapusBW.png" width="12" height="12" border="0" style="cursor:pointer" />
+								<img title='Batalkan perubahan' onclick="EditDetailInfoGenList('<?=$row['ID']?>','0')" src="../images/ico/hapusBW.png" width="12" height="12" border="0" style="cursor:pointer" />
 							</td>
 							<td style='padding-right:2px'>
-							  <img title='Kirim' onclick="ResendDetailInfoGenList2('<?=$row[ID]?>')" src="../images/ico/refresh.png" width="16" height="16" border="0" style="cursor:pointer" />
+							  <img title='Kirim' onclick="ResendDetailInfoGenList2('<?=$row['ID']?>')" src="../images/ico/refresh.png" width="16" height="16" border="0" style="cursor:pointer" />
 							</td>
 						</tr>
 					</table>

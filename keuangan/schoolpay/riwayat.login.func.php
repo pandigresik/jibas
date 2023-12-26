@@ -144,10 +144,10 @@ function ShowRiwayatLogin($showMenu)
 
         echo "<tr style='height: 30px'>";
         echo "<td align='center'>$no</td>";
-        echo "<td align='left'>$row[logtime]</td>";
-        echo "<td align='left'>$row[petugas]</td>";
-        echo "<td align='left'>$row[localip]</td>";
-        echo "<td align='left'>$row[device]</td>";
+        echo "<td align='left'>$row['logtime']</td>";
+        echo "<td align='left'>$row['petugas']</td>";
+        echo "<td align='left'>$row['localip']</td>";
+        echo "<td align='left'>$row['device']</td>";
         echo "</tr>";
     }
 

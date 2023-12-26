@@ -81,7 +81,7 @@ Siswa : <?=SI_USER_NAME()?><br><br>
   <tr>
     <td height="25" scope="row" valign="middle">&nbsp;&nbsp;<?=LongDateFormat($row['tanggal'])?></th>
     <?php 
-	$sql1="SELECT * FROM jbsvcr.agenda WHERE nis='".SI_USER_ID()."' AND tanggal='$row[tanggal]'";
+	$sql1="SELECT * FROM jbsvcr.agenda WHERE nis='".SI_USER_ID()."' AND tanggal='$row['tanggal']."'";
   	$result1=QueryDb($sql1);
 	$i=0;
 	while ($row1=@mysqli_fetch_array($result1)){

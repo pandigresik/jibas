@@ -171,7 +171,7 @@ if ($op=='SavePresensi'){
 			//Finding Phone Number
 			$query	= "SELECT nis, hpsiswa, namaayah, hportu, info1, info2
 						 FROM $db_name_akad.siswa
-						WHERE nis = '".$row[nis]'";
+						WHERE nis = '".$row['nis']."'";
 			$result = QueryDb($query);
 			$data	= @mysqli_fetch_row($result);
 			

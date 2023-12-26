@@ -28,13 +28,13 @@ $idkelompok = $_REQUEST['idkelompok'];
 $sql = "SELECT * FROM jbsfina.kelompokbarang WHERE replid='".$_REQUEST['idkelompok']."'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
-$idgroup = $row[idgroup];
+$idgroup = $row['idgroup'];
 if (isset($_REQUEST['idgroup']))
 	$idgroup = $_REQUEST['idgroup'];
-$kelompokname = $row[kelompok];
+$kelompokname = $row['kelompok'];
 if (isset($_REQUEST['kelompokname']))
 	$kelompokname = $_REQUEST['kelompokname'];
-$keterangan = $row[keterangan];
+$keterangan = $row['keterangan'];
 if (isset($_REQUEST['keterangan']))
 	$keterangan = $_REQUEST['keterangan'];
 if (isset($_REQUEST['Simpan'])){

@@ -42,7 +42,7 @@ $row = @mysqli_fetch_array($result);
 $dep[0] = array($row['departemen'], $nis_awal);
 //$no[1] = $row['nislama'];
 if ($row['nislama'] <> "") {
-	$sql1 = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '".$row[nislama]'";
+	$sql1 = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '".$row['nislama']."'";
 	$result1 = QueryDb($sql1);
 	$row1 = @mysqli_fetch_array($result1);	
 	$dep[1] = array($row1['departemen'], $row['nislama']);

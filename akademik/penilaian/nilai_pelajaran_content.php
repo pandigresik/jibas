@@ -424,7 +424,7 @@ function focusNext(elemName, evt)
 				if ($row_get_nau_per_nis['keterangan']<>"")
 					echo "<font color='#067900'>)*</font>";
 				//echo $row_get_nau_per_nis['info1'];
-				if ($row_get_nau_per_nis[info1]=='1')
+				if ($row_get_nau_per_nis['info1']=='1')
 					echo "&nbsp;<font color='blue'>)*</font>";
 			} ?>
             </td>
@@ -511,7 +511,7 @@ function focusNext(elemName, evt)
 					$namarpp = "Tanpa RPP";
 				}
 				
-				$sql_get_bobotnya = "SELECT b.replid, b.bobot FROM jbsakad.bobotnau b WHERE b.idujian='$row_cek_ujian['replid']." '";								
+				$sql_get_bobotnya = "SELECT b.replid, b.bobot FROM jbsakad.bobotnau b WHERE b.idujian='$row_cek_ujian['replid']."'";								
 				$result_get_bobotnya = QueryDb($sql_get_bobotnya);
 				$nilai_bobotnya = @mysqli_fetch_array($result_get_bobotnya);	?>
 	    		<tr height="25">

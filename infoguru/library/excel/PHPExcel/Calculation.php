@@ -3710,7 +3710,7 @@ class PHPExcel_Calculation
                         $cellRef = $matches[6].$matches[7].':'.$matches[9].$matches[10];
                         if ($matches[2] > '') {
                             $matches[2] = trim($matches[2], "\"'");
-                            if ((strpos($matches[2], '[') !== false) || (strpos($matches[2], ']." ') !== false)) {
+                            if ((strpos($matches[2], '[') !== false) || (strpos($matches[2], ']."') !== false)) {
                                 //    It's a Reference to an external workbook (not currently supported)
                                 return $this->raiseFormulaError('Unable to access External Workbook');
                             }
@@ -3744,7 +3744,7 @@ class PHPExcel_Calculation
                         $cellRef = $matches[6].$matches[7];
                         if ($matches[2] > '') {
                             $matches[2] = trim($matches[2], "\"'");
-                            if ((strpos($matches[2], '[') !== false) || (strpos($matches[2], ']." ') !== false)) {
+                            if ((strpos($matches[2], '[') !== false) || (strpos($matches[2], ']."') !== false)) {
                                 //    It's a Reference to an external workbook (not currently supported)
                                 return $this->raiseFormulaError('Unable to access External Workbook');
                             }

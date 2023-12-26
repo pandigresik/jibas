@@ -52,7 +52,7 @@ if (isset($_REQUEST['simpan'])) {
 				QueryDbTrans($sql_login, $success);		
 			}		
 				
-			$sql_hakakses="INSERT INTO $db_name_user.hakakses SET login='".$_REQUEST['nip']." ', tingkat=1, modul='EMA', keterangan='".$_REQUEST['keterangan']."'";
+			$sql_hakakses="INSERT INTO $db_name_user.hakakses SET login='".$_REQUEST['nip']."', tingkat=1, modul='EMA', keterangan='".$_REQUEST['keterangan']."'";
 		
 		if ($success)	
 			QueryDbTrans($sql_hakakses, $success);

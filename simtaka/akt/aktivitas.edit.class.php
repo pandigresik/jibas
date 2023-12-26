@@ -27,10 +27,10 @@ class CAktivitasEdit{
 		$sql = "SELECT * FROM aktivitas WHERE replid=".$this->replid;
 		$result = QueryDb($sql);
 		$row = @mysqli_fetch_array($result);
-		$this->perpustakaan = $row[perpustakaan];
-		$tgl = split(' ',$row[tanggal]);
+		$this->perpustakaan = $row['perpustakaan'];
+		$tgl = split(' ',$row['tanggal']);
 		$this->tanggal = $tgl[0];
-		$this->aktivitas = $row[aktivitas];
+		$this->aktivitas = $row['aktivitas'];
 		$sqlDate = "SELECT DATE_FORMAT(now(),'%Y-%m-%d'),DATE_FORMAT(now(),'%H:%i:%s')";
 		$resultDate = QueryDb($sqlDate);
 		$rowDate = @mysqli_fetch_row($resultDate);

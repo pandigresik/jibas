@@ -206,7 +206,7 @@ $num = @mysqli_num_rows($result);
 			
 			$sql = "SELECT denda
 					  FROM denda
-					 WHERE idpinjam='$row['replid']." '";
+					 WHERE idpinjam='".$row['replid']."'";
 			$res2 = QueryDb($sql);
 			$row2 = @mysqli_fetch_array($res2);
 			$denda = $row2['denda'];
@@ -220,8 +220,8 @@ $num = @mysqli_num_rows($result);
 			$row2 = @mysqli_fetch_array($res2);
 			$judul = $row2['judul'];
 			
-			$idanggota = $row[idanggota];
-			$jenisanggota = $row[info1];
+			$idanggota = $row['idanggota'];
+			$jenisanggota = $row['info1'];
 			
 			if ($jenisanggota == "siswa")
 			{
@@ -247,9 +247,9 @@ $num = @mysqli_num_rows($result);
 			
 			<tr style="color:<?=$color?>; <?=$weight?>">
 				<td align='center'><?=$cnt?></td>
-				<td align="center"><?=LongDateFormat($row[tglditerima])?></td>
-				<td align="center"><?=LongDateFormat($row[tglkembali])?></td>
-				<td align="center"><?=LongDateFormat($row[tglpinjam])?></td>
+				<td align="center"><?=LongDateFormat($row['tglditerima'])?></td>
+				<td align="center"><?=LongDateFormat($row['tglkembali'])?></td>
+				<td align="center"><?=LongDateFormat($row['tglpinjam'])?></td>
 				<td align="left">
 					<font style='font-size: 9px'><?=$idanggota?></font><br>
 					<font style='font-size: 11px; font-weight: bold;'><?=$namaanggota?></font>

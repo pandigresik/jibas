@@ -1182,7 +1182,7 @@ class PredefIcons {
     function GetImg($aIdx) {
         if( $aIdx < 0 || $aIdx >= $this->iLen ) {
             JpGraphError::RaiseL(6010,$aIdx);
-            //('Illegal icon index for Gantt builtin icon ['.$aIdx.']." ');
+            //('Illegal icon index for Gantt builtin icon ['.$aIdx.']."');
         }
         return Image::CreateFromString(base64_decode($this->iBuiltinIcon[$aIdx][1]));
     }
@@ -2771,13 +2771,13 @@ class GanttScale {
                 $m=$ln;
                 break;
             case MONTHSTYLE_SHORTNAMEYEAR2:
-                $m=$sn." '".substr("".$year,2);
+                $m=$sn."'".substr("".$year,2);
                 break;
             case MONTHSTYLE_SHORTNAMEYEAR4:
                 $m=$sn." ".$year;
                 break;
             case MONTHSTYLE_LONGNAMEYEAR2:
-                $m=$ln." '".substr("".$year,2);
+                $m=$ln."'".substr("".$year,2);
                 break;
             case MONTHSTYLE_LONGNAMEYEAR4:
                 $m=$ln." ".$year;

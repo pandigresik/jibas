@@ -115,7 +115,7 @@ class NewInbox{
                 <div class="BtnSilver" align="center" id="BtnReply" style="display:block" onclick="BalasSMS('1')">Balas</div>
                 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding-top:10px">
                   <tr>
-                    <td align="right" width="50%" style="padding-right:3px"><div class="BtnSilver" align="center" id="BtnSend" style="display:none; " onclick="KirimSMS('<?=$row[ID]?>')">Kirim</div></td>
+                    <td align="right" width="50%" style="padding-right:3px"><div class="BtnSilver" align="center" id="BtnSend" style="display:none; " onclick="KirimSMS('<?=$row['ID']?>')">Kirim</div></td>
                     <td align="left" style="padding-left:3px"><div class="BtnSilver" align="center" id="BtnCancel" style="display:none" onclick="BalasSMS('0')">Batal</div></td>
                   </tr>
                 </table>

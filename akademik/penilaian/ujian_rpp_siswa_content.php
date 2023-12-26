@@ -183,7 +183,7 @@ function cetak(){
       	$result=QueryDb($sql);
       	$cnt=0;
       	while ($row=@mysqli_fetch_array($result)){			
-			$sql2 = "SELECT round(SUM(nilaiujian)/(COUNT(DISTINCT u.replid)),2), SUM(nilaiujian) FROM nilaiujian n, siswa s, ujian u, jenisujian j WHERE n.idujian = u.replid AND u.idsemester = '$semester' AND u.idkelas = '$kelas' AND u.idjenis = '$ujian' AND u.idrpp = '$rpp' AND u.idpelajaran = '$pelajaran' AND s.nis = n.nis AND u.idjenis = j.replid AND s.nis = '".$row[nis]' AND s.aktif = 1 ORDER BY s.nama";
+			$sql2 = "SELECT round(SUM(nilaiujian)/(COUNT(DISTINCT u.replid)),2), SUM(nilaiujian) FROM nilaiujian n, siswa s, ujian u, jenisujian j WHERE n.idujian = u.replid AND u.idsemester = '$semester' AND u.idkelas = '$kelas' AND u.idjenis = '$ujian' AND u.idrpp = '$rpp' AND u.idpelajaran = '$pelajaran' AND s.nis = n.nis AND u.idjenis = j.replid AND s.nis = '".$row['nis']' AND s.aktif = 1 ORDER BY s.nama";
 			//echo $sql2;
 			$result2 = QueryDb($sql2);
 			$row2 = mysqli_fetch_row($result2);

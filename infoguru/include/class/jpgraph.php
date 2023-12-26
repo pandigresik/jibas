@@ -3648,7 +3648,7 @@ class Grid {
             }
         }
         else {
-            JpGraphError::RaiseL(25054,$this->scale->type);//('Internal error: Unknown grid axis ['.$this->scale->type.']." ');
+            JpGraphError::RaiseL(25054,$this->scale->type);//('Internal error: Unknown grid axis ['.$this->scale->type.']."');
         }
         return true;
     }

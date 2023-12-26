@@ -59,7 +59,7 @@ if ($iddasar=="12"){
 
 	$result3 = QueryDb($query3);
 	$row3 = @mysqli_fetch_array($result3);
-	$j3 = $row3[Jum];
+	$j3 = $row3['Jum'];
 
 	$result4 = QueryDb($query4);
 	$row4 = @mysqli_fetch_array($result4);
@@ -152,7 +152,7 @@ if ($iddasar=="12"){
 if ($iddasar=="12"){
 	if($sum == 0) {
 		echo "<table width='100%' height='100%'><tr><td align='center' valign='middle'>
-        <font size='2' face='verdana'>Grafik Lingkaran tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk Departemen <b>$_REQUEST['departemen']</b> dan Angkatan <b>$row[angkatan]</b></font></td></tr></table>";
+        <font size='2' face='verdana'>Grafik Lingkaran tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk Departemen <b>$_REQUEST['departemen']</b> dan Angkatan <b>$row['angkatan']</b></font></td></tr></table>";
 	} else {
 		//data
 
@@ -187,7 +187,7 @@ if ($iddasar=="12"){
 } else {
 	if($num == 0) {
 		echo "<table width='100%' height='100%'><tr><td align='center' valign='middle'>
-				<font size='2' face='verdana'>Grafik Lingkaran tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk Departemen <b>$_GET['departemen']</b> dan Angkatan <b>$row[Angkatan]</b></font></td></tr></table>";
+				<font size='2' face='verdana'>Grafik Lingkaran tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk Departemen <b>$_GET['departemen']</b> dan Angkatan <b>$row['Angkatan']</b></font></td></tr></table>";
 	} else {
 
 		//Buat grafik

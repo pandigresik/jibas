@@ -71,7 +71,7 @@ if(isset($_POST["idjenis"])){
 }
 
 if(isset($_POST['simpan'])) {
-	$sql_del_nau="DELETE FROM jbsakad.nau WHERE  idpelajaran='$_POST['idpelajaran']' AND idkelas='$_POST['idkelas']' AND idsemester='$_POST['idsemester']' AND idjenis='$_POST['idjenis']'";
+	$sql_del_nau="DELETE FROM jbsakad.nau WHERE  idpelajaran='$_POST['idpelajaran']' AND idkelas='$_POST['idkelas']' AND idsemester='$_POST['idsemester']' AND idjenis='$_POST['idjenis']."'";
 	$result_del_nau=QueryDb($sql_del_nau);
 	$tanggaldb=unformat_tgl($_POST['tanggal']);
 	$query_ujian = "INSERT INTO jbsakad.ujian(idpelajaran, idkelas, idsemester, idjenis, deskripsi, tanggal) ".

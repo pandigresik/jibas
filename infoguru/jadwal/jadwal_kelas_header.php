@@ -46,12 +46,12 @@ if (isset($_REQUEST['op']))
 
 if ($op=="dw8dxn8w9ms8zs22"){
 	OpenDb();
-	$sql_update_aktif = "UPDATE jbsakad.infojadwal SET aktif = '".$_REQUEST['newaktif']." ' WHERE replid = '".$_REQUEST['replid']."' ";
+	$sql_update_aktif = "UPDATE jbsakad.infojadwal SET aktif = '".$_REQUEST['newaktif']."' WHERE replid = '".$_REQUEST['replid']."' ";
 	QueryDb($sql_update_aktif);
 	CloseDb();
 } else if ($op=="fcjfootkpsmfkgjdmv"){
 	OpenDb();
-	$sql_update_terlihat = "UPDATE jbsakad.infojadwal SET terlihat = '".$_REQUEST['newvis']." ' WHERE replid = '".$_REQUEST['replid']."' ";
+	$sql_update_terlihat = "UPDATE jbsakad.infojadwal SET terlihat = '".$_REQUEST['newvis']."' WHERE replid = '".$_REQUEST['replid']."' ";
 	QueryDb($sql_update_terlihat);
 	CloseDb();
 } else if ($op=="xm8r389xemx23xb2378e23"){

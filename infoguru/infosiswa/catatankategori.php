@@ -34,7 +34,7 @@ if (isset($_REQUEST['op']))
 	$op = $_REQUEST['op'];
 
 if ($op == "dw8dxn8w9ms8zs22") {
-	$sql = "UPDATE jbsvcr.catatankategori SET aktif = '".$_REQUEST['newaktif']." ' WHERE replid = '".$_REQUEST['replid']."' ";
+	$sql = "UPDATE jbsvcr.catatankategori SET aktif = '".$_REQUEST['newaktif']."' WHERE replid = '".$_REQUEST['replid']."' ";
 	QueryDb($sql);
 } 
 if ($op == "xm8r389xemx23xb2378e23") {
@@ -152,26 +152,26 @@ function cetak() {
 	while ($row = mysqli_fetch_array($result)) { ?>
     <tr height="25">
     	<td align="center"><?=++$cnt ?></td>
-        <td><?=$row[kategori] ?></td>
+        <td><?=$row['kategori'] ?></td>
         
         <td align="center">
         
 <?php 	if (SI_USER_LEVEL() == $SI_USER_STAFF) {  
-			if ($row[aktif] == 1) { ?> 
+			if ($row['aktif'] == 1) { ?> 
             	<img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Aktif!', this, event, '50px')"/>
 <?php 		} else { ?>                
 				<img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Tidak Aktif!', this, event, '50px')"/>
 <?php 		}
 		} else { 
-			if ($row[aktif] == 1) { ?>
-				<a href="JavaScript:setaktif(<?=$row['replid'] ?>, <?=$row[aktif] ?>)"><img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Aktif!', this, event, '50px')"/></a>
+			if ($row['aktif'] == 1) { ?>
+				<a href="JavaScript:setaktif(<?=$row['replid'] ?>, <?=$row['aktif'] ?>)"><img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Aktif!', this, event, '50px')"/></a>
 <?php 		} else { ?>
-				<a href="JavaScript:setaktif(<?=$row['replid'] ?>, <?=$row[aktif] ?>)"><img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Tidak Aktif!', this, event, '50px')"/></a>
+				<a href="JavaScript:setaktif(<?=$row['replid'] ?>, <?=$row['aktif'] ?>)"><img src="../images/ico/nonaktif.png" border="0" onMouseOver="showhint('Status Tidak Aktif!', this, event, '50px')"/></a>
 <?php 		} //end if
 		} //end if ?>        
         
         </td>
-        <td><?=$row[keterangan] ?></td>
+        <td><?=$row['keterangan'] ?></td>
 <?php 	if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>         
 		<td align="center">
             <a href="JavaScript:edit(<?=$row['replid'] ?>)"><img src="../images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Kategori!', this, event, '75px')" /></a>&nbsp;

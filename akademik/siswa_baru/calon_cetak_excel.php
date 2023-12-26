@@ -204,7 +204,7 @@ Data Siswa per Kelas
     while ($row=@mysqli_fetch_array($result)){
         $siswa = "";
         if ($row['replidsiswa'] <> 0) {
-            $sql3 = "SELECT nis FROM jbsakad.siswa WHERE replid = $row[replidsiswa]";
+            $sql3 = "SELECT nis FROM jbsakad.siswa WHERE replid = $row['replidsiswa']";
             $result3 = QueryDb($sql3);
             $row3 = @mysqli_fetch_array($result3);
             $siswa = "<br>NIS Siswa: <b>".$row3['nis']."</b>";
@@ -301,9 +301,9 @@ Data Siswa per Kelas
 
                 <td align="center"><?php
 
-                    if ($row[aktif]==1)
+                    if ($row['aktif']==1)
                         echo "Aktif".$siswa;
-                    if ($row[aktif]==0)
+                    if ($row['aktif']==0)
                         echo "Tidak aktif".$siswa;
                     ?></td>
             </tr>

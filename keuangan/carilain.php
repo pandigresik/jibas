@@ -203,9 +203,9 @@ function change_baris() {
 
 	while ($row = mysqli_fetch_array($result)) { ?>
     <tr >
-    	<td align="center"  onClick="pilih('<?=$row[id]?>','<?=$row[nama]?>')" style="cursor:pointer"><?= ++$no ?></td>
-        <td  onClick="pilih('<?=$row[id]?>','<?=$row[nama]?>')" style="cursor:pointer"><?=$row['nama'] ?></td>
-        <td  onClick="pilih('<?=$row[id]?>','<?=$row[nama]?>')" style="cursor:pointer"><?=$row['keterangan'] ?></td>
+    	<td align="center"  onClick="pilih('<?=$row['id']?>','<?=$row['nama']?>')" style="cursor:pointer"><?= ++$no ?></td>
+        <td  onClick="pilih('<?=$row['id']?>','<?=$row['nama']?>')" style="cursor:pointer"><?=$row['nama'] ?></td>
+        <td  onClick="pilih('<?=$row['id']?>','<?=$row['nama']?>')" style="cursor:pointer"><?=$row['keterangan'] ?></td>
         <?php  if (getLevel() != 2) { ?>
         <td align="center">
         	<a href="#" onclick="ubah('<?=$row['id']?>')" ><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Data Pemohon!', this, event, '80px')"></a>&nbsp;

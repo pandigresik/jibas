@@ -35,7 +35,7 @@ OpenDb();
 $sql="SELECT idpesan FROM jbsvcr.tujuanpesan WHERE replid='$replid'";
 $result=QueryDb($sql);
 $row=@mysqli_fetch_array($result);
-$idpesan=$row[idpesan];
+$idpesan=$row['idpesan'];
 $sql2 = "SELECT DATE_FORMAT(pg.tanggalpesan, '%Y-%m-%j') as tanggal, pg.judul as judul,
 			    pg.pesan as pesan, p.nama as nama, pg.replid as replid
 		   FROM jbsvcr.pesan pg, jbssdm.pegawai p

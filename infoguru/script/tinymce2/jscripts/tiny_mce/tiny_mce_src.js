@@ -820,7 +820,7 @@ tinymce.create('static tinymce.util.JSON', {
 					for (i=0, v = '['; i<o.length; i++)
 						v += (i > 0 ? ',' : '') + s(o[i]);
 
-					return v + ']." ';
+					return v + ']."';
 				}
 
 				v = '{';
@@ -3705,7 +3705,7 @@ tinymce.create('static tinymce.util.XHR', {
 				return;
 			}
 
-			t.entitiesRE = new RegExp('[' + re + ']." ', 'g');
+			t.entitiesRE = new RegExp('[' + re + ']."', 'g');
 			t.entityLookup = l;
 		},
 

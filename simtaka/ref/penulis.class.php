@@ -77,20 +77,20 @@ class CPenulis{
 					$cnt = (int)$this->page*(int)$this->numlines+1;
 				}
 			  while ($row=@mysqli_fetch_array($result)){
-					$num_judul = @mysqli_num_rows(QueryDb("SELECT * FROM pustaka p, penulis pn WHERE pn.replid='$row['replid']." ' AND pn.replid=p.penulis"));
-					$num_pustaka = @mysqli_fetch_row(QueryDb("SELECT COUNT(d.replid) FROM pustaka p, daftarpustaka d, penulis pn WHERE d.pustaka=p.replid AND pn.replid='$row['replid']." ' AND p.penulis=pn.replid"));	
+					$num_judul = @mysqli_num_rows(QueryDb("SELECT * FROM pustaka p, penulis pn WHERE pn.replid='".$row['replid']."' AND pn.replid=p.penulis"));
+					$num_pustaka = @mysqli_fetch_row(QueryDb("SELECT COUNT(d.replid) FROM pustaka p, daftarpustaka d, penulis pn WHERE d.pustaka=p.replid AND pn.replid='".$row['replid']."' AND p.penulis=pn.replid"));	
 			  ?>
 			  <tr>
 			    <td align="center"><?=$cnt?></td>
-				<td height="25" align="center"><?=$row[kode]?></td>
-				<td height="25"><div class="tab_content"><?=$row[gelardepan]?> <?=$row[nama]?> <?=$row[gelarbelakang]?></div></td>
+				<td height="25" align="center"><?=$row['kode']?></td>
+				<td height="25"><div class="tab_content"><?=$row['gelardepan']?> <?=$row['nama']?> <?=$row['gelarbelakang']?></div></td>
 				<td width="103" height="25" align="center">&nbsp;<?=$num_judul?>
                 <?php if ($num_judul!=0){ ?>
                     &nbsp;<img src="../img/ico/lihat.png" style="cursor:pointer" onclick="ViewByTitle('<?=$row['replid']?>')" />
                 <?php } ?>                </td>
 				<td width="120" height="25" align="center">&nbsp;<?=(int)$num_pustaka[0]?></td>
-				<td height="25"><div class="tab_content"><?=$row[kontak]?></div></td>
-				<td height="25"><div class="tab_content"><?=$row[keterangan]?></div></td>
+				<td height="25"><div class="tab_content"><?=$row['kontak']?></div></td>
+				<td height="25"><div class="tab_content"><?=$row['keterangan']?></div></td>
 				<td height="25" align="center" bgcolor="#FFFFFF">
                 	<table width="100%" border="0" cellspacing="2" cellpadding="0">
                       <tr align="center">

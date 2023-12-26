@@ -187,7 +187,7 @@ function change_urut(urut,urutan)
             <td height="25"><div align="left">
 <?php 			$sql = "SELECT k.komentar, k.replid 
                        FROM jbsakad.komennap k, jbsakad.infonap i 
-							 WHERE k.nis = '".$row[nis]' AND i.replid = k.idinfo 
+							 WHERE k.nis = '".$row['nis']' AND i.replid = k.idinfo 
 							   AND i.idpelajaran = '$pelajaran' AND i.idsemester = '$semester' AND i.idkelas = '$kelas'";
 				$res2 = QueryDb($sql);
 				$row2 = @mysqli_fetch_row($res2);

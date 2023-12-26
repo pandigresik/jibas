@@ -148,7 +148,7 @@ if ($op == "09vn4230984cn2048723n98423")
 				</td>  
 			</tr>
 			<tr>
-				<td>Nama Gambar : <?=$row[namagambar]?><br />Keterangan Gambar : <?=$row[keterangan]?></td>  
+				<td>Nama Gambar : <?=$row['namagambar']?><br />Keterangan Gambar : <?=$row['keterangan']?></td>  
 			</tr>
 			<tr>
 				<td><hr /></td>  

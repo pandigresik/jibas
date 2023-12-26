@@ -225,7 +225,7 @@ OpenDb();
 			$nujian = 0;
 			while($row_qz = @mysqli_fetch_array($result_qz)){
 				$z++;
-				$sql = "SELECT count(*) as cnt FROM jbsakad.nilaiujian WHERE idujian = '".$row_qz['replid']." ' GROUP BY nis, nilaiujian HAVING cnt > 1";
+				$sql = "SELECT count(*) as cnt FROM jbsakad.nilaiujian WHERE idujian = '".$row_qz['replid']."' GROUP BY nis, nilaiujian HAVING cnt > 1";
 				$rs = QueryDb($sql);
 				$ndup = mysqli_num_rows($rs);
 			?>
@@ -466,7 +466,7 @@ OpenDb();
 					$tgl = format_tgl($row_qz[tanggal]);
 					echo  "$row_qz[jenisujian]-$i ($tgl) "; 
 					
-					$query_nuj = "SELECT nilaiujian FROM jbsakad.nilaiujian WHERE idujian = '".$row_qz['replid']." '";
+					$query_nuj = "SELECT nilaiujian FROM jbsakad.nilaiujian WHERE idujian = '".$row_qz['replid']."'";
 					$result_nuj = QueryDb($query_nuj);
 					
 					//echo $query_nuj;
@@ -629,7 +629,7 @@ elseif($_POST['rtn'] == "2"){			//jika checklist kedua yg dipilih
 		//query buat nyari siswa berdasarkan idujian		
 			$query_ns = "SELECT nilaiujian.nis, nilaiujian.idujian, nilaiujian.nilaiujian ".
 						"FROM jbsakad.nilaiujian ".
-						"WHERE nilaiujian.idujian = '".$row_qz1['replid']." ' ".
+						"WHERE nilaiujian.idujian = '".$row_qz1['replid']."' ".
 						"ORDER BY nilaiujian.nis, nilaiujian.nilaiujian";
 			$result_ns = QueryDb($query_ns);
 							

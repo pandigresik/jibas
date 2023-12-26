@@ -350,7 +350,7 @@ function refresh_daftar() {
 		while ($row = @mysqli_fetch_array($result)) {
 			if ($row['replidsiswa'] <> NULL) {
 				OpenDb();	
-				$sql1 = "SELECT s.nis, k.kelas FROM siswa s, kelas k WHERE s.replid ='$row[replidsiswa]' AND s.idkelas = k.replid";  				
+				$sql1 = "SELECT s.nis, k.kelas FROM siswa s, kelas k WHERE s.replid ='$row['replidsiswa']' AND s.idkelas = k.replid";  				
 				$result1 = QueryDb($sql1);
 				CloseDb();
 				$row1 = @mysqli_fetch_array($result1);

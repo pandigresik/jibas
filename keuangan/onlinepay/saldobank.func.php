@@ -176,7 +176,7 @@ function ShowRincianSaldo()
         echo "<td align='center'>$no</td>";
         echo "<td align='left'><strong>$namaPenerimaan</strong><br><i>$namaKategori</i></td>";
         echo "<td align='right'><span style='font-size: 14px; font-weight: bold'>$rp</span></td>";
-        echo "<td align='center'><i>$row[flasttime]</i></td>";
+        echo "<td align='center'><i>$row['flasttime']</i></td>";
         echo "</tr>";
     }
 

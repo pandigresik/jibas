@@ -60,7 +60,7 @@ if (isset($_REQUEST['action'])) {
 	}
 	
 	OpenDb();
-	$sql = "SELECT * FROM tahunajaran WHERE departemen = '".$_REQUEST['departemen']." ' AND tahunajaran='".$_REQUEST['tahunajaran']."' $filter";
+	$sql = "SELECT * FROM tahunajaran WHERE departemen = '".$_REQUEST['departemen']."' AND tahunajaran='".$_REQUEST['tahunajaran']."' $filter";
 	$result = QueryDb($sql);
 	
 	if (mysqli_num_rows($result) > 0) {
@@ -104,9 +104,9 @@ if (isset($_REQUEST['departemen']))
 if ($op == "dw8dxn8w9ms8zs22") {
 //if ($op == "hapus") {
 	OpenDb();
-	$sql = "UPDATE tahunajaran SET aktif = '".$_REQUEST['newaktif']." ' WHERE replid = '".$_REQUEST['replid']."' ";
+	$sql = "UPDATE tahunajaran SET aktif = '".$_REQUEST['newaktif']."' WHERE replid = '".$_REQUEST['replid']."' ";
 	QueryDb($sql);
-	$sql1 = "UPDATE tahunajaran SET aktif = 0 WHERE replid <> '".$_REQUEST['replid']." ' AND departemen = '".$_REQUEST['departemen']."'";
+	$sql1 = "UPDATE tahunajaran SET aktif = 0 WHERE replid <> '".$_REQUEST['replid']."' AND departemen = '".$_REQUEST['departemen']."'";
 	QueryDb($sql1);
 	CloseDb();
 } else //if ($op == "xm8r389xemx23xb2378e23") {

@@ -73,7 +73,7 @@ function refresh() {
     	<td width="100%" class="header" align="center"><?=$row[0];?></td>
     </tr>
     <?php 	
-		$sql1 = "SELECT p.nama,p.replid FROM guru g, pelajaran p WHERE g.idpelajaran = p.replid AND g.nip ='".$_REQUEST['nip']." ' AND p.departemen = '".$row[0]."' GROUP BY p.nama";
+		$sql1 = "SELECT p.nama,p.replid FROM guru g, pelajaran p WHERE g.idpelajaran = p.replid AND g.nip ='".$_REQUEST['nip']."' AND p.departemen = '".$row[0]."' GROUP BY p.nama";
 		$result1 = QueryDb($sql1); 				
 		while ($row1 = @mysqli_fetch_array($result1)) {
 	?>

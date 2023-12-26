@@ -35,8 +35,8 @@ $query = "SELECT bg FROM $table WHERE replid = '$replid'";
 $result = QueryDb($query);
 $num = @mysqli_num_rows($result);
 if ($row = mysqli_fetch_array($result)) {
-    if($row[bg]) {
-        echo $row[bg];
+    if($row['bg']) {
+        echo $row['bg'];
     }else {
     	$filename = "../design/white.jpg";
         $handle = fopen($filename, "r");

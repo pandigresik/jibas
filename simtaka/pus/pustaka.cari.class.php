@@ -99,9 +99,9 @@ class CPustaka{
           	<option value="<?=$row['replid']?>" <?=StringIsSelected($this->keywords,$row['replid'])?> >
 				<?php
 				if ($kat!="rak")
-					echo $row[kode]." - ".$row[nama];
+					echo $row['kode']." - ".$row['nama'];
 				else
-					echo $row[rak];
+					echo $row['rak'];
 				?>
         	</option>
             <?php

@@ -89,13 +89,13 @@ function BrowseChannel($idPelajaran)
 
         echo "<tr style='cursor: pointer; line-height: 18px;' onclick='bw_showChannelView($idChannel)'>";
         echo "<td align='left' valign='top' width='500px' style='line-height: 20px;'>";
-        echo "<span style='color: blue'>$row[pelajaran] | $row[guru]</span><br>";
-        echo "<span style='font-family: Arial; font-weight: bold; font-size: 14px'>$row[channel]</span><br>";
-        echo "<span style='font-family: 'Times New Roman'; font-size: 12px;'>$row[deskripsi]</span><br><br>";
+        echo "<span style='color: blue'>$row['pelajaran'] | $row['guru']</span><br>";
+        echo "<span style='font-family: Arial; font-weight: bold; font-size: 14px'>$row['channel']</span><br>";
+        echo "<span style='font-family: 'Times New Roman'; font-size: 12px;'>$row['deskripsi']</span><br><br>";
         echo "</td>";
         echo "<td align='left' valign='top' width='100px'><br>";
         echo "<span style='margin-left: 10px; line-height: 18px; color: #666;'>$nMedia Video</span><br>";
-        echo "<span style='margin-left: 10px; line-height: 18px; color: #666;'>$row[nfollower] Follower</span><br>";
+        echo "<span style='margin-left: 10px; line-height: 18px; color: #666;'>$row['nfollower'] Follower</span><br>";
         echo "</td>";
         echo "</tr>";
     }

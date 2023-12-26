@@ -155,15 +155,15 @@ if ((isset($_POST["cari"]))){
 	$cnt = 0;
 	while($row = @mysqli_fetch_array($result_sis)){
 	  
-	  $qq = "SELECT kelas, departemen FROM kelas WHERE replid = '".$row[idkelas]'";
+	  $qq = "SELECT kelas, departemen FROM kelas WHERE replid = '".$row['idkelas']."'";
 	  $rr = QueryDb($qq);
 	  $rw = mysqli_fetch_array($rr);
 	?>
 
 	<tr <?="bgcolor=#".($cnt%2?"ffffff":"EAECEE").""; ?>>
-		<td class='data'><input type="hidden" name="nis<?=$cnt; ?>" value="<?=$row[nis]; ?>">
-		<input type="hidden" name="nama<?=$cnt; ?>" value="<?=$row[nama]; ?>"><input name='siswa' type='radio' value='<?=$row[nis]; ?>' onclick='changeSel(<?=$cnt; ?>)' width='20%'><?=$row[nis]; ?></td>
-		<td width='60%'class='data'><?=$row[nama]; ?></td><td><?="$rw['departemen'] - $rw[kelas]"; ?> </td> 
+		<td class='data'><input type="hidden" name="nis<?=$cnt; ?>" value="<?=$row['nis']; ?>">
+		<input type="hidden" name="nama<?=$cnt; ?>" value="<?=$row['nama']; ?>"><input name='siswa' type='radio' value='<?=$row['nis']; ?>' onclick='changeSel(<?=$cnt; ?>)' width='20%'><?=$row['nis']; ?></td>
+		<td width='60%'class='data'><?=$row['nama']; ?></td><td><?="$rw['departemen'] - $rw[kelas]"; ?> </td> 
 	</tr>
 	<?php
 	$cnt++;

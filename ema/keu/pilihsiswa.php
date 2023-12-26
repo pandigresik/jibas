@@ -98,9 +98,9 @@ $departemen=$_REQUEST['departemen'];
 	  while ($row = @mysqli_fetch_array($result)){
 	  ?>
       <tr>
-        <td height="20" align="center"><?=$row[nis]?></td>
-        <td height="20"><?=$row[nama]?></td>
-        <td height="20" align="center"><input type="button" value=" > " class="cmbfrm2" onClick="pilihsiswa('<?=$row[nis]?>')" /></td>
+        <td height="20" align="center"><?=$row['nis']?></td>
+        <td height="20"><?=$row['nama']?></td>
+        <td height="20" align="center"><input type="button" value=" > " class="cmbfrm2" onClick="pilihsiswa('<?=$row['nis']?>')" /></td>
       </tr>
       <?php } ?>
       <?php } else { ?>

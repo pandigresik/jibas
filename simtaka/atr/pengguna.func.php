@@ -39,8 +39,8 @@ function GetPerpus($tingkat, $dep)
 						
         while ($row = mysqli_fetch_array($res))
 		{
-            echo "<option value='$row['replid']:$row[nama]'>\r\n";
-			echo $row[nama];
+            echo "<option value='$row['replid']:$row['nama']'>\r\n";
+			echo $row['nama'];
 			echo "</option>\r\n";
         }
 	} 

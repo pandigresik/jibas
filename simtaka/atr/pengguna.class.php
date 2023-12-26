@@ -43,7 +43,7 @@ class CPengguna
 		
 		if ($op=="nyd6j287sy388s3h8s8")
 		{
-			$sql = "UPDATE ".get_db_name('user').".hakakses SET aktif=$_REQUEST['newaktif'] WHERE login='".$_REQUEST['login']."' AND modul='SIMTAKA'";
+			$sql = "UPDATE ".get_db_name('user').".hakakses SET aktif='".$_REQUEST['newaktif']."' WHERE login='".$_REQUEST['login']."' AND modul='SIMTAKA'";
 			QueryDb($sql);
 		}
 	}

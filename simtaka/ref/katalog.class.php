@@ -96,19 +96,19 @@ class CKatalog{
 		  if ($num>0){
 		  	  $cnt=1;	
 			  while ($row=@mysqli_fetch_array($result)){
-		            $num_judul = @mysqli_num_rows(QueryDb("SELECT * FROM pustaka p, katalog k WHERE k.replid='$row['replid']." ' AND k.replid=p.katalog"));
-					$num_pustaka = @mysqli_fetch_row(QueryDb("SELECT COUNT(d.replid) FROM pustaka p, daftarpustaka d, katalog k WHERE d.pustaka=p.replid AND k.replid='$row['replid']." ' AND p.katalog=k.replid"));
+		            $num_judul = @mysqli_num_rows(QueryDb("SELECT * FROM pustaka p, katalog k WHERE k.replid='".$row['replid']."' AND k.replid=p.katalog"));
+					$num_pustaka = @mysqli_fetch_row(QueryDb("SELECT COUNT(d.replid) FROM pustaka p, daftarpustaka d, katalog k WHERE d.pustaka=p.replid AND k.replid='".$row['replid']."' AND p.katalog=k.replid"));
 			  ?>
 			  <tr>
 			    <td align="center"><?=$cnt?></td>
-				<td height="25" align="center"><?=$row[kode]?></td>
-				<td height="25">&nbsp;<?=$row[nama]?></td>
+				<td height="25" align="center"><?=$row['kode']?></td>
+				<td height="25">&nbsp;<?=$row['nama']?></td>
 				<td height="25" align="center">&nbsp;<?=$num_judul?>
                 	<?php if ($num_judul!=0){ ?>
                     &nbsp;<img src="../img/ico/lihat.png" style="cursor:pointer" onclick="ViewByTitle('<?=$row['replid']?>')" />
                 	<?php } ?>                </td>
 				<td height="25" align="center">&nbsp;<?=(int)$num_pustaka[0]?></td>
-				<td height="25">&nbsp;<?=$row[keterangan]?></td>
+				<td height="25">&nbsp;<?=$row['keterangan']?></td>
 				<?php if(IsAdmin()){ ?>
 				<td width="50" height="25" align="center" bgcolor="#FFFFFF"><a href="javascript:ubah('<?=$row['replid']?>')"><img src="../img/ico/ubah.png" width="16" height="16" border="0"></a>&nbsp;<a href="javascript:hapus('<?=$row['replid']?>')"><img src="../img/ico/hapus.png" border="0"></a></td>
 				<?php } ?>

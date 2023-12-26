@@ -85,7 +85,7 @@ $guru = $row[2].' - '.$row[3];
 	{
 		$query_at = "SELECT a.dasarpenilaian, dp.keterangan 
 		               FROM aturannhb a, tingkat t, dasarpenilaian dp 
-			 	      WHERE a.idtingkat='$row_tkt['replid']." ' AND a.idpelajaran = '$id_pelajaran' AND t.departemen='$departemen' 
+			 	      WHERE a.idtingkat='".$row_tkt['replid']."' AND a.idpelajaran = '$id_pelajaran' AND t.departemen='$departemen' 
 					  	AND a.dasarpenilaian = dp.dasarpenilaian AND dp.aktif = 1 
 				 		AND t.replid = a.idtingkat AND a.nipguru = '$nip' GROUP BY a.dasarpenilaian";
 		
@@ -109,7 +109,7 @@ $guru = $row[2].' - '.$row[3];
 		<td height="25"><?=$row_at[1] ?></td>
 		<td height="25">
 <?php 	$query_ju = "SELECT j.jenisujian, a.bobot, a.aktif, a.replid FROM aturannhb a, tingkat t, jenisujian j ".
-				 	"WHERE a.idtingkat = '".$row_tkt['replid']." ' AND a.idpelajaran = '$id_pelajaran' AND j.replid = a.idjenisujian ".
+				 	"WHERE a.idtingkat = '".$row_tkt['replid']."' AND a.idpelajaran = '$id_pelajaran' AND j.replid = a.idjenisujian ".
 					"AND t.departemen = '$departemen' AND a.dasarpenilaian = '".$row_at[0]' AND t.replid = a.idtingkat ".
 					"AND a.nipguru = '$nip'";
 		$result_ju = QueryDb($query_ju);

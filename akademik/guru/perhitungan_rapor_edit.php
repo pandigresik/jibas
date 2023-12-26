@@ -234,7 +234,7 @@ function simpan(evt)
 			$sql1 = "SELECT a.bobot, j.jenisujian, a.replid 
 						  FROM aturannhb a, jenisujian j 
 						 WHERE a.idpelajaran = '$id_pelajaran' AND a.nipguru = '$nip_guru' AND a.idtingkat = '$id_tingkat' 
-						   AND a.dasarpenilaian = '$aspek' AND a.idjenisujian = '".$row['replid']." ' AND a.idjenisujian = j.replid"; 
+						   AND a.dasarpenilaian = '$aspek' AND a.idjenisujian = '".$row['replid']."' AND a.idjenisujian = j.replid"; 
 			$result1 = QueryDb($sql1);
 			$row1 = @mysqli_fetch_row($result1);	?>		
 		<tr>

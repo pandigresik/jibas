@@ -35,7 +35,7 @@ OpenDb();
 $sql = "SELECT nama FROM pelajaran WHERE replid = '$pelajaran'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
-$pel = $row[nama];
+$pel = $row['nama'];
 
 $sql_sem = "SELECT * FROM semester WHERE departemen = '$departemen'";
 $result_sem = QueryDb($sql_sem);
@@ -141,9 +141,9 @@ function cetak(semester) {
                         <td width="400" class="header" align="center" height="30">Keterangan</td>
                     </tr>
 			<?php 	OpenDb();		
-                $sql1 = "SELECT u.tanggal, n.nilaiujian, n.keterangan FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$sem[$k][0]."' AND u.idjenis = '".$row['replid']." ' AND u.replid = n.idujian AND n.nis = '$nis' ORDER BY u.tanggal";
+                $sql1 = "SELECT u.tanggal, n.nilaiujian, n.keterangan FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$sem[$k][0]."' AND u.idjenis = '".$row['replid']."' AND u.replid = n.idujian AND n.nis = '$nis' ORDER BY u.tanggal";
                 $result1 = QueryDb($sql1);
-                $sql2 = "SELECT AVG(n.nilaiujian) as rata FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$sem[$k][0]."' AND u.idjenis = '".$row['replid']." ' AND u.replid = n.idujian AND n.nis = '$nis' ";
+                $sql2 = "SELECT AVG(n.nilaiujian) as rata FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$sem[$k][0]."' AND u.idjenis = '".$row['replid']."' AND u.replid = n.idujian AND n.nis = '$nis' ";
                 $result2 = QueryDb($sql2);
                 $row2 = @mysqli_fetch_array($result2);
                 $rata = $row2[rata];

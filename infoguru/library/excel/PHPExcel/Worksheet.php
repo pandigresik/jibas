@@ -42,7 +42,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
      *
      * @var array
      */
-    private static $invalidCharacters = array('*', ':', '/', '\\', '?', '[', ']." ');
+    private static $invalidCharacters = array('*', ':', '/', '\\', '?', '[', ']."');
 
     /**
      * Parent spreadsheet

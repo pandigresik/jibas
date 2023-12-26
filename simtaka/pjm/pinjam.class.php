@@ -112,14 +112,14 @@ class CPinjam
 		if ($this->op == 'delqueue')
 		{
 			$sql = "DELETE FROM pinjam
-					 WHERE replid = $_REQUEST['replid']";
+					 WHERE replid = {$_REQUEST['replid']}";
 			QueryDb($sql);
 		}
 		
 		if ($this->op == 'DontSave')
 		{
 			$sql = "DELETE FROM pinjam
-			         WHERE replid IN ($_REQUEST['idstr'])";
+			         WHERE replid IN ({$_REQUEST['idstr']})";
 			QueryDb($sql);
 		}
 		
@@ -127,18 +127,18 @@ class CPinjam
 		{
 			$sql = "UPDATE pinjam
 					   SET status = 1
-					 WHERE replid IN ($_REQUEST['idstr'])";
+					 WHERE replid IN ({$_REQUEST['idstr']})";
 			QueryDb($sql);
 			
 			$sql = "SELECT kodepustaka
 					  FROM pinjam
-					 WHERE replid IN ($_REQUEST['idstr'])";
+					 WHERE replid IN ({$_REQUEST['idstr']})";
 			$result = QueryDb($sql);
 			while ($row = @mysqli_fetch_array($result))
 			{
 				$sql = "UPDATE daftarpustaka
 						   SET status = 0
-						 WHERE kodepustaka='$row[kodepustaka]'";
+						 WHERE kodepustaka='{{$row['kodepustaka']}}'";
 				QueryDb($sql);
 			}
 		}
@@ -321,15 +321,15 @@ class CPinjam
                   <?php
 				  $cnt=1;
 				  while ($row=@mysqli_fetch_array($result)){
-				  $judul = @mysqli_fetch_row(QueryDb("SELECT p.judul FROM pustaka p, daftarpustaka d WHERE d.pustaka=p.replid AND d.kodepustaka='$row[kodepustaka]'"));
+				  $judul = @mysqli_fetch_row(QueryDb("SELECT p.judul FROM pustaka p, daftarpustaka d WHERE d.pustaka=p.replid AND d.kodepustaka='{$row['kodepustaka']}'"));
 				  ?>
                   <tr height="25">
                     <td width="20" height="20" align="center">
 						<input type="hidden" name="idpinjam<?=$cnt?>" id="idpinjam<?=$cnt?>" value="<?=$row['replid']?>" />
 						<?=$cnt?>                    </td>
-                    <td width="254" align="center"><?=$row[kodepustaka]?></td>
+                    <td width="254" align="center"><?=$row['kodepustaka']?></td>
                     <td width="496" ><?=$judul[0]?></td>
-                    <td width="100" align="center"><?=LongDateFormat($row[tglkembali])?></td>
+                    <td width="100" align="center"><?=LongDateFormat($row['tglkembali'])?></td>
                     <td width="100" align="center"><a href="javascript:HapusPeminjaman('<?=$row['replid']?>')"><img src="../img/ico/hapus.png" width="16" height="16" border="0" /></a></td>
                   </tr>
                   <?php $cnt++; ?>

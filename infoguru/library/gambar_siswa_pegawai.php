@@ -41,9 +41,9 @@ $result = QueryDb($query);
 $num = @mysqli_num_rows($result);
 if ($row = mysqli_fetch_array($result))
 {
-    if($row[foto])
+    if($row['foto'])
     {
-        echo $row[foto];
+        echo $row['foto'];
     }
     else
     {

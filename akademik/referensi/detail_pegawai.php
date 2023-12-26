@@ -78,11 +78,11 @@ if (!isset($_POST['simpan'])) {
 $query = "select replid,nip,noid,nama,bagian, tmplahir,day(tgllahir) as tanggal,year(tgllahir) as tahun,month(tgllahir) as bulan,suku,dokter from jibiklinik.pendataanpegawai  where replid = '$lihat_pegawai'";
 $result_query= Querydb($query) or die(mysqli_error);
 $row=mysqli_fetch_array($result_query);
-$tmplahir=$row[tmplahir];
-$tgllahir=$row[tanggal];
-$bulanlahir=$row[bulan];
-$tahunlahir=$row[tahun];
-if($row[dokter]== 1 )
+$tmplahir=$row['tmplahir'];
+$tgllahir=$row['tanggal'];
+$bulanlahir=$row['bulan'];
+$tahunlahir=$row['tahun'];
+if($row['dokter']== 1 )
 {
  $dokter = "Dokter";
 } else {
@@ -148,7 +148,7 @@ if($row[dokter]== 1 )
     <?php
 
 }else {
-    $query_cek = "SELECT * FROM pegawai.suku WHERE suku = '$_POST['suku']'";
+    $query_cek = "SELECT * FROM pegawai.suku WHERE suku = '$_POST['suku']."'";
     $result_cek = QueryDb($query_cek);
     $num_cek = @mysqli_num_rows($result_cek);
 

@@ -19,7 +19,7 @@ $row = @mysqli_fetch_array($result);
 <tr>
     <td width="40" height="69" style="background-image:url(images/agenda_01.jpg); background-repeat:no-repeat;">&nbsp;</td>
     <td width="236" height="69" valign="bottom" style="background-image:url(images/agenda_03.jpg); background-repeat:repeat-x;">
-        <div align="right"><span class="style1" style='color: maroon'><?=ShortDateFormat($row[tanggal])?></span><br></div>
+        <div align="right"><span class="style1" style='color: maroon'><?=ShortDateFormat($row['tanggal'])?></span><br></div>
     </td>
     <td width="42" height="69" style="background-image:url(images/agenda_04.jpg); background-repeat:no-repeat">&nbsp;</td>
     <td width="32" height="69" style="background-image:url(images/agenda_05.jpg); background-repeat:no-repeat">&nbsp;</td>

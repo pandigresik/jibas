@@ -125,7 +125,7 @@ OpenDb();
                 $kelas = $row['replid']; 
                 ?>
     	<option value="<?=$row['replid'] ?>" <?=StringIsSelected($row['replid'], $kelas) ?> >
-    	<?=$row[kelas] ?>
+    	<?=$row['kelas'] ?>
     	</option>
     <?php } 
 	} else {	?>

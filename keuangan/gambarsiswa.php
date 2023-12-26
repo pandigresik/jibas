@@ -29,12 +29,12 @@ require_once('include/db_functions.php');
 
 OpenDb();
 header("Content-type: image/jpeg");
-$query = "SELECT foto FROM jbsakad.siswa WHERE nis = '$_GET['nis']'";
+$query = "SELECT foto FROM jbsakad.siswa WHERE nis = '$_GET['nis']."'";
 $result = QueryDb($query);
 $num = @mysqli_num_rows($result);
 if ($row = mysqli_fetch_array($result)) {
-   if($row[foto]) {
-       echo  $row[foto];
+   if($row['foto']) {
+       echo  $row['foto'];
    } else {
        $filename = "images/ico/no_image.png";
        $handle = fopen($filename, "r");

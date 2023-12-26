@@ -65,8 +65,8 @@ $result=QueryDb($query);
   ?>
   <tr>
     <td height="25"><?=$cnt?></td>
-    <td height="25"><?=format_tgl($row[tanggalawal])?></td>
-    <td height="25"><?=format_tgl($row[tanggalakhir])?></td>
+    <td height="25"><?=format_tgl($row['tanggalawal'])?></td>
+    <td height="25"><?=format_tgl($row['tanggalakhir'])?></td>
     <td height="25"><?=$row['kegiatan']?></td>
   </tr>
   <?php

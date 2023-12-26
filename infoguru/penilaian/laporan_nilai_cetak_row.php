@@ -284,7 +284,7 @@ if (isset($_REQUEST['harian']))
 	$result_get_pelajaran_komentar=QueryDb($sql_get_pelajaran_komentar);
 	$cntpel_komentar=1;
 	while ($row_get_pelajaran_komentar=@mysqli_fetch_array($result_get_pelajaran_komentar)){
-	$sql_get_komentar="SELECT k.komentar FROM jbsakad.komennap k, jbsakad.infonap i WHERE k.nis='$nis' AND i.idpelajaran='$row_get_pelajaran_komentar['replid']." ' AND i.replid=k.idinfo";
+	$sql_get_komentar="SELECT k.komentar FROM jbsakad.komennap k, jbsakad.infonap i WHERE k.nis='$nis' AND i.idpelajaran='$row_get_pelajaran_komentar['replid']."' AND i.replid=k.idinfo";
 	$result_get_komentar=QueryDb($sql_get_komentar);
 	$row_get_komentar=@mysqli_fetch_row($result_get_komentar);
 	?>
@@ -452,7 +452,7 @@ if (isset($_REQUEST['harian']))
 	while ($row_get_pelajaran_presensi=@mysqli_fetch_array($result_get_pelajaran_presensi)){
 	//ambil semua jumlah presensi per pelajaran 
 	$sql_get_all_presensi="select count(*) as jumlah FROM jbsakad.presensipelajaran pel, jbsakad.ppsiswa pp ".
-						  "WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']." ' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
+						  "WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']."' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
 		                  "AND pel.replid=pp.idpp AND pp.nis='$nis'";
 	$result_get_all_presensi=QueryDb($sql_get_all_presensi);
 	$row_get_all_presensi=@mysqli_fetch_array($result_get_all_presensi);
@@ -462,7 +462,7 @@ if (isset($_REQUEST['harian']))
 
 	//ambil yang hadir
 	$sql_get_hadir="select count(*) as hadir FROM jbsakad.presensipelajaran pel, jbsakad.ppsiswa pp ".
-						  "WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']." ' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
+						  "WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']."' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
 		                  "AND pel.replid=pp.idpp AND pp.nis='$nis' AND pp.statushadir=0";
 	$result_get_hadir=QueryDb($sql_get_hadir);
 	$row_get_hadir=@mysqli_fetch_array($result_get_hadir);
@@ -470,7 +470,7 @@ if (isset($_REQUEST['harian']))
 	$hh[$cntpel_presensi]=$hadir;
 	//ambil yang sakit
 	$sql_get_sakit="select count(*) as sakit FROM jbsakad.presensipelajaran pel, jbsakad.ppsiswa pp ".
-						  "WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']." ' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
+						  "WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']."' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
 		                  "AND pel.replid=pp.idpp AND pp.nis='$nis' AND pp.statushadir=1";
 	$result_get_sakit=QueryDb($sql_get_sakit);
 	$row_get_sakit=@mysqli_fetch_array($result_get_sakit);
@@ -478,7 +478,7 @@ if (isset($_REQUEST['harian']))
 	$ss[$cntpel_presensi]=$sakit;
 	//ambil yang ijin
 	$sql_get_ijin="select count(*) as ijin FROM jbsakad.presensipelajaran pel, jbsakad.ppsiswa pp ".
-						  "WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']." ' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
+						  "WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']."' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
 		                  "AND pel.replid=pp.idpp AND pp.nis='$nis' AND pp.statushadir=2";
 	$result_get_ijin=QueryDb($sql_get_ijin);
 	$row_get_ijin=@mysqli_fetch_array($result_get_ijin);
@@ -486,7 +486,7 @@ if (isset($_REQUEST['harian']))
 	$ii[$cntpel_presensi]=$ijin;
 	//ambil yang alpa
 	$sql_get_alpa="select count(*) as alpa FROM jbsakad.presensipelajaran pel, jbsakad.ppsiswa pp ".
-						  "WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']." ' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
+						  "WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']."' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
 		                  "AND pel.replid=pp.idpp AND pp.nis='$nis' AND pp.statushadir=3";
 	$result_get_alpa=QueryDb($sql_get_alpa);
 	$row_get_alpa=@mysqli_fetch_array($result_get_alpa);

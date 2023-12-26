@@ -5,7 +5,7 @@ function insRow(Content){
 	var lastRow = x.rows.length;
 	var iteration = lastRow;
 	var row = x.insertRow(1);
-	//ReadMessage(<?=$row[ID]?>);
+	//ReadMessage(<?=$row['ID']?>);
 	
 	row.style.backgroundColor = "#ffda09";
 	row.style.fontWeight = "BOLD";

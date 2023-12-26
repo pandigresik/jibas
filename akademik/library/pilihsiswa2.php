@@ -198,7 +198,7 @@ openDB();
 				<td><select name="kelas" style="width:100px ">
 				<?php
 				$query_kls = "SELECT * FROM jbsakad.kelas WHERE kelas.departemen = '$departemen' ".
-							 "AND kelas.idtingkat = '$tingkat' AND idtahunajaran = '".$row_thn['replid']." ' ORDER BY kelas.kelas ASC";
+							 "AND kelas.idtingkat = '$tingkat' AND idtahunajaran = '".$row_thn['replid']."' ORDER BY kelas.kelas ASC";
 				$result_kls = QueryDb($query_kls);
 				$i=0;
 				while($row_kls = mysqli_fetch_array($result_kls)){
@@ -259,9 +259,9 @@ if ((isset($_POST["cari"]))){
 		
 	<tr <?="bgcolor=#".($cnt%2?"ffffff":"EAECEE").""; ?>>
 		<td class='data'>
-		<input type="hidden" name="nis<?=$cnt; ?>" value="<?=$row[nis]; ?>">
-		<input type="hidden" name="nama<?=$cnt; ?>" value="<?=$row[nama]; ?>"><input name='siswa' type='radio' value='<?=$row[nis]; ?>' onclick='changeSel(<?=$cnt; ?>)' width='30%'><?=$row[nis]; ?></td>
-		<td width='70%'class='data'><?=$row[nama]; ?></td>
+		<input type="hidden" name="nis<?=$cnt; ?>" value="<?=$row['nis']; ?>">
+		<input type="hidden" name="nama<?=$cnt; ?>" value="<?=$row['nama']; ?>"><input name='siswa' type='radio' value='<?=$row['nis']; ?>' onclick='changeSel(<?=$cnt; ?>)' width='30%'><?=$row['nis']; ?></td>
+		<td width='70%'class='data'><?=$row['nama']; ?></td>
 	</tr>
 	<?php
 	$cnt++;

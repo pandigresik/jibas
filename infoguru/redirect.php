@@ -151,7 +151,7 @@ else
 		{
 			$dirfullpath = $row_root['dirfullpath'] . $_SESSION[login] . "/";
 			
-			$query_dir = "INSERT INTO jbsvcr.dirshare SET idroot='$row_root['replid']." ', 
+			$query_dir = "INSERT INTO jbsvcr.dirshare SET idroot='$row_root['replid']."', 
 							dirname='$_SESSION[login]', dirfullpath='$dirfullpath', idguru='$_SESSION[login]'";
 			QueryDb($query_dir);
 		}

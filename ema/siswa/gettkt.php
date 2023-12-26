@@ -41,7 +41,7 @@ if ($num==0){
 	while ($row = @mysqli_fetch_array($result)){
 		if ($tkt == "")
 			$tkt = $row['replid'];
-		echo "<option value='$row['replid']." ' ".StringIsSelected($tkt,$row['replid']).">$row[tingkat]</option>";
+		echo "<option value='$row['replid']."' ".StringIsSelected($tkt,$row['replid']).">$row['tingkat']</option>";
 	}
 }
 */

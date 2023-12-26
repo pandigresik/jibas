@@ -192,18 +192,18 @@ function loadKalender1($kalender, $id) {
 		$jangka = '('.$tgl1[2].'/'.$tgl1[1].'/'.substr($tgl1[0],2,2).' - '.$tgl2[2].'/'.$tgl2[1].'/'.substr($tgl2[0],2,2).')';
 		//$jangka = '('.$row[6].'/'.$row[4].'/'.substr($row[8],2,2).' - '.$row[7].'/'.$row[5].'/'.substr($row[9],2,2).')';
 		
-		$GLOBALS[keg]['row'][$i][id] = $row[0];				
-		$GLOBALS[keg]['row'][$i][judul] = $row[1];				
-		$GLOBALS[keg]['row'][$i][tanggal1] = $tgl1[2];
-		$GLOBALS[keg]['row'][$i][bulan1] = $tgl1[1];				
-		$GLOBALS[keg]['row'][$i][tahun1] = $tgl1[0];
-		$GLOBALS[keg]['row'][$i][tanggal2] = $tgl2[2];
-		$GLOBALS[keg]['row'][$i][bulan2] = $tgl2[1];
-		$GLOBALS[keg]['row'][$i][tahun2] = $tgl2[0];
-		$GLOBALS[keg]['row'][$i][jangka] = $jangka;
+		$GLOBALS['keg']['row'][$i][id] = $row[0];				
+		$GLOBALS['keg']['row'][$i][judul] = $row[1];				
+		$GLOBALS['keg']['row'][$i][tanggal1] = $tgl1[2];
+		$GLOBALS['keg']['row'][$i][bulan1] = $tgl1[1];				
+		$GLOBALS['keg']['row'][$i][tahun1] = $tgl1[0];
+		$GLOBALS['keg']['row'][$i][tanggal2] = $tgl2[2];
+		$GLOBALS['keg']['row'][$i][bulan2] = $tgl2[1];
+		$GLOBALS['keg']['row'][$i][tahun2] = $tgl2[0];
+		$GLOBALS['keg']['row'][$i][jangka] = $jangka;
 		
 		if ($id == $row[0]) {
-			$GLOBALS[urutan] = $i;
+			$GLOBALS['urutan'] = $i;
 		}
 			
 		++$i;
@@ -423,14 +423,14 @@ function tampil(replid) {
     </tr>
    
     <?php //foreach($acara as $k => $v) {
-        /*$GLOBALS[keg]['row'][$i][id] = $row[0];				
-        $GLOBALS[keg]['row'][$i][judul] = $row[1];				
-        $GLOBALS[keg]['row'][$i][tanggal1] = $tgl1[2];
-        $GLOBALS[keg]['row'][$i][bulan1] = $tgl1[1];
-        $GLOBALS[keg]['row'][$i][tahun1] = $tgl1[0];
-        $GLOBALS[keg]['row'][$i][tanggal2] = $tgl2[2];
-        $GLOBALS[keg]['row'][$i][bulan2] = $tgl2[1];
-        $GLOBALS[keg]['row'][$i][tahun2] = $tgl2[0];
+        /*$GLOBALS['keg']['row'][$i][id] = $row[0];				
+        $GLOBALS['keg']['row'][$i][judul] = $row[1];				
+        $GLOBALS['keg']['row'][$i][tanggal1] = $tgl1[2];
+        $GLOBALS['keg']['row'][$i][bulan1] = $tgl1[1];
+        $GLOBALS['keg']['row'][$i][tahun1] = $tgl1[0];
+        $GLOBALS['keg']['row'][$i][tanggal2] = $tgl2[2];
+        $GLOBALS['keg']['row'][$i][bulan2] = $tgl2[1];
+        $GLOBALS['keg']['row'][$i][tahun2] = $tgl2[0];
         */
 		//$color_in = array("#FFCC33","#C7C6EA","#FF8e8e","#9DD7CB","#f2ade4","#C1E6AC");
 		$color_in = array("#C1E6AC","#f2ade4","#9DD7CB","#FF8e8e","#C7C6EA","#FFCC33");

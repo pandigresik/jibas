@@ -59,14 +59,14 @@ $sql = "SELECT * FROM perpustakaan ORDER BY nama";
 $result = QueryDB($sql);
 $cnt = 0;
 while ($row = mysqli_fetch_array($result)) {
-	$num_judul = @mysqli_num_rows(QueryDb("SELECT * FROM pustaka p, daftarpustaka d WHERE d.perpustakaan='$row['replid']." ' AND p.replid=d.pustaka GROUP BY d.pustaka"));
-	$num_pustaka = @mysqli_fetch_row(QueryDb("SELECT COUNT(d.replid) FROM pustaka p, daftarpustaka d WHERE d.pustaka=p.replid AND d.perpustakaan='$row['replid']." '"));
+	$num_judul = @mysqli_num_rows(QueryDb("SELECT * FROM pustaka p, daftarpustaka d WHERE d.perpustakaan='".$row['replid']."' AND p.replid=d.pustaka GROUP BY d.pustaka"));
+	$num_pustaka = @mysqli_fetch_row(QueryDb("SELECT COUNT(d.replid) FROM pustaka p, daftarpustaka d WHERE d.pustaka=p.replid AND d.perpustakaan='".$row['replid']."'"));
 ?>
   <tr>
-	<td height="25">&nbsp;<?=$row[nama]?></td>
+	<td height="25">&nbsp;<?=$row['nama']?></td>
 	<td height="25" align="center">&nbsp;<?=$num_judul?></td>
 	<td height="25" align="center">&nbsp;<?=(int)$num_pustaka[0]?></td>
-	<td height="25">&nbsp;<?=$row[keterangan]?></td>
+	<td height="25">&nbsp;<?=$row['keterangan']?></td>
   </tr>
 		
 <?php 

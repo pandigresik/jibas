@@ -956,7 +956,7 @@ require_once('siswa_edit.func.php');
             <td>HP Ortu #2</td>
             <td align="left">
                 <input type="text" name="hportu2" id="hportu2" size="15" maxlength="20"
-                       value="<?=$row_siswa[info1]?>" class="ukuran" onKeyPress="return focusNext('hportu3', event)"
+                       value="<?=$row_siswa['info1']?>" class="ukuran" onKeyPress="return focusNext('hportu3', event)"
                        onFocus="panggil('hportu2')" onBlur="unfokus('hportu2')"/>
             </td>
         </tr>

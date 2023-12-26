@@ -49,7 +49,7 @@ if (isset($_REQUEST['keterangan']))
 
 $ERROR_MSG = "";
 if (isset($_REQUEST['Simpan'])) {
-	$sql_cek = "SELECT * FROM kelas WHERE kelas = '".$_REQUEST['kelas']." ' AND idtahunajaran = '".$_REQUEST['tahunajaran']." ' AND idtingkat = '".$_REQUEST['tingkat']."'";
+	$sql_cek = "SELECT * FROM kelas WHERE kelas = '".$_REQUEST['kelas']."' AND idtahunajaran = '".$_REQUEST['tahunajaran']."' AND idtingkat = '".$_REQUEST['tingkat']."'";
 	//$sql_cek = "SELECT * FROM kelas WHERE kelas = '".$_REQUEST['kelas']."'";
 	$result_cek = QueryDb($sql_cek);
 	
