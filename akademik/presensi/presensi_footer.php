@@ -343,7 +343,7 @@ function focusNext(elemName, evt) {
 		
 		while ($row = @mysqli_fetch_array($result)) {		
 			if ($id) {
-				$sql1 = "SELECT * FROM ppsiswa WHERE idpp = '$id' AND nis='$row[nis]'";
+				$sql1 = "SELECT * FROM ppsiswa WHERE idpp = '$id' AND nis='$row['nis']'";
 				
 				$result1 = QueryDb($sql1);
 				$jml = mysqli_num_rows($result1);

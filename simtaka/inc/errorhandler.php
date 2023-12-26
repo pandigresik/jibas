@@ -23,7 +23,7 @@
 <?php
 set_error_handler('errorHandler');
 
-function errorHandler ($errno, $errstr, $errfile, $errline, $errcontext) 
+function errorHandler ($errno, $errstr, $errfile, $errline) 
 {
    switch ($errno) 
    {

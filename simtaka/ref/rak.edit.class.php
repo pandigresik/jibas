@@ -41,8 +41,8 @@ class CRakEdit{
 			$result = QueryDb($sql);
 			$row = @mysqli_fetch_array($result);
 			$this->replid = $_REQUEST['id'];
-			$this->rak = $row[rak];
-			$this->keterangan = $row[keterangan];
+			$this->rak = $row['rak'];
+			$this->keterangan = $row['keterangan'];
 		}
 	}
 	function exist(){

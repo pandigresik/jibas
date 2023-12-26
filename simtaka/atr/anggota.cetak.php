@@ -65,11 +65,11 @@ $departemen='yayasan';
 			  while ($row=@mysqli_fetch_array($result)){
 			  ?>
 			  <tr>
-				<td height="25" align="center"><?=stripslashes($row[noregistrasi])?></td>
-				<td height="25" align="center">&nbsp;<?=stripslashes($row[nama])?></td>
-				<td height="25" align="center">&nbsp;<?=stripslashes($row[email])?></td>
-				<td height="25" align="center">&nbsp;<?=stripslashes($row[telpon])?></td>
-				<td height="25" align="center">&nbsp;<?=stripslashes($row[keterangan])?></td>
+				<td height="25" align="center"><?=stripslashes($row['noregistrasi'])?></td>
+				<td height="25" align="center">&nbsp;<?=stripslashes($row['nama'])?></td>
+				<td height="25" align="center">&nbsp;<?=stripslashes($row['email'])?></td>
+				<td height="25" align="center">&nbsp;<?=stripslashes($row['telpon'])?></td>
+				<td height="25" align="center">&nbsp;<?=stripslashes($row['keterangan'])?></td>
 			  </tr>
 			  <?php
 			  }

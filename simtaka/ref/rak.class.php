@@ -63,18 +63,18 @@ class CRak{
 		  if ($num>0){
 		      $cnt=1; 
 			  while ($row=@mysqli_fetch_array($result)){
-					$num_judul = @mysqli_num_rows(QueryDb("SELECT * FROM pustaka p, katalog k WHERE k.rak='$row['replid']." ' AND k.replid=p.katalog"));
-					$num_pustaka = @mysqli_fetch_row(QueryDb("SELECT COUNT(d.replid) FROM pustaka p, daftarpustaka d, katalog k WHERE d.pustaka=p.replid AND k.rak='$row['replid']." ' AND k.replid=p.katalog"));
+					$num_judul = @mysqli_num_rows(QueryDb("SELECT * FROM pustaka p, katalog k WHERE k.rak='".$row['replid']."' AND k.replid=p.katalog"));
+					$num_pustaka = @mysqli_fetch_row(QueryDb("SELECT COUNT(d.replid) FROM pustaka p, daftarpustaka d, katalog k WHERE d.pustaka=p.replid AND k.rak='".$row['replid']."' AND k.replid=p.katalog"));
 			  ?>
 			  <tr>
 			    <td align="center"><?=$cnt?></td>
-				<td height="25" align="left">&nbsp;<?=$row[rak]?></td>
+				<td height="25" align="left">&nbsp;<?=$row['rak']?></td>
 				<td height="25" align="center">&nbsp;<?=$num_judul?>
                 <?php if ($num_judul!=0){ ?>
                     &nbsp;<img src="../img/ico/lihat.png" style="cursor:pointer" onclick="ViewByTitle('<?=$row['replid']?>')" />
                 <?php } ?>                </td>
 				<td height="25" align="center">&nbsp;<?=(int)$num_pustaka[0]?></td>
-				<td height="25">&nbsp;<?=$row[keterangan]?></td>
+				<td height="25">&nbsp;<?=$row['keterangan']?></td>
 				<?php if(IsAdmin()){ ?>
 				<td height="25" align="center" bgcolor="#FFFFFF">
 				<table border='0'>

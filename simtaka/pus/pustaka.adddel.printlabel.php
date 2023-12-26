@@ -48,7 +48,7 @@ if ($idperpustakaan != -1)
 	$sql = "SELECT nama FROM perpustakaan WHERE replid = '$idperpustakaan'";
 	$result = QueryDb($sql);
 	$row = @mysqli_fetch_array($result);
-	$nama = $row[nama];
+	$nama = $row['nama'];
 }
 else
 {

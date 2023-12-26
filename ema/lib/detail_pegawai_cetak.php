@@ -81,7 +81,7 @@ CloseDb();
             <td>&nbsp;</td>
             <td width="21%">a. Lengkap</td>
             <td width="67%">:
-              <?=$row['nama']?> <?php if ($row['gelar']!="") echo ", ".$row[gelar]; ?></td>
+              <?=$row['nama']?> <?php if ($row['gelar']!="") echo ", ".$row['gelar']; ?></td>
           </tr>
           <tr height="20">
             <td>&nbsp;</td>

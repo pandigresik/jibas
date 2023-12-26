@@ -78,7 +78,7 @@ function Cetak(){
         <?php
         while ($row = @mysqli_fetch_array($result)){
         ?>
-        <option value="<?=$row['replid']?>" <?=StringIsSelected($row['replid'],$perpustakaan) ?> ><?=$row[nama]?></option>
+        <option value="<?=$row['replid']?>" <?=StringIsSelected($row['replid'],$perpustakaan) ?> ><?=$row['nama']?></option>
         <?php
         }
         ?>
@@ -104,10 +104,10 @@ function Cetak(){
 			$sql3 = "INSERT INTO ".$db_name_umum.".identitas SET status=1, perpustakaan='$perpustakaan', departemen='P_".$perpustakaan."'"; 
 			QueryDb($sql3);
 		}
-		if (strlen($row[foto])==0){
-			if (strlen($row[foto])==0 && $perpustakaan=='alls'){
+		if (strlen($row['foto'])==0){
+			if (strlen($row['foto'])==0 && $perpustakaan=='alls'){
 				echo "<div align='center' style='padding-top:20px'>Belum ada logo untuk semua perpustakaan</div>";
-			} elseif (strlen($row[foto])==0 && $perpustakaan!='alls'){
+			} elseif (strlen($row['foto'])==0 && $perpustakaan!='alls'){
 				$sql2 	= "SELECT nama FROM perpustakaan WHERE replid='$perpustakaan'";
 				$result2= QueryDb($sql2);
 				$row2	= @mysqli_fetch_array($result2);
@@ -122,10 +122,10 @@ function Cetak(){
         ?>        </td>
         <td>
         <?php
-		if (strlen($row[nama])==0){
-			if (strlen($row[nama])==0 && $perpustakaan=='alls'){
+		if (strlen($row['nama'])==0){
+			if (strlen($row['nama'])==0 && $perpustakaan=='alls'){
 				echo "<div align='center' style='padding-top:20px'>Belum ada logo untuk semua perpustakaan</div>";
-			} elseif (strlen($row[nama])==0 && $perpustakaan!='alls'){
+			} elseif (strlen($row['nama'])==0 && $perpustakaan!='alls'){
 				$sql2 	= "SELECT nama FROM perpustakaan WHERE replid='$perpustakaan'";
 				$result2= QueryDb($sql2);
 				$row2	= @mysqli_fetch_array($result2);
@@ -135,7 +135,7 @@ function Cetak(){
 		} else {
 			?>
             <span style="font-family:Arial; font-size:22px; font-weight:bold; color:#000000">
-				<?=$row[nama]?>
+				<?=$row['nama']?>
             </span>
             <br />
             <strong>
@@ -161,13 +161,13 @@ function Cetak(){
 			?>
             <br />
             <?php
-			if ($row[situs]!='' || $row[email]!=''){
-				if ($row[situs]!='' && $row[email]=='')
-					echo "Website : ".$row[situs];
-				elseif ($row[email]!='' && $row[situs]=='')
-					echo "Email : ".$row[email];
-				elseif ($row[email]!='' && $row[situs]!='')
-					echo "Website : ".$row[situs]." Email : ".$row[email];		
+			if ($row['situs']!='' || $row['email']!=''){
+				if ($row['situs']!='' && $row['email']=='')
+					echo "Website : ".$row['situs'];
+				elseif ($row['email']!='' && $row['situs']=='')
+					echo "Email : ".$row['email'];
+				elseif ($row['email']!='' && $row['situs']!='')
+					echo "Website : ".$row['situs']." Email : ".$row['email'];		
 			}
 			echo "</strong>";
             echo "<div align='center' style='padding-top:20px'><a href=\"javascript:AddInfo('".$perpustakaan."','Edit')\"><img src='../img/ico/ubah.png' border='0' />Ubah</a></div>";

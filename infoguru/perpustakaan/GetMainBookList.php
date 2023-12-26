@@ -70,12 +70,12 @@ $num = @mysqli_num_rows($result);
 if ($num > 0){
 $cnt=1;
 while ($row = @mysqli_fetch_array($result)){
-$sqlPenulis = "SELECT kode,nama FROM $dbnameperpus.penulis WHERE replid = '".$row[penulis]'";
+$sqlPenulis = "SELECT kode,nama FROM $dbnameperpus.penulis WHERE replid = '".$row['penulis']'";
 $resultPenulis = QueryDb($sqlPenulis);
 $rowPenulis = @mysqli_fetch_row($resultPenulis);
 $penulis = $rowPenulis[0]."&nbsp;-&nbsp;".$rowPenulis[1];
 
-$sqlPenerbit = "SELECT kode,nama FROM $dbnameperpus.penerbit WHERE replid = '".$row[penerbit]'";
+$sqlPenerbit = "SELECT kode,nama FROM $dbnameperpus.penerbit WHERE replid = '".$row['penerbit']'";
 $resultPenerbit = QueryDb($sqlPenerbit);
 $rowPenerbit = @mysqli_fetch_row($resultPenerbit);
 $penerbit = $rowPenerbit[0]."&nbsp;-&nbsp;".$rowPenerbit[1];
@@ -85,7 +85,7 @@ $rtersedia = @mysqli_num_rows(QueryDb("SELECT * FROM $dbnameperpus.daftarpustaka
 ?>
   <tr>
     <td height="20" align="center"><div class="tab_content"><?=$cnt?></div></td>
-    <td height="20" class="td"><div class="tab_content"><?=$row[judul]?></div></td>
+    <td height="20" class="td"><div class="tab_content"><?=$row['judul']?></div></td>
     <td height="20" class="td"><div class="tab_content"><?=$penulis?></div></td>
     <td height="20" class="td"><div class="tab_content"><?=$penerbit?></div></td>
     <td height="20" align="center"><div class="tab_content"><?=$rtotal?></div></td>

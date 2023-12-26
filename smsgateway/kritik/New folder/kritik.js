@@ -5,7 +5,7 @@ function insRow(Content){
 	var lastRow = x.rows.length;
 	var iteration = lastRow;
 	var row = x.insertRow(1);
-	//ReadMessage(<?=$row[ID]?>);
+	//ReadMessage(<?=$row['ID']?>);
 	/*<span class='Link'>+6285624084062</span>#>09 November 2010 14:34:59#>Ini loh krtik sayah#>6#>ELLYF*/
 	//alert(Content);
 	row.style.backgroundColor = "#ffda09";

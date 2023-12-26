@@ -44,7 +44,7 @@ if (isset($_REQUEST['simpan']))
 	} 
 	else 
 	{
-		$sql = "UPDATE rekakun SET kategori='".$_REQUEST['kategori']." ',kode='".CQ($_REQUEST['edit_kode'])."',nama='".CQ($_REQUEST['nama'])."',keterangan='".CQ($_REQUEST['keterangan'])."' WHERE kode='".$_REQUEST['kode']."'";
+		$sql = "UPDATE rekakun SET kategori='".$_REQUEST['kategori']."',kode='".CQ($_REQUEST['edit_kode'])."',nama='".CQ($_REQUEST['nama'])."',keterangan='".CQ($_REQUEST['keterangan'])."' WHERE kode='".$_REQUEST['kode']."'";
 		$result = QueryDb($sql);
 		CloseDb();
 	

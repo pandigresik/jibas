@@ -31,7 +31,7 @@ class CKatalogEdit{
 			if ($num>0){
 				$this->exist();
 			} else {
-				$sql = "UPDATE katalog SET rak='".$_REQUEST['rak']." ', kode='".CQ($_REQUEST['kode'])."', nama='".CQ($_REQUEST['nama'])."', keterangan='".CQ($_REQUEST['keterangan'])."' WHERE replid='".$_REQUEST['replid']."'";
+				$sql = "UPDATE katalog SET rak='".$_REQUEST['rak']."', kode='".CQ($_REQUEST['kode'])."', nama='".CQ($_REQUEST['nama'])."', keterangan='".CQ($_REQUEST['keterangan'])."' WHERE replid='".$_REQUEST['replid']."'";
 				$result = QueryDb($sql);
 				if ($result)
 					$this->success($_REQUEST['rak']);
@@ -41,10 +41,10 @@ class CKatalogEdit{
 			$result = QueryDb($sql);
 			$row = @mysqli_fetch_array($result);
 			$this->replid = $_REQUEST['id'];
-			$this->rak = $row[rak];
-			$this->kode = $row[kode];
-			$this->nama = $row[nama];
-			$this->keterangan = $row[keterangan];
+			$this->rak = $row['rak'];
+			$this->kode = $row['kode'];
+			$this->nama = $row['nama'];
+			$this->keterangan = $row['keterangan'];
 		}
 	}
 	function exist(){

@@ -73,7 +73,7 @@ $namapelajaran = $row['nama'];
 $op = $_REQUEST['op'];
 if ($op == "dw8dxn8w9ms8zs22") {
 	//OpenDb();
-	$sql_upd = "UPDATE jbsakad.rpp SET aktif = '".$_REQUEST['newaktif']." ' WHERE replid = '".$_REQUEST['replid']."' ";
+	$sql_upd = "UPDATE jbsakad.rpp SET aktif = '".$_REQUEST['newaktif']."' WHERE replid = '".$_REQUEST['replid']."' ";
 	$result_upd = QueryDb($sql_upd);
 	if ($result_upd) { 
 		//CloseDb();

@@ -209,7 +209,7 @@ function cetak() {
 		OpenDb();
 		$query_at = "SELECT a.dasarpenilaian, dp.keterangan
 		               FROM aturannhb a, tingkat t, dasarpenilaian dp 
-			 		  WHERE a.idtingkat='$row_tkt['replid']." ' AND a.idpelajaran = '$id_pelajaran' AND t.departemen='$departemen' 
+			 		  WHERE a.idtingkat='".$row_tkt['replid']."' AND a.idpelajaran = '$id_pelajaran' AND t.departemen='$departemen' 
 					    AND a.dasarpenilaian = dp.dasarpenilaian AND dp.aktif = 1
   					    AND t.replid = a.idtingkat AND a.nipguru = '$nip_guru' GROUP BY a.dasarpenilaian";
 		
@@ -247,7 +247,7 @@ function cetak() {
 		<?php
 		OpenDb();
 		$query_ju = "SELECT j.jenisujian, a.bobot, a.aktif, a.replid FROM aturannhb a, tingkat t, jenisujian j ".
-				 	"WHERE a.idtingkat = '".$row_tkt['replid']." ' AND a.idpelajaran = '$id_pelajaran' AND j.replid = a.idjenisujian ".
+				 	"WHERE a.idtingkat = '".$row_tkt['replid']."' AND a.idpelajaran = '$id_pelajaran' AND j.replid = a.idjenisujian ".
 					"AND t.departemen = '$departemen' AND a.dasarpenilaian = '".$row_at[0]' AND a.nipguru = '$nip_guru' ".
 					"AND t.replid = a.idtingkat";
 		

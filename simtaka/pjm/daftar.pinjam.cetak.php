@@ -169,7 +169,7 @@ $num = @mysqli_num_rows($result); ?>
 			$sql = "SELECT judul
 					  FROM pustaka p, daftarpustaka d
 					 WHERE d.pustaka = p.replid
-					   AND d.kodepustaka = '".$row[kodepustaka]'";
+					   AND d.kodepustaka = '".$row['kodepustaka']'";
 			$res = QueryDb($sql);
 			$r = @mysqli_fetch_row($res);
 			$judul = $r[0];
@@ -179,18 +179,18 @@ $num = @mysqli_num_rows($result); ?>
 			$alt = 'OK';
 			$img = '<img src="../img/ico/Valid.png" width="16" height="16" title='.$alt.' />';
 			
-			if ($row[tglkembali] <= $now)
+			if ($row['tglkembali'] <= $now)
 			{
-			  	if ($row[tglkembali] == $now)
+			  	if ($row['tglkembali'] == $now)
 				{
 					$alt = 'Hari&nbsp;ini&nbsp;batas&nbsp;pengembalian&nbsp;terakhir';
 					$color = '#cb6e01';
 					$weight = 'font-weight:bold';
 					$telat = '';
 				}
-				elseif ($row[tglkembali] < $now)
+				elseif ($row['tglkembali'] < $now)
 				{
-					$diff = @mysqli_fetch_row(QueryDb("SELECT DATEDIFF('".$now."','".$row[tglkembali]."')"));
+					$diff = @mysqli_fetch_row(QueryDb("SELECT DATEDIFF('".$now."','".$row['tglkembali']."')"));
 					$alt = 'Terlambat&nbsp;'.$diff[0].'&nbsp;hari';
 					$color='red';
 					$weight='font-weight:bold';
@@ -203,10 +203,10 @@ $num = @mysqli_num_rows($result); ?>
 			?>
 			<tr style="color:<?=$color?>; <?=$weight?>">
 				<td align='center'><?=$cnt?></td>
-				<td align="center"><?=LongDateFormat($row[tglpinjam])?></td>
-				<td align="center"><?=LongDateFormat($row[tglkembali])?></td>
+				<td align="center"><?=LongDateFormat($row['tglpinjam'])?></td>
+				<td align="center"><?=LongDateFormat($row['tglkembali'])?></td>
 				<td align="left"><?=$idanggota?><br><?=$namaanggota?></td>
-				<td align="left"><?=$row[kodepustaka] . "<br>$judul" ?></td>
+				<td align="left"><?=$row['kodepustaka'] . "<br>$judul" ?></td>
 		        <td align="center"><?=$telat?></td>
 			</tr>
 <?php

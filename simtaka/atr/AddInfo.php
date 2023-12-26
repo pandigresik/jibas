@@ -31,13 +31,13 @@ OpenDb();
 $sql	= "SELECT * FROM ".$db_name_umum.".identitas WHERE status=1 AND perpustakaan='$perpustakaan'";
 $result = QueryDb($sql);
 $row	= @mysqli_fetch_array($result);
-$nama 	= $row[nama];
+$nama 	= $row['nama'];
 $alamat	= $row[alamat1];
 $telp1 	= $row[telp1];
 $telp2 	= $row[telp2];
 $fax 	= $row[fax1];
-$website= $row[situs];
-$email 	= $row[email]; 
+$website= $row['situs'];
+$email 	= $row['email']; 
 if (isset($_REQUEST['Simpan'])){
 	$nama 	= CQ($_REQUEST['nama']);
 	$alamat	= CQ($_REQUEST['alamat']);
@@ -82,7 +82,7 @@ if (isset($_REQUEST['Simpan'])){
 <table width="100%" border="0" cellspacing="3">
   <tr>
     <td width="34%" align="right">Nama Perpustakaan</td>
-    <td width="66%"><input type="text" name="nama" id="nama" class="inputtxt" style="width:175px" value="<?=$row[nama]?>" /></td>
+    <td width="66%"><input type="text" name="nama" id="nama" class="inputtxt" style="width:175px" value="<?=$row['nama']?>" /></td>
   </tr>
   <tr>
     <td align="right">Alamat</td>
@@ -102,11 +102,11 @@ if (isset($_REQUEST['Simpan'])){
   </tr>
   <tr>
     <td align="right">Website</td>
-    <td><input type="text" name="website" id="website" class="inputtxt" style="width:175px" value="<?=$row[situs]?>" /></td>
+    <td><input type="text" name="website" id="website" class="inputtxt" style="width:175px" value="<?=$row['situs']?>" /></td>
   </tr>
   <tr>
     <td align="right">Email</td>
-    <td><input type="text" name="email" id="email" class="inputtxt" style="width:175px" value="<?=$row[email]?>" /></td>
+    <td><input type="text" name="email" id="email" class="inputtxt" style="width:175px" value="<?=$row['email']?>" /></td>
   </tr>
   <tr>
     <td colspan="2" align="center"><input name="Simpan" type="submit" value="Simpan" class="btnfrm2" />&nbsp;&nbsp;<input type="button" value="Batal" onClick="window.close()" class="btnfrm2" /></td>

@@ -47,7 +47,7 @@ if (isset($_REQUEST['simpan'])) {
 		$nis = $_REQUEST['nis'.$i];
 		if ($pilih) {
 			//coba1();		
-			$GLOBALS[nisa][$i] = $nis;
+			$GLOBALS['nisa'][$i] = $nis;
 			//nisa[$i] = $nis;
 		//echo '<br>pilih '.$nis.' '.$i;	
 		}

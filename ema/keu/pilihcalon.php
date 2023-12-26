@@ -94,8 +94,8 @@ $departemen=$_REQUEST['departemen'];
 	  while ($row = @mysqli_fetch_array($result)){
 	  ?>
       <tr>
-        <td height="20" align="center"><?=$row[nopendaftaran]?></td>
-        <td height="20"><?=$row[nama]?></td>
+        <td height="20" align="center"><?=$row['nopendaftaran']?></td>
+        <td height="20"><?=$row['nama']?></td>
         <td height="20" align="center"><input type="button" value=" > " class="cmbfrm2" onClick="pilihcalon('<?=$row['replid']?>')" /></td>
       </tr>
       <?php } ?>

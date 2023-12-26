@@ -70,7 +70,7 @@ if (isset($_REQUEST['simpan'])) {
 				QueryDbTrans($sql_login, $success);		
 			}			
 			
-			$sql_hakakses="INSERT INTO jbsuser.hakakses SET login='".$_REQUEST['nip']." ', departemen='".$_REQUEST['departemen']."', tingkat=2, modul='KEUANGAN', keterangan='".CQ($_REQUEST['keterangan'])."'";
+			$sql_hakakses="INSERT INTO jbsuser.hakakses SET login='".$_REQUEST['nip']."', departemen='".$_REQUEST['departemen']."', tingkat=2, modul='KEUANGAN', keterangan='".CQ($_REQUEST['keterangan'])."'";
 		}
 		if ($success)	
 			QueryDbTrans($sql_hakakses, $success);

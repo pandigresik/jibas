@@ -58,7 +58,7 @@ if ($op == "fckgwrhqq2yxrkt8tg6w2b7q8") {
 	$sql = "SELECT * FROM jbsvcr.gambarlogin WHERE replid = '".$_REQUEST['replid']."' ";
 	$res = QueryDb($sql);
 	$row = @mysqli_fetch_array($res);
-	if ($row[aktif]==1){
+	if ($row['aktif']==1){
 		$sql2 = "SELECT replid FROM jbsvcr.gambarlogin ORDER BY replid ASC LIMIT 1 ";
 		//echo $sql2;
 		$res2 = QueryDb($sql2);
@@ -144,11 +144,11 @@ function hapus(replid) {
   $cnt=1;
   while ($row=@mysqli_fetch_array($result)){
   $aktif=0;
-  $aktif=$row[aktif];
+  $aktif=$row['aktif'];
   ?>
   <tr>
     <th align="center" valign="top" width="5"><?=$cnt?></th>
-    <td align="center" width="150"><img title="Klik untuk Preview, Dobel Klik untuk mengaktifkan Gambar" src="../<?=$row[direktori].$row[namafile]?>" width="80" height="60" onclick="view('<?=$row[direktori].$row[namafile]?>')" ondblclick="setaktif('<?=$row['replid'] ?>')" style="cursor:pointer;"/></td>
+    <td align="center" width="150"><img title="Klik untuk Preview, Dobel Klik untuk mengaktifkan Gambar" src="../<?=$row['direktori'].$row['namafile']?>" width="80" height="60" onclick="view('<?=$row['direktori'].$row['namafile']?>')" ondblclick="setaktif('<?=$row['replid'] ?>')" style="cursor:pointer;"/></td>
     <td align="center" valign="top" width="7"><?php if ($aktif == 1) { ?>
 				<img src="../images/ico/aktif.png" border="0" onMouseOver="showhint('Status Aktif!', this, event, '50px')"/>
 <?php 		} else { ?>

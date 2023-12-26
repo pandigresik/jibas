@@ -525,13 +525,13 @@ function SetInfoNilai()
             
             echo "<tr height='24'>\r\n";
             echo "<td align='center'>$no</td>\r\n";
-            echo "<td align='center'>$row[xtanggal]</td>\r\n";
-            echo "<td align='left'>$row[pelajaran]</td>\r\n";
-            echo "<td align='left'>$row[jenisujian]</td>\r\n";
-            echo "<td align='center'>$row[nilaiujian]</td>\r\n";
-            echo "<td align='center'>$row[nilaiRK]</td>\r\n";
+            echo "<td align='center'>$row['xtanggal']</td>\r\n";
+            echo "<td align='left'>$row['pelajaran']</td>\r\n";
+            echo "<td align='left'>$row['jenisujian']</td>\r\n";
+            echo "<td align='center'>$row['nilaiujian']</td>\r\n";
+            echo "<td align='center'>$row['nilaiRK']</td>\r\n";
             echo "<td align='center'><font style='color: $colordev'>$dev</font></td>\r\n";
-            echo "<td align='left'>$row[keterangan]</td>\r\n";
+            echo "<td align='left'>$row['keterangan']</td>\r\n";
             echo "</tr>\r\n";
             
         }
@@ -606,15 +606,15 @@ function SetInfoKeuangan()
             
             $sql = "SELECT SUM(jumlah) + SUM(info1)
                       FROM jbsfina.penerimaanjtt
-                     WHERE idbesarjtt = $row[idbesarjtt]";
+                     WHERE idbesarjtt = $row['idbesarjtt']";
             $res2 = QueryDb($sql);
             $row2 = mysqli_fetch_row($res2);
             $sisa = $row['besar'] - $row2[0];
             
             echo "<tr height='24'>\r\n";
             echo "<td align='center' valign='middle' $rowspan>$no</td>\r\n";
-            echo "<td align='center'>$row[xtanggal]</td>\r\n";
-            echo "<td align='left'>$row[nama]</td>\r\n";
+            echo "<td align='center'>$row['xtanggal']</td>\r\n";
+            echo "<td align='left'>$row['nama']</td>\r\n";
             echo "<td align='right'>" . FormatRupiah($row['jumlah']) . "</td>\r\n";
             echo "<td align='right'>" . FormatRupiah($row['diskon']) . "</td>\r\n";
             echo "<td align='right'>" . FormatRupiah($sisa) . "</td>\r\n";
@@ -663,8 +663,8 @@ function SetInfoKeuangan()
             
             echo "<tr height='24'>\r\n";
             echo "<td align='center' valign='middle' $rowspan>$no</td>\r\n";
-            echo "<td align='center'>$row[xtanggal]</td>\r\n";
-            echo "<td align='left'>$row[nama]</td>\r\n";
+            echo "<td align='center'>$row['xtanggal']</td>\r\n";
+            echo "<td align='left'>$row['nama']</td>\r\n";
             echo "<td align='right'>" . FormatRupiah($row['jumlah']) . "</td>\r\n";
             echo "<td align='right'>-</td>\r\n";
             echo "<td align='right'>-</td>\r\n";
@@ -829,11 +829,11 @@ function SetInfoPresensi()
             
             echo "<tr height='24'>\r\n";
             echo "<td align='center'>$no</td>\r\n";
-            echo "<td align='center'>$row[xtanggal]</td>\r\n";
+            echo "<td align='center'>$row['xtanggal']</td>\r\n";
             echo "<td align='center'>$row[time_in]</td>\r\n";
             echo "<td align='center'>$row[time_out]</td>\r\n";
             echo "<td align='center'>$telat</td>\r\n";
-            echo "<td align='left'>$row[keterangan]</td>\r\n";
+            echo "<td align='left'>$row['keterangan']</td>\r\n";
             echo "</tr>\r\n";
         }
     }
@@ -902,12 +902,12 @@ function SetInfoKegiatan()
             
             echo "<tr height='24'>\r\n";
             echo "<td align='center'>$no</td>\r\n";
-            echo "<td align='center'>$row[xtanggal]</td>\r\n";
-            echo "<td align='left'>$row[kegiatan]</td>\r\n";
+            echo "<td align='center'>$row['xtanggal']</td>\r\n";
+            echo "<td align='left'>$row['kegiatan']</td>\r\n";
             echo "<td align='center'>$row[time_in]</td>\r\n";
             echo "<td align='center'>$row[time_out]</td>\r\n";
             echo "<td align='center'>$telat</td>\r\n";
-            echo "<td align='left'>$row[keterangan]</td>\r\n";
+            echo "<td align='left'>$row['keterangan']</td>\r\n";
             echo "</tr>\r\n";
         }
     }

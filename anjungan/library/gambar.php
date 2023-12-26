@@ -38,9 +38,9 @@ else
 $result = QueryDb($query);
 if ($row = mysqli_fetch_array($result))
 {
-    if($row[foto])
+    if($row['foto'])
 	{
-        echo $row[foto];
+        echo $row['foto'];
     }
 	else
 	{

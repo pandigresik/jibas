@@ -93,8 +93,8 @@ while($row = mysqli_fetch_array($res))
     echo "<td>$no</td>";
     echo "<td>$namaPenerimaan</td>";
     echo "<td>$namaKategori</td>";
-    echo "<td>$row[saldo]</td>";
-    echo "<td>$row[flasttime]</td>";
+    echo "<td>$row['saldo']</td>";
+    echo "<td>$row['flasttime']</td>";
     echo "</tr>";
 }
 echo "</table>";

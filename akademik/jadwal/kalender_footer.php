@@ -108,9 +108,9 @@ function loadKalender1($kalender) {
 		$tgl2 = explode('-',$row[3]);
 		$awal = $tgl1[2].'/'.$tgl1[1].'/'.substr($tgl1[0],2,2).' - '.$tgl2[2].'/'.$tgl2[1].'/'.substr($tgl2[0],2,2);
 		
-		$GLOBALS[keg]['row'][$i][id] = $row[0];				
-		$GLOBALS[keg]['row'][$i][judul] = $row[1];				
-		$GLOBALS[keg]['row'][$i][tanggal] = $awal;
+		$GLOBALS['keg']['row'][$i][id] = $row[0];				
+		$GLOBALS['keg']['row'][$i][judul] = $row[1];				
+		$GLOBALS['keg']['row'][$i][tanggal] = $awal;
 		++$i;
 	}
 	return true;
@@ -212,8 +212,8 @@ function loadKalender2($kalender, $bulan1, $tahun1, $bulan2, $tahun2) {
 				$baris = $j;
 		}	
 		
-		$GLOBALS[jadwal]['row'][$row[0]][$baris][$kolom][njam] = $selisih;
-		$GLOBALS[jadwal]['row'][$row[0]][$baris][$kolom][awal] = $tanggal;
+		$GLOBALS['jadwal']['row'][$row[0]][$baris][$kolom][njam] = $selisih;
+		$GLOBALS['jadwal']['row'][$row[0]][$baris][$kolom][awal] = $tanggal;
 	}
 	return true;
 }
@@ -414,7 +414,7 @@ function refresh() {
                 } 
         ?>
         <td width="*" align="center" style="background-color:#3366CC; color:#FFFFFF" colspan="4">
-            <b><?=$bulan[$n]." '".substr((string) $batasthn,2,2)?></b>
+            <b><?=$bulan[$n]."'".substr((string) $batasthn,2,2)?></b>
         <!--&nbsp;<a href="JavaScript:lihat()"><img src="../images/ico/lihat.png" border="0" /></a>-->
         </td>
         <?php 	} 

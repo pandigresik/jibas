@@ -27,7 +27,7 @@ function coba() {
 			$pilih = $_REQUEST['pilih'.$i];
 			$nis = $_REQUEST['nis'.$i];
 			if ($pilih) {
-				$GLOBALS[nis][$i] = $nis;
+				$GLOBALS['nis'][$i] = $nis;
 			//echo '<br>pilih '.$nis.' '.$i;	
 			}
 		}

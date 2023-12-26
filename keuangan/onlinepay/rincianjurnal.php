@@ -95,9 +95,9 @@ for($i = 0; $i < count($lsJurnal); $i++)
     $idJurnal = $row["replid"];
     echo "<tr>";
     echo "<td style='background-color: #efefef' align='center' valign='top' rowspan='2'>$no</td>";
-    echo "<td valign='top' align='left'><b>$noJurnal</b><br>$row[ftanggal]</td>";
-    echo "<td valign='top' align='left'><b>$row[petugas]</b><br>$row[idpetugas]</td>";
-    echo "<td valign='top' align='left'>$row[transaksi]</td>";
+    echo "<td valign='top' align='left'><b>$noJurnal</b><br>$row['ftanggal']</td>";
+    echo "<td valign='top' align='left'><b>$row['petugas']</b><br>$row['idpetugas']</td>";
+    echo "<td valign='top' align='left'>$row['transaksi']</td>";
     echo "</tr>";
     echo "<tr>";
     echo "<td colspan='3' style='background-color: #fff'>";

@@ -93,13 +93,13 @@ while ($row = mysqli_fetch_array($res))
 
     echo "<tr>";
     echo "<td>$no</td>";
-    echo "<td>$row[fwaktu]</td>";
+    echo "<td>$row['fwaktu']</td>";
     echo "<td>$namaJenis</td>";
     echo "<td>$jumlah</td>";
-    echo "<td>$row[nomormutasi]</td>";
-    echo "<td>$row[idpetugas]</td>";
-    echo "<td>$row[namapetugas]</td>";
-    echo "<td>$row[keterangan]</td>";
+    echo "<td>$row['nomormutasi']</td>";
+    echo "<td>$row['idpetugas']</td>";
+    echo "<td>$row['namapetugas']</td>";
+    echo "<td>$row['keterangan']</td>";
     echo "</tr>";
 }
 

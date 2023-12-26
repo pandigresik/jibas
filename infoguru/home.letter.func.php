@@ -532,8 +532,8 @@ function ShowDetailSurat($idlist, $minListSuratTs)
         }
         
         $html .= "<tr style='background-color : $bgcolor'; >";
-        $html .= "<td align='left' style='border-color: #bbb; border-width: 1px;' valign='top'><font style='color: maroon;'><em>$row[tanggalsurat]</em></font><br>$row[nomor]<br>$jenis</td>";
-        $html .= "<td align='left' style='border-color: #bbb; border-width: 1px;' valign='top'><strong>$row[perihal]</strong><br>Kategori: $row[kategori]<br>Sifat: $sifat</td>";
+        $html .= "<td align='left' style='border-color: #bbb; border-width: 1px;' valign='top'><font style='color: maroon;'><em>$row['tanggalsurat']</em></font><br>$row['nomor']<br>$jenis</td>";
+        $html .= "<td align='left' style='border-color: #bbb; border-width: 1px;' valign='top'><strong>$row['perihal']</strong><br>Kategori: $row['kategori']<br>Sifat: $sifat</td>";
         $html .= "<td align='center' style='font-size: 16px; border-color: #bbb; border-width: 1px;' valign='top'>$nberkas</td>";
         $html .= "<td align='left' style='border-color: #bbb; border-width: 1px;' valign='top'>$sumber</td>";
         $html .= "<td align='left' style='border-color: #bbb; border-width: 1px;' valign='top'>$tujuan</td>";

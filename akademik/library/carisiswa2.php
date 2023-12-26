@@ -200,10 +200,10 @@ if ((isset($_POST["cari"]))){
 	while($row = @mysqli_fetch_array($result_sis)){
 	?>
 	<tr <?="bgcolor=#".($cnt%2?"ffffff":"EAECEE").""; ?>>
-		<td class='data'><input type="hidden" name="nis<?=$cnt; ?>" value="<?=$row[nis]; ?>">
-		<input type="hidden" name="nama<?=$cnt; ?>" value="<?=$row[nama]; ?>"><input name='siswa' type='radio' value='<?=$row[nis]; ?>' onclick='changeSel(<?=$cnt; ?>)' width='30%'><?=$row[nis]; ?></td>
-		<td width='50%'class='data'><?=$row[nama]; ?></td>
-		<td width='20%'class='data'><?=$row[kelas]; ?></td>
+		<td class='data'><input type="hidden" name="nis<?=$cnt; ?>" value="<?=$row['nis']; ?>">
+		<input type="hidden" name="nama<?=$cnt; ?>" value="<?=$row['nama']; ?>"><input name='siswa' type='radio' value='<?=$row['nis']; ?>' onclick='changeSel(<?=$cnt; ?>)' width='30%'><?=$row['nis']; ?></td>
+		<td width='50%'class='data'><?=$row['nama']; ?></td>
+		<td width='20%'class='data'><?=$row['kelas']; ?></td>
 	</tr>
 	<?php
 	$cnt++;

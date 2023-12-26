@@ -106,7 +106,7 @@ function inputbaru(){
 			if ($tahunajaran=="")
 				$tahunajaran=$row[0];
 			$akt="";
-			if ($row[aktif]==1)
+			if ($row['aktif']==1)
 				$akt="(A)";
 			echo "<option value='".$row[0]."'".StringIsSelected($row[0],$tahunajaran).">".$row[1]." ".$akt."</option>";
 		}
@@ -132,14 +132,14 @@ function inputbaru(){
 	if (@mysqli_num_rows($result) > 0){
 	$cnt=1;
 	while ($row=@mysqli_fetch_array($result)){
-		$sql_catsiswa="SELECT COUNT(c.replid) as jumlah FROM jbsvcr.catatansiswa c, jbsakad.kelas k, jbsakad.tahunajaran t WHERE c.idkategori='$row['replid']." ' AND c.nis='$nis' AND c.idkelas=k.replid AND t.replid='$tahunajaran' AND k.idtahunajaran=t.replid";
+		$sql_catsiswa="SELECT COUNT(c.replid) as jumlah FROM jbsvcr.catatansiswa c, jbsakad.kelas k, jbsakad.tahunajaran t WHERE c.idkategori='".$row['replid']."' AND c.nis='$nis' AND c.idkelas=k.replid AND t.replid='$tahunajaran' AND k.idtahunajaran=t.replid";
 		//echo $sql_catsiswa;
 		$res_catsiswa=QueryDb($sql_catsiswa);
 		$row_catsiswa=@mysqli_fetch_row($res_catsiswa);
   ?>
   <tr>
     <td height="25"><div align="center"><?=$cnt?></div></td>
-    <td height="25"><?=$row[kategori]?></td>
+    <td height="25"><?=$row['kategori']?></td>
     <td height="25"><div align="center"><?=$row_catsiswa[0]?></div></td>
     <td height="25"><div align="center"><img src="../images/ico/panahkanan.png" style="cursor:pointer" onClick="show('<?=$row['replid']?>')" /><!--<input style="width:20px;" type="button" onClick="show('<?=$row['replid']?>')" class="but" value="&gt;" />-->
     </div></td>

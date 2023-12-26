@@ -71,7 +71,7 @@ if ($op == "12134892y428442323x423")
 
 if ($op == "d28xen32hxbd32dn239dx")
 {
-	$sql = "UPDATE datapenerimaan SET aktif = '".$_REQUEST['newaktif']." ' WHERE replid= '".$_REQUEST['id']."'";
+	$sql = "UPDATE datapenerimaan SET aktif = '".$_REQUEST['newaktif']."' WHERE replid= '".$_REQUEST['id']."'";
 	
 	OpenDb();
 	QueryDb($sql);
@@ -294,17 +294,17 @@ function change_baris()
     	<td align="center"><?=++$cnt?></td>
         <td><?=$row['nama'] ?></td>        
         <td>
-<?php 	$sql = "SELECT nama FROM rekakun WHERE kode = '".$row[rekkas]'";
+<?php 	$sql = "SELECT nama FROM rekakun WHERE kode = '".$row['rekkas']'";
 		$result = QueryDb($sql);
 		$row2 = mysqli_fetch_row($result);
 		$namarekkas = $row2[0];
 	
-		$sql = "SELECT nama FROM rekakun WHERE kode = '".$row[rekpendapatan]'";
+		$sql = "SELECT nama FROM rekakun WHERE kode = '".$row['rekpendapatan']'";
 		$result = QueryDb($sql);
 		$row2 = mysqli_fetch_row($result);
 		$namarekpendapatan = $row2[0];
 	
-		$sql = "SELECT nama FROM rekakun WHERE kode = '".$row[rekpiutang]'";
+		$sql = "SELECT nama FROM rekakun WHERE kode = '".$row['rekpiutang']'";
 		$result = QueryDb($sql);
 		$row2 = mysqli_fetch_row($result);
 		$namarekpiutang = $row2[0];
@@ -314,9 +314,9 @@ function change_baris()
 		$row2 = mysqli_fetch_row($result);
 		$namarekdiskon = $row2[0];
 		?>
-		<strong>Kas:</strong> <?=$row[rekkas] . " " . $namarekkas ?><br />
-        <strong>Pendapatan:</strong> <?=$row[rekpendapatan] . " " . $namarekpendapatan ?><br />
-        <strong>Piutang:</strong> <?=$row[rekpiutang] . " " . $namarekpiutang ?><br />
+		<strong>Kas:</strong> <?=$row['rekkas'] . " " . $namarekkas ?><br />
+        <strong>Pendapatan:</strong> <?=$row['rekpendapatan'] . " " . $namarekpendapatan ?><br />
+        <strong>Piutang:</strong> <?=$row['rekpiutang'] . " " . $namarekpiutang ?><br />
 		<strong>Diskon:</strong> <?=$row[info1] . " " . $namarekdiskon ?><br />
         </td>
         <td><?=$row['keterangan'] ?></td>

@@ -55,7 +55,7 @@ class PHPExcel_Calculation_FormulaParser
     /* Character constants */
     const QUOTE_DOUBLE  = '"';
     const QUOTE_SINGLE  = '\'';
-    const BRACKET_CLOSE = ']." ';
+    const BRACKET_CLOSE = ']."';
     const BRACKET_OPEN  = '[';
     const BRACE_OPEN    = '{';
     const BRACE_CLOSE   = '}';

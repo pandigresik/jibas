@@ -121,7 +121,7 @@ if($num == 0) {
 			else if ($row_nhb[dasarpenilaian] == "Pemahaman Konsep")
 				$color = "yellow";
             echo "<td class='headerlong' colspan='2' align='center'>
-                <input type='hidden' name='aturan$v' value='$row_nhb['replid']." '>
+                <input type='hidden' name='aturan$v' value='$row_nhb['replid']."'>
                 <font size='1' color='$color'>Nilai $row_nhb[dasarpenilaian]</font></td>";
         }
         ?>
@@ -215,7 +215,7 @@ if($num == 0) {
 				}
 				
 				$query_nap = "SELECT nap.nilaihuruf, nap.nilaiangka FROM jbsakad.nap WHERE nis = '$ns' ".
-                             "AND idaturan = '$id_aturan1' AND idinfo = '".$row_cek['replid']." '";
+                             "AND idaturan = '$id_aturan1' AND idinfo = '".$row_cek['replid']."'";
 				$result_nap = QueryDb($query_nap);
 				$row_nap = mysqli_fetch_array($result_nap);
 				$nilaiangka1[$id_aturan1] = $ttl_nau_b1[$id_aturan1]/$ttl_bbt1[$id_aturan1];
@@ -227,7 +227,7 @@ if($num == 0) {
                     <td align='center'><input type='text' name='nH$i$t' value='$row_nap[nilaihuruf]' maxlength='2' size='5'></td>
                 ";				
             }
-			$query_kom = "SELECT predikat FROM jbsakad.komennap WHERE nis='$ns' AND idinfo = '".$row_cek['replid']." '";
+			$query_kom = "SELECT predikat FROM jbsakad.komennap WHERE nis='$ns' AND idinfo = '".$row_cek['replid']."'";
             $result_kom = QueryDb($query_kom);
             $h = 0;
             $row_kom = @mysqli_fetch_array($result_kom);

@@ -47,10 +47,10 @@ class CKembali{
 			$this->num = @mysqli_num_rows($result);
 			$row = @mysqli_fetch_array($result);
 			$this->idpinjam = $row['replid'];
-			$this->tglpinjam = $row[tglpinjam];
-			$this->tglkembali = $row[tglkembali];
-			$this->keterangan = $row[keterangan];
-			$this->idanggota = $row[idanggota];
+			$this->tglpinjam = $row['tglpinjam'];
+			$this->tglkembali = $row['tglkembali'];
+			$this->keterangan = $row['keterangan'];
+			$this->idanggota = $row['idanggota'];
 			$this->namaanggota = $this->GetMemberName();
 			
 			$sql = "SELECT DATEDIFF('".$this->datenow."','".$this->tglkembali."')";
@@ -67,7 +67,7 @@ class CKembali{
 			$sql = "SELECT judul FROM pustaka p, daftarpustaka d WHERE d.pustaka=p.replid AND d.kodepustaka='".$this->kodepustaka."'";
 			$result = QueryDb($sql);
 			$row = @mysqli_fetch_array($result);
-			$this->judul = $row[judul];
+			$this->judul = $row['judul'];
 		}
 		
 		if ($this->op=="KembalikanPustaka"){
@@ -216,7 +216,7 @@ class CKembali{
 				$result3 = QueryDb($sql3);
 				if (@mysqli_num_rows($result3)>0){
 					$row3 = @mysqli_fetch_array($result3);
-					return $row3[nama];
+					return $row3['nama'];
 				} else {
 					return "Tanpa Nama";
 				}

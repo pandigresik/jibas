@@ -90,7 +90,7 @@ $to		= split('-',$to);
 		$filter="";
 		if ($perpustakaan!='-1')
 			$filter=" AND d.perpustakaan=".$perpustakaan;
-		$sql = "SELECT count(*) as num, p.idanggota FROM $db_name_perpus.pinjam p, $db_name_perpus.daftarpustaka d WHERE p.tglpinjam BETWEEN '".$_REQUEST['from']." ' AND '$_REQUEST['to']."' AND d.kodepustaka=p.kodepustaka $filter GROUP BY p.idanggota ORDER BY num DESC LIMIT $limit";			
+		$sql = "SELECT count(*) as num, p.idanggota FROM $db_name_perpus.pinjam p, $db_name_perpus.daftarpustaka d WHERE p.tglpinjam BETWEEN '".$_REQUEST['from']."' AND '$_REQUEST['to']."' AND d.kodepustaka=p.kodepustaka $filter GROUP BY p.idanggota ORDER BY num DESC LIMIT $limit";			
 		$result = QueryDb($sql);
 		//echo $sql;
 		?>
@@ -160,7 +160,7 @@ function GetMemberName($idanggota){
 			$result3 = QueryDb($sql3);
 			if (@mysqli_num_rows($result3)>0){
 				$row3 = @mysqli_fetch_array($result3);
-				return $row3[nama];
+				return $row3['nama'];
 			} else {
 				return "Tanpa Nama";
 			}

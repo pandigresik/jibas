@@ -32,10 +32,10 @@ require_once('../cek.php');
 $cek = 0;
 if (isset($_POST['simpan'])) {
 	OpenDb();
-	$sql_cek = "SELECT * FROM jbsakad.statussiswa where status='".$_REQUEST['status']." ' AND replid <> '$_REQUEST['orig_status']."'";
+	$sql_cek = "SELECT * FROM jbsakad.statussiswa where status='".$_REQUEST['status']."' AND replid <> '$_REQUEST['orig_status']."'";
 	$hasil=QueryDb($sql_cek);
 	
-	$sql1 = "SELECT * FROM jbsakad.statussiswa WHERE urutan = '".$_REQUEST['urutan']." ' AND replid <> '$_REQUEST['orig_status']."'";
+	$sql1 = "SELECT * FROM jbsakad.statussiswa WHERE urutan = '".$_REQUEST['urutan']."' AND replid <> '$_REQUEST['orig_status']."'";
 	$result1 = QueryDb($sql1);
 	
 	if (mysqli_num_rows($hasil) > 0){

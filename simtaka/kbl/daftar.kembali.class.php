@@ -236,7 +236,7 @@ class CDaftarKembali
 				
 				$sql = "SELECT denda
 						  FROM denda
-						 WHERE idpinjam='$row['replid']." '";
+						 WHERE idpinjam='".$row['replid']."'";
 				$res2 = QueryDb($sql);
 				$row2 = @mysqli_fetch_array($res2);
 				$denda = $row2['denda'];
@@ -250,16 +250,16 @@ class CDaftarKembali
 				$row2 = @mysqli_fetch_array($res2);
 				$judul = $row2['judul'];
 								
-				$this->idanggota = $row[idanggota];
+				$this->idanggota = $row['idanggota'];
 				$this->jenisanggota = $row[info1];
 				$NamaAnggota = $this->GetMemberName();  ?>
 				<tr height="25" style="color:<?=$color?>; <?=$weight?>">
 					<td align='center'><?=$cnt?></td>
-					<td align="center"><?=LongDateFormat($row[tglditerima])?></td>
-					<td align="center"><?=LongDateFormat($row[tglkembali])?></td>
-					<td align="center"><?=LongDateFormat($row[tglpinjam])?></td>
+					<td align="center"><?=LongDateFormat($row['tglditerima'])?></td>
+					<td align="center"><?=LongDateFormat($row['tglkembali'])?></td>
+					<td align="center"><?=LongDateFormat($row['tglpinjam'])?></td>
 					<td align="left">
-						<font style='font-size: 9px'><?=$row[idanggota]?></font><br>
+						<font style='font-size: 9px'><?=$row['idanggota']?></font><br>
 						<font style='font-size: 11px; font-weight: bold;'><?=$this->GetMemberName()?></font>
 					</td>
 					<td align="left">
@@ -267,7 +267,7 @@ class CDaftarKembali
 						<font style='font-size: 11px; font-weight: bold;'><?=$judul?></font>
 					</td>
 					<td align="right"><?=FormatRupiah($denda)?></td>
-					<td align="center"><?=$row[keterangan]?></td>
+					<td align="center"><?=$row['keterangan']?></td>
 				</tr>
 <?php 	  	}
 		}

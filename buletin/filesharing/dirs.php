@@ -34,10 +34,10 @@ function recursiveDataFolderDelete($iddir)
 	$res = QueryDb($sql);
 	while ($row = @mysqli_fetch_array($res))
 	{
-		$sql = "DELETE FROM jbsvcr.dirshare WHERE replid = '".$row['replid']." '";
+		$sql = "DELETE FROM jbsvcr.dirshare WHERE replid = '".$row['replid']."'";
 		QueryDb($sql);
 		
-		$sql = "DELETE FROM jbsvcr.fileshare WHERE iddir = '".$row['replid']." '";
+		$sql = "DELETE FROM jbsvcr.fileshare WHERE iddir = '".$row['replid']."'";
 		QueryDb($sql);
 		
 		recursiveDataFolderDelete($row['replid']);

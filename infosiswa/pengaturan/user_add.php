@@ -217,10 +217,10 @@ else {
 	
 	}
 	if ($num_c>0){
-	$sql_hakakses="UPDATE jbsuser.hakakses SET departemen='$_POST['departemen']." ',tingkat=2 WHERE modul='INFOGURU' AND login='$_POST['nip']'";
+	$sql_hakakses="UPDATE jbsuser.hakakses SET departemen='$_POST['departemen']."',tingkat=2 WHERE modul='INFOGURU' AND login='$_POST['nip']'";
 	//$result_hakakses=QueryDb($sql_hakakses);
 	} elseif ($num_c==0){
-	$sql_hakakses="INSERT INTO jbsuser.hakakses SET login='$_POST['nip']',departemen='$_POST['departemen']." ',tingkat=2,modul='INFOGURU'";
+	$sql_hakakses="INSERT INTO jbsuser.hakakses SET login='$_POST['nip']',departemen='$_POST['departemen']."',tingkat=2,modul='INFOGURU'";
 	
 	}
 	}

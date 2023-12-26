@@ -130,7 +130,7 @@ $row = @mysqli_fetch_array($result);
         <tr>
             <td>Nama</td><td>
 			<?php
-			$query_nm = "SELECT * FROM jbsakad.siswa WHERE siswa.nis = '".$row[nis]'";
+			$query_nm = "SELECT * FROM jbsakad.siswa WHERE siswa.nis = '".$row['nis']'";
 			$result_nm = QueryDb($query_nm);
 			$row_nm = @mysqli_fetch_array($result_nm);
 			?>

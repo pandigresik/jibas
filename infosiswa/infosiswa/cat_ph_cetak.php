@@ -121,7 +121,7 @@ $result=QueryDb($sql);
   <tr height="25" <?=$a?>>
     <td align="center"><?=$cnt?></td>
     <td><?=ShortDateFormat($row[tanggal1])?> s.d. <?=ShortDateFormat($row[tanggal2])?></td>
-    <td><?=$row[keterangan]?></td>
+    <td><?=$row['keterangan']?></td>
   </tr>
   <?php
   $cnt++;

@@ -53,7 +53,7 @@ $row = mysqli_fetch_array($result);
 <body>
 <table border="0" cellpadding="10" cellpadding="5" width="780" align="left">
 <tr><td align="left" valign="top">
-<?=getHeader($row[dep])?>
+<?=getHeader($row['dep'])?>
 <center>
   <font size="4"><strong>FORM PENGISIAN NILAI AKHIR SISWA</strong></font><br />
  </center><br /><br />

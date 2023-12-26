@@ -41,7 +41,7 @@ if (isset($_REQUEST['Simpan'])) {
 		CloseDb();
 		$ERROR_MSG = "Kategori {$_REQUEST['kategori']} sudah digunakan!";
 	} else {
-		$sql = "UPDATE jbsvcr.catatankategori SET kategori='".$_REQUEST['kategori']." ',keterangan='".$_REQUEST['keterangan']."' WHERE replid='$replid'";
+		$sql = "UPDATE jbsvcr.catatankategori SET kategori='".$_REQUEST['kategori']."',keterangan='".$_REQUEST['keterangan']."' WHERE replid='$replid'";
 		echo $sql;
 		$result = QueryDb($sql);
 		CloseDb();
@@ -61,8 +61,8 @@ $sql = "SELECT * FROM jbsvcr.catatankategori WHERE replid = '$replid'";
 
 $result = QueryDb($sql);
 $row = mysqli_fetch_array($result);
-$kategori = $row[kategori];
-$keterangan = $row[keterangan];
+$kategori = $row['kategori'];
+$keterangan = $row['keterangan'];
 CloseDb();
 
 ?>

@@ -156,9 +156,9 @@ function cetak_rapor_kelas()
         </tr>
 		<?php while ($row = @mysqli_fetch_array($result)) {	?>
         <tr>        			
-			<td height="25" align="center" onclick="tampil('<?=$row[nis]?>')" style="cursor:pointer" title="Klik untuk menampilkan komentar rapor siswa ini"><?=$cnt?></td>
+			<td height="25" align="center" onclick="tampil('<?=$row['nis']?>')" style="cursor:pointer" title="Klik untuk menampilkan komentar rapor siswa ini"><?=$cnt?></td>
             
-  			<td height="25" onclick="tampil('<?=$row[nis]?>')" style="cursor:pointer" title="Klik untuk menampilkan komentar rapor <?=$row['nama']?>"><?=$row['nis']?><br /><b><?=$row['nama']?></b><input type="hidden" name="replid<?=$cnt?>" value="<?=$row['replid']?>">
+  			<td height="25" onclick="tampil('<?=$row['nis']?>')" style="cursor:pointer" title="Klik untuk menampilkan komentar rapor <?=$row['nama']?>"><?=$row['nis']?><br /><b><?=$row['nama']?></b><input type="hidden" name="replid<?=$cnt?>" value="<?=$row['replid']?>">
 			<input type="hidden" name="nis<?=$cnt?>" value="<?=$row['nis']?>"></td>
         </tr>
  	<?php 	$cnt++;

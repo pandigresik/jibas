@@ -60,7 +60,7 @@ if (isset($_REQUEST['Simpan']))
 		$departemen = CQ($_REQUEST['departemen']);
 		
 		$sql = "UPDATE departemen 
-				SET departemen='$departemen',nipkepsek='".$_REQUEST['nip']." ',urutan='".$_REQUEST['urutan']."',
+				SET departemen='$departemen',nipkepsek='".$_REQUEST['nip']."',urutan='".$_REQUEST['urutan']."',
 				    keterangan='".CQ($_REQUEST['keterangan'])."' WHERE replid='$replid'";
 		$result = QueryDb($sql);
 		CloseDb();

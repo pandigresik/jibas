@@ -929,7 +929,7 @@ tinymce.create('tinymce.util.Dispatcher', {
 					for (i=0, v = '['; i<o.length; i++)
 						v += (i > 0 ? ',' : '') + serialize(o[i], quote);
 
-					return v + ']." ';
+					return v + ']."';
 				}
 
 				v = '{';

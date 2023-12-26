@@ -41,7 +41,7 @@ function SimpanData()
 		$smsinfo = isset($_REQUEST['smsinfo']) ? 1 : 0;
 		$sql = "INSERT INTO datatabungan
 				   SET nama='".CQ($_REQUEST['nama'])."', rekkas='".$_REQUEST['norekkas']."',
-				       departemen='".$_REQUEST['departemen']." ', rekutang='".$_REQUEST['norekutang']."',
+				       departemen='".$_REQUEST['departemen']."', rekutang='".$_REQUEST['norekutang']."',
 					   keterangan='".CQ($_REQUEST['keterangan'])."', aktif=1, info2='$smsinfo'";
 		$result = QueryDb($sql);
 		CloseDb();

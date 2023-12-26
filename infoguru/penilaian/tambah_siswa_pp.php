@@ -146,9 +146,9 @@ openDB();
 	while($row = @mysqli_fetch_array($result_sis)){
 	?>
 	<tr <?="bgcolor=#".($cnt%2?"ffffff":"EAECEE").""; ?>>
-		<td class='data'><input type="hidden" name="nis<?=$cnt; ?>" value="<?=$row[nis]; ?>">
-		<input type="hidden" name="nama<?=$cnt; ?>" value="<?=$row[nama]; ?>"><input name='siswa' type='radio' value='<?=$row[nis]; ?>' onclick='changeSel(<?=$cnt; ?>)' width='30%'><?=$row[nis]; ?></td>
-		<td width='70%'class='data'><?=$row[nama]; ?></td>
+		<td class='data'><input type="hidden" name="nis<?=$cnt; ?>" value="<?=$row['nis']; ?>">
+		<input type="hidden" name="nama<?=$cnt; ?>" value="<?=$row['nama']; ?>"><input name='siswa' type='radio' value='<?=$row['nis']; ?>' onclick='changeSel(<?=$cnt; ?>)' width='30%'><?=$row['nis']; ?></td>
+		<td width='70%'class='data'><?=$row['nama']; ?></td>
 	</tr>
 	<?php
 	$cnt++;

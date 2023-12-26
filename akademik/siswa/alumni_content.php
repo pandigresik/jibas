@@ -221,7 +221,7 @@ function change_baris() {
 	$result=QueryDb($sql);
     while ($row=@mysqli_fetch_array($result)){
 		if ($tahun=="")
-			$tahun = $row[tahun];	
+			$tahun = $row['tahun'];	
 	?>
         <option value="<?=$row['tahun']?>" <?=IntIsSelected($row['tahun'], $tahun) ?>><?=$row['tahun']?>
         </option>

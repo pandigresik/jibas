@@ -142,7 +142,7 @@ CloseDb();
                     <td colspan="2"><fieldset><legend><span class="news_title2"><?=$row['jenisujian']?></span></legend>
                     <br />
                     <?php 	OpenDb();		
-                        $sql1 = "SELECT u.tanggal, n.nilaiujian, n.keterangan FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$semester."' AND u.idjenis = '".$row['replid']." ' AND u.replid = n.idujian AND n.nis = '$nis' ".
+                        $sql1 = "SELECT u.tanggal, n.nilaiujian, n.keterangan FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$semester."' AND u.idjenis = '".$row['replid']."' AND u.replid = n.idujian AND n.nis = '$nis' ".
                         "ORDER BY u.tanggal";
                         $result1 = QueryDb($sql1);
                         
@@ -156,7 +156,7 @@ CloseDb();
                                 <td width="*">Keterangan</td>
                             </tr>
                             <?php 
-                                $sql2 = "SELECT AVG(n.nilaiujian) as rata FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$semester."' AND u.idjenis = '".$row['replid']." ' AND u.replid = n.idujian AND n.nis = '$nis' ";
+                                $sql2 = "SELECT AVG(n.nilaiujian) as rata FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$semester."' AND u.idjenis = '".$row['replid']."' AND u.replid = n.idujian AND n.nis = '$nis' ";
                                 $result2 = QueryDb($sql2);	
                                 $row2 = @mysqli_fetch_array($result2);
                                 $rata = $row2[rata];

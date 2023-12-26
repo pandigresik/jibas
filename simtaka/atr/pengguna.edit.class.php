@@ -68,9 +68,9 @@ class CPenggunaAdd
 					   AND modul='SIMTAKA' ";
 			$result = QueryDb($sql);
 			$row = @mysqli_fetch_array($result);
-			$this->keterangan=$row[keterangan];
-			$this->nip=$row[login];
-			$this->tingkat=$row[tingkat];
+			$this->keterangan=$row['keterangan'];
+			$this->nip=$row['login'];
+			$this->tingkat=$row['tingkat'];
 			if (isset($_REQUEST['tingkat']))
 				$this->tingkat=$_REQUEST['tingkat'];
 			$this->dep = $row['departemen'];	
@@ -82,7 +82,7 @@ class CPenggunaAdd
 			//$echo $$this->tingkat;
 			$result = QueryDb($sql);
 			$row = @mysqli_fetch_array($result);
-			$this->nama=$row[nama];
+			$this->nama=$row['nama'];
 
 		}
 		
@@ -181,8 +181,8 @@ class CPenggunaAdd
 						while ($row = @mysqli_fetch_array($result))
 						{
 							$sel = $this->perpustakaan == $row['replid'] ? "selected" : ""; ?>
-							<option value="<?=$row['replid'] . ":" . $row[nama]?>" <?=$sel?>>
-								<?=$row[nama]?>
+							<option value="<?=$row['replid'] . ":" . $row['nama']?>" <?=$sel?>>
+								<?=$row['nama']?>
 							</option>
 <?php 					}
 					} ?>
@@ -208,7 +208,7 @@ class CPenggunaAdd
 	
 	function get_noreg()
 	{
-		return "ANG".date(YmdHis);
+		return "ANG".date('YmdHis');
 	}
 }
 ?>

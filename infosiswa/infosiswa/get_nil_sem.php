@@ -45,7 +45,7 @@ $kelas = $_REQUEST['kelas'];
             $row = mysqli_fetch_array($result);
             
         ?>	
-        <font color="#000000" size="3" class="news_content1">Pelajaran <?=$row[nama]?><br />Semester <?=$namasemester?> </font></td> 
+        <font color="#000000" size="3" class="news_content1">Pelajaran <?=$row['nama']?><br />Semester <?=$namasemester?> </font></td> 
         <td width="28%" align="right" valign="top"> 
         <a href="JavaScript:cetaknil('X_<?=$semester?>')"><img src="../images/ico/print.png" border="0" />&nbsp;Cetak</a>              </td>
     </tr>
@@ -63,7 +63,7 @@ $kelas = $_REQUEST['kelas'];
         <fieldset><legend><span class="news_title2"><?=$row['jenisujian']?></span></legend>
         <br />
         <?php 	OpenDb();		
-            $sql1 = "SELECT u.tanggal, n.nilaiujian, n.keterangan FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$semester."' AND u.idjenis = '".$row['replid']." ' AND u.replid = n.idujian AND n.nis = '$nis' ".
+            $sql1 = "SELECT u.tanggal, n.nilaiujian, n.keterangan FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$semester."' AND u.idjenis = '".$row['replid']."' AND u.replid = n.idujian AND n.nis = '$nis' ".
             "ORDER BY u.tanggal";
             $result1 = QueryDb($sql1);
             
@@ -77,7 +77,7 @@ $kelas = $_REQUEST['kelas'];
                     <td width="*">Keterangan</td>
                 </tr>
                 <?php 
-                    $sql2 = "SELECT AVG(n.nilaiujian) as rata FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$semester."' AND u.idjenis = '".$row['replid']." ' AND u.replid = n.idujian AND n.nis = '$nis' ";
+                    $sql2 = "SELECT AVG(n.nilaiujian) as rata FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$semester."' AND u.idjenis = '".$row['replid']."' AND u.replid = n.idujian AND n.nis = '$nis' ";
                     $result2 = QueryDb($sql2);	
                     $row2 = @mysqli_fetch_array($result2);
                     $rata = $row2[rata];

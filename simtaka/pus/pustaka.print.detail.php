@@ -30,16 +30,16 @@ OpenDb();
 $sql = "SELECT * FROM pustaka WHERE replid=$replid";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
-$judul = stripslashes($row[judul]);
-$harga = $row[harga];
-$katalog = $row[katalog];
-$penerbit = $row[penerbit];
-$penulis = $row[penulis];
-$tahun = $row[tahun];
-$format = stripslashes($row[format]);
-$keyword = stripslashes($row[keyword]);
-$keteranganfisik = stripslashes($row[keteranganfisik]);
-$abstraksi = stripslashes($row[abstraksi]);
+$judul = stripslashes($row['judul']);
+$harga = $row['harga'];
+$katalog = $row['katalog'];
+$penerbit = $row['penerbit'];
+$penulis = $row['penulis'];
+$tahun = $row['tahun'];
+$format = stripslashes($row['format']);
+$keyword = stripslashes($row['keyword']);
+$keteranganfisik = stripslashes($row['keteranganfisik']);
+$abstraksi = stripslashes($row['abstraksi']);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

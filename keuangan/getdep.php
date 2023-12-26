@@ -38,7 +38,7 @@ $status_user = $_REQUEST['tingkat'];
 	
 		$i = 0;
 		while($row_pro = @mysqli_fetch_array($result_pro)) {
-			echo  "<option value='$row_pro['departemen']." ' $sel[$i]>$row_pro['departemen']</option>";
+			echo  "<option value='$row_pro['departemen']."' $sel[$i]>$row_pro['departemen']</option>";
 			$i++;
 		}
 	}

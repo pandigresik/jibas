@@ -80,7 +80,7 @@ if ($op == "d28xen32hxbd32dn239dx") {
 	$sql = "UPDATE tahunbuku SET aktif = 0 WHERE departemen = '$departemen'";
 	QueryDb($sql);
 	
-	$sql = "UPDATE tahunbuku SET aktif = '".$_REQUEST['newaktif']." ' WHERE replid = '".$_REQUEST['id']."'";
+	$sql = "UPDATE tahunbuku SET aktif = '".$_REQUEST['newaktif']."' WHERE replid = '".$_REQUEST['id']."'";
 	QueryDb($sql);
 	CloseDb();
 	

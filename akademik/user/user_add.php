@@ -97,7 +97,7 @@ if (isset($_REQUEST['simpan'])) {
 				QueryDbTrans($sql_login, $success);		
 			}			
 			
-			$sql_hakakses="INSERT INTO jbsuser.hakakses SET login='".$_REQUEST['nip']." ', departemen='".$_REQUEST['departemen']."', tingkat=2, modul='SIMAKA', keterangan='".CQ($_REQUEST['keterangan'])."'";
+			$sql_hakakses="INSERT INTO jbsuser.hakakses SET login='".$_REQUEST['nip']."', departemen='".$_REQUEST['departemen']."', tingkat=2, modul='SIMAKA', keterangan='".CQ($_REQUEST['keterangan'])."'";
 		}
 		if ($success)	
 			QueryDbTrans($sql_hakakses, $success);
@@ -331,7 +331,7 @@ function panggil(elem){
 			} else {
 				$sel[$i] = "";
 			}
-			echo "<option value='$row_pro['departemen']." ' $sel[$i]>$row_pro['departemen']";
+			echo "<option value='$row_pro['departemen']."' $sel[$i]>$row_pro['departemen']";
 			$i++;
 		}
 	?>

@@ -47,7 +47,7 @@ $ERROR_MSG = "";
 if (isset($_REQUEST['Simpan'])) {
 	OpenDb();
 
-	$sql = "SELECT * FROM tahunajaran WHERE departemen = '".$_REQUEST['departemen']." ' AND tahunajaran='".$_REQUEST['tahunajaran']."' AND replid <> $replid ";
+	$sql = "SELECT * FROM tahunajaran WHERE departemen = '".$_REQUEST['departemen']."' AND tahunajaran='".$_REQUEST['tahunajaran']."' AND replid <> $replid ";
 	$result = QueryDb($sql);
 	
 	if (mysqli_num_rows($result) > 0) {
@@ -55,7 +55,7 @@ if (isset($_REQUEST['Simpan'])) {
 			$ERROR_MSG = "Tahun Ajaran {$_REQUEST['tahunajaran']} sudah digunakan!";
 	} else {
 		
-		$sql = "UPDATE tahunajaran SET tahunajaran = '".$_REQUEST['tahunajaran']." ', tglmulai = '$tglmulai', tglakhir = '$tglakhir', keterangan = '".$_REQUEST['keterangan']."' WHERE replid = $replid";
+		$sql = "UPDATE tahunajaran SET tahunajaran = '".$_REQUEST['tahunajaran']."', tglmulai = '$tglmulai', tglakhir = '$tglakhir', keterangan = '".$_REQUEST['keterangan']."' WHERE replid = $replid";
 			//$result = QueryDb($sql);
 		echo "sql ".$sql;
 	}

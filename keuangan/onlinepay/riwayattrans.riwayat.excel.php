@@ -136,17 +136,17 @@ header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 
         echo "<tr>";
         echo "<td>$no</td>";
-        echo "<td>$row[namasiswa]</td>";
-        echo "<td>$row[nis]</td>";
+        echo "<td>$row['namasiswa']</td>";
+        echo "<td>$row['nis']</td>";
         echo "<td>$jTransaksi</td>";
-        echo "<td>$row[fwaktu]</td>";
+        echo "<td>$row['fwaktu']</td>";
         echo "<td>$namaMetode</td>";
-        echo "<td>$row[nomor]</td>";
-        echo "<td>$row[bank]</td>";
-        echo "<td>$row[bankno]</td>";
-        echo "<td>$row[idpetugas]</td>";
-        echo "<td>$row[petugas]</td>";
-        echo "<td>$row[ketver]</td>";
+        echo "<td>$row['nomor']</td>";
+        echo "<td>$row['bank']</td>";
+        echo "<td>$row['bankno']</td>";
+        echo "<td>$row['idpetugas']</td>";
+        echo "<td>$row['petugas']</td>";
+        echo "<td>$row['ketver']</td>";
 
         for($i = 0; $i < count($lsPenerimaan); $i++)
         {

@@ -145,17 +145,17 @@ if ($op == "d28xen32hxbd32dn239dx")
     	<td align="center"><?=++$cnt?></td>
         <td><?=$row['nama'] ?></td>        
         <td>
-<?php 	$sql = "SELECT nama FROM rekakun WHERE kode = '".$row[rekkas]'";
+<?php 	$sql = "SELECT nama FROM rekakun WHERE kode = '".$row['rekkas']'";
 		$result = QueryDb($sql);
 		$row2 = mysqli_fetch_row($result);
 		$namarekkas = $row2[0];
 	
-		$sql = "SELECT nama FROM rekakun WHERE kode = '".$row[rekutang]'";
+		$sql = "SELECT nama FROM rekakun WHERE kode = '".$row['rekutang']'";
 		$result = QueryDb($sql);
 		$row2 = mysqli_fetch_row($result);
 		$namarekutang = $row2[0]; ?>
-		<strong>Kas:</strong> <?=$row[rekkas] . " " . $namarekkas ?><br />
-		<strong>Utang:</strong> <?=$row[rekutang] . " " . $namarekutang ?><br />
+		<strong>Kas:</strong> <?=$row['rekkas'] . " " . $namarekkas ?><br />
+		<strong>Utang:</strong> <?=$row['rekutang'] . " " . $namarekutang ?><br />
         </td>
         <td><?=$row['keterangan'] ?></td>
 		<td align="center">

@@ -73,13 +73,13 @@ if ($op == "del") {
 	if ($num > 0) {
 		$row = mysqli_fetch_array($result);
 		
-		$sql = "DELETE FROM jbsakad.nap WHERE idinfo = '".$row['replid']." '";
+		$sql = "DELETE FROM jbsakad.nap WHERE idinfo = '".$row['replid']."'";
 		$result = QueryDb($sql) or die(mysqli_error($mysqlconnection));
 		
-		$sql = "DELETE FROM jbsakad.komennap WHERE idinfo = '".$row['replid']." '";
+		$sql = "DELETE FROM jbsakad.komennap WHERE idinfo = '".$row['replid']."'";
 		$result = QueryDb($sql) or die(mysqli_error($mysqlconnection));
 		
-		$sql = "DELETE FROM jbsakad.infonap WHERE replid = '".$row['replid']." '";
+		$sql = "DELETE FROM jbsakad.infonap WHERE replid = '".$row['replid']."'";
 		$result = QueryDb($sql) or die(mysqli_error($mysqlconnection));
 	}
 }
@@ -189,8 +189,8 @@ $num = @mysqli_num_rows($result);
 $my_data = "";
  
 while($row = @mysqli_fetch_array($result)) {
-    $my_data[$row[nis]][nama] = $row[nama];
-    $my_data[$row[nis]][$row[idjenis]] = $row[nilaiAU];
+    $my_data[$row['nis']][nama] = $row['nama'];
+    $my_data[$row['nis']][$row['idjenis']] = $row['nilaiAU'];
 }
 
 $query_cek = "SELECT replid, nilaimin FROM jbsakad.infonap ".
@@ -309,7 +309,7 @@ if($num_cek > 0) {
 				$color = "yellow";
 				
             echo "<td class='headerlong' colspan='2' align='center'>
-                <input type='hidden' name='aturan$v' value='$row_nhb['replid']." '>
+                <input type='hidden' name='aturan$v' value='$row_nhb['replid']."'>
                 <font size='1' color='$color'>Nilai $row_nhb[dasarpenilaian]</font></td>";
         }
         ?>

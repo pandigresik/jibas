@@ -161,9 +161,9 @@ function ShowKartuSiswa($showMenu)
             echo "<tr style='height: 30px'>";
             echo "<td align='center'>$no</td>";
             echo "<td align='left'>$nis</td>";
-            echo "<td align='left'>$row[nama]</td>";
-            echo "<td align='left'>$row[paymentid]</td>";
-            echo "<td align='left'>$row[tanggal]</td>";
+            echo "<td align='left'>$row['nama']</td>";
+            echo "<td align='left'>$row['paymentid']</td>";
+            echo "<td align='left'>$row['tanggal']</td>";
             echo "<td align='center'>";
             echo "<span id='spAktif$replid'>";
             if (getLevel() != 2)

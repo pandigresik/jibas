@@ -135,22 +135,22 @@ while ($row = @mysqli_fetch_array($result))
 	?><tr><?php
 	}
 	
-	$jumlah = (int)$row[jumlah];
-	$satuan = $row[satuan];
+	$jumlah = (int)$row['jumlah'];
+	$satuan = $row['satuan'];
 	$harga = (int)$row[info1];
 	$total = $jumlah * $harga;	
 ?>
 <td valign="top" align="center">
-<div id="div<?=$row['replid']?>" style="padding:5px; width:200px; margin:5px; border:2px solid #eaf4ff; cursor:default" onmouseover="Hover('div<?=$row['replid']?>','1')" onmouseout="Hover('div<?=$row['replid']?>','0')" title="<?=$row[keterangan]?>" onclick="ViewDetail('<?=$row['replid']?>',event)">
+<div id="div<?=$row['replid']?>" style="padding:5px; width:200px; margin:5px; border:2px solid #eaf4ff; cursor:default" onmouseover="Hover('div<?=$row['replid']?>','1')" onmouseout="Hover('div<?=$row['replid']?>','0')" title="<?=$row['keterangan']?>" onclick="ViewDetail('<?=$row['replid']?>',event)">
 <div align="left">
-<span style="font-family:Arial; font-size:14px; font-weight:bold; color:#990000"><?=$row[kode]?></span><br />
-<span style="font-family:Arial; font-size:12px; font-weight:bold; color:#006600; cursor:pointer"><?=$row[nama]?></span><br />
+<span style="font-family:Arial; font-size:14px; font-weight:bold; color:#990000"><?=$row['kode']?></span><br />
+<span style="font-family:Arial; font-size:12px; font-weight:bold; color:#006600; cursor:pointer"><?=$row['nama']?></span><br />
 </div>
 <img src="gambar.php?table=jbsfina.barang&replid=<?=$row['replid']?>"  style="padding:2px" />
 <div align="left">
 Jumlah: <?=$jumlah?>&nbsp;<?=$satuan?>&nbsp;@<?=FormatRupiah($harga)?><br />
 Total: <?=FormatRupiah($total)?><br>
-Tanggal: <?=substr($row[tglperolehan],8,2)."-".substr($row[tglperolehan],5,2)."-".substr($row[tglperolehan],0,4)?><br />
+Tanggal: <?=substr($row['tglperolehan'],8,2)."-".substr($row['tglperolehan'],5,2)."-".substr($row['tglperolehan'],0,4)?><br />
 <img src="../images/ico/ubah.png" border="0" onclick="ubah('<?=$row['replid']?>', event)" title="Ubah" style="cursor:pointer; z-index:100" />&nbsp;<img src="../images/ico/hapus.png" border="0" onclick="hapus('<?=$row['replid']?>', event)" title="Hapus" style="cursor:pointer; z-index:100" />
 </div>
 </div>

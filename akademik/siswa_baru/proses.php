@@ -57,9 +57,9 @@ $op = $_REQUEST['op'];
 
 if ($op == "dw8dxn8w9ms8zs22") {
 	OpenDb();
-	$sql = "UPDATE prosespenerimaansiswa SET aktif = '".$_REQUEST['newaktif']." ' WHERE replid = '".$_REQUEST['replid']."' ";
+	$sql = "UPDATE prosespenerimaansiswa SET aktif = '".$_REQUEST['newaktif']."' WHERE replid = '".$_REQUEST['replid']."' ";
 	QueryDb($sql);
-	$sql1 = "UPDATE prosespenerimaansiswa SET aktif = 0 WHERE replid <> '".$_REQUEST['replid']." ' AND departemen = '".$_REQUEST['departemen']."'";
+	$sql1 = "UPDATE prosespenerimaansiswa SET aktif = 0 WHERE replid <> '".$_REQUEST['replid']."' AND departemen = '".$_REQUEST['departemen']."'";
 	QueryDb($sql1);
 	CloseDb();
 } else if ($op == "xm8r389xemx23xb2378e23") {
@@ -261,7 +261,7 @@ function change_baris() {
 			$cnt = (int)$page*(int)$varbaris;
 			
 		while ($row = @mysqli_fetch_array($result)) {
-			$sql1 = "SELECT COUNT(c.replid) AS jumlah FROM calonsiswa c WHERE c.idproses = '".$row['replid']." ' AND c.aktif = 1"; 
+			$sql1 = "SELECT COUNT(c.replid) AS jumlah FROM calonsiswa c WHERE c.idproses = '".$row['replid']."' AND c.aktif = 1"; 
 			$result1 = QueryDb($sql1);	
 			$row1 = mysqli_fetch_array($result1);
 ?>			

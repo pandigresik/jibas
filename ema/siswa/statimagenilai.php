@@ -57,7 +57,7 @@ $sql = "SELECT MIN(nilaiangka) as nmin, MAX(nilaiangka) AS nmax
 $result = Querydb($sql);
 $row = @mysqli_fetch_array($result);
 		
-if ($row[nmin] >= 0 && $row[nmax] <= 10)
+if ($row['nmin'] >= 0 && $row['nmax'] <= 10)
 	$dasar = '1'; //satuan
 else
 	$dasar = '10'; //satuan

@@ -84,7 +84,7 @@ Guru : <?=SI_USER_NAME()?><br><br>
 <?php 		$sql1 = "SELECT *
 			       FROM jbsvcr.agenda
 				  WHERE idguru = '".SI_USER_ID()."'
-				    AND tanggal = '".$row[tanggal]'";
+				    AND tanggal = '".$row['tanggal']'";
 		$result1=QueryDb($sql1);
 		$i = 0;
 		while ($row1=@mysqli_fetch_array($result1))

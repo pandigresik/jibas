@@ -54,7 +54,7 @@ $row = mysqli_fetch_array($result);
 <body topmargin="0" leftmargin="0">
 <table border="0" cellpadding="10" cellpadding="5" width="780" align="left">
 <tr><td align="left" valign="top">
-<?=getHeader($row[dep])?>
+<?=getHeader($row['dep'])?>
 <center>
   <font size="4"><strong>FORM PENGISIAN KOMENTAR RAPOR SISWA</strong></font><br />
  </center><br /><br />

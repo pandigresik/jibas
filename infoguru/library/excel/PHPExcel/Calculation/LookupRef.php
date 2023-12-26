@@ -86,10 +86,10 @@ class PHPExcel_Calculation_LookupRef
             return $sheetText.$columnRelative.$column.$rowRelative.$row;
         } else {
             if (($relativity == 2) || ($relativity == 4)) {
-                $column = '['.$column.']." ';
+                $column = '['.$column.']."';
             }
             if (($relativity == 3) || ($relativity == 4)) {
-                $row = '['.$row.']." ';
+                $row = '['.$row.']."';
             }
             return $sheetText.'R'.$row.'C'.$column;
         }

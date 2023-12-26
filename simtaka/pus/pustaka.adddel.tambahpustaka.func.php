@@ -129,7 +129,7 @@ function Save()
     {
         $replid = $_REQUEST['replid'.$i];
         $parm = "jumlah$i";
-        if ($_REQUEST[$parm] != "" && {$_REQUEST[$parm]} > 0)
+        if ($_REQUEST[$parm] != "" && $_REQUEST[$parm] > 0)
         {
             for ($j = 1; $success && $j <= $_REQUEST[$parm]; $j++)
             {

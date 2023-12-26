@@ -604,7 +604,7 @@ function focusNext(elemName, evt) {
 			while ($row_kelas=@mysqli_fetch_array($result_kelas)){
 				if ($kelas=="")
 					$kelas=$row_kelas['replid'];
-				$sql_terisi="SELECT COUNT(*) FROM jbsakad.siswa WHERE idkelas='$row_kelas['replid']." ' AND aktif=1 AND idangkatan = '$angkatan'";
+				$sql_terisi="SELECT COUNT(*) FROM jbsakad.siswa WHERE idkelas='$row_kelas['replid']."' AND aktif=1 AND idangkatan = '$angkatan'";
 				$result_terisi=QueryDb($sql_terisi);
 				$row_terisi=@mysqli_fetch_row($result_terisi);
 			?>  

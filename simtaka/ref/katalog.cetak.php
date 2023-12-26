@@ -72,15 +72,15 @@ Rak : <?=$namarak?></strong></div>
 	  $num = @mysqli_num_rows($result);
 	  if ($num>0){
 		  while ($row=@mysqli_fetch_array($result)){
-				$num_judul = @mysqli_num_rows(QueryDb("SELECT * FROM pustaka p, katalog k WHERE k.replid='$row['replid']." ' AND k.replid=p.katalog"));
-				$num_pustaka = @mysqli_fetch_row(QueryDb("SELECT COUNT(d.replid) FROM pustaka p, daftarpustaka d, katalog k WHERE d.pustaka=p.replid AND k.replid='$row['replid']." ' AND p.katalog=k.replid"));
+				$num_judul = @mysqli_num_rows(QueryDb("SELECT * FROM pustaka p, katalog k WHERE k.replid='".$row['replid']."' AND k.replid=p.katalog"));
+				$num_pustaka = @mysqli_fetch_row(QueryDb("SELECT COUNT(d.replid) FROM pustaka p, daftarpustaka d, katalog k WHERE d.pustaka=p.replid AND k.replid='".$row['replid']."' AND p.katalog=k.replid"));
 		  ?>
 		  <tr>
-			<td height="25" align="center"><?=$row[kode]?></td>
-			<td height="25">&nbsp;<?=$row[nama]?></td>
+			<td height="25" align="center"><?=$row['kode']?></td>
+			<td height="25">&nbsp;<?=$row['nama']?></td>
 			<td height="25" align="center">&nbsp;<?=$num_judul?></td>
 			<td height="25" align="center">&nbsp;<?=(int)$num_pustaka[0]?></td>
-			<td height="25">&nbsp;<?=$row[keterangan]?></td>
+			<td height="25">&nbsp;<?=$row['keterangan']?></td>
 		  </tr>
 		  <?php
 		  }

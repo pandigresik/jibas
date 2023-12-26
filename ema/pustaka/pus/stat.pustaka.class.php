@@ -290,7 +290,7 @@ class CStat
 				$result3 = QueryDb($sql3);
 				if (@mysqli_num_rows($result3)>0){
 					$row3 = @mysqli_fetch_array($result3);
-					return $row3[nama];
+					return $row3['nama'];
 				} else {
 					return "Tanpa Nama";
 				}

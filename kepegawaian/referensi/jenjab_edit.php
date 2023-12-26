@@ -52,7 +52,7 @@ if (isset($_REQUEST['Simpan'])) {
 		$ERROR_MSG = "Jenis Jabatan {$_REQUEST['jenis']} sudah digunakan!";
 		$cek = 0;	
 	} else {
-		$sql = "UPDATE jenisjabatan SET jenis='".$_REQUEST['jenis']." ',urutan=$_REQUEST['urutan'],keterangan='".$_REQUEST['keterangan']."' WHERE jenis='$jenisasli'";
+		$sql = "UPDATE jenisjabatan SET jenis='".$_REQUEST['jenis']."',urutan=$_REQUEST['urutan'],keterangan='".$_REQUEST['keterangan']."' WHERE jenis='$jenisasli'";
 		$result = QueryDb($sql);
 		CloseDb();
 	
@@ -65,7 +65,7 @@ if (isset($_REQUEST['Simpan'])) {
 		exit();
 	}
 	} else {
-	$sql = "UPDATE jenisjabatan SET jenis='".$_REQUEST['jenis']." ',urutan=$_REQUEST['urutan'],keterangan='".$_REQUEST['keterangan']."' WHERE jenis='$jenisasli'";
+	$sql = "UPDATE jenisjabatan SET jenis='".$_REQUEST['jenis']."',urutan=$_REQUEST['urutan'],keterangan='".$_REQUEST['keterangan']."' WHERE jenis='$jenisasli'";
 		$result = QueryDb($sql);
 		CloseDb();
 	

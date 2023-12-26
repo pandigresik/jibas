@@ -8662,7 +8662,7 @@ $.widget("ui.tabs", {
 	select: function(index) {
 		// TODO make null as argument work
 		if (typeof index == 'string')
-			index = this.$tabs.index( this.$tabs.filter('[href$=' + index + ']." ')[0] );
+			index = this.$tabs.index( this.$tabs.filter('[href$=' + index + ']."')[0] );
 		this.$tabs.eq(index).trigger(this.options.event + '.tabs');
 	},
 

@@ -38,10 +38,10 @@ class CPustakaEdit
 			}
 			else
 			{
-				$departemen = ($_REQUEST['dep'] == "--ALL--") ? "NULL" : "'" . {$_REQUEST['dep']} . "'";
+				$departemen = ($_REQUEST['dep'] == "--ALL--") ? "NULL" : "'" .$_REQUEST['dep']. "'";
 				$sql = "UPDATE perpustakaan
-						   SET nama='" . {$_REQUEST['nama']} . "',
-						       keterangan='" . {$_REQUEST['keterangan']} . "',
+						   SET nama='" .$_REQUEST['nama']. "',
+						       keterangan='" .$_REQUEST['keterangan']. "',
 							   departemen=$departemen
 					     WHERE replid = '".$_REQUEST['replid']."'";
 				QueryDb($sql);
@@ -57,8 +57,8 @@ class CPustakaEdit
 			$result = QueryDb($sql);
 			$row = @mysqli_fetch_array($result);
 			$this->replid = $row['replid'];
-			$this->nama = $row[nama];
-			$this->keterangan = $row[keterangan];
+			$this->nama = $row['nama'];
+			$this->keterangan = $row['keterangan'];
 			$this->dep = $row['departemen'];
 		}
 	}

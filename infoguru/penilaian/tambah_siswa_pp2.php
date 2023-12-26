@@ -134,11 +134,11 @@ OpenDb();
 		<td class='data'><?=$i ?>
 		<input type="hidden" name="ujian<?=$i ?>" value="<?=$row['replid'] ?>">
 		</td>
-		<td class='data'><?=$row[tanggal]; ?>
-		<input type="hidden" name="tanggal<?=$i ?>" value="<?=$row[tanggal] ?>">
+		<td class='data'><?=$row['tanggal']; ?>
+		<input type="hidden" name="tanggal<?=$i ?>" value="<?=$row['tanggal'] ?>">
 		</td>
-		<td class='data'><?=$row[deskripsi]; ?>
-		<input type="hidden" name="deskripsi<?=$i ?>" value="<?=$row[deskripsi] ?>">
+		<td class='data'><?=$row['deskripsi']; ?>
+		<input type="hidden" name="deskripsi<?=$i ?>" value="<?=$row['deskripsi'] ?>">
 		</td>
 		<td class='data'><select name="status<?=$i ?>">
 						<option value="0">Hadir/Mengumpulkan</option>

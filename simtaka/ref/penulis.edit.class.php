@@ -41,13 +41,13 @@ class CPenulisEdit{
 			$result = QueryDb($sql);
 			$row = @mysqli_fetch_array($result);
 			$this->replid = $_REQUEST['id'];
-			$this->kode = $row[kode];
-			$this->nama = $row[nama];
-			$this->kontak = $row[kontak];
-			$this->biografi = $row[biografi];
-			$this->keterangan = $row[keterangan];
-			$this->gelardepan = $row[gelardepan];
-			$this->gelarbelakang = $row[gelarbelakang];
+			$this->kode = $row['kode'];
+			$this->nama = $row['nama'];
+			$this->kontak = $row['kontak'];
+			$this->biografi = $row['biografi'];
+			$this->keterangan = $row['keterangan'];
+			$this->gelardepan = $row['gelardepan'];
+			$this->gelarbelakang = $row['gelarbelakang'];
 		}
 	}
 	function exist(){

@@ -34,13 +34,13 @@ $success = true;
 
 $sql_get_nau_per_nis = 
 	"SELECT nilaiAU, replid, keterangan 
-	   FROM jbsakad.nau WHERE idkelas = '".$_REQUEST['kelas']." ' AND idsemester = '".$_REQUEST['semester']."' 
+	   FROM jbsakad.nau WHERE idkelas = '".$_REQUEST['kelas']."' AND idsemester = '".$_REQUEST['semester']."' 
 	    AND idaturan = '".$_REQUEST['idaturan']."'";
 $result_nau = QueryDb($sql_get_nau_per_nis);
 if (mysqli_num_rows($result_nau) > 0) 
 {	
 	$sql_hapus_nau = "DELETE FROM jbsakad.nau 
-					   WHERE idkelas = '".$_REQUEST['kelas']." ' AND idsemester = '".$_REQUEST['semester']."' 
+					   WHERE idkelas = '".$_REQUEST['kelas']."' AND idsemester = '".$_REQUEST['semester']."' 
 					     AND idaturan = '".$_REQUEST['idaturan']."'";
 	QueryDbTrans($sql_hapus_nau,$success);	
 }
@@ -50,9 +50,9 @@ $rpp = "";
 if ($_REQUEST['idrpp'] != '') 
 	$rpp = " ,idrpp='".$_REQUEST['idrpp']."'";
 
-$sql1 = "INSERT INTO ujian SET idpelajaran = '".$_REQUEST['pelajaran']." ', idkelas = '".$_REQUEST['kelas']."', 
-			idsemester = '".$_REQUEST['semester']." ', idjenis = '".$_REQUEST['jenis']."', deskripsi = '".CQ($_REQUEST['deskripsi'])."', 
-			tanggal = '$tanggal', idaturan = '".$_REQUEST['idaturan']." ', kode = '".$_REQUEST['kode']."' $rpp";
+$sql1 = "INSERT INTO ujian SET idpelajaran = '".$_REQUEST['pelajaran']."', idkelas = '".$_REQUEST['kelas']."', 
+			idsemester = '".$_REQUEST['semester']."', idjenis = '".$_REQUEST['jenis']."', deskripsi = '".CQ($_REQUEST['deskripsi'])."', 
+			tanggal = '$tanggal', idaturan = '".$_REQUEST['idaturan']."', kode = '".$_REQUEST['kode']."' $rpp";
 QueryDbTrans($sql1,$success);
 
 $sql2 = "SELECT LAST_INSERT_ID()";

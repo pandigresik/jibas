@@ -3172,7 +3172,7 @@ $$.shared = {
 						case '!=': temp.push('[@', param[4], '!="', param[6], '"]');
 					}
 				} else {
-					temp.push('[@', param[4], ']." ');
+					temp.push('[@', param[4], ']."');
 				}
 			}
 			items.push(temp.join(''));
@@ -5552,7 +5552,7 @@ var Json = {
 			case 'string':
 				return '"' + obj.replace(/(["\\])/g, '\\$1') + '"';
 			case 'array':
-				return '[' + obj.map(Json.toString).join(',') + ']." ';
+				return '[' + obj.map(Json.toString).join(',') + ']."';
 			case 'object':
 				var string = [];
 				for (var property in obj) string.push(Json.toString(property) + ':' + Json.toString(obj[property]));

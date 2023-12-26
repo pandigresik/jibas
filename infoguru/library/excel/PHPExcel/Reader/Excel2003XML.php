@@ -664,7 +664,7 @@ class PHPExcel_Reader_Excel2003XML extends PHPExcel_Reader_Abstract implements P
                                     foreach ($temp as &$value) {
                                         //    Only replace in alternate array entries (i.e. non-quoted blocks)
                                         if ($key = !$key) {
-                                            $value = str_replace(array('[.', '.', ']." '), '', $value);
+                                            $value = str_replace(array('[.', '.', ']."'), '', $value);
                                         }
                                     }
                                 } else {

@@ -34,8 +34,8 @@ $query = "SELECT foto FROM $table WHERE replid = '$replid'";
 $result = QueryDb($query);
 $num = @mysqli_num_rows($result);
 if ($row = mysqli_fetch_array($result)) {
-    if($row[foto]) {
-        echo  $row[foto];
+    if($row['foto']) {
+        echo  $row['foto'];
     }else {
     	$filename = "../images/ico/no_image.png";
         $handle = fopen($filename, "r");

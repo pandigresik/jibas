@@ -28,11 +28,11 @@ $idgroup = $_REQUEST['idgroup'];
 $sql = "SELECT * FROM jbsfina.groupbarang WHERE replid='".$_REQUEST['idgroup']."'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
-$groupname = stripslashes($row[namagroup]);
+$groupname = stripslashes($row['namagroup']);
 if (isset($_REQUEST['groupname']))
 	$groupname = addslashes(trim($_REQUEST['groupname']));
 //$groupname = addslashes(trim($groupname));
-$keterangan = stripslashes($row[keterangan]);
+$keterangan = stripslashes($row['keterangan']);
 if (isset($_REQUEST['keterangan']))
 	$keterangan = addslashes(trim($_REQUEST['keterangan']));	
 

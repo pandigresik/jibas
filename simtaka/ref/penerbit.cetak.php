@@ -64,17 +64,17 @@ $departemen='yayasan';
 	  <?php
 	  if ($num>0){
 		  while ($row=@mysqli_fetch_array($result)){
-				$num_judul = @mysqli_num_rows(QueryDb("SELECT * FROM pustaka p, penerbit pb WHERE pb.replid='$row['replid']." ' AND pb.replid=p.penerbit"));
-				$num_pustaka = @mysqli_fetch_row(QueryDb("SELECT COUNT(d.replid) FROM pustaka p, daftarpustaka d, penerbit pb WHERE d.pustaka=p.replid AND pb.replid='$row['replid']." ' AND p.penerbit=pb.replid"));			  
+				$num_judul = @mysqli_num_rows(QueryDb("SELECT * FROM pustaka p, penerbit pb WHERE pb.replid='".$row['replid']."' AND pb.replid=p.penerbit"));
+				$num_pustaka = @mysqli_fetch_row(QueryDb("SELECT COUNT(d.replid) FROM pustaka p, daftarpustaka d, penerbit pb WHERE d.pustaka=p.replid AND pb.replid='".$row['replid']."' AND p.penerbit=pb.replid"));			  
 		  ?>
 		  <tr>
-			<td height="25" align="center"><?=$row[kode]?></td>
-			<td height="25"><div class="tab_content"><?=$row[nama]?></div></td>
+			<td height="25" align="center"><?=$row['kode']?></td>
+			<td height="25"><div class="tab_content"><?=$row['nama']?></div></td>
 			<td height="25" align="center"><?=$num_judul?></td>
 			<td height="25" align="center"><?=(int)$num_pustaka[0]?></td>
-			<td height="25"><div class="tab_content"><?=$row[alamat]?></div></td>
-			<td height="25"><div class="tab_content"><?=$row[telpon]?></div></td>
-			<td height="25"><div class="tab_content"><?=$row[keterangan]?></div></td>
+			<td height="25"><div class="tab_content"><?=$row['alamat']?></div></td>
+			<td height="25"><div class="tab_content"><?=$row['telpon']?></div></td>
+			<td height="25"><div class="tab_content"><?=$row['keterangan']?></div></td>
 		  </tr>
 		  <?php
 		  }

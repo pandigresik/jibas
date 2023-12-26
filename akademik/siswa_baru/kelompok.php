@@ -270,7 +270,7 @@ if ($proses!="") {
         <td height="25"><?=$row['kelompok']?></td>
         <td height="25" align="center"><?=$row['kapasitas']?></td>
         <td height="25" align="center">
-		<?php $sql1 = "SELECT COUNT(*) FROM calonsiswa WHERE idkelompok='$row['replid']." ' AND aktif = 1";
+		<?php $sql1 = "SELECT COUNT(*) FROM calonsiswa WHERE idkelompok='".$row['replid']."' AND aktif = 1";
 			$result1 = QueryDb($sql1);
 			$row1 = @mysqli_fetch_row($result1);
 			echo $row1[0];

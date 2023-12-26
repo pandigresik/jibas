@@ -67,14 +67,14 @@ if ($num>0)
                 <div align="center"><?=$cnt?></div>
             </td>
             <td height="25" valign="top">
-                <?=ShortDateFormat($row[tanggal])?><br /><?=$row[nip]?>-<?=$row[nama]?>
+                <?=ShortDateFormat($row['tanggal'])?><br /><?=$row['nip']?>-<?=$row['nama']?>
             </td>
         </tr>
         <tr <?=$a?>>
             <td height="25">
                 <font face="Verdana, Arial, Helvetica, sans-serif" color="#999999">
-                    [<?=$row[judul]?>]
-                </font><br /><?=$row[catatan]?>
+                    [<?=$row['judul']?>]
+                </font><br /><?=$row['catatan']?>
             </td>
 <?php      $cnt++;
   	}

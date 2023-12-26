@@ -53,7 +53,7 @@ if (isset($_REQUEST['Simpan'])) {
 		$ERROR_MSG = "Nama {$_REQUEST['nama']} sudah digunakan!";
 		$cek = 1;
 	} else {
-		$sql = "UPDATE satker SET satker='".$_REQUEST['satker']." ',nama='".$_REQUEST['nama']."' WHERE replid=$replid";
+		$sql = "UPDATE satker SET satker='".$_REQUEST['satker']."',nama='".$_REQUEST['nama']."' WHERE replid=$replid";
 		$result = QueryDb($sql);
 		CloseDb();
 	

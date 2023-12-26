@@ -292,7 +292,7 @@ function ByeWin() {
         <td height="25" align="center"><?=$row['kapasitas']?></td>
         <td height="25" align="center">
 		<?php OpenDb();
-			$sql1 = "SELECT COUNT(*) FROM calonsiswa WHERE idkelompok='$row['replid']." ' AND aktif = 1";    
+			$sql1 = "SELECT COUNT(*) FROM calonsiswa WHERE idkelompok='".$row['replid']."' AND aktif = 1";    
 			$result1 = QueryDb($sql1);
 			$row1 = @mysqli_fetch_row($result1);
 			echo $row1[0];			

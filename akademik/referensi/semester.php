@@ -36,9 +36,9 @@ $op = $_REQUEST['op'];
 
 if ($op == "dw8dxn8w9ms8zs22") {
 	OpenDb();
-	$sql = "UPDATE semester SET aktif = '".$_REQUEST['newaktif']." ' WHERE replid = '".$_REQUEST['replid']."'";
+	$sql = "UPDATE semester SET aktif = '".$_REQUEST['newaktif']."' WHERE replid = '".$_REQUEST['replid']."'";
 	QueryDb($sql);
-	$sql1 = "UPDATE semester SET aktif = 0 WHERE replid <> '".$_REQUEST['replid']." ' AND departemen = '".$_REQUEST['departemen']."'";
+	$sql1 = "UPDATE semester SET aktif = 0 WHERE replid <> '".$_REQUEST['replid']."' AND departemen = '".$_REQUEST['departemen']."'";
 	QueryDb($sql1);
 	CloseDb();
 } else if ($op == "xm8r389xemx23xb2378e23") {

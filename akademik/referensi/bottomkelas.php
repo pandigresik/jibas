@@ -75,7 +75,7 @@ if ($op == "dw8dxn8w9ms8zs22") {
 		$replid = $_REQUEST['replid'];
 		
 	OpenDb();
-	$sql = "UPDATE kelas SET aktif = '".$_REQUEST['newaktif']." ' WHERE replid = '".$_REQUEST['replid']."' ";
+	$sql = "UPDATE kelas SET aktif = '".$_REQUEST['newaktif']."' WHERE replid = '".$_REQUEST['replid']."' ";
 	$result=QueryDb($sql);
 	if ($result)
 		CloseDb();

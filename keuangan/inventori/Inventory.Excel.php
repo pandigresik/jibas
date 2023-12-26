@@ -84,17 +84,17 @@ while($row = mysqli_fetch_array($result))
 {
     $no += 1;
     
-    $jumlah = (int)$row[jumlah];
+    $jumlah = (int)$row['jumlah'];
     $harga = (int)$row[info1];
     $total = $jumlah * $harga;
 ?>
 <tr>
     <td><?=$no?></td>
-    <td><?=$row[kode]?></td>
-    <td><?=$row[nama]?></td>
-    <td><?=$row[tglperolehan]?></td>
-    <td><?=$row[kondisi]?></td>
-    <td><?=$jumlah . " " . $row[satuan]?></td>
+    <td><?=$row['kode']?></td>
+    <td><?=$row['nama']?></td>
+    <td><?=$row['tglperolehan']?></td>
+    <td><?=$row['kondisi']?></td>
+    <td><?=$jumlah . " " . $row['satuan']?></td>
     <td><?=$harga?></td>
     <td><?=$total?></td>
 </tr>

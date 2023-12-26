@@ -41,7 +41,7 @@ $replid="";
 //echo "SELECT replid,theme FROM jbsuser.hakakses WHERE modul='INFOSISWA' AND login='".SI_USER_ID()."'";
 $res=QueryDb("SELECT replid,theme FROM jbsuser.hakaksesinfosiswa WHERE nis='".SI_USER_ID()."'");
 $row=@mysqli_fetch_array($res);
-$theme=$row[theme];
+$theme=$row['theme'];
 $replid=$row['replid'];
 CloseDb();
 $op="";

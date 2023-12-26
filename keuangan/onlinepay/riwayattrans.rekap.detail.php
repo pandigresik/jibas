@@ -226,7 +226,7 @@ for($i = 0; $i < $nData; $i++)
                 $sql = "SELECT ts.nomor
                           FROM jbsfina.tagihansiswainfo tsi, jbsfina.tagihanset ts
                          WHERE tsi.idtagihanset = ts.replid
-                           AND tsi.notagihan = '".$row[nomor]'";
+                           AND tsi.notagihan = '".$row['nomor']'";
                 $res2 = QueryDb($sql);
                 if ($row2 = mysqli_fetch_row($res2))
                     $nomorTs = $row2[0];
@@ -235,19 +235,19 @@ for($i = 0; $i < $nData; $i++)
             $no += 1;
             echo "<tr>";
             echo "<td align='center' style='background-color: #efefef;' rowspan='3' valign='top'>$no</td>";
-            echo "<td align='left' style='background-color: #e5fdff;' colspan='4'><b>$row[transaksi]</b></td>";
+            echo "<td align='left' style='background-color: #e5fdff;' colspan='4'><b>$row['transaksi']</b></td>";
             echo "</tr>";
 
             echo "<tr>";
-            echo "<td align='left' style='background-color: #fff;'>$row[fwaktu]</td>";
-            echo "<td align='left' style='background-color: #fff;'><b>$row[nama]</b><br>$row[nis]</td>";
+            echo "<td align='left' style='background-color: #fff;'>$row['fwaktu']</td>";
+            echo "<td align='left' style='background-color: #fff;'><b>$row['nama']</b><br>$row['nis']</td>";
             echo "<td align='left' style='background-color: #fff;' valign='top'>";
             if ($row["jenis"] == 1)
-                echo "<b>$row[nomor]</b><br><i>$nomorTs</i><br><i>$row[paymentid]</i>";
+                echo "<b>$row['nomor']</b><br><i>$nomorTs</i><br><i>$row['paymentid']</i>";
             else
-                echo "<b>$row[nomor]</b><br><i>$row[paymentid]</i>";
+                echo "<b>$row['nomor']</b><br><i>$row['paymentid']</i>";
             echo "</td>";
-            echo "<td align='left' style='background-color: #fff;'>$row[bank]<br>$row[bankno]</td>";
+            echo "<td align='left' style='background-color: #fff;'>$row['bank']<br>$row['bankno']</td>";
             echo "</tr>";
 
             echo "<tr>";

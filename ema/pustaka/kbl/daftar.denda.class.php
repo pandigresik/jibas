@@ -268,7 +268,7 @@ class CDaftarDenda
 					      FROM jbsperpus.pustaka p, jbsperpus.daftarpustaka d, jbsperpus.pinjam pi
 						 WHERE d.pustaka=p.replid
 						   AND d.kodepustaka=pi.kodepustaka
-						   AND pi.replid='$row[idpinjam]'";
+						   AND pi.replid='".$row['idpinjam']."'";
 				//echo $sql;
 				$res = QueryDb($sql);
 				$r = @mysqli_fetch_row($res);
@@ -276,11 +276,11 @@ class CDaftarDenda
 				$this->jenisanggota = $r[2];
 				
 				$NamaAnggota = $this->GetMemberName();
-				$totaldenda += $row[denda];  ?>
+				$totaldenda += $row['denda'];  ?>
 				
 				<tr height="25" style="color:<?=$color?>; <?=$weight?>">
 					<td align="center"><?=$cnt?></td>
-					<td align="center"><?=LongDateFormat($row[tglditerima])?></td>
+					<td align="center"><?=LongDateFormat($row['tglditerima'])?></td>
 					<td align="left">
 						<font style='font-size: 9px'><?=$r[0]?></font><br>
 						<font style='font-size: 11px; font-weight: bold;'><?=$this->GetMemberName()?></font>
@@ -289,9 +289,9 @@ class CDaftarDenda
 						<font style='font-size: 9px'><?=$kodepustaka?></font><br>
 						<font style='font-size: 11px; font-weight: bold;'><?=$judul?></font>
 					</td>
-					<td align="center"><?=$row[telat]?> hari</td>
-					<td align="right"><?=FormatRupiah($row[denda])?></td>
-					<td align="center"><?=$row[keterangan]?></td>
+					<td align="center"><?=$row['telat']?> hari</td>
+					<td align="right"><?=FormatRupiah($row['denda'])?></td>
+					<td align="center"><?=$row['keterangan']?></td>
 				</tr>
 <?php 	  	}  ?>
 			<tr style="color:<?=$color?>; <?=$weight?>">

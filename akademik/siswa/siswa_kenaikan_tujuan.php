@@ -393,7 +393,7 @@ function focusNext(elemName, evt) {
 				if ($kelas=="") 
 					$kelas=$row_kelas['replid'];
 				
-				$sql_terisi="SELECT COUNT(*) FROM jbsakad.siswa WHERE idkelas='$row_kelas['replid']." ' AND aktif=1";
+				$sql_terisi="SELECT COUNT(*) FROM jbsakad.siswa WHERE idkelas='$row_kelas['replid']."' AND aktif=1";
 				$result_terisi=QueryDb($sql_terisi);
 				$row_terisi=@mysqli_fetch_row($result_terisi);
 		?>

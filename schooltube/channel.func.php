@@ -117,7 +117,7 @@ function ShowModulChannel($idChannel)
             echo "<td align='left' valign='top' width='300px'>";
         }
 
-        echo "<a style='font-weight: bold; cursor: pointer; font-family: Verdana' onclick='cn_showModul($idModul)'>$no. $row[judul]</a><br><br>";
+        echo "<a style='font-weight: bold; cursor: pointer; font-family: Verdana' onclick='cn_showModul($idModul)'>$no. $row['judul']</a><br><br>";
 
         if ($nRow == $nRowPerCol)
         {

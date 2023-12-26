@@ -75,12 +75,12 @@ if (isset($_REQUEST['departemen']))
     	<td align="center"><?=++$cnt?></td>
         <td><?=$row['nama'] ?></td>
         <td>
-<?php 		$sql = "SELECT nama FROM rekakun WHERE kode = '".$row[rekkredit]'";
+<?php 		$sql = "SELECT nama FROM rekakun WHERE kode = '".$row['rekkredit']'";
 			$result = QueryDb($sql);
 			$row2 = mysqli_fetch_row($result);
 			$namarekkredit = $row2[0];
 	
-			$sql = "SELECT nama FROM rekakun WHERE kode = '".$row[rekdebet]'";
+			$sql = "SELECT nama FROM rekakun WHERE kode = '".$row['rekdebet']'";
 			$result = QueryDb($sql);
 			$row2 = mysqli_fetch_row($result);
 			$namarekdebet = $row2[0]; ?>

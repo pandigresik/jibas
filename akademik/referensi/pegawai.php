@@ -51,7 +51,7 @@ if (isset($_REQUEST['op']))
 	$op = $_REQUEST['op'];
 
 if ($op == "dw8dxn8w9ms8zs22") {
-	$sql = "UPDATE jbssdm.pegawai SET aktif = '".$_REQUEST['newaktif']." ' WHERE replid = '".$_REQUEST['replid']."' ";
+	$sql = "UPDATE jbssdm.pegawai SET aktif = '".$_REQUEST['newaktif']."' WHERE replid = '".$_REQUEST['replid']."' ";
 	QueryDb($sql);
 } else if ($op == "xm8r389xemx23xb2378e23") {
 	$sql = "DELETE FROM jbssdm.pegawai WHERE replid = '".$_REQUEST['replid']."'";

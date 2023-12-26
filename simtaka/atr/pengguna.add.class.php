@@ -258,8 +258,8 @@ class CPenggunaAdd
 						$result = QueryDb($sql);						
 						while ($row = @mysqli_fetch_array($result))
 						{ ?>
-							<option value="<?=$row['replid'] . ":" . $row[nama]?>" <?=StringIsSelected($row[nama], $this->perpustakaan)?>>
-							<?=$row[nama]?>
+							<option value="<?=$row['replid'] . ":" . $row['nama']?>" <?=StringIsSelected($row['nama'], $this->perpustakaan)?>>
+							<?=$row['nama']?>
 							</option>
 <?php 					}
 					} ?>
@@ -280,7 +280,7 @@ class CPenggunaAdd
 	
 	function get_noreg()
 	{
-		return "ANG".date(YmdHis);
+		return "ANG".date('YmdHis');
 	}
 }
 ?>

@@ -186,7 +186,7 @@ class CTelat
 				$sql = "SELECT judul
 						  FROM pustaka p, daftarpustaka d
 						 WHERE d.pustaka=p.replid
-						   AND d.kodepustaka='$row[kodepustaka]'";
+						   AND d.kodepustaka='{$row['kodepustaka']}'";
 				//echo $sql;
 				$res = QueryDb($sql);
 				$r = @mysqli_fetch_row($res);
@@ -199,17 +199,17 @@ class CTelat
 				$weight = '';
 				$alt = 'OK';
 				$img = '<img src="../img/ico/Valid.png" width="16" height="16" title='.$alt.' />';
-				if ($row[tglkembali]<=$now)
+				if ($row['tglkembali']<=$now)
 				{
-					if ($row[tglkembali]==$now)
+					if ($row['tglkembali']==$now)
 					{
 						$alt = 'Hari&nbsp;ini&nbsp;batas&nbsp;pengembalian&nbsp;terakhir';
 						$color='#cb6e01';
 						$weight='font-weight:bold';
 					}
-					elseif ($row[tglkembali]<$now)
+					elseif ($row['tglkembali']<$now)
 					{
-						$diff = @mysqli_fetch_row(QueryDb("SELECT DATEDIFF('".$now."','".$row[tglkembali]."')"));
+						$diff = @mysqli_fetch_row(QueryDb("SELECT DATEDIFF('".$now."','".$row['tglkembali']."')"));
 						$alt = 'Terlambat&nbsp;'.$diff[0].'&nbsp;hari';
 						$color='red';
 						$weight='font-weight:bold';
@@ -219,19 +219,19 @@ class CTelat
 				}  ?>
 				<tr height="25" style="color:<?=$color?>; <?=$weight?>">
 					<td align='center'><?=$cnt?></td>
-					<td align="center"><?=LongDateFormat($row[tglpinjam])?></td>
-					<td align="center"><?=LongDateFormat($row[tglkembali])?></td>
-					<td align="left"><?=$row[idanggota]?><br><?=$this->GetMemberName();?></td>
-					<td align="left"><?= $row[kodepustaka] . "<br>$judul" ?></td>
-					<td align="left"><?=$row[keterangan]?></td>
+					<td align="center"><?=LongDateFormat($row['tglpinjam'])?></td>
+					<td align="center"><?=LongDateFormat($row['tglkembali'])?></td>
+					<td align="left"><?=$row['idanggota']?><br><?=$this->GetMemberName();?></td>
+					<td align="left"><?= $row['kodepustaka'] . "<br>$judul" ?></td>
+					<td align="left"><?=$row['keterangan']?></td>
 					<td align="center"><?=$telat?></td>
 					<td align="center">
-						<a title="Kembalikan Sekarang" href="javascript:kembalikan('<?=$row[kodepustaka]?>');">
+						<a title="Kembalikan Sekarang" href="javascript:kembalikan('<?= $row['kodepustaka'] ?>');">
 						<img src="../img/ico/refresh.png" width="16" height="16" border="0" />
 						</a>
 					</td>
 					<td align="center">
-						<a title="Perpanjangan" href="javascript:perpanjang('<?=$row[kodepustaka]?>');">
+						<a title="Perpanjangan" href="javascript:perpanjang('<?= $row['kodepustaka'] ?>');">
 						<img src="../img/ico/tambah.png" width="16" height="16" border="0" />
 						</a>
 					</td>

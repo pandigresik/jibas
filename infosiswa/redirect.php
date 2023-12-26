@@ -86,8 +86,8 @@ else
 	if($num != 0) 
 	{
 		$_SESSION['login'] = $login;
-		$_SESSION['nama'] = $row[nama];
-		$_SESSION['panggilan'] = $row[panggilan];
+		$_SESSION['nama'] = $row['nama'];
+		$_SESSION['panggilan'] = $row['panggilan'];
 		$user_exists = true;
 	}
 }

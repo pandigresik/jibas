@@ -498,9 +498,9 @@ Spry.Widget.ValidationTextField.ValidationDescriptors = {
 					}
 					var first = address.charAt(0);
 					var last = address.charAt(address.length - 1);
-					if (first == '[' && last != ']." ' || first != '[' && last == ']." ') {
+					if (first == '[' && last != ']."' || first != '[' && last == ']."') {
 						return false;
-					} else if (first == '[' && last == ']." ') {
+					} else if (first == '[' && last == ']."') {
 						//IPv6 address or IPv4 enclosed in square brackets
 						address = address.replace(/^\[|\]$/gi, '');
 						return Spry.Widget.ValidationTextField.validateIP(address, 'ipv6_ipv4');

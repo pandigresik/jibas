@@ -204,7 +204,7 @@ if (isset($_REQUEST['pelajaran']))
 <?php 					$sql = "SELECT * FROM pelajaran WHERE replid = $pelajaran ";
 						$result = QueryDb($sql);
 						$row = mysqli_fetch_array($result); ?>	
-						<font color="#000000" size="3" class="news_content1">Pelajaran <?=$row[nama]?><br />Semester <?=$nmsem?> </font>
+						<font color="#000000" size="3" class="news_content1">Pelajaran <?=$row['nama']?><br />Semester <?=$nmsem?> </font>
 					</td> 
 					<td width="28%" align="right" valign="top"> 
 						<a href="JavaScript:CetakNilai2(<?=$semester?>)"><img src="../img/print.png" border="0" />&nbsp;Cetak</a>
@@ -229,7 +229,7 @@ if (isset($_REQUEST['pelajaran']))
 									   FROM ujian u, pelajaran p, nilaiujian n
 									  WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas'
 									    AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$semester."'
-										AND u.idjenis = '".$row['replid']." ' AND u.replid = n.idujian AND n.nis = '$nis'
+										AND u.idjenis = '".$row['replid']."' AND u.replid = n.idujian AND n.nis = '$nis'
 									  ORDER BY u.tanggal";
 							$result1 = QueryDb($sql1);
 							
@@ -242,7 +242,7 @@ if (isset($_REQUEST['pelajaran']))
 									<td width="10%">Nilai</td>
 									<td width="*">Keterangan</td>
 								</tr>
-<?php 							$sql2 = "SELECT AVG(n.nilaiujian) as rata FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$semester."' AND u.idjenis = '".$row['replid']." ' AND u.replid = n.idujian AND n.nis = '$nis' ";
+<?php 							$sql2 = "SELECT AVG(n.nilaiujian) as rata FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$semester."' AND u.idjenis = '".$row['replid']."' AND u.replid = n.idujian AND n.nis = '$nis' ";
 								$result2 = QueryDb($sql2);	
 								$row2 = @mysqli_fetch_array($result2);
 								$rata = $row2[rata];

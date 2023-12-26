@@ -32,7 +32,7 @@ function getHeader($dep)
 	$num = @mysqli_num_rows($result);
 	$row = @mysqli_fetch_array($result);
 	$replid = $row['replid'];
-	$nama = $row[nama];
+	$nama = $row['nama'];
 	$alamat1 = $row[alamat1];
 	$alamat2 = $row[alamat2];
 	$te1p1 = $row[telp1];
@@ -41,8 +41,8 @@ function getHeader($dep)
 	$telp4 = $row[telp4];
 	$fax1 = $row[fax1];
 	$fax2 = $row[fax2];
-	$situs = $row[situs];
-	$email = $row[email];
+	$situs = $row['situs'];
+	$email = $row['email'];
 	$head =	"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">";
 	$head .="	<tr>";
 	$head .="		<td width=\"20%\" align=\"center\">";

@@ -248,7 +248,7 @@ if ($numfile>0)
 {
 	while ($row = mysqli_fetch_array($result))
 	{
-		$file_addr = "$FILESHARE_UPLOAD_DIR/fileshare/$fullpath/$row[filename]";
+		$file_addr = "$FILESHARE_UPLOAD_DIR/fileshare/$fullpath/$row['filename']";
 	?>
 		<tr height="25">
 			<td align="center"><?=$cnt ?></td>
@@ -261,8 +261,8 @@ if ($numfile>0)
 			</td>
 	<?php 		} ?>
 			<td align="left">
-				<a title='<?= "$FILESHARE_ADDR/fileshare/$fullpath/$row[filename]" ?>'
-				   href='<?= "$FILESHARE_ADDR/fileshare/$fullpath/$row[filename]" ?>' target="_blank">
+				<a title='<?= "$FILESHARE_ADDR/fileshare/$fullpath/$row['filename']" ?>'
+				   href='<?= "$FILESHARE_ADDR/fileshare/$fullpath/$row['filename']" ?>' target="_blank">
 					<?=$row['filename'] ?>
 				</a>
 			</td>

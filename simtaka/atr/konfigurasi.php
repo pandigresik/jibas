@@ -32,9 +32,9 @@ if (isset($_REQUEST['Simpan'])){
 	$result = QueryDb($sql);
 	$num = @mysqli_num_rows($result);
 	if ($num==0){
-		$sql = "INSERT INTO konfigurasi SET siswa='".$_REQUEST['siswa']." ',pegawai='".$_REQUEST['pegawai']." ',other='".$_REQUEST['other']."',denda='".UnformatRupiah($_REQUEST['denda'])."'";
+		$sql = "INSERT INTO konfigurasi SET siswa='".$_REQUEST['siswa']."',pegawai='".$_REQUEST['pegawai']."',other='".$_REQUEST['other']."',denda='".UnformatRupiah($_REQUEST['denda'])."'";
 	} else {
-		$sql = "UPDATE konfigurasi SET siswa='".$_REQUEST['siswa']." ',pegawai='".$_REQUEST['pegawai']." ',other='".$_REQUEST['other']."',denda='".UnformatRupiah($_REQUEST['denda'])."'";
+		$sql = "UPDATE konfigurasi SET siswa='".$_REQUEST['siswa']."',pegawai='".$_REQUEST['pegawai']."',other='".$_REQUEST['other']."',denda='".UnformatRupiah($_REQUEST['denda'])."'";
 	}
 	$result = QueryDb($sql);
 	if ($result){
@@ -48,16 +48,16 @@ if (isset($_REQUEST['Simpan'])){
 $sql = "SELECT * FROM konfigurasi";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
-$siswa = $row[siswa];
+$siswa = $row['siswa'];
 if ($siswa=='')
 	$siswa=0;
-$pegawai = $row[pegawai];
+$pegawai = $row['pegawai'];
 if ($pegawai=='')
 	$pegawai=0;
-$other = $row[other];
+$other = $row['other'];
 if ($other=='')
 	$other=0;
-$denda = $row[denda];
+$denda = $row['denda'];
 if ($denda=='')
 	$denda=0;	
 ?>
