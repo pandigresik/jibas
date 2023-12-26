@@ -1,0 +1,3 @@
+<?php
+$IsAllowStudentEdit = false;
+?>

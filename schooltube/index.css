@@ -1,0 +1,31 @@
+@font-face
+{
+    font-family: msp;
+    src: url('fonts/mrd-regular.woff');
+}
+
+html, body
+{
+    height: 100%;
+}
+
+.mainPageTitle
+{
+    font-family: 'Segoe UI', msp, Arial;
+    font-size: 24px;
+    color: #333;
+}
+
+.mainPageSection
+{
+    font-family: 'Segoe UI', msp, Arial;
+    font-size: 18px;
+    color: #333;
+}
+
+.mainPageSubTitle
+{
+    font-family: Georgia;
+    font-size: 12px;
+    font-style: italic;
+}

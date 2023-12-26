@@ -1,0 +1,131 @@
+*{
+	font-family: tahoma, verdana, "sans-serif";
+	margin: 0;
+	padding: 0;
+	font-size: 95%;
+} 
+
+body{
+	background: white;
+}
+
+a, a:hover{
+	text-decoration: none;
+	color: #48f;
+}
+a:hover{
+	color: #33CCFF;
+}
+
+p{
+	font-size: 90%;
+	margin-top: 1em;
+	margin-bottom: 2em;
+	color: #333;
+}
+
+h1 {
+	color: #0099CC;
+	font-size: 1.6em;
+}
+
+
+/* Form */
+form {
+	width: 400px;
+	border: 1px solid #EEE;
+	padding: 10px;
+	margin: 40px auto;
+}
+
+label {
+	display: block;
+	margin-top : 8px;
+	width: 100%;
+	background-repeat: no-repeat;
+}
+
+img {
+	border:0;
+}
+
+.blue {
+	color: #0099CC;
+	font-weight: bold;
+}
+
+/* footer */
+.dwnld {
+	Display: block;
+	padding: 10px;
+	text-align: center;
+	width: 400px;
+	margin: 0 auto;
+	border: 1px solid #EEE;
+	background-color: white;
+	color: #999;
+	font-size: 1.4em;
+	font-weight: bold;
+	line-height: 50px;
+	background: url(../images/download.gif) no-repeat 40px 10px;
+}
+
+/* footer */
+.footer {
+	Display: block;
+	padding: 10px;
+	margin: 40px auto;
+	width: 400px;
+	text-align: center;
+	border: 1px solid #EEE;
+	background-color: white;
+	color: #999;
+}
+
+.footer p {
+	color: #999;
+}
+
+/* Congratulation message */
+.MsgSent {
+	Display: block;
+	padding: 10px;
+	margin: 40px auto;
+	width: 400px;
+	text-align: center;
+	border: 1px solid #EEE;
+	background-color: white;
+}
+
+.MsgSent h1 {
+	background: url(../images/MsgSent.gif) no-repeat 0 0;
+	padding-left: 20px;
+	height: 85px;
+	line-height: 85px;
+}
+
+/* Error message */
+.MsgError {
+	Display: block;
+	padding: 10px;
+	margin: 40px auto;
+	width: 400px;
+	text-align: center;
+	border: 1px solid #EEE;
+	background-color: white;
+}
+
+.MsgError h1 {
+	background: url(../images/MsgError.gif) no-repeat 0 0;
+	padding-left: 20px;
+	height: 85px;
+	line-height: 85px;
+	color: #CC0000;
+}
+
+.MsgSent p, .MsgError p {
+	font-size: 1.3em;
+	color:#999;
+}
+
+

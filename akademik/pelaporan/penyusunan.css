@@ -1,0 +1,17 @@
+.inputbox {
+	border: 1px solid #e2e2e2;
+	padding: 4px;
+	border-radius: 4px; 
+	font-size: 12px;
+	color: #5b5b5b;
+}
+
+.largecheckbox
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.4); /* IE */
+  -moz-transform: scale(1.4); /* FF */
+  -webkit-transform: scale(1.4); /* Safari and Chrome */
+  -o-transform: scale(1.4); /* Opera */
+  padding: 10px;
+}

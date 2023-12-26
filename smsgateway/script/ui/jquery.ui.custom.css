@@ -1,0 +1,13 @@
+.ui-dialog {
+	border: solid 10px #2d4218;
+	opacity: 1;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  -moz-box-shadow:0 0 5px #386516;
+  -webkit-box-shadow:0 0 5px #386516;	
+	background-color:#FFF;
+}
+.ui-dialog-buttonpane{height:30px; text-align:center; padding-left:40%; border-top:1px solid grey}
+.ui-dialog-content{font-size:12px}
+
+.ui-tabs-selected .ui-state-active{background-color:#fff}

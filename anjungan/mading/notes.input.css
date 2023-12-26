@@ -1,0 +1,9 @@
+.NotesLoginBox {
+    -moz-border-radius:5px;  
+    border-radius: 5px;  
+    -webkit-border-radius: 5px;
+    width: 420px;
+    background-color: #effbe3;
+    border-color: #afd321;
+    color: #005500;
+}

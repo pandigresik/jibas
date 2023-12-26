@@ -1,0 +1,76 @@
+.VideoViewTitle
+{
+    font-family: "Times New Roman";
+    font-size: 20px;
+}
+
+.VideoViewInfo
+{
+    font-family: "Verdana";
+    font-size: 11px;
+    line-height: 22px;
+}
+
+.VideoViewTanggal {
+    color: #626262;
+    font-family: Verdana;
+    font-size: 8px;
+}
+
+.VideoViewAge {
+    color: #265f18;
+    font-family: Verdana;
+    font-size: 8px;
+    font-weight: bold;
+}
+
+.VideoViewCommentCell {
+    background-color: #effbe3; 
+    font-family: Verdana;
+    font-size: 10px;
+}
+
+.VideoViewCommentAge {
+    font-family: Verdana;
+    font-size: 10px;
+    color: #858585;
+    line-height: 22px;
+}
+
+.VideoViewShowPrevCommentLink {
+    color: #005500;
+    font-size: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.VideoViewShowPrevCommentLink:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.VideoViewCommentBox {
+    -moz-border-radius:5px;  
+    border-radius: 5px;  
+    -webkit-border-radius: 5px;
+    width: 420px;
+    background-color: #effbe3;
+    border-color: #afd321;
+    color: #005500;
+}
+
+.VideoViewEditDeleteDiv {
+    top: 2px;
+    right: 2px;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+}
+
+.VideoViewCommentDeleteDiv {
+    top: 2px;
+    right: 2px;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+}

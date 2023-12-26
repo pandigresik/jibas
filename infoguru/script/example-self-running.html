@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!--
+JavaScript Slideshow by Patrick Fitzgerald
+http://slideshow.barelyfitz.com/
+-->
+<HTML>
+<HEAD>
+<TITLE>JavaScript Slideshow Template</TITLE>
+<SCRIPT type="text/javascript" src="slideshow.js"></SCRIPT>
+<SCRIPT type="text/javascript">
+<!--
+SLIDES = new slideshow("SLIDES");
+
+s = new slide();
+s.src =  "../images/jadwal_02.jpg";
+s.text = "Cats are intended to teach us that not everything in nature has a function.<BR>-  Joseph Wood Krutch";
+SLIDES.add_slide(s);
+
+s = new slide();
+s.src =  "../images/jadwal_08.jpg";
+s.text = "Nature I loved, and next to Nature, Art.<BR>- Walter Savage Landor";
+SLIDES.add_slide(s);
+
+s = new slide();
+s.src =  "../images/kalender_07.jpg";
+s.text = "Only little boys and old men sneer at love.<BR>- Louis Auchincloss";
+SLIDES.add_slide(s);
+
+//-->
+</SCRIPT>
+</HEAD>
+
+<BODY onLoad="SLIDES.update()">
+
+Features of this example slideshow:
+<UL>
+  <LI> The slide text is formatted HTML that appears in a DIV.
+  <LI> Self-running slideshow
+</UL>
+
+<P>
+<IMG name="SLIDESIMG" src="pics/pic1.jpg" alt="Slideshow image"></A>
+
+<P>
+<DIV ID="SLIDESTEXT" STYLE="position: relative;">
+If you can see this, then your browser cannot display the slideshow text.
+</DIV>
+
+<P>
+
+<FORM>
+<INPUT TYPE="button" VALUE="start" onclick="SLIDES.next();SLIDES.play()">
+<INPUT TYPE="button" VALUE="stop" onclick="SLIDES.pause()">
+<BR>
+Change the slideshow delay:<BR>
+<INPUT TYPE=radio NAME=speed onclick="SLIDES.timeout=3000"> 3 sec<BR>
+<INPUT TYPE=radio NAME=speed onclick="SLIDES.timeout=10000"> 10 sec<BR>
+</FORM>
+
+<SCRIPT type="text/javascript">
+<!--
+if (document.images) {
+  SLIDES.image = document.images.SLIDESIMG;
+  SLIDES.textid = "SLIDESTEXT";
+  SLIDES.update();
+  SLIDES.play();
+}
+//-->
+</SCRIPT>
+
+</BODY>
+</HTML>

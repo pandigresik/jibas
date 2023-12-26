@@ -1,0 +1,26 @@
+/*
+	Background Stretcher jQuery Plugin
+	© 2009 ajaxBlender.com
+	For any questions please visit www.ajaxblender.com 
+	or email us at support@ajaxblender.com
+*/
+
+.bgstretcher {
+	background: black;
+	overflow: hidden;
+	width: 100%;
+	position: fixed !important;
+	z-index: 1;
+}
+.bgstretcher, .bgstretcher UL, .bgstretcher UL LI {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+}
+.bgstretcher UL, .bgstretcher UL LI {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}

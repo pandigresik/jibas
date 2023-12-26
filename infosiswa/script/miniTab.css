@@ -1,0 +1,143 @@
+.tabs-nav2 {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 4px;
+}
+.tabs-nav2:after { /* clearing without presentational markup, IE gets extra treatment */
+    display: block;
+    clear: both;
+    content: " ";
+}
+.tabs-nav2 li {
+    float: left;
+    margin: 0 0 0 1px;
+    min-width: 84px; /* be nice to Opera */
+}
+.tabs-nav2 a, .tabs-nav2 a span {
+    display: block;
+    padding: 0 10px;
+    background: url(tab3.png) no-repeat;
+}
+.tabs-nav2 a {
+    position: relative;
+    top: 1px;
+    z-index: 2;
+    padding-left: 0;
+    color: #27537a;
+    font-size: 11px;
+	font-family:Tahoma; 
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap; /* required in IE 6 */    
+}
+.tabs-nav2 .tabs-selected a {
+    color: #000;
+}
+.tabs-nav2 .tabs-selected a, .tabs-nav2 a:hover, .tabs-nav2 a:focus, .tabs-nav2 a:active {
+    background-position: 100% -150px;
+    outline: 0; /* prevent dotted border in Firefox */
+}
+.tabs-nav2 a, .tabs-nav2 .tabs-disabled a:hover, .tabs-nav2 .tabs-disabled a:focus, .tabs-nav2 .tabs-disabled a:active {
+    background-position: 100% -100px;
+}
+.tabs-nav2 a span {
+    width: 64px; /* IE 6 treats width as min-width */
+    min-width: 64px;
+    height: 18px; /* IE 6 treats height as min-height */
+    min-height: 18px;
+    padding-top: 6px;
+    padding-right: 0;
+}
+*>.tabs-nav2 a span { /* hide from IE 6 */
+    width: auto;
+    height: auto;
+}
+.tabs-nav2 .tabs-selected a span {
+    padding-top: 7px;
+}
+.tabs-nav2 .tabs-selected a span, .tabs-nav2 a:hover span, .tabs-nav2 a:focus span, .tabs-nav2 a:active span {
+    background-position: 0 -50px;
+}
+.tabs-nav2 a span, .tabs-nav2 .tabs-disabled a:hover span, .tabs-nav2 .tabs-disabled a:focus span, .tabs-nav2 .tabs-disabled a:active span {
+    background-position: 0 0;
+}
+.tabs-nav2 .tabs-selected a:link, .tabs-nav2 .tabs-selected a:visited, .tabs-nav2 .tabs-disabled a:link, .tabs-nav2 .tabs-disabled a:visited { /* @ Opera, use pseudo classes otherwise it confuses cursor... */
+    cursor: text;
+}
+.tabs-nav2 a:hover, .tabs-nav2 a:focus, .tabs-nav2 a:active { /* @ Opera, we need to be explicit again here now... */
+    cursor: pointer;
+}
+
+.tabs-nav3 {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 4px;
+}
+.tabs-nav3:after { /* clearing without presentational markup, IE gets extra treatment */
+    display: block;
+    clear: both;
+    content: " ";
+}
+.tabs-nav3 li {
+    float: left;
+    margin: 0 0 0 1px;
+    min-width: 84px; /* be nice to Opera */
+}
+.tabs-nav3 a, .tabs-nav3 a span {
+    display: block;
+    padding: 0 10px;
+    background: url(tab4.png) no-repeat;
+}
+.tabs-nav3 a {
+    position: relative;
+    top: 1px;
+    z-index: 2;
+    padding-left: 0;
+    color: #27537a;
+    font-size: 11px;
+	font-family:Tahoma; 
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap; /* required in IE 6 */    
+}
+.tabs-nav3 .tabs-selected a {
+    color: #000;
+}
+.tabs-nav3 .tabs-selected a, .tabs-nav3 a:hover, .tabs-nav3 a:focus, .tabs-nav3 a:active {
+    background-position: 100% -150px;
+    outline: 0; /* prevent dotted border in Firefox */
+}
+.tabs-nav3 a, .tabs-nav3 .tabs-disabled a:hover, .tabs-nav3 .tabs-disabled a:focus, .tabs-nav3 .tabs-disabled a:active {
+    background-position: 100% -100px;
+}
+.tabs-nav3 a span {
+    width: 64px; /* IE 6 treats width as min-width */
+    min-width: 64px;
+    height: 18px; /* IE 6 treats height as min-height */
+    min-height: 18px;
+    padding-top: 6px;
+    padding-right: 0;
+}
+*>.tabs-nav3 a span { /* hide from IE 6 */
+    width: auto;
+    height: auto;
+}
+.tabs-nav3 .tabs-selected a span {
+    padding-top: 7px;
+}
+.tabs-nav3 .tabs-selected a span, .tabs-nav3 a:hover span, .tabs-nav3 a:focus span, .tabs-nav3 a:active span {
+    background-position: 0 -50px;
+}
+.tabs-nav3 a span, .tabs-nav3 .tabs-disabled a:hover span, .tabs-nav3 .tabs-disabled a:focus span, .tabs-nav3 .tabs-disabled a:active span {
+    background-position: 0 0;
+}
+.tabs-nav3 .tabs-selected a:link, .tabs-nav3 .tabs-selected a:visited, .tabs-nav3 .tabs-disabled a:link, .tabs-nav3 .tabs-disabled a:visited { /* @ Opera, use pseudo classes otherwise it confuses cursor... */
+    cursor: text;
+}
+.tabs-nav3 a:hover, .tabs-nav3 a:focus, .tabs-nav3 a:active { /* @ Opera, we need to be explicit again here now... */
+    cursor: pointer;
+}

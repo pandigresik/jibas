@@ -1,0 +1,8 @@
+-- Query Error on 21-Oct-2019 10:10:18 --------
+ SCRIPT > /jibas/elearning/index.php
+ QUERY  > SELECT id, cover, judul
+              FROM jbsel.media
+             WHERE id = 
+ ERRNO  > 1064
+ ERROR  > You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+

@@ -1,0 +1,106 @@
+.tipsbox .tipsbox_top_left{
+	background : url('img/top_left.png') no-repeat;
+	_background : url('img/top_left.gif') no-repeat;
+	_background-position : 9px 8px;
+}
+
+.tipsbox .tipsbox_top{
+	background : url('img/top.png') repeat-x;
+	height : 17px;
+	_background : url('img/top.gif') repeat-x;
+	_background-position : 0px 8px;
+}
+
+.tipsbox .tipsbox_top_right{
+	background : url('img/top_right.png') no-repeat;
+	_background : url('img/top_right.gif') no-repeat;
+	_background-position : 0px 8px;
+}
+
+.tipsbox .tipsbox_left{
+	background : url('img/left.png') repeat-y;
+	width : 17px;
+	_background : url('img/side.gif') repeat-y;
+	_background-position : 9px 8px;
+}
+
+.tipsbox .tipsbox_right{
+	background : url('img/right.png') repeat-y;
+	width : 22px;
+	_background : url('img/side.gif') repeat-y;
+	_width : 9px;
+}
+
+.tipsbox .tipsbox_bottom_left{
+	background : url('img/bottom_left.png');
+	_background : url('img/bottom_left.gif') no-repeat;
+	_background-position : 9px 0px;
+}
+
+.tipsbox .tipsbox_mark{
+	background : url('img/mark.png') no-repeat;
+	height : 36px;
+	_background : url('img/mark.gif') no-repeat;
+}
+
+.tipsbox .tipsbox_bottom_right{
+	background : url('img/bottom_right.png');
+	_background : url('img/bottom_right.gif') no-repeat;
+}
+
+.tipsbox .tipsbox_inner, .tipsbox .tipsbox_inner_ie6{
+	background : url('img/inner.png');
+}
+
+.tipsbox .tipsbox_inner_ie6 {
+	padding : 4px;	
+}
+
+.tipsbox .tipsbox_error {
+	background : url('img/error.png') no-repeat;
+	_background : url('img/error.gif') no-repeat;
+	width: 40px;
+	height: 40px;
+	margin-top: 5px;
+	float: left;
+	clear: left;
+}
+
+.tipsbox p, .tipsbox {
+	font-size: 1em;
+	font-family: tahoma, verdana, "sans-serif";
+	margin : 0;
+	padding : 0;
+	border : 0;
+	color : #FFF;
+}
+
+.tipsbox p {
+	padding-left: 55px;
+	line-height: 15px;
+}
+
+.tipsbox p span {
+	font-size: 1em;
+	font-weight: bold;
+	color: red;
+	line-height: 35px;
+}
+
+
+.error_f {
+	border : 1px dotted #666;
+	margin-top : 5px;
+	background-color : #EAEAEA;
+}
+
+.error_f p {
+	margin : 5px;
+	color : #A00;
+}
+
+.error_f p span {
+	font-size : 1.1em;
+	color : #000;
+	margin : 5px 0px 0px 0px;
+}

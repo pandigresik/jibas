@@ -1,0 +1,15 @@
+#hintbox{ /*CSS for pop up hint box */
+    position:absolute;
+    top: 0;
+    background-color:#FFCC00;
+    width: 150px; /*Default width of hint.*/
+    padding: 3px;
+    border:1px solid #666666;
+    font:normal 11px Verdana;
+    line-height:18px;
+    z-index:100;
+    border-right: 3px solid #666666;
+    border-bottom: 3px solid #666666;
+    visibility: hidden;
+}
+

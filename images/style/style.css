@@ -1,0 +1,182 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	font-family               : Verdana;
+	font-size                 : 11px;
+	color                     : #000000;
+	background-color          : #FFFFFF;
+}
+a{color:green; text-decoration: none; font-family:Tahoma; font-size:12px; font-weight:bold}
+a:hover{color:red; text-decoration: none; font-family:Tahoma; font-size:12px; font-weight:bold}
+.welc {
+	color: #339900;
+	font-family: Verdana;
+	font-size: 12px;
+}
+.nav_title {
+	font-family: Verdana;
+	font-weight: bold;
+	color: #666699;
+}
+.posted {
+	font-family: Verdana;
+	font-style: italic;
+	font-size: 10px;
+	color: #336666;
+}
+.hr1 {
+	background-image:url(../images/box_hr1.gif); 
+	background-repeat:repeat-x; 
+	background-position:center
+}
+.news_title1 {
+	font-family: Arial;
+	font-size: 16px;
+	font-weight: bold;
+	color: #6699FF;
+}
+.news_content1 {
+	font-family: Tahoma;
+	font-size: 12px;
+}
+.news_title2 {
+	font-family: Verdana;
+	font-size: 16px;
+	font-weight: bold;
+	color: #009966;
+}
+.err {
+	font-family: Verdana;
+	font-size: 13px;
+	font-weight: bold;
+	color: #FF0000;
+}
+.more {
+	font-family: Arial;
+	font-style: italic;
+	font-size: 10px;
+	color: #CC9900;
+	text-decoration: none;
+}
+a.more:hover{
+	font-family: Arial;
+	font-style: italic;
+	font-size: 10px;
+	color: #009cff;
+	text-decoration: none;
+}
+.nodata {
+	font-family: Arial;
+	font-style: italic;
+	font-size: 11px;
+	color: #7b7b7b;
+}
+.input_edit_title {
+	font-family: Verdana;
+	font-weight: bold;
+	color: #666666;
+	font-size: 16px;
+}
+.inputtxt {
+	BORDER-RIGHT: #303030 1px solid; 
+	BORDER-TOP: #303030 1px solid;
+	BORDER-LEFT: #303030 1px solid; 
+	BORDER-BOTTOM: #303030 1px solid; 
+	BACKGROUND-COLOR: #EEFFFF;
+	COLOR: #101010; 
+	FONT-SIZE: 12px;
+	FONT-FAMILY: Tahoma; 
+	HEIGHT: 15px;
+	padding-left:2px;
+	padding-right:2px;
+	}
+.areatxt {
+	BORDER-RIGHT: #303030 1px solid; 
+	BORDER-TOP: #303030 1px solid;
+	BORDER-LEFT: #303030 1px solid; 
+	BORDER-BOTTOM: #303030 1px solid; 
+	BACKGROUND-COLOR: #EEFFFF;
+	COLOR: #101010; 
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Tahoma
+	}
+.areatxt2 {
+	BORDER-RIGHT: #808080 1px solid; 
+	BORDER-TOP: #808080 1px solid;
+	BORDER-LEFT: #808080 1px solid; 
+	BORDER-BOTTOM: #808080 1px solid; 
+	BACKGROUND-COLOR: #FFFFFF;
+	COLOR: #000000; 
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Tahoma;
+		padding-left:2px;
+	padding-right:2px;
+	}
+.btnfrm {
+	BORDER-RIGHT: #303030 1px solid; 
+	BORDER-TOP: #303030 1px solid;
+	BORDER-LEFT: #303030 1px solid; 
+	BORDER-BOTTOM: #303030 1px solid;	
+	COLOR: #101010; 
+	FONT-SIZE: 12px;
+	FONT-FAMILY: Tahoma
+	}
+.btnfrm2 {
+	BORDER-RIGHT: #303030 1px solid;
+	BORDER-TOP: #303030 1px solid;
+	BORDER-LEFT: #303030 1px solid;
+	BORDER-BOTTOM: #303030 1px solid;
+	COLOR: #101010;
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Tahoma
+	}
+.cmbfrm {
+	BORDER-RIGHT: #15B1B3 1px solid; 
+	BORDER-TOP: #15B1B3 1px solid;
+	BORDER-LEFT: #15B1B3 1px solid; 
+	BORDER-BOTTOM: #15B1B3 1px solid;
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Tahoma;
+	BACKGROUND-COLOR: #ECF9F9
+	}
+.cmbfrm2 {
+	BORDER-RIGHT: #15B1B3 1px solid; 
+	BORDER-TOP: #15B1B3 1px solid;
+	BORDER-LEFT: #15B1B3 1px solid; 
+	BORDER-BOTTOM: #15B1B3 1px solid;
+	FONT-SIZE: 11px;
+	FONT-FAMILY: Tahoma;
+	BACKGROUND-COLOR: #FBFBFB
+	}
+/*.tab {
+    font-family               : Verdana;
+	font-size                 : 11px;
+	color                     : #000000;
+}*/
+.tab {
+    font-family               : Verdana;
+	font-size                 : 11px;
+	color                     : #000000;
+	background-color          : #FFFFFF;
+	border            : groove 2px #666666;
+	border-collapse    : collapse;
+	border-top:none;
+}
+.tab2 {
+    font-family               : Verdana;
+	font-size                 : 11px;
+	color                     : #000000;
+}
+.header {
+    border:none;;
+    background:#999;
+    color:#000000;
+    font-weight:bold;
+    padding: 1px 2px;
+    background:url(bgtab1.jpg) repeat-x left top;
+    /*border-collapse    : collapse;*/
+    font-size  : 12px;
+	FONT-FAMILY: Arial;
+	border-top:#3675a8 solid 1px; 
+}	
+

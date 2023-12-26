@@ -1,0 +1,2 @@
+var G_MAX_VIDEO_SIZE = 100;
+var G_MAX_FILE_SIZE = 20;

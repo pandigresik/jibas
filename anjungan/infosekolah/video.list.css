@@ -1,0 +1,40 @@
+.VideoTableHeader {
+    background-color: #68a408;
+    color: #fff;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.VideoTanggal {
+    color: #626262;
+    font-family: Verdana;
+    font-size: 8px;
+}
+
+.VideoAge {
+    color: #265f18;
+    font-family: Verdana;
+    font-size: 8px;
+    font-weight: bold;
+}
+
+.VideoJudul {
+    color: #004000;
+    font-family: Verdana;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.VideoJumlah {
+    color: #0000ff;
+    font-family: Verdana;
+    font-size: 18px;
+}
+
+.VideoJumlahFile {
+    color: #000;
+    font-family: Verdana;
+    font-size: 10px;
+    font-weight: bold;
+}

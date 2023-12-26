@@ -1,0 +1,17 @@
+stm_bm(["menu63a3",650,"","blank.gif",0,"","",0,0,162,0,333,1,0,0,"","",0,0,1,1,"default","hand",""],this);
+stm_bp("p0",[0,4,0,0,0,3,0,0,100,"",-2,"",-2,90,0,0,"#7F7F7F","transparent","",3,0,0,"#000000"]);
+stm_ai("p0i0",[0,"     Tema    ","","",-1,-1,0,"","_self","","","","",0,0,0,"","",0,0,0,1,1,"#FFFFFF",1,"#99FFFF",1,"bg_trans.gif","bg_trans.gif",3,3,0,0,"","#000000 #000000 #000000 #000000","#FFFFFF","#FFFF00","bold 9pt Arial","bold 9pt Arial",0,0]);
+stm_bpx("p1","p0",[0,4,-1,0,0,3,0,0,80,"progid:DXImageTransform.Microsoft.Fade(overlap=.5,enabled=0,Duration=0.43)",-2,"",-2,67,0,0,"#7F7F7F","#FFFFFF"]);
+stm_aix("p1i0","p0i0",[0,"Green        ","","",-1,-1,0,"javascript:chg_thm(1);","_self","","","","",0,0,0,"","",0,0,0,0,1,"#C2C2CC",1,"#99FF00",0,"","",3,3,0,0,"#FFFFFF #666699 #FFFFFF #666699","#666699 #FFFFFF #666699 #FFFFFF","#999999","#000000","9pt Arial","9pt Arial"]);
+stm_aix("p1i1","p1i0",[0,"Pink           ","","",-1,-1,0,"javascript:chg_thm(2);","_self","","","","",0,0,0,"","",0,0,0,0,1,"#C2C2CC",1,"#FF99FF"]);
+stm_aix("p1i2","p1i0",[0,"Casual       ","","",-1,-1,0,"javascript:chg_thm(3);","_self","","","","",0,0,0,"","",0,0,0,0,1,"#C2C2CC",1,"#00FFFF"]);
+stm_aix("p1i3","p1i0",[0,"Apple        ","","",-1,-1,0,"javascript:chg_thm(4);","_self","","","","",0,0,0,"","",0,0,0,0,1,"#C2C2CC",1,"#66CCCC"]);
+stm_aix("p1i4","p1i0",[0,"Vista         ","","",-1,-1,0,"javascript:chg_thm(5);","_self","","","","",0,0,0,"","",0,0,0,0,1,"#C2C2CC",1,"#33CCCC"]);
+stm_aix("p1i5","p1i0",[0,"Coffee      ","","",-1,-1,0,"javascript:chg_thm(6);","_self","","","","",0,0,0,"","",0,0,0,0,1,"#C2C2CC",1,"#CCCC99"]);
+stm_aix("p1i6","p1i0",[0,"Wood        ","","",-1,-1,0,"javascript:chg_thm(7);","_self","","","","",0,0,0,"","",0,0,0,0,1,"#C2C2CC",1,"#CC9900"]);
+stm_aix("p1i7","p1i0",[0,"Gold          ","","",-1,-1,0,"javascript:chg_thm(8);","_self","","","","",0,0,0,"","",0,0,0,0,1,"#C2C2CC",1,"#FFCC00"]);
+stm_aix("p1i8","p1i0",[0,"Granite     ","","",-1,-1,0,"javascript:chg_thm(9);","_self","","","","",0,0,0,"","",0,0,0,0,1,"#C2C2CC",1,"#FFFFFF"]);
+stm_ep();
+stm_ep();
+stm_sc(0,["transparent","transparent","","",3,3,0,0,"#FFFFF7","#000000","left_disabled.gif","left_enabled.gif",9,7,0,"right_disabled.gif","right_enabled.gif",9,7,0,0,1]);
+stm_em();

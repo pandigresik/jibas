@@ -1,0 +1,83 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+ font-family:tahoma, verdana, arial;
+ font-size:11px;
+ margin:0px;
+ padding:5px;
+}
+
+body div{
+ margin:0px;
+ padding:0px;
+}
+
+#profile{
+ text-align:left;
+
+}
+
+.tengah{
+ margin:0px 15px 15px 0px;
+ padding:2px;
+ width:400px;
+}
+
+.tengah1{
+ margin:0px 5px 5px 0px;
+ padding:2px;
+ width:400px;
+}
+
+.tengah2{
+ margin:0px 15px 15px 0px;
+ padding:2px;
+ width:400px;
+}
+
+img{
+ border:0;
+ padding-right:10px;
+ padding-left:5px;
+}
+
+#header{
+	border:dotted;
+	/*left:434px;
+	margin:0px;
+	padding:0px;
+	position:absolute;
+	top:7px;*/
+	width:450px;
+	background-color:#F1F1F1;
+	border-left-color:#888888;
+	border-right-color:#888888;
+	border-top-color:#888888;
+	border-bottom-color:#888888;
+}
+
+#content{
+	border:dotted;
+	left:435px;
+	margin:0px;
+	padding:0px 0px 10px 10px;
+	position:absolute;
+	top:275px;
+	width:586px;
+	background-color:#F1F1F1;
+	border-left-color:#888888;
+	border-right-color:#888888;
+	border-top-color:#888888;
+	border-bottom-color:#888888;
+}
+
+tr, td {
+    font-family:Geneva, Arial, Helvetica, sans-serif;
+	font-size          : 12px;
+	border-collapse    : collapse;
+	text-align:left;
+}
+
+#jdlBerita{
+ font-family:"Courier New", Courier, monospace;
+}

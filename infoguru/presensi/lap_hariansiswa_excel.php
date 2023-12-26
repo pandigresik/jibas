@@ -1,0 +1,139 @@
+<?php
+/**[N]**
+ * JIBAS Education Community
+ * Jaringan Informasi Bersama Antar Sekolah
+ * 
+ * @version: 29.0 (Sept 20, 2023)
+ * @notes: JIBAS Education Community will be managed by Yayasan Indonesia Membaca (http://www.indonesiamembaca.net)
+ * 
+ * Copyright (C) 2009 Yayasan Indonesia Membaca (http://www.indonesiamembaca.net)
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ **[N]**/ ?>
+<?php
+require_once('../include/errorhandler.php');
+require_once('../include/sessioninfo.php');
+require_once('../include/common.php');
+require_once('../include/config.php');
+require_once('../include/db_functions.php');
+
+header('Content-Type: application/vnd.ms-excel'); //IE and Opera  
+header('Content-Type: application/x-msexcel'); // Other browsers  
+header('Content-Disposition: attachment; filename=Laporan_Harian_Siswa.xls');
+header('Expires: 0');  
+header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+
+$nis = $_REQUEST['nis'];
+$tglawal = $_REQUEST['tglawal'];
+$tglakhir = $_REQUEST['tglakhir'];
+$urut = $_REQUEST['urut'];
+$urutan = $_REQUEST['urutan'];
+
+
+OpenDb();
+$sql = "SELECT nama FROM siswa WHERE nis='$nis'";   
+$result = QueryDB($sql);	
+$row = mysqli_fetch_array($result);
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JIBAS SIMAKA [Cetak Laporan Presensi Harian Siswa]</title>
+<style type="text/css">
+<!--
+.style3 {font-family: Verdana; font-weight: bold; font-size: 12px; }
+.style4 {color: #FFFFFF}
+.style5 {font-family: Verdana}
+.style8 {
+	font-family: Verdana;
+	font-size: 16px;
+}
+.style10 {font-size: 14px; font-weight: bold; }
+-->
+</style>
+</head>
+
+<body>
+<table width="100%" border="0" cellspacing="0">
+  <tr>
+    <th scope="row" colspan="2"><span class="style8">Laporan Presensi Harian Siswa</span></th>
+  </tr>
+</table>
+<br />
+<table width="17%">
+<tr>
+	<td width="65%"><span class="style3">Siswa</span></td>
+    <td width="35%" colspan="3"><span class="style3">: 
+      <?=$nis.' - '.$row['nama']?>
+    </span></td>
+</tr>
+<!--<tr>
+	<td><strong>Nama</strong></td>
+    <td><strong>: <?=$row['nama']?></strong></td>
+</tr>-->
+<tr>
+	<td><span class="style3">Periode Presensi</span></td>
+    <td  colspan="3"><span class="style3">: <?=format_tgl($tglawal).' s/d '. format_tgl($tglakhir) ?></span></td>
+</tr>
+</table>
+<br />
+<?php 	OpenDb();
+	$sql = "SELECT DAY(p.tanggal1), MONTH(p.tanggal1), YEAR(p.tanggal1), DAY(p.tanggal2), MONTH(p.tanggal2), YEAR(p.tanggal2), ph.hadir, ph.ijin, ph.sakit, ph.alpa, ph.cuti, ph.keterangan, s.nama, m.semester, k.kelas FROM presensiharian p, phsiswa ph, siswa s, semester m, kelas k WHERE ph.idpresensi = p.replid AND ph.nis = s.nis AND ph.nis = '$nis' AND p.idsemester = m.replid AND p.idkelas = k.replid AND (((p.tanggal1 BETWEEN '$tglawal' AND '$tglakhir') OR (p.tanggal2 BETWEEN '$tglawal' AND '$tglakhir')) OR (('$tglawal' BETWEEN p.tanggal1 AND p.tanggal2) OR ('$tglakhir' BETWEEN p.tanggal1 AND p.tanggal2))) ORDER BY $urut $urutan ";
+	
+	$result = QueryDb($sql);
+	$jum = mysqli_num_rows($result);
+	if ($jum > 0) { 
+?>
+	<table class="tab" id="table" border="1" cellpadding="2" style="border-collapse:collapse" cellspacing="2" width="100%" align="left">
+  <tr height="30" align="center">
+    	<td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">No</span></td>
+    <td width="25%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Tanggal</span></td>
+     <td width="8%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Semester</span></td>
+    <td width="8%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Kelas</span></td>
+    <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Hadir</span></td>
+    <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Ijin</span></td>            
+    <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Sakit</span></td>
+    <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Alpa</span></td>
+    <td width="5%" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Cuti</span></td>
+    <td width="*" bgcolor="#CCCCCC" class="style5 style4 header"><span class="style10">Keterangan</span></td>      
+    </tr>
+<?php 	
+	$cnt = 0;
+	while ($row = mysqli_fetch_row($result)) { ?>
+    <tr height="25">    	
+    	<td align="center"><?=++$cnt?></td>
+		<td align="center"><?=$row[0].' '.$bulan[$row[1]].' '.$row[2].' - '.$row[3].' '.$bulan[$row[4]].' '.$row[5]?></td>
+        <td align="center"><?=$row[13]?></td>
+        <td align="center"><?=$row[14]?></td>
+        <td align="center"><?=$row[6]?></td>
+		<td align="center"><?=$row[7]?></td>
+       	<td align="center"><?=$row[8]?></td> 
+        <td align="center"><?=$row[10]?></td>
+        <td align="center"><?=$row[9]?></td>
+       
+        <td><?=$row[11]?></td>
+    </tr>
+<?php } 
+	CloseDb() ?>	
+    <!-- END TABLE CONTENT -->
+    </table>	
+<?php 	} ?>
+
+
+<script language="javascript">
+window.print();
+</script>
+
+</html>

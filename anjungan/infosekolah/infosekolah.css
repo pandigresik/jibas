@@ -1,0 +1,16 @@
+.TitleTabMenu
+{
+    font-family: 'Times New Roman';
+    font-size: 24px;
+}
+
+.EmoticonSmall
+{
+    height: 24px;
+}
+
+.MoreLink
+{
+    color: blue;
+    text-decoration: none;
+}

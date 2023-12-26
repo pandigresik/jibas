@@ -1,0 +1,85 @@
+.NotesViewTanggal {
+    color: #626262;
+    font-family: Verdana;
+    font-size: 8px;
+}
+
+.NotesViewAge {
+    color: #265f18;
+    font-family: Verdana;
+    font-size: 8px;
+    font-weight: bold;
+}
+
+.NotesViewJudul {
+    color: #004000;
+    font-family: Verdana;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.NotesViewPesan {
+    color: #000;
+    font-family: Verdana;
+    font-size: 12px;
+    line-height: 24px;
+}
+
+.NotesViewTautan {
+    color: #0000ff;
+    font-family: Verdana;
+    font-size: 12px;
+    font-weight: normal;
+    text-decoration: underline;
+}
+
+.NotesViewCommentCell {
+    background-color: #effbe3; 
+    font-family: Verdana;
+    font-size: 10px;
+}
+
+.NotesViewCommentAge {
+    font-family: Verdana;
+    font-size: 10px;
+    color: #858585;
+    line-height: 22px;
+}
+
+.NotesViewShowPrevCommentLink {
+    color: #005500;
+    font-size: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.NotesViewShowPrevCommentLink:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.NotesViewCommentBox {
+    -moz-border-radius:5px;  
+    border-radius: 5px;  
+    -webkit-border-radius: 5px;
+    width: 240px;
+    background-color: #effbe3;
+    border-color: #afd321;
+    color: #005500;
+}
+
+.NotesViewEditDeleteDiv {
+    top: 2px;
+    right: 2px;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+}
+
+.NotesViewCommentDeleteDiv {
+    top: 2px;
+    right: 2px;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+}

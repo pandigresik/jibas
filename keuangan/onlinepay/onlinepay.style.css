@@ -1,0 +1,8 @@
+.inputbox {
+    border: 1px solid #999;
+    padding: 4px;
+    font-family: Verdana, serif;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #5b5b5b;
+}

@@ -1,0 +1,184 @@
+body{
+	font-family:Verdana;
+	color:#000;
+	font-size:12px;
+	margin:5px;
+}
+.tab {
+	border:1px #666666 solid;
+	border-collapse:collapse;
+}
+.td {
+	padding:3px;
+}
+.tdTop {
+	padding:3px;
+	padding-top:5px;
+}
+.Header{
+	border:1px #174101 solid;
+	border-bottom:none;
+	background-color:#2c5a15;
+	color:#fff;
+	font-family:Verdana;
+	font-size:12px;
+	font-weight:bold;
+	text-align:center;
+	height:25px;
+	padding-top:2px;
+	vertical-align:middle
+}
+.Link{
+	font-family:Calibri;
+	color:#000000;
+	font-weight:bold;
+	font-size:13px
+}
+.LinkMenu{
+	font-family:Verdana;
+	color:#ffffff;
+	font-weight:normal;
+	font-size:14px
+}
+.LinkMenu:hover{
+	color:#FF0;
+	text-decoration:underline;
+}
+a{
+	text-decoration:none;
+}
+a:hover{
+	color:#FF6600;
+	text-decoration:none;
+}
+
+.InputTxt{
+	font-family:Verdana;
+	color:#000;
+	font-size:11px;
+	height:17px;
+	border:1px #666666 solid;
+	padding-left:2px;
+	padding-right:2px;
+	vertical-align:middle
+}
+.InputTxt:focus{
+	border:1px #FFCC33 solid;
+}
+
+.FileInp{
+	font-family:Verdana;
+	color:#333333;
+	font-size:11px;
+	height:23px;
+	border:1px #666666 solid;
+	padding-left:2px;
+	padding-top:2px;
+	padding-right:0px;
+}
+.FileInp:focus{
+	border:1px #FFCC33 solid;
+}
+
+.Cmb{
+	font-family:Verdana;
+	color:#333333;
+	font-size:11px;
+	height:20px;
+	border:1px #666666 solid;
+	padding-left:2px;
+	padding-right:0px;
+}
+.Cmb:focus{
+	border:1px #FFCC33 solid;
+}
+.AreaTxt{
+	font-family:Verdana;
+	color:#333333;
+	font-size:11px;
+	border:1px #666666 solid;
+}
+.AreaTxt:focus{
+	border:1px #FFCC33 solid;
+}
+.ErrMsg{
+	font-family:Verdana;
+	color:#FF0000;
+	font-size:11px;
+	font-weight:bold;
+	padding:1px
+}
+.Ket{
+	color:#333333;
+	font-style:italic;
+	font-size:12px;
+	font-family:Verdana
+}
+.BtnSilver90{
+	background-image:url(../images/Btn/BtnSilver90.gif);	
+	border:none;
+	width:75px;
+	height:21px;
+	color:#FFF;
+	font-family:Arial;
+	font-weight:bold;
+	font-size:12px;
+	padding-top:1px;
+	padding-bottom:0px;
+	margin-left:3px;
+	cursor:default
+}
+.BtnSilver90:hover{
+	background-image:url(../images/Btn/BtnGold90.gif);
+	cursor:default	
+}
+
+.BtnSilver{
+	background-image:url(../images/Btn/BtnSilver.gif);	
+	border:none;
+	width:100px;
+	height:21px;
+	color:#FFF;
+	font-family:Arial;
+	font-weight:bold;
+	font-size:12px;
+	padding-top:1px;
+	padding-bottom:0px;
+	margin-left:3px;
+	cursor:default
+}
+.BtnSilver:hover{
+	background-image:url(../images/Btn/BtnGold.gif);
+	cursor:default	
+}
+.Btn{
+	background-color:#090;
+	border:1px #030 solid;
+	color:#FFF;
+	font-size:12px;
+	padding:2px;
+	padding-left:4px;
+	padding-right:2px;
+	cursor:default;
+	font-weight:bold
+}
+.Btn:hover{
+	border:1px #F30 solid;
+	color:#FF0
+}
+#SuccessMsg{
+	font-family:Verdana;
+	color:#666;
+	font-size:14px;
+	font-weight:bold;
+	padding:1px;
+	padding-left:15px;
+	width:500px;
+}
+#SubTitle{padding-bottom:10px;}
+.hilite{background-color:#fef0cb}
+.bold{font-weight:bold;font-size:11px}
+
+.pagination{text-align:center; border-top:1px dashed #000; margin-top:10px; padding-top:5px}
+.pagination div{float:left;padding:0px 5px 0px 5px; margin-right:2px;border:1px solid #cf7f00}
+.pagination .selected{background-color:#e8d5b7}

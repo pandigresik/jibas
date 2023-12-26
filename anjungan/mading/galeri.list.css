@@ -1,0 +1,52 @@
+.GaleriTitle
+{
+    font-family: "Times New Roman";
+    font-size: 18px;
+    color: #2c6b34;
+}
+
+.GaleriOwner
+{
+    font-family: "Arial";
+    font-size: 9px;
+    font-style: italic;
+    color: #7e7e7e;
+}
+
+.GaleriInfo
+{
+    font-family: "Arial";
+    font-size: 10px;
+    line-height: 16px;
+}
+
+.GaleriLink:hover
+{
+    cursor: pointer;
+}
+
+.GaleriBox
+{
+    background-color: #f4f4f4;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 0px;
+    -moz-border-radius-topleft: 0px;
+	-moz-border-radius-topright: 15px;
+    -moz-border-radius-bottomleft: 15px;
+	-moz-border-radius-bottomright: 0px;
+    -webkit-border-top-left-radius: 0px;
+	-webkit-border-top-right-radius: 15px;
+    -webkit-border-bottom-left-radius: 15px;
+	-webkit-border-bottom-right-radius: 0px;	
+    border-top-left-radius: 0px;
+	border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 0px;
+	border-top: 1px solid #71b8ff;
+	border-bottom: 1px solid #71b8ff;
+	border-right: 1px solid #71b8ff;
+	border-left: 1px solid #71b8ff;    
+}

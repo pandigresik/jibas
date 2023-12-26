@@ -1,0 +1,40 @@
+.NotesTableHeader {
+    background-color: #68a408;
+    color: #fff;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.NotesTanggal {
+    color: #626262;
+    font-family: Verdana;
+    font-size: 8px;
+}
+
+.NotesAge {
+    color: #265f18;
+    font-family: Verdana;
+    font-size: 8px;
+    font-weight: bold;
+}
+
+.NotesJudul {
+    color: #004000;
+    font-family: Verdana;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.NotesJumlah {
+    color: #0000ff;
+    font-family: Verdana;
+    font-size: 18px;
+}
+
+.NotesJumlahFile {
+    color: #000;
+    font-family: Verdana;
+    font-size: 10px;
+    font-weight: bold;
+}

@@ -1,0 +1,56 @@
+.sliderwrapper{
+position: relative; /*leave as is*/
+overflow: hidden; /*leave as is*/
+border: 1px solid black;
+border-bottom-width: 0px;
+width: 545px; /*width of featured content slider*/
+height: 400px;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:13px;
+}
+
+
+
+.sliderwrapper .contentdiv{
+visibility: hidden; /*leave as is*/
+position: absolute; /*leave as is*/
+left: 0;  /*leave as is*/
+top: 0;  /*leave as is*/
+padding: 5px;
+background: white;
+width: 390px; /*width of content DIVs within slider. Total width should equal slider's inner width (390+5+5=400) */
+height: 100%;
+filter:progid:DXImageTransform.Microsoft.alpha(opacity=100);
+-moz-opacity: 1;
+opacity: 1;
+}
+
+.pagination{
+width: 525px; /*Width of pagination DIV. Total width should equal slider's outer width (400+10+10=420)*/
+text-align: center;
+background-color:#FFF;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:11px;
+padding: 5px 10px;
+padding-bottom:10px;
+border:1px solid black;
+border-top-width:0px;
+font-weight:bold;
+}
+
+.pagination a{
+padding: 0 5px;
+text-decoration: none; 
+color: #FFF;
+/*background-image:url(../style/formbg2.gif);*/
+}
+
+.pagination a:hover, .pagination a.selected{
+color:#FFF;
+/*background-color: #FEE496;*/
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:11px;
+/*background-image:url(../style/formbg2agreen.gif);*/
+font-weight:bolder;
+
+}

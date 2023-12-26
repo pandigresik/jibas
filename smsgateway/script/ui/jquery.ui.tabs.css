@@ -1,0 +1,19 @@
+/* Tabs
+----------------------------------*/
+/*
+.ui-tabs { position: relative; padding: .2em; zoom: 1; }  position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+.ui-tabs { position: relative; zoom: 1; width:100% }
+.ui-tabs .ui-tabs-nav { margin: 0; padding: .2em .2em 0;   }
+.ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: 1px; margin: 0 .2em 1px 0; border-bottom: 0 !important; padding: 0; white-space: nowrap;border-bottom:1px solid #000 }
+.ui-tabs .ui-tabs-nav li a { float: left; padding: .2em 1em; text-decoration: none; }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected { 
+	border: 1px solid #999999/*{borderColorHover}*/; 
+	background-image: url(btn_down.gif); 
+	font-weight: bold/*{fwDefault}*/; 
+	color: #212121/*{fcHover}*/;  
+}
+/*.ui-tabs .ui-tabs-nav li.ui-tabs-selected a,*/ .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; color:#ff663a; font-weight:bold; font-size:12px }
+.ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+.ui-tabs .ui-tabs-panel { display: block; border: 0; padding: 1em 1.4em; background: none; }
+.ui-tabs .ui-tabs-hide { display: none !important; }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a{}

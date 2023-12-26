@@ -1,0 +1,10 @@
+stm_bm(["menu337c",650,"","blank.gif",0,"","",0,0,250,0,1000,1,0,0,"","",0,0,1,2,"default","hand",""],this);
+stm_bp("p0",[0,4,0,0,2,3,0,0,100,"",-2,"",-2,50,0,0,"#999999","transparent","",3,0,0,"#000000"]);
+stm_ai("p0i0",[0,"Home","","",-1,-1,0,"javascript:home();","_self","","","","",0,0,0,"","",0,0,0,0,1,"#FFFFF7",1,"#FFFFFF",0,"","",3,3,0,0,"#FFFFF7","#000000","#FFFFFF","#FF9900","bold 8pt Verdana","bold 8pt Verdana",0,0]);
+stm_aix("p0i1","p0i0",[0,"Akademik","","",-1,-1,0,"javascript:akademik();","_self"]);
+stm_aix("p0i2","p0i1",[0,"Buletin","","",-1,-1,0,"javascript:buletin();","_self"]);
+stm_aix("p0i3","p0i1",[0,"Pengaturan","","",-1,-1,0,"javascript:pengaturan();","_self"]);
+stm_aix("p0i4","p0i0",[0,"JIBAS.NET","","",-1,-1,0,"javascript:dotnet();","_self","","","","",0,0,0,"","",0,0,0,0,1,"#FFFFF7",1,"#FFFFFF",0,"","",3,3,0,0,"#FFFFF7","#000000","#FFCC00","#00FFFF"]);
+stm_aix("p0i5","p0i0",[0,"Logout","","",-1,-1,0,"javascript:logout();","_self","","","","",0,0,0,"","",0,0,0,0,1,"#FFFFF7",1,"#FFFFFF",0,"","",3,3,0,0,"#FFFFF7","#000000","#00FF00"]);
+stm_ep();
+stm_em();

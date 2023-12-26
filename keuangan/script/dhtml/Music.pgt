@@ -1,0 +1,26 @@
+========== Description Part Begin ==========
+Description = 
+LastUpdateTime = 37448.632511574
+PreviewPath = 
+ProgID = PageletServer.DynamicMenu
+Title = Music
+Version = 6.50
+========== Description Part End ==========
+========== Parameter Part Begin ==========
+CrossFrame = 0;0;0;0;Main_frame;1;;Navigation_frame;0
+MenuBody0 = 1;0;0;3;0;0;0;0;0;0;8355711 ~#7F7F7F;0;0;90;1;0;0;0 ~#000000;0;0;0;16777215 ~#FFFFFF;1;;3
+MenuBody1 = 9;0;0;3;20;-1;0;4;0;2;8355711 ~#7F7F7F;1;0;67;1;0;0;0 ~#000000;0;0;0;16777215 ~#FFFFFF;0;;3
+MenuItem0_0 = 3;2;;;0;     Tema    ;0;1;1;;;_self;;1;16777215 ~#FFFFFF;16777113 ~#99FFFF;1;1;bg_trans.gif;bg_trans.gif;3;3;0;1;0;0;16777215 ~;16777215;16777215;16777215;0 ~#000000 #000000 #000000 #000000;0;0;0;;;0;0;0;;;0;0;0;;;0;0;0;Arial;Arial;9;9;0;0;16777215 ~#FFFFFF;65535 ~#FFFF00;1;1;0;0;0;0;0;0;0;0;0;0
+MenuItem1_0 = 0;1;;;0;Green        ;0;0;1;;javascript:chg_thm(1)\s;_self;;1;13419202 ~#C2C2CC;65433 ~#99FF00;1;0;;;3;3;0;1;0;0;10053222 ~#FFFFFF #666699 #FFFFFF #666699;16777215;10053222;16777215;16777215 ~#666699 #FFFFFF #666699 #FFFFFF;10053222;16777215;10053222;;;0;0;0;;;0;0;0;;;7;7;0;Arial;Arial;9;9;0;0;10066329 ~#999999;0 ~#000000;0;0;0;0;0;0;0;0;0;0;0;0
+MenuItem1_1 = 0;1;;;0;Pink           ;0;0;1;;javascript:chg_thm(2)\s;_self;;1;13419202 ~#C2C2CC;16751103 ~#FF99FF;1;0;;;3;3;0;1;0;0;10053222 ~#FFFFFF #666699 #FFFFFF #666699;16777215;10053222;16777215;16777215 ~#666699 #FFFFFF #666699 #FFFFFF;10053222;16777215;10053222;;;0;0;0;;;0;0;0;;;7;7;0;Arial;Arial;9;9;0;0;10066329 ~#999999;0 ~#000000;0;0;0;0;0;0;0;0;0;0;0;0
+MenuItem1_2 = 0;1;;;0;Casual       ;0;0;1;;javascript:chg_thm(3)\s;_self;;1;13419202 ~#C2C2CC;16776960 ~#00FFFF;1;0;;;3;3;0;1;0;0;10053222 ~#FFFFFF #666699 #FFFFFF #666699;16777215;10053222;16777215;16777215 ~#666699 #FFFFFF #666699 #FFFFFF;10053222;16777215;10053222;;;0;0;0;;;0;0;0;;;7;7;0;Arial;Arial;9;9;0;0;10066329 ~#999999;0 ~#000000;0;0;0;0;0;0;0;0;0;0;0;0
+MenuItem1_3 = 0;1;;;0;Apple        ;0;0;1;;javascript:chg_thm(4)\s;_self;;1;13419202 ~#C2C2CC;13421670 ~#66CCCC;1;0;;;3;3;0;1;0;0;10053222 ~#FFFFFF #666699 #FFFFFF #666699;16777215;10053222;16777215;16777215 ~#666699 #FFFFFF #666699 #FFFFFF;10053222;16777215;10053222;;;-1;-1;0;;;-1;-1;0;;;7;7;0;Arial;Arial;9;9;0;0;10066329 ~#999999;0 ~#000000;0;0;0;0;0;0;0;0;0;0;0;0
+MenuItem1_4 = 0;1;;;0;Vista         ;0;0;1;;javascript:chg_thm(5)\s;_self;;1;13419202 ~#C2C2CC;13421619 ~#33CCCC;1;0;;;3;3;0;1;0;0;10053222 ~#FFFFFF #666699 #FFFFFF #666699;16777215;10053222;16777215;16777215 ~#666699 #FFFFFF #666699 #FFFFFF;10053222;16777215;10053222;;;-1;-1;0;;;-1;-1;0;;;7;7;0;Arial;Arial;9;9;0;0;10066329 ~#999999;0 ~#000000;0;0;0;0;0;0;0;0;0;0;0;0
+MenuItem1_5 = 0;1;;;0;Coffee      ;0;0;1;;javascript:chg_thm(6)\s;_self;;1;13419202 ~#C2C2CC;10079436 ~#CCCC99;1;0;;;3;3;0;1;0;0;10053222 ~#FFFFFF #666699 #FFFFFF #666699;16777215;10053222;16777215;16777215 ~#666699 #FFFFFF #666699 #FFFFFF;10053222;16777215;10053222;;;-1;-1;0;;;-1;-1;0;;;7;7;0;Arial;Arial;9;9;0;0;10066329 ~#999999;0 ~#000000;0;0;0;0;0;0;0;0;0;0;0;0
+MenuItem1_6 = 0;1;;;0;Wood        ;0;0;1;;javascript:chg_thm(7)\s;_self;;1;13419202 ~#C2C2CC;39372 ~#CC9900;1;0;;;3;3;0;1;0;0;10053222 ~#FFFFFF #666699 #FFFFFF #666699;16777215;10053222;16777215;16777215 ~#666699 #FFFFFF #666699 #FFFFFF;10053222;16777215;10053222;;;-1;-1;0;;;-1;-1;0;;;7;7;0;Arial;Arial;9;9;0;0;10066329 ~#999999;0 ~#000000;0;0;0;0;0;0;0;0;0;0;0;0
+MenuItem1_7 = 0;1;;;0;Gold          ;0;0;1;;javascript:chg_thm(8)\s;_self;;1;13419202 ~#C2C2CC;52479 ~#FFCC00;1;0;;;3;3;0;1;0;0;10053222 ~#FFFFFF #666699 #FFFFFF #666699;16777215;10053222;16777215;16777215 ~#666699 #FFFFFF #666699 #FFFFFF;10053222;16777215;10053222;;;-1;-1;0;;;-1;-1;0;;;7;7;0;Arial;Arial;9;9;0;0;10066329 ~#999999;0 ~#000000;0;0;0;0;0;0;0;0;0;0;0;0
+MenuItem1_8 = 0;1;;;0;Granite     ;0;0;1;;javascript:chg_thm(9)\s;_self;;1;13419202 ~#C2C2CC;16777215 ~#FFFFFF;1;0;;;3;3;0;1;0;0;10053222 ~#FFFFFF #666699 #FFFFFF #666699;16777215;10053222;16777215;16777215 ~#666699 #FFFFFF #666699 #FFFFFF;10053222;16777215;10053222;;;-1;-1;0;;;-1;-1;0;;;7;7;0;Arial;Arial;9;9;0;0;10066329 ~#999999;0 ~#000000;0;0;0;0;0;0;0;0;0;0;0;0
+Scrolling0 = 1;16252927 ~#FFFFF7;1;14073525 ~#B5BED6;1;;;3;3;0;1;1;16252927 ~#FFFFF7;16252927;16252927;16252927;1;0 ~#000000;0;0;0;C:\\Program Files\\SourceTec\\Sothink DHTMLMenu\\left_disabled.gif;C:\\Program Files\\SourceTec\\Sothink DHTMLMenu\\left_enabled.gif;9;7;0;C:\\Program Files\\SourceTec\\Sothink DHTMLMenu\\right_disabled.gif;C:\\Program Files\\SourceTec\\Sothink DHTMLMenu\\right_enabled.gif;9;7;0;0;1
+Scrolling1 = 0;16252927 ~#FFFFF7;1;14073525 ~#B5BED6;1;;;3;3;0;1;1;16252927 ~#FFFFF7;16252927;16252927;16252927;1;0 ~#000000;0;0;0;C:\\Program Files\\SourceTec\\Sothink DHTMLMenu\\up_disabled.gif;C:\\Program Files\\SourceTec\\Sothink DHTMLMenu\\up_enabled.gif;7;9;0;C:\\Program Files\\SourceTec\\Sothink DHTMLMenu\\down_disabled.gif;C:\\Program Files\\SourceTec\\Sothink DHTMLMenu\\down_enabled.gif;7;9;0;0;1
+TopMenuBody = 2;650;menu63a3;0;1;1;0;0;0;0;333;162;0;;1;0;0;;1;0;100;0;;67108896;;0;1;1;default;hand
+========== Parameter Part End ==========

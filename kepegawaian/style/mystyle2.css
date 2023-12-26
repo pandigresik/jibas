@@ -1,0 +1,76 @@
+body {
+	font-family               : Verdana;
+	font-size                 : 11px;
+	color                     : #000000;
+	background-color          : #FFFFFF;
+}
+
+tr, td {
+    font-family               : Verdana;
+	font-size                 : 11px;
+}
+input, textarea{
+    margin           : 1px;
+	font-size        : 11px;
+	font-family      : Verdana;
+	color            : #000000;
+	background-color : #FFFFFF;
+
+}
+option, select {
+    margin           : 1px;
+	font-size        : 11px;
+	font-family      : Verdana;
+	color            : #000000;
+	background-color : #FFFFFF;
+}
+a, A:link, a:visited, a:active {
+    color           : #000000;
+    font-weight     : bold;
+    font-family     : Verdana;
+    font-size       : 11px ;
+}
+A:hover {
+    color           : #B20B0B;
+    text-decoration : none;
+    font-family     : Verdana;
+    font-size       : 11px
+}
+A.headerlink {
+    margin           : 1px;
+	font-size        : 11px;
+	font-family      : Verdana;
+	color       : #FFFFFF;
+
+}
+.but {
+    margin           : 1px;
+	font-size        : 11px;
+	font-family      : Verdana;
+	color            : #FFFFFF;
+	background-color : #757575;
+	border           : solid 1px #000000;
+	padding          : 2px;
+}
+.header {
+    margin           : 1px;
+    font-weight     : bold;
+	font-size        : 12px;
+	font-family      : Verdana;
+	color            : #FFFFFF;
+	background-color : #5B5B5B;
+	padding          : 2px;
+	border-collapse    : collapse;
+    border             : solid 1px #000000;
+}
+.tab {
+    font-family               : Verdana;
+	font-size                 : 11px;
+	color                     : #000000;
+	background-color          : #FFFFFF;
+	border-collapse    : collapse;
+	border             : solid 1px #000000;
+}
+.filter {
+    background-color    : #FFFFFF;
+}

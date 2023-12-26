@@ -1,0 +1,108 @@
+.selecty-container {
+	display: inline-block;
+	width: 300px;
+}
+.selecty-container:hover .selecty-select,
+.selecty-select.open {
+	border-color: #8c6f67;
+}
+.selecty-select {
+	overflow: hidden;
+	border: 1px solid #b9a5a0;
+	padding: 5px 10px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+	background-image: linear-gradient(to bottom, #FFF, #EEE);
+	cursor: pointer;
+	overflow: hidden;
+	box-sizing: border-box;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.selecty-select.open {
+	background-image: linear-gradient(to top, #FAFAFA, #EEE);
+	border-bottom-color: #b9a5a0 !important;
+}
+.selecty-select > .selecty-arrow {
+	float: right;
+	margin-left: 5px;
+	margin-right: -5px;
+	color: #888;
+	text-shadow: 1px 1px 1px #FFF;
+	transition: transform .4s ease;
+}
+.selecty-container:hover .selecty-select > .selecty-arrow,
+.selecty-select.open > .selecty-arrow {
+	color: #333;
+}
+.selecty-select.open > .selecty-arrow {
+	-ms-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+.selecty-select > .selecty-content {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	font-weight: bold;
+	color: #342926;
+}
+.selecty-items-container {
+	position: absolute;
+	height: 0;
+	overflow: hidden;
+	opacity: .8;
+	box-sizing: border-box;
+	z-index: 20000;
+}
+ul.selecty-items {
+	list-style: none;
+	border: 1px solid #8c6f67;
+	border-top: none;
+	color: #342926;
+	margin: 0;
+	padding: 0;
+	background-color: rgba(255, 255, 255, .95);
+	box-shadow: 0 5px 5px rgba(0, 0, 0, .1);
+	box-sizing: border-box;
+	width: 300px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	max-height: 200px;
+}
+ul.selecty-items > li {
+	padding: 5px 10px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+ul.selecty-items > li[value]:not([disabled]) {
+	cursor: pointer;
+}
+ul.selecty-items > li {
+	cursor: default;
+}
+ul.selecty-items > li[value]:hover:not([disabled]) {
+	color: #FFF;
+	background-image: linear-gradient(to bottom, #8c6f67, #6c4f47);
+	text-shadow: 1px 0 0 rgba(0, 8, 32, .5);
+}
+ul.selecty-items > li.section {
+	font-size: 18px;
+	padding: 10px;
+}
+ul.selecty-items > li.section:first-child {
+	padding-top: 5px;
+}
+ul.selecty-items > li.section:last-child {
+	padding-bottom: 5px;
+}
+ul.selecty-items > li[disabled] {
+	color: #bc9f97;
+}

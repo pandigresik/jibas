@@ -1,0 +1,76 @@
+.GaleriViewTitle
+{
+    font-family: "Times New Roman";
+    font-size: 20px;
+}
+
+.GaleriViewInfo
+{
+    font-family: "Verdana";
+    font-size: 11px;
+    line-height: 22px;
+}
+
+.GaleriViewTanggal {
+    color: #626262;
+    font-family: Verdana;
+    font-size: 8px;
+}
+
+.GaleriViewAge {
+    color: #265f18;
+    font-family: Verdana;
+    font-size: 8px;
+    font-weight: bold;
+}
+
+.GalleryViewCommentCell {
+    background-color: #effbe3; 
+    font-family: Verdana;
+    font-size: 10px;
+}
+
+.GalleryViewCommentAge {
+    font-family: Verdana;
+    font-size: 10px;
+    color: #858585;
+    line-height: 22px;
+}
+
+.GalleryViewShowPrevCommentLink {
+    color: #005500;
+    font-size: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.GalleryViewShowPrevCommentLink:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.GalleryViewCommentBox {
+    -moz-border-radius:5px;  
+    border-radius: 5px;  
+    -webkit-border-radius: 5px;
+    width: 420px;
+    background-color: #effbe3;
+    border-color: #afd321;
+    color: #005500;
+}
+
+.GalleryViewEditDeleteDiv {
+    top: 2px;
+    right: 2px;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+}
+
+.GalleryViewCommentDeleteDiv {
+    top: 2px;
+    right: 2px;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+}

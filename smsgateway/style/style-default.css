@@ -1,0 +1,175 @@
+body {
+	font-family               : Verdana;
+	font-size                 : 11px;
+	color                     : #000000;
+	background-color          : #FFFFFF;
+}
+
+tr {
+    font-family               : Verdana;
+	font-size                 : 11px;
+	border-collapse				: collapse;
+	padding				:0px;
+}
+tab.td {
+    font-family               : Verdana;
+	font-size                 : 11px;
+	border-collapse				: collapse;
+	padding-left				:5px;
+}
+input, textarea{
+    margin           : 1px;
+	font-size        : 11px;
+	font-family      : Verdana;
+	color            : #000000;
+	background-color : #FFFFFF;
+
+}
+option, select {
+    margin           : 1px;
+	font-size        : 11px;
+	font-family      : Verdana;
+	color            : #000000;
+	background-color : #FFFFFF;
+}
+a, a:link, a:visited, a:active {
+    color           : black;
+    font-weight     : bold;
+    font-family     : Verdana;
+    font-size       : 11px ;
+	text-decoration : none;
+}
+a:hover {
+    color           : red;
+	font-weight     : bold;
+    font-family     : Verdana;
+    font-size       : 11px;
+	text-decoration : none;
+}
+A.headerlink {
+    margin           : 1px;
+	font-size        : 11px;
+	font-family      : Verdana;
+	color       : #FFFFFF;
+	
+}
+.but{
+    cursor:pointer;
+    border:outset 1px #ccc;
+    background:#999;
+    color:#666;
+    font-weight:bold;
+    padding: 1px 2px;
+    background:url(formbg.gif) repeat-x left top;
+}
+.disabled{
+    background:#c0c0c0;
+    padding: 1px 2px;
+	color:#000000;
+}
+
+.textboxred{
+	color:#000000;
+	padding: 1px 2px;
+	background-color: #FB4678;
+}
+
+.header {
+    border:outset 1px #ccc;
+    background:#999;
+    color:#FFFFFF;
+    font-weight:bold;
+    padding: 1px 2px;
+    background:url(formbg2.gif) repeat-x left top;
+    border-collapse    : collapse;
+    font-size        : 12px;
+}
+
+.headerpesan {
+    border:outset 1px #ccc;
+    background:#999;
+    color:#FFFFFF;
+    font-weight:bold;
+    padding: 1px 2px;
+    background:url(formbg2agreen.gif) repeat-x left top;
+    border-collapse    : collapse;
+    font-size        : 12px;
+}
+.headerlong {
+    border:outset 1px #ccc;
+    background:#999;
+    color:#FFFFFF;
+    font-weight:bold;
+    padding: 1px 2px;
+    background:url(formbg2long.gif) repeat-x left top;
+    border-collapse    : collapse;
+    font-size        : 12px;
+}
+.headerlink2 {
+	cursor:pointer;
+    border:outset 1px #ccc;
+    background:#999;
+    color:#fcf300;
+    font-weight:bold;
+    padding: 1px 2px;
+    background:url(formbg2.gif) repeat-x left top;
+    border-collapse    : collapse;
+    font-size        : 12px;
+	
+}
+.headerlink2active {
+	cursor:pointer;
+    border:outset 1px #ccc;
+    background:#999;
+    color:#fcf300;
+    font-weight:bold;
+    padding: 1px 2px;
+    background:url(formbg2a.gif) repeat-x left top;
+    border-collapse    : collapse;
+    font-size        : 12px;
+	
+}
+.tab {
+    font-family               : Verdana;
+	font-size                 : 11px;
+	color                     : #000000;
+	background-color          : #FFFFFF;
+	border            : groove 2px #666666;
+	border-collapse    : collapse;
+}
+.h {
+		background-color:#565656;
+		border-collapse    : collapse;
+		color:#FFFFFF;
+    	font-weight:bold;
+	}
+.back_table {
+	background-image: url(../images/bktablelong.jpg);
+	background-repeat: no-repeat;
+}
+.tab_kelas {
+	background-color: #FFFFFF;
+	border-bottom-style: none;
+}
+.miring {
+	border-bottom-style: none;
+	font-style: italic;
+}
+.brown {
+	color: #663333;
+}
+.ukuran {
+	width: 135px;
+}
+.ukuranemail {
+	width: 150px;
+}
+.Ukuranketerangan {
+	height: 40px;
+	width: 200px;
+}
+.text_merah{
+    background:#FFFFFF;
+    padding: 1px 2px;
+	color:#FF0000;
+}
