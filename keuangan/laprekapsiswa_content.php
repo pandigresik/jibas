@@ -222,7 +222,7 @@ $width = 1180 + $n_arrpen * 600;
 			{
 				$sql = "SELECT b.besar, b.cicilan
 					 	  FROM besarjtt b
-						 WHERE b.idpenerimaan = '$idpenerimaan' AND b.nis = '$nis' AND b.info2 = '$idtahunbuku'";
+						 WHERE b.idpenerimaan = '$idpenerimaan' AND b.nis = '$nis' AND b.info2 = '".$idtahunbuku."'";
 				$res2 = QueryDb($sql);
 				if (0 != mysqli_num_rows($res2))
 				{

@@ -58,7 +58,7 @@ $tanggal = $_REQUEST['tanggal'];
 
 $sql = "SELECT nama
           FROM jbssdm.pegawai
-         WHERE nip = '$nip'";
+         WHERE nip = '".$nip."'";
 $nama = FetchSingle($sql);         
 ?>
 

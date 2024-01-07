@@ -38,6 +38,6 @@ function delete($file) {
    }
  }
 }
-$mydir=$_REQUEST['dirgambar']";
+$mydir= $_REQUEST['dirgambar'];
 delete ($mydir);
 ?>

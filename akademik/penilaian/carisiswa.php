@@ -123,10 +123,10 @@ openDB();
 if ((isset($_POST["cari"]))){
  	if((trim($_POST['cr_nis']!="")) && (trim($_POST['cr_nama']==""))) {
 		$selectSQL ="SELECT nis,nama,idkelas FROM jbsakad.siswa ".
-		            "WHERE nis LIKE '$_POST['cr_nis']%' AND aktif = '1'";
+		            "WHERE nis LIKE '". $_POST['cr_nis']."%' AND aktif = '1'";
 	}elseif((isset($_POST["cari"])) && (trim($_POST['cr_nama']!="")) && (trim($_POST['cr_nis']==""))){
 		$selectSQL ="SELECT nis,nama,idkelas FROM jbsakad.siswa ".
-		            "WHERE nama LIKE '$_POST['cr_nama']%' AND aktif = '1'";
+		            "WHERE nama LIKE '". $_POST['cr_nama']."%' AND aktif = '1'";
 	}elseif((isset($_POST["cari"])) && (trim($_POST['cr_nis']=="")) && (trim($_POST['cr_nama']==""))) {
 		$selectSQL ="SELECT nis,nama,idkelas FROM jbsakad.siswa WHERE nama='x'";
 	}
@@ -162,7 +162,7 @@ if ((isset($_POST["cari"]))){
 	<tr <?="bgcolor=#".($cnt%2 !== 0?"ffffff":"EAECEE").""; ?>>
 		<td class='data'><input type="hidden" name="nis<?=$cnt; ?>" value="<?=$row['nis']; ?>">
 		<input type="hidden" name="nama<?=$cnt; ?>" value="<?=$row['nama']; ?>"><input name='siswa' type='radio' value='<?=$row['nis']; ?>' onclick='changeSel(<?=$cnt; ?>)' width='20%'><?=$row['nis']; ?></td>
-		<td width='60%'class='data'><?=$row['nama']; ?></td><td><?="$rw['departemen'] - $rw[kelas]"; ?> </td> 
+		<td width='60%'class='data'><?=$row['nama']; ?></td><td><?=$rw['departemen'] - $rw['kelas'] ?> </td> 
 	</tr>
 	<?php
 	$cnt++;

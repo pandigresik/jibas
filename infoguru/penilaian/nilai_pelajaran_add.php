@@ -313,7 +313,7 @@ function simpan(evt) {
     <tr height="25">
         <td align="center"><?=++$i ?></td>
         <td align="center"><?=$row_siswa['nis'] ?></td>
-        <td><?=$row_siswa[nama] ?></td>
+        <td><?=$row_siswa['nama'] ?></td>
         <td align="center">
             <input type="text" name="nilaiujian[<?=$row_siswa['nis']?>][0]" id="nilaiujian<?=$i?>" size="5" maxlength="5" onKeyPress="return focusNext('keterangan<?=$i?>', event);" ></td>
         <td align="center">

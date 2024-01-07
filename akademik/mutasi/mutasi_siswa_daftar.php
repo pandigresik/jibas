@@ -64,7 +64,7 @@ if ($jenis <> ""){
 		if ($nis <> "" && $nama <> "")
 			$string = "WHERE s.nis LIKE '%$nis%' AND s.nama LIKE '%$nama%'";
 	} elseif ($jenis == "combo") { 			
-		$string = "WHERE s.idkelas = '$idkelas'";
+		$string = "WHERE s.idkelas = '".$idkelas."'";
 	} else {
 		$string = "WHERE s.aktif = 1";
 	}

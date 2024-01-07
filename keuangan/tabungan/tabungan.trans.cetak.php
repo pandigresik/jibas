@@ -85,7 +85,7 @@ $departemen = $row[0];
 <tr>
 	<td><strong>Tabungan</strong></td>
     <td><strong>:
-<?php $sql = "SELECT nama FROM datatabungan WHERE replid = '$idtabungan'"; 			
+<?php $sql = "SELECT nama FROM datatabungan WHERE replid = '".$idtabungan."'"; 			
 	$result = QueryDb($sql);    
 	$row = mysqli_fetch_row($result);
 	echo  $row[0]; ?>
@@ -151,7 +151,7 @@ else
              WHERE p.idjurnal = j.replid
                AND p.nis = '$nis'
                AND j.idtahunbuku = '$idtahunbuku'
-               AND p.idtabungan = '$idtabungan'";
+               AND p.idtabungan = '".$idtabungan."'";
     $nData = FetchSingle($sql);
     
     $sql = "SELECT p.replid AS id, j.nokas, date_format(p.tanggal, '%d-%b-%Y %H:%i:%s') as tanggal,

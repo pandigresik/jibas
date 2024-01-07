@@ -57,7 +57,7 @@ if (isset($_REQUEST['Simpan'])) {
 		CloseDb();
 		$ERROR_MSG = $kalender." sudah digunakan!";
 	} else {
-		$sql_simpan="UPDATE jbsakad.kalenderakademik SET kalender='$kalender' WHERE replid = '$replid'";
+		$sql_simpan="UPDATE jbsakad.kalenderakademik SET kalender='$kalender' WHERE replid = '".$replid."'";
 		$result_simpan=QueryDb($sql_simpan);
 		CloseDb();
 		if ($result_simpan){		

@@ -37,14 +37,14 @@ $nis = $_SESSION["infosiswa.nis"];
 
 $sql = "SELECT *
 	      FROM jbsakad.siswa
-		 WHERE nis = '$nis'";
+		 WHERE nis = '".$nis."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_array($res);
 $asalsekolah = $row['asalsekolah'];
 
 $sql = "SELECT departemen
           FROM jbsakad.asalsekolah
-         WHERE sekolah = '$asalsekolah'";
+         WHERE sekolah = '".$asalsekolah."'";
 $res2 = QueryDb($sql);
 $row2 = mysqli_fetch_array($res2);
 $jenjangsekolah = $row2['departemen'];
@@ -52,7 +52,7 @@ $jenjangsekolah = $row2['departemen'];
 $sql = "SELECT departemen 
           FROM jbsakad.siswa s, jbsakad.angkatan a 
          WHERE s.idangkatan = a.replid
-           AND s.nis = '$nis'";
+           AND s.nis = '".$nis."'";
 $res2 = QueryDb($sql);
 $row2 = mysqli_fetch_array($res2);
 $departemen = $row2['departemen'];
@@ -144,7 +144,7 @@ $departemen = $row2['departemen'];
         $bln = date('n');
         $tgl = date('j');
         
-        $date = split("-", $row['tgllahir']);
+        $date = explode("-", $row['tgllahir']);
         if (count($date) == 3)
         {
             $thn = $date[0];
@@ -454,7 +454,7 @@ $departemen = $row2['departemen'];
         $bln = date('n');
         $tgl = date('j');
         
-        $date = split("-", $row['tgllahirayah']);
+        $date = explode("-", $row['tgllahirayah']);
         if (count($date) == 3)
         {
             $thn = $date[0];
@@ -472,7 +472,7 @@ $departemen = $row2['departemen'];
         $bln = date('n');
         $tgl = date('j');
         
-        $date = split("-", $row['tgllahiribu']);
+        $date = explode("-", $row['tgllahiribu']);
         if (count($date) == 3)
         {
             $thn = $date[0];
@@ -695,7 +695,7 @@ $departemen = $row2['departemen'];
         $data = "";
         if ($jenis == 1)
         {
-            $sql = "SELECT replid, teks FROM tambahandatasiswa WHERE nis = '$nis' AND idtambahan = '$replid'";
+            $sql = "SELECT replid, teks FROM tambahandatasiswa WHERE nis = '$nis' AND idtambahan = '".$replid."'";
             $res2 = QueryDb($sql);
             if ($row2 = mysqli_fetch_row($res2))
             {
@@ -705,7 +705,7 @@ $departemen = $row2['departemen'];
         }
         else if ($jenis == 2)
         {
-            $sql = "SELECT replid, filename FROM tambahandatasiswa WHERE nis = '$nis' AND idtambahan = '$replid'";
+            $sql = "SELECT replid, filename FROM tambahandatasiswa WHERE nis = '$nis' AND idtambahan = '".$replid."'";
             $res2 = QueryDb($sql);
             if ($row2 = mysqli_fetch_row($res2))
             {
@@ -721,7 +721,7 @@ $departemen = $row2['departemen'];
         }
         else if ($jenis == 3)
         {
-            $sql = "SELECT replid, teks FROM tambahandatasiswa WHERE nis = '$nis' AND idtambahan = '$replid'";
+            $sql = "SELECT replid, teks FROM tambahandatasiswa WHERE nis = '$nis' AND idtambahan = '".$replid."'";
             $res2 = QueryDb($sql);
             if ($row2 = mysqli_fetch_row($res2))
             {

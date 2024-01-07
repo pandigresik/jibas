@@ -43,7 +43,7 @@ function ShowCbDepartemen()
     {
         if ($selDept == "")
             $selDept = $row[0];
-        $ret .= "<option value='$row[0]'>$row[0]</option>";
+        $ret .= "<option value='".$row[0]."'>$row[0]</option>";
     }
     $ret .= "</select>";
 
@@ -74,7 +74,7 @@ function ShowCbPelajaran($dept)
     $ret = "<select id='pelajaran' name='pelajaran' style='width: 250px;' onchange='ch_changePel()'>";
     while($row = mysqli_fetch_row($res))
     {
-        $ret .= "<option value='$row[0]'>$row[1]</option>";
+        $ret .= "<option value='".$row[0]."'>$row[1]</option>";
     }
     $ret .= "</select>";
 

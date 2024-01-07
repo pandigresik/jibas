@@ -38,7 +38,7 @@ $sql = "SELECT k.kelas AS namakelas, s.semester AS namasemester, a.tahunajaran, 
 			   l.nama, t.tingkat, p.nama AS guru, s.departemen as dep 
 		  FROM kelas k, semester s, tahunajaran a, pelajaran l, tingkat t, jbssdm.pegawai p 
 		 WHERE k.replid = $kelas AND s.replid = $semester AND  k.idtahunajaran = a.replid AND l.replid = $pelajaran 
-		   AND t.replid = k.idtingkat AND p.nip = '$nip'";
+		   AND t.replid = k.idtingkat AND p.nip = '".$nip."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_array($result);
 ?>

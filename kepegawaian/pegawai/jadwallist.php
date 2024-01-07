@@ -174,7 +174,7 @@ function Cetak() {
 <?php
 $tanggal = "$thn-$bln-$tgl";
 OpenDb();
-$sql = "SELECT DISTINCT j.jenis, ja.nama FROM jadwal j, jenisagenda ja WHERE j.jenis = ja.agenda AND tanggal = '$tanggal'";
+$sql = "SELECT DISTINCT j.jenis, ja.nama FROM jadwal j, jenisagenda ja WHERE j.jenis = ja.agenda AND tanggal = '".$tanggal."'";
 $result = QueryDb($sql);
 $cnt = 0;
 while ($row = mysqli_fetch_array($result)) { 

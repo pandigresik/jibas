@@ -64,7 +64,7 @@ CloseDb();
             <tr>
                 <td width="7%" valign="top">
                 <?php 	OpenDb();
-                    $sql = "SELECT * FROM semester WHERE replid = '$semester'";
+                    $sql = "SELECT * FROM semester WHERE replid = '".$semester."'";
                     $result = QueryDb($sql);
                     $row = mysqli_fetch_array($result);
                     
@@ -73,7 +73,7 @@ CloseDb();
                 <?php CloseDb(); ?>               </td>      	
               <td width="33%" valign="top" class="news_content1">&nbsp;<?=$row['departemen']?></td>
                 <td width="5%" valign="top"><?php 	OpenDb();
-                    $sql = "SELECT * FROM semester WHERE replid = '$semester'";
+                    $sql = "SELECT * FROM semester WHERE replid = '".$semester."'";
                     $result = QueryDb($sql);
                     $row = mysqli_fetch_array($result);
                     
@@ -85,7 +85,7 @@ CloseDb();
       <tr>
                 <td valign="top">
                 <?php 	OpenDb();
-                    $sql = "SELECT * FROM tahunajaran WHERE replid = '$tahunajaran'";
+                    $sql = "SELECT * FROM tahunajaran WHERE replid = '".$tahunajaran."'";
                     $result = QueryDb($sql);
                    
                     $row = mysqli_fetch_array($result);
@@ -95,7 +95,7 @@ CloseDb();
                 <?php CloseDb(); ?>               </td>      	
         <td valign="top" class="news_content1">&nbsp;<?=$row['tahunajaran']?></td>
                 <td valign="top"><?php 	OpenDb();
-                    $sql = "SELECT * FROM kelas WHERE replid = '$kelas'";
+                    $sql = "SELECT * FROM kelas WHERE replid = '".$kelas."'";
                     $result = QueryDb($sql);
                     $row = mysqli_fetch_array($result);
                     
@@ -107,7 +107,7 @@ CloseDb();
             <tr>
               <td valign="top">
 			    <?php 	OpenDb();
-                    $sql = "SELECT * FROM pelajaran WHERE replid = '$pelajaran'";
+                    $sql = "SELECT * FROM pelajaran WHERE replid = '".$pelajaran."'";
                     //echo $sql;
 					$result = QueryDb($sql);
                    
@@ -117,7 +117,7 @@ CloseDb();
                 <font color="#000000" size="2" class="nav_title"><b>Pelajaran </b></font>                </td>
               <td valign="top" class="news_content1">&nbsp;<?=$row['nama']?><?php CloseDb(); ?></td>
               <td valign="top"><?php 	OpenDb();
-                    $sql = "SELECT * FROM siswa WHERE nis = '$nis'";
+                    $sql = "SELECT * FROM siswa WHERE nis = '".$nis."'";
                     $result = QueryDb($sql);
                     $row = mysqli_fetch_array($result);
                     
@@ -158,7 +158,7 @@ CloseDb();
                                 $sql2 = "SELECT AVG(n.nilaiujian) as rata FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$semester."' AND u.idjenis = '".$row['replid']."' AND u.replid = n.idujian AND n.nis = '$nis' ";
                                 $result2 = QueryDb($sql2);	
                                 $row2 = @mysqli_fetch_array($result2);
-                                $rata = $row2[rata];
+                                $rata = $row2['rata'];
                                 $cnt = 1;
                                 while($row1 = @mysqli_fetch_array($result1)){			
                             ?>

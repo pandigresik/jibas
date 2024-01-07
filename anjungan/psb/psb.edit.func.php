@@ -101,7 +101,7 @@ function ShowKelompokCombo2($selProses)
         {
             $sql = "SELECT COUNT(replid)
                       FROM jbsakad.calonsiswa
-                     WHERE idkelompok = '".$row[0]'
+                     WHERE idkelompok = '".$row[0]."'
                        AND aktif = 1";
             $ndata = FetchSingle($sql);           
             
@@ -324,13 +324,13 @@ function ShowSumbangan($proses, $rowdata)
     
 <?php  $sql = "SELECT COUNT(replid)
               FROM jbsakad.settingpsb
-             WHERE idproses = '$proses'";
+             WHERE idproses = '".$proses."'";
 	$ndata = FetchSingle($sql);
 	if ($ndata > 0)
 	{
 		$sql = "SELECT *
                   FROM jbsakad.settingpsb
-                 WHERE idproses = '$proses'";
+                 WHERE idproses = '".$proses."'";
 		$res = QueryDb($sql);
 		$row = mysqli_fetch_array($res);
 		
@@ -382,13 +382,13 @@ function ShowNilaiUjian($proses, $rowdata)
     
 <?php  $sql = "SELECT COUNT(replid)
               FROM jbsakad.settingpsb
-             WHERE idproses = '$proses'";
+             WHERE idproses = '".$proses."'";
 	$ndata = FetchSingle($sql);
 	if ($ndata > 0)
 	{
 		$sql = "SELECT *
                   FROM jbsakad.settingpsb
-                 WHERE idproses = '$proses'";
+                 WHERE idproses = '".$proses."'";
 		$res = QueryDb($sql);
         $row = mysqli_fetch_array($res);
         

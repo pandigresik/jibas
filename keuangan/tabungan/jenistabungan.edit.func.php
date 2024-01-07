@@ -67,7 +67,7 @@ function LoadData()
     global $nama, $rekkas, $rekutang, $keterangan, $smsinfo;
     global $namarekkas, $namarekutang;
     
-    $sql = "SELECT * FROM datatabungan WHERE replid = '$id'";
+    $sql = "SELECT * FROM datatabungan WHERE replid = '".$id."'";
     $result = QueryDb($sql);
     
     $row = mysqli_fetch_array($result);
@@ -83,12 +83,12 @@ function LoadData()
     if (isset($_REQUEST['keterangan']))
         $keterangan = $_REQUEST['keterangan'];	
     
-    $sql = "SELECT nama FROM rekakun WHERE kode = '$rekkas'";
+    $sql = "SELECT nama FROM rekakun WHERE kode = '".$rekkas."'";
     $result = QueryDb($sql);
     $row = mysqli_fetch_row($result);
     $namarekkas = $row[0];
         
-    $sql = "SELECT nama FROM rekakun WHERE kode = '$rekutang'";
+    $sql = "SELECT nama FROM rekakun WHERE kode = '".$rekutang."'";
     $result = QueryDb($sql);
     $row = mysqli_fetch_row($result);
     $namarekutang = $row[0];

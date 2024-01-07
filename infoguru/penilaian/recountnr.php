@@ -133,7 +133,7 @@ class RecountNilaiRapor
 			{
 				$sql = "SELECT n.nilaiau FROM jbsakad.nau n, jbsakad.aturannhb a 
 						 WHERE n.idkelas = '$this->idkelas' AND n.nis = '$nis' AND n.idsemester = '$this->idsemester' 
-						   AND n.idjenis = '$value[2]' AND n.idaturan = a.replid AND a.replid = '$value[0]'";
+						   AND n.idjenis = '".$value[2]."' AND n.idaturan = a.replid AND a.replid = '$value[0]'";
 				$res2 = QueryDb($sql);
 				$row2 = mysqli_fetch_row($res2);
 				$nau = $row2[0];

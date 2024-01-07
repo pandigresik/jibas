@@ -32,12 +32,12 @@ $nis=$_REQUEST['nis'];
 $departemen=$_REQUEST['departemen'];
 
 OpenDb();
-$sql = "SELECT nama FROM pelajaran WHERE replid = '$pelajaran'";
+$sql = "SELECT nama FROM pelajaran WHERE replid = '".$pelajaran."'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
 $pel = $row['nama'];
 
-$sql_sem = "SELECT * FROM semester WHERE departemen = '$departemen'";
+$sql_sem = "SELECT * FROM semester WHERE departemen = '".$departemen."'";
 $result_sem = QueryDb($sql_sem);
 $i = 0;
 while ($row_sem = @mysqli_fetch_array($result_sem)) {
@@ -146,7 +146,7 @@ function cetak(semester) {
                 $sql2 = "SELECT AVG(n.nilaiujian) as rata FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$sem[$k][0]."' AND u.idjenis = '".$row['replid']."' AND u.replid = n.idujian AND n.nis = '$nis' ";
                 $result2 = QueryDb($sql2);
                 $row2 = @mysqli_fetch_array($result2);
-                $rata = $row2[rata];
+                $rata = $row2['rata'];
               
                 $cnt = 1;
                 if (@mysqli_num_rows($result1)>0){

@@ -172,7 +172,7 @@ function getSoal($idSoal)
                   FROM jbscbe.webusersoal
                  WHERE userid = '$userId'
                    AND idsoal = '$idSoal'
-                   AND idujianserta = '$idUjianSerta'";
+                   AND idujianserta = '".$idUjianSerta."'";
 
         OpenDb();
         $nsoal = (int) FetchSingle($sql);
@@ -184,7 +184,7 @@ function getSoal($idSoal)
                       FROM jbscbe.webusersoal
                      WHERE userid = '$userId'
                        AND idsoal = '$idSoal'
-                       AND idujianserta = '$idUjianSerta'";
+                       AND idujianserta = '".$idUjianSerta."'";
             $res = QueryDb($sql);
             $row = mysqli_fetch_row($res);
 
@@ -250,7 +250,7 @@ function getSoal($idSoal)
                        idsemester = '$soalData->IdSemester', semester = '$soalData->Semester',
                        idkategori = '$soalData->IdKategori', kategori = '$soalData->Kategori',
                        idindikator = '$soalData->IdIndikator', indikator = '$soalData->IdIndikator',
-                       idtema = '$soalData->IdTema', tema = '$soalData->Tema', resdir = '$resDir'";
+                       idtema = '$soalData->IdTema', tema = '$soalData->Tema', resdir = '".$resDir."'";
         QueryDb($sql);
 
         $sql = "SELECT LAST_INSERT_ID()";
@@ -407,7 +407,7 @@ function checkDownloadSoal($idSoal)
                   FROM jbscbe.webusersoal
                  WHERE userid = '$userId'
                    AND idujianserta = '$idUjianSerta'
-                   AND idsoal = '$idSoal'";
+                   AND idsoal = '".$idSoal."'";
         OpenDb();
         $nSoal = (int) FetchSingle($sql);
         CloseDb();
@@ -451,7 +451,7 @@ function checkDownloadSoal($idSoal)
                        idsemester = '$soalData->IdSemester', semester = '$soalData->Semester',
                        idkategori = '$soalData->IdKategori', kategori = '$soalData->Kategori',
                        idindikator = '$soalData->IdIndikator', indikator = '$soalData->IdIndikator',
-                       idtema = '$soalData->IdTema', tema = '$soalData->Tema', resdir = '$resDir'";
+                       idtema = '$soalData->IdTema', tema = '$soalData->Tema', resdir = '".$resDir."'";
         QueryDb($sql);
 
         $sql = "SELECT LAST_INSERT_ID()";
@@ -490,7 +490,7 @@ function getGambarSoal($idSoal)
                   FROM jbscbe.webusersoal
                  WHERE userid = '$userId'
                    AND idujianserta = '$idUjianSerta'
-                   AND idsoal = '$idSoal'";
+                   AND idsoal = '".$idSoal."'";
         OpenDb();
         $res = QueryDb($sql);
         if (mysqli_num_rows($res) == 0)

@@ -48,7 +48,7 @@ function ReadData()
 
     $sql = "SELECT kolom, jenis, keterangan, urutan 
               FROM jbssdm.tambahandata 
-             WHERE replid = '$replid'";
+             WHERE replid = '".$replid."'";
     $result = QueryDb($sql);
     if (mysqli_num_rows($result) > 0)
     {
@@ -92,7 +92,7 @@ function SaveData()
                        jenis = '$jenis', 
                        keterangan = '$keterangan',
                        urutan = '$urutan'
-                 WHERE replid = '$replid'";
+                 WHERE replid = '".$replid."'";
         $result = QueryDb($sql);
         if ($result)
         { ?>

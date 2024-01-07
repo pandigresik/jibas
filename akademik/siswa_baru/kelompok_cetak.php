@@ -36,7 +36,7 @@ $page = $_REQUEST['page'];
 $total = $_REQUEST['total'];
 
 OpenDb();
-$sql = "SELECT proses FROM prosespenerimaansiswa WHERE replid = '$proses'";
+$sql = "SELECT proses FROM prosespenerimaansiswa WHERE replid = '".$proses."'";
 $result=QueryDb($sql);
 $row = @mysqli_fetch_array($result);
 CloseDb();

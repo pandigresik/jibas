@@ -210,14 +210,14 @@ function chg_title_color(id,stat){
                     } elseif ($row1['idpengirim']=="landlord") {
                             echo "Administrator JIBAS InfoSiswa";
                     } else {
-                    $rs=QueryDb("SELECT nama FROM jbssdm.pegawai WHERE nip='$row1[idpengirim]'");
+                    $rs=QueryDb("SELECT nama FROM jbssdm.pegawai WHERE nip='".$row1['idpengirim']."'");
                     if (@mysqli_num_rows($rs)>0){
                     $rp=@mysqli_fetch_array($rs);
-                    $nm=$rp[nama];
+                    $nm=$rp['nama'];
                     } else {
-                    $rsi=QueryDb("SELECT nama FROM jbsakad.siswa WHERE nis='$row1[idpengirim]'");
+                    $rsi=QueryDb("SELECT nama FROM jbsakad.siswa WHERE nis='".$row1['idpengirim']."'");
                     $rsis=@mysqli_fetch_array($rsi);
-                    $nm=$rsis[nama];
+                    $nm=$rsis['nama'];
                     }
                     echo $row1['idpengirim']."-".$nm;
                     }
@@ -227,12 +227,12 @@ function chg_title_color(id,stat){
               </tr>
               <tr onclick="bacaberita('<?=$row1['replid']?>')" onmouseover="chg_title_color('title<?=$row1['replid']?>','1')" onmouseout="chg_title_color('title<?=$row1['replid']?>','0')">
                 <td colspan="2" align="left">
-					<?=$row1[abstrak];?>
+					<?=$row1['abstrak'];?>
                 </td>
               </tr>
               <tr>
               	<td colspan="2" align="right">
-              		<?php if ($row1[idpengirim]==SI_USER_ID()){ ?>
+              		<?php if ($row1['idpengirim']==SI_USER_ID()){ ?>
                         <img src="../../images/ico/ubah.png" border="0" onclick="ubah('<?=$row1['replid']?>','<?=$page?>')" style="cursor:pointer;" title="Ubah Berita ini !" />&nbsp;<img src="../../images/ico/hapus.png" border="0" onclick="hapus('<?=$row1['replid']?>')" style="cursor:pointer;" title="Hapus Berita ini !" />
 	                <?php } ?>              	</td>
               </tr>

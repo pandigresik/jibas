@@ -50,7 +50,7 @@ if (isset($_REQUEST['keterangan']))
 	
 if (isset($_REQUEST['Simpan'])) {
 	OpenDb();
-	$sql = "SELECT * FROM aktivitaskalender WHERE kegiatan = '$kegiatan' AND idkalender = '$kalender'";
+	$sql = "SELECT * FROM aktivitaskalender WHERE kegiatan = '$kegiatan' AND idkalender = '".$kalender."'";
 	
 	$result = QueryDb($sql);
 	

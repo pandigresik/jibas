@@ -53,7 +53,7 @@ if ($op == "348328947234923") {
 	$errmsg = "";
 	
 	if ($idbesarjtt > 0) {
-		$sql = "SELECT sum(jumlah) FROM penerimaanjtt WHERE idbesarjtt = '$idbesarjtt'";
+		$sql = "SELECT sum(jumlah) FROM penerimaanjtt WHERE idbesarjtt = '".$idbesarjtt."'";
 		$result = QueryDb($sql);
 		$row = mysqli_fetch_row($result);
 		$totalbayaran = $row[0];
@@ -65,7 +65,7 @@ if ($op == "348328947234923") {
 			if ($totalbayaran == $besar)
 				$lunas = 1;
 				
-			$sql = "UPDATE besarjtt SET besar=$besar,keterangan='".$_REQUEST['keterangan']."',lunas=$lunas,pengguna='$pengguna' WHERE replid = '$idbesarjtt'";
+			$sql = "UPDATE besarjtt SET besar=$besar,keterangan='".$_REQUEST['keterangan']."',lunas=$lunas,pengguna='$pengguna' WHERE replid = '".$idbesarjtt."'";
 			QueryDb($sql);
 		}
 	} else {
@@ -96,7 +96,7 @@ if ($op == "348328947234923") {
 	$rekkas = "";
 	$rekpendapatan = "";
 	$rekpiutang = "";
-	$sql = "SELECT nama, rekkas, rekpendapatan, rekpiutang FROM datapenerimaan WHERE replid = '$idpenerimaan'";
+	$sql = "SELECT nama, rekkas, rekpendapatan, rekpiutang FROM datapenerimaan WHERE replid = '".$idpenerimaan."'";
 	$result = QueryDb($sql);
 	if (mysqli_num_rows($result) == 0) {
 		CloseDb();
@@ -111,7 +111,7 @@ if ($op == "348328947234923") {
 	
 	//Ambil nama siswa
 	$namasiswa = "";
-	$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '$nis'";
+	$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '".$nis."'";
 	$result = QueryDb($sql);
 	if (mysqli_num_rows($result) == 0) {
 		CloseDb();
@@ -123,7 +123,7 @@ if ($op == "348328947234923") {
 	
 	//Cari tahu apakah ini pelunasan?
 	$besarjtt = 0;
-	$sql = "SELECT besar FROM besarjtt WHERE replid = '$idbesarjtt'";
+	$sql = "SELECT besar FROM besarjtt WHERE replid = '".$idbesarjtt."'";
 	$result = QueryDb($sql); 
 	if (mysqli_num_rows($result) == 0) {
 		CloseDb();
@@ -134,7 +134,7 @@ if ($op == "348328947234923") {
 	}
 	
 	//Cari tahu jumlah pembayaran cicilan yang sudah terjadi
-	$sql = "SELECT jumlah FROM penerimaanjtt WHERE idbesarjtt = '$idbesarjtt'";
+	$sql = "SELECT jumlah FROM penerimaanjtt WHERE idbesarjtt = '".$idbesarjtt."'";
 	$result = QueryDb($sql);
 	$jml = 0;
 	$cicilan = 0;
@@ -160,7 +160,7 @@ if ($op == "348328947234923") {
 	}
 		
 	//Ambil awalan dan cacah tahunbuku untuk bikin nokas;
-	$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '$idtahunbuku'";
+	$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '".$idtahunbuku."'";
 	$result = QueryDb($sql);
 	if (mysqli_num_rows($result) == 0) {
 		CloseDb();
@@ -228,7 +228,7 @@ if ($op == "348328947234923") {
 } else {
 
 	//Muncul pertama kali
-	$sql = "SELECT s.replid as replid, nama, telponsiswa as telpon, hpsiswa as hp, kelas as namakelas, alamatsiswa as alamattinggal FROM jbsakad.siswa s, jbsakad.kelas k WHERE s.idkelas = k.replid AND nis = '$nis'";
+	$sql = "SELECT s.replid as replid, nama, telponsiswa as telpon, hpsiswa as hp, kelas as namakelas, alamatsiswa as alamattinggal FROM jbsakad.siswa s, jbsakad.kelas k WHERE s.idkelas = k.replid AND nis = '".$nis."'";
 	
 	$result = QueryDb($sql);
 	if (mysqli_num_rows($result) == 0) {
@@ -244,7 +244,7 @@ if ($op == "348328947234923") {
 		$alamattinggal = $row['alamattinggal'];
 	}
 	
-	$sql = "SELECT nama FROM datapenerimaan WHERE replid = '$idpenerimaan'";
+	$sql = "SELECT nama FROM datapenerimaan WHERE replid = '".$idpenerimaan."'";
 	$result = QueryDb($sql);
 	$row = mysqli_fetch_row($result);
 	$namapenerimaan = $row[0];
@@ -412,7 +412,7 @@ function cetak() {
         <legend><font size="2" color="#003300">
         <strong>Pembayaran Yang Harus Dilunasi</strong></font></legend>
     <?php
-        $sql = "SELECT replid AS id, besar, keterangan, lunas FROM besarjtt WHERE nis = '$nis' AND idpenerimaan = '$idpenerimaan'";
+        $sql = "SELECT replid AS id, besar, keterangan, lunas FROM besarjtt WHERE nis = '$nis' AND idpenerimaan = '".$idpenerimaan."'";
         $result = QueryDb($sql);
         $besar = "";
         $keterangan = "";
@@ -468,7 +468,7 @@ function cetak() {
     	<td>
 	<?php  
     if ($idbesarjtt > 0) { 
-        $sql = "SELECT count(*) FROM penerimaanjtt WHERE idbesarjtt = '$idbesarjtt'";
+        $sql = "SELECT count(*) FROM penerimaanjtt WHERE idbesarjtt = '".$idbesarjtt."'";
         $result = QueryDb($sql);
         $row = mysqli_fetch_row($result);
         $nbayar = $row[0];

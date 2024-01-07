@@ -99,12 +99,12 @@ function loadJadwal($departemen,$kelas,$info) {
 	$result = QueryDb($sql);
 	
 	while($row = mysqli_fetch_assoc($result)) {
-		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']][id] = $row['id'];
-		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']][njam] = $row['njam'];
-		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']][pelajaran] = $row['pelajaran'];
-		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']][guru] = $row['guru'];
-		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']][status] = $row['status'];
-		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']][ket] = $row['ket'];
+		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']]['id'] = $row['id'];
+		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']]['njam'] = $row['njam'];
+		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']]['pelajaran'] = $row['pelajaran'];
+		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']]['guru'] = $row['guru'];
+		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']]['status'] = $row['status'];
+		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']]['ket'] = $row['ket'];
 	}
 	return true;
 }
@@ -113,22 +113,22 @@ function getCell($r, $c) {
 	global $mask, $jadwal;
 	if($mask[$c] == 0) {
 		if(isset($jadwal['row'][$c][$r])) {
-			$mask[$c] = $jadwal['row'][$c][$r][njam] - 1;
+			$mask[$c] = $jadwal['row'][$c][$r]['njam'] - 1;
 			
-			$s = "<td class='jadwal' rowspan='{$jadwal['row'][$c][$r][njam]}' width='110px'>";
-			$s.= "<b>{$jadwal['row'][$c][$r][pelajaran]}</b><br>";
-			$s.= "{$jadwal['row'][$c][$r][guru]}<br><i>{$jadwal['row'][$c][$r][status]}</i><br>{$jadwal['row'][$c][$r][ket]}<br>";
+			$s = "<td class='jadwal' rowspan='{$jadwal['row'][$c][$r]['njam']}' width='110px'>";
+			$s.= "<b>{$jadwal['row'][$c][$r]['pelajaran']}</b><br>";
+			$s.= "{$jadwal['row'][$c][$r]['guru']}<br><i>{$jadwal['row'][$c][$r]['status']}</i><br>{$jadwal['row'][$c][$r]['ket']}<br>";
 			//$s.= "<img src='../images/ico/ubah.png' style='cursor:pointer' ";
-			//$s.= " onclick='edit({$jadwal['row'][$c][$r][id]})'> &nbsp;";
+			//$s.= " onclick='edit({$jadwal['row'][$c][$r]['id']})'> &nbsp;";
 			//$s.= "<img src='../images/ico/hapus.png' style='cursor:pointer' ";
-			//$s.= " onclick='hapus({$jadwal['row'][$c][$r][id]},0)'>";
+			//$s.= " onclick='hapus({$jadwal['row'][$c][$r]['id']},0)'>";
 			$s.= "</td>";
 			
 			return $s;
 		} else {
 			$s = "<td class='jadwal' width='110px'>";			
 			//$s.= "<img src='../images/ico/tambah.png' style='cursor:pointer' onclick='tambah($r, $c)'>";
-			$s.= "[Kosong]";
+			$s.= "['Kosong']";
 			$s.= "</td>";
 
 			return $s;
@@ -140,7 +140,7 @@ function getCell($r, $c) {
 
 $mask = NULL;
 for($i = 1; $i <= 7; $i++) {
-	$mask[i] = 0;
+	$mask['i'] = 0;
 }
 
 
@@ -233,7 +233,7 @@ Jadwal Pelajaran Kelas <?=$namakelas?>
 <tr>
 	<td>
  <?php OpenDb(); 
-	$sql = "SELECT * FROM pelajaran p WHERE p.departemen = '$departemen'";	
+	$sql = "SELECT * FROM pelajaran p WHERE p.departemen = '".$departemen."'";	
 	$result = QueryDb($sql);
 	CloseDb();      
 	if (@mysqli_num_rows($result)>0){			

@@ -102,7 +102,7 @@ function getIntentData()
     OpenDb();
     $sql = "SELECT intent
               FROM jbscbe.webuserintent
-             WHERE id = '$idPilihanUmum'";
+             WHERE id = '".$idPilihanUmum."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) > 0)
     {

@@ -116,7 +116,7 @@ while ($row = mysqli_fetch_array($result))
 	$lunas = $row['lunas'];
 	$keterangan = $row['keterangan'];
 	
-	$sql = "SELECT SUM(jumlah), SUM(info1) FROM penerimaanjttcalon WHERE idbesarjttcalon = '$idbesarjtt'";
+	$sql = "SELECT SUM(jumlah), SUM(info1) FROM penerimaanjttcalon WHERE idbesarjttcalon = '".$idbesarjtt."'";
 	$row2 = FetchSingleRow($sql);
 	$pembayaran = $row2[0] + $row2[1];
 	$diskon = $row2[1];

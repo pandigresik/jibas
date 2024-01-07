@@ -357,7 +357,7 @@ function panggil(elem)
                 if ($row[5] == 1)
                     $A = "(A)";
                 
-                echo "<option value='$row[0]' $sel>$row[1] $A</option>";
+                echo "<option value='".$row[0]."' $sel>$row[1] $A</option>";
             }
         } ?>
         </select>   </td>
@@ -546,11 +546,11 @@ if (isset($_REQUEST['showpembayaran']))
         
         if ($row['jenispemohon'] == 1) {
             $idpemohon = $row['nip'];
-            $sql = "SELECT nama FROM $db_name_sdm.pegawai WHERE nip = '$idpemohon'";
+            $sql = "SELECT nama FROM $db_name_sdm.pegawai WHERE nip = '".$idpemohon."'";
             $jenisinfo = "pegawai";
         } else if ($row['jenispemohon'] == 2) {
             $idpemohon = $row['nis'];
-            $sql = "SELECT nama FROM siswa WHERE nis = '$idpemohon'";
+            $sql = "SELECT nama FROM siswa WHERE nis = '".$idpemohon."'";
             $jenisinfo = "siswa";
         } else {
             $idpemohon = "";

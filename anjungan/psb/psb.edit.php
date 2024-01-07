@@ -58,7 +58,7 @@ $selKelompok = $idkelompok;
 
 $sql = "SELECT *
           FROM jbsakad.calonsiswa
-         WHERE nopendaftaran = '$nocalon'";
+         WHERE nopendaftaran = '".$nocalon."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_array($res);
 $replid = $row['replid'];
@@ -66,7 +66,7 @@ $asalsekolah = $row['asalsekolah'];
 
 $sql = "SELECT departemen
           FROM jbsakad.asalsekolah
-         WHERE sekolah = '$asalsekolah'";
+         WHERE sekolah = '".$asalsekolah."'";
 $res2 = QueryDb($sql);
 $row2 = mysqli_fetch_array($res2);
 $jenjangsekolah = $row2['departemen'];
@@ -203,7 +203,7 @@ $jenjangsekolah = $row2['departemen'];
         $bln = date('n');
         $tgl = date('j');
         
-        $date = split("-", $row['tgllahir']);
+        $date = explode("-", $row['tgllahir']);
         if (count($date) == 3)
         {
             $thn = $date[0];
@@ -513,7 +513,7 @@ $jenjangsekolah = $row2['departemen'];
         $bln = date('n');
         $tgl = date('j');
         
-        $date = split("-", $row['tgllahirayah']);
+        $date = explode("-", $row['tgllahirayah']);
         if (count($date) == 3)
         {
             $thn = $date[0];
@@ -531,7 +531,7 @@ $jenjangsekolah = $row2['departemen'];
         $bln = date('n');
         $tgl = date('j');
         
-        $date = split("-", $row['tgllahiribu']);
+        $date = explode("-", $row['tgllahiribu']);
         if (count($date) == 3)
         {
             $thn = $date[0];
@@ -756,7 +756,7 @@ $jenjangsekolah = $row2['departemen'];
         $data = "";
         if ($jenis == 1)
         {
-            $sql = "SELECT replid, teks FROM tambahandatacalon WHERE nopendaftaran = '$nocalon' AND idtambahan = '$replid'";
+            $sql = "SELECT replid, teks FROM tambahandatacalon WHERE nopendaftaran = '$nocalon' AND idtambahan = '".$replid."'";
             $res2 = QueryDb($sql);
             if ($row2 = mysqli_fetch_row($res2))
             {
@@ -766,7 +766,7 @@ $jenjangsekolah = $row2['departemen'];
         }
         else if ($jenis == 3)
         {
-            $sql = "SELECT replid, teks FROM tambahandatacalon WHERE nopendaftaran = '$nocalon' AND idtambahan = '$replid'";
+            $sql = "SELECT replid, teks FROM tambahandatacalon WHERE nopendaftaran = '$nocalon' AND idtambahan = '".$replid."'";
             $res2 = QueryDb($sql);
             if ($row2 = mysqli_fetch_row($res2))
             {

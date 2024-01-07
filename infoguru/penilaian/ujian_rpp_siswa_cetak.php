@@ -145,8 +145,8 @@ $namatingkat = $row['tingkat'];
  
   	$cnt=0;
   	while ($row_siswa=@mysqli_fetch_array($result_siswa)){
-  		//$sql_jum_nil="SELECT SUM(r.rataUS) as nilaiUS, COUNT(r.rataUS) as jum FROM jbsakad.rataus r,jbsakad.ujian u,jbsakad.rpp rpp WHERE r.nis='$row_siswa[nis]' AND r.idjenis='$ujian' AND u.idrpp='$rpp' AND u.idjenis=r.idjenis AND r.idpelajaran='$pelajaran' AND r.idkelas='$kelas'";
-		$sql2 = "SELECT round(SUM(nilaiujian)/(COUNT(DISTINCT u.replid)),2), SUM(nilaiujian) FROM nilaiujian n, siswa s, ujian u, jenisujian j WHERE n.idujian = u.replid AND u.idsemester = '$semester' AND u.idkelas = '$kelas' AND u.idjenis = '$ujian' AND u.idrpp = '$rpp' AND u.idpelajaran ='$pelajaran' AND s.nis = n.nis AND u.idjenis = j.replid AND s.nis = '".$row_siswa[nis]' AND s.aktif = 1 ORDER BY s.nama";
+  		//$sql_jum_nil="SELECT SUM(r.rataUS) as nilaiUS, COUNT(r.rataUS) as jum FROM jbsakad.rataus r,jbsakad.ujian u,jbsakad.rpp rpp WHERE r.nis='".$row_siswa['nis']."' AND r.idjenis='$ujian' AND u.idrpp='$rpp' AND u.idjenis=r.idjenis AND r.idpelajaran='$pelajaran' AND r.idkelas='$kelas'";
+		$sql2 = "SELECT round(SUM(nilaiujian)/(COUNT(DISTINCT u.replid)),2), SUM(nilaiujian) FROM nilaiujian n, siswa s, ujian u, jenisujian j WHERE n.idujian = u.replid AND u.idsemester = = '".$semester."' AND u.idkelas = '$kelas' AND u.idjenis = '$ujian' AND u.idrpp = '$rpp' AND u.idpelajaran ='$pelajaran' AND s.nis = n.nis AND u.idjenis = j.replid AND s.nis = '".$row_siswa['nis']."' AND s.aktif = 1 ORDER BY s.nama";
   		$result2 = QueryDb($sql2);
 			$row2 = mysqli_fetch_row($result2);
     ?>

@@ -37,7 +37,7 @@ $op = $_REQUEST['op'];
 if ($op == "xm8r389xemx23xb2378e23") 
 {
 	OpenDb();
-	$sql = "DELETE FROM aturangrading WHERE idpelajaran = '$id' AND nipguru = '$nip' AND idtingkat = '$idtingkat' AND dasarpenilaian = '$aspek'"; 
+	$sql = "DELETE FROM aturangrading WHERE idpelajaran = '$id' AND nipguru = '$nip' AND idtingkat = '$idtingkat' AND dasarpenilaian = '".$aspek."'"; 
 	QueryDb($sql);
 	CloseDb();	?>
     <script>

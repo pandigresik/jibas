@@ -66,7 +66,7 @@ if (isset($_REQUEST['hapus']))
 	for ($i = 1; $i <= $jum; $i++) 
 	{
 		$replid = $_REQUEST['replid'.$i];
-		$sql = "UPDATE jbsakad.komennap SET komentar='' WHERE replid = '$replid'";
+		$sql = "UPDATE jbsakad.komennap SET komentar='' WHERE replid = '".$replid."'";
 		//echo $sql;
 		$res=QueryDb($sql);
 	}
@@ -187,14 +187,14 @@ function change_urut(urut,urutan)
             <td height="25"><div align="left">
 <?php 			$sql = "SELECT k.komentar, k.replid 
                        FROM jbsakad.komennap k, jbsakad.infonap i 
-							 WHERE k.nis = '".$row['nis']' AND i.replid = k.idinfo 
-							   AND i.idpelajaran = '$pelajaran' AND i.idsemester = '$semester' AND i.idkelas = '$kelas'";
+							 WHERE k.nis = '".$row['nis']."' AND i.replid = k.idinfo 
+							   AND i.idpelajaran = '$pelajaran' AND i.idsemester = '$semester' AND i.idkelas = '".$kelas."'";
 				$res2 = QueryDb($sql);
 				$row2 = @mysqli_fetch_row($res2);
 				$ada_komentar = $row2[0];
             if ($ada_komentar <> "")
 				{
-				   echo "<input type='hidden' name='replid$cnt' value='$row2[1]'>";
+				   echo "<input type='hidden' name='replid$cnt' value='".$row2[1]."'>";
 				   echo $row2[0];
 				}
 			  	else 

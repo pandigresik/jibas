@@ -97,7 +97,7 @@ for ($i=1;$i<=$jum;$i++) {
 	} elseif ($dasar=='Agama' || $dasar=='Suku' || $dasar=='Status Siswa' || $dasar=='Kondisi Siswa' || $dasar=='Pekerjaan Ayah' || $dasar=='Pekerjaan Ibu' || $dasar=='Pendidikan Ayah' || $dasar=='Pendidikan Ibu') {
 		$row = @mysqli_fetch_row($result);
 		$judul[$i] = $row[0];		
-		$filter = "1 AND s.$tabel = '".$row[0]'";
+		$filter = "1 AND s.$tabel = '".$row[0]."'";
 		if ($dasar=='Pekerjaan Ayah' || $dasar=='Pekerjaan Ibu' || $dasar=='Pendidikan Ayah' || $dasar=='Pendidikan Ibu') {
 			if ($i == $jum) {
 				$judul[$i] = "Tidak ada data";

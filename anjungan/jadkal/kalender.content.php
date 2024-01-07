@@ -96,9 +96,9 @@ function loadKalender1($kalender)
 		$tgl2 = explode('-',$row[3]);
 		$awal = $tgl1[2].'/'.$tgl1[1].'/'.substr($tgl1[0],2,2).' - '.$tgl2[2].'/'.$tgl2[1].'/'.substr($tgl2[0],2,2);
 		
-		$GLOBALS['keg']['row'][$i][id] = $row[0];				
-		$GLOBALS['keg']['row'][$i][judul] = $row[1];				
-		$GLOBALS['keg']['row'][$i][tanggal] = $awal;
+		$GLOBALS['keg']['row'][$i]['id'] = $row[0];				
+		$GLOBALS['keg']['row'][$i]['judul'] = $row[1];				
+		$GLOBALS['keg']['row'][$i]['tanggal'] = $awal;
 		++$i;
 	}
 	return true;
@@ -206,12 +206,12 @@ function loadKalender2($kalender, $bulan1, $tahun1, $bulan2, $tahun2)
 		}
 		
 		for ($j=0;$j< count($keg['row']); $j++) {
-			if ($keg['row'][$j][id] == $row[0]) 				
+			if ($keg['row'][$j]['id'] == $row[0]) 				
 				$baris = $j;
 		}	
 		
-		$GLOBALS['jadwal']['row'][$row[0]][$baris][$kolom][njam] = $selisih;
-		$GLOBALS['jadwal']['row'][$row[0]][$baris][$kolom][awal] = $tanggal;
+		$GLOBALS['jadwal']['row'][$row[0]][$baris][$kolom]['njam'] = $selisih;
+		$GLOBALS['jadwal']['row'][$row[0]][$baris][$kolom]['awal'] = $tanggal;
 	}
 	return true;
 }
@@ -224,14 +224,14 @@ function getCell1($r, $c, $id, $m)
 		if(isset($jadwal['row'][$id][$r][$c]))
       {
         
-			$mask[$c+1] = $jadwal['row'][$id][$r][$c][njam] - 1;
+			$mask[$c+1] = $jadwal['row'][$id][$r][$c]['njam'] - 1;
 			
-			$dt=split("-",$jadwal['row'][$id][$r][$c][awal]);
-			$dt1=split("/",$dt[0]);
-			$dt2=split("/",$dt[1]);
+			$dt=explode("-",$jadwal['row'][$id][$r][$c]['awal']);
+			$dt1=explode("/",$dt[0]);
+			$dt2=explode("/",$dt[1]);
 								
-			$s = "<td align='center' valign='middle' style='background-color: {$color[$m][1]}' colspan='{$jadwal['row'][$id][$r][$c][njam]}'>";
-			//$s.= "<font class='thismonth'>{$jadwal['row'][$id][$r][$c][awal]}</font>";						
+			$s = "<td align='center' valign='middle' style='background-color: {$color[$m][1]}' colspan='{$jadwal['row'][$id][$r][$c]['njam']}'>";
+			//$s.= "<font class='thismonth'>{$jadwal['row'][$id][$r][$c]['awal']}</font>";						
 			$s.= "<font class='thismonth'>$dt1[0] - $dt2[0]</font>";
 			$s.= "</td>";
 			
@@ -269,7 +269,7 @@ function getCell1($r, $c, $id, $m)
 <tr>
 	<td>
     <?php 	OpenDb();
-		$sql = "SELECT * FROM jbsakad.aktivitaskalender WHERE idkalender = '$kalender'";
+		$sql = "SELECT * FROM jbsakad.aktivitaskalender WHERE idkalender = '".$kalender."'";
 		$result = QueryDb($sql);
 		
 		if (@mysqli_num_rows($result)>0){
@@ -373,7 +373,7 @@ function getCell1($r, $c, $id, $m)
     if (isset($keg['row'])) {
 		$m = -1;
         for ($i = 0; $i < count($keg['row']); $i++ ){
-            $id = $keg['row'][$i][id];
+            $id = $keg['row'][$i]['id'];
             //$m = $i;			
             //if ($i > count($color)-1) 
 			//	$m = $i - ((count($color)-1)*(int)substr($i,0,1)+1);
@@ -387,9 +387,9 @@ function getCell1($r, $c, $id, $m)
     <tr>
         <td style="background-color:<?=$color[$m][0]?> ; color:#FFFFFF" align="center" width="5%"><b><?=($i+1).'. '?></b></td>
         <td style="background-color:<?=$color[$m][0]?> ; color:#FFFFFF">
-        <b><?=$keg['row'][$i][judul];
+        <b><?=$keg['row'][$i]['judul'];
             if (!isset($jadwal['row'][$id]))	
-                echo '<br>'.$keg['row'][$i][tanggal];
+                echo '<br>'.$keg['row'][$i]['tanggal'];
             
             ?>
         </b></td>

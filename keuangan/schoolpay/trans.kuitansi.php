@@ -37,7 +37,7 @@ $transId = $_REQUEST["transid"];
 
 $sql = "SELECT SUM(jumlah)
           FROM jbsfina.paymenttrans
-         WHERE transactionid = '$transId'";
+         WHERE transactionid = '".$transId."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_row($res);
 $jumlah = $row[0];
@@ -54,7 +54,7 @@ $sql = "SELECT p.transactionid, DATE_FORMAT(p.waktu, '%d-%b-%Y %H:%i') AS waktu,
           LEFT JOIN jbsakad.angkatan a ON s.idangkatan = a.replid
           LEFT JOIN jbssdm.pegawai pg ON p.nip = pg.nip
           LEFT JOIN jbsfina.datapenerimaan dp ON p.iddatapenerimaan = dp.replid
-         WHERE transactionid = '$transId'";
+         WHERE transactionid = '".$transId."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_array($res);
 $tanggal = $row["waktu"];

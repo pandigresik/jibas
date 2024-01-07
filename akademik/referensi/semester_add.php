@@ -43,7 +43,7 @@ $ERROR_MSG = "";
 
 if (isset($_REQUEST['Simpan'])) {
 	OpenDb();
-	$sql = "SELECT * FROM jbsakad.semester WHERE semester = '$semester' AND departemen = '$departemen'";
+	$sql = "SELECT * FROM jbsakad.semester WHERE semester = '$semester' AND departemen = '".$departemen."'";
 	$result = QueryDb($sql);
 	
 	if (mysqli_num_rows($result) > 0) {

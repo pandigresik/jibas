@@ -451,7 +451,7 @@ function refresh_isi() {
 		$sql5 = "SELECT kelas FROM jbsakad.kelas WHERE replid = '$kelas' ";
 		$result5 = QueryDb($sql5);
 		$row5 = @mysqli_fetch_array($result5);
-		$nama_kelas = $row5[kelas];
+		$nama_kelas = $row5['kelas'];
 	
 		if ($jum > 0) 
 		{ ?>

@@ -173,7 +173,7 @@ else
 		$sql_tot = "SELECT c.nopendaftaran, c.nama, k.kelompok, b.replid AS id, b.besar, b.keterangan, b.lunas 
 					  FROM jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k, jbsfina.besarjttcalon b 
 					 WHERE c.replid = b.idcalon AND b.idpenerimaan = '$idpenerimaan' AND b.info2='$idtahunbuku'
-					   AND c.idkelompok = k.replid AND b.lunas = '$statuslunas'";
+					   AND c.idkelompok = k.replid AND b.lunas = '".$statuslunas."'";
 	
 		$sql = "SELECT c.nopendaftaran, c.nama, k.kelompok, b.replid AS id, b.besar, b.keterangan, b.lunas 
 				  FROM jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k, jbsfina.besarjttcalon b
@@ -185,7 +185,7 @@ else
 		$sql_tot = "SELECT c.nopendaftaran, c.nama, k.kelompok, b.replid AS id, b.besar, b.keterangan, b.lunas
 					  FROM jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k, jbsfina.besarjttcalon b
 					 WHERE c.replid = b.idcalon AND b.idpenerimaan = '$idpenerimaan' AND b.info2='$idtahunbuku'
-					   AND c.idkelompok = '$kelompok' AND c.idkelompok = k.replid AND b.lunas = '$statuslunas'"; 
+					   AND c.idkelompok = '$kelompok' AND c.idkelompok = k.replid AND b.lunas = '".$statuslunas."'"; 
 		
 		$sql = "SELECT c.nopendaftaran, c.nama, k.kelompok, b.replid AS id, b.besar, b.keterangan, b.lunas 
 				  FROM jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k, jbsfina.besarjttcalon b 
@@ -222,7 +222,7 @@ while ($row = mysqli_fetch_array($result)) {
     <td><?=$row['nama'] ?></td>
     <td align="center"><?=$row['kelompok'] ?></td>
     <?php
-	$sql = "SELECT count(*) FROM $db_name_fina.penerimaanjttcalon WHERE idbesarjttcalon = '$idbesarjtt'";
+	$sql = "SELECT count(*) FROM $db_name_fina.penerimaanjttcalon WHERE idbesarjttcalon = '".$idbesarjtt."'";
 	$result2 = QueryDb($sql);
 	$row2 = mysqli_fetch_row($result2);
 	$nbayar = $row2[0];

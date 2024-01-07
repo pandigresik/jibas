@@ -30,7 +30,7 @@ $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $rootname = $row[0];
 
-$sql = "SELECT * FROM jbsvcr.dirshare WHERE replid = '$iddir'";
+$sql = "SELECT * FROM jbsvcr.dirshare WHERE replid = '".$iddir."'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
 $dirfullpath = $row['dirfullpath'];

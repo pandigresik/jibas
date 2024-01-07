@@ -23,7 +23,7 @@
 <?php
 function GetVendorName($vendorId)
 {
-    $sql = "SELECT nama FROM jbsfina.vendor WHERE vendorid = '$vendorId'";
+    $sql = "SELECT nama FROM jbsfina.vendor WHERE vendorid = '".$vendorId."'";
     $res = QueryDb($sql);
     if ($row = mysqli_fetch_row($res))
         return $row[0];
@@ -33,7 +33,7 @@ function GetVendorName($vendorId)
 
 function GetUserName($userId)
 {
-    $sql = "SELECT nama FROM jbsfina.userpos WHERE userid = '$userId'";
+    $sql = "SELECT nama FROM jbsfina.userpos WHERE userid = '".$userId."'";
     $res = QueryDb($sql);
     if ($row = mysqli_fetch_row($res))
         return $row[0];

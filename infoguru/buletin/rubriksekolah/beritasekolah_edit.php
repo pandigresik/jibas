@@ -49,7 +49,7 @@ OpenDb();
 $sql = "SELECT judul, isi, replid, abstrak, DATE_FORMAT(tanggal,'%d-%m-%Y') as tanggal,
                jenisberita as berita ,jenisberita as berita
 		 	 FROM jbsvcr.beritasekolah
-		   WHERE replid = '$replid'";
+		   WHERE replid = '".$replid."'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
 ?>

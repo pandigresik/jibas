@@ -47,7 +47,7 @@ $nama = $row['nama'];
 $jenis = $row['jenisujian'];
 
 if ($tipe == "otomatis") {
-	$sql  = "SELECT round(SUM(b.bobot*nu.nilaiujian)/SUM(b.bobot),2) as nilai FROM nau n, ujian u, bobotnau b, nilaiujian nu WHERE n.replid = '$replid' AND b.idujian = u.replid AND u.idkelas = n.idkelas AND u.idsemester = n.idsemester AND u.idaturan = n.idaturan AND nu.idujian = u.replid AND nu.nis = '$nis' AND n.nis = '$nis'";
+	$sql  = "SELECT round(SUM(b.bobot*nu.nilaiujian)/SUM(b.bobot),2) as nilai FROM nau n, ujian u, bobotnau b, nilaiujian nu WHERE n.replid = '$replid' AND b.idujian = u.replid AND u.idkelas = n.idkelas AND u.idsemester = n.idsemester AND u.idaturan = n.idaturan AND nu.idujian = u.replid AND nu.nis = '$nis' AND n.nis = '".$nis."'";
 	$result1 = QueryDb($sql);
 	$row1 = @mysqli_fetch_array($result1);
 	$nilai = 0;

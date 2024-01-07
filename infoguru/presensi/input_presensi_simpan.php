@@ -95,9 +95,9 @@ if (mysqli_num_rows($result_cek) > 0) {*/
 BeginTrans();
 $success=0;
 if ($_REQUEST['action'] == 'Update') {
-	$sql_action = "DELETE FROM phsiswa WHERE idpresensi = '$replid'";		
+	$sql_action = "DELETE FROM phsiswa WHERE idpresensi = '".$replid."'";		
 	QueryDbTrans($sql_action,$success);
-	$sql_action = "DELETE FROM presensiharian WHERE replid = '$replid'";		
+	$sql_action = "DELETE FROM presensiharian WHERE replid = '".$replid."'";		
 	QueryDbTrans($sql_action,$success);
 } 
 

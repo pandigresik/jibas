@@ -84,7 +84,7 @@ $thn = $_REQUEST['thn'];
 <?php
 $tanggal = "$thn-$bln-$tgl";
 OpenDb();
-$sql = "SELECT DISTINCT jenis FROM jadwal WHERE tanggal = '$tanggal'";
+$sql = "SELECT DISTINCT jenis FROM jadwal WHERE tanggal = '".$tanggal."'";
 $result = QueryDb($sql);
 $cnt = 0;
 while ($row = mysqli_fetch_array($result)) { 

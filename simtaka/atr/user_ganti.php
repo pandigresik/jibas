@@ -70,7 +70,7 @@ if ($login=='landlord' || $login=='LANDLORD'){
 	$nama = "Administator";
 	$title = "Administrator";
 } else {
-	$sql = "SELECT p.nip, p.nama FROM jbssdm.pegawai p WHERE p.nip = '$login'"; 
+	$sql = "SELECT p.nip, p.nama FROM jbssdm.pegawai p WHERE p.nip = '".$login."'"; 
 	$result = QueryDb($sql);
 	$row = mysqli_fetch_row($result);
 	$nip = $row[0];

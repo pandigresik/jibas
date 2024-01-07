@@ -40,7 +40,7 @@ function GetFileName()
         {
             $sql = "SELECT tingkat
                       FROM jbsakad.tingkat
-                     WHERE replid = '$tingkat'";
+                     WHERE replid = '".$tingkat."'";
             $res = QueryDb($sql);
             $row = mysqli_fetch_row($res);
             
@@ -55,7 +55,7 @@ function GetFileName()
         {
             $sql = "SELECT kelas
                       FROM jbsakad.kelas
-                     WHERE replid = '$kelas'";
+                     WHERE replid = '".$kelas."'";
             $res = QueryDb($sql);
             $row = mysqli_fetch_row($res);
             
@@ -128,7 +128,7 @@ function GetNisList(&$ndata)
         
         // Cek dulu apa NIS nya valid 
         $nisinfo = $_REQUEST['nisinfo'];
-        $temp = split(",", $nisinfo);
+        $temp = explode(",", $nisinfo);
         
         if (0 == count($temp))
         {
@@ -333,7 +333,7 @@ function SetHeader()
 	$sql = "SELECT replid, nama, alamat1, alamat2, telp1, telp2, telp3, telp4,
                    fax1, fax2, situs, email
               FROM jbsumum.identitas
-             WHERE departemen = '$departemen'";
+             WHERE departemen = '".$departemen."'";
 
 	$result = QueryDb($sql);
     $num = @mysqli_num_rows($result);
@@ -344,7 +344,7 @@ function SetHeader()
 	$alamat2 = $row[3];
 	$te1p1   = $row[4];
 	$telp2   = $row[5];
-	$te1p3   = $row[6];
+	$telp3   = $row[6];
 	$telp4   = $row[7];
 	$fax1    = $row[8];
 	$fax2    = $row[9];
@@ -525,13 +525,13 @@ function SetInfoNilai()
             
             echo "<tr height='24'>\r\n";
             echo "<td align='center'>$no</td>\r\n";
-            echo "<td align='center'>$row['xtanggal']</td>\r\n";
-            echo "<td align='left'>$row['pelajaran']</td>\r\n";
-            echo "<td align='left'>$row['jenisujian']</td>\r\n";
-            echo "<td align='center'>$row['nilaiujian']</td>\r\n";
-            echo "<td align='center'>$row['nilaiRK']</td>\r\n";
+            echo "<td align='center'>".$row['xtanggal']."</td>\r\n";
+            echo "<td align='left'>".$row['pelajaran']."</td>\r\n";
+            echo "<td align='left'>".$row['jenisujian']."</td>\r\n";
+            echo "<td align='center'>".$row['nilaiujian']."</td>\r\n";
+            echo "<td align='center'>".$row['nilaiRK']."</td>\r\n";
             echo "<td align='center'><font style='color: $colordev'>$dev</font></td>\r\n";
-            echo "<td align='left'>$row['keterangan']</td>\r\n";
+            echo "<td align='left'>".$row['keterangan']."</td>\r\n";
             echo "</tr>\r\n";
             
         }
@@ -606,15 +606,15 @@ function SetInfoKeuangan()
             
             $sql = "SELECT SUM(jumlah) + SUM(info1)
                       FROM jbsfina.penerimaanjtt
-                     WHERE idbesarjtt = $row['idbesarjtt']";
+                     WHERE idbesarjtt = '".$row['idbesarjtt']."'";
             $res2 = QueryDb($sql);
             $row2 = mysqli_fetch_row($res2);
             $sisa = $row['besar'] - $row2[0];
             
             echo "<tr height='24'>\r\n";
             echo "<td align='center' valign='middle' $rowspan>$no</td>\r\n";
-            echo "<td align='center'>$row['xtanggal']</td>\r\n";
-            echo "<td align='left'>$row['nama']</td>\r\n";
+            echo "<td align='center'>".$row['xtanggal']."</td>\r\n";
+            echo "<td align='left'>".$row['nama']."</td>\r\n";
             echo "<td align='right'>" . FormatRupiah($row['jumlah']) . "</td>\r\n";
             echo "<td align='right'>" . FormatRupiah($row['diskon']) . "</td>\r\n";
             echo "<td align='right'>" . FormatRupiah($sisa) . "</td>\r\n";
@@ -663,8 +663,8 @@ function SetInfoKeuangan()
             
             echo "<tr height='24'>\r\n";
             echo "<td align='center' valign='middle' $rowspan>$no</td>\r\n";
-            echo "<td align='center'>$row['xtanggal']</td>\r\n";
-            echo "<td align='left'>$row['nama']</td>\r\n";
+            echo "<td align='center'>".$row['xtanggal']."</td>\r\n";
+            echo "<td align='left'>".$row['nama']."</td>\r\n";
             echo "<td align='right'>" . FormatRupiah($row['jumlah']) . "</td>\r\n";
             echo "<td align='right'>-</td>\r\n";
             echo "<td align='right'>-</td>\r\n";
@@ -712,7 +712,7 @@ function SetInfoKeuangan()
         $sql = "SELECT SUM(debet), SUM(kredit)
                   FROM jbsfina.tabungan
                  WHERE idtabungan = '$idTab'
-                   AND nis = '$nis'";
+                   AND nis = '".$nis."'";
         $res2 = QueryDb($sql);
         if ($row2 = mysqli_fetch_row($res2))
         {
@@ -759,11 +759,11 @@ function SetInfoKeuangan()
             $no += 1;
             echo "<tr height='24'>\r\n";
             echo "<td align='center' valign='middle'>$no</td>\r\n";
-            echo "<td align='center'>$row2[tanggal]</td>\r\n";
+            echo "<td align='center'>".$row2['tanggal']."</td>\r\n";
             echo "<td align='right'>" . FormatRupiah($debet) . "</td>\r\n";
             echo "<td align='right'>" . FormatRupiah($kredit) . "</td>\r\n";
             echo "<td align='right'>" . FormatRupiah($rowsaldo) . "</td>\r\n";
-            echo "<td align='left'>$row2[keterangan]</td>\r\n";
+            echo "<td align='left'>".$row2['keterangan']."</td>\r\n";
             echo "</tr>\r\n";
         }
     }
@@ -829,11 +829,11 @@ function SetInfoPresensi()
             
             echo "<tr height='24'>\r\n";
             echo "<td align='center'>$no</td>\r\n";
-            echo "<td align='center'>$row['xtanggal']</td>\r\n";
+            echo "<td align='center'>".$row['xtanggal']."</td>\r\n";
             echo "<td align='center'>$row[time_in]</td>\r\n";
             echo "<td align='center'>$row[time_out]</td>\r\n";
             echo "<td align='center'>$telat</td>\r\n";
-            echo "<td align='left'>$row['keterangan']</td>\r\n";
+            echo "<td align='left'>".$row['keterangan']."</td>\r\n";
             echo "</tr>\r\n";
         }
     }
@@ -902,12 +902,12 @@ function SetInfoKegiatan()
             
             echo "<tr height='24'>\r\n";
             echo "<td align='center'>$no</td>\r\n";
-            echo "<td align='center'>$row['xtanggal']</td>\r\n";
-            echo "<td align='left'>$row['kegiatan']</td>\r\n";
+            echo "<td align='center'>".$row['xtanggal']."</td>\r\n";
+            echo "<td align='left'>".$row['kegiatan']."</td>\r\n";
             echo "<td align='center'>$row[time_in]</td>\r\n";
             echo "<td align='center'>$row[time_out]</td>\r\n";
             echo "<td align='center'>$telat</td>\r\n";
-            echo "<td align='left'>$row['keterangan']</td>\r\n";
+            echo "<td align='left'>".$row['keterangan']."</td>\r\n";
             echo "</tr>\r\n";
         }
     }

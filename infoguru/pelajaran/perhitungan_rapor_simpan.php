@@ -47,7 +47,7 @@ if ($_REQUEST['action'] == 'Add')
 	$sql = "SELECT * FROM guru g, pelajaran j, dasarpenilaian d, tingkat t, aturannhb a 
 			WHERE a.nipguru=g.nip AND a.idpelajaran = j.replid AND a.dasarpenilaian = d.dasarpenilaian 
 			AND a.idtingkat = t.replid AND a.idpelajaran = '$id_pelajaran' AND a.nipguru = '$nip_guru' 
-			AND a.idtingkat = '$id_tingkat' AND a.dasarpenilaian = '$aspek'"; 
+			AND a.idtingkat = '$id_tingkat' AND a.dasarpenilaian = '".$aspek."'"; 
 	$result = QueryDb($sql);
 	
 	if (mysqli_num_rows($result) > 0) 

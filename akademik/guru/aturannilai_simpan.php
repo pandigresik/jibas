@@ -45,7 +45,7 @@ $success=0;
 if ($_REQUEST['action'] == 'Update') 
 {
 	$sql = "DELETE FROM aturangrading 
-			 WHERE idpelajaran = $id AND nipguru = '$nip' AND idtingkat = '$idtingkat' AND dasarpenilaian = '$aspek'";
+			 WHERE idpelajaran = $id AND nipguru = '$nip' AND idtingkat = '$idtingkat' AND dasarpenilaian = '".$aspek."'";
 	$result = QueryDbTrans($sql,$success);	
 } 
 else 
@@ -53,7 +53,7 @@ else
 	$sql = "SELECT * FROM guru g, pelajaran j, dasarpenilaian d, tingkat t, aturangrading a 
 			 WHERE a.nipguru=g.nip AND a.idpelajaran = j.replid AND a.dasarpenilaian = d.dasarpenilaian 
 			   AND a.idtingkat = t.replid AND a.idpelajaran = '$id' AND a.nipguru = '$nip' 
-			   AND a.idtingkat = '$idtingkat' AND a.dasarpenilaian = '$aspek'"; 
+			   AND a.idtingkat = '$idtingkat' AND a.dasarpenilaian = '".$aspek."'"; 
 	$result = QueryDbTrans($sql,$success);
 	if (mysqli_num_rows($result) > 0) 
 	{

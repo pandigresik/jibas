@@ -19,15 +19,15 @@ function HapusVendor()
 {
     $vendorId = $_REQUEST["vendorid"];
 
-    $sql = "SELECT COUNT(replid) FROM jbsfina.paymenttrans WHERE vendorid = '$vendorId'";
+    $sql = "SELECT COUNT(replid) FROM jbsfina.paymenttrans WHERE vendorid = '".$vendorId."'";
     $nData = FetchSingle($sql);
     if ($nData != 0)
         return createJsonReturn(-1, "Tidak dapat menghapus vendor ini karena sudah digunakan dalam transaksi!");
 
-    $sql = "DELETE FROM jbsfina.vendoruser WHERE vendorid = '$vendorId'";
+    $sql = "DELETE FROM jbsfina.vendoruser WHERE vendorid = '".$vendorId."'";
     QueryDb($sql);
 
-    $sql = "DELETE FROM jbsfina.vendor WHERE vendorid = '$vendorId'";
+    $sql = "DELETE FROM jbsfina.vendor WHERE vendorid = '".$vendorId."'";
     QueryDb($sql);
 
     return createJsonReturn(1, "OK");
@@ -38,7 +38,7 @@ function HapusUserVendor()
     $vendorId = $_REQUEST["vendorid"];
     $userId = $_REQUEST["userid"];
 
-    $sql = "DELETE FROM jbsfina.vendoruser WHERE vendorid = '$vendorId' AND userid = '$userId'";
+    $sql = "DELETE FROM jbsfina.vendoruser WHERE vendorid = '$vendorId' AND userid = '".$userId."'";
     QueryDb($sql);
 }
 

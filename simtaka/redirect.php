@@ -101,7 +101,7 @@ else
 					     AND modul = 'SIMTAKA'";
 				$res = QueryDb($q) or die(mysqli_error($mysqlconnection));
 				$r = mysqli_fetch_array($res);
-				if ($r[aktif]==0)
+				if ($r['aktif']==0)
 				{	?>
 					<script language="JavaScript">
 						alert("Status pengguna sedang tidak aktif!");
@@ -112,7 +112,7 @@ else
 				else
 				{
 					$_SESSION['login'] = $login;
-					$_SESSION['tingkat'] = $r[tingkat];
+					$_SESSION['tingkat'] = $r['tingkat'];
 					$_SESSION['perpustakaan'] = $r['departemen'];
 					$_SESSION['idperpustakaan'] = $r['info1'];
 					$_SESSION['nama'] = $row['nama'];

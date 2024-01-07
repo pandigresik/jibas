@@ -97,7 +97,7 @@ function ShowSelectPetugas()
     echo "<option value='@0#'>(Semua Petugas)</option>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='$row[0]'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>$row[1]</option>";
     }
     echo "</select>";
 }
@@ -115,7 +115,7 @@ function ShowSelectVendor($userId)
     echo "<option value='@0#'>(Semua Vendor)</option>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='$row[0]'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>$row[1]</option>";
     }
     echo "</select>";
 }
@@ -142,13 +142,13 @@ function ShowDailyReport($showMenu)
               LEFT JOIN jbssdm.pegawai pg ON p.nip = pg.nip
               LEFT JOIN jbsfina.datapenerimaan dp ON p.iddatapenerimaan = dp.replid
               LEFT JOIN jbsfina.refund r ON p.idrefund = r.replid
-             WHERE p.tanggal = '$date'";
+             WHERE p.tanggal = '".$date."'";
 
     if ($petugas != "@0#")
-        $sql .= " AND p.userid = '$petugas'";
+        $sql .= " AND p.userid = '".$petugas."'";
 
     if ($vendor != "@0#")
-        $sql .= " AND p.vendorid = '$vendor'";
+        $sql .= " AND p.vendorid = '".$vendor."'";
 
     $sql .= " ORDER BY p.waktu DESC, p.transactionid";
 
@@ -215,12 +215,12 @@ function ShowDailyReport($showMenu)
 
         echo "<tr>";
         echo "<td align='center'>$no</td>";
-        echo "<td align='left'>$row['waktu']</td>";
-        echo "<td align='left'>$row['namavendor']<br>$row['namauser']</td>";
+        echo "<td align='left'>".$row['waktu']."</td>";
+        echo "<td align='left'>".$row['namavendor']<br>$row['namauser']."</td>";
         echo "<td align='left'>$pelanggan</td>";
         echo "<td align='right'>$jumlah</td>";
         echo "<td align='left'>$pembayaran</td>";
-        echo "<td align='left'>$row['valmethod']</td>";
+        echo "<td align='left'>".$row['valmethod']."</td>";
         echo "<td align='left'>$keterangan</td>";
         if ($showMenu)
         {
@@ -241,13 +241,13 @@ function ShowDailyReport($showMenu)
 
     $sql = "SELECT COUNT(DISTINCT p.transactionid)
               FROM jbsfina.paymenttrans p
-             WHERE p.tanggal = '$date'";
+             WHERE p.tanggal = '".$date."'";
 
     if ($petugas != "@0#")
-        $sql .= " AND p.userid = '$petugas'";
+        $sql .= " AND p.userid = '".$petugas."'";
 
     if ($vendor != "@0#")
-        $sql .= " AND p.vendorid = '$vendor'";
+        $sql .= " AND p.vendorid = '".$vendor."'";
 
     $res = QueryDb($sql);
     $row = mysqli_fetch_row($res);

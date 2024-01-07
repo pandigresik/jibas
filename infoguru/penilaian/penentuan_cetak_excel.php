@@ -58,7 +58,7 @@ if(isset($_REQUEST["aspek"]))
 if(isset($_REQUEST["aspekket"]))
 	$aspekket = $_REQUEST["aspekket"];	
 
-$sql = "SELECT nama FROM pelajaran WHERE replid = '$pelajaran'";
+$sql = "SELECT nama FROM pelajaran WHERE replid = '".$pelajaran."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_row($res);
 $namapel = $row[0];
@@ -171,8 +171,8 @@ while ($row = @mysqli_fetch_array($res))
 		{ 
 			$sql = "SELECT n.nilaiAU as nilaiujian 
 			          FROM jbsakad.nau n, jbsakad.aturannhb a 
-				     WHERE n.idpelajaran = '$pelajaran' AND n.idkelas='$kelas' AND n.nis='$row_siswa[nis]' AND n.idsemester='$semester' 
-				       AND n.idjenis='$value[2]' AND n.idaturan=a.replid AND a.replid='$value[0]'";
+				     WHERE n.idpelajaran = = '".$pelajaran."' AND n.idkelas='$kelas' AND n.nis='".$row_siswa['nis']."' AND n.idsemester='$semester' 
+				       AND n.idjenis='".$value[2]."' AND n.idaturan=a.replid AND a.replid='$value[0]'";
 			$res = QueryDb($sql);
 			$row = @mysqli_fetch_array($res);
 			echo "<td align='center'>" . $row['nilaiujian'] . "</td>";
@@ -185,7 +185,7 @@ while ($row = @mysqli_fetch_array($res))
 		$sql = "SELECT n.nilaihuruf, n.nilaiangka, i.nilaimin 
 				  FROM jbsakad.nap n, jbsakad.aturannhb a, jbsakad.infonap i 
 				 WHERE n.idinfo = i.replid 
-				   AND n.nis = '".$row_siswa[nis]' 
+				   AND n.nis = '".$row_siswa['nis']."' 
 				   AND i.idpelajaran = '$pelajaran' 
 				   AND i.idsemester = '$semester' 
 				   AND i.idkelas = '$kelas'
@@ -204,10 +204,10 @@ while ($row = @mysqli_fetch_array($res))
 			{		
 				$sql = "SELECT n.nilaiAU 
 						  FROM jbsakad.nau n, jbsakad.aturannhb a 
-						 WHERE n.idkelas = '$kelas' AND n.nis = '".$row_siswa[nis]' 
+						 WHERE n.idkelas = = '".$kelas."' AND n.nis = '".$row_siswa['nis']."' 
 						   AND n.idsemester = '$semester' AND n.idpelajaran = '$pelajaran'
-						   AND n.idjenis = '$value[2]' AND n.idaturan = a.replid 
-						   AND a.dasarpenilaian = '$aspek'";
+						   AND n.idjenis = '".$value[2]."' AND n.idaturan = a.replid 
+						   AND a.dasarpenilaian = '".$aspek."'";
 				$res = QueryDb($sql);
 				$row = @mysqli_fetch_array($res);
 				$nau = $row["nilaiAU"];

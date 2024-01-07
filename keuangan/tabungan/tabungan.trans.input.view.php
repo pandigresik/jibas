@@ -122,7 +122,7 @@ function ShowSetoranInput()
             while($row = mysqli_fetch_row($res))
             {
                 $sel = $row[0] == $defrekkas ? "selected" : "";
-                echo "<option value='$row[0]' $sel>$row[0] $row[1]</option>";
+                echo "<option value='".$row[0]."' $sel>$row[0] $row[1]</option>";
             } ?>                
         </select>
     </td>
@@ -195,7 +195,7 @@ function ShowTarikanInput()
             while($row = mysqli_fetch_row($res))
             {
                 $sel = $row[0] == $defrekkas ? "selected" : "";
-                echo "<option value='$row[0]' $sel>$row[0] $row[1]</option>";
+                echo "<option value='".$row[0]."' $sel>$row[0] $row[1]</option>";
             } ?>                
         </select>
     </td>
@@ -277,7 +277,7 @@ function ShowTransaksiList($page)
              WHERE p.idjurnal = j.replid
                AND p.nis = '$nis'
                AND j.idtahunbuku = '$idtahunbuku'
-               AND p.idtabungan = '$idtabungan'";
+               AND p.idtabungan = '".$idtabungan."'";
     $nData = FetchSingle($sql);
     
     $sql = "SELECT p.replid AS id, j.nokas, date_format(p.tanggal, '%d-%b-%Y %H:%i:%s') as tanggal,
@@ -375,7 +375,7 @@ function ShowInfoTabungan()
     $sql = "SELECT SUM(debet), SUM(kredit)
               FROM tabungan
              WHERE nis = '$nis'
-               AND idtabungan = '$idtabungan'";
+               AND idtabungan = '".$idtabungan."'";
     $res = QueryDb($sql);
     $row = mysqli_fetch_row($res);
     $jsetor = $row[1];

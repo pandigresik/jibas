@@ -41,7 +41,7 @@ $nama = $row['nama'];
 $sql = "SELECT a.departemen, a.tahunajaran, t.tingkat, k.kelas, a.tglmulai, a.tglakhir
 		  FROM tahunajaran a, kelas k, tingkat t
 		 WHERE k.idtahunajaran = a.replid AND k.idtingkat = t.replid
-		   AND k.replid = '$kelas'";
+		   AND k.replid = '".$kelas."'";
 $result = QueryDB($sql);	
 $row = mysqli_fetch_array($result);
 $tglawal = $row['tglmulai'];

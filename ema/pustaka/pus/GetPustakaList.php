@@ -79,19 +79,19 @@ function GetMemberName($idanggota, $jenisanggota)
 	{
 		$sql = "SELECT nama
 				  FROM jbsakad.siswa
-				 WHERE nis = '$idanggota'";
+				 WHERE nis = '".$idanggota."'";
 	}
 	elseif ($jenisanggota == "pegawai")
 	{
 		$sql = "SELECT nama
 				  FROM jbssdm.pegawai
-				 WHERE nip = '$idanggota'";
+				 WHERE nip = '".$idanggota."'";
 	}
 	else
 	{
 		$sql = "SELECT nama
 				  FROM jbsperpus.anggota
-				 WHERE noregistrasi = '$idanggota'";
+				 WHERE noregistrasi = '".$idanggota."'";
 	}
 	$res = QueryDb($sql);
 	$row = mysqli_fetch_row($res);

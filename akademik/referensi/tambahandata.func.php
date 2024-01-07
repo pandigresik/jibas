@@ -58,7 +58,7 @@ function ChangeAktif(): void
 
     $sql = "UPDATE tambahandata 
                SET aktif = '$newaktif' 
-             WHERE replid = '$replid'";
+             WHERE replid = '".$replid."'";
     QueryDb($sql);
 }
 
@@ -67,7 +67,7 @@ function HapusData(): void
     $replid = $_REQUEST['replid'];
 
     $sql = "DELETE FROM tambahandata 
-             WHERE replid = '$replid'";
+             WHERE replid = '".$replid."'";
     QueryDb($sql);
 }
 

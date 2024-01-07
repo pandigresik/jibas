@@ -60,7 +60,7 @@ if (isset($_REQUEST['Simpan'])) {
 OpenDb();
 //$sql = "SELECT j.replid,j.jenisujian,j.idpelajaran,j.keterangan,p.replid,p.nama,p.departemen FROM jenisujian j, pelajaran p WHERE p.replid=$preplid AND j.idpelajaran=p.replid ";  
 
-$sql = "SELECT p.nama, p.departemen FROM pelajaran p WHERE p.replid = '$preplid'";
+$sql = "SELECT p.nama, p.departemen FROM pelajaran p WHERE p.replid = '".$preplid."'";
 $result = QueryDb($sql);
 if ($row = mysqli_fetch_row($result)){
 	$pelajaran = $row[0];

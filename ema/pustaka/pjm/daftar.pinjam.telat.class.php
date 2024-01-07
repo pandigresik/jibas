@@ -174,7 +174,7 @@ class CTelat
 				$sql = "SELECT judul
 						  FROM $db_name_perpus.pustaka p, $db_name_perpus.daftarpustaka d
 						 WHERE d.pustaka=p.replid
-						   AND d.kodepustaka='$row['kodepustaka']."'";
+						   AND d.kodepustaka='".$row['kodepustaka']."'";
 				//echo $sql;
 				$res = QueryDb($sql);
 				$r = @mysqli_fetch_row($res);

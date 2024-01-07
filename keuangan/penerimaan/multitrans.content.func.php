@@ -27,12 +27,12 @@ function ShowInfoSiswa()
     
     if ($kelompok == "siswa")
     {
-        $sql = "SELECT replid FROM jbsakad.siswa WHERE nis = '$noid'";
+        $sql = "SELECT replid FROM jbsakad.siswa WHERE nis = '".$noid."'";
         $table = "jbsakad.siswa";
     }
     else
     {
-        $sql = "SELECT replid FROM jbsakad.calonsiswa WHERE nopendaftaran = '$noid'";
+        $sql = "SELECT replid FROM jbsakad.calonsiswa WHERE nopendaftaran = '".$noid."'";
         $table = "jbsakad.calonsiswa";
     }
     $replid = FetchSingle($sql);
@@ -87,7 +87,7 @@ function ShowSelectPayment($jenis, $dept)
     echo "<option value='0'>--Pilih Pembayaran--</option>\r\n";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='$row[0]'>$row[1]</option>\r\n";
+        echo "<option value='".$row[0]."'>$row[1]</option>\r\n";
     }
     echo "</select>\r\n";
 }

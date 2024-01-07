@@ -93,21 +93,21 @@ CloseDb();
                 <td width="11%" valign="top"><span class="style1"><span class="style5">Dari</span></span></td>
                 <td width="2%" valign="top"><span class="style5">:</span></td>
                 <td width="87%"><span class="style1">
-                  <?=$row2[nama]?>
+                  <?=$row2['nama']?>
                 </span></td>
               </tr>
               <tr>
                 <td valign="top"><span class="style6">Judul</span></td>
                 <td valign="top"><span class="style5">:</span></td>
                 <td><span class="style1">
-                  <?=$row2[judul]?>
+                  <?=$row2['judul']?>
                 </span></td>
               </tr>
               <tr>
                 <td valign="top"><span class="style5">Pesan</span></td>
                 <td valign="top"><span class="style5">:</span></td>
                 <td><font style="font-size: 11px; line-height: 18px">
-                  <?= str_replace("`", "'", $row2[pesan])  ?>
+                  <?= str_replace("`", "'", $row2['pesan'])  ?>
                 </span></td>
               </tr>
             </table></td>

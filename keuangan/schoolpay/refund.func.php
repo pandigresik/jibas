@@ -39,7 +39,7 @@ function ShowCbVendor()
     while($row = mysqli_fetch_row($res))
     {
         if ($selVendorId == "") $selVendorId = $row[0];
-        echo "<option value='$row[0]'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>$row[1]</option>";
     }
     echo "</select>";
 }
@@ -58,7 +58,7 @@ function ShowCbDepartemen()
     while($row = mysqli_fetch_row($res))
     {
         if ($selDepartemen == "") $selDepartemen = $row[0];
-        echo "<option value='$row[0]'>$row[0]</option>";
+        echo "<option value='".$row[0]."'>$row[0]</option>";
     }
     echo "</select>";
 }
@@ -77,8 +77,8 @@ function ShowTahunBuku($dept)
         if ($selIdTahunBuku == "")
             $selIdTahunBuku = $row[0];
 
-        echo "<input type='hidden' readonly id='idtahunbuku' name='idtahunbuku' value='$row[0]'>";
-        echo "<input type='text' readonly id='tahunbuku' name='tahunbuku' value='$row[1]' style='background-color: #ededed; width: 120px;'>";
+        echo "<input type='hidden' readonly id='idtahunbuku' name='idtahunbuku' value='".$row[0]."'>";
+        echo "<input type='text' readonly id='tahunbuku' name='tahunbuku' value='".$row[1]."' style='background-color: #ededed; width: 120px;'>";
     }
     else
     {

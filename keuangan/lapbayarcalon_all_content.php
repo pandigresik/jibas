@@ -74,7 +74,7 @@ $sql = "SELECT count(p.replid)
 			  AND p.idcalon='$replid' AND p.tanggal BETWEEN '$tanggal1' AND '$tanggal2'"; 
 $niuran = FetchSingle($sql);
 
-$sql = "SELECT s.nama, s.nopendaftaran FROM jbsakad.calonsiswa s WHERE s.replid = '$replid'";
+$sql = "SELECT s.nama, s.nopendaftaran FROM jbsakad.calonsiswa s WHERE s.replid = '".$replid."'";
 $row = FetchSingleRow($sql);
 $namacalon = $row[0];
 $no = $row[1];
@@ -118,7 +118,7 @@ while ($row = mysqli_fetch_array($result)) {
 	$lunas = $row['lunas'];
 	$keterangan = $row['keterangan'];
 	
-	$sql = "SELECT SUM(jumlah), SUM(info1) FROM penerimaanjttcalon WHERE idbesarjttcalon = '$idbesarjtt'";
+	$sql = "SELECT SUM(jumlah), SUM(info1) FROM penerimaanjttcalon WHERE idbesarjttcalon = '".$idbesarjtt."'";
 	$row2 = FetchSingleRow($sql);
 	$pembayaran = $row2[0] + $row2[1];
 	$diskon = $row2[1];

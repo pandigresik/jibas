@@ -34,7 +34,7 @@ function SimpanPesanTagihan()
             $key = "pesan$i";
             $pesan = $_REQUEST[$key];
 
-            $sql = "UPDATE jbsfina.formatpesanpg SET pesan = '$pesan', kelompok = 'TAGIHAN', issync = 0 WHERE departemen = '$dept'";
+            $sql = "UPDATE jbsfina.formatpesanpg SET pesan = '$pesan', kelompok = 'TAGIHAN', issync = 0 WHERE departemen = '".$dept."'";
             QueryDbEx($sql);
         }
 
@@ -59,7 +59,7 @@ function SimpanPesanPembayaran()
             $key = "pesan$i";
             $pesan = $_REQUEST[$key];
 
-            $sql = "UPDATE jbsfina.formatpesanpg SET pesan = '$pesan', kelompok = 'PEMBAYARAN', issync = 0 WHERE departemen = '$dept'";
+            $sql = "UPDATE jbsfina.formatpesanpg SET pesan = '$pesan', kelompok = 'PEMBAYARAN', issync = 0 WHERE departemen = '".$dept."'";
             QueryDb($sql);
         }
 

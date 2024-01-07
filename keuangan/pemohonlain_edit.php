@@ -41,7 +41,7 @@ if (isset($_REQUEST['simpan'])) {
 		CloseDb();
 		$mysqli_ERROR_MSG = "Nama {$_REQUEST['nama']} sudah digunakan!";
 	} else {
-		$sql = "UPDATE pemohonlain SET nama='".CQ($_REQUEST['nama'])."', keterangan='".CQ($_REQUEST['keterangan'])."' WHERE replid = '$id'";
+		$sql = "UPDATE pemohonlain SET nama='".CQ($_REQUEST['nama'])."', keterangan='".CQ($_REQUEST['keterangan'])."' WHERE replid = '".$id."'";
 		$result = QueryDb($sql);
 		CloseDb();
 	

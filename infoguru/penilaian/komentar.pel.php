@@ -219,7 +219,7 @@ for($i = 0; $i < count($aspekarr); $i++)
 			   AND i.idpelajaran = '$pelajaran' 
 			   AND i.idsemester = '$semester' 
 			   AND i.idkelas = '$kelas'	   
-			   AND a.dasarpenilaian = '$kdaspek'";
+			   AND a.dasarpenilaian = '".$kdaspek."'";
 
     $res = QueryDb($sql);
     $nilaiExist = false;

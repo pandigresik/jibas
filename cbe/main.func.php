@@ -55,7 +55,7 @@ function getUserPict($height)
     $sessionId = $_SESSION["SessionId"];
 
     OpenDb();
-    $sql = "SELECT userpict FROM jbscbe.webuserinfo WHERE userid = '$userId' AND sessionid = '$sessionId'";
+    $sql = "SELECT userpict FROM jbscbe.webuserinfo WHERE userid = '$userId' AND sessionid = '".$sessionId."'";
     $userPict = FetchSingle($sql);
     CloseDb();
 
@@ -68,7 +68,7 @@ function getWelcomeMessage()
     $sessionId = $_SESSION["SessionId"];
 
     OpenDb();
-    $sql = "SELECT welcome FROM jbscbe.webuserinfo WHERE userid = '$userId' AND sessionid = '$sessionId'";
+    $sql = "SELECT welcome FROM jbscbe.webuserinfo WHERE userid = '$userId' AND sessionid = '".$sessionId."'";
     $welcome = FetchSingle($sql);
     CloseDb();
 

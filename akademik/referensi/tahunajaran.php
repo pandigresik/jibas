@@ -79,7 +79,7 @@ if (isset($_REQUEST['action'])) {
 			QueryDb($sql2);	
 			
 		} else {
-			$sql = "UPDATE tahunajaran SET tahunajaran = '".CQ($_REQUEST['tahunajaran'])."', tglmulai = '$tglmulai', tglakhir = '$tglakhir', keterangan = '".CQ($_REQUEST['keterangan'])."' WHERE replid = '$replid'";
+			$sql = "UPDATE tahunajaran SET tahunajaran = '".CQ($_REQUEST['tahunajaran'])."', tglmulai = '$tglmulai', tglakhir = '$tglakhir', keterangan = '".CQ($_REQUEST['keterangan'])."' WHERE replid = '".$replid."'";
 			$result = QueryDb($sql);			
 		}
 		

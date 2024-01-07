@@ -45,7 +45,7 @@ function ReadData()
 
     $sql = "SELECT pilihan, urutan 
               FROM jbssdm.pilihandata 
-             WHERE replid = '$idpilihan'";
+             WHERE replid = '".$idpilihan."'";
     $result = QueryDb($sql);
     if (mysqli_num_rows($result) > 0)
     {
@@ -85,7 +85,7 @@ function SaveData()
     {
         $sql = "UPDATE jbssdm.pilihandata
                    SET pilihan = '$pilihan', urutan = '$urutan' 
-                 WHERE replid = '$idpilihan'";
+                 WHERE replid = '".$idpilihan."'";
         $result = QueryDb($sql);
         if ($result)
         { ?>

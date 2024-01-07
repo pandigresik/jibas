@@ -56,7 +56,7 @@ if ($op == "dw8dxn8w9ms8zs22")
 elseif ($op == "xm8r389xemx23xb2378e23") 
 {	
 	$sql = "DELETE FROM aturannhb WHERE idpelajaran = '$id_pelajaran' AND nipguru = '$nip_guru' 
-			AND idtingkat = '$id_tingkat' AND dasarpenilaian = '$aspek'"; 
+			AND idtingkat = '$id_tingkat' AND dasarpenilaian = '".$aspek."'"; 
 	QueryDb($sql);	?>
     <script>refresh();</script> 
 <?php
@@ -212,7 +212,7 @@ if (mysqli_num_rows($result) > 0)
   		<br>
   		<fieldset>
         <legend>
-        <b>Tingkat <?=$row_tkt[tingkat] ?> &nbsp;&nbsp;&nbsp;
+        <b>Tingkat <?=$row_tkt['tingkat'] ?> &nbsp;&nbsp;&nbsp;
 <?php 	if (@mysqli_num_rows($result_at)>0)
 		{ 
 			$cetak = 1; ?>	
@@ -239,7 +239,7 @@ if (mysqli_num_rows($result) > 0)
 			<td>
 <?php 		$query_ju = "SELECT j.jenisujian, a.bobot, a.aktif, a.replid FROM aturannhb a, tingkat t, jenisujian j ".
 					 	"WHERE a.idtingkat = '".$row_tkt['replid']."' AND a.idpelajaran = '$id_pelajaran' AND j.replid = a.idjenisujian ".
-						"AND t.departemen = '$departemen' AND a.dasarpenilaian = '".$row_at[0]' AND a.nipguru = '$nip_guru' ".
+						"AND t.departemen = '$departemen' AND a.dasarpenilaian = '".$row_at[0]."' AND a.nipguru = '$nip_guru' ".
 						"AND t.replid = a.idtingkat";
 			$result_ju = QueryDb($query_ju);
 			while($row_ju = mysqli_fetch_row($result_ju))

@@ -73,7 +73,7 @@ if ($op == "348328947234923")
 		// -------------------------------------------
 		
 		// cari tahu total pembayaran yang telah dilakukan
-		$sql = "SELECT sum(jumlah), count(replid) FROM penerimaanjttcalon WHERE idbesarjttcalon = '$idbesarjtt'";
+		$sql = "SELECT sum(jumlah), count(replid) FROM penerimaanjttcalon WHERE idbesarjttcalon = '".$idbesarjtt."'";
 		$row = FetchSingleRow($sql);
 		$totalbayaran = (float)$row[0];
 		$nbayaran = (int)$row[1];
@@ -154,12 +154,12 @@ if ($op == "348328947234923")
 				// Bikin jurnal penyesuaian
 			
 				// Ambil nama calon siswa	
-				$sql = "SELECT nama FROM jbsakad.calonsiswa WHERE replid = '$replid'";
+				$sql = "SELECT nama FROM jbsakad.calonsiswa WHERE replid = '".$replid."'";
 				$row = FetchSingleRow($sql);
 				$namasiswa = $row[0];
 				
 				// Ambil awalan dan cacah tahunbuku untuk bikin nokas;
-				$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '$idtahunbuku'";
+				$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '".$idtahunbuku."'";
 				$row = FetchSingleRow($sql);
 				$awalan = $row[0];
 				$cacah = $row[1];
@@ -234,13 +234,13 @@ if ($op == "348328947234923")
 		// ----------------------------------------
 		
 		//Ambil nama siswa
-		$sql = "SELECT nama, nopendaftaran FROM jbsakad.calonsiswa WHERE replid = '$replid'";
+		$sql = "SELECT nama, nopendaftaran FROM jbsakad.calonsiswa WHERE replid = '".$replid."'";
 		$row = FetchSingleRow($sql);
 		$namasiswa = $row[0];
 		$nopendaftaran = $row[1];
 		
 		//Ambil awalan dan cacah tahunbuku untuk bikin nokas;
-		$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '$idtahunbuku'";
+		$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '".$idtahunbuku."'";
 		$row = FetchSingleRow($sql);
 		$awalan = $row[0];
 		$cacah = $row[1];
@@ -308,7 +308,7 @@ OpenDb();
 $sql = "SELECT c.nopendaftaran, c.nama, c.telponsiswa as telpon, c.hpsiswa as hp, k.kelompok, 
 					c.alamatsiswa as alamattinggal, p.proses, c.keterangan
 			 FROM jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k, jbsakad.prosespenerimaansiswa p 
-			WHERE c.idkelompok = k.replid AND c.idproses = p.replid AND c.replid = '$replid'";
+			WHERE c.idkelompok = k.replid AND c.idproses = p.replid AND c.replid = '".$replid."'";
 
 $result = QueryDb($sql);
 if (mysqli_num_rows($result) == 0) 
@@ -330,7 +330,7 @@ else
 }
 
 // Nama jenis penerimaan 
-$sql = "SELECT nama FROM datapenerimaan WHERE replid = '$idpenerimaan'";
+$sql = "SELECT nama FROM datapenerimaan WHERE replid = '".$idpenerimaan."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $namapenerimaan = $row[0];
@@ -347,7 +347,7 @@ $idbesarjtt = 0;
 // periksa apakah berasal dari input JIBAS versi < 2.1
 $sql = "SELECT b.replid AS id, b.besar, b.keterangan, b.lunas, b.info1 AS idjurnal, cicilan 
 			  FROM besarjttcalon b 
-			  WHERE b.idcalon = $replid AND b.idpenerimaan = '$idpenerimaan' AND b.info2 = '$idtahunbuku'";	
+			  WHERE b.idcalon = $replid AND b.idpenerimaan = '$idpenerimaan' AND b.info2 = '".$idtahunbuku."'";	
 $result = QueryDb($sql);
 
 $bayar = mysqli_num_rows($result);
@@ -700,7 +700,7 @@ function panggil(elem)
         <td align="center" colspan="2"> 
 <?php if ($bayar > 0 && $lunas <> 2) 
 	{ 
-   	$sql = "SELECT count(*) FROM penerimaanjttcalon WHERE idbesarjttcalon = '$idbesarjtt'";
+   	$sql = "SELECT count(*) FROM penerimaanjttcalon WHERE idbesarjttcalon = '".$idbesarjtt."'";
       $result = QueryDb($sql);
       $row = mysqli_fetch_row($result);
       $nbayar = $row[0];

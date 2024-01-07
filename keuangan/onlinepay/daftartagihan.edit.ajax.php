@@ -50,14 +50,14 @@ if ($op == "439278934234")
         $jumlah = 0;
         $sql = "SELECT SUM(jtagihan - jdiskon) 
                   FROM jbsfina.tagihansiswadata 
-                 WHERE notagihan = '$noTagihan'";
+                 WHERE notagihan = '".$noTagihan."'";
         $res = QueryDbEx($sql);
         if ($row = mysqli_fetch_row($res))
             $jumlah = $row[0];
 
         $sql = "UPDATE jbsfina.tagihansiswainfo
                    SET jumlah = $jumlah
-                 WHERE notagihan = '$noTagihan'";
+                 WHERE notagihan = '".$noTagihan."'";
         QueryDbEx($sql);
 
         CommitTrans();

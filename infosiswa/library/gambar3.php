@@ -32,7 +32,7 @@ OpenDb();
 header("Content-type: image/jpeg");
 
 
-$query = "SELECT foto FROM jbsvcr.gambarbuletin WHERE filename = '$filename'";
+$query = "SELECT foto FROM jbsvcr.gambarbuletin WHERE filename = '".$filename."'";
 
 $result = QueryDb($query);
 $num = @mysqli_num_rows($result);

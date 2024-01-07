@@ -21,7 +21,7 @@
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
 <?php
-$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '$nis'";
+$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '".$nis."'";
 $namasiswa = FetchSingle($sql);
 ?>
 <table width="100%" border="0" height="100%" cellspacing="0" cellpadding="2">

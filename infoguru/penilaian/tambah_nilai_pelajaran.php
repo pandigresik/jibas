@@ -138,7 +138,7 @@ if (!isset($_POST['simpan'])) {
 			
 			$row_jp = @mysqli_fetch_array($result_jp);
 			?>
-			Input Nilai <?=$row_jp[jenisujian] ?>
+			Input Nilai <?=$row_jp['jenisujian'] ?>
 			<input type="hidden" name="idjenis" value="<?=$row_jp['replid'] ?>">
 			</td>
 			<td class="header" align="right">Langkah 1 dari 2</td>
@@ -156,62 +156,62 @@ if (!isset($_POST['simpan'])) {
             <td>Tahun Ajaran</td>
             <td>
 			<?php
-			$query_thn = "SELECT * FROM jbsakad.tahunajaran WHERE tahunajaran.replid = '$tahun'";
+			$query_thn = "SELECT * FROM jbsakad.tahunajaran WHERE tahunajaran.replid = '".$tahun."'";
 			$result_thn = QueryDb($query_thn);
 			
 			$row_thn = @mysqli_fetch_array($result_thn);
 
 			?>
 			<input type="hidden" name="idtahun" value="<?=$row_thn['replid'] ?>">
-			<input type="text" name="tahun_ajaran" size="25" value="<?=$row_thn[tahunajaran]; ?>" readonly></td>
+			<input type="text" name="tahun_ajaran" size="25" value="<?=$row_thn['tahunajaran']; ?>" readonly></td>
 			<td>Semester</td>
 			<td>
 			<?php
-			$query_smt = "SELECT * FROM jbsakad.semester WHERE semester.replid = '$semester'";
+			$query_smt = "SELECT * FROM jbsakad.semester WHERE semester.replid = '".$semester."'";
 			$result_smt =QueryDb($query_smt);
 			
 			$row_smt = @mysqli_fetch_array($result_smt);
 			?>
 			<input type="hidden" name="idsemester" value="<?=$row_smt['replid'] ?>">
-			<input type="text" name="semester" size="25" value="<?=$row_smt[semester] ?>" readonly></td>
+			<input type="text" name="semester" size="25" value="<?=$row_smt['semester'] ?>" readonly></td>
         </tr>
         <tr>
             <td>Tingkat</td>
 			<td>
 			<?php
-			$query_tkt = "SELECT * FROM jbsakad.tingkat WHERE tingkat.replid = '$tingkat'";
+			$query_tkt = "SELECT * FROM jbsakad.tingkat WHERE tingkat.replid = '".$tingkat."'";
 			$result_tkt = QueryDb($query_tkt);
 			
 			$row_tkt = @mysqli_fetch_array($result_tkt);
 			?>
 			<input type="hidden" name="idtingkat" value="<?=$row_tkt['replid'] ?>">
-			<input type="text" size="25" name="tingkat" value="<?=$row_tkt[tingkat]; ?>" readonly></td>
+			<input type="text" size="25" name="tingkat" value="<?=$row_tkt['tingkat']; ?>" readonly></td>
 			<td>Kelas</td>
 			<td>
 			<?php
-			$query_kls = "SELECT * FROM jbsakad.kelas WHERE kelas.replid = '$kelas'";
+			$query_kls = "SELECT * FROM jbsakad.kelas WHERE kelas.replid = '".$kelas."'";
 			$result_kls = QueryDb($query_kls);
 			
 			$row_kls = @mysqli_fetch_array($result_kls);
 			?>
 			<input type="hidden" name="idkelas" value="<?=$row_kls['replid'] ?>">
-			<input type="text" name="kelas" size="25" value="<?=$row_kls[kelas] ?>" readonly></td>
+			<input type="text" name="kelas" size="25" value="<?=$row_kls['kelas'] ?>" readonly></td>
         </tr>
         <tr>
             <td>Pelajaran</td>
             <td>
 			<?php
-			$query_pel = "SELECT * FROM jbsakad.pelajaran WHERE pelajaran.replid = '$pelajaran'";
+			$query_pel = "SELECT * FROM jbsakad.pelajaran WHERE pelajaran.replid = '".$pelajaran."'";
 			$result_pel = QueryDb($query_pel);
 			
 			$row_pel = @mysqli_fetch_array($result_pel);
 			?>
 			<input type="hidden" name="idpelajaran" value="<?=$row_pel['replid'] ?>">
-			<input type="text" name="pelajaran" size="25" value="<?=$row_pel[nama] ?>" readonly></td>
+			<input type="text" name="pelajaran" size="25" value="<?=$row_pel['nama'] ?>" readonly></td>
         </tr>
 		<tr>
 			<td colspan="4">
-			<fieldset><legend><b>Jenis Penilaian : <?=$row_jp[jenisujian] ?></b></legend>
+			<fieldset><legend><b>Jenis Penilaian : <?=$row_jp['jenisujian'] ?></b></legend>
 			<table>
 				<tr>
 					<td>Tanggal</td>
@@ -244,10 +244,10 @@ if (!isset($_POST['simpan'])) {
 }
 else {
     $query = "INSERT INTO jbsakad.ujian(idpelajaran, idkelas, idsemester, idjenis, deskripsi, tanggal) ".
-             "VALUES ('$_POST['idpelajaran']', '$_POST['idkelas']', '$_POST['idsemester']', '$_POST['idjenis']', '$_POST['deskripsi']','$_POST['tanggal']')";
+             "VALUES ('".$_POST['idpelajaran']', '".$_POST['idkelas']', '$_POST['idsemester']', '$_POST['idjenis']', '$_POST['deskripsi']','$_POST['tanggal']."')";
     $result = QueryDb($query) or die (mysqli_error($mysqlconnection));
 		
-    if(mysqli_affected_rows() > 0) {
+    if(mysqli_affected_rows($conn) > 0) {
 	
 		$query_id = "SELECT last_insert_id() FROM jbsakad.ujian";
 		$result_id = QueryDb($query_id);

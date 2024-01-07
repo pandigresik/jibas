@@ -45,10 +45,10 @@ $ERROR_MSG = "";
 if (isset($_REQUEST['Simpan'])) 
 {
 	OpenDb();
-	$sql = "SELECT * FROM tingkat WHERE tingkat = '$tingkat' AND departemen = '$departemen'";
+	$sql = "SELECT * FROM tingkat WHERE tingkat = '$tingkat' AND departemen = '".$departemen."'";
 	$result = QueryDb($sql);
 	
-	$sql1 = "SELECT * FROM tingkat WHERE urutan = '$urutan' AND departemen = '$departemen'";
+	$sql1 = "SELECT * FROM tingkat WHERE urutan = '$urutan' AND departemen = '".$departemen."'";
 	$result1 = QueryDb($sql1);
 	
 	if (mysqli_num_rows($result) > 0) {

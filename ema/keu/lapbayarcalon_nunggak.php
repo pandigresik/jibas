@@ -407,7 +407,7 @@ if (isset($_REQUEST['showpembayaran'])){
 		$totalbiayaall2= 0;
 		while ($rowall = mysqli_fetch_array($result_tot)) {
 			$totalbesarjtt += $rowall['besar'];
-			$sqlall2 = "SELECT jumlah FROM $db_name_fina.penerimaanjttcalon WHERE idbesarjttcalon = '".$rowall[id]' ORDER BY tanggal";
+			$sqlall2 = "SELECT jumlah FROM $db_name_fina.penerimaanjttcalon WHERE idbesarjttcalon = '".$rowall['id']."' ORDER BY tanggal";
 			$resall2 = QueryDb($sqlall2);
 			while ($rowall2 = mysqli_fetch_row($resall2)) {
 				$totalbiayaall2 += $rowall2[0];
@@ -436,7 +436,7 @@ if (isset($_REQUEST['showpembayaran'])){
 				<td><?=$row['nama'] ?></td>
 				<td align="center"><?=$row['kelompok'] ?></td>
 			<?php
-			$sql = "SELECT count(*) FROM $db_name_fina.penerimaanjttcalon WHERE idbesarjttcalon = '$idbesarjtt'";
+			$sql = "SELECT count(*) FROM $db_name_fina.penerimaanjttcalon WHERE idbesarjttcalon = '".$idbesarjtt."'";
 			$result2 = QueryDb($sql);
 			$row2 = mysqli_fetch_row($result2);
 			$nbayar = $row2[0];
@@ -466,7 +466,7 @@ if (isset($_REQUEST['showpembayaran'])){
 				</td>
 			<?php }?>
 				<td align="center">
-		<?php $sql = "SELECT max(datediff('$tgl', tanggal)) FROM $db_name_fina.penerimaanjttcalon WHERE idbesarjttcalon = '$idbesarjtt'";
+		<?php $sql = "SELECT max(datediff('$tgl', tanggal)) FROM $db_name_fina.penerimaanjttcalon WHERE idbesarjttcalon = '".$idbesarjtt."'";
 			$result2 = QueryDb($sql);
 			$row2 = mysqli_fetch_row($result2);
 			echo $row2[0]; ?>
@@ -626,7 +626,7 @@ if (isset($_REQUEST['showpembayaran'])){
 			<td align="center"><?=$row['nopendaftaran'] ?></td>
 			<td><?=$row['nama'] ?></td>
 			<td align="center"><?=$row['kelompok'] ?></td>
-		<?php $sql = "SELECT count(*) FROM $db_name_fina.penerimaaniurancalon WHERE idcalon = '$replid' AND idpenerimaan = '$idpenerimaan'";
+		<?php $sql = "SELECT count(*) FROM $db_name_fina.penerimaaniurancalon WHERE idcalon = '$replid' AND idpenerimaan = '".$idpenerimaan."'";
 			//echo "$sql<br>";
 			$result2 = QueryDb($sql);
 			$row2 = mysqli_fetch_row($result2);
@@ -657,7 +657,7 @@ if (isset($_REQUEST['showpembayaran'])){
 				</td>
 			<?php }?>
 				<td align="center">
-		<?php $sql = "SELECT max(datediff('$tgl', tanggal)) FROM $db_name_fina.penerimaaniurancalon WHERE idcalon = '$replid' AND idpenerimaan = '$idpenerimaan'";
+		<?php $sql = "SELECT max(datediff('$tgl', tanggal)) FROM $db_name_fina.penerimaaniurancalon WHERE idcalon = '$replid' AND idpenerimaan = '".$idpenerimaan."'";
 			$result2 = QueryDb($sql);
 			$row2 = mysqli_fetch_row($result2);
 			echo $row2[0]; ?>

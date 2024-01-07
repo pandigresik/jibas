@@ -227,7 +227,7 @@ function focusNext(elemName, evt)
 				if ($row[2] == 1)
 					$A = "(A)";
 				
-				echo  "<option value='$row[0]' $sel>$row[1] $A</option>";
+				echo  "<option value='".$row[0]."' $sel>$row[1] $A</option>";
 			}
 		} ?>
         </select>

@@ -27,7 +27,7 @@ function GetTitle()
     
     $sql = "SELECT judul
               FROM pustaka
-             WHERE replid = '$idpustaka'";
+             WHERE replid = '".$idpustaka."'";
     $res = QueryDb($sql);
     $row = mysqli_fetch_row($res);
     
@@ -57,7 +57,7 @@ function ShowDelLink($iddp, $kodepustaka, $rowno)
 {
     $sql = "SELECT COUNT(replid)
               FROM jbsperpus.pinjam
-             WHERE kodepustaka = '$kodepustaka'";
+             WHERE kodepustaka = '".$kodepustaka."'";
     $res = QueryDb($sql);
     $row = mysqli_fetch_row($res);
     $npinjam = $row[0];
@@ -96,7 +96,7 @@ function ShowList()
             $sql = "SELECT DATE_FORMAT(tglpinjam, '%d-%b-%Y') AS tglpinjam, DATE_FORMAT(tglkembali, '%d-%b-%Y') AS tglkembali,
                            idanggota, keterangan, info1, nis, nip, idmember
                       FROM pinjam
-                     WHERE kodepustaka = '$kodepustaka'";
+                     WHERE kodepustaka = '".$kodepustaka."'";
             $res2 = QueryDb($sql);
             if (mysqli_num_rows($res2) > 0)
             {
@@ -108,7 +108,7 @@ function ShowList()
                     $idanggota = $row2['nis'];
                     $sql = "SELECT nama
                               FROM jbsakad.siswa
-                             WHERE nis = '$idanggota'";
+                             WHERE nis = '".$idanggota."'";
                 }
                 elseif ($jenisanggota == "pegawai")
                 {
@@ -116,7 +116,7 @@ function ShowList()
                     $idanggota = $row2['nip'];
                     $sql = "SELECT nama
                               FROM jbssdm.pegawai
-                             WHERE nip = '$idanggota'";
+                             WHERE nip = '".$idanggota."'";
                 }
                 else
                 {
@@ -124,7 +124,7 @@ function ShowList()
                     $idanggota = $row2['idmember'];
                     $sql = "SELECT nama
                               FROM jbsperpus.anggota
-                             WHERE noregistrasi = '$idanggota'";
+                             WHERE noregistrasi = '".$idanggota."'";
                 }
                 $res3 = QueryDb($sql);
                 $row3 = mysqli_fetch_row($res3);

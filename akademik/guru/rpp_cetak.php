@@ -49,7 +49,7 @@ $page = $_REQUEST['page'];
 $total = $_REQUEST['total'];
 
 OpenDb();
-$sql = "SELECT t.departemen, t.tingkat, s.semester, p.nama FROM tingkat t, semester s, pelajaran p WHERE t.replid = '$tingkat' AND s.replid = '$semester' AND p.replid = '$pelajaran'";
+$sql = "SELECT t.departemen, t.tingkat, s.semester, p.nama FROM tingkat t, semester s, pelajaran p WHERE t.replid = '$tingkat' AND s.replid = '$semester' AND p.replid = '".$pelajaran."'";
 //echo $sql;
 $result = QueryDb($sql);
 CloseDb();

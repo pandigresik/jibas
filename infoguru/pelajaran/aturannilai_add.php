@@ -44,7 +44,7 @@ OpenDb();
 $sql = "SELECT j.departemen, j.nama, p.nip, p.nama, t.tingkat 
 			 FROM guru g, jbssdm.pegawai p, pelajaran j, tingkat t 
 			WHERE g.nip=p.nip AND g.idpelajaran = j.replid AND t.departemen = j.departemen 
-			  AND t.replid = '$idtingkat' AND j.replid = '$id' AND g.nip = '$nip'"; 
+			  AND t.replid = '$idtingkat' AND j.replid = '$id' AND g.nip = '".$nip."'"; 
 $result = QueryDb($sql);
 $row = @mysqli_fetch_row($result);
 $departemen = $row[0];
@@ -58,7 +58,7 @@ if (isset($_REQUEST['Simpan']))
 	$sql = "SELECT * FROM guru g, pelajaran j, dasarpenilaian d, tingkat t, aturangrading a 
 				WHERE a.nipguru=g.nip AND a.idpelajaran = j.replid AND a.dasarpenilaian = d.dasarpenilaian 
 				  AND a.idtingkat = t.replid AND a.idpelajaran = '$id' AND a.nipguru = '$nip' 
-				  AND a.idtingkat = '$idtingkat' AND a.dasarpenilaian = '$aspek'"; 
+				  AND a.idtingkat = '$idtingkat' AND a.dasarpenilaian = '".$aspek."'"; 
 	$result = QueryDb($sql);
 
 	if (mysqli_num_rows($result) > 0) 

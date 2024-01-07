@@ -14,7 +14,7 @@ $sql = "SELECT DATE_FORMAT(pg.tanggalpesan, '%d %M %Y %H:%i') as tgl, pg.judul a
 		       pg.pesan as pesan, p.nama as nama, pg.replid as replid
 		  FROM jbsvcr.pesan pg, jbssdm.pegawai p
 		 WHERE pg.idguru = p.nip
-           AND pg.replid = '$idpesan'";
+           AND pg.replid = '".$idpesan."'";
 $result = QueryDb($sql);
 if (@mysqli_num_rows($result) > 0)
 {
@@ -28,7 +28,7 @@ else
 				   pg.pesan as pesan, p.nama as nama, pg.replid as replid
 			  FROM jbsvcr.pesan pg, jbsakad.siswa p
 			 WHERE pg.nis = p.nis
-               AND pg.replid = '$idpesan'";
+               AND pg.replid = '".$idpesan."'";
 	$result = QueryDb($sql);
 	$row2 = @mysqli_fetch_array($result);
 	$senderstate = "siswa";
@@ -55,13 +55,13 @@ else
 		<tr>
             <td valign='top' align='left'>
 				<font style="font-size: 9px; color: maroon; font-style: italic;">
-                <?=$row2[tgl]?>
+                <?=$row2['tgl']?>
                 </font><br>
 				<font style="font-size: 14px; font-weight: bold;">
-                <?=$row2[judul]?>
+                <?=$row2['judul']?>
                 </font>
                 <font style="font-size: 11px; line-height: 18px">
-                <?=$row2[pesan]?>
+                <?=$row2['pesan']?>
                 </font>
             </td>
         </tr>

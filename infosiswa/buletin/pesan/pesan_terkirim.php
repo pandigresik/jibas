@@ -48,7 +48,7 @@ if ($op=="bzux834hx8x7x934983xihxf084")
 		//echo "sql_get_idpesan = ".$sql_get_idpesan."<br>";
 		$res_get_idpesan=QueryDb($sql_get_idpesan);
 		$row_get_idpesan=@mysqli_fetch_array($res_get_idpesan);
-		$idpesan=$row_get_idpesan[idpesan];
+		$idpesan=$row_get_idpesan['idpesan'];
 		//Hapus di tujuanpesan
 		$sql_del_tujuan="DELETE FROM jbsvcr.tujuanpesan WHERE idpesan='$idpesan'";
 		//echo "sql_del_tujuan = ".$sql_del_tujuan."<br>";
@@ -255,7 +255,7 @@ function delpesan(){
     <td><div align="center"><?=$row1['tanggal']?></div></td>
     <td>
 	<?php
-	  $sql3="SELECT t.baru as baru, t.idpenerima as penerima, p.nama as nama FROM jbsvcr.tujuanpesan t, jbssdm.pegawai p WHERE idpesan='$row1['replid']."' AND t.idpenerima=p.nip ORDER BY p.nama";
+	  $sql3="SELECT t.baru as baru, t.idpenerima as penerima, p.nama as nama FROM jbsvcr.tujuanpesan t, jbssdm.pegawai p WHERE idpesan='".$row1['replid']."' AND t.idpenerima=p.nip ORDER BY p.nama";
 	  $result3=QueryDb($sql3);
 	  $num3=@mysqli_num_rows($result3);
 	  if ($num3>0){
@@ -268,15 +268,15 @@ function delpesan(){
 	  echo $img.$row3['penerima']."-".$row3['nama']."<br>";
 	  }
 	} else {
-	$sql4="SELECT t.baru as baru, t.idpenerima as penerima, p.nama as nama FROM jbsvcr.tujuanpesan t, jbsakad.siswa p WHERE idpesan='$row1['replid']."' AND t.idpenerima=p.nis ORDER BY p.nama";
+	$sql4="SELECT t.baru as baru, t.idpenerima as penerima, p.nama as nama FROM jbsvcr.tujuanpesan t, jbsakad.siswa p WHERE idpesan='".$row1['replid']."' AND t.idpenerima=p.nis ORDER BY p.nama";
 	$result4=QueryDb($sql4);
 		while ($row4=@mysqli_fetch_array($result4)){
 	  $img="<img src='../../images/ico/ok.png' />";
-	  if ($row4[baru]==1)
-		  $img="<img src='../../images/ico/unread.png' title='Belum dibaca oleh ".$row4[nama]."' />";
-	  if ($row4[baru]==0)
-		  $img="<img src='../../images/ico/readen.png' title='Sudah dibaca oleh ".$row4[nama]."' />";	
-	  echo $img.$row4[penerima]."-".$row4[nama]."<br>";
+	  if ($row4['baru']==1)
+		  $img="<img src='../../images/ico/unread.png' title='Belum dibaca oleh ".$row4['nama']."' />";
+	  if ($row4['baru']==0)
+		  $img="<img src='../../images/ico/readen.png' title='Sudah dibaca oleh ".$row4['nama']."' />";	
+	  echo $img.$row4['penerima']."-".$row4['nama']."<br>";
 	  }
 		}
 	 

@@ -309,7 +309,7 @@ function refresh_pilih(i) {
 
 <?php 	if ($jenis <> ""){ 
 		OpenDb();
-		$sql_tot = "SELECT s.nis,s.nama,s.idkelas,k.kelas,s.replid,t.tingkat FROM jbsakad.siswa s, kelas k, tingkat t WHERE $string s.idkelas = k.replid AND k.idtahunajaran = '$tahunajaran' AND s.aktif=1 AND k.idtingkat = t.replid AND t.replid = '$tingkat'"; 
+		$sql_tot = "SELECT s.nis,s.nama,s.idkelas,k.kelas,s.replid,t.tingkat FROM jbsakad.siswa s, kelas k, tingkat t WHERE $string s.idkelas = k.replid AND k.idtahunajaran = '$tahunajaran' AND s.aktif=1 AND k.idtingkat = t.replid AND t.replid = '".$tingkat."'"; 
 		//echo $sql_tot;
 		$result_tot = QueryDb($sql_tot);
 		$total=ceil(mysqli_num_rows($result_tot)/(int)$varbaris);

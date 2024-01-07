@@ -44,17 +44,17 @@ $tglakhir = $_REQUEST['tglakhir'];
 $urut = $_REQUEST['urut'];
 $urutan = $_REQUEST['urutan'];
 
-$filter1 = "AND t.departemen = '$departemen'";
+$filter1 = "AND t.departemen = '".$departemen."'";
 if ($tingkat <> -1) 
-	$filter1 = "AND k.idtingkat = '$tingkat'";
+	$filter1 = "AND k.idtingkat = '".$tingkat."'";
 
 $filter2 = "";
 if ($kelas <> -1) 
-	$filter2 = "AND k.replid = '$kelas'";
+	$filter2 = "AND k.replid = '".$kelas."'";
 
 $filter3 = "";
 if ($pelajaran <> -1) 
-	$filter3 = "AND p.idpelajaran = '$pelajaran'";
+	$filter3 = "AND p.idpelajaran = '".$pelajaran."'";
 
 OpenDb();
 

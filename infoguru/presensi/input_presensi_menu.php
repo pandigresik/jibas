@@ -49,7 +49,7 @@ if (isset($_REQUEST['aktif']))
 	$aktif = $_REQUEST['aktif'];
 
 OpenDb();
-$sql = "SELECT t.tahunajaran, t.tglmulai, t.tglakhir FROM tahunajaran t, kelas k WHERE k.idtahunajaran = t.replid AND k.replid = '$kelas'"; 
+$sql = "SELECT t.tahunajaran, t.tglmulai, t.tglakhir FROM tahunajaran t, kelas k WHERE k.idtahunajaran = t.replid AND k.replid = '".$kelas."'"; 
 $result = QueryDb($sql);
 $row = mysqli_fetch_array($result);
 

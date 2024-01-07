@@ -137,7 +137,7 @@ for($i = 1; $i <= 2; $i++)
 	$kd = trim($_REQUEST[$fkd]);
 	$kd = (strlen($kd) == 0) ? "0" : $kd;
 	$kd = UnformatRupiah($kd);
-	$sumbujian .= "$fname = '$kd'";
+	$sumbujian .= "$fname = '".$kd."'";
 }
 
 for($i = 1; $i <= 10; $i++)
@@ -148,7 +148,7 @@ for($i = 1; $i <= 10; $i++)
 	$fkd = "psb_ujian$i";
 	$kd = trim($_REQUEST[$fkd]);
 	$kd = (strlen($kd) == 0) ? 0 : $kd;
-	$sumbujian .= "$fname = '$kd'";
+	$sumbujian .= "$fname = '".$kd."'";
 }
 
 OpenDb();
@@ -160,7 +160,7 @@ try
     if ($inputsekolah == 1)
     {
         $sql = "INSERT INTO jbsakad.asalsekolah
-                   SET departemen = '$dep_asal', sekolah = '$sekolah'";
+                   SET departemen = '$dep_asal', sekolah = '".$sekolah."'";
         //echo "$sql<br>";
         QueryDbEx($sql);
     }
@@ -179,7 +179,7 @@ try
                     penghasilanibu='$penghasilanibu', alamatortu='$alamatortu', telponortu='$telponortu', hportu='$hportu',
                     info1='$hportu2', info2='$hportu3', emailayah='$emailayah', emailibu='$emailibu', alamatsurat='$alamatsurat',
                     keterangan='$keterangan', hobi='$hobi', nisn='$nisn', nik='$nik', noun='$noun', $sumbujian
-              WHERE replid = '$replid'";
+              WHERE replid = '".$replid."'";
     //echo "$sql<br>";
     QueryDbEx($sql);
 
@@ -211,11 +211,11 @@ try
 
                 if ($repliddata == 0)
                     $sql = "INSERT INTO jbsakad.tambahandatacalon
-                               SET nopendaftaran = '$no', idtambahan = '$replid', jenis = '$jenis', teks = '$teks'";
+                               SET nopendaftaran = '$no', idtambahan = '$replid', jenis = '$jenis', teks = '".$teks."'";
                 else
                     $sql = "UPDATE jbsakad.tambahandatacalon
                                SET teks = '$teks'
-                             WHERE replid = '$repliddata'";
+                             WHERE replid = '".$repliddata."'";
 
                 QueryDbEx($sql, $success);
             }

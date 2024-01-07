@@ -60,7 +60,7 @@ function validate(send){
 	var logo=document.getElementById("logo").value;
 	var gambar=document.getElementById("gambar").value;
 	
-	var x = logo.split('.');
+	var x = logo.explode('.');
 	ext = x[(x.length-1)];
 	
 	

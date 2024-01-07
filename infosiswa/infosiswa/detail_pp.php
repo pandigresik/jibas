@@ -24,10 +24,10 @@
 require_once('../include/common.php');
 require_once('../include/config.php');
 require_once('../include/db_functions.php');
-$waktu=split("-",$_REQUEST['bulan']);
+$waktu=explode("-",$_REQUEST['bulan']);
 
 OpenDb();
-$sql = "SELECT k.kelas, DAY(p.tanggal), MONTH(p.tanggal), YEAR(p.tanggal), p.jam, pp.catatan, l.nama, g.nama, p.materi, pp.replid FROM presensipelajaran p, ppsiswa pp, jbssdm.pegawai g, kelas k, pelajaran l WHERE pp.idpp = p.replid AND p.idkelas = k.replid AND p.idpelajaran = l.replid AND p.gurupelajaran = g.nip AND pp.nis = '".$_REQUEST['nis_awal']."' AND MONTH(p.tanggal) =  '$waktu[0]' AND YEAR(p.tanggal) =  '$waktu[1]' AND pp.statushadir='".$_REQUEST['status']."' AND p.idkelas='".$_REQUEST['kelas']."'";
+$sql = "SELECT k.kelas, DAY(p.tanggal), MONTH(p.tanggal), YEAR(p.tanggal), p.jam, pp.catatan, l.nama, g.nama, p.materi, pp.replid FROM presensipelajaran p, ppsiswa pp, jbssdm.pegawai g, kelas k, pelajaran l WHERE pp.idpp = p.replid AND p.idkelas = k.replid AND p.idpelajaran = l.replid AND p.gurupelajaran = g.nip AND pp.nis = '".$_REQUEST['nis_awal']."' AND MONTH(p.tanggal) =  '".$waktu[0]."' AND YEAR(p.tanggal) =  '$waktu[1]."' AND pp.statushadir='".$_REQUEST['status']."' AND p.idkelas='".$_REQUEST['kelas']."'";
 $result = QueryDb($sql);
 //echo $_REQUEST['kelas'];
 //echo $_REQUEST['kelas']." ".$_REQUEST['departemen']." ".$_REQUEST['tahunajaran'];

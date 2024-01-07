@@ -43,7 +43,7 @@ if (isset($_REQUEST['Simpan']))
 	$sql_simpan_cek = "SELECT replid
 								FROM jbsakad.kalenderakademik
 							  WHERE kalender = '$kalender'
-							    AND departemen = '$departemen'"; 
+							    AND departemen = '".$departemen."'"; 
 	$result_simpan_cek = QueryDb($sql_simpan_cek);	
 	if (mysqli_num_rows($result_simpan_cek) > 0)
 	{
@@ -54,7 +54,7 @@ if (isset($_REQUEST['Simpan']))
 	{
 		$sql = "SELECT COUNT(replid)
 				    FROM jbsakad.kalenderakademik
-				   WHERE departemen = '$departemen'";
+				   WHERE departemen = '".$departemen."'";
 		$res = QueryDb($sql);
 		$row = mysqli_fetch_row($res);
 		$aktif = (int)$row[0] == 0 ? 1 : 0;

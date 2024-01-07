@@ -78,12 +78,12 @@ if (isset($_REQUEST['Simpan'])) {
 	}
 	
 	if ($success){
-		$sql="INSERT INTO jbsakad.alumni SET nis='$nis', tgllulus='$tglmutasi', tktakhir='$idtingkat', klsakhir='$idkelas', departemen = '$departemen'";
+		$sql="INSERT INTO jbsakad.alumni SET nis='$nis', tgllulus='$tglmutasi', tktakhir='$idtingkat', klsakhir='$idkelas', departemen = '".$departemen."'";
 		QueryDbTrans($sql,$success);
 	}
 	
 	if ($success){
-		$sql="INSERT INTO jbsakad.mutasisiswa SET nis='$nis', jenismutasi='$mutasi', tglmutasi='$tglmutasi', keterangan='$keterangan', departemen = '$departemen'";
+		$sql="INSERT INTO jbsakad.mutasisiswa SET nis='$nis', jenismutasi='$mutasi', tglmutasi='$tglmutasi', keterangan='$keterangan', departemen = '".$departemen."'";
 		QueryDbTrans($sql, $success);
 		//echo $sql; 
 		//RollBackTrans();

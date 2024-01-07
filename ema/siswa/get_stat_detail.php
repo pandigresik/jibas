@@ -61,16 +61,16 @@ if ($departemen == "-1")
 
 if ($departemen != "-1" && $angkatan == "")
     $filter = "AND a.replid = s.idangkatan
-               AND a.departemen = '$departemen'";
+               AND a.departemen = '".$departemen."'";
 
 if ($departemen != "-1" && $angkatan != "")
     $filter = "AND a.replid = s.idangkatan
                AND s.idangkatan = $angkatan
-               AND a.departemen = '$departemen'";
+               AND a.departemen = '".$departemen."'";
 		
 if ($kriteria == 1) 
 {
-    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.agama IS NULL" : "AND s.agama = '$kondisi'";
+    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.agama IS NULL" : "AND s.agama = '".$kondisi."'";
     $title = "Agama";
     $sql = "SELECT s.nis, s.nama, k.kelas, s.agama
               FROM siswa s, angkatan a, kelas k 
@@ -83,7 +83,7 @@ if ($kriteria == 1)
 }
 elseif ($kriteria == 2) 
 {
-    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.asalsekolah IS NULL" : "AND s.asalsekolah = '$kondisi'";
+    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.asalsekolah IS NULL" : "AND s.asalsekolah = '".$kondisi."'";
     $title = "Asal Sekolah";
     $sql = "SELECT s.nis, s.nama, k.kelas, s.asalsekolah
               FROM siswa s, angkatan a, kelas k
@@ -96,7 +96,7 @@ elseif ($kriteria == 2)
 }
 elseif ($kriteria == 3) 
 {
-    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.darah = ''" : "AND s.darah = '$kondisi'";
+    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.darah = ''" : "AND s.darah = '".$kondisi."'";
     $title = "Golongan Darah";
     $sql = "SELECT s.nis, s.nama, k.kelas, s.darah
               FROM siswa s, angkatan a, kelas k 
@@ -133,7 +133,7 @@ elseif ($kriteria == 5)
 }
 elseif ($kriteria == 6)
 {
-    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.kodepossiswa IS NULL" : "AND s.kodepossiswa = '$kondisi'";
+    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.kodepossiswa IS NULL" : "AND s.kodepossiswa = '".$kondisi."'";
     $title = "Kode Pos";
     $sql = "SELECT s.nis, s.nama, kelas k, s.kodepossiswa
               FROM siswa s, angkatan a, kelas k
@@ -146,7 +146,7 @@ elseif ($kriteria == 6)
 }
 elseif ($kriteria == 7)
 {
-    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.kondisi IS NULL" : "AND s.kondisi = '$kondisi'";
+    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.kondisi IS NULL" : "AND s.kondisi = '".$kondisi."'";
     $title = "Kondisi Siswa";
     $sql = "SELECT s.nis, s.nama, k.kelas, s.kondisi
               FROM siswa s, angkatan a, kelas k
@@ -159,7 +159,7 @@ elseif ($kriteria == 7)
 }
 elseif ($kriteria == 8)
 {
-    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.pekerjaanayah IS NULL" : "AND s.pekerjaanayah = '$kondisi'";
+    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.pekerjaanayah IS NULL" : "AND s.pekerjaanayah = '".$kondisi."'";
     $title = "Pekerjaan Ayah";
     $sql = "SELECT s.nis, s.nama, k.kelas, s.pekerjaanayah
               FROM siswa s, angkatan a, kelas k
@@ -172,7 +172,7 @@ elseif ($kriteria == 8)
 }
 elseif ($kriteria == 9)
 {
-    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.pekerjaanibu IS NULL" : "AND s.pekerjaanibu = '$kondisi'";
+    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.pekerjaanibu IS NULL" : "AND s.pekerjaanibu = '".$kondisi."'";
     $title = "Pekerjaan Ibu";
     $sql = "SELECT s.nis, s.nama, k.kelas, s.pekerjaanibu
               FROM siswa s, angkatan a, kelas k
@@ -185,7 +185,7 @@ elseif ($kriteria == 9)
 }
 elseif ($kriteria == 10)
 {
-    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.pendidikanayah IS NULL" : "AND s.pendidikanayah = '$kondisi'";
+    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.pendidikanayah IS NULL" : "AND s.pendidikanayah = '".$kondisi."'";
     $title = "Pendidikan Ayah";
     $sql = "SELECT s.nis, s.nama, k.kelas, s.pendidikanayah
               FROM siswa s, angkatan a, kelas k
@@ -198,7 +198,7 @@ elseif ($kriteria == 10)
 }
 elseif ($kriteria == 11)
 {
-    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.pendidikanibu IS NULL" : "AND s.pendidikanibu = '$kondisi'";
+    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.pendidikanibu IS NULL" : "AND s.pendidikanibu = '".$kondisi."'";
     $title = "Pendidikan Ibu";
     $sql = "SELECT s.nis, s.nama, k.kelas, s.pendidikanibu
               FROM siswa s, angkatan a, kelas k
@@ -231,7 +231,7 @@ elseif ($kriteria == 12)
 }
 elseif ($kriteria == 13)
 {
-    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.aktif IS NULL" : "AND s.aktif = '$kondisi'";
+    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.aktif IS NULL" : "AND s.aktif = '".$kondisi."'";
     $title = "Status Aktif";
     $sql = "SELECT s.nis, s.nama, k.kelas, IF(s.aktif = 1,'Aktif','Tidak Aktif')
               FROM siswa s, angkatan a, kelas k
@@ -244,7 +244,7 @@ elseif ($kriteria == 13)
 }
 elseif ($kriteria == 14)
 {
-    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.status IS NULL" : "AND s.status = '$kondisi'";
+    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.status IS NULL" : "AND s.status = '".$kondisi."'";
     $title = "Status Siswa";
     $sql = "SELECT s.nis, s.nama, k.kelas, s.status as X
               FROM siswa s, angkatan a, kelas k
@@ -257,7 +257,7 @@ elseif ($kriteria == 14)
 }
 elseif ($kriteria == 15)
 {
-    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.suku IS NULL" : "AND s.suku = '$kondisi'";
+    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.suku IS NULL" : "AND s.suku = '".$kondisi."'";
     $title = "Suku";
     $sql = "SELECT s.nis, s.nama, k.kelas, s.suku as X
               FROM siswa s, angkatan a, kelas k
@@ -270,7 +270,7 @@ elseif ($kriteria == 15)
 }
 elseif ($kriteria == 16)
 {
-    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.tgllahir IS NULL" : "AND YEAR(s.tgllahir) = '$kondisi'";
+    $kondisi = strlen(trim($kondisi)) == 0 ? "AND s.tgllahir IS NULL" : "AND YEAR(s.tgllahir) = '".$kondisi."'";
     $title = "Tahun Lahir";
     $sql = "SELECT s.nis, s.nama, k.kelas, YEAR(s.tgllahir) as X
               FROM siswa s, angkatan a, kelas k

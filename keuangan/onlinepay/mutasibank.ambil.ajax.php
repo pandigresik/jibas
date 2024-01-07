@@ -78,7 +78,7 @@ try
     $rekPendapatan = "";
     $sql = "SELECT rekkas, rekpendapatan 
               FROM jbsfina.bank
-             WHERE bankno = '$bankNo'";
+             WHERE bankno = '".$bankNo."'";
     $res = QueryDbEx($sql);
     if ($row = mysqli_fetch_row($res))
     {
@@ -99,7 +99,7 @@ try
     $sql = "INSERT INTO jbsfina.bankmutasi
                SET departemen = '$departemen', bankno = '$bankNo', jenis = 2, tanggal = '$tglMutasi', 
                    waktu = NOW(), keterangan = '$keterangan', petugas = $idPetugas, berkas = '$buktiTransfer64',
-                   adaberkas = $adaBukti, nomormutasi = '$nomorTransfer'";
+                   adaberkas = $adaBukti, nomormutasi = '".$nomorTransfer."'";
     QueryDbEx($sql);
 
     $sql = "SELECT LAST_INSERT_ID()";
@@ -144,7 +144,7 @@ try
         {
             $sql = "INSERT INTO jbsfina.bankmutasidata
                        SET kategori = '$kate', idmutasi = $idMutasi, idpenerimaan = $idPen, idtabungan = 0, idtabunganp = 0,
-                           iddeposit = 0, jumlah = $jumlah, keterangan = '$keterangan', nokas = '$noKas'";
+                           iddeposit = 0, jumlah = $jumlah, keterangan = '$keterangan', nokas = '".$noKas."'";
             QueryDbEx($sql);
 
             $sql = "INSERT INTO jbsfina.banksaldo (departemen, bankno, kategori, idpenerimaan, idtabungan, idtabunganp, iddeposit, kelompok, saldo, lasttime) 
@@ -156,7 +156,7 @@ try
         {
             $sql = "INSERT INTO jbsfina.bankmutasidata
                        SET kategori = '$kate', idmutasi = $idMutasi, idpenerimaan = 0, idtabungan = $idPen, idtabunganp = 0,
-                           iddeposit = 0, jumlah = $jumlah, keterangan = '$keterangan', nokas = '$noKas'";
+                           iddeposit = 0, jumlah = $jumlah, keterangan = '$keterangan', nokas = '".$noKas."'";
             QueryDbEx($sql);
 
             $sql = "INSERT INTO jbsfina.banksaldo (departemen, bankno, kategori, idpenerimaan, idtabungan, idtabunganp, iddeposit, kelompok, saldo, lasttime) 
@@ -168,7 +168,7 @@ try
         {
             $sql = "INSERT INTO jbsfina.bankmutasidata
                        SET kategori = '$kate', idmutasi = $idMutasi, idpenerimaan = 0, idtabungan = 0, idtabunganp = $idPen,
-                           iddeposit = 0, jumlah = $jumlah, keterangan = '$keterangan', nokas = '$noKas'";
+                           iddeposit = 0, jumlah = $jumlah, keterangan = '$keterangan', nokas = '".$noKas."'";
             QueryDbEx($sql);
 
             $sql = "INSERT INTO jbsfina.banksaldo (departemen, bankno, kategori, idpenerimaan, idtabungan, idtabunganp, iddeposit, kelompok, saldo, lasttime) 
@@ -180,7 +180,7 @@ try
         {
             $sql = "INSERT INTO jbsfina.bankmutasidata
                        SET kategori = '$kate', idmutasi = $idMutasi, idpenerimaan = 0, idtabungan = 0, idtabunganp = 0,
-                           iddeposit = $idPen, jumlah = $jumlah, keterangan = '$keterangan', nokas = '$noKas'";
+                           iddeposit = $idPen, jumlah = $jumlah, keterangan = '$keterangan', nokas = '".$noKas."'";
             QueryDbEx($sql);
 
             $sql = "INSERT INTO jbsfina.banksaldo (departemen, bankno, kategori, idpenerimaan, idtabungan, idtabunganp, iddeposit, kelompok, saldo, lasttime) 

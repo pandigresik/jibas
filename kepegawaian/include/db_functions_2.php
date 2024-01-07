@@ -76,8 +76,8 @@
 		global $mysqlconnection;
 		
         $result = @mysqli_query($mysqlconnection, $sql);
-		$success = ($result && 1); //&& (mysqli_affected_rows($mysqlconnection) > 0));
-		//$success = ($result && (mysqli_affected_rows($mysqlconnection) > 0));
+		$success = ($result && 1); //&& (mysqli_affected_rows($conn)($mysqlconnection) > 0));
+		//$success = ($result && (mysqli_affected_rows($conn)($mysqlconnection) > 0));
 		
         return $result;
     }

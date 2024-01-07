@@ -35,7 +35,7 @@ $nis = $_REQUEST['nis'];
 $departemen = $_REQUEST['departemen'];
 $filter = "";
 if ($departemen <> -1) 
-	$filter = "AND t.departemen = '$departemen'";
+	$filter = "AND t.departemen = '".$departemen."'";
 	
 $urut1 = "s.nama";	
 if (isset($_REQUEST['urut1']))

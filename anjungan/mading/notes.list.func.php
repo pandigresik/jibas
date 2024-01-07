@@ -25,7 +25,7 @@ function GetOwnerName($ownerid, $ownertype)
 {
     $sql = $ownertype == "S" ?
            "SELECT nama FROM jbsakad.siswa WHERE nis = '$ownerid'" :
-           "SELECT nama FROM jbssdm.pegawai WHERE nip = '$ownerid'";
+           "SELECT nama FROM jbssdm.pegawai WHERE nip = '".$ownerid."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) > 0)
     {
@@ -79,18 +79,18 @@ function ShowNotesList($dept, $start, $rowperpage)
         $sql = "SELECT COUNT(replid)
                   FROM jbsvcr.notesfile
                  WHERE filecate = 'pict'
-                   AND notesid = '$notesid'";
+                   AND notesid = '".$notesid."'";
         $npict = (int)FetchSingle($sql);
         
         $sql = "SELECT COUNT(replid)
                   FROM jbsvcr.notesfile
                  WHERE filecate = 'doc'
-                   AND notesid = '$notesid'";
+                   AND notesid = '".$notesid."'";
         $ndoc = (int)FetchSingle($sql);
         
         $sql = "SELECT COUNT(replid)
                   FROM jbsvcr.notescomment
-                 WHERE notesid = '$notesid'";
+                 WHERE notesid = '".$notesid."'";
         $ncomment = (int)FetchSingle($sql);
         
         $nread = (int)$row['nread'];
@@ -176,7 +176,7 @@ function ReloadNotesRow($notesid)
                    TIME_TO_SEC(TIMEDIFF(NOW(), lastactive)) AS secdiff_active,
                    TIME_TO_SEC(TIMEDIFF(NOW(), lastread)) AS secdiff_read
               FROM jbsvcr.notes
-             WHERE replid = '$notesid'";
+             WHERE replid = '".$notesid."'";
     $res = QueryDb($sql);
     $row = mysqli_fetch_array($res);
 
@@ -191,18 +191,18 @@ function ReloadNotesRow($notesid)
     $sql = "SELECT COUNT(replid)
               FROM jbsvcr.notesfile
              WHERE filecate = 'pict'
-               AND notesid = '$notesid'";
+               AND notesid = '".$notesid."'";
     $npict = (int)FetchSingle($sql);
     
     $sql = "SELECT COUNT(replid)
               FROM jbsvcr.notesfile
              WHERE filecate = 'doc'
-               AND notesid = '$notesid'";
+               AND notesid = '".$notesid."'";
     $ndoc = (int)FetchSingle($sql);
     
     $sql = "SELECT COUNT(replid)
               FROM jbsvcr.notescomment
-             WHERE notesid = '$notesid'";
+             WHERE notesid = '".$notesid."'";
     $ncomment = (int)FetchSingle($sql);
     
     $nread = (int)$row['nread']; ?>

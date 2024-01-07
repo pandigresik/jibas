@@ -59,7 +59,7 @@ $kname = "Kelas";
 $sql = "SELECT k.kelas
 		  FROM jbsakad.siswa s, jbsakad.kelas k
 		 WHERE s.idkelas = k.replid
-		   AND s.nis = '$nis'";
+		   AND s.nis = '".$nis."'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_row($result);
 $kvalue = $row[0];

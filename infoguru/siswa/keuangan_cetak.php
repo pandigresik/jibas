@@ -62,7 +62,7 @@ $namasiswa = $row[0];
 
 $sql = "SELECT t.tahunbuku
 		  FROM jbsfina.tahunbuku t
-		 WHERE t.replid = '$idtahunbuku'";
+		 WHERE t.replid = '".$idtahunbuku."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $tahunbuku = $row[0];		 
@@ -101,7 +101,7 @@ while ($row = mysqli_fetch_array($result))
 	
 	$sql = "SELECT SUM(jumlah), SUM(info1)
 			  FROM jbsfina.penerimaanjtt
-			 WHERE idbesarjtt = '$idbesarjtt'";
+			 WHERE idbesarjtt = '".$idbesarjtt."'";
 	$result2 = QueryDb($sql);
 	$pembayaran = 0;
 	$diskon = 0;

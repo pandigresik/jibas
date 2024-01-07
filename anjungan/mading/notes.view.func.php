@@ -25,7 +25,7 @@ function GetOwnerName($ownerid, $ownertype)
 {
     $sql = $ownertype == "S" ?
            "SELECT nama FROM jbsakad.siswa WHERE nis = '$ownerid'" :
-           "SELECT nama FROM jbssdm.pegawai WHERE nip = '$ownerid'";
+           "SELECT nama FROM jbssdm.pegawai WHERE nip = '".$ownerid."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) > 0)
     {
@@ -162,7 +162,7 @@ function ShowPrevCommentLink($notesid)
     
     $sql = "SELECT COUNT(replid)
                   FROM jbsvcr.notescomment
-                 WHERE notesid = '$notesid'";
+                 WHERE notesid = '".$notesid."'";
     $nCmt = (int)FetchSingle($sql);
     if ($nCmt <= $NotesViewActiveComment)
         return;
@@ -189,7 +189,7 @@ function ShowPrevComment($notesid)
     
     $sql = "SELECT COUNT(replid)
               FROM jbsvcr.notescomment
-             WHERE notesid = '$notesid'";
+             WHERE notesid = '".$notesid."'";
     $nCmt = (int)FetchSingle($sql);
     $sqlLimit = "LIMIT " . ($nCmt - $NotesViewActiveComment);
     
@@ -252,7 +252,7 @@ function ShowComment($notesid, $maxCommentId)
     {
         $sql = "SELECT COUNT(replid)
                   FROM jbsvcr.notescomment
-                 WHERE notesid = '$notesid'";
+                 WHERE notesid = '".$notesid."'";
         $nCmt = (int)FetchSingle($sql);
         if ($nCmt > $NotesViewActiveComment)
             $sqlLimit = "LIMIT " . ($nCmt - $NotesViewActiveComment) . ", $NotesViewActiveComment";
@@ -454,7 +454,7 @@ function ValidateCommentOwner($replid, $login)
 function DeleteComment($replid)
 {
     $sql = "DELETE FROM jbsvcr.notescomment
-             WHERE replid = '$replid'";
+             WHERE replid = '".$replid."'";
     QueryDb($sql);         
 }
 
@@ -464,7 +464,7 @@ function DeleteNotes($notesid)
     
     $sql = "SELECT *
               FROM jbsvcr.notesfile
-             WHERE notesid = '$notesid'";
+             WHERE notesid = '".$notesid."'";
     $res = QueryDbEx($sql);
     while($row = mysqli_fetch_array($res))
     {
@@ -476,11 +476,11 @@ function DeleteNotes($notesid)
     }
     
     $sql = "DELETE FROM jbsvcr.notesfile
-             WHERE notesid = '$notesid'";
+             WHERE notesid = '".$notesid."'";
     QueryDbEx($sql);
     
     $sql = "DELETE FROM jbsvcr.notes
-             WHERE replid = '$notesid'";
+             WHERE replid = '".$notesid."'";
     QueryDbEx($sql);
 }
 ?>

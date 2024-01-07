@@ -44,7 +44,7 @@ if ($idchannel == 0)
 {
     $sql = "INSERT INTO jbsel.channel
                SET nip = '$userId', idpelajaran = $idpel, judul = '$judul', tanggal = NOW(), 
-                   urutan = $urutan, aktif = 1, deskripsi = '$deskripsi'";
+                   urutan = $urutan, aktif = 1, deskripsi = '".$deskripsi."'";
 }
 else
 {

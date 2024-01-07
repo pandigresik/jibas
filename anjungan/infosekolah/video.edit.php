@@ -43,7 +43,7 @@ $videoid = $_REQUEST['videoid'];
 OpenDb();
 $sql = "SELECT *
           FROM jbsvcr.video
-         WHERE replid = '$videoid'";
+         WHERE replid = '".$videoid."'";
 $res = QueryDb($sql);
 if (mysqli_num_rows($res) == 0)
 {

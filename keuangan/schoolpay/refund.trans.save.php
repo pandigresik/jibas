@@ -78,7 +78,7 @@ try
     $sql = "SELECT rekkasvendor, rekutangvendor
               FROM jbsfina.paymenttabungan
              WHERE jenis = 2
-               AND departemen = '$departemen'";
+               AND departemen = '".$departemen."'";
     $res = QueryDbEx($sql);
     if ($row = mysqli_fetch_row($res))
     {
@@ -132,7 +132,7 @@ try
     //Ambil awalan dan cacah tahunbuku untuk bikin nokas;
     $sql = "SELECT awalan, cacah
               FROM jbsfina.tahunbuku
-             WHERE replid = '$idTahunBuku'";
+             WHERE replid = '".$idTahunBuku."'";
     $row = FetchSingleRow($sql);
     $awalan = $row[0];
     $cacah = $row[1];
@@ -217,7 +217,7 @@ try
         $tanggal = $lsTanggal[$i];
 
         $sql = "INSERT INTO jbsfina.refunddate
-                   SET idrefund = $idRefund, tanggal = '$tanggal'";
+                   SET idrefund = $idRefund, tanggal = '".$tanggal."'";
         QueryDbEx($sql);
     }
 

@@ -245,7 +245,7 @@ function ShowKomentar($semester, $kelas, $nis)
                  WHERE k.nis = '$nis' 
                    AND k.idsemester = '$semester' 
                    AND k.idkelas = '$kelas'
-                   AND k.jenis = '$jenis'";
+                   AND k.jenis = '".$jenis."'";
         $res2 = QueryDb($sql);
         $komentar = "";
         $predikat = "";
@@ -379,7 +379,7 @@ function ShowRaporDeskripsi($semester, $kelas, $nis)
                    AND i.idsemester = '$semester' 
                    AND i.idkelas = '$kelas'
                    AND n.idaturan = a.replid 	   
-                   AND a.dasarpenilaian = '$asp'";
+                   AND a.dasarpenilaian = '".$asp."'";
             $res = QueryDb($sql);
             if (mysqli_num_rows($res) > 0)
             {
@@ -496,7 +496,7 @@ function ShowRaporColumn($semester, $kelas, $nis)
                    AND i.idsemester = '$semester' 
                    AND i.idkelas = '$kelas'
                    AND n.idaturan = a.replid 	   
-                   AND a.dasarpenilaian = '$asp'";
+                   AND a.dasarpenilaian = '".$asp."'";
                 $res = QueryDb($sql);
                 if (mysqli_num_rows($res) > 0)
                 {
@@ -558,7 +558,7 @@ function ShowRaporRow($semester, $kelas, $nis)
                  FROM infonap
                 WHERE idpelajaran = '$idpel'
                   AND idsemester = '$semester'
-                  AND idkelas = '$kelas'";
+                  AND idkelas = '".$kelas."'";
         $res = QueryDb($sql);
         $row = mysqli_fetch_row($res);
         $nilaimin = $row[0];
@@ -589,7 +589,7 @@ function ShowRaporRow($semester, $kelas, $nis)
                        AND i.idsemester = '$semester' 
                        AND i.idkelas = '$kelas'
                        AND n.idaturan = a.replid 	   
-                       AND a.dasarpenilaian = '$asp'";
+                       AND a.dasarpenilaian = '".$asp."'";
             $res2 = QueryDb($sql);
             if (mysqli_num_rows($res2) > 0)
             {

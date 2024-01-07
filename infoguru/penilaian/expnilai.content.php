@@ -37,7 +37,7 @@ ReadParam();
 $sql = "SELECT k.kelas, t.tingkat
           FROM jbsakad.kelas k, jbsakad.tingkat t
          WHERE k.idtingkat = t.replid
-           AND k.replid = '$kelas'";
+           AND k.replid = '".$kelas."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_row($res);
 $nmkelas = $row[0];
@@ -242,7 +242,7 @@ $sql = "SELECT k.kelas, t.tingkat, ta.tahunajaran
           FROM jbsakad.kelas k, jbsakad.tingkat t, jbsakad.tahunajaran ta
          WHERE k.idtingkat = t.replid
            AND k.idtahunajaran = ta.replid
-           AND k.replid = '$kelas'";
+           AND k.replid = '".$kelas."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_row($res);
 $nmkelas = $row[0];

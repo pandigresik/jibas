@@ -49,7 +49,7 @@ $nama = $_REQUEST['nama'];
 $ERROR_MSG = "";
 if (isset($_REQUEST['Simpan'])) 
 {
-	$sql = "SELECT replid FROM siswa WHERE nis = '$nis'";
+	$sql = "SELECT replid FROM siswa WHERE nis = '".$nis."'";
 	$result = QueryDb($sql);
 	if (mysqli_num_rows($result) > 0) 
 	{
@@ -57,7 +57,7 @@ if (isset($_REQUEST['Simpan']))
 	} 
 	else 
 	{
-		$sql = "SELECT * FROM calonsiswa WHERE replid = '$replid'";
+		$sql = "SELECT * FROM calonsiswa WHERE replid = '".$replid."'";
 		$result = QueryDb($sql);
 		$row = @mysqli_fetch_array($result);
 
@@ -68,32 +68,32 @@ if (isset($_REQUEST['Simpan']))
 		$status = $row['status'] == NULL ? "NULL" : "'" . $row['status'] . "'";
 		
 		$kodepos = $row['kodepossiswa'];
-		$kodepos_sql = "kodepossiswa = '$kodepos'";
+		$kodepos_sql = "kodepossiswa = '".$kodepos."'";
 		if ($kodepos == NULL)
 			$kodepos_sql = "kodepossiswa = NULL";		
 			
 		$sekolah = $row['asalsekolah'];
-		$sekolah_sql = "asalsekolah = '$sekolah'";
+		$sekolah_sql = "asalsekolah = '".$sekolah."'";
 		if ($sekolah == NULL)
 			$sekolah_sql = "asalsekolah = NULL";		
 			
 		$pendidikanayah = $row['pendidikanayah'];
-		$pendidikanayah_sql = "pendidikanayah = '$pendidikanayah'";
+		$pendidikanayah_sql = "pendidikanayah = '".$pendidikanayah."'";
 		if ($pendidikanayah == "")
 			$pendidikanayah_sql = "pendidikanayah = NULL";
 			
 		$pendidikanibu = $row['pendidikanibu'];
-		$pendidikanibu_sql = "pendidikanibu = '$pendidikanibu'";
+		$pendidikanibu_sql = "pendidikanibu = '".$pendidikanibu."'";
 		if ($pendidikanibu == "")
 			$pendidikanibu_sql = "pendidikanibu = NULL";
 			
 		$pekerjaanayah = $row['pekerjaanayah'];
-		$pekerjaanayah_sql = "pekerjaanayah = '$pekerjaanayah'";
+		$pekerjaanayah_sql = "pekerjaanayah = '".$pekerjaanayah."'";
 		if ($pekerjaanayah == "")
 			$pekerjaanayah_sql = "pekerjaanayah = NULL";
 			
 		$pekerjaanibu = $row['pekerjaanibu'];
-		$pekerjaanibu_sql = "pekerjaanibu = '$pekerjaanibu'";
+		$pekerjaanibu_sql = "pekerjaanibu = '".$pekerjaanibu."'";
 		if ($pekerjaanibu == "")
 			$pekerjaanibu_sql = "pekerjaanibu = NULL";
 		
@@ -111,22 +111,22 @@ if (isset($_REQUEST['Simpan']))
 
 		BeginTrans();
 		$success = true;		
-		$sql = "INSERT INTO jbsakad.siswa SET nis='$nis',nama='$nama', panggilan='$row['panggilan']', tahunmasuk=$year, 
+		$sql = "INSERT INTO jbsakad.siswa SET nis='".$nis',nama='$nama', panggilan='".$row['panggilan']."', tahunmasuk=$year, 
 					idangkatan=$angkatan, idkelas=$kelas, suku=$suku, agama=$agama, status=$status, 
-					kondisi=$kondisi, kelamin='$row['kelamin']', tmplahir='$row['tmplahir']', tgllahir='$row['tgllahir']', 
-					warga='$row['warga']', anakke=$row['anakke'], jsaudara=$row['jsaudara'], bahasa='$row['bahasa']', berat=$row['berat'], 
-					tinggi=$row['tinggi'], darah='$row['darah']', alamatsiswa='$row['alamatsiswa']', $kodepos_sql, telponsiswa='$row['telponsiswa']', 
-					hpsiswa='$row['hpsiswa']', emailsiswa='$row['emailsiswa']', kesehatan='$row['kesehatan']', $sekolah_sql, ketsekolah='$row['ketsekolah']', 
-					namaayah='$row['namaayah']', namaibu='$row['namaibu']', almayah=$row['almayah'], almibu=$row['almibu'], $pendidikanayah_sql, 
-					$pendidikanibu_sql, $pekerjaanayah_sql, $pekerjaanibu_sql, wali='$row['namawali']', penghasilanayah=$row['penghasilanayah'], 
-					penghasilanibu=$row['penghasilanibu'], alamatortu='$row['alamatortu']', telponortu='$row['telponortu']', hportu='$row['hportu']',
-					info1='$row['info1']', info2='$row[info2]', 
-					emailayah='$row['emailayah']', emailibu='$row['emailibu']', alamatsurat='$row['alamatsurat']', keterangan='$row['keterangan']', 
+					kondisi=$kondisi, kelamin='".$row['kelamin']', tmplahir='".$row['tmplahir']', tgllahir='".$row['tgllahir']."', 
+					warga='".$row['warga']', anakke=$row['anakke'], jsaudara=$row['jsaudara'], bahasa='".$row['bahasa']."', berat=$row['berat'], 
+					tinggi=$row['tinggi'], darah='".$row['darah']', alamatsiswa='".$row['alamatsiswa']', $kodepos_sql, telponsiswa='".$row['telponsiswa']."', 
+					hpsiswa='".$row['hpsiswa']', emailsiswa='".$row['emailsiswa']', kesehatan='".$row['kesehatan']', $sekolah_sql, ketsekolah='".$row['ketsekolah']."', 
+					namaayah='".$row['namaayah']', namaibu='".$row['namaibu']."', almayah=$row['almayah'], almibu=$row['almibu'], $pendidikanayah_sql, 
+					$pendidikanibu_sql, $pekerjaanayah_sql, $pekerjaanibu_sql, wali='".$row['namawali']."', penghasilanayah=$row['penghasilanayah'], 
+					penghasilanibu=$row['penghasilanibu'], alamatortu='".$row['alamatortu']', telponortu='".$row['telponortu']', hportu='".$row['hportu']."',
+					info1='".$row['info1']."', info2='$row[info2]', 
+					emailayah='".$row['emailayah']', emailibu='".$row['emailibu']', alamatsurat='".$row['alamatsurat']', keterangan='".$row['keterangan']."', 
 					frompsb=1, ketpsb='$keterangan', pinsiswa='$pinsiswa', pinortu='$pinortu', pinortuibu = '$pinortuibu',nisn='$nisn',
-					nik='$row['nik']',noun='$row['noun']',statusanak='$row['statusanak']',jkandung='$row['jkandung']',jtiri='$row['jtiri']',jarak='$row['jarak']',
-					noijasah='$row['noijasah']', tglijasah='$row['tglijasah']', statusayah='$row['statusayah']', statusibu='$row['statusibu']',
-					tmplahirayah='$row['tmplahirayah']', tmplahiribu='$row['tmplahiribu']', tgllahirayah='$row['tgllahirayah']', tgllahiribu='$row['tgllahiribu']',
-					hobi='$row['hobi']."'";
+					nik='".$row['nik']',noun='".$row['noun']',statusanak='".$row['statusanak']',jkandung='".$row['jkandung']',jtiri='$row['jtiri']',jarak='$row['jarak']."',
+					noijasah='".$row['noijasah']', tglijasah='".$row['tglijasah']', statusayah='".$row['statusayah']', statusibu='".$row['statusibu']."',
+					tmplahirayah='".$row['tmplahirayah']', tmplahiribu='".$row['tmplahiribu']', tgllahirayah='".$row['tgllahirayah']', tgllahiribu='".$row['tgllahiribu']."',
+					hobi='".$row['hobi']."'";
 		QueryDbTrans($sql,$success);
 		
 		if ($success) 
@@ -136,12 +136,12 @@ if (isset($_REQUEST['Simpan']))
 			$row1 = mysqli_fetch_row($result1);
 			$id = $row1[0];
 			
-			$sql2 = "UPDATE calonsiswa SET replidsiswa = '$id' WHERE replid = '$replid'";				
+			$sql2 = "UPDATE calonsiswa SET replidsiswa = '$id' WHERE replid = '".$replid."'";				
 			QueryDbTrans($sql2,$success);
 			
 			if ($row['foto'] <> "") 
 			{
-				$sql3 = "UPDATE siswa SET foto = (SELECT foto FROM calonsiswa where replid = '$replid') WHERE replid = '$id'";
+				$sql3 = "UPDATE siswa SET foto = (SELECT foto FROM calonsiswa where replid = '$replid') WHERE replid = '".$id."'";
 				QueryDbTrans($sql3, $success);  
 			}
 		}
@@ -159,7 +159,7 @@ if (isset($_REQUEST['Simpan']))
             $sql = "INSERT INTO jbsakad.tambahandatasiswa (nis, idtambahan, jenis, teks, filedata, filename, filemime, filesize)
                     SELECT '$nis', idtambahan, jenis, teks, filedata, filename, filemime, filesize
                       FROM jbsakad.tambahandatacalon
-                     WHERE nopendaftaran = '$nopendaftaran'";
+                     WHERE nopendaftaran = '".$nopendaftaran."'";
             QueryDbTrans($sql, $success);
         }
 		
@@ -235,7 +235,7 @@ function focusNext(elemName, evt) {
 <?php $sql = "SELECT k.kelas, t.tahunajaran, a.angkatan, t.departemen 
 			FROM kelas k, tahunajaran t, angkatan a 
 			WHERE k.replid = '$kelas' AND t.replid = '$tahunajaran' AND k.idtahunajaran = t.replid 
-			AND a.replid = '$angkatan' AND a.departemen = '$departemen'";
+			AND a.replid = '$angkatan' AND a.departemen = '".$departemen."'";
 	$result = QueryDb($sql);
 	$row = @mysqli_fetch_row($result);
 	$kls = $row[0];

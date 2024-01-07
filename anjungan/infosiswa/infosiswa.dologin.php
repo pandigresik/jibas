@@ -39,7 +39,7 @@ if (strlen($nis) == 0 || strlen($pin) == 0)
 OpenDb();
 $sql = "SELECT COUNT(replid)
           FROM jbsakad.siswa
-         WHERE nis = '$nis' AND pinsiswa = '$pin'";
+         WHERE nis = '$nis' AND pinsiswa = '".$pin."'";
 $ndata = (int)FetchSingle($sql);
 
 if ($ndata == 0)

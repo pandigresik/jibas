@@ -101,7 +101,7 @@ while($row = mysqli_fetch_row($res))
 
 $sql = "SELECT aktif
           FROM tahunajaran
-         WHERE replid = '$tahunajaran'";
+         WHERE replid = '".$tahunajaran."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_row($res);
 $ta_aktif = (int)$row[0];
@@ -194,7 +194,7 @@ for($s = 0; $s < $nsiswa; $s++)
             $sql = "SELECT nilaiujian
                       FROM nilaiujian
                      WHERE nis = '$nis'
-                       AND idujian = '$id'";
+                       AND idujian = '".$id."'";
             $res = QueryDb($sql);
             if (mysqli_num_rows($res) > 0)
             {

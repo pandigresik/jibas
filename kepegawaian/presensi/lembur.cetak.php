@@ -128,7 +128,7 @@ function GetHourMinute($strtime, &$hour, &$minute)
 {
     if (strpos($strtime, ":") !== FALSE)
     {
-        $temp = split(":", $strtime);
+        $temp = explode(":", $strtime);
         $hour = $temp[0];
         $minute = $temp[1];
         

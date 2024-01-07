@@ -34,7 +34,7 @@ if (isset($_REQUEST['field']))
 OpenDb();
 header("Content-type: image/jpeg");
 //if ($field == "") 	
-	$query = "SELECT $field FROM $table WHERE replid = '$replid'";
+	$query = "SELECT $field FROM $table WHERE replid = '".$replid."'";
 //else
 //	$query = "SELECT foto FROM jbsumum.identitas WHERE replid = 16";
 

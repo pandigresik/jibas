@@ -217,7 +217,7 @@ $characters = array(
 
     generateText.on("keyup", function() {
         var val = $(this).val(),
-            section = val.split("~F1"),
+            section = val.explode("~F1"),
             i = 0, regex = /^\(([0-9]*y?)\)(.*)$/,
             result;
 

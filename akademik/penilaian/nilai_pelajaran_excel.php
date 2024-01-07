@@ -63,7 +63,7 @@ $jenis = $row['replid'];
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Aturan Perhitungan Nilai Rapor[Menu]</title>
+<title>Aturan Perhitungan Nilai Rapor['Menu']</title>
 
 <style type="text/css">
 <!--
@@ -116,11 +116,11 @@ $jenis = $row['replid'];
        
         $i=1;
         while ($row_cek_ujian=@mysqli_fetch_array($result_cek_ujian)){
-			$sql_get_rpp_name = "SELECT rpp FROM rpp WHERE replid='$row_cek_ujian[idrpp]'";
-			if (!empty($row_cek_ujian[idrpp])) {
+			$sql_get_rpp_name = "SELECT rpp FROM rpp WHERE replid='".$row_cek_ujian['idrpp']."'";
+			if (!empty($row_cek_ujian['idrpp'])) {
 				$res_get_rpp_name = QueryDb($sql_get_rpp_name);
 				$rpp = @mysqli_fetch_array($res_get_rpp_name);
-				$namarpp = $rpp[rpp];
+				$namarpp = $rpp['rpp'];
 			} else {
 				$namarpp = "Tanpa RPP";
 			}
@@ -154,7 +154,7 @@ $jenis = $row['replid'];
     <td height="25" align="left"><?=$row_siswa['nama']?></td>
     <?php 	for ($j=1;$j<=count($idujian);$j++) { ?>
             <td align="center">							
-			<?php $sql_cek_nilai_ujian="SELECT * FROM jbsakad.nilaiujian WHERE idujian='$idujian[$j]' AND nis='$row_siswa[nis]'";
+			<?php $sql_cek_nilai_ujian="SELECT * FROM jbsakad.nilaiujian WHERE idujian='".$idujian[$j]."' AND nis='".$row_siswa['nis']."'";
                 $result_cek_nilai_ujian=QueryDb($sql_cek_nilai_ujian);
                	
                     $row_cek_nilai_ujian=@mysqli_fetch_array($result_cek_nilai_ujian);
@@ -163,7 +163,7 @@ $jenis = $row['replid'];
                 
                  
                     echo $row_cek_nilai_ujian['nilaiujian'];
-					if ($row_cek_nilai_ujian[keterangan]<>"")
+					if ($row_cek_nilai_ujian['keterangan']<>"")
                         echo "<strong><font color='blue'>)*</font></strong>";               
 				
 			?>
@@ -174,7 +174,7 @@ $jenis = $row['replid'];
             </td>
     		<td align="center">
 	<?php 				
-			$sql_get_nau_per_nis="SELECT nilaiAU,replid,keterangan,info1 FROM jbsakad.nau WHERE nis='$row_siswa[nis]' AND idkelas='$kelas' AND idsemester='$semester' AND idaturan='$idaturan'";
+			$sql_get_nau_per_nis="SELECT nilaiAU,replid,keterangan,info1 FROM jbsakad.nau WHERE nis='".$row_siswa['nis']."' AND idkelas='$kelas' AND idsemester='$semester' AND idaturan='$idaturan'";
 		
 			//echo $sql_get_nau_per_nis;			
 			$result_get_nau_per_nis=QueryDb($sql_get_nau_per_nis);
@@ -241,7 +241,7 @@ $jenis = $row['replid'];
 			$ibobot=1;
 			
 			while ($row_cek_ujian=@mysqli_fetch_array($result_cek_ujian)){
-				$sql_get_bobotnya="SELECT b.replid, b.bobot FROM jbsakad.bobotnau b WHERE b.idujian='$row_cek_ujian['replid']."'";								
+				$sql_get_bobotnya="SELECT b.replid, b.bobot FROM jbsakad.bobotnau b WHERE b.idujian='".$row_cek_ujian['replid']."'";								
 				$result_get_bobotnya=QueryDb($sql_get_bobotnya);
 				$nilai_bobotnya=@mysqli_fetch_array($result_get_bobotnya);
 		?>

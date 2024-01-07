@@ -37,7 +37,7 @@ $deskripsi = CQ($_REQUEST['deskripsi']);
 $ERROR_MSG = "";
 if (isset($_REQUEST['Simpan']))
 {
-	$sql_simpan_cek = "SELECT * FROM jbsakad.infojadwal WHERE deskripsi='$deskripsi' AND idtahunajaran = '$tahunajaran'"; 
+	$sql_simpan_cek = "SELECT * FROM jbsakad.infojadwal WHERE deskripsi='$deskripsi' AND idtahunajaran = '".$tahunajaran."'"; 
 	$result_simpan_cek = QueryDb($sql_simpan_cek);	
 	if (mysqli_num_rows($result_simpan_cek) > 0)
 	{
@@ -45,7 +45,7 @@ if (isset($_REQUEST['Simpan']))
 	}
 	else
 	{
-		$sql_simpan = "INSERT INTO jbsakad.infojadwal SET aktif = 1, deskripsi = '$deskripsi', idtahunajaran = '$tahunajaran'";  
+		$sql_simpan = "INSERT INTO jbsakad.infojadwal SET aktif = 1, deskripsi = '$deskripsi', idtahunajaran = '".$tahunajaran."'";  
 		$result_simpan = QueryDb($sql_simpan);
 		CloseDb();
 		?>
@@ -57,7 +57,7 @@ if (isset($_REQUEST['Simpan']))
 	}	
 }
 
-$sql = "SELECT * FROM tahunajaran WHERE replid = '$tahunajaran'";
+$sql = "SELECT * FROM tahunajaran WHERE replid = '".$tahunajaran."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_array($result);
 $departemen = $row['departemen'];

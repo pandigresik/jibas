@@ -25,7 +25,7 @@ function GetOwnerName($ownerid, $ownertype)
 {
     $sql = $ownertype == "S" ?
            "SELECT nama FROM jbsakad.siswa WHERE nis = '$ownerid'" :
-           "SELECT nama FROM jbssdm.pegawai WHERE nip = '$ownerid'";
+           "SELECT nama FROM jbssdm.pegawai WHERE nip = '".$ownerid."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) > 0)
     {
@@ -80,7 +80,7 @@ function ShowVideoList($dept, $start, $rowperpage, $group)
         
         $sql = "SELECT COUNT(replid)
                   FROM jbsvcr.videocomment
-                 WHERE videoid = '$videoid'";
+                 WHERE videoid = '".$videoid."'";
         $ncomment = (int)FetchSingle($sql);
         
         $nread = (int)$row['nread'];

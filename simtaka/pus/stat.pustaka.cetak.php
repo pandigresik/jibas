@@ -45,8 +45,8 @@ else
 	$nama = "<i>Semua</i>";
 }
 
-$from	= split('-',$from);
-$to		= split('-',$to);
+$from	= explode('-',$from);
+$to		= explode('-',$to);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -88,12 +88,12 @@ $to		= split('-',$to);
 </tr>
 <tr>
     <td align="center" valign="top">
-        <img src="<?="statimage.php?type=bar&key=$_REQUEST['from'],$_REQUEST['to']&Limit=$limit&krit=2&perpustakaan=$perpustakaan" ?>" />
+        <img src="<?="statimage.php?type=bar&key={$_REQUEST['from']},{$_REQUEST['to']}&Limit=$limit&krit=2&perpustakaan=$perpustakaan" ?>" />
     </td>
 </tr>
 <tr>
     <td align="center" valign="top">
-    	<img src="<?="statimage.php?type=pie&key=$_REQUEST['from'],$_REQUEST['to']&Limit=$limit&krit=2&perpustakaan=$perpustakaan" ?>" />
+    	<img src="<?="statimage.php?type=pie&key={$_REQUEST['from']},{$_REQUEST['to']}&Limit=$limit&krit=2&perpustakaan=$perpustakaan" ?>" />
     </td>
 </tr>
 <tr>
@@ -110,7 +110,7 @@ $to		= split('-',$to);
 			
 		$sql = "SELECT count(*) as num, judul, pu.replid
 				  FROM pinjam p, daftarpustaka d, pustaka pu
-			     WHERE p.tglpinjam BETWEEN '".$_REQUEST['from']."' AND '$_REQUEST['to']."'
+			     WHERE p.tglpinjam BETWEEN '".$_REQUEST['from']."' AND '".$_REQUEST['to']."'
 				   AND d.kodepustaka=p.kodepustaka
 				   AND pu.replid=d.pustaka $filter
 			     GROUP BY judul

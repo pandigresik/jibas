@@ -325,7 +325,7 @@ function refresh_pilih(i) {
                        AND k.idtahunajaran = '$tahunajaran' 
                        AND s.aktif=1 
                        AND k.idtingkat = t.replid 
-                       AND t.replid = '$tingkat'";
+                       AND t.replid = '".$tingkat."'";
 		
 		$result_tot = QueryDb($sql_tot);
 		$total=ceil(mysqli_num_rows($result_tot)/(int)$varbaris);

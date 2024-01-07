@@ -40,7 +40,7 @@ $sql = "SELECT k.kelas AS namakelas, s.semester AS namasemester, a.tahunajaran, 
 			   l.nama, t.tingkat, t.replid AS idtingkat, p.nama AS guru, s.departemen as dep 
 		  FROM kelas k, semester s, tahunajaran a, pelajaran l, tingkat t, jbssdm.pegawai p 
 		 WHERE k.replid = $kelas AND s.replid = $semester AND  k.idtahunajaran = a.replid 
-		   AND t.replid = k.idtingkat AND l.replid = $pelajaran AND p.nip = '$nip'";
+		   AND t.replid = k.idtingkat AND l.replid = $pelajaran AND p.nip = '".$nip."'";
 $result = QueryDb($sql);
 $rowinfo = mysqli_fetch_array($result);
 ?>
@@ -163,7 +163,7 @@ while($rowaspek = mysqli_fetch_row($resaspek))
 			$sql = "SELECT n.nilaiAU as nilaiujian 
 			          FROM jbsakad.nau n, jbsakad.aturannhb a 
 				     WHERE n.idpelajaran = $pelajaran AND n.idkelas = $kelas 
-					   AND n.nis = '".$row_siswa[nis]' AND n.idsemester = $semester 
+					   AND n.nis = '".$row_siswa['nis']."' AND n.idsemester = $semester 
 				       AND n.idjenis = $value[2] AND n.idaturan = a.replid 
 					   AND a.replid = $value[0]";
 			$res = QueryDb($sql);

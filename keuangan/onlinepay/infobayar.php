@@ -106,7 +106,7 @@ $dept = isset($_REQUEST["dept"]) ? {$_REQUEST["dept"]} : "";
                         if ($dept == "") $dept = $row[0];
                         $sel = ($dept == $row[0]) ? "selected" : "";
 
-                        echo "<option value='$row[0]' $sel>$row[0]</option>";
+                        echo "<option value='".$row[0]."' $sel>$row[0]</option>";
                     }
 ?>
                     </select>&nbsp;&nbsp;

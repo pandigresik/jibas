@@ -261,7 +261,7 @@ function focusNext(elemName, evt) {
     
     <?php 	$pel = "";
 		if ($pelajaran <> -1) 
-			$pel = "AND p.replid = '$pelajaran'";
+			$pel = "AND p.replid = '".$pelajaran."'";
 	?>
     
     

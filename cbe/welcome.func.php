@@ -35,7 +35,7 @@ function getWelcome()
     OpenDb();
     $sql = "SELECT pesan 
               FROM jbscbe.welcome
-             WHERE departemen = '$dept'";
+             WHERE departemen = '".$dept."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) > 0)
     {

@@ -347,7 +347,7 @@ class Legend {
                 // Paragraph
                 $marky = $y1 - $aImg->GetTextHeight($p[0])/2;
 
-              //  echo "y1=$y1, p[o]={$p[0]}, marky=$marky<br>";
+              //  echo "y1=$y1, p['o']={$p[0]}, marky=$marky<br>";
             }
 
             //echo "<br>Mark #$i: marky=$marky<br>";

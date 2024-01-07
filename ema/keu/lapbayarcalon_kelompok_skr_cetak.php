@@ -122,7 +122,7 @@ if ($kelompok == -1)
 	$sql = "SELECT DISTINCT s.replid, s.nopendaftaran, s.nama, k.kelompok 
 			  FROM jbsfina.penerimaaniurancalon p, jbsfina.jurnal j, jbsakad.calonsiswa s, jbsakad.kelompokcalonsiswa k 
 			 WHERE p.idjurnal = j.replid AND j.idtahunbuku = '$idtahunbuku' 
-			   AND p.idcalon = s.replid AND s.idkelompok = k.replid AND p.idpenerimaan = '$idpenerimaan'"; 
+			   AND p.idcalon = s.replid AND s.idkelompok = k.replid AND p.idpenerimaan = '".$idpenerimaan."'"; 
 } 
 else 
 {
@@ -134,7 +134,7 @@ else
 	$sql = "SELECT DISTINCT s.replid, s.nopendaftaran, s.nama, k.kelompok 
 			  FROM jbsfina.penerimaaniurancalon p, jbsfina.jurnal j, jbsakad.calonsiswa s, jbsakad.kelompokcalonsiswa k 
 			 WHERE p.idjurnal = j.replid AND j.idtahunbuku = '$idtahunbuku'
-			   AND p.idcalon = s.replid AND s.idkelompok = k.replid AND s.idkelompok = '$kelompok' AND p.idpenerimaan = '$idpenerimaan'"; 
+			   AND p.idcalon = s.replid AND s.idkelompok = k.replid AND s.idkelompok = '$kelompok' AND p.idpenerimaan = '".$idpenerimaan."'"; 
 }
 
 $result = QueryDb($sql);
@@ -156,7 +156,7 @@ while ($row = mysqli_fetch_array($result))
 <?php 	$sql = "SELECT date_format(p.tanggal, '%d-%b-%y') as tanggal, jumlah 
 						  FROM jbsfina.penerimaaniurancalon p, jbsfina.jurnal j
 						 WHERE p.idjurnal = j.replid AND j.idtahunbuku = '$idtahunbuku' 
-						   AND idcalon = '$replid' AND idpenerimaan = '$idpenerimaan'";
+						   AND idcalon = '$replid' AND idpenerimaan = '".$idpenerimaan."'";
 		$result2 = QueryDb($sql);
 		$nbayar = mysqli_num_rows($result2);
 		$nblank = $max_n_bayar - $nbayar;

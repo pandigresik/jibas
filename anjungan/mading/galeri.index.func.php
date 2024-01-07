@@ -49,7 +49,7 @@ function GetOwnerName($ownerid, $ownertype)
 {
     $sql = $ownertype == "S" ?
            "SELECT nama FROM jbsakad.siswa WHERE nis = '$ownerid'" :
-           "SELECT nama FROM jbssdm.pegawai WHERE nip = '$ownerid'";
+           "SELECT nama FROM jbssdm.pegawai WHERE nip = '".$ownerid."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) > 0)
     {
@@ -124,7 +124,7 @@ function ShowGalleryIndex($dept, $bulan, $tahun)
         
         $sql = "SELECT COUNT(replid)
                   FROM jbsvcr.gallerycomment
-                 WHERE galleryid = '$galleryid'";
+                 WHERE galleryid = '".$galleryid."'";
         $ncomment = (int)FetchSingle($sql);  
         
         if ($colcnt == 0)

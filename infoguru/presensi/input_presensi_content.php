@@ -35,7 +35,7 @@ if (isset($_REQUEST['id']))
 		
 if ($id <> "") {	
 	OpenDb();
-	$sql = "SELECT DAY(tanggal1) AS tgl1, MONTH(tanggal1) AS bln, YEAR(tanggal1) AS th, DAY(tanggal2) AS tgl2, hariaktif FROM presensiharian WHERE replid = '$id'";
+	$sql = "SELECT DAY(tanggal1) AS tgl1, MONTH(tanggal1) AS bln, YEAR(tanggal1) AS th, DAY(tanggal2) AS tgl2, hariaktif FROM presensiharian WHERE replid = '".$id."'";
 	$result = QueryDb($sql);
 	CloseDb();
 	$row = mysqli_fetch_array($result);
@@ -69,7 +69,7 @@ if (isset($_REQUEST['hariaktif']))
 	$hariaktif = $_REQUEST['hariaktif'];
 	
 OpenDb();
-$sql = "SELECT t.tahunajaran, t.tglmulai, t.tglakhir, k.kelas FROM tahunajaran t, kelas k WHERE k.idtahunajaran = t.replid AND k.replid = '$kelas'"; 
+$sql = "SELECT t.tahunajaran, t.tglmulai, t.tglakhir, k.kelas FROM tahunajaran t, kelas k WHERE k.idtahunajaran = t.replid AND k.replid = '".$kelas."'"; 
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $awal = explode('-',$row[1]);
@@ -124,13 +124,13 @@ $op = $_REQUEST['op'];
 if ($op == "xm8r389xemx23xb2378e23") {
 	$replid=(int)$_REQUEST['replid'];
 	OpenDb();
-	$sql = "DELETE FROM phsiswa WHERE idpresensi = '$replid'";
+	$sql = "DELETE FROM phsiswa WHERE idpresensi = '".$replid."'";
 	QueryDb($sql);
-	$sql = "DELETE FROM presensiharian WHERE replid = '$replid'";
+	$sql = "DELETE FROM presensiharian WHERE replid = '".$replid."'";
 	QueryDb($sql);
 	
 	
-	if(mysqli_affected_rows() > 0) {
+	if(mysqli_affected_rows($conn) > 0) {
 	?>
     <script language="JavaScript">
         
@@ -570,7 +570,7 @@ function focusNext(elemName, evt) {
 			} 	
 			
 			if ($id <> "") {						
-				$sql1 = "SELECT * FROM phsiswa WHERE idpresensi = '$id' AND nis='$row['nis']."'";
+				$sql1 = "SELECT * FROM phsiswa WHERE idpresensi = '$id' AND nis='".$row['nis']."'";
 				$result1 = QueryDb($sql1);
 				$row1 = mysqli_fetch_array($result1);
 				if (mysqli_num_rows($result1) > 0) {

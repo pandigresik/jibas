@@ -41,7 +41,7 @@ if (isset($_REQUEST['Simpan']))
 {
 	OpenDb();
 	
-	$sql = "SELECT replid FROM dasarpenilaian WHERE dasarpenilaian = '$kode'";
+	$sql = "SELECT replid FROM dasarpenilaian WHERE dasarpenilaian = '".$kode."'";
 	$result = QueryDb($sql);
 	
 	if (mysqli_num_rows($result) > 0) 
@@ -52,7 +52,7 @@ if (isset($_REQUEST['Simpan']))
 	} 
 	else 
 	{
-		$sql = "INSERT INTO dasarpenilaian SET dasarpenilaian = '$kode', keterangan = '$nama'";
+		$sql = "INSERT INTO dasarpenilaian SET dasarpenilaian = '$kode', keterangan = '".$nama."'";
 		$result = QueryDb($sql);
 		CloseDb();
 		if ($result) 

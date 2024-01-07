@@ -80,7 +80,7 @@ $kelas = $_REQUEST['kelas'];
                     $sql2 = "SELECT AVG(n.nilaiujian) as rata FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$semester."' AND u.idjenis = '".$row['replid']."' AND u.replid = n.idujian AND n.nis = '$nis' ";
                     $result2 = QueryDb($sql2);	
                     $row2 = @mysqli_fetch_array($result2);
-                    $rata = $row2[rata];
+                    $rata = $row2['rata'];
                     $cnt = 1;
                     while($row1 = @mysqli_fetch_array($result1)){			
                 ?>

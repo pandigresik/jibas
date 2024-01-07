@@ -83,7 +83,7 @@ function showSelectPelajaran($bulan, $tahun, $jenis)
     $res = QueryDb($sql);
     while($row = mysqli_fetch_row($res))
     {
-        $select .= "<option value='$row[0]'>$row[1]</option>";
+        $select .= "<option value='".$row[0]."'>$row[1]</option>";
     }
     $select .= "</select>";
 

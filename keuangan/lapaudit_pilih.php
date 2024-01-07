@@ -112,25 +112,25 @@ function show_detail(lap)
 		 $idsumber = $row['idsumber'];
 		 
 		 if ($table == "besarjtt")
-		 	$sql = "SELECT info1 FROM besarjtt WHERE replid = '$idsumber'";
+		 	$sql = "SELECT info1 FROM besarjtt WHERE replid = '".$idsumber."'";
 		 elseif ($table == "besarjttcalon")
-		   $sql = "SELECT info1 FROM besarjttcalon WHERE replid = '$idsumber'";
+		   $sql = "SELECT info1 FROM besarjttcalon WHERE replid = '".$idsumber."'";
 		 elseif ($table == "penerimaanjtt")
-		   $sql = "SELECT idjurnal FROM penerimaanjtt WHERE replid = '$idsumber'";
+		   $sql = "SELECT idjurnal FROM penerimaanjtt WHERE replid = '".$idsumber."'";
 		 elseif ($table == "penerimaanjttcalon")
-		   $sql = "SELECT idjurnal FROM penerimaanjttcalon WHERE replid = '$idsumber'";			
+		   $sql = "SELECT idjurnal FROM penerimaanjttcalon WHERE replid = '".$idsumber."'";			
   		 elseif ($table == "penerimaaniuran")
-		   $sql = "SELECT idjurnal FROM penerimaaniuran WHERE replid = '$idsumber'";
+		   $sql = "SELECT idjurnal FROM penerimaaniuran WHERE replid = '".$idsumber."'";
 		 elseif ($table == "penerimaaniurancalon")
-		   $sql = "SELECT idjurnal FROM penerimaaniurancalon WHERE replid = '$idsumber'";			
+		   $sql = "SELECT idjurnal FROM penerimaaniurancalon WHERE replid = '".$idsumber."'";			
 		 elseif ($table == "penerimaanlain")
-		   $sql = "SELECT idjurnal FROM penerimaanlain WHERE replid = '$idsumber'";
+		   $sql = "SELECT idjurnal FROM penerimaanlain WHERE replid = '".$idsumber."'";
 		 elseif ($table == "pengeluaran")
-		   $sql = "SELECT idjurnal FROM pengeluaran WHERE replid = '$idsumber'";
+		   $sql = "SELECT idjurnal FROM pengeluaran WHERE replid = '".$idsumber."'";
 		 elseif ($table == "tabungan")
-		   $sql = "SELECT idjurnal FROM tabungan WHERE replid = '$idsumber'";
+		   $sql = "SELECT idjurnal FROM tabungan WHERE replid = '".$idsumber."'";
          elseif ($table == "tabunganp")
-           $sql = "SELECT idjurnal FROM tabunganp WHERE replid = '$idsumber'";
+           $sql = "SELECT idjurnal FROM tabunganp WHERE replid = '".$idsumber."'";
     	 elseif ($table == "jurnalumum")
 		   $sql = "SELECT $idsumber";			
 			

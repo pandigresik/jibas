@@ -220,7 +220,7 @@ while ($x = @mysqli_fetch_row($result_tot)){
 	$sql5	= "SELECT jumlah 
 	             FROM penerimaaniurancalon p, jurnal j 
              	WHERE p.idjurnal = j.replid AND j.idtahunbuku = '$idtahunbuku' 
-				  AND idcalon = $x[0] AND idpenerimaan = '$idpenerimaan'";
+				  AND idcalon = $x[0] AND idpenerimaan = '".$idpenerimaan."'";
 	$result5 = QueryDb($sql5);
 	while ($row5 = mysqli_fetch_array($result5)) {
 	$TotalPembayaran += $row5[0];
@@ -244,7 +244,7 @@ while ($row = mysqli_fetch_array($result)) {
 <?php 	$sql = "SELECT date_format(p.tanggal, '%d-%b-%y') as tanggal, jumlah 
                   FROM penerimaaniurancalon p, jurnal j
 				 WHERE p.idjurnal = j.replid AND j.idtahunbuku = '$idtahunbuku' 
-				   AND idcalon = '$replid' AND idpenerimaan = '$idpenerimaan'";
+				   AND idcalon = '$replid' AND idpenerimaan = '".$idpenerimaan."'";
 		$result2 = QueryDb($sql);
 		$nbayar = mysqli_num_rows($result2);
 		$nblank = $max_n_bayar - $nbayar;

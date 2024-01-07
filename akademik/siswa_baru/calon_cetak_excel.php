@@ -95,7 +95,7 @@ Data Siswa per Kelas
             $sql_kel = "SELECT kelompok FROM kelompokcalonsiswa WHERE replid='$kelompok'";
             $result_kel = QueryDb($sql_kel);
             $row_kel=@mysqli_fetch_array($result_kel);
-            echo $row_kel[kelompok];
+            echo $row_kel['kelompok'];
             ?></td>
     </tr>
     <tr>
@@ -204,7 +204,7 @@ Data Siswa per Kelas
     while ($row=@mysqli_fetch_array($result)){
         $siswa = "";
         if ($row['replidsiswa'] <> 0) {
-            $sql3 = "SELECT nis FROM jbsakad.siswa WHERE replid = $row['replidsiswa']";
+            $sql3 = "SELECT nis FROM jbsakad.siswa WHERE replid = ".$row['replidsiswa']."";
             $result3 = QueryDb($sql3);
             $row3 = @mysqli_fetch_array($result3);
             $siswa = "<br>NIS Siswa: <b>".$row3['nis']."</b>";
@@ -274,9 +274,9 @@ Data Siswa per Kelas
                     $jenis = $arrDataTambahan[$i][1];
 
                     if ($jenis == 1 || $jenis == 3)
-                        $sql = "SELECT teks FROM tambahandatacalon WHERE nopendaftaran = '$no' AND idtambahan = '$idtambahan'";
+                        $sql = "SELECT teks FROM tambahandatacalon WHERE nopendaftaran = '$no' AND idtambahan = '".$idtambahan."'";
                     else
-                        $sql = "SELECT filename FROM tambahandatacalon WHERE nopendaftaran = '$no' AND idtambahan = '$idtambahan'";
+                        $sql = "SELECT filename FROM tambahandatacalon WHERE nopendaftaran = '$no' AND idtambahan = '".$idtambahan."'";
 
                     $data = "";
                     $res2 = QueryDb($sql);

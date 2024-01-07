@@ -35,18 +35,18 @@ $NoIn		= $_REQUEST['NoIn'];
 $pin1		= $_REQUEST['Pin1'];
 $pin2		= $_REQUEST['Pin2'];
 $Nama		= $_REQUEST['Nama'];
-$X			= split(' ',$SendTime);
+$X			= explode(' ',$SendTime);
 $smsgeninfo	  = "Pengumuman";	
 
 $idsmsgeninfo = GetLastId('replid','smsgeninfo');	
 $sql = "INSERT INTO smsgeninfo SET replid='$idsmsgeninfo',tanggal='$X[0]',tipe='2',info='$smsgeninfo',pengirim='$Sender'";
 $res = QueryDb($sql);
 
-$No		= split('>',$NoPe);
-$Nama	= split('>',$Nama);
-$NoID	= split('>',$NoIn);
-$PIN1	= split('>',$pin1);
-$PIN2	= split('>',$pin2);
+$No		= explode('>',$NoPe);
+$Nama	= explode('>',$Nama);
+$NoID	= explode('>',$NoIn);
+$PIN1	= explode('>',$pin1);
+$PIN2	= explode('>',$pin2);
 
 $Receiver = 0;
 for ($i=0; $i<count($No);$i++)

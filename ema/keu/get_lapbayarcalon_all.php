@@ -70,7 +70,7 @@ $row = mysqli_fetch_row($result);
 $niuran = $row[0];
 
 
-$sql = "SELECT nama, nopendaftaran FROM jbsakad.calonsiswa  WHERE replid = '$replid'";
+$sql = "SELECT nama, nopendaftaran FROM jbsakad.calonsiswa  WHERE replid = '".$replid."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $namacalon = $row[0];
@@ -110,7 +110,7 @@ while ($row = mysqli_fetch_array($result)) {
 	$lunas = $row['lunas'];
 	$keterangan = $row['keterangan'];
 	
-	$sql = "SELECT SUM(jumlah), SUM(info1) FROM $db_name_fina.penerimaanjttcalon WHERE idbesarjttcalon = '$idbesarjtt'";
+	$sql = "SELECT SUM(jumlah), SUM(info1) FROM $db_name_fina.penerimaanjttcalon WHERE idbesarjttcalon = '".$idbesarjtt."'";
 	$result2 = QueryDb($sql);
 	$pembayaran = 0;
 	$diskon = 0;

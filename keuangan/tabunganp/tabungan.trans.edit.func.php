@@ -54,7 +54,7 @@ function GetDataTransaksi()
               FROM jurnaldetail jd, rekakun r
              WHERE jd.koderek = r.kode
                AND r.kategori = 'HARTA'
-               AND jd.idjurnal = '$idjurnal'";
+               AND jd.idjurnal = '".$idjurnal."'";
     $row = FetchSingleArray($sql);
     $rekkastrans = $row['koderek'];
     $idjurnalrekkas = $row['replid'];
@@ -105,7 +105,7 @@ function SimpanTransaksi()
             $sql = "SELECT SUM(debet), SUM(kredit)
                       FROM tabunganp
                      WHERE nip = '$nip'
-                       AND idtabungan = '$idtabungan'";
+                       AND idtabungan = '".$idtabungan."'";
             $result = QueryDbTrans($sql, $success);
             $row = mysqli_fetch_row($result);
             $jsetor = (int)$row[1];
@@ -141,7 +141,7 @@ function SimpanTransaksi()
                 $sql = "SELECT SUM(debet), SUM(kredit)
                           FROM tabunganp
                          WHERE nip = '$nip'
-                           AND idtabungan = '$idtabungan'";
+                           AND idtabungan = '".$idtabungan."'";
                 $result = QueryDbTrans($sql, $success);
                 $row = mysqli_fetch_row($result);
                 $jsetor = (int)$row[1];
@@ -182,7 +182,7 @@ function SimpanTransaksi()
         $idjurnal = 0;
         if ($success)
         {
-            $sql = "SELECT idjurnal FROM tabunganp WHERE replid = '$idpembayaran'";
+            $sql = "SELECT idjurnal FROM tabunganp WHERE replid = '".$idpembayaran."'";
             $idjurnal = FetchSingle($sql);
         }
         

@@ -43,7 +43,7 @@ if ($op=="simpan"){
 	$tglakhirsimpan = TglDb($tglakhir);
 
 	OpenDb();
-	$sql_simpan_cek="SELECT * FROM jbsakad.infojadwal WHERE deskripsi='$deskripsi' AND tglmulai='$tglmulaisimpan' AND 	tglakhir='$tglakhirsimpan' AND idtahunajaran = '$tahunajaran'";  
+	$sql_simpan_cek="SELECT * FROM jbsakad.infojadwal WHERE deskripsi='$deskripsi' AND tglmulai='$tglmulaisimpan' AND 	tglakhir='$tglakhirsimpan' AND idtahunajaran = '".$tahunajaran."'";  
 	$result_simpan_cek=QueryDb($sql_simpan_cek);	
 	if ($row_simpan_cek=@mysqli_num_rows($result_simpan_cek)){
 	?>
@@ -53,7 +53,7 @@ if ($op=="simpan"){
 		</SCRIPT>
 	<?php
 	} else {
-		$sql_simpan="INSERT INTO jbsakad.infojadwal SET deskripsi='$deskripsi', tglmulai='$tglmulaisimpan', tglakhir='$tglakhirsimpan', idtahunajaran = '$tahunajaran'";  
+		$sql_simpan="INSERT INTO jbsakad.infojadwal SET deskripsi='$deskripsi', tglmulai='$tglmulaisimpan', tglakhir='$tglakhirsimpan', idtahunajaran = '".$tahunajaran."'";  
 		$result_simpan=QueryDb($sql_simpan);
 		if ($result_simpan){
 			$sql_simpan_ambil="SELECT LAST_INSERT_ID(replid) FROM infojadwal ORDER BY replid DESC LIMIT 1";  

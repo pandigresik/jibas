@@ -248,11 +248,11 @@ class DaftarPribadi
 
                         if ($repliddata == 0)
                             $sql = "INSERT INTO jbssdm.tambahandatapegawai
-                                       SET nip = '$this->nip', idtambahan = '$replid', jenis = '$jenis', teks = '$teks'";
+                                       SET nip = '$this->nip', idtambahan = '$replid', jenis = '$jenis', teks = '".$teks."'";
                         else
                             $sql = "UPDATE jbssdm.tambahandatapegawai
                                        SET teks = '$teks'
-                                     WHERE replid = '$repliddata'";
+                                     WHERE replid = '".$repliddata."'";
 
                         QueryDbTrans($sql, $success);
                     }
@@ -286,11 +286,11 @@ class DaftarPribadi
                             if ($repliddata == 0)
                                 $sql = "INSERT INTO jbssdm.tambahandatapegawai
                                            SET nip = '$this->nip', idtambahan = '$replid', jenis = '2', 
-                                               filedata = '$datafile', filename = '$namefile', filemime = '$typefile', filesize = '$sizefile'";
+                                               filedata = '$datafile', filename = '$namefile', filemime = '$typefile', filesize = '".$sizefile."'";
                             else
                                 $sql = "UPDATE jbssdm.tambahandatapegawai
                                            SET filedata = '$datafile', filename = '$namefile', filemime = '$typefile', filesize = '$sizefile'
-                                         WHERE replid = '$repliddata'";
+                                         WHERE replid = '".$repliddata."'";
 
                             QueryDbTrans($sql, $success);
                         }

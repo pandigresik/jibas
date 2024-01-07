@@ -49,7 +49,7 @@ $sql = "SELECT t.departemen, a.tahunajaran, k.kelas, t.tingkat, s.nama, a.tglmul
          WHERE k.idtingkat = t.replid 
            AND k.idtahunajaran = a.replid 
            AND k.replid = '$kelas' 
-           AND s.nis = '$nis'";
+           AND s.nis = '".$nis."'";
 
 $result = QueryDB($sql);
 $row = mysqli_fetch_array($result);

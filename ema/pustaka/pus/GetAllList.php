@@ -36,7 +36,7 @@ if ($idperpustakaan != -1)
   $filter=" AND d.perpustakaan=".$idperpustakaan;
   
 $waktu = $_REQUEST['waktu'];
-$waktu = split('-', $waktu);
+$waktu = explode('-', $waktu);
 ?>
 <table width="100%" border="1" cellspacing="0" cellpadding="5" class="tab">
 <tr height='25'>
@@ -49,7 +49,7 @@ $waktu = split('-', $waktu);
 $sql = "SELECT IF(p.nis IS NOT NULL, p.nis, IF(p.nip IS NOT NULL, p.nip, p.idmember)) AS idanggota,
 		       p.tglpinjam, p.info1, d.kodepustaka, pu.judul
 	      FROM jbsperpus.pinjam p, jbsperpus.daftarpustaka d, jbsperpus.pustaka pu
-		 WHERE MONTH(p.tglpinjam)='$waktu[0]' AND YEAR(p.tglpinjam)='$waktu[1]'
+		 WHERE MONTH(p.tglpinjam)='".$waktu[0]."' AND YEAR(p.tglpinjam)='$waktu[1]'
 		   AND p.kodepustaka=d.kodepustaka
 		   AND d.pustaka=pu.replid $filter
 		 ORDER BY tglpinjam DESC";
@@ -83,19 +83,19 @@ function GetMemberName($idanggota, $jenisanggota)
 	{
 		$sql = "SELECT nama
 				  FROM jbsakad.siswa
-				 WHERE nis = '$idanggota'";
+				 WHERE nis = '".$idanggota."'";
 	}
 	elseif ($jenisanggota == "pegawai")
 	{
 		$sql = "SELECT nama
 				  FROM jbssdm.pegawai
-				 WHERE nip = '$idanggota'";
+				 WHERE nip = '".$idanggota."'";
 	}
 	else
 	{
 		$sql = "SELECT nama
 				  FROM jbsperpus.anggota
-				 WHERE noregistrasi = '$idanggota'";
+				 WHERE noregistrasi = '".$idanggota."'";
 	}
 	$res = QueryDb($sql);
 	$row = mysqli_fetch_row($res);

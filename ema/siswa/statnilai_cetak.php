@@ -51,7 +51,7 @@ $dasarpenilaian = "";
 if (isset($_REQUEST['dasarpenilaian']))
 	$dasarpenilaian = $_REQUEST['dasarpenilaian'];	
 OpenDb();
-$sql = "SELECT keterangan FROM dasarpenilaian WHERE dasarpenilaian = '$dasarpenilaian'";
+$sql = "SELECT keterangan FROM dasarpenilaian WHERE dasarpenilaian = '".$dasarpenilaian."'";
 $res2 = QueryDb($sql);
 $row2 = mysqli_fetch_row($res2);
 $aspekket = $row2[0];
@@ -120,7 +120,7 @@ $aspekket = $row2[0];
 				   AND i.idpelajaran = '$pelajaran'
 				   AND i.idsemester = '$semester'
 				   AND k.idtahunajaran = '$tahunajaran'
-				   AND k.idtingkat = '$tingkat'";
+				   AND k.idtingkat = '".$tingkat."'";
 				   
         $result=Querydb($sql);
         $row = @mysqli_fetch_array($result);
@@ -164,7 +164,7 @@ $aspekket = $row2[0];
 				   AND i.idpelajaran = '$pelajaran'
 				   AND i.idsemester = '$semester'
 				   AND k.idtahunajaran = '$tahunajaran'
-				   AND k.idtingkat = '$tingkat'";
+				   AND k.idtingkat = '".$tingkat."'";
 				   
         //echo "$sql<br>";
         $result = QueryDb($sql);

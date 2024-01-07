@@ -268,7 +268,7 @@ function cetak(){
 				   AND i.idpelajaran = '$pelajaran'
 				   AND i.idsemester = '$semester'
 				   AND k.idtahunajaran = '$tahunajaran'
-				   AND k.idtingkat = '$tingkat'";						
+				   AND k.idtingkat = '".$tingkat."'";						
                     //echo $sql;
         $result = Querydb($sql);
         $row = @mysqli_fetch_array($result);
@@ -312,7 +312,7 @@ function cetak(){
 				   AND i.idpelajaran = '$pelajaran'
 				   AND i.idsemester = '$semester'
 				   AND k.idtahunajaran = '$tahunajaran'
-				   AND k.idtingkat = '$tingkat'";
+				   AND k.idtingkat = '".$tingkat."'";
 				   
         //echo "$sql<br>";
         $result = QueryDb($sql);

@@ -168,7 +168,7 @@ for($i = 0; $i < count($arrjenis); $i++)
              WHERE nis = '$nis'
                AND idsemester = '$semester'
                AND idkelas = '$kelas'
-               AND jenis = '$jenis'";
+               AND jenis = '".$jenis."'";
     $res = QueryDb($sql);
     if ($row = mysqli_fetch_row($res))
     {

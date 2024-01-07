@@ -188,12 +188,12 @@ function saveUserInfo($userid, $sessionid, $jsonData)
     OpenDb();
 
     $sql = "DELETE FROM jbscbe.webuserinfo
-             WHERE userid = '$userid'";
+             WHERE userid = '".$userid."'";
     QueryDb($sql);
 
     $sql = "INSERT INTO jbscbe.webuserinfo 
                SET userid = '$userid', sessionid = '$sessionid', 
-                   logintime = NOW(), userpict = '$userpict', welcome = '$welcome'";
+                   logintime = NOW(), userpict = '$userpict', welcome = '".$welcome."'";
     QueryDb($sql);
 
     CloseDb();

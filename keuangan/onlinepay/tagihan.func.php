@@ -51,7 +51,7 @@ function ShowSelectTingkat()
             $idTingkat = $row[0];
             $tingkat = $row[1];
         }
-        echo "<option value='$row[0]'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>$row[1]</option>";
     }
     echo "</select>";
 }
@@ -82,8 +82,8 @@ function ShowTableKelas()
         echo "</td>";
         echo "<td width='450' align='left'>";
         echo $row[1];
-        echo "<input type='hidden' id='idkelas$no' name='idkelas$no' value='$row[0]'>";
-        echo "<input type='hidden' id='kelas$no' name='kelas$no' value='$row[1]'>";
+        echo "<input type='hidden' id='idkelas$no' name='idkelas$no' value='".$row[0]."'>";
+        echo "<input type='hidden' id='kelas$no' name='kelas$no' value='".$row[1]."'>";
         echo "</td>";
         echo "</tr>";
     }
@@ -121,8 +121,8 @@ function ShowTableIuran()
         echo "</td>";
         echo "<td align='left'>";
         echo $row[1];
-        echo "<input type='hidden' id='idiuran$no' name='idiuran$no' value='$row[0]'>";
-        echo "<input type='hidden' id='iuran$no' name='iuran$no' value='$row[1]'";
+        echo "<input type='hidden' id='idiuran$no' name='idiuran$no' value='".$row[0]."'>";
+        echo "<input type='hidden' id='iuran$no' name='iuran$no' value='".$row[1]."'";
         echo "</td>";
         echo "<td align='left'>";
         $elDiskon = "diskon$no";
@@ -212,7 +212,7 @@ function CreateInvoice()
         $awalanNoTagihan = "";
         $sql = "SELECT awalan 
                   FROM jbsfina.formatnomortagihan
-                 WHERE departemen = '$dept'";
+                 WHERE departemen = '".$dept."'";
         $res = QueryDbEx($sql);
         if ($row = mysqli_fetch_row($res))
         {
@@ -222,7 +222,7 @@ function CreateInvoice()
         {
             $sql = "SELECT replid
                       FROM jbsakad.departemen 
-                     WHERE departemen = '$dept'";
+                     WHERE departemen = '".$dept."'";
             $res = QueryDbEx($sql);
             if ($row = mysqli_fetch_row($res))
             {
@@ -408,7 +408,7 @@ function CreateInvoice()
             $sql = "SELECT DISTINCT idpenerimaan
                       FROM jbsfina.besarjtt 
                      WHERE nis = '$nis'
-                       AND info2 = '$idTahunBuku'";
+                       AND info2 = '".$idTahunBuku."'";
             $res = QueryDbEx($sql);
             while($row = mysqli_fetch_row($res))
             {
@@ -470,7 +470,7 @@ function CreateInvoice()
                      WHERE b.idpenerimaan = dp.replid
                        AND b.idpenerimaan IN ($stIdInvoice)
                        AND b.nis = '$nis'
-                       AND b.info2 = '$idTahunBuku'";  // change on 2023-03-31
+                       AND b.info2 = '".$idTahunBuku."'";  // change on 2023-03-31
             $res = QueryDbEx($sql);
             while($row = mysqli_fetch_row($res))
             {

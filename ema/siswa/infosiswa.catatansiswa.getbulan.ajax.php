@@ -46,7 +46,7 @@ OpenDb();
     {
        	while ($row=@mysqli_fetch_array($result))
         {
-    	  	$sql_cnt="SELECT COUNT(*) FROM jbsvcr.catatansiswa WHERE nis='$nis' AND MONTH(tanggal)='$row['bulan']' AND YEAR(tanggal)='$tahun'";
+    	  	$sql_cnt="SELECT COUNT(*) FROM jbsvcr.catatansiswa WHERE nis== '".$nis."' AND MONTH(tanggal)='".$row['bulan']."' AND YEAR(tanggal)='$tahun'";
 		  	$res_cnt=QueryDb($sql_cnt);
 			$row_cnt=@mysqli_fetch_row($res_cnt); ?>
             <tr onClick="ShowCatatanSiswa('<?=$nis?>','<?=$row['bulan']?>','<?=$tahun?>')" style="cursor:pointer;" title="Klik untuk menampilkan daftar Catatan Siswa">

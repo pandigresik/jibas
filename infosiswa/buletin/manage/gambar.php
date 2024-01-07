@@ -30,7 +30,7 @@ $table = $_REQUEST['table'];
 
 OpenDb();
 header("Content-type: image/jpeg");
-$query = "SELECT foto FROM $table WHERE replid = '$replid'";
+$query = "SELECT foto FROM $table WHERE replid = '".$replid."'";
 
 $result = QueryDb($query);
 $num = @mysqli_num_rows($result);

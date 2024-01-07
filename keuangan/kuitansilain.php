@@ -36,7 +36,7 @@ $id = $_REQUEST['id'];
 $sql = "SELECT p.replid AS id, j.nokas, p.sumber, j.transaksi, date_format(p.tanggal, '%d-%b-%Y') AS tanggal,
 			   p.keterangan, p.jumlah, p.petugas, j.idtahunbuku
 		  FROM penerimaanlain p, jurnal j
-		 WHERE j.replid = p.idjurnal AND p.replid = '$id'";
+		 WHERE j.replid = p.idjurnal AND p.replid = '".$id."'";
 $row = FetchSingleArray($sql);
 $nokas = $row['nokas'];
 $transaksi = $row['transaksi'];

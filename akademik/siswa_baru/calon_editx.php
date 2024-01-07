@@ -48,7 +48,7 @@ $blnlahir = (int)$row_siswa['bulan'];
 $thnlahir = (int)$row_siswa['tahun'];
 
 /*OpenDb();
-$query = "SELECT urutan FROM jbsakad.departemen WHERE departemen = '$departemen'";	
+$query = "SELECT urutan FROM jbsakad.departemen WHERE departemen = '".$departemen."'";	
 $hasil = QueryDb($query);	
 CloseDb();
 $row = mysqli_fetch_array($hasil);
@@ -57,7 +57,7 @@ $urutan = $row['urutan'];
 
 if ($row_siswa['asalsekolah'] <> NULL) {
 	OpenDb();
-	$query = "SELECT departemen FROM asalsekolah WHERE sekolah = '".$row_siswa[asalsekolah]'";
+	$query = "SELECT departemen FROM asalsekolah WHERE sekolah = '".$row_siswa['asalsekolah']."'";
 	$hasil = QueryDb($query);	
 	CloseDb();
 	$row = mysqli_fetch_array($hasil);
@@ -792,7 +792,7 @@ function focusNext(elemName, evt) {
 					if ($kelompok == "")
 						$kelompok = $row['replid'];
 										
-					$sql1 = "SELECT COUNT(replid) FROM calonsiswa WHERE idkelompok = $row['replid']";
+					$sql1 = "SELECT COUNT(replid) FROM calonsiswa WHERE idkelompok = ".$row['replid']."";
 					$result1 = QueryDb($sql1);				
 					$row1 = mysqli_fetch_row($result1);
 					

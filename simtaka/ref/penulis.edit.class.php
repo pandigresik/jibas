@@ -31,7 +31,7 @@ class CPenulisEdit{
 			if ($num>0){
 				$this->exist();
 			} else {
-				$sql = "UPDATE penulis SET kode='".CQ($_REQUEST['kode'])."', nama='".CQ($_REQUEST['nama'])."', kontak='".CQ($_REQUEST['kontak'])."', biografi='".CQ($_REQUEST['biografi'])."', keterangan='".CQ($_REQUEST['keterangan'])."', gelardepan='".CQ($_REQUEST['gelardepan'])."', gelarbelakang='".CQ($_REQUEST['gelarbelakang'])."' WHERE replid=$_REQUEST['replid']";
+				$sql = "UPDATE penulis SET kode='".CQ($_REQUEST['kode'])."', nama='".CQ($_REQUEST['nama'])."', kontak='".CQ($_REQUEST['kontak'])."', biografi='".CQ($_REQUEST['biografi'])."', keterangan='".CQ($_REQUEST['keterangan'])."', gelardepan='".CQ($_REQUEST['gelardepan'])."', gelarbelakang='".CQ($_REQUEST['gelarbelakang'])."' WHERE replid= $_REQUEST['replid'];
 				$result = QueryDb($sql);
 				if ($result)
 					$this->success();

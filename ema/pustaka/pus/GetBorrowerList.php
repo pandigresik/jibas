@@ -41,11 +41,11 @@ $from = $_REQUEST['from'];
 $to = $_REQUEST['to'];
 
 if ($jenisanggota == "siswa")
-  $filter = "AND p.nis = '$idanggota'";
+  $filter = "AND p.nis = '".$idanggota."'";
 elseif ($jenisanggota == "pegawai")
-  $filter = "AND p.nip = '$idanggota'";
+  $filter = "AND p.nip = '".$idanggota."'";
 else
-  $filter = "AND p.idmember = '$idanggota'";
+  $filter = "AND p.idmember = '".$idanggota."'";
 
 ?>
 <table width="100%" border="1" cellspacing="0" cellpadding="5" class="tab">

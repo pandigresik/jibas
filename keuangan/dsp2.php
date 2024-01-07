@@ -160,7 +160,7 @@ function manageLock(no) {
 	$result = QueryDb($sql);
 	$no = 0;
 	while ($row = mysqli_fetch_array($result)) {
-		$sql = "SELECT replid AS id, dsp, keterangan FROM jbsfina.datadsp WHERE nis = '".$row[0]'";
+		$sql = "SELECT replid AS id, dsp, keterangan FROM jbsfina.datadsp WHERE nis = '".$row[0]."'";
 		$result2 = QueryDb($sql);
 		$ndsp = mysqli_num_rows($result2);
 		$iddsp = 0;

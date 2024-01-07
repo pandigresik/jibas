@@ -46,24 +46,24 @@ header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 
 OpenDb();
 
-$sql = "SELECT tahunajaran FROM tahunajaran WHERE replid = '$tahunajaran'";
+$sql = "SELECT tahunajaran FROM tahunajaran WHERE replid = '".$tahunajaran."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_row($res);
 $ta  = $row[0];
 
-$sql = "SELECT kelas FROM kelas WHERE replid = '$kelas'";
+$sql = "SELECT kelas FROM kelas WHERE replid = '".$kelas."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_row($res);
 $kls = $row[0];
 
-$sql = "SELECT semester FROM semester WHERE replid = '$semester'";
+$sql = "SELECT semester FROM semester WHERE replid = '".$semester."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_row($res);
 $sem = $row[0];
 
 if ($pelajaran != 0)
 {
-    $sql = "SELECT nama FROM pelajaran WHERE replid = '$pelajaran'";
+    $sql = "SELECT nama FROM pelajaran WHERE replid = '".$pelajaran."'";
     $res = QueryDb($sql);
     $row = mysqli_fetch_row($res);
     $pel = $row[0];
@@ -206,7 +206,7 @@ for($i = 0; $i < $nSiswa; $i++)
                        AND i.idpelajaran = $idPel
                        AND i.idsemester = $semester
                        AND i.idkelas = $kelas
-                       AND a.dasarpenilaian = '$kdAspek'";
+                       AND a.dasarpenilaian = '".$kdAspek."'";
             $res = QueryDb($sql);
             $nData = mysqli_num_rows($res);
 

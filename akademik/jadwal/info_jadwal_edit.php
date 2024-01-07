@@ -53,7 +53,7 @@ if (isset($_REQUEST['Simpan'])) {
 		CloseDb();
 		$ERROR_MSG = $deskripsi." sudah digunakan!";
 	} else {
-		$sql_simpan="UPDATE jbsakad.infojadwal SET deskripsi='$deskripsi' WHERE replid = '$replid'";
+		$sql_simpan="UPDATE jbsakad.infojadwal SET deskripsi='$deskripsi' WHERE replid = '".$replid."'";
 		$result_simpan=QueryDb($sql_simpan);
 		CloseDb();
 		if ($result_simpan){		

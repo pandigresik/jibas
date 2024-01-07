@@ -35,7 +35,7 @@ $no = $_REQUEST['no'];
 $departemen = $_REQUEST['departemen'];
 $filter = "";
 if ($departemen <> -1) 
-	$filter = "AND p.departemen = '$departemen'";
+	$filter = "AND p.departemen = '".$departemen."'";
 	
 $urut3 = "c.nama";	
 if (isset($_REQUEST['urut3']))

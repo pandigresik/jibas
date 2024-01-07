@@ -43,7 +43,7 @@ function GetNewBarcode()
         
         $sql = "SELECT COUNT(replid)
                   FROM daftarpustaka
-                 WHERE info1 = '$barcode'";
+                 WHERE info1 = '".$barcode."'";
         $res = QueryDb($sql);
         $row = mysqli_fetch_row($res);
         $ndata = (int)$row[0];		 
@@ -77,7 +77,7 @@ function GenKodePustaka($katalog, $penulis, $judul, $format, $counter)
     {
         $kode = $ktlg[0] . "/" . $pnls[0] . "/" . $jdl . "/" . $cnt . "/" . $frmt[0];
         
-        $sql = "SELECT COUNT(replid) FROM daftarpustaka WHERE kodepustaka = '$kode'";
+        $sql = "SELECT COUNT(replid) FROM daftarpustaka WHERE kodepustaka = '".$kode."'";
         $result = QueryDb($sql);
         $row = mysqli_fetch_row($result);
         
@@ -108,7 +108,7 @@ function Save()
     
     $sql = "SELECT judul, katalog, penulis, format
               FROM jbsperpus.pustaka
-             WHERE replid = '$idpustaka'";
+             WHERE replid = '".$idpustaka."'";
     //echo "$sql<br>";		          
     $res = QueryDb($sql);
     $row = mysqli_fetch_row($res);
@@ -119,7 +119,7 @@ function Save()
     
     $sql = "SELECT counter
               FROM katalog
-             WHERE replid = '$idkatalog'";
+             WHERE replid = '".$idkatalog."'";
     //echo "$sql<br>";		          
     $result = QueryDbTrans($sql, $success);
     $r = @mysqli_fetch_row($result);
@@ -149,7 +149,7 @@ function Save()
     {
         $sql = "UPDATE katalog
                    SET counter = $counter
-                 WHERE replid = '$idkatalog'";
+                 WHERE replid = '".$idkatalog."'";
         //echo "$sql<br>";		 
         QueryDbTrans($sql, $success);	
     }

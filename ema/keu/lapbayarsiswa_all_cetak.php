@@ -96,7 +96,7 @@ while ($row = mysqli_fetch_array($result)) {
 	$lunas = $row['lunas'];
 	$keterangan = $row['keterangan'];
 	
-	$sql = "SELECT SUM(jumlah) FROM $db_name_fina.penerimaanjtt WHERE idbesarjtt = '$idbesarjtt'";
+	$sql = "SELECT SUM(jumlah) FROM $db_name_fina.penerimaanjtt WHERE idbesarjtt = '".$idbesarjtt."'";
 	$result2 = QueryDb($sql);
 	$pembayaran = 0;
 	if (mysqli_num_rows($result2)) {

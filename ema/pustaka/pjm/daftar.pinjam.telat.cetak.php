@@ -154,21 +154,21 @@ $num = @mysqli_num_rows($result);
 		  $idanggota = $row['nis'];
 		  $sql = "SELECT nama
 					FROM jbsakad.siswa
-				   WHERE nis = '$idanggota'";
+				   WHERE nis = '".$idanggota."'";
 	  }
 	  elseif ($jenisanggota == "pegawai")
 	  {
 		  $idanggota = $row['nip'];
 		  $sql = "SELECT nama
 					FROM jbssdm.pegawai
-				   WHERE nip = '$idanggota'";
+				   WHERE nip = '".$idanggota."'";
 	  }
 	  else
 	  {
 		  $idanggota = $row['idmember'];
 		  $sql = "SELECT nama
 					FROM jbsperpus.anggota
-				   WHERE noregistrasi = '$idanggota'";
+				   WHERE noregistrasi = '".$idanggota."'";
 	  }
 	  $res3 = QueryDb($sql);
 	  $row3 = mysqli_fetch_row($res3);

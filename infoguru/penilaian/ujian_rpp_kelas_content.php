@@ -186,7 +186,7 @@ function cetak(){
     ?>
       	<!--<tr>
         	<td height="25" align="center"><?=++$cnt?></td>
-        	<td height="25"><div align="center"><?=$row_kls[kelas]?></div></td>
+        	<td height="25"><div align="center"><?=$row_kls['kelas']?></div></td>
         	<td height="25" align="center"><?=round(($row[0]/$row[1]),2);?></td>
       	</tr>-->
   <?php 	//}  ?>

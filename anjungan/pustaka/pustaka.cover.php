@@ -31,7 +31,7 @@ OpenDb();
 	
 $sql = "SELECT cover
           FROM jbsperpus.pustaka
-         WHERE replid = '$replid'";
+         WHERE replid = '".$replid."'";
 $result = QueryDb($sql);
 if ($row = mysqli_fetch_array($result)) 
 {

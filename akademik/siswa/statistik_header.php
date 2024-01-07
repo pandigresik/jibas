@@ -142,7 +142,7 @@ function panggil(elem){
 			$dep = "";
 		} else	{
 			$disable = "";
-			$dep = "AND departemen = '$departemen'";
+			$dep = "AND departemen = '".$departemen."'";
 		}
 		
 		?>

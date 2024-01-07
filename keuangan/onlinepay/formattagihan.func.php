@@ -34,7 +34,7 @@ function SimpanNomorTagihan()
             $key = "awalan$i";
             $awalan = $_REQUEST[$key];
 
-            $sql = "UPDATE jbsfina.formatnomortagihan SET awalan = '$awalan', issync = 0 WHERE departemen = '$dept'";
+            $sql = "UPDATE jbsfina.formatnomortagihan SET awalan = '$awalan', issync = 0 WHERE departemen = '".$dept."'";
             QueryDbEx($sql);
         }
 

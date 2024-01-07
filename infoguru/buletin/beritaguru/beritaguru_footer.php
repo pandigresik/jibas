@@ -209,7 +209,7 @@ function chg_title_color(id,stat){
               </tr>
               <tr onclick="bacaberita('<?=$row1['replid']?>')" onmouseover="chg_title_color('title<?=$row1['replid']?>','1')" onmouseout="chg_title_color('title<?=$row1['replid']?>','0')">
                 <td colspan="2" align="left">
-					<?=$row1[abstrak];
+					<?=$row1['abstrak'];
 						//$is=$row1['isi'];
 						//echo removetag($is,200)."...";
                     ?>
@@ -217,7 +217,7 @@ function chg_title_color(id,stat){
               </tr>
               <tr>
               	<td colspan="2" align="right">
-              		<?php if ($row1[nip]==$idguru){ ?>
+              		<?php if ($row1['nip']==$idguru){ ?>
                         <img src="../../images/ico/ubah.png" border="0" onclick="ubah('<?=$row1['replid']?>','<?=$page?>')" style="cursor:pointer;" title="Ubah Berita ini !" />&nbsp;<img src="../../images/ico/hapus.png" border="0" onclick="hapus('<?=$row1['replid']?>')" style="cursor:pointer;" title="Hapus Berita ini !" />
 	                <?php } ?>              	</td>
               </tr>

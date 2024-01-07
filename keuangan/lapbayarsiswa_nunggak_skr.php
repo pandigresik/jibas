@@ -214,7 +214,7 @@ $totalbayarall = 0;
 
 $totalbiayaallB = 0;
 while ($rowA = @mysqli_fetch_row($result_tot)) {
-	$sqlB = "SELECT jumlah FROM penerimaaniuran WHERE nis = '".$rowA[0]' AND idpenerimaan = '$idpenerimaan' ORDER BY tanggal";
+	$sqlB = "SELECT jumlah FROM penerimaaniuran WHERE nis = '".$rowA[0]."' AND idpenerimaan = '$idpenerimaan' ORDER BY tanggal";
 	$resultB = QueryDb($sqlB);
 	while ($rowB = mysqli_fetch_row($resultB)) {
 		$totalbiayaallB += $rowB[0];
@@ -228,7 +228,7 @@ while ($row = mysqli_fetch_array($result)) {
     <td align="center"><?=$row['nis'] ?></td>
     <td><?=$row['nama'] ?></td>
     <td align="center"><?php if ($idkelas == -1) echo  $row['tingkat']." - "; ?><?=$row['kelas'] ?></td>
-<?php $sql = "SELECT count(*) FROM penerimaaniuran WHERE nis = '$nis' AND idpenerimaan = '$idpenerimaan'";
+<?php $sql = "SELECT count(*) FROM penerimaaniuran WHERE nis = '$nis' AND idpenerimaan = '".$idpenerimaan."'";
 	//echo  "$sql<br>";
 	$result2 = QueryDb($sql);
 	$row2 = mysqli_fetch_row($result2);
@@ -259,7 +259,7 @@ while ($row = mysqli_fetch_array($result)) {
         </td>
     <?php }?>
     	<td align="center">
-<?php $sql = "SELECT max(datediff('$tgl', tanggal)) FROM penerimaaniuran WHERE nis = '$nis' AND idpenerimaan = '$idpenerimaan'";
+<?php $sql = "SELECT max(datediff('$tgl', tanggal)) FROM penerimaaniuran WHERE nis = '$nis' AND idpenerimaan = '".$idpenerimaan."'";
 	$result2 = QueryDb($sql);
 	$row2 = mysqli_fetch_row($result2);
 	echo  $row2[0]; ?>

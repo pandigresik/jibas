@@ -154,7 +154,7 @@ if ($op == "xm8r389xemx23xb2378e23")
 <?php
     $sql = "SELECT replid, pilihan, aktif, urutan
               FROM pilihandata
-             WHERE idtambahan = '$idtambahan'";
+             WHERE idtambahan = '".$idtambahan."'";
     $res = QueryDb($sql);
     $cnt = 0;
     while($row = mysqli_fetch_row($res))

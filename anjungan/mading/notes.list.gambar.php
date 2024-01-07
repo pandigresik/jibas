@@ -33,7 +33,7 @@ $ownertype = $_REQUEST['ownertype'];
 
 $sql = $ownertype == 'S' ?
        "SELECT foto, foto IS NULL AS isnull FROM jbsakad.siswa WHERE nis = '$ownerid'" :
-       "SELECT foto, foto IS NULL AS isnull FROM jbssdm.pegawai WHERE nip = '$ownerid'";
+       "SELECT foto, foto IS NULL AS isnull FROM jbssdm.pegawai WHERE nip = '".$ownerid."'";
 $res = QueryDb($sql);
 
 if (mysqli_num_rows($res) > 0)

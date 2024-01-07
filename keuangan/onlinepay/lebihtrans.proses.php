@@ -88,7 +88,7 @@ $rp = FormatRupiah($jumlah);
                   FROM jbsfina.pgtrans p
                  INNER JOIN jbsfina.bank b ON p.bankno = b.bankno
                   LEFT JOIN jbsakad.siswa s ON p.nis = s.nis
-                 WHERE p.nomor = '$nomor'";
+                 WHERE p.nomor = '".$nomor."'";
         $res = QueryDb($sql);
         $row = mysqli_fetch_array($res);
         $idPgTrans = $row["replid"];

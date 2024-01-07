@@ -41,7 +41,7 @@ $ERROR_MSG = "";
 
 if (isset($_REQUEST['Simpan'])) {
 	OpenDb();
-	$sql = "SELECT * FROM statusguru WHERE status = '$status'";
+	$sql = "SELECT * FROM statusguru WHERE status = '".$status."'";
 	$result = QueryDb($sql);
 	
 	if (mysqli_num_rows($result) > 0) {

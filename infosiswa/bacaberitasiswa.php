@@ -115,7 +115,7 @@ $tglberita=$row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
         $sql2="SELECT direktori,namafile FROM jbsvcr.lampiranberitasiswa WHERE idberita='".$row['replid']."'";
         $result2=QueryDb($sql2);
         while ($row2=@mysqli_fetch_array($result2)){
-            echo "<a title='Buka lampiran ini!' href='".$row2[direktori].$row2[namafile]."' target='_blank'><img border='0' src='images/ico/titik.png' width='5' height='5'/> ".$row2['namafile']."</a><br>";
+            echo "<a title='Buka lampiran ini!' href='".$row2['direktori'].$row2['namafile']."' target='_blank'><img border='0' src='images/ico/titik.png' width='5' height='5'/> ".$row2['namafile']."</a><br>";
         }
         CloseDb();
         ?></td>

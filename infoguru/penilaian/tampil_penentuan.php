@@ -145,14 +145,14 @@ function refreshpage() {
     
 <?php
     
-$query_p = "SELECT nama FROM jbsakad.pelajaran WHERE replid = '$pelajaran'";
+$query_p = "SELECT nama FROM jbsakad.pelajaran WHERE replid = '".$pelajaran."'";
 $result_p = QueryDb($query_p);
 $row_p = @mysqli_fetch_array($result_p);
 
 $query_infonap = "SELECT replid FROM jbsakad.infonap " .
                  " WHERE infonap.idkelas = '$kelas'  ".
         		 " AND infonap.idpelajaran = '$pelajaran' ".
-                 " AND infonap.idsemester = '$semester'";
+                 " AND infonap.idsemester = '".$semester."'";
 $result_infonap = QueryDb($query_infonap);
 $row_infonap = @mysqli_fetch_array($result_infonap);
 $num_infonap = @mysqli_num_rows($result_infonap);
@@ -189,7 +189,7 @@ $num = @mysqli_num_rows($result);
 $my_data = "";
  
 while($row = @mysqli_fetch_array($result)) {
-    $my_data[$row['nis']][nama] = $row['nama'];
+    $my_data[$row['nis']]['nama'] = $row['nama'];
     $my_data[$row['nis']][$row['idjenis']] = $row['nilaiAU'];
 }
 
@@ -197,25 +197,25 @@ $query_cek = "SELECT replid, nilaimin FROM jbsakad.infonap ".
                 "WHERE idpelajaran = '$pelajaran' ".
                 "AND idsemester = '$semester' ".
                 "AND idkelas = '$kelas' ";
-                //"AND tingkat = '$tingkat'";
+                //"AND tingkat = '".$tingkat."'";
 $result_cek = QueryDb($query_cek);
 $num_cek = @mysqli_num_rows($result_cek);
 $row_cek = @mysqli_fetch_array($result_cek);
 
 $query_nhb2 = "SELECT replid, dasarpenilaian, bobot ".
             "FROM jbsakad.aturannhb WHERE idpelajaran = '$pelajaran' ".
-            "AND idtingkat = '$tingkat'";
+            "AND idtingkat = '".$tingkat."'";
 $result_nhb2 = QueryDb($query_nhb2) or die(mysqli_error($mysqlconnection));
 $num_nhb2 = @mysqli_num_rows($result_nhb2);
 
-$qq = "SELECT tingkat FROM jbsakad.tingkat WHERE replid = '$tingkat'";
+$qq = "SELECT tingkat FROM jbsakad.tingkat WHERE replid = '".$tingkat."'";
 $rr = QueryDb($qq);
 $rw = mysqli_fetch_array($rr);
 
 if($num_nhb2 == 0) {
   	?>
   	<script language="javascript">
-  		alert("Masukkan terlebih dahulu Dasar Penilaian dan Bobot Penilaian untuk Pelajaran <?=$row_p[nama] ?> dan Tingkat <?=$rw[tingkat] ?>");
+  		alert("Masukkan terlebih dahulu Dasar Penilaian dan Bobot Penilaian untuk Pelajaran <?=$row_p['nama'] ?> dan Tingkat <?=$rw['tingkat'] ?>");
   	</script>
   	<?php
 }else {
@@ -225,7 +225,7 @@ if($num_cek > 0) {
     if($num == 0) {
         echo "
             <font color='red' size='2'><b>Nilai Akhir Ujian untuk pelajaran</font>
-            <font color='black' size='2'>$row_p[nama] </font><font color='red' size='2'>belum ada.
+            <font color='black' size='2'>$row_p['nama'] </font><font color='red' size='2'>belum ada.
             Masukkanlah terlebih dahulu nilai akhir pelajaran tersebut !</b></font>
         ";
     }else {
@@ -250,7 +250,7 @@ if($num_cek > 0) {
         <td rowspan="2" class="headerlong" width="70" height="30">NIS</td>
         <td rowspan="2" class="headerlong" width="150" height="30">Nama</td>
         <?php
-        $query_ju = "SELECT replid, jenisujian FROM jbsakad.jenisujian WHERE idpelajaran = '$pelajaran'";
+        $query_ju = "SELECT replid, jenisujian FROM jbsakad.jenisujian WHERE idpelajaran = '".$pelajaran."'";
         $result_ju = QueryDb($query_ju) or die(mysqli_error($mysqlconnection));
         $num_ju = @mysqli_num_rows($result_ju);
 		
@@ -267,7 +267,7 @@ if($num_cek > 0) {
         <?php
         $query_nhb = "SELECT replid, dasarpenilaian, bobot ".
                      "FROM jbsakad.aturannhb WHERE idpelajaran = '$pelajaran' ".
-                     "AND idtingkat = '$tingkat'";
+                     "AND idtingkat = '".$tingkat."'";
         $result_nhb = QueryDb($query_nhb) or die(mysqli_error($mysqlconnection));
         $num_nhb = @mysqli_num_rows($result_nhb);
 		
@@ -277,11 +277,11 @@ if($num_cek > 0) {
 		$idpraktek = "#";
 		$idkonsep = "#";
         while($row_nhb = @mysqli_fetch_array($result_nhb)) {
-            $plit = split(";", $row_nhb[bobot]);
+            $plit = explode(";", $row_nhb['bobot']);
             if($plit != "") {
                 foreach($plit as $pl) {
                     $r++;
-                    list($ujian, $bobot) = split(":", $pl);
+                    list($ujian, $bobot) = explode(":", $pl);
                     if($bobot != "") {
 						$cnt = 0;
 						$found = false;
@@ -293,7 +293,7 @@ if($num_cek > 0) {
 						}
 					    $as[$cnt] = $bobot;
                     }
-					if ($row_nhb[dasarpenilaian] == "Praktik") {
+					if ($row_nhb['dasarpenilaian'] == "Praktik") {
 						$idpraktek = $idpraktek . "[" . $ujian . "]";
 					} else {
 						$idkonsep = $idkonsep . "[" . $ujian . "]";
@@ -303,14 +303,14 @@ if($num_cek > 0) {
             $v++;
 			$r_aturan[] = $row_nhb['replid'];
 			$color = "white";
-			if ($row_nhb[dasarpenilaian] == "Praktik")
+			if ($row_nhb['dasarpenilaian'] == "Praktik")
 				$color = "cyan";
-			else if ($row_nhb[dasarpenilaian] == "Pemahaman Konsep")
+			else if ($row_nhb['dasarpenilaian'] == "Pemahaman Konsep")
 				$color = "yellow";
 				
             echo "<td class='headerlong' colspan='2' align='center'>
-                <input type='hidden' name='aturan$v' value='$row_nhb['replid']."'>
-                <font size='1' color='$color'>Nilai $row_nhb[dasarpenilaian]</font></td>";
+                <input type='hidden' name='aturan$v' value='".$row_nhb['replid']."'>
+                <font size='1' color='$color'>Nilai $row_nhb['dasarpenilaian']</font></td>";
         }
         ?>
         <td rowspan="2" class="headerlong" align="center">
@@ -339,7 +339,7 @@ if($num_cek > 0) {
 				else
 					$cnt++;
 			}
-            echo "<td class='headerlong' align='center'><font color='$color'>$row_ju[jenisujian] $as[$cnt]</font></td>";
+            echo "<td class='headerlong' align='center'><font color='$color'>$row_ju['jenisujian'] $as[$cnt]</font></td>";
             $kolom[$row_ju['replid']] = $row_ju['replid'];
         }
 
@@ -360,7 +360,7 @@ if($num_cek > 0) {
                 <tr>
                 <td align='center'>$i</td>
                 <td>$ns <input type='hidden' name='nis[]' value='$ns'></td>
-                <td>$d[nama]</td>
+                <td>".$d['nama']."</td>
             ";
             $z = 0;
             foreach($kolom as $k => $v) {
@@ -383,11 +383,11 @@ if($num_cek > 0) {
 				$result_nhb = QueryDb($query_nhb) or die(mysqli_error($mysqlconnection));
 				
 				while($row_nhb = @mysqli_fetch_array($result_nhb)) {
-					$plit = split(";", $row_nhb[bobot]);
+					$plit = explode(";", $row_nhb['bobot']);
 					if($plit != "") {
 						foreach($plit as $pl) {
 							$r++;
-							list($ujian, $bobot) = split(":", $pl);
+							list($ujian, $bobot) = explode(":", $pl);
 							if($bobot != "") {
 								$as[$r] = $bobot;
 							}
@@ -395,14 +395,14 @@ if($num_cek > 0) {
                                                                      "AND idjenis = '$ujian'" .
                                                                      "AND idkelas = '$kelas'  ". 
         							     "AND idpelajaran = '$pelajaran' ". 
-                                                                     "AND idsemester = '$semester'";
+                                                                     "AND idsemester = '".$semester."'";
 							$result_nau = QueryDb($query_nau);
 							$row_nau = mysqli_fetch_array($result_nau);
 
-							$nau_b = $row_nau[nilaiAU]*$bobot;
+							$nau_b = $row_nau['nilaiAU']*$bobot;
 							$ttl_bbt[$id_aturan] += $bobot;
 							$ttl_nau_b[$id_aturan] += $nau_b;
-							//echo "$ujian-$row_nau[NilaiAU]-$nau_b-$ttl_nau_b[$id_aturan]<br><br>";
+							//echo "$ujian-$row_nau['NilaiAU']-$nau_b-$ttl_nau_b[$id_aturan]<br><br>";
 						
                         }
                     }
@@ -458,7 +458,7 @@ if($num_cek > 0) {
 <?php
 if(isset($_POST['simpan'])) {
     $query_p = "INSERT INTO jbsakad.infonap(idpelajaran, idsemester, idkelas,  nilaimin) ".
-                "VALUES('$_POST['pelajaran']', '$_POST['semester']', '$_POST['kelas']', '$_POST['nlulus']')";
+                "VALUES('".$_POST['pelajaran']', '".$_POST['semester']', '$_POST['kelas']', '$_POST['nlulus']."')";
     $result_p = QueryDb($query_p) or die(mysqli_error($mysqlconnection));
 
     $query_l = "SELECT LAST_INSERT_ID(replid) As replid FROM jbsakad.infonap ORDER BY replid DESC LIMIT 1";

@@ -140,7 +140,7 @@ function focusNext(elemName, evt) {
 				$dep = "";
 			} else	{
 				$disable = "";
-				$dep = "AND departemen = '$departemen'";
+				$dep = "AND departemen = '".$departemen."'";
 			}
 			?>	  	</td>
     </tr>

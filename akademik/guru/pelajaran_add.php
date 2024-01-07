@@ -56,7 +56,7 @@ $ERROR_MSG = "";
 
 if (isset($_REQUEST['Simpan'])) {
 	OpenDb();
-	$sql = "SELECT * FROM pelajaran WHERE kode = '$kode'";
+	$sql = "SELECT * FROM pelajaran WHERE kode = '".$kode."'";
 	$result = QueryDb($sql);
 	
 	if (mysqli_num_rows($result) > 0) {

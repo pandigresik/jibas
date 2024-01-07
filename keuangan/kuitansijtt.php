@@ -73,7 +73,7 @@ if ($status == "calon")
 	$sql = "SELECT k.kelompok
 			  FROM jbsakad.calonsiswa cs, jbsakad.kelompokcalonsiswa k
 			 WHERE cs.idkelompok = k.replid
-			   AND cs.nopendaftaran = '$nis'";
+			   AND cs.nopendaftaran = '".$nis."'";
 }
 else
 {
@@ -81,13 +81,13 @@ else
 	$sql = "SELECT k.kelas
 			  FROM jbsakad.siswa s, jbsakad.kelas k
 			 WHERE s.idkelas = k.replid
-			   AND s.nis = '$nis'";	
+			   AND s.nis = '".$nis."'";	
 }
 $result = QueryDb($sql);
 $row = @mysqli_fetch_row($result);
 $kvalue = $row[0];
 
-$sql = "SELECT SUM(jumlah), SUM(info1) FROM penerimaanjtt$status WHERE idbesarjtt$status = '$idbesarjtt'";
+$sql = "SELECT SUM(jumlah), SUM(info1) FROM penerimaanjtt$status WHERE idbesarjtt$status = '".$idbesarjtt."'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_row($result);
 $jumlahbayar = $row[0];

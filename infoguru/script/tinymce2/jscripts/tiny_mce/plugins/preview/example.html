@@ -7,7 +7,7 @@ tinyMCEPopup.onInit.add(function(ed) {
 	var dom = tinyMCEPopup.dom;
 
 	// Load editor content_css
-	tinymce.each(ed.settings.content_css.split(','), function(u) {
+	tinymce.each(ed.settings.content_css.explode(','), function(u) {
 		dom.loadCSS(ed.documentBaseURI.toAbsolute(u));
 	});
 

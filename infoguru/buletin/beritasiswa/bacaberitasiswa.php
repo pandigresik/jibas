@@ -36,19 +36,19 @@ OpenDb();
 $sql_berita="SELECT YEAR(tanggal) as thn,MONTH(tanggal) as bln,DAY(tanggal) as tgl,replid as replid,judul as judul,abstrak as abstrak ,isi as berita,idpengirim FROM jbsvcr.beritasiswa WHERE replid='$replid'";
 $result_berita=QueryDb($sql_berita);
 $row_berita=@mysqli_fetch_array($result_berita);
-$sql_getnama="SELECT nama FROM jbsakad.siswa WHERE nis='$row_berita[idpengirim]'";
+$sql_getnama="SELECT nama FROM jbsakad.siswa WHERE nis='".$row_berita['idpengirim']."'";
 $result_getnama=QueryDb($sql_getnama);
 if (@mysqli_num_rows($result_getnama)>0)
 {
 	$row_getnama=@mysqli_fetch_array($result_getnama);
-	$nama=$row_getnama[nama];
+	$nama=$row_getnama['nama'];
 }
 else
 {
-	$sql_getnama2="SELECT nama FROM jbssdm.pegawai WHERE nip='$row_berita[idpengirim]'";	
+	$sql_getnama2="SELECT nama FROM jbssdm.pegawai WHERE nip='".$row_berita['idpengirim']."'";	
 	$result_getnama2=QueryDb($sql_getnama2);
 	$row_getnama2=@mysqli_fetch_array($result_getnama2);
-	$nama=$row_getnama2[nama];
+	$nama=$row_getnama2['nama'];
 }
 CloseDb();
 $namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");	

@@ -92,7 +92,7 @@ $result=QueryDb($sql);
           <tr>
             <td width="11%"><strong>Siswa</strong></td>
             <td width="1%"><strong>:</strong></td>
-            <td width="88%">[<?=$nis?>]&nbsp;<?=$row_nm_sis[nama]?></td>
+            <td width="88%">[<?=$nis?>]&nbsp;<?=$row_nm_sis['nama']?></td>
           </tr>
           <tr>
             <td><strong>Periode</strong></td>

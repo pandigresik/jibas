@@ -67,7 +67,7 @@ if (isset($_REQUEST['hal']))
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Pencarian Siswa[Menu]</title>
+<title>Pencarian Siswa['Menu']</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
@@ -142,8 +142,8 @@ function change_urutan(urutan) {
 		while ($row_siswa = @mysqli_fetch_array($result_siswa)) {
 		$nis=$row_siswa['nis'];
 		$nama=$row_siswa['nama'];
-		$idkelas=$row_siswa[idkelas];
-				$sql_gabung = "SELECT t.replid,t.departemen,k.replid,k.kelas,k.idtingkat from jbsakad.tingkat t,jbsakad.kelas k WHERE k.replid='$idkelas' AND t.replid=k.idtingkat AND t.departemen = '$departemen'"; 
+		$idkelas=$row_siswa['idkelas'];
+				$sql_gabung = "SELECT t.replid,t.departemen,k.replid,k.kelas,k.idtingkat from jbsakad.tingkat t,jbsakad.kelas k WHERE k.replid='$idkelas' AND t.replid=k.idtingkat AND t.departemen = '".$departemen."'"; 
 				$result_gabung = QueryDb($sql_gabung);
 				if ($row_gabung = @mysqli_fetch_row($result_gabung)) {
 				$kelas=$row_gabung[3];

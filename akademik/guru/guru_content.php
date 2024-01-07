@@ -32,7 +32,7 @@ require_once('../cek.php');
 $aktif = 0;
 $dep = $_REQUEST['departemen'];
 $guru = $_REQUEST['departemen'];
-$query ="AND j.departemen = '$guru'";
+$query ="AND j.departemen = '".$guru."'";
 
 $urut = "p.nama";	
 if (isset($_REQUEST['urut']))

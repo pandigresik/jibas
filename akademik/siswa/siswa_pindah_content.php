@@ -78,7 +78,7 @@ if ($op=="xm8r389xemx23xb2378e23"){
 		$result_jumlah=QueryDb($sql_jumlah);
 		$row_jumlah=@mysqli_fetch_row($result_jumlah);
 			
-		$sql_kapasitas="SELECT kapasitas FROM jbsakad.kelas WHERE replid = '$idkelasasal'";
+		$sql_kapasitas="SELECT kapasitas FROM jbsakad.kelas WHERE replid = '".$idkelasasal."'";
 		$result_kapasitas=QueryDb($sql_kapasitas);
 		$row_kapasitas=@mysqli_fetch_row($result_kapasitas);
 			

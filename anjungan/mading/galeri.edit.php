@@ -41,7 +41,7 @@ $galleryid = $_REQUEST['galleryid'];
 OpenDb();
 $sql = "SELECT *
           FROM jbsvcr.gallery
-         WHERE replid = '$galleryid'";
+         WHERE replid = '".$galleryid."'";
 $res = QueryDb($sql);
 if (mysqli_num_rows($res) == 0)
 {

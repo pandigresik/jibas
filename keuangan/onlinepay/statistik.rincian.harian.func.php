@@ -49,11 +49,11 @@ function ShowRincianStatistikHarian()
         $sql = "SELECT DISTINCT p.replid
                   FROM jbsfina.pgtrans p, jbsfina.pgtransdata pd
                  WHERE pd.idpgtrans = p.replid
-                   AND p.tanggal = '$tanggal'";
-        if ($departemen != "ALL") $sql .= " AND p.departemen = '$departemen'";
-        if ($bankNo != "ALL") $sql .= " AND p.bankno = '$bankNo'";
-        if ($idPetugas != "ALL") $sql .= " AND p.idpetugas = '$idPetugas'";
-        if ($metode != "0") $sql .= " AND p.jenis = '$metode'";
+                   AND p.tanggal = '".$tanggal."'";
+        if ($departemen != "ALL") $sql .= " AND p.departemen = '".$departemen."'";
+        if ($bankNo != "ALL") $sql .= " AND p.bankno = '".$bankNo."'";
+        if ($idPetugas != "ALL") $sql .= " AND p.idpetugas = '".$idPetugas."'";
+        if ($metode != "0") $sql .= " AND p.jenis = '".$metode."'";
 
         $nData = 0;
         $stIdPgTrans = "";
@@ -172,11 +172,11 @@ function ShowRincianStatistikHarian()
         echo "<table border='0' cellpadding='2' cellspacing='0' width='100%'>";
         echo "<tr>";
         echo "<td width='80%'>";
-        echo "<strong>$row['namasiswa']</strong>  |  $row['nis']<br>";
-        echo "<strong>$row['transaksi']</strong>";
+        echo "<strong>".$row['namasiswa']</strong>  |  $row['nis']."<br>";
+        echo "<strong>".$row['transaksi']."</strong>";
         echo "</td>";
         echo "<td width='20%' align='right'>";
-        echo "<i>$row['fwaktu']</i>";
+        echo "<i>".$row['fwaktu']."</i>";
         echo "</td>";
         echo "</tr>";
         echo "</table>";
@@ -238,12 +238,12 @@ function ShowRincianStatistikHarian()
         echo "</td>";
         echo "<td align='left' valign='top'>";
         if ($jenis == 1)
-            echo "<b>$row['nomor']</b><br><i>$nomorTs</i><br><i>$row['paymentid']</i>";
+            echo "<b>".$row['nomor']</b><br><i>$nomorTs</i><br><i>$row['paymentid']."</i>";
         else
-            echo "<b>$row['nomor']</b><br><i>$row['paymentid']</i>";
+            echo "<b>".$row['nomor']</b><br><i>$row['paymentid']."</i>";
         echo "</td>";
-        echo "<td align='left' valign='top'><strong>$row['bank']</strong><br><i>$row['bankno']</i></td>";
-        echo "<td align='left' valign='top'>$row['petugas']<br>$row['idpetugas']<br><i>$row['ketver']</i></td>";
+        echo "<td align='left' valign='top'><strong>".$row['bank']</strong><br><i>$row['bankno']."</i></td>";
+        echo "<td align='left' valign='top'>".$row['petugas']<br>$row['idpetugas']<br><i>$row['ketver']."</i></td>";
 
         echo "</tr>";
     }
@@ -265,22 +265,22 @@ function ShowRekapStatistikHarian()
 
     $sql = "SELECT COUNT(DISTINCT nis)
               FROM jbsfina.pgtrans
-             WHERE tanggal = '$tanggal'";
-    if ($departemen != "ALL") $sql .= " AND departemen = '$departemen'";
-    if ($bankNo != "ALL") $sql .= " AND bankno = '$bankNo'";
-    if ($idPetugas != "ALL") $sql .= " AND idpetugas = '$idPetugas'";
-    if ($metode != "0") $sql .= " AND jenis = '$metode'";
+             WHERE tanggal = '".$tanggal."'";
+    if ($departemen != "ALL") $sql .= " AND departemen = '".$departemen."'";
+    if ($bankNo != "ALL") $sql .= " AND bankno = '".$bankNo."'";
+    if ($idPetugas != "ALL") $sql .= " AND idpetugas = '".$idPetugas."'";
+    if ($metode != "0") $sql .= " AND jenis = '".$metode."'";
     $res = QueryDbEx($sql);
     $row = mysqli_fetch_row($res);
     $nSiswa = $row[0];
 
     $sql = "SELECT COUNT(replid)
               FROM jbsfina.pgtrans
-             WHERE tanggal = '$tanggal'";
-    if ($departemen != "ALL") $sql .= " AND departemen = '$departemen'";
-    if ($bankNo != "ALL") $sql .= " AND bankno = '$bankNo'";
-    if ($idPetugas != "ALL") $sql .= " AND idpetugas = '$idPetugas'";
-    if ($metode != "0") $sql .= " AND jenis = '$metode'";
+             WHERE tanggal = '".$tanggal."'";
+    if ($departemen != "ALL") $sql .= " AND departemen = '".$departemen."'";
+    if ($bankNo != "ALL") $sql .= " AND bankno = '".$bankNo."'";
+    if ($idPetugas != "ALL") $sql .= " AND idpetugas = '".$idPetugas."'";
+    if ($metode != "0") $sql .= " AND jenis = '".$metode."'";
     $res = QueryDbEx($sql);
     $row = mysqli_fetch_row($res);
     $nTransaksi = $row[0];
@@ -288,11 +288,11 @@ function ShowRekapStatistikHarian()
     $sql = "SELECT SUM(pd.jumlah)
               FROM jbsfina.pgtrans p, jbsfina.pgtransdata pd
              WHERE p.replid = pd.idpgtrans 
-               AND p.tanggal = '$tanggal'";
-    if ($departemen != "ALL") $sql .= " AND p.departemen = '$departemen'";
-    if ($bankNo != "ALL") $sql .= " AND p.bankno = '$bankNo'";
-    if ($idPetugas != "ALL") $sql .= " AND p.idpetugas = '$idPetugas'";
-    if ($metode != "0") $sql .= " AND p.jenis = '$metode'";
+               AND p.tanggal = '".$tanggal."'";
+    if ($departemen != "ALL") $sql .= " AND p.departemen = '".$departemen."'";
+    if ($bankNo != "ALL") $sql .= " AND p.bankno = '".$bankNo."'";
+    if ($idPetugas != "ALL") $sql .= " AND p.idpetugas = '".$idPetugas."'";
+    if ($metode != "0") $sql .= " AND p.jenis = '".$metode."'";
     $res = QueryDbEx($sql);
     $row = mysqli_fetch_row($res);
     $sumTransaksi = $row[0];

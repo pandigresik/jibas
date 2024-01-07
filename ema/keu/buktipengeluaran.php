@@ -52,11 +52,11 @@ $petugas = $row['petugas'];
 $idjurnal = $row['idjurnal'];
 
 if ($jpemohon == 1) 
-	$sql = "SELECT nama FROM $db_name_sdm.pegawai WHERE nip = '$idpemohon'";
+	$sql = "SELECT nama FROM $db_name_sdm.pegawai WHERE nip = '".$idpemohon."'";
 else if ($jpemohon == 2)
-	$sql = "SELECT nama FROM siswa WHERE nis = '$idpemohon'";
+	$sql = "SELECT nama FROM siswa WHERE nis = '".$idpemohon."'";
 else
-	$sql = "SELECT nama FROM $db_name_fina.pemohonlain WHERE replid = '$idpemohon'";
+	$sql = "SELECT nama FROM $db_name_fina.pemohonlain WHERE replid = '".$idpemohon."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $namapemohon = $row[0];
@@ -68,7 +68,7 @@ $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $tglcetak = $row[0];
 
-$sql = "SELECT nokas FROM $db_name_fina.jurnal WHERE replid = '$idjurnal'";
+$sql = "SELECT nokas FROM $db_name_fina.jurnal WHERE replid = '".$idjurnal."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $nokas = $row[0];

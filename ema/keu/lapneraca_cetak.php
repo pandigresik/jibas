@@ -213,7 +213,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
                 <td colspan="6"><strong>MODAL</strong><br /></td>
             </tr>
             <?php
-            $sql = "SELECT tanggalmulai FROM $db_name_fina.tahunbuku WHERE replid = '$idtahunbuku'";
+            $sql = "SELECT tanggalmulai FROM $db_name_fina.tahunbuku WHERE replid = '".$idtahunbuku."'";
             $result = QueryDb($sql);
             $row = mysqli_fetch_row($result);
             $tanggal1 = $row[0];

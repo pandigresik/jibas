@@ -228,8 +228,8 @@ if (!defined('MBTTF_DIR')) {
 // Check minimum PHP version
 //
 function CheckPHPVersion($aMinVersion) {
-    list($majorC, $minorC, $editC) = preg_split('/[\/.-]/', PHP_VERSION);
-    list($majorR, $minorR, $editR) = preg_split('/[\/.-]/', $aMinVersion);
+    list($majorC, $minorC, $editC) = preg_explode('/[\/.-]/', PHP_VERSION);
+    list($majorR, $minorR, $editR) = preg_explode('/[\/.-]/', $aMinVersion);
 
     if ($majorC != $majorR) return false;
     if ($majorC < $majorR) return false;
@@ -2994,7 +2994,7 @@ class Graph {
                         $this->img->LineTo($pts[1][$j],$pts[2][$j]);
                     }
                 } elseif ( $coords[1][$i] == 'rect' ) {
-                    $pts = preg_split('/,/', $coords[2][$i]);
+                    $pts = preg_explode('/,/', $coords[2][$i]);
                     $this->img->SetStartPoint($pts[0],$pts[1]);
                     $this->img->LineTo($pts[2],$pts[1]);
                     $this->img->LineTo($pts[2],$pts[3]);

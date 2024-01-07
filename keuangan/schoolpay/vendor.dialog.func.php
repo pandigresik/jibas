@@ -57,7 +57,7 @@ function SimpanVendor()
     {
         $sql = "SELECT COUNT(replid)
                   FROM jbsfina.vendor 
-                 WHERE vendorid = '$vendorId'";
+                 WHERE vendorid = '".$vendorId."'";
         $nData = FetchSingle($sql);
         if ($nData > 0)
             return createJsonReturn(-1, "Vendor Id $vendorId sudah digunakan. Pilih vendor id yang lain");

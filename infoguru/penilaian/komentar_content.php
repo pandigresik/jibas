@@ -192,7 +192,7 @@ $ada_get_comment = @mysqli_num_rows($result_get_comment);
 				   AND i.idsemester = '$semester' 
 				   AND i.idkelas = '$kelas'
 				   AND n.idaturan = a.replid 	   
-				   AND a.dasarpenilaian = '$asp'";
+				   AND a.dasarpenilaian = '".$asp."'";
 		$res = QueryDb($sql);
 		if (mysqli_num_rows($res) > 0)
 		{

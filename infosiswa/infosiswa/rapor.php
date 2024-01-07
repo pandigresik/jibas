@@ -48,7 +48,7 @@ if ($row['nislama'] <> "") {
 	$dep[1] = array($row1['departemen'], $row['nislama']);
 	//$no[2] = $row1['nislama'];	
 	if ($row1['nislama'] <> "") {				
-		$sql2 = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '".$row1[nislama]'";
+		$sql2 = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '".$row1['nislama']."'";
 		$result2 = QueryDb($sql2);
 		$row2 = @mysqli_fetch_array($result2);					
 		$dep[2] = array($row2['departemen'],$row1['nislama']) ;
@@ -233,7 +233,7 @@ function ShowKomentar()
                  WHERE k.nis = '$nis' 
                    AND k.idsemester = '$semester' 
                    AND k.idkelas = '$kelas'
-                   AND k.jenis = '$jenis'";
+                   AND k.jenis = '".$jenis."'";
         $res2 = QueryDb($sql);
         $komentar = "";
         $predikat = "";
@@ -373,7 +373,7 @@ $colwidth = $naspek == 0 ? "*" : round(55 / count($aspekarr)) . "%"; ?>
                    AND i.idsemester = '$semester' 
                    AND i.idkelas = '$kelas'
                    AND n.idaturan = a.replid 	   
-                   AND a.dasarpenilaian = '$asp'";
+                   AND a.dasarpenilaian = '".$asp."'";
             $res = QueryDb($sql);
             if (mysqli_num_rows($res) > 0)
             {
@@ -492,7 +492,7 @@ $colwidth = $naspek == 0 ? "*" : round(55 / count($aspekarr)) . "%"; ?>
                    AND i.idsemester = '$semester' 
                    AND i.idkelas = '$kelas'
                    AND n.idaturan = a.replid 	   
-                   AND a.dasarpenilaian = '$asp'";
+                   AND a.dasarpenilaian = '".$asp."'";
                     $res = QueryDb($sql);
                     if (mysqli_num_rows($res) > 0)
                     {
@@ -554,7 +554,7 @@ function ShowRaporRow()
                  FROM infonap
                 WHERE idpelajaran = '$idpel'
                   AND idsemester = '$semester'
-                  AND idkelas = '$kelas'";
+                  AND idkelas = '".$kelas."'";
         $res = QueryDb($sql);
         $row = mysqli_fetch_row($res);
         $nilaimin = $row[0];
@@ -585,7 +585,7 @@ function ShowRaporRow()
                        AND i.idsemester = '$semester' 
                        AND i.idkelas = '$kelas'
                        AND n.idaturan = a.replid 	   
-                       AND a.dasarpenilaian = '$asp'";
+                       AND a.dasarpenilaian = '".$asp."'";
             $res2 = QueryDb($sql);
             if (mysqli_num_rows($res2) > 0)
             {

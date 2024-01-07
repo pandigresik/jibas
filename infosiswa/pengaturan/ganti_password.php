@@ -54,7 +54,7 @@ if (isset($_REQUEST['simpan'])) {
 }
 
 OpenDb();
-$sql = "SELECT p.nis, p.nama FROM jbsakad.siswa p WHERE p.nis = '$login'";     
+$sql = "SELECT p.nis, p.nama FROM jbsakad.siswa p WHERE p.nis = '".$login."'";     
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $nis = $row[0];

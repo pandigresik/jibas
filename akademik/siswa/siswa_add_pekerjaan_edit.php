@@ -41,7 +41,7 @@ if (isset($_POST['simpan'])) {
 		CloseDb();
 		$ERROR_MSG = "Pekerjaan $pekerjaan sudah digunakan!";
 	} else {
-		$sql = "UPDATE jbsumum.jenispekerjaan SET pekerjaan='$pekerjaan' WHERE replid = '$replid'";
+		$sql = "UPDATE jbsumum.jenispekerjaan SET pekerjaan='$pekerjaan' WHERE replid = '".$replid."'";
 		$result = QueryDb($sql);
 		if ($result) { ?>
 		<script language="javascript">

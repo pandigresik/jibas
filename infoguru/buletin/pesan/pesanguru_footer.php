@@ -285,7 +285,7 @@ function savepesan(){
   $depan="";
   $belakang="";
   $tr="";
-  if ($row1[baru]==1){
+  if ($row1['baru']==1){
   	 	$depan="<strong>";
   		$belakang="</strong>";
 		$tr="style=\"background-color:#fcf7c1;\"";
@@ -320,7 +320,7 @@ function savepesan(){
     <!--<td><?=$depan?>
     <?php
 	//while ($row2=@mysqli_fetch_array($result2)){
-		//echo "<a title='Buka lampiran ini!' href=\"#\" onclick=newWindow('".$row2[direktori].$row2[namafile]."','View',640,480,'resizable=1'); ><img border='0' src='../../images/ico/titik.png' width='5' heiht='5'/> ".$row2['namafile']."</a><br>";
+		//echo "<a title='Buka lampiran ini!' href=\"#\" onclick=newWindow('".$row2['direktori'].$row2['namafile']."','View',640,480,'resizable=1'); ><img border='0' src='../../images/ico/titik.png' width='5' heiht='5'/> ".$row2['namafile']."</a><br>";
 	//}
 	?><?=$belakang?></td>-->
     

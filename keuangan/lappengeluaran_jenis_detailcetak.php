@@ -63,7 +63,7 @@ if (isset($_REQUEST['idpengeluaran']))
 
 <?php
 OpenDb();
-$sql = "SELECT nama FROM datapengeluaran WHERE replid = '$idpengeluaran'";
+$sql = "SELECT nama FROM datapengeluaran WHERE replid = '".$idpengeluaran."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $namapengeluaran = $row[0];
@@ -105,11 +105,11 @@ while ($row = mysqli_fetch_array($result)) {
 	
 	if ($row['jenispemohon'] == 1) {
 		$idpemohon = $row['nip'];
-		$sql = "SELECT nama FROM jbssdm.pegawai WHERE nip = '$idpemohon'";
+		$sql = "SELECT nama FROM jbssdm.pegawai WHERE nip = '".$idpemohon."'";
 		$jenisinfo = "pegawai";
 	} else if ($row['jenispemohon'] == 2) {
 		$idpemohon = $row['nis'];
-		$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '$idpemohon'";
+		$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '".$idpemohon."'";
 		$jenisinfo = "siswa";
 	} else {
 		$idpemohon = "";

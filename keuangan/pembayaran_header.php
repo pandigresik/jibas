@@ -136,7 +136,7 @@ function focusNext(elemName, evt) {
         </select>&nbsp;
         <strong>Tahun Buku&nbsp;</strong>
         <?php
-        $sql = "SELECT replid AS id, tahunbuku FROM tahunbuku WHERE aktif = 1 AND departemen = '$departemen'";
+        $sql = "SELECT replid AS id, tahunbuku FROM tahunbuku WHERE aktif = 1 AND departemen = '".$departemen."'";
         $result = QueryDb($sql);
 		$row = mysqli_fetch_array($result);		
 		?>

@@ -148,7 +148,7 @@ if($row['dokter']== 1 )
     <?php
 
 }else {
-    $query_cek = "SELECT * FROM pegawai.suku WHERE suku = '$_POST['suku']."'";
+    $query_cek = "SELECT * FROM pegawai.suku WHERE suku  = '".$_POST['suku']."'";
     $result_cek = QueryDb($query_cek);
     $num_cek = @mysqli_num_rows($result_cek);
 
@@ -161,7 +161,7 @@ if($row['dokter']== 1 )
     	$result_get_id = QueryDb($query_get_id);
     	$row_id = @mysqli_fetch_array($result_get_id);
 
-        if(mysqli_affected_rows() > 0) {
+        if(mysqli_affected_rows($conn) > 0) {
                 ?>
 <script language="JavaScript">
                     opener.document.location.href="pendataan_suku.php?sukuid=<?=$row_id[0] ?>";

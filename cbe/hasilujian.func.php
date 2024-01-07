@@ -57,7 +57,7 @@ function getSoalPenjelasan($idSoal, $viewExp)
               FROM jbscbe.webusersoal
              WHERE userid = '$userId'
                AND idujianserta = '$idUjianSerta'
-               AND idsoal = '$idSoal'";
+               AND idsoal = '".$idSoal."'";
 
     OpenDb();
 
@@ -81,7 +81,7 @@ function getSoalPenjelasan($idSoal, $viewExp)
     $sql = "SELECT jawaban
               FROM jbscbe.ujiandata
              WHERE idserta = '$idUjianSerta'
-               AND idsoal = '$idSoal'";
+               AND idsoal = '".$idSoal."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) > 0)
     {
@@ -94,7 +94,7 @@ function getSoalPenjelasan($idSoal, $viewExp)
         $sql = "SELECT jenis, jawaban, jawabanim
                   FROM jbscbe.ujiandataesai
                  WHERE idserta = '$idUjianSerta'
-                   AND idsoal = '$idSoal'";
+                   AND idsoal = '".$idSoal."'";
         $res = QueryDb($sql);
         $no = 0;
         while ($row = mysqli_fetch_row($res))

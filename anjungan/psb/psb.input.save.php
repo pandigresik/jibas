@@ -132,7 +132,7 @@ for($i = 1; $i <= 2; $i++)
 	$kd = trim($_REQUEST[$fkd]);
 	$kd = (strlen($kd) == 0) ? "0" : $kd;
 	$kd = UnformatRupiah($kd);
-	$sumbujian .= "$fname = '$kd'";
+	$sumbujian .= "$fname = '".$kd."'";
 }
 
 for($i = 1; $i <= 10; $i++)
@@ -143,7 +143,7 @@ for($i = 1; $i <= 10; $i++)
 	$fkd = "psb_ujian$i";
 	$kd = trim($_REQUEST[$fkd]);
 	$kd = (strlen($kd) == 0) ? 0 : $kd;
-	$sumbujian .= "$fname = '$kd'";
+	$sumbujian .= "$fname = '".$kd."'";
 }
 
 $pin = random(5);
@@ -160,7 +160,7 @@ try
     
     $sql = "SELECT kapasitas
               FROM jbsakad.kelompokcalonsiswa
-             WHERE replid = '$kelompok'";
+             WHERE replid = '".$kelompok."'";
     $kapasitas = FetchSingleEx($sql);
     
     if ($ndata >= $kapasitas)
@@ -182,13 +182,13 @@ try
     
     $sql = "SELECT kodeawalan
               FROM jbsakad.prosespenerimaansiswa
-             WHERE replid = '$proses'";	
+             WHERE replid = '".$proses."'";	
     $kode_no = FetchSingleEx($sql);
     $kodelen = strlen($kode_no);
   
     $sql = "SELECT MAX(LPAD(nopendaftaran, " . ($kodelen + 20) . ",'*'))
               FROM jbsakad.calonsiswa
-             WHERE idproses = '$proses'";
+             WHERE idproses = '".$proses."'";
     $nom = FetchSingleEx($sql);
     
     $nom = str_replace("*", "", $nom);
@@ -213,7 +213,7 @@ try
     if ($inputsekolah == 1)
     {
         $sql = "INSERT INTO jbsakad.asalsekolah
-                   SET departemen = '$dep_asal', sekolah = '$sekolah'";
+                   SET departemen = '$dep_asal', sekolah = '".$sekolah."'";
         //echo "$sql<br>";
         QueryDbEx($sql);
     }
@@ -263,11 +263,11 @@ try
 
                 if ($repliddata == 0)
                     $sql = "INSERT INTO jbsakad.tambahandatacalon
-                               SET nopendaftaran = '$no', idtambahan = '$replid', jenis = '$jenis', teks = '$teks'";
+                               SET nopendaftaran = '$no', idtambahan = '$replid', jenis = '$jenis', teks = '".$teks."'";
                 else
                     $sql = "UPDATE jbsakad.tambahandatacalon
                                SET teks = '$teks'
-                             WHERE replid = '$repliddata'";
+                             WHERE replid = '".$repliddata."'";
 
                 QueryDbEx($sql, $success);
             }

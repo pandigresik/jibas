@@ -56,7 +56,7 @@ if ($metode != "0")
     $sql .= " AND p.jenis = $metode";
 
 if ($pembayaran != "ALL")
-    $sql .= " AND pd.kategori = '$pembayaran'";
+    $sql .= " AND pd.kategori = '".$pembayaran."'";
 
 if ($idPembayaran != "0")
 {
@@ -69,13 +69,13 @@ if ($idPembayaran != "0")
 }
 
 if ($siswa != "ALL")
-    $sql .= " AND p.nis = '$nis'";
+    $sql .= " AND p.nis = '".$nis."'";
 
 if ($bankNo <> "ALL")
-    $sql .= " AND p.bankno = '$bankNo'";
+    $sql .= " AND p.bankno = '".$bankNo."'";
 
 if ($idPetugas != "ALL")
-    $sql .= " AND p.idpetugas = '$idPetugas'";
+    $sql .= " AND p.idpetugas = '".$idPetugas."'";
 
 //echo "$sql<br>";
 
@@ -246,7 +246,7 @@ for($i = 0; $i < count($lsTanggal); $i++)
                  WHERE p.replid = pd.idpgtrans
                    AND p.tanggal = '$tanggal'
                    AND p.departemen = '$departemen'
-                   AND pd.kategori = '$kategori'";
+                   AND pd.kategori = '".$kategori."'";
 
         if ($idPenerimaan != "0")
         {

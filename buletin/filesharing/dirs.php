@@ -30,7 +30,7 @@ require_once('../../include/sessionchecker.php');
 
 function recursiveDataFolderDelete($iddir)
 {
-	$sql ="SELECT replid FROM jbsvcr.dirshare WHERE idroot = '$iddir'";
+	$sql ="SELECT replid FROM jbsvcr.dirshare WHERE idroot = '".$iddir."'";
 	$res = QueryDb($sql);
 	while ($row = @mysqli_fetch_array($res))
 	{
@@ -43,10 +43,10 @@ function recursiveDataFolderDelete($iddir)
 		recursiveDataFolderDelete($row['replid']);
 	}
 	
-	$sql = "DELETE FROM jbsvcr.dirshare WHERE replid = '$iddir'";
+	$sql = "DELETE FROM jbsvcr.dirshare WHERE replid = '".$iddir."'";
 	QueryDb($sql);
 	
-	$sql = "DELETE FROM jbsvcr.fileshare WHERE iddir = '$iddir'";
+	$sql = "DELETE FROM jbsvcr.fileshare WHERE iddir = '".$iddir."'";
 	QueryDb($sql);
 }
 
@@ -64,7 +64,7 @@ if ($op == "cx5429zsda53h3cs52q836b")
    $row = mysqli_fetch_row($res);
    $rootname = $row[0];
 	
-	$sql = "SELECT dirfullpath FROM jbsvcr.dirshare WHERE replid = '$iddir'";
+	$sql = "SELECT dirfullpath FROM jbsvcr.dirshare WHERE replid = '".$iddir."'";
 	$res = QueryDb($sql);
 	$row = mysqli_fetch_row($res);
 	
@@ -173,8 +173,8 @@ function traverse($iddir, $count)
 			$res_get_wk	= QueryDb($sql_get_wk);
 			$num_wk = @mysqli_num_rows($res_get_wk);
 			$row_wk = @mysqli_fetch_array($res_get_wk);
-			$kelas = $row_wk[kelas];
-			$namaguru = $row_wk[nama];
+			$kelas = $row_wk['kelas'];
+			$namaguru = $row_wk['nama'];
 
 			$sql_get_id = "SELECT pel.nama as pelajaran, pel.departemen as dep FROM jbsakad.pelajaran pel, jbsakad.guru g WHERE g.nip='$idguru' AND g.idpelajaran=pel.replid";
 			$res_get_id	= QueryDb($sql_get_id);
@@ -185,7 +185,7 @@ function traverse($iddir, $count)
 				$cnt=1;
 				while ($row_pel = @mysqli_fetch_array($res_get_id))
 				{
-					$ajar=$ajar."<br>".$cnt.". ".$row_pel[pelajaran]." (".$row_pel[dep].")";
+					$ajar=$ajar."<br>".$cnt.". ".$row_pel['pelajaran']." (".$row_pel['dep'].")";
 					$cnt++;
 				}
 				$ajar=$ajar."<br>";

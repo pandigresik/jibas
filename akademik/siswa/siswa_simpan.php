@@ -58,7 +58,7 @@ $emailsiswa=$_REQUEST['emailsiswa'];
 $dep_asal=$_REQUEST['dep_asal'];
 
 $sekolah=$_REQUEST['sekolah'];
-$sekolah_sql = "asalsekolah = '$sekolah'";
+$sekolah_sql = "asalsekolah = '".$sekolah."'";
 if ($sekolah == "")
 	$sekolah_sql = "asalsekolah = NULL";
 
@@ -81,19 +81,19 @@ $almibu = $_REQUEST['almibu'];
 if ($_REQUEST['almibu']<> "1")
 	$almibu=0;
 $pendidikanayah=$_REQUEST['pendidikanayah'];
-$pendidikanayah_sql = "pendidikanayah = '$pendidikanayah'";
+$pendidikanayah_sql = "pendidikanayah = '".$pendidikanayah."'";
 if ($pendidikanayah == "")
 	$pendidikanayah_sql = "pendidikanayah = NULL";
 $pendidikanibu=$_REQUEST['pendidikanibu'];
-$pendidikanibu_sql = "pendidikanibu = '$pendidikanibu'";
+$pendidikanibu_sql = "pendidikanibu = '".$pendidikanibu."'";
 if ($pendidikanibu == "")
 	$pendidikanibu_sql = "pendidikanibu = NULL";
 $pekerjaanayah=$_REQUEST['pekerjaanayah'];
-$pekerjaanayah_sql = "pekerjaanayah = '$pekerjaanayah'";
+$pekerjaanayah_sql = "pekerjaanayah = '".$pekerjaanayah."'";
 if ($pekerjaanayah == "")
 	$pekerjaanayah_sql = "pekerjaanayah = NULL";
 $pekerjaanibu=$_REQUEST['pekerjaanibu'];
-$pekerjaanibu_sql = "pekerjaanibu = '$pekerjaanibu'";
+$pekerjaanibu_sql = "pekerjaanibu = '".$pekerjaanibu."'";
 if ($pekerjaanibu == "")
 	$pekerjaanibu_sql = "pekerjaanibu = NULL";
 $penghasilanayah = $_REQUEST['penghasilanayah'];
@@ -136,9 +136,9 @@ if($file_data != "") {
 OpenDb();
 if ($_REQUEST['action'] == 'ubah') {	
 	if ($file_data <> "") {
-		$sql="UPDATE jbsakad.calonsiswa SET nama='$nama', panggilan='$panggilan', idproses=$proses, idkelompok=$kelompok, suku='$suku', agama='$agama, status='$status', kondisi='$kondisi', kelamin='$kelamin', tmplahir='$tmplahir', tgllahir='$lahir', warga='$warga', anakke=$urutananak, jsaudara=$jumlahanak, bahasa='$bahasa', berat=$berat, tinggi=$tinggi, darah='$gol', foto='$foto', alamatsiswa='$alamatsiswa', kodepossiswa='$kodepos', telponsiswa='$telponsiswa', hpsiswa='$hpsiswa', emailsiswa='$emailsiswa', kesehatan='$kesehatan', $sekolah_sql, ketsekolah='$ketsekolah', namaayah='$namaayah', namaibu='$namaibu', almayah=$almayah, almibu=$almibu, $pendidikanayah_sql, $pendidikanibu_sql,  $pekerjaanayah_sql, $pekerjaanibu_sql, wali='$namawali', penghasilanayah=$penghasilanayah, penghasilanibu=$penghasilanibu, alamatortu='$alamatortu', telponortu='$telponortu', hportu='$hportu', emailortu='$emailortu', alamatsurat='$alamatsurat', keterangan='$keterangan' WHERE replid=$_REQUEST['replid']";
+		$sql="UPDATE jbsakad.calonsiswa SET nama='$nama', panggilan='$panggilan', idproses=$proses, idkelompok=$kelompok, suku='$suku', agama='$agama, status='$status', kondisi='$kondisi', kelamin='$kelamin', tmplahir='$tmplahir', tgllahir='$lahir', warga='$warga', anakke=$urutananak, jsaudara=$jumlahanak, bahasa='$bahasa', berat=$berat, tinggi=$tinggi, darah='$gol', foto='$foto', alamatsiswa='$alamatsiswa', kodepossiswa='$kodepos', telponsiswa='$telponsiswa', hpsiswa='$hpsiswa', emailsiswa='$emailsiswa', kesehatan='$kesehatan', $sekolah_sql, ketsekolah='$ketsekolah', namaayah='$namaayah', namaibu='$namaibu', almayah=$almayah, almibu=$almibu, $pendidikanayah_sql, $pendidikanibu_sql,  $pekerjaanayah_sql, $pekerjaanibu_sql, wali='$namawali', penghasilanayah=$penghasilanayah, penghasilanibu=$penghasilanibu, alamatortu='$alamatortu', telponortu='$telponortu', hportu='$hportu', emailortu='$emailortu', alamatsurat='$alamatsurat', keterangan='$keterangan' WHERE replid= $_REQUEST['replid'];
 	} else {
-		$sql="UPDATE jbsakad.calonsiswa SET nama='$nama', panggilan='$panggilan', idproses=$proses, idkelompok=$kelompok, suku='$suku', agama='$agama', status='$status', kondisi='$kondisi', kelamin='$kelamin', tmplahir='$tmplahir', tgllahir='$lahir', warga='$warga', anakke=$urutananak, jsaudara=$jumlahanak, bahasa='$bahasa', berat=$berat, tinggi=$tinggi, darah='$gol', alamatsiswa='$alamatsiswa', kodepossiswa='$kodepos', telponsiswa='$telponsiswa', hpsiswa='$hpsiswa', emailsiswa='$emailsiswa', kesehatan='$kesehatan', $sekolah_sql, ketsekolah='$ketsekolah', namaayah='$namaayah', namaibu='$namaibu', almayah=$almayah, almibu=$almibu, $pendidikanayah_sql, $pendidikanibu_sql, $pekerjaanayah_sql, $pekerjaanibu_sql, wali='$namawali', penghasilanayah=$penghasilanayah, penghasilanibu=$penghasilanibu, alamatortu='$alamatortu', telponortu='$telponortu', hportu='$hportu', emailortu='$emailortu', alamatsurat='$alamatsurat', keterangan='$keterangan' WHERE replid=$_REQUEST['replid']";
+		$sql="UPDATE jbsakad.calonsiswa SET nama='$nama', panggilan='$panggilan', idproses=$proses, idkelompok=$kelompok, suku='$suku', agama='$agama', status='$status', kondisi='$kondisi', kelamin='$kelamin', tmplahir='$tmplahir', tgllahir='$lahir', warga='$warga', anakke=$urutananak, jsaudara=$jumlahanak, bahasa='$bahasa', berat=$berat, tinggi=$tinggi, darah='$gol', alamatsiswa='$alamatsiswa', kodepossiswa='$kodepos', telponsiswa='$telponsiswa', hpsiswa='$hpsiswa', emailsiswa='$emailsiswa', kesehatan='$kesehatan', $sekolah_sql, ketsekolah='$ketsekolah', namaayah='$namaayah', namaibu='$namaibu', almayah=$almayah, almibu=$almibu, $pendidikanayah_sql, $pendidikanibu_sql, $pekerjaanayah_sql, $pekerjaanibu_sql, wali='$namawali', penghasilanayah=$penghasilanayah, penghasilanibu=$penghasilanibu, alamatortu='$alamatortu', telponortu='$telponortu', hportu='$hportu', emailortu='$emailortu', alamatsurat='$alamatsurat', keterangan='$keterangan' WHERE replid= $_REQUEST['replid'];
 	}
 } else { 
 	$sql="INSERT INTO jbsakad.calonsiswa SET nopendaftaran='$no', nama='$nama', panggilan='$panggilan', tahunmasuk='$tahunmasuk', idproses='$proses', idkelompok='$kelompok', suku='$suku', agama='$agama', status='$status', kondisi='$kondisi', kelamin='$kelamin', tmplahir='$tmplahir', tgllahir='$lahir', warga='$warga',  anakke='$urutananak', jsaudara='$jumlahanak', bahasa='$bahasa', berat='$berat', tinggi='$tinggi', darah='$gol', foto='$foto', alamatsiswa='$alamatsiswa', kodepossiswa='$kodepos', telponsiswa='$telponsiswa', hpsiswa='$hpsiswa', emailsiswa='$emailsiswa', kesehatan='$kesehatan', $sekolah_sql, ketsekolah='$ketsekolah', namaayah='$namaayah', namaibu='$namaibu', almayah='$almayah', almibu='$almibu', $pendidikanayah_sql, $pendidikanibu_sql, $pekerjaanayah_sql, $pekerjaanibu_sql, wali='$namawali', penghasilanayah='$penghasilanayah', penghasilanibu='$penghasilanibu', alamatortu='$alamatortu', telponortu='$telponortu', hportu='$hportu', emailortu='$emailortu', alamatsurat='$alamatsurat', keterangan='$keterangan'";

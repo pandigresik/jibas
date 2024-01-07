@@ -44,7 +44,7 @@ if (isset($_REQUEST['nip'])){ //0
 <head>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Aturan Perhitungan Nilai Rapor[Menu]</title>
+<title>Aturan Perhitungan Nilai Rapor['Menu']</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">

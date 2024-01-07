@@ -39,7 +39,7 @@ $sql = "SELECT *, IF(nip IS NULL, 'S', 'P') AS ownertype,
                DATE_FORMAT(tanggal, '%d-%m-%Y %H:%i') AS tglbuat,
                TIME_TO_SEC(TIMEDIFF(NOW(), tanggal)) AS secdiff
           FROM jbsvcr.video
-         WHERE replid = '$videoid'";
+         WHERE replid = '".$videoid."'";
 $res = QueryDb($sql);
 if (mysqli_num_rows($res) == 0)
 {
@@ -58,7 +58,7 @@ if ($nocount != 1)
 {
     $sql = "UPDATE jbsvcr.video
                SET nread = nread + 1, lastread = NOW()
-             WHERE replid = '$videoid'";
+             WHERE replid = '".$videoid."'";
     QueryDb($sql);    
 }
 ?>

@@ -27,7 +27,7 @@ require_once('../include/db_functions.php');
 require_once('../include/sessioninfo.php');
 OpenDb();
 $oldnis = $_REQUEST['oldnis'];
-$sql = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '$oldnis'";
+$sql = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '".$oldnis."'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
 $dep[0] = array($row['departemen'], $oldnis);
@@ -37,7 +37,7 @@ if ($row['nislama'] <> "") {
 	$row1 = @mysqli_fetch_array($result1);	
 	$dep[1] = array($row1['departemen'], $row['nislama']);
 	if ($row1['nislama'] <> "") {				
-		$sql2 = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '".$row1[nislama]'";
+		$sql2 = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '".$row1['nislama']."'";
 		$result2 = QueryDb($sql2);
 		$row2 = @mysqli_fetch_array($result2);					
 		$dep[2] = array($row2['departemen'],$row1['nislama']) ;
@@ -75,7 +75,7 @@ if (isset($_REQUEST['nis']))
 ?>
 <script language="javascript">
 	function ChgTkt(Val){
-		var x = Val.split(",");
+		var x = Val.explode(",");
 		document.location.href="rataus.left.php?kls="+x[0]+"&tkt="+x[1]+"&oldnis=<?=$oldnis?>&nis="+x[2];
 	}
 </script>

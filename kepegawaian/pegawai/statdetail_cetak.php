@@ -221,7 +221,7 @@ function cetak() {
 							  IF(usia >= 50 AND usia <= 55, '50-55', '>56'))))))) AS G FROM
 					(SELECT nip, TRIM(CONCAT(IFNULL(p.gelarawal,''), ' ', p.nama, ' ', IFNULL(p.gelarakhir,''))) AS fnama, 
 							FLOOR(DATEDIFF(NOW(), tgllahir) / 365) AS usia FROM pegawai p WHERE aktif = 1) AS X) AS XX 
-				WHERE G = '$ref'";
+				WHERE G = '".$ref."'";
 	}
 	
 	?>

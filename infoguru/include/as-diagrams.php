@@ -507,7 +507,7 @@ td.barhead  { background-color: #3fa64b; color:#000000;
       if($res === false)
         echo "GatherData query error, qry: $sqlquery<br>Error:".mysqli_error($mysqlconnection);
       else
-        echo "GatherData: query : $sqlquery<br>returned rows:".mysqli_affected_rows().'<br>';
+        echo "GatherData: query : $sqlquery<br>returned rows:".mysqli_affected_rows($conn).'<br>';
     }
     $cur_x = '-?-';
     $cur_y = '-?-';

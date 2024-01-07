@@ -58,7 +58,7 @@ $sql_cek_nau="SELECT * FROM jbsakad.nau WHERE idpelajaran='$pelajaran' AND idkel
 $result_cek_nau=QueryDb($sql_cek_nau);
 $nilai_nau_tetap=@mysqli_fetch_array($result_cek_nau);
 if (@mysqli_num_rows($result_cek_nau)>0){
-	if ($nau==$nilai_nau_tetap[nilaiAU]){
+	if ($nau==$nilai_nau_tetap['nilaiAU']){
 	$sql_simpan="UPDATE jbsakad.nau SET nilaiAU='$nau' WHERE replid='$idnau'";
 	} else {
 	$sql_simpan="UPDATE jbsakad.nau SET nilaiAU='$nau',keterangan='Manual' WHERE replid='$idnau'";
@@ -71,7 +71,7 @@ if (@mysqli_num_rows($result_cek_nau)>0){
 $result_simpan=QueryDb($sql_simpan);
 $hit++;
 }
-if(@mysqli_affected_rows($conn) >= 0) {
+if(@mysqli_affected_rows($conn)($conn) >= 0) {
 ?>
 <script language="javascript">
 document.location.href="nilai_pelajaran_content.php?dasar_penilaian=<?=$dasar_penilaian?>&departemen=<?=$departemen?>&tingkat=<?=$tingkat?>&pelajaran=<?=$pelajaran?>&jenis_penilaian=<?=$jenis_penilaian?>&kelas=<?=$kelas?>&semester=<?=$semester?>&tahun=<?=$tahun?>&idaturan=<?=$idaturan?>&manual=1";

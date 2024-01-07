@@ -235,7 +235,7 @@ function focusNext(elemName, evt) {
     	<td><strong>Tanggal</strong></td>
         <td>
         	<select name="tgl1" id = "tgl1Info" onchange="change_tgl1()" onfocus = "panggil()" onKeyPress="focusNext('bln1',event)">
-			<option value="">[Tgl]</option>
+			<option value="">['Tgl']</option>
 		<?php 	for($i=1;$i<=$n;$i++){   ?>      
 		    <option value="<?=$i?>" <?=IntIsSelected($tgl1, $i)?>><?=$i?></option>
 		<?php } ?>
@@ -252,7 +252,7 @@ function focusNext(elemName, evt) {
        	<?php } ?>	
         	</select> s/d 
     		<select name="tgl2" id = "tgl2Info" onchange="change_tgl2()" onfocus = "panggil()" onKeyPress="focusNext('bln2',event)">
-			<option value="">[Tgl]</option>
+			<option value="">['Tgl']</option>
 		<?php 	for($i=1;$i<=$n;$i++){   ?>      
 		    <option value="<?=$i?>" <?=IntIsSelected($tgl2, $i)?>><?=$i?></option>
 		      <?php } ?>

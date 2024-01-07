@@ -43,7 +43,7 @@ if (isset($_REQUEST['keterangan']))
 $ERROR_MSG = "";
 if (isset($_REQUEST['Simpan'])) {
 	OpenDb();
-	$sql = "SELECT * FROM angkatan WHERE angkatan = '$angkatan' AND departemen = '$departemen'";
+	$sql = "SELECT * FROM angkatan WHERE angkatan = '$angkatan' AND departemen = '".$departemen."'";
 	$result = QueryDb($sql);
 	
 	if (mysqli_num_rows($result) > 0) {

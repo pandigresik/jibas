@@ -31,7 +31,7 @@ require_once('../include/getheader.php');
 $aktif = 0;
 $guru = $_REQUEST['departemen'];
 $departemen = $_REQUEST['departemen'];
-$query ="AND j.departemen = '$departemen'";
+$query ="AND j.departemen = '".$departemen."'";
 $urut = $_REQUEST['urut'];
 $urutan = $_REQUEST['urutan'];
 

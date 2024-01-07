@@ -31,7 +31,7 @@ if (isset($_REQUEST['field']))
 	$field = $_REQUEST['field'];
 OpenDb();
 header("Content-type: image/jpeg");
-$query = "SELECT $field FROM $table WHERE replid = '$replid'";
+$query = "SELECT $field FROM $table WHERE replid = '".$replid."'";
 $result = QueryDb($query);
 $num = @mysqli_num_rows($result);
 if ($row = mysqli_fetch_array($result)) {

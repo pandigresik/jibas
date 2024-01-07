@@ -228,11 +228,11 @@ function change_baris() {
         
         if ($row['jenispemohon'] == 1) {
             $idpemohon = $row['nip'];
-            $sql = "SELECT nama FROM jbssdm.pegawai WHERE nip = '$idpemohon'";
+            $sql = "SELECT nama FROM jbssdm.pegawai WHERE nip = '".$idpemohon."'";
             $jenisinfo = "pegawai";
         } else if ($row['jenispemohon'] == 2) {
             $idpemohon = $row['nis'];
-            $sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '$idpemohon'";
+            $sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '".$idpemohon."'";
             $jenisinfo = "siswa";
         } else {
             $idpemohon = "";

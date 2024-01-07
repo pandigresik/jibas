@@ -164,7 +164,7 @@ openDB();
 				?>
 				</select></td>
             <td>Tahun Ajaran</td>
-             <td><input type="text" name="tahun_ajaran" value="<?=$row_thn[tahunajaran] ?>" readonly size="25">
+             <td><input type="text" name="tahun_ajaran" value="<?=$row_thn['tahunajaran'] ?>" readonly size="25">
            </td>
 			  </tr>
 			  <tr>
@@ -186,7 +186,7 @@ openDB();
 							$sel[$i] = "";
 						}
 					?>
-					<option value="<?=$row_tkt['replid'] ?>" <?=$sel[$i] ?>><?=$row_tkt[tingkat] ?></option>
+					<option value="<?=$row_tkt['replid'] ?>" <?=$sel[$i] ?>><?=$row_tkt['tingkat'] ?></option>
 					<?php
 					$i++;
 					}
@@ -208,7 +208,7 @@ openDB();
 						$sel[$i] = "";
 					}
 				?>
-				<option value="<?=$row_kls['replid'] ?>" <?=$sel[$i] ?>><?=$row_kls[kelas] ?></option>
+				<option value="<?=$row_kls['replid'] ?>" <?=$sel[$i] ?>><?=$row_kls['kelas'] ?></option>
 				<?php
 				$i++;
 				}

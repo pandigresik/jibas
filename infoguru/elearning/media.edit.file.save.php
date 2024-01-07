@@ -78,7 +78,7 @@ try
 
         $sql = "INSERT INTO jbsel.mediafile
                    SET idmedia = '$idMedia', filename = '$filename', ofilename = '$ofilename', filesize = '$filesize',
-                       filetype = '$filetype', fileinfo = '$info', fileloc = '$fileloc'";
+                       filetype = '$filetype', fileinfo = '$info', fileloc = '".$fileloc."'";
         QueryDbEx($sql);
     }
 

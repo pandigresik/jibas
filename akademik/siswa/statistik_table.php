@@ -103,7 +103,7 @@ if ($iddasar!="12"){
 		} elseif ($dasar=='Agama' || $dasar=='Suku' || $dasar=='Status Siswa' || $dasar=='Kondisi Siswa' || $dasar=='Pekerjaan Ayah' || $dasar=='Pekerjaan Ibu' || $dasar=='Pendidikan Ayah' || $dasar=='Pendidikan Ibu') {
 			$row = @mysqli_fetch_row($result);
 			$judul[$i] = $row[0];
-			$filter = "1 AND s.$tabel = '".$row[0]'";			
+			$filter = "1 AND s.$tabel = '".$row[0]."'";			
 			if ($dasar=='Pekerjaan Ayah' || $dasar=='Pekerjaan Ibu' || $dasar=='Pendidikan Ayah' || $dasar=='Pendidikan Ibu') {
 				if ($i == $jum) {
 					$judul[$i] = "Tidak ada data";
@@ -182,11 +182,11 @@ if ($iddasar!="12"){
 
 	$result1 = QueryDb($query1);
 	$row1 = @mysqli_fetch_array($result1);
-	$j1 = $row1[Jum];
+	$j1 = $row1['Jum'];
 	
 	$result2 = QueryDb($query2);
 	$row2 = @mysqli_fetch_array($result2);
-	$j2 = $row2[Jum];
+	$j2 = $row2['Jum'];
 	
 	$result3 = QueryDb($query3);
 	$row3 = @mysqli_fetch_array($result3);
@@ -194,11 +194,11 @@ if ($iddasar!="12"){
 	
 	$result4 = QueryDb($query4);
 	$row4 = @mysqli_fetch_array($result4);
-	$j4 = $row4[Jum];
+	$j4 = $row4['Jum'];
 
 	$result5 = QueryDb($query5);
 	$row5 = @mysqli_fetch_array($result5);
-	$j5 = $row5[Jum];
+	$j5 = $row5['Jum'];
 	
 	//=====================================================
 	

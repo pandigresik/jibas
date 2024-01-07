@@ -61,7 +61,7 @@ if(isset($_REQUEST["ubah"]))
 {
 	BeginTrans();
 	$success = 0;	
-	$query_del_nau = "UPDATE jbsakad.nau SET nilaiAU = 0 WHERE idkelas='$idkelas' AND idsemester='$idsemester' AND idaturan='$idaturan' AND nis = '$nis'";
+	$query_del_nau = "UPDATE jbsakad.nau SET nilaiAU = 0 WHERE idkelas='$idkelas' AND idsemester='$idsemester' AND idaturan='$idaturan' AND nis = '".$nis."'";
  	QueryDbTrans($query_del_nau, $success);
 
 	if ($success)

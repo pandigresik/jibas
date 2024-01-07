@@ -32,7 +32,7 @@ try
     $replid = (int)$_REQUEST['replid'];
     
 	$sql = "DELETE FROM jbssdm.presensi
-			 WHERE replid = '$replid'";
+			 WHERE replid = '".$replid."'";
 	QueryDb($sql);
     CloseDb();
 

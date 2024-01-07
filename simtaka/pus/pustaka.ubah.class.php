@@ -437,7 +437,7 @@ class CPustaka
 		{
 			$sql = "SELECT counter
 					  FROM katalog
-					 WHERE replid = '$katalogasli'";
+					 WHERE replid = '".$katalogasli."'";
 			//echo "$sql<br>";
 			$result = QueryDb($sql);
 			$r = @mysqli_fetch_row($result);
@@ -445,7 +445,7 @@ class CPustaka
 			
 			$sql = "SELECT counter
 					  FROM katalog
-					 WHERE replid = '$katalog'";
+					 WHERE replid = '".$katalog."'";
 			//echo "$sql<br>";
 			$result = QueryDb($sql);
 			$r = @mysqli_fetch_row($result);
@@ -453,7 +453,7 @@ class CPustaka
 			
 			$sql = "SELECT replid
 					  FROM daftarpustaka
-					 WHERE pustaka = '$replid'";
+					 WHERE pustaka = '".$replid."'";
 			//echo "$sql<br>";
 			$r = QueryDb($sql);
 			while($success && $row = mysqli_fetch_row($r))
@@ -464,7 +464,7 @@ class CPustaka
 				$kodepustaka = $this->GenKodePustaka($katalog, $penulis, $judul, $format, $newcounter);
 				$sql = "UPDATE daftarpustaka
 						   SET kodepustaka = '$kodepustaka'
-						 WHERE replid = '$iddp'";
+						 WHERE replid = '".$iddp."'";
 				//echo "$sql<br>";
 				QueryDbTrans($sql, $success);		 
 			}
@@ -473,7 +473,7 @@ class CPustaka
 			{
 				$sql = "UPDATE katalog
 						   SET counter = counter - $counterasli
-						 WHERE replid = '$katalogasli'";
+						 WHERE replid = '".$katalogasli."'";
 				//echo "$sql<br>";
 				QueryDbTrans($sql, $success);
 			}
@@ -482,7 +482,7 @@ class CPustaka
 			{
 				$sql = "UPDATE katalog
 						   SET counter = counter + $newcounter
-						 WHERE replid = '$katalog'";
+						 WHERE replid = '".$katalog."'";
 				//echo "$sql<br>";		 
 				QueryDbTrans($sql, $success);
 			}
@@ -528,7 +528,7 @@ class CPustaka
 		{
 			$kode = $ktlg[0] . "/" . $pnls[0] . "/" . $jdl . "/" . $cnt . "/" . $frmt[0];
 			
-			$sql = "SELECT COUNT(replid) FROM daftarpustaka WHERE kodepustaka = '$kode'";
+			$sql = "SELECT COUNT(replid) FROM daftarpustaka WHERE kodepustaka = '".$kode."'";
 			$result = QueryDb($sql);
 			$row = mysqli_fetch_row($result);
 			

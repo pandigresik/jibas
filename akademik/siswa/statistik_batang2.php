@@ -97,7 +97,7 @@ for ($i=1;$i<=$jum;$i++) {
 	} elseif ($dasar=='Agama' || $dasar=='Suku' || $dasar=='Status Siswa' || $dasar=='Kondisi Siswa' || $dasar=='Pekerjaan Ayah' || $dasar=='Pekerjaan Ibu' || $dasar=='Pendidikan Ayah' || $dasar=='Pendidikan Ibu') {
 		$row = @mysqli_fetch_row($result);
 		$judul[$i] = $row[0];		
-		$filter = "1 AND s.$tabel = '".$row[0]'";	
+		$filter = "1 AND s.$tabel = '".$row[0]."'";	
 	} elseif ($dasar == 'Tahun Kelahiran') {
 		$field = ", YEAR(tgllahir)";
 		$filter = "1 GROUP BY YEAR(tgllahir)";	
@@ -160,7 +160,7 @@ if ($departemen=="-1") {
 	if ($angkatan < 0){
 		$query2 = "SELECT angkatan FROM jbsakad.angkatan";
 	} else {
-		$query2 = "SELECT angkatan FROM jbsakad.angkatan WHERE replid = '$angkatan'";
+		$query2 = "SELECT angkatan FROM jbsakad.angkatan WHERE replid = '".$angkatan."'";
 	}
 } else {		
 	if ($angkatan < 0){
@@ -180,7 +180,7 @@ $row2 = @mysqli_fetch_array($result2);
 //if($num == 0) {
  // echo "<table width='100%' height='100%'><tr><td align='center' valign='middle'>
 //        <font size='2' face='verdana'>Grafik Batang tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk
-//        Departemen <b>$_REQUEST['departemen']</b> dan Penerimaan <b>$row2[proses]</b></font></td></tr></table>";
+//        Departemen <b>".$_REQUEST['departemen']</b> dan Penerimaan <b>$row2['proses']."</b></font></td></tr></table>";
 //}else {
 
 

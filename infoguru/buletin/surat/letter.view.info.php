@@ -9,7 +9,7 @@ OpenDb();
 $sql = "SELECT *, IF(s.jenis = 'IN', 'MASUK', 'KELUAR') AS fjenis, DATE_FORMAT(s.tanggal, '%d %b %Y') AS ftanggal
           FROM jbsletter.surat s, jbsletter.kategori k
          WHERE s.idkategori = k.replid 
-           AND s.replid = '$idsurat'";
+           AND s.replid = '".$idsurat."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_array($res);
 
@@ -93,7 +93,7 @@ if ($row['fjenis'] == "MASUK")
     $sql = "SELECT s.sumber
               FROM jbsletter.suratinsrc src, jbsletter.sumberin s
              WHERE src.idsumber = s.replid
-               AND src.idsurat = '$idsurat'";
+               AND src.idsurat = '".$idsurat."'";
     $res = QueryDb($sql);
     $row = mysqli_fetch_array($res);
 ?>
@@ -180,7 +180,7 @@ else
     $sql = "SELECT t.tujuan
               FROM jbsletter.suratoutdst dst, jbsletter.tujuanout t
              WHERE dst.idtujuan = t.replid
-               AND dst.idsurat = '$idsurat'";
+               AND dst.idsurat = '".$idsurat."'";
     $res = QueryDb($sql);
     $row = mysqli_fetch_array($res);
 ?>

@@ -214,7 +214,7 @@ try
         
         $sql = "INSERT INTO jbsvcr.notesfile
                    SET notesid = $notesid, filecate = 'pict', filename = '$name', filesize = '$size',
-                       filetype = '$type', fileinfo = '$info', ffileinfo = '$finfo', location = '$location'";
+                       filetype = '$type', fileinfo = '$info', ffileinfo = '$finfo', location = '".$location."'";
         echo "$sql<br>";
         QueryDbEx($sql);
     }
@@ -243,7 +243,7 @@ try
         
         $sql = "INSERT INTO jbsvcr.notesfile
                    SET notesid = $notesid, filecate = 'doc', filename = '$name', filesize = '$size',
-                       filetype = '$type', fileinfo = '$info', ffileinfo = '$finfo', location = '$location'";
+                       filetype = '$type', fileinfo = '$info', ffileinfo = '$finfo', location = '".$location."'";
         echo "$sql<br>";
         QueryDbEx($sql);
     }

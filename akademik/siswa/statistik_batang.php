@@ -57,11 +57,11 @@ if ($iddasar=="12"){
 
 	$result1 = QueryDb($query1);
 	$row1 = @mysqli_fetch_array($result1);
-	$j1 = $row1[Jum];
+	$j1 = $row1['Jum'];
 
 	$result2 = QueryDb($query2);
 	$row2 = @mysqli_fetch_array($result2);
-	$j2 = $row2[Jum];
+	$j2 = $row2['Jum'];
 
 	$result3 = QueryDb($query3);
 	$row3 = @mysqli_fetch_array($result3);
@@ -69,11 +69,11 @@ if ($iddasar=="12"){
 
 	$result4 = QueryDb($query4);
 	$row4 = @mysqli_fetch_array($result4);
-	$j4 = $row4[Jum];
+	$j4 = $row4['Jum'];
 
 	$result5 = QueryDb($query5);
 	$row5 = @mysqli_fetch_array($result5);
-	$j5 = $row5[Jum];
+	$j5 = $row5['Jum'];
 
 	//=====================================================
 
@@ -81,7 +81,7 @@ if ($iddasar=="12"){
 	//=====================================================
 	if($sum == 0) {
 	  echo "<table width='100%' height='100%'><tr><td align='center' valign='middle'>
-			<font size='2' face='verdana'>Grafik Batang tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk Departemen <b>$_REQUEST['departemen']</b> dan Angkatan <b>$row['angkatan']</b></font></td></tr></table>";
+			<font size='2' face='verdana'>Grafik Batang tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk Departemen <b>".$_REQUEST['departemen']</b> dan Angkatan <b>$row['angkatan']."</b></font></td></tr></table>";
 	} else {
 		//data group 1
 		$data1 = array($j1);
@@ -292,7 +292,7 @@ if ($iddasar=="12"){
 	if($num == 0) {
 	  echo "<table width='100%' height='100%'><tr><td align='center' valign='middle'>
 			<font size='2' face='verdana'>Grafik Batang tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk
-			Departemen <b>$_REQUEST['departemen']</b> dan Angkatan <b>$row['angkatan']</b></font></td></tr></table>";
+			Departemen <b>".$_REQUEST['departemen']</b> dan Angkatan <b>$row['angkatan']."</b></font></td></tr></table>";
 	} else {
 		if ($iddasar == "2" || $iddasar=="6" ) { 
 			

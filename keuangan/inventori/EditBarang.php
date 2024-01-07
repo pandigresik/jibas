@@ -42,7 +42,7 @@ $harga = (int)$row['info1'];
 $total = $harga * $jumlah;
 
 if (isset($_REQUEST['Simpan'])){
-	$sql = "SELECT kode FROM jbsfina.barang WHERE kode='".$_REQUEST['kode']."' AND replid<>'$_REQUEST['idbarang']."'";
+	$sql = "SELECT kode FROM jbsfina.barang WHERE kode='".$_REQUEST['kode']."' AND replid<>'".$_REQUEST['idbarang']."'";
 	$result = QueryDb($sql);
 	$num = @mysqli_num_rows($result);
 	if ($num>0){
@@ -177,7 +177,7 @@ function validate(){
 		var i = 0;
 		var string4split='.';
 
-		z = foto.split(string4split);
+		z = foto.explode(string4split);
 		ext = z[z.length-1];
 		
 		if (ext!='JPG' && ext!='jpg' && ext!='Jpg' && ext!='JPg' && ext!='JPEG' && ext!='jpeg'){

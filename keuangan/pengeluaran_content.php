@@ -74,7 +74,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 	$rekdebet = $_REQUEST['rekdebet'];
 	
 	//Ambil awalan dan cacah tahunbuku untuk bikin nokas;
-	$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '$idtahunbuku'";
+	$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '".$idtahunbuku."'";
 	$result = QueryDb($sql);
 	if (mysqli_num_rows($result) == 0) {
 		CloseDb();
@@ -315,7 +315,7 @@ function panggil(elem){
 			<tr>
                 <td width="20%" align="left"><strong>Tahun Buku</strong></td>
                 <td colspan="2" align="left">
-		<?php  	$sql = "SELECT replid, tahunbuku FROM tahunbuku WHERE aktif = 1 AND departemen = '$departemen'";
+		<?php  	$sql = "SELECT replid, tahunbuku FROM tahunbuku WHERE aktif = 1 AND departemen = '".$departemen."'";
                 $result = QueryDb($sql);
                 $row = mysqli_fetch_row($result);
         ?>
@@ -333,7 +333,7 @@ function panggil(elem){
             	</td>
             </tr>
             <?php
-            $sql = "SELECT rekdebet, rekkredit FROM datapengeluaran WHERE replid = '$idpengeluaran'";
+            $sql = "SELECT rekdebet, rekkredit FROM datapengeluaran WHERE replid = '".$idpengeluaran."'";
             $result = QueryDb($sql);
             $row = mysqli_fetch_row($result);
             $rekdebet = $row[0];

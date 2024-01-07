@@ -40,7 +40,7 @@ $errmsg = $_REQUEST['errmsg'];
 OpenDb();
 
 // -- ambil nama penerimaan -------------------------------
-$sql = "SELECT nama, rekkas, info2 FROM datapenerimaan WHERE replid = '$idpenerimaan'";
+$sql = "SELECT nama, rekkas, info2 FROM datapenerimaan WHERE replid = '".$idpenerimaan."'";
 $row = FetchSingleRow($sql);
 $namapenerimaan = $row[0];
 $defrekkas = $row[1];
@@ -95,7 +95,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 	}
 	
 	//Ambil awalan dan cacah tahunbuku untuk bikin nokas;
-	$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '$idtahunbuku'";
+	$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '".$idtahunbuku."'";
 	$result = QueryDb($sql);
 	if (mysqli_num_rows($result) == 0) {
 		//CloseDb();
@@ -141,7 +141,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 	{
 		$sql = "SELECT departemen
 				  FROM jbsfina.tahunbuku
-				 WHERE replid = '$idtahunbuku'";
+				 WHERE replid = '".$idtahunbuku."'";
 		$departemen = FetchSingle($sql);
 		
 		CreateSMSPaymentInfo('CSISPAY',
@@ -170,7 +170,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 $sql = "SELECT c.nopendaftaran, c.nama, c.telponsiswa as telpon, c.hpsiswa as hp, k.kelompok,
 		       c.alamatsiswa as alamattinggal, p.proses, c.keterangan
 		  FROM jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k, jbsakad.prosespenerimaansiswa p
-		 WHERE c.idkelompok = k.replid AND c.idproses = p.replid AND c.replid = '$replid'";
+		 WHERE c.idkelompok = k.replid AND c.idproses = p.replid AND c.replid = '".$replid."'";
 //echo  $sql;
 $result = QueryDb($sql);
 if (mysqli_num_rows($result) == 0) {
@@ -189,7 +189,7 @@ if (mysqli_num_rows($result) == 0) {
 	$keterangansiswa = $row['keterangan'];
 }
 	
-$sql = "SELECT nama FROM datapenerimaan WHERE replid = '$idpenerimaan'";
+$sql = "SELECT nama FROM datapenerimaan WHERE replid = '".$idpenerimaan."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $namapenerimaan = $row[0];
@@ -367,7 +367,7 @@ function focusNext(elemName, evt) {
 						while($row = mysqli_fetch_row($res))
 						{
 							$sel = $row[0] == $defrekkas ? "selected" : "";
-							echo "<option value='$row[0]' $sel>$row[0] $row[1]</option>";
+							echo "<option value='".$row[0]."' $sel>$row[0] $row[1]</option>";
 						}  ?>                
 					</select>
                 </td>

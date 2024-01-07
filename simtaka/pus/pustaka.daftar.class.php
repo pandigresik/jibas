@@ -52,7 +52,7 @@ class CPustaka
 
 			$sql = "SELECT counter 
                       FROM katalog 
-                     WHERE replid = '$idkatalog'";
+                     WHERE replid = '".$idkatalog."'";
             $res = QueryDb($sql);
             $row = mysqli_fetch_row($res);
 			$counter = $row[0];

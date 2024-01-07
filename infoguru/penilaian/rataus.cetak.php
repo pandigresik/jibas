@@ -66,7 +66,7 @@ $res = QueryDb($sql);
 $row = @mysqli_fetch_row($res);
 $nama = $row[0];
 
-$sql = "SELECT keterangan FROM dasarpenilaian WHERE dasarpenilaian = '$dp'";
+$sql = "SELECT keterangan FROM dasarpenilaian WHERE dasarpenilaian = '".$dp."'";
 $res = QueryDb($sql);
 $row = @mysqli_fetch_row($res);
 $namadp = $row[0];
@@ -127,7 +127,7 @@ $namadp = $row[0];
 		while ($row = @mysqli_fetch_row($res)){
 			$rata = 0;
 			$numnilai = 0;
-			$sql2 = "SELECT u.tanggal,u.deskripsi, n.nilaiujian,u.replid, n.keterangan FROM ujian u, nilaiujian n WHERE u.idkelas = '$kls' AND u.idsemester = '$sem' AND u.idjenis = '".$row[0]' AND u.replid = n.idujian  AND u.idaturan='$row[2]' AND n.nis = '$nis' ORDER BY u.tanggal";
+			$sql2 = "SELECT u.tanggal,u.deskripsi, n.nilaiujian,u.replid, n.keterangan FROM ujian u, nilaiujian n WHERE u.idkelas = '$kls' AND u.idsemester = '$sem' AND u.idjenis = '".$row[0]."' AND u.replid = n.idujian  AND u.idaturan='".$row[2]."' AND n.nis = '$nis' ORDER BY u.tanggal";
 			$res2 = QueryDb($sql2);
 			$num2 = @mysqli_num_rows($res2);
 			$content = array();
@@ -146,7 +146,7 @@ $namadp = $row[0];
 			if ($num2>0)
 				$rata = round($numnilai/$num2,2);
 			
-			$sql2 = "SELECT nilaiAU FROM nau WHERE idkelas = '$kls' AND idsemester = '".$sem."' AND idjenis = '".$row[0]' AND nis = '$nis' AND idpelajaran = '$pel' AND idaturan='$row[2]'";
+			$sql2 = "SELECT nilaiAU FROM nau WHERE idkelas = '$kls' AND idsemester = '".$sem."' AND idjenis = '".$row[0]."' AND nis = '$nis' AND idpelajaran = '$pel' AND idaturan='".$row[2]."'";
 			$res2 = QueryDb($sql2);
 			$row2 = @mysqli_fetch_row($res2);
 			$nilaiakhir = $row2[0];	

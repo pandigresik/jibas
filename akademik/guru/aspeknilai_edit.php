@@ -48,7 +48,7 @@ if (isset($_REQUEST['Simpan']))
 	} 
 	else 
 	{
-		$sql = "UPDATE dasarpenilaian SET dasarpenilaian = '".$_REQUEST['kode']."', keterangan = '".CQ($_REQUEST['nama'])."' WHERE replid = '$replid'";
+		$sql = "UPDATE dasarpenilaian SET dasarpenilaian = '".$_REQUEST['kode']."', keterangan = '".CQ($_REQUEST['nama'])."' WHERE replid = '".$replid."'";
 		$result = QueryDb($sql);
 		CloseDb();
 	
@@ -63,7 +63,7 @@ if (isset($_REQUEST['Simpan']))
 };
 
 OpenDb();
-$sql = "SELECT dasarpenilaian, keterangan FROM dasarpenilaian WHERE replid = '$replid'"; 
+$sql = "SELECT dasarpenilaian, keterangan FROM dasarpenilaian WHERE replid = '".$replid."'"; 
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $kode = $row[0];

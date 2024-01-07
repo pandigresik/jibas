@@ -47,7 +47,7 @@ else
 	$n = 31;*/
 ?>
 <select name="<?=$namatgl?>" id="<?=$namatgl?>" onchange="change_<?=$namatgl?>()">
-    <option value="">[Tgl]</option>  
+    <option value="">['Tgl']</option>  
 <?php 	for($i=1;$i<=$n;$i++){ ?>      
     <option value="<?=$i?>" <?=IntIsSelected($tgl, $i)?>><?=$i?></option>
 <?php } ?>           

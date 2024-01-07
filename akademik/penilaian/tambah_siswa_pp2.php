@@ -178,7 +178,7 @@ if(isset($_POST['nis'])) {
 
 	OpenDBi();
 		
-	$result = mysqli_query($conni,"CALL spTambahNilaiUjian('$_POST[$uj]','$_POST['nis']','$_POST[$nuj]','$_POST['ket']','$_POST[$sts]')") or die (mysqli_error($conni));
+	$result = mysqli_query($conni,"CALL spTambahNilaiUjian('".$_POST[$uj]','".$_POST['nis']','$_POST[$nuj]','$_POST['ket']."','$_POST[$sts]')") or die (mysqli_error($conni));
 	$i++;
 	}
 	$i=1;
@@ -188,12 +188,12 @@ if(isset($_POST['nis'])) {
 		$nuj = "nilai$i";
 		$ket = "keterangan$i";	
 			
-			$query_nuj1 = "SELECT * FROM jbsakad.nilaiujian WHERE nilaiujian.idujian = '$_POST[$uj]'";
+			$query_nuj1 = "SELECT * FROM jbsakad.nilaiujian WHERE nilaiujian.idujian   = '".$_POST[$uj]."'";
 			$result_nuj1 = QueryDb($query_nuj1) or die (mysqli_error($mysqlconnection));
 	
 				$t=1;
 				while($row_nuj1 = @mysqli_fetch_array($result_nuj1)){
-					$tota_nuj1 += $row_nuj1[nilaiujian];
+					$tota_nuj1 += $row_nuj1['nilaiujian'];
 					$t++;
 				}
 				$ruk = $tota_nuj1/$t;	
@@ -201,7 +201,7 @@ if(isset($_POST['nis'])) {
 				$query_ruk = "UPDATE jbsakad.ratauk SET nilaiRk = '$ruk' ".
 							 "WHERE idkelas = '$kelas' ".
 							 "AND idsemester = '$semester' ".
-							 "AND idujian = '$_POST[$uj]' ";
+							 "AND idujian   = '".$_POST[$uj]."' ";
 				
 				$result_ruk = QueryDb($query_ruk) or die (mysqli_error($mysqlconnection));	
 			$i++;		 

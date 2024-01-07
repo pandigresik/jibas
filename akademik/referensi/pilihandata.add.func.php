@@ -49,7 +49,7 @@ function SimpanData()
     $sql = "SELECT replid 
               FROM pilihandata 
              WHERE pilihan = '$pilihan'
-               AND idtambahan = '$idtambahan'";
+               AND idtambahan = '".$idtambahan."'";
     $result = QueryDb($sql);
 
     if (mysqli_num_rows($result) > 0)
@@ -60,7 +60,7 @@ function SimpanData()
     else
     {
         $sql = "INSERT INTO pilihandata 
-                   SET idtambahan = '$idtambahan', pilihan = '$pilihan', urutan = '$urutan'";
+                   SET idtambahan = '$idtambahan', pilihan = '$pilihan', urutan = '".$urutan."'";
         $result = QueryDb($sql);
         if ($result)
         { 	?>

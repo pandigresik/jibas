@@ -46,7 +46,7 @@ if ($row['nislama'] <> "") {
 	$dep[1] = array($row1['departemen'], $row['nislama']);
 	//$no[2] = $row1['nislama'];	
 	if ($row1['nislama'] <> "") {				
-		$sql2 = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '".$row1[nislama]'";
+		$sql2 = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '".$row1['nislama']."'";
 		$result2 = QueryDb($sql2);
 		$row2 = @mysqli_fetch_array($result2);					
 		$dep[2] = array($row2['departemen'],$row1['nislama']) ;
@@ -122,7 +122,7 @@ if (isset($_REQUEST['kelas']))
     	</td>
   	</tr>
 <?php if ($kelas <> "" ) { 
-		$sql = "SELECT tglmulai, tglakhir FROM tahunajaran WHERE replid = '$tahunajaran'";
+		$sql = "SELECT tglmulai, tglakhir FROM tahunajaran WHERE replid = '".$tahunajaran."'";
 		$result = QueryDb($sql);
 		$row = mysqli_fetch_array($result);
 		$tglawal = $row['tglmulai'];

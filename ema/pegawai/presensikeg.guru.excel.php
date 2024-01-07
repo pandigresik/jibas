@@ -45,7 +45,7 @@ OpenDb();
 
 $sql = "SELECT nama
           FROM jbssdm.pegawai
-         WHERE nip = '$nip'";     
+         WHERE nip = '".$nip."'";     
 $res = QueryDB($sql);	
 $row = mysqli_fetch_row($res);
 $nama = $row[0];

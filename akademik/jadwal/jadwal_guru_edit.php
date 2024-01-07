@@ -175,7 +175,7 @@ if (isset($_REQUEST['Simpan']))
 		
 		if (strlen($ERROR_MSG) == 0)
 		{
-			$sql1 = "SELECT replid, TIME_FORMAT(jam1, '%H:%i') AS jam1 FROM jam WHERE departemen = '$departemen' AND jamke = '$jam'";
+			$sql1 = "SELECT replid, TIME_FORMAT(jam1, '%H:%i') AS jam1 FROM jam WHERE departemen = '$departemen' AND jamke = '".$jam."'";
 			$result1 = QueryDb($sql1);
 			$row1 = mysqli_fetch_array($result1);
 			$rep1 = $row1['replid'];
@@ -190,7 +190,7 @@ if (isset($_REQUEST['Simpan']))
 			$jum = $jam2 - $jam + 1;
 			$sql = "UPDATE jadwal SET idkelas='$kelas', idpelajaran = '$pelajaran', departemen = '$departemen', infojadwal = '$info', 
 					hari = $hari, jamke = $jam, njam = $jum, sifat = 1, status = '$status', keterangan='$keterangan', jam1 = '$jm1', 
-					jam2 = '$jm2', idjam1 = '$rep1', idjam2 = '$rep2' WHERE replid = '$replid'";
+					jam2 = '$jm2', idjam1 = '$rep1', idjam2 = '$rep2' WHERE replid = '".$replid."'";
 			$result = QueryDb($sql);
 		
 			if ($result)

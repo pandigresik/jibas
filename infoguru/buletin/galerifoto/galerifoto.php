@@ -59,11 +59,11 @@ if ($op == "14075BUSYCODACALLDIFF")
 	$res = QueryDb($sql);
 	$r = mysqli_fetch_array($res);
 	
-	$fimage = "$FILESHARE_UPLOAD_DIR/galeriguru/photos/" . $r[filename];
+	$fimage = "$FILESHARE_UPLOAD_DIR/galeriguru/photos/" . $r['filename'];
 	if (file_exists($fimage))
 	   delete($fimage);
 	   
-	$fimage = "$FILESHARE_UPLOAD_DIR/galeriguru/thumbnails/" . $r[filename];
+	$fimage = "$FILESHARE_UPLOAD_DIR/galeriguru/thumbnails/" . $r['filename'];
 	if (file_exists($fimage))
 	   delete($fimage);   
 	   
@@ -236,7 +236,7 @@ function simpanUbah(x,replid)
 							<tr>
 			  <?php 	} ?>
 						<td height="125" align="center">
-							<a title="<?=$ket[$i]?>" href="<?=$fphoto?>" rel="lytebox[vacation]" >
+							<a title="<?=$ket[$i]?>" href="<?=$fphoto?>" rel="lytebox['vacation']" >
 							<img title="Klik untuk melihat ukuran sebenarnya"
 								 src="<?=$fthumb?>" width="80" style="cursor:pointer;">
 							</a>

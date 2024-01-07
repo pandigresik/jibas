@@ -81,7 +81,7 @@ $rowPenerbit = @mysqli_fetch_row($resultPenerbit);
 $penerbit = $rowPenerbit[0]."&nbsp;-&nbsp;".$rowPenerbit[1];
 
 $rtotal = @mysqli_num_rows(QueryDb("SELECT * FROM $dbnameperpus.daftarpustaka d WHERE d.pustaka='$row[0]'"));
-$rtersedia = @mysqli_num_rows(QueryDb("SELECT * FROM $dbnameperpus.daftarpustaka d WHERE d.pustaka='$row[0]' AND d.status=1"));
+$rtersedia = @mysqli_num_rows(QueryDb("SELECT * FROM $dbnameperpus.daftarpustaka d WHERE d.pustaka='".$row[0]."' AND d.status=1"));
 ?>
   <tr>
     <td height="20" align="center"><div class="tab_content"><?=$cnt?></div></td>

@@ -19,7 +19,7 @@ function HapusBank()
 {
     $replid = $_REQUEST["replid"];
 
-    $sql = "DELETE FROM jbsfina.bank WHERE replid = '$replid'";
+    $sql = "DELETE FROM jbsfina.bank WHERE replid = '".$replid."'";
     QueryDb($sql);
 
     return createJsonReturn(1, "OK");

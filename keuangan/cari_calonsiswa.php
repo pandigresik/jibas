@@ -35,7 +35,7 @@ $no = $_REQUEST['no'];
 $departemen = $_REQUEST['departemen'];
 $filter = "";
 if ($departemen <> -1) 
-	$filter = "AND p.departemen = '$departemen'";
+	$filter = "AND p.departemen = '".$departemen."'";
 OpenDb();
 ?>
 <table border="0" width="100%" align="center">

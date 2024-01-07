@@ -45,7 +45,7 @@ function ShowBankSaldo()
               FROM jbsfina.bank b, jbsfina.banksaldo bs
              WHERE b.bankno = bs.bankno";
     if ($departemen != "ALL")
-        $sql .= " AND bs.departemen = '$departemen'";
+        $sql .= " AND bs.departemen = '".$departemen."'";
     $sql .= " GROUP BY b.bank, bs.bankno";
 
     $res = QueryDb($sql);
@@ -67,7 +67,7 @@ function ShowBankSaldo()
         $rp = FormatRupiah($saldo);
 
         echo "<tr style='cursor: pointer;' onclick='showMutasiBank(\"$row['bank']\",\"$row['bankno']\")'>";
-        echo "<td><strong>$row['bank']</strong><br><i>$row['bankno']</i></td>";
+        echo "<td><strong>".$row['bank']</strong><br><i>$row['bankno']."</i></td>";
         echo "<td align='right'><span style='font-size: 13px; font-weight: bold'>$rp</span></td>";
         echo "</tr>";
     }

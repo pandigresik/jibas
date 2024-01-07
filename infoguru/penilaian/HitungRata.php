@@ -34,7 +34,7 @@ function HitungRataSiswa($idkelas, $idsemester, $idaturan, $nis, &$success)
 		
 	$sql = "SELECT replid, idpelajaran, idjenis 
 			  FROM ujian 
-			 WHERE idkelas = '$idkelas' AND idsemester = '$idsemester' AND idaturan = '$idaturan'";
+			 WHERE idkelas = '$idkelas' AND idsemester = '$idsemester' AND idaturan = '".$idaturan."'";
 	$result	= QueryDb($sql);
 	$cnt = 0;
 	while ($row	= @mysqli_fetch_row($result))

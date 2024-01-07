@@ -95,9 +95,9 @@ while($row = mysqli_fetch_row($res))
     $n++;
     
     echo "<tr>";
-    echo "<input type='hidden' id='replid$n' name='replid$n' value='$row[6]'>";
+    echo "<input type='hidden' id='replid$n' name='replid$n' value='".$row[6]."'>";
     echo "<td align='center'>$n</td>";
-    echo "<td align='center'>$row[0] <input type='hidden' name='nip$n' id='nip$n' value='$row[0]'></td>";
+    echo "<td align='center'>$row[0] <input type='hidden' name='nip$n' id='nip$n' value='".$row[0]."'></td>";
     echo "<td align='left'>$row[1]</td>";
     
     echo "<td align='center'>";
@@ -138,7 +138,7 @@ while($row = mysqli_fetch_row($res))
     echo $copyOut;
     echo "</td>";
     
-    echo "<td align='left'><input type='text' name='ket$n' id='ket$n' value='$row[5]' size='27' maxlength='255'></td>";
+    echo "<td align='left'><input type='text' name='ket$n' id='ket$n' value='".$row[5]."' size='27' maxlength='255'></td>";
     echo "<td align='center'>";
     if (!$newInput)
         echo "<input type='button' value='Simpan' onclick='SaveEdit($n)'>";
@@ -182,7 +182,7 @@ function GetHourMinute($strtime, &$hour, &$minute)
 {
     if (strpos($strtime, ":") !== FALSE)
     {
-        $temp = split(":", $strtime);
+        $temp = explode(":", $strtime);
         $hour = $temp[0];
         $minute = $temp[1];
         

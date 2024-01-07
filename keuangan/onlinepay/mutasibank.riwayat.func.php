@@ -74,10 +74,10 @@ function ShowLaporanMutasi()
 
         echo "<tr>";
         echo "<td align='center' style='background-color: #efefef'>$no</td>";
-        echo "<td align='left'>$row['fwaktu']</td>";
+        echo "<td align='left'>".$row['fwaktu']."</td>";
         echo "<td align='center' style='background-color: $bgColor'>$namaJenis</td>";
         echo "<td align='right'><span style='font-size: 12px; font-weight: bold;'>$rp</span></td>";
-        echo "<td align='left'>Nomor: $row['nomormutasi']<br>Petugas: $row['namapetugas'] ($row['idpetugas'])<br>$row['keterangan']</td>";
+        echo "<td align='left'>Nomor: $row['nomormutasi']<br>Petugas: $row['namapetugas'] ($row['idpetugas'])<br>".$row['keterangan']."</td>";
         echo "<td class='tdmenu' align='center'>";
         echo "<a href='#' onclick='showRincianMutasi($idMutasi)' title='rincian'><img src='../images/ico/lihat.png' border='0'></a>";
         echo "</td>";

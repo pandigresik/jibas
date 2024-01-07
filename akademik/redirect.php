@@ -116,10 +116,10 @@ else
 					}
 					
 					$_SESSION['login'] = $login;
-					$_SESSION['namasimaka'] = $row2[nama];
-					$_SESSION['tingkatsimaka'] = $row2[tingkat];
-					$_SESSION['temasimaka'] = $row2[tema];
-					if ($row2[tingkat] == 2)
+					$_SESSION['namasimaka'] = $row2['nama'];
+					$_SESSION['tingkatsimaka'] = $row2['tingkat'];
+					$_SESSION['temasimaka'] = $row2['tema'];
+					if ($row2['tingkat'] == 2)
 						$_SESSION['departemensimaka'] = $dep;
 					else
 						$_SESSION['departemensimaka'] = "ALL";

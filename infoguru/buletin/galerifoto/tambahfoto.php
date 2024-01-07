@@ -52,7 +52,7 @@ function chg(y)
 		var result = '';
 		var string4split='.';
 
-		z = x.split(string4split);
+		z = x.explode(string4split);
 		result = z[z.length-1];
 		document.getElementById("ext" + y).value = result;
 		document.getElementById("tr" + y).style.background = "#FFFFFF" ;

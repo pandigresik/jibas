@@ -66,14 +66,14 @@ try
             $sql = "INSERT INTO jbsvcr.gallerycomment
                        SET nis = NULL, nip = '$login', ";
                        
-        $sql .= "galleryid = '$galleryid', tanggal = NOW(), komen = '$comment', fkomen = '$fcomment'";
+        $sql .= "galleryid = '$galleryid', tanggal = NOW(), komen = '$comment', fkomen = '".$fcomment."'";
         
         QueryDbEx($sql);
     }
     
     $sql = "UPDATE jbsvcr.gallery
                SET lastactive = NOW()
-             WHERE replid = '$galleryid'";
+             WHERE replid = '".$galleryid."'";
     QueryDbEx($sql);         
     
     CommitTrans();

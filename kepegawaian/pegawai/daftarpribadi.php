@@ -110,7 +110,7 @@ $DP = new DaftarPribadi();
 	 $checked = "checked='checked'";
 	 while ($row = @mysqli_fetch_row($res))
 	 {
-		 echo "<input type='radio' $checked name='rbBagian' id='rbBagian' value='$row[0]' " .  StringIsChecked($row[0], $DP->bagian) . " />&nbsp;$row[0]&nbsp;";
+		 echo "<input type='radio' $checked name='rbBagian' id='rbBagian' value='".$row[0]."' " .  StringIsChecked($row[0], $DP->bagian) . " />&nbsp;$row[0]&nbsp;";
 		 $checked = "";
 	 } ?>
     </td>
@@ -207,7 +207,7 @@ $DP = new DaftarPribadi();
 <?php 	$sql = "SELECT suku FROM jbsumum.suku";
 		$res = QueryDb($sql);
 	    while ($row = @mysqli_fetch_row($res))
-		  echo "<option value='$row[0]' " . StringIsSelected($row[0], $DP->suku) . " >$row[0]</option>";
+		  echo "<option value='".$row[0]."' " . StringIsSelected($row[0], $DP->suku) . " >$row[0]</option>";
 ?>
     </select>&nbsp;
 <?php 	if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>
@@ -333,7 +333,7 @@ $DP = new DaftarPribadi();
         $data = "";
         if ($jenis == 1)
         {
-            $sql = "SELECT replid, teks FROM jbssdm.tambahandatapegawai WHERE nip = '$nip' AND idtambahan = '$replid'";
+            $sql = "SELECT replid, teks FROM jbssdm.tambahandatapegawai WHERE nip = '$nip' AND idtambahan = '".$replid."'";
             $res2 = QueryDb($sql);
             if ($row2 = mysqli_fetch_row($res2))
             {
@@ -343,7 +343,7 @@ $DP = new DaftarPribadi();
         }
         else if ($jenis == 2)
         {
-            $sql = "SELECT replid, filename FROM jbssdm.tambahandatapegawai WHERE nip = '$nip' AND idtambahan = '$replid'";
+            $sql = "SELECT replid, filename FROM jbssdm.tambahandatapegawai WHERE nip = '$nip' AND idtambahan = '".$replid."'";
             $res2 = QueryDb($sql);
             if ($row2 = mysqli_fetch_row($res2))
             {
@@ -354,7 +354,7 @@ $DP = new DaftarPribadi();
         }
         else if ($jenis == 3)
         {
-            $sql = "SELECT replid, teks FROM jbssdm.tambahandatapegawai WHERE nip = '$nip' AND idtambahan = '$replid'";
+            $sql = "SELECT replid, teks FROM jbssdm.tambahandatapegawai WHERE nip = '$nip' AND idtambahan = '".$replid."'";
             $res2 = QueryDb($sql);
             if ($row2 = mysqli_fetch_row($res2))
             {

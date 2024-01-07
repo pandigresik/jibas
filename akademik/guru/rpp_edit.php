@@ -53,7 +53,7 @@ if (isset($_REQUEST['Simpan'])) {
 		CloseDb();
 		$ERROR_MSG = "Kode pembelajaran $kode sudah digunakan!";	
 	} else {
-		$sql = "UPDATE rpp SET koderpp = '$kode', rpp = '$materi', deskripsi = '$deskripsi' WHERE replid = '$replid'";
+		$sql = "UPDATE rpp SET koderpp = '$kode', rpp = '$materi', deskripsi = '$deskripsi' WHERE replid = '".$replid."'";
 		$result = QueryDb($sql);
 		CloseDb();
 	

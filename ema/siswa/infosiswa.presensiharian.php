@@ -138,7 +138,7 @@ if (isset($_REQUEST['kelas']))
 	
 <?php if ($kelas <> "" )
    { 
-		$sql = "SELECT tglmulai, tglakhir FROM tahunajaran WHERE replid = '$tahunajaran'";
+		$sql = "SELECT tglmulai, tglakhir FROM tahunajaran WHERE replid = '".$tahunajaran."'";
 		$result = QueryDb($sql);
 		$row = mysqli_fetch_array($result);
 		$tglawal = $row['tglmulai'];

@@ -53,7 +53,7 @@ function SimpanData()
                SET idpelajaran = '$idpelajaran',
                    idtingkat = '$idtingkat',
                    jenis = '$jenis',
-                   komentar = '$komentar'";
+                   komentar = '".$komentar."'";
     $result = QueryDb($sql);
     if ($result)
     { 	?>

@@ -10,7 +10,7 @@ OpenDb();
 
 $ownerid = $_REQUEST['ownerid'];
 
-$sql = "SELECT foto, foto IS NULL AS isnull FROM jbssdm.pegawai WHERE nip = '$ownerid'";
+$sql = "SELECT foto, foto IS NULL AS isnull FROM jbssdm.pegawai WHERE nip = '".$ownerid."'";
 $res = QueryDb($sql);
 
 if (mysqli_num_rows($res) > 0)

@@ -41,7 +41,7 @@ $idtahunbuku = $_REQUEST['idtahunbuku'];
 OpenDb();
 
 // -- ambil nama penerimaan -------------------------------
-$sql = "SELECT nama, rekkas, info2 FROM datapenerimaan WHERE replid = '$idpenerimaan'";
+$sql = "SELECT nama, rekkas, info2 FROM datapenerimaan WHERE replid = '".$idpenerimaan."'";
 $row = FetchSingleRow($sql);
 $namapenerimaan = $row[0];
 $defrekkas = $row[1];
@@ -70,7 +70,7 @@ if (0 == (int)FetchSingle($sql))
 }
 
 // -- ambil nama calon siswa --------------------------
-$sql = "SELECT nama, nopendaftaran FROM jbsakad.calonsiswa WHERE replid = '$replid'";
+$sql = "SELECT nama, nopendaftaran FROM jbsakad.calonsiswa WHERE replid = '".$replid."'";
 $row = FetchSingleRow($sql);
 $namacalon = $row[0];
 $nocalon = $row[1];
@@ -81,7 +81,7 @@ $sql = "SELECT b.cicilan
          WHERE b.idcalon = cs.replid
            AND cs.nopendaftaran = '$nocalon'
            AND b.idpenerimaan = '$idpenerimaan'
-           AND b.info2 = '$idtahunbuku'";
+           AND b.info2 = '".$idtahunbuku."'";
 $row = FetchSingleRow($sql);
 $jcicilan_default = $row[0];
 	
@@ -100,7 +100,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 		
 	//// Ambil nama penerimaan
 	$sql = "SELECT nama, rekkas, rekpendapatan, rekpiutang, info1
-			FROM datapenerimaan WHERE replid = '$idpenerimaan'";
+			FROM datapenerimaan WHERE replid = '".$idpenerimaan."'";
 	$row = FetchSingleRow($sql);
 	$namapenerimaan = $row[0];
 	//$rekkas = $row[1];
@@ -145,7 +145,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 		}
 		else
 		{
-			$sql = "SELECT COUNT(replid) + 1 FROM penerimaanjttcalon WHERE idbesarjttcalon = '$idbesarjtt'";
+			$sql = "SELECT COUNT(replid) + 1 FROM penerimaanjttcalon WHERE idbesarjttcalon = '".$idbesarjtt."'";
 			$cicilan = (int)FetchSingle($sql);
 			
 			$ketjurnal = "Pembayaran ke-$cicilan $namapenerimaan calon siswa $namacalon ($nocalon)";
@@ -154,7 +154,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 		}
 		
 		//Ambil awalan dan cacah tahunbuku untuk bikin nokas;
-		$sql = "SELECT awalan, cacah FROM jbsfina.tahunbuku WHERE replid = '$idtahunbuku'";
+		$sql = "SELECT awalan, cacah FROM jbsfina.tahunbuku WHERE replid = '".$idtahunbuku."'";
 		$row = FetchSingleRow($sql);
 		$awalan = $row[0];
 		$cacah = $row[1];
@@ -214,7 +214,7 @@ if (1 == (int)$_REQUEST['issubmit'])
         {
             $sql = "SELECT departemen
                       FROM jbsfina.tahunbuku
-                     WHERE replid = '$idtahunbuku'";
+                     WHERE replid = '".$idtahunbuku."'";
             $departemen = FetchSingle($sql);
             
             CreateSMSPaymentInfo('CSISPAY',
@@ -445,7 +445,7 @@ function CalculatePay()
                 while($row = mysqli_fetch_row($res))
                 {
                     $sel = $row[0] == $defrekkas ? "selected" : "";
-                    echo "<option value='$row[0]' $sel>$row[0] $row[1]</option>";
+                    echo "<option value='".$row[0]."' $sel>$row[0] $row[1]</option>";
                 }
                 CloseDb();
                 ?>                

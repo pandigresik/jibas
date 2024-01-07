@@ -183,7 +183,7 @@ function refreshPilihan(idtambahan)
 <?php
     $sql = "SELECT replid, kolom, jenis, keterangan, aktif, urutan 
               FROM tambahandata
-             WHERE departemen = '$departemen'";
+             WHERE departemen = '".$departemen."'";
 
     $result = QueryDb($sql);
     if (@mysqli_num_rows($result) > 0)

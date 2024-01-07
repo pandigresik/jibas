@@ -58,7 +58,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 	OpenDb();
 	
 	//Ambil awalan dan cacah tahunbuku untuk bikin nokas;
-	$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '$idtahunbuku'";
+	$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '".$idtahunbuku."'";
 	$result = QueryDb($sql);
 	if (mysqli_num_rows($result) == 0) 
 	{
@@ -369,7 +369,7 @@ function focusNext(elemName, evt) {
         <tr>
             <td><strong>Tahun Buku </strong></td>
             <td colspan="2">
-			<?php $sql = "SELECT replid, tahunbuku FROM tahunbuku WHERE aktif = 1 AND departemen = '$departemen'";
+			<?php $sql = "SELECT replid, tahunbuku FROM tahunbuku WHERE aktif = 1 AND departemen = '".$departemen."'";
                $result = QueryDb($sql);
                     
                $row = mysqli_fetch_row($result);

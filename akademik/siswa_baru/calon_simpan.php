@@ -33,14 +33,14 @@ $proses = $_REQUEST['proses'];
 
 OpenDb();
 
-$sql = "SELECT kodeawalan FROM jbsakad.prosespenerimaansiswa WHERE replid = '$proses'";	
+$sql = "SELECT kodeawalan FROM jbsakad.prosespenerimaansiswa WHERE replid = '".$proses."'";	
 $res = QueryDb($sql);	
 $row = mysqli_fetch_row($res);	
 $kode_no = $row[0];
 $kodelen = strlen($kode_no);
 //echo "$kode_no<br>";
 
-$sql = "SELECT MAX(LPAD(nopendaftaran, " . ($kodelen + 20) . ",'*')) FROM jbsakad.calonsiswa WHERE idproses = '$proses'";
+$sql = "SELECT MAX(LPAD(nopendaftaran, " . ($kodelen + 20) . ",'*')) FROM jbsakad.calonsiswa WHERE idproses = '".$proses."'";
 $res = QueryDb($sql);	
 $row = mysqli_fetch_row($res);
 $nom = $row[0];
@@ -95,7 +95,7 @@ $jtiri = strlen($_REQUEST['jtiri']) == 0 ? 0 : $_REQUEST['jtiri'];
 $bahasa = $_REQUEST['bahasa'];
 $alamatsiswa = $_REQUEST['alamatsiswa'];
 $kodepos = $_REQUEST['kodepos'];
-$kodepos_sql = "kodepossiswa = '$kodepos'";
+$kodepos_sql = "kodepossiswa = '".$kodepos."'";
 if ($kodepos == "")
 	$kodepos_sql = "kodepossiswa = NULL";
 $jarak = (float)$_REQUEST['jarak'];
@@ -105,7 +105,7 @@ $hpsiswa=str_replace(' ','',$hpsiswa);
 $emailsiswa=CQ($_REQUEST['emailsiswa']);
 $dep_asal=$_REQUEST['dep_asal'];
 $sekolah=$_REQUEST['sekolah'];
-$sekolah_sql = "asalsekolah = '$sekolah'";
+$sekolah_sql = "asalsekolah = '".$sekolah."'";
 if ($sekolah == "")
 	$sekolah_sql = "asalsekolah = NULL";
 $ketsekolah = $_REQUEST['ketsekolah'];
@@ -134,19 +134,19 @@ $tmplahiribu = $_REQUEST['tmplahiribu'];
 $tgllahirayah = $_REQUEST['tgllahirayah'];
 $tgllahiribu = $_REQUEST['tgllahiribu'];
 $pendidikanayah = $_REQUEST['pendidikanayah'];
-$pendidikanayah_sql = "pendidikanayah = '$pendidikanayah'";
+$pendidikanayah_sql = "pendidikanayah = '".$pendidikanayah."'";
 if ($pendidikanayah == "")
 	$pendidikanayah_sql = "pendidikanayah = NULL";
 $pendidikanibu=$_REQUEST['pendidikanibu'];
-$pendidikanibu_sql = "pendidikanibu = '$pendidikanibu'";
+$pendidikanibu_sql = "pendidikanibu = '".$pendidikanibu."'";
 if ($pendidikanibu == "")
 	$pendidikanibu_sql = "pendidikanibu = NULL";
 $pekerjaanayah=$_REQUEST['pekerjaanayah'];
-$pekerjaanayah_sql = "pekerjaanayah = '$pekerjaanayah'";
+$pekerjaanayah_sql = "pekerjaanayah = '".$pekerjaanayah."'";
 if ($pekerjaanayah == "")
 	$pekerjaanayah_sql = "pekerjaanayah = NULL";
 $pekerjaanibu=$_REQUEST['pekerjaanibu'];
-$pekerjaanibu_sql = "pekerjaanibu = '$pekerjaanibu'";
+$pekerjaanibu_sql = "pekerjaanibu = '".$pekerjaanibu."'";
 if ($pekerjaanibu == "")
 	$pekerjaanibu_sql = "pekerjaanibu = NULL";
 $penghasilanayah = $_REQUEST['penghasilanayah'];
@@ -239,7 +239,7 @@ for($i = 1; $i <= 2; $i++)
 	$kd = trim($_REQUEST[$fkd]);
 	$kd = (strlen($kd) == 0) ? "0" : $kd;
 	$kd = UnformatRupiah($kd);
-	$set .= "$fkd = '$kd'";
+	$set .= "$fkd = '".$kd."'";
 }
 
 for($i = 1; $i <= 10; $i++)
@@ -249,7 +249,7 @@ for($i = 1; $i <= 10; $i++)
 	$fkd = "ujian$i";
 	$kd = trim($_REQUEST[$fkd]);
 	$kd = (strlen($kd) == 0) ? 0 : $kd;
-	$set .= "$fkd = '$kd'";
+	$set .= "$fkd = '".$kd."'";
 }
 
 if ($_REQUEST['action'] == 'ubah')
@@ -345,11 +345,11 @@ if ($success && strlen($idtambahan) > 0)
 
             if ($repliddata == 0)
                 $sql = "INSERT INTO jbsakad.tambahandatacalon
-                           SET nopendaftaran = '$no', idtambahan = '$replid', jenis = '$jenis', teks = '$teks'";
+                           SET nopendaftaran = '$no', idtambahan = '$replid', jenis = '$jenis', teks = '".$teks."'";
             else
                 $sql = "UPDATE jbsakad.tambahandatacalon
                            SET teks = '$teks'
-                         WHERE replid = '$repliddata'";
+                         WHERE replid = '".$repliddata."'";
 
             QueryDbTrans($sql, $success);
         }
@@ -383,11 +383,11 @@ if ($success && strlen($idtambahan) > 0)
                 if ($repliddata == 0)
                     $sql = "INSERT INTO jbsakad.tambahandatacalon
                                SET nopendaftaran = '$no', idtambahan = '$replid', jenis = '2', 
-                                   filedata = '$datafile', filename = '$namefile', filemime = '$typefile', filesize = '$sizefile'";
+                                   filedata = '$datafile', filename = '$namefile', filemime = '$typefile', filesize = '".$sizefile."'";
                 else
                     $sql = "UPDATE jbsakad.tambahandatacalon
                                SET filedata = '$datafile', filename = '$namefile', filemime = '$typefile', filesize = '$sizefile'
-                             WHERE replid = '$repliddata'";
+                             WHERE replid = '".$repliddata."'";
 
                 QueryDbTrans($sql, $success);
             }

@@ -27,14 +27,14 @@ try
         
         $sql = "INSERT INTO jbsletter.comment
                    SET nip = '$nip', ";
-        $sql .= "idsurat = '$idsurat', tanggal = NOW(), komen = '$comment', fkomen = '$fcomment'";
+        $sql .= "idsurat = '$idsurat', tanggal = NOW(), komen = '$comment', fkomen = '".$fcomment."'";
         
         QueryDbEx($sql);
     }
     
     $sql = "UPDATE jbsletter.surat
                SET lastactive = NOW()
-             WHERE replid = '$idsurat'";
+             WHERE replid = '".$idsurat."'";
     QueryDbEx($sql);         
     
     CommitTrans();

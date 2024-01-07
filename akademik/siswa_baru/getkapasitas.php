@@ -30,7 +30,7 @@ $angkatan = $_REQUEST['angkatan'];
 $tahunajaran = $_REQUEST['tahunajaran'];
 
 OpenDb();
-$sql = "SELECT kapasitas FROM kelas WHERE replid = '$kelas'";
+$sql = "SELECT kapasitas FROM kelas WHERE replid = '".$kelas."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $kapasitas = $row[0];

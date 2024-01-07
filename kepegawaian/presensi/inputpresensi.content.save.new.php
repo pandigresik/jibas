@@ -80,7 +80,7 @@ try
                    SET nip = '$nip', tanggal = '$tglpresensi',
                        jammasuk = '$jmasuk', jampulang = '$jpulang',
                        jamwaktukerja = '$jkerja', menitwaktukerja = '$mkerja',
-                       status = '$status', keterangan = '$keterangan'";
+                       status = '$status', keterangan = '".$keterangan."'";
         QueryDbTrans($sql, $success);
     }
     

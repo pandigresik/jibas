@@ -57,7 +57,7 @@ while($row = mysqli_fetch_row($result))
 {
   if ($tahun == 0)
 	$tahun = $row[0];
-  echo "<option value='$row[0]' " . IntIsSelected($tahun, $row[0]) . " > " . $row[0] . "</option>";
+  echo "<option value='".$row[0]."' " . IntIsSelected($tahun, $row[0]) . " > " . $row[0] . "</option>";
 } 
 echo "</select>";
 

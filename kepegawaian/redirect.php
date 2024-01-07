@@ -109,7 +109,7 @@ else
 					$_SESSION['namasimpeg'] = $row2['nama'];
 					$_SESSION['tingkatsimpeg'] = $row2['tingkat'];
 					$_SESSION['temasimpeg'] = $row2['tema'];
-					if ($row2[tingkat] == 2)
+					if ($row2['tingkat'] == 2)
 						$_SESSION['departemensimpeg'] = $row2['departemen'];
 					else
 						$_SESSION['departemensimpeg'] = "ALL";

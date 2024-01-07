@@ -102,7 +102,7 @@ for($i = 0; $i < count($lsTanggal); $i++)
                  WHERE p.replid = pd.idpgtrans
                    AND p.departemen = '$departemen'
                    AND p.tanggal = '$tanggal'
-                   AND pd.kategori = '$kategori'";
+                   AND pd.kategori = '".$kategori."'";
 
         if ($idPenerimaan != "0")
         {

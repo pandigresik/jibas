@@ -46,12 +46,12 @@ if ($iddasar=="12"){
 	
 $result1 = QueryDb($query1);
 $row1 = @mysqli_fetch_array($result1);
-$j1 = $row1[Jum];
+$j1 = $row1['Jum'];
 
 
 $result2 = QueryDb($query2);
 $row2 = @mysqli_fetch_array($result2);
-$j2 = $row2[Jum];
+$j2 = $row2['Jum'];
 
 $result3 = QueryDb($query3);
 $row3 = @mysqli_fetch_array($result3);
@@ -59,7 +59,7 @@ $j3 = $row3['Jum'];
 
 $result4 = QueryDb($query4);
 $row4 = @mysqli_fetch_array($result4);
-$j4 = $row4[Jum];
+$j4 = $row4['Jum'];
 
 
 $sum = $j1 + $j2 +$j3 + $j4;
@@ -161,7 +161,7 @@ $query1 = "SELECT COUNT(s.replid) As Jum, YEAR(now())-YEAR(s.tgllahir) As usia F
 if ($iddasar=="12"){
 if($sum == 0) {
   echo "<table width='100%' height='100%'><tr><td align='center' valign='middle'>
-        <font size='2' face='verdana'>Grafik Lingkaran tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk Departemen <b>$_REQUEST['departemen']</b> dan Angkatan <b>$row['angkatan']</b></font></td></tr></table>";
+        <font size='2' face='verdana'>Grafik Lingkaran tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk Departemen <b>".$_REQUEST['departemen']</b> dan Angkatan <b>$row['angkatan']."</b></font></td></tr></table>";
 }else {
 //data
 
@@ -193,7 +193,7 @@ $graph->Stroke();
 } else {
 if($num == 0) {
   echo "<table width='100%' height='100%'><tr><td align='center' valign='middle'>
-        <font size='2' face='verdana'>Grafik Lingkaran tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk Departemen <b>$_GET['departemen']</b> dan Angkatan <b>$row['Angkatan']</b></font></td></tr></table>";
+        <font size='2' face='verdana'>Grafik Lingkaran tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk Departemen <b>".$_GET['departemen']</b> dan Angkatan <b>$row['Angkatan']."</b></font></td></tr></table>";
 }else {
 
 //Buat grafik

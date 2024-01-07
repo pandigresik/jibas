@@ -140,7 +140,7 @@ if (isset($_REQUEST['Simpan']))
 		
 		if (strlen($ERROR_MSG) == 0)
 		{
-			$sql1 = "SELECT replid, TIME_FORMAT(jam1, '%H:%i') AS jam1 FROM jam WHERE departemen = '$departemen' AND jamke = '$jam'";
+			$sql1 = "SELECT replid, TIME_FORMAT(jam1, '%H:%i') AS jam1 FROM jam WHERE departemen = '$departemen' AND jamke = '".$jam."'";
 			$result1 = QueryDb($sql1);
 			$row1 = mysqli_fetch_array($result1);
 			$rep1 = $row1['replid'];

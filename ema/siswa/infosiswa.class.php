@@ -81,7 +81,7 @@ class CInfoSiswa
     
     private function getSiswaName($nis)
 	{
-		$sql = "SELECT nama FROM siswa WHERE nis = '$nis'";
+		$sql = "SELECT nama FROM siswa WHERE nis = '".$nis."'";
 		$result = QueryDb($sql);
 		$row = @mysqli_fetch_array($result);
 		return $row['nama'];

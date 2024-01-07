@@ -78,7 +78,7 @@ $thnlahir = (int)$row_siswa['tahun'];
 
 if ($row_siswa['asalsekolah'] <> NULL) 
 {
-	$query = "SELECT departemen FROM asalsekolah WHERE sekolah = '".$row_siswa[asalsekolah]'";
+	$query = "SELECT departemen FROM asalsekolah WHERE sekolah = '".$row_siswa['asalsekolah']."'";
 	$hasil = QueryDb($query);	
 	$row = mysqli_fetch_array($hasil);
 	$dep_asal = $row['departemen'];
@@ -191,7 +191,7 @@ else
 				while ($row = @mysqli_fetch_array($result)) {
 					
 										
-					$sql1 = "SELECT COUNT(replid) FROM calonsiswa WHERE idkelompok = $row['replid'] AND aktif = 1";
+					$sql1 = "SELECT COUNT(replid) FROM calonsiswa WHERE idkelompok = ".$row['replid']." AND aktif = 1";
 					$result1 = QueryDb($sql1);				
 					$row1 = mysqli_fetch_row($result1);
 					
@@ -231,7 +231,7 @@ else
 			  $res_cek_jum = QueryDb($sql_cek_jum);				
 			  $row_cek_jum = mysqli_fetch_row($res_cek_jum);
 			  ?>
-			  <input type="hidden" name="kapasitas" id="kapasitas" value="<?=$row_cek_kap[kapasitas]?>" />
+			  <input type="hidden" name="kapasitas" id="kapasitas" value="<?=$row_cek_kap['kapasitas']?>" />
 			  <input type="hidden" name="isi" id="isi" value="<?=$row_cek_jum[0]?>" />
               
             	</div>        	</td>
@@ -997,7 +997,7 @@ else
             $data = "";
             if ($jenis == 1)
             {
-                $sql = "SELECT replid, teks FROM tambahandatacalon WHERE nopendaftaran = '$no' AND idtambahan = '$replid'";
+                $sql = "SELECT replid, teks FROM tambahandatacalon WHERE nopendaftaran = '$no' AND idtambahan = '".$replid."'";
                 $res2 = QueryDb($sql);
                 if ($row2 = mysqli_fetch_row($res2))
                 {
@@ -1007,7 +1007,7 @@ else
             }
             else if ($jenis == 2)
             {
-                $sql = "SELECT replid, filename FROM tambahandatacalon WHERE nopendaftaran = '$no' AND idtambahan = '$replid'";
+                $sql = "SELECT replid, filename FROM tambahandatacalon WHERE nopendaftaran = '$no' AND idtambahan = '".$replid."'";
                 $res2 = QueryDb($sql);
                 if ($row2 = mysqli_fetch_row($res2))
                 {
@@ -1018,7 +1018,7 @@ else
             }
             else if ($jenis == 3)
             {
-                $sql = "SELECT replid, teks FROM tambahandatacalon WHERE nopendaftaran = '$no' AND idtambahan = '$replid'";
+                $sql = "SELECT replid, teks FROM tambahandatacalon WHERE nopendaftaran = '$no' AND idtambahan = '".$replid."'";
                 $res2 = QueryDb($sql);
                 if ($row2 = mysqli_fetch_row($res2))
                 {

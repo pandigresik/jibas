@@ -153,7 +153,7 @@ function focusNext(elemName, evt) {
             $tgl = explode("-",$row_cek_ujian['tanggal']);
             
         ?>
-           <td height="30" width="50" class="headerlong" align="center" onMouseOver="showhint('Deskripsi :\n <?=$row_cek_ujian[deskripsi]?>', this, event, '120px')"><?=$namajenis."-".$i?>&nbsp;
+           <td height="30" width="50" class="headerlong" align="center" onMouseOver="showhint('Deskripsi :\n <?=$row_cek_ujian['deskripsi']?>', this, event, '120px')"><?=$namajenis."-".$i?>&nbsp;
             <br /><?=$tgl[2]."/".$tgl[1]."/".substr($tgl[0],2)?>
             </td>
         <?php
@@ -181,7 +181,7 @@ function focusNext(elemName, evt) {
             <td><?=$row_siswa['nama']?></td>
             <?php for ($j=1;$j<=count($idujian);$j++) { 
                     echo "<td align='center'>";		
-                    $sql_cek_nilai_ujian="SELECT * FROM jbsakad.nilaiujian WHERE idujian='$idujian[$j]' AND nis='$row_siswa[nis]'";
+                    $sql_cek_nilai_ujian="SELECT * FROM jbsakad.nilaiujian WHERE idujian='".$idujian[$j]."' AND nis='".$row_siswa['nis']."'";
                     //echo $sql_cek_nilai_ujian;
                     $result_cek_nilai_ujian=QueryDb($sql_cek_nilai_ujian);
                     $row_cek_nilai_ujian=@mysqli_fetch_array($result_cek_nilai_ujian);
@@ -190,7 +190,7 @@ function focusNext(elemName, evt) {
                     if (@mysqli_num_rows($result_cek_nilai_ujian)>0){ 			
                             
                         echo $row_cek_nilai_ujian['nilaiujian'];
-                        if ($row_cek_nilai_ujian[keterangan]<>"")
+                        if ($row_cek_nilai_ujian['keterangan']<>"")
                             echo "<strong>*</strong>";
                         
                     } else { 
@@ -204,7 +204,7 @@ function focusNext(elemName, evt) {
             <td height="25" align="center">
             
             <?php
-                $sql_get_nau_per_nis="SELECT nilaiAU,replid,keterangan FROM jbsakad.nau WHERE nis='$row_siswa[nis]' AND idkelas='$kelas' AND idsemester='$semester' AND idaturan='$idaturan'";
+                $sql_get_nau_per_nis="SELECT nilaiAU,replid,keterangan FROM jbsakad.nau WHERE nis='".$row_siswa['nis']."' AND idkelas='$kelas' AND idsemester='$semester' AND idaturan='$idaturan'";
 				
             	//echo $sql_get_nau_per_nis;			
                 $result_get_nau_per_nis=QueryDb($sql_get_nau_per_nis);

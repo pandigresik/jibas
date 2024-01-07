@@ -30,7 +30,7 @@ $type = $_REQUEST['type'];
 $krit = $_REQUEST['krit']; //1 Statistik peminjam terbanyak 
 $key = $_REQUEST['key'];
 $Limit = $_REQUEST['Limit'];
-$key = split(',', $key);
+$key = explode(',', $key);
 if ($krit==2)
 {
 	require_once("../../lib/chartfactory3.php");
@@ -57,7 +57,7 @@ if ($krit == 1)
 			  FROM
 				   (SELECT p.replid, IF(p.nis IS NOT NULL, p.nis, IF(p.nip IS NOT NULL, p.nip, p.idmember)) AS idanggota
 					  FROM jbsperpus.pinjam p, jbsperpus.daftarpustaka d
-				     WHERE p.tglpinjam BETWEEN '$key[0]' AND '$key[1]'
+				     WHERE p.tglpinjam BETWEEN '".$key[0]."' AND '$key[1]'
 					   AND d.kodepustaka = p.kodepustaka $filter) AS x
 			 GROUP BY x.idanggota
 		     ORDER BY num DESC
@@ -72,7 +72,7 @@ elseif ($krit == 2)
 	
 	$sql = "SELECT judul, count(*) as num
 		      FROM jbsperpus.pinjam p, jbsperpus.daftarpustaka d, jbsperpus.pustaka pu
-			 WHERE p.tglpinjam BETWEEN '$key[0]' AND '$key[1]'
+			 WHERE p.tglpinjam BETWEEN '".$key[0]."' AND '$key[1]'
 			   AND d.kodepustaka=p.kodepustaka
 			   AND pu.replid=d.pustaka $filter
 			 GROUP BY judul
@@ -88,7 +88,7 @@ elseif ($krit == 3)
 	
 	$sql = "SELECT DATE_FORMAT(p.tglpinjam, '%M %Y'), count(*) as num
 			  FROM jbsperpus.pinjam p, jbsperpus.daftarpustaka d, jbsperpus.pustaka pu
-			 WHERE p.tglpinjam BETWEEN '$key[0]' AND '$key[1]'
+			 WHERE p.tglpinjam BETWEEN '".$key[0]."' AND '$key[1]'
 			   AND d.kodepustaka=p.kodepustaka
 			   AND pu.replid=d.pustaka $filter
 			 GROUP BY MONTH(p.tglpinjam), YEAR(p.tglpinjam)

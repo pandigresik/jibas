@@ -86,7 +86,7 @@ $nomor = $row[0];
               FROM jbsfina.pgtrans p
              INNER JOIN jbsfina.bank b ON p.bankno = b.bankno
               LEFT JOIN jbsakad.siswa s ON p.nis = s.nis
-             WHERE p.nomor = '$nomor'";
+             WHERE p.nomor = '".$nomor."'";
     $res = QueryDb($sql);
     $row = mysqli_fetch_array($res);
     $idPgTrans = $row["replid"];
@@ -174,7 +174,7 @@ $nomor = $row[0];
             echo "<td align='center' style='background-color: #efefef;'>$no</td>";
             echo "<td align='left'>$nama</td>";
             echo "<td align='right'>$rp</td>";
-            echo "<td align='center'>$row2[nokas]</td>";
+            echo "<td align='center'>".$row2['nokas']."</td>";
             echo "</tr>";
         }
 

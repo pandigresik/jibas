@@ -41,10 +41,10 @@ $cek = 0;
 $ERROR_MSG = "";
 if (isset($_REQUEST['Simpan'])) {
 	OpenDb();
-	$sql = "SELECT * FROM satker WHERE satker = '$satker'";
+	$sql = "SELECT * FROM satker WHERE satker = '".$satker."'";
 	$result = QueryDb($sql);
 	
-	$sql1 = "SELECT * FROM satker WHERE nama = '$nama'";
+	$sql1 = "SELECT * FROM satker WHERE nama = '".$nama."'";
 	$result1 = QueryDb($sql1);
 		
 	if (@mysqli_num_rows($result) > 0) {		

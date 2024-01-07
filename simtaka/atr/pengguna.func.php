@@ -30,7 +30,7 @@ function GetPerpus($tingkat, $dep)
     }
 	else
 	{
-        $filter = ($dep == "--ALL--") ? "" : "WHERE departemen = '$dep'";
+        $filter = ($dep == "--ALL--") ? "" : "WHERE departemen = '".$dep."'";
         $sql = "SELECT *
                   FROM perpustakaan
                        $filter
@@ -39,7 +39,7 @@ function GetPerpus($tingkat, $dep)
 						
         while ($row = mysqli_fetch_array($res))
 		{
-            echo "<option value='$row['replid']:$row['nama']'>\r\n";
+            echo "<option value='".$row['replid'].":".$row['nama']."'>\r\n";
 			echo $row['nama'];
 			echo "</option>\r\n";
         }

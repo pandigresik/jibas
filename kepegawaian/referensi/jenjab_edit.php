@@ -88,7 +88,7 @@ switch ($cek) {
 }
 
 OpenDb();
-$sql = "SELECT jenis,urutan,keterangan FROM jenisjabatan WHERE jenis = '$jenis'"; 
+$sql = "SELECT jenis,urutan,keterangan FROM jenisjabatan WHERE jenis = '".$jenis."'"; 
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $jenis = $row[0];

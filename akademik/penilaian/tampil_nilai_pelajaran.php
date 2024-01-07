@@ -197,13 +197,13 @@ OpenDb();
 	$num_uj = @mysqli_num_rows($result_uj);
 	
 	while($row_uj = @mysqli_fetch_array($result_uj)){
-		$my_data[$row_uj[nis]][n][$row_uj[idujian]][nilai] = $row_uj[nilaiujian];
-		$my_data[$row_uj[nis]][n][$row_uj[idujian]][id] = $row_uj['replid'];
-		$my_data[$row_uj[nis]][n][$row_uj[idujian]][idujian] = $row_uj[idujian];
-		$my_data[$row_uj[nis]][n][$row_uj[idujian]][status] = $row_uj[statuspenilaian];
-		$my_data[$row_uj[nis]][n][$row_uj[idujian]][lenket] = $row_uj[lenket];
-		//$my_data[$row_uj[nis]]['replid'] = $row_uj['replid'];
-		$my_data[$row_uj[nis]][nama] = $row_uj[nama];
+		$my_data[$row_uj['nis']]['n'][$row_uj['idujian']]['nilai'] = $row_uj['nilaiujian'];
+		$my_data[$row_uj['nis']]['n'][$row_uj['idujian']]['id'] = $row_uj['replid'];
+		$my_data[$row_uj['nis']]['n'][$row_uj['idujian']]['idujian'] = $row_uj['idujian'];
+		$my_data[$row_uj['nis']]['n'][$row_uj['idujian']]['status'] = $row_uj['statuspenilaian'];
+		$my_data[$row_uj['nis']]['n'][$row_uj['idujian']]['lenket'] = $row_uj['lenket'];
+		//$my_data[$row_uj['nis']]['replid'] = $row_uj['replid'];
+		$my_data[$row_uj['nis']]['nama'] = $row_uj['nama'];
 	}
 	?>
 	<table width="100%" id="table" class="tab" border="1">
@@ -231,8 +231,8 @@ OpenDb();
 			?>
 			<td class="headerlong" align="center"  height="30">				
 			<?php 
-				$tgl = format_tgl($row_qz[tanggal]);
-				echo  "$row_qz[jenisujian]-$z"; ?>
+				$tgl = format_tgl($row_qz['tanggal']);
+				echo  "$row_qz['jenisujian']-$z"; ?>
 				<a href="#" onClick="newWindow('ubah_nilai_pelajaran.php?id=<?=$row_qz['replid']; ?>&departemen=<?=$departemen; ?>&tingkat=<?=$tingkat ?>&pelajaran=<?=$pelajaran ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&tahun=<?=$tahun ?>&jenis_penilaian=<?=$jenis_penilaian ?>','Ubah Nilai Pelajaran',555,366,'resizable=1,scrollbars=0,status=0,toolbar=0')">
 				<img src="../images/ico/ubah.png" border="0"></a>
 				<a href="hapus_ujian.php?id=<?=$row_qz['replid']; ?>&departemen=<?=$departemen ?>&tahun=<?=$tahun ?>&tingkat=<?=$tingkat ?>&pelajaran=<?=$pelajaran ?>&kelas=<?=$kelas ?>&semester=<?=$semester ?>&jenis_penilaian=<?=$jenis_penilaian ?>"
@@ -279,7 +279,7 @@ OpenDb();
                     <tr>
 						<td align='center' height='25'>$i</td>
 						<td height='25'>$ns</td>
-						<td height='25'>$d[nama]</td>";
+						<td height='25'>".$d['nama']."</td>";
 						$t = 0;
 						$idx = 0;
                 	if($kolom != "") {
@@ -289,8 +289,8 @@ OpenDb();
                     		$ujcnt = $ujcntstart;
 								$ujfound = false;
                     		while ($ujcnt < $nujian && !$ujfound) {                  			
-                    			//echo "$v[idujian] vs $kol_idujian[$ujcnt]";
-                    			if ($v[idujian] == $kol_idujian[$ujcnt]) { 
+                    			//echo "$v['idujian'] vs $kol_idujian[$ujcnt]";
+                    			if ($v['idujian'] == $kol_idujian[$ujcnt]) { 
                     				$ujfound = true;
                     				$ujcntstart = $ujcnt + 1;
 									
@@ -300,7 +300,7 @@ OpenDb();
                     				?>
 									<td align='center' height='25'><a href="#null" onClick="newWindow('tambah_nilai_ujian.php?id=<?=$v['id'] ?>&idujian=<?=$kol_idujian[$ujcnt] ?>&jenis_penilaian=<?=$jenis_penilaian ?>&pelajaran=<?=$pelajaran ?>&kelas=<?=$kelas ?>&semester=<?=$semester ?>&departemen=<?=$departemen ?>&tingkat=<?=$tingkat ?>&tahun=<?=$tahun ?>',
 					            	'Data Nilai Ujian','500','250','resizable=1,scrollbars=1,status=0,toolbar=0')"><img src="../images/ico/tambah.png" width="16" height="16" border="0"  onMouseOver="showhint('Tambah Nilai Siswa!', this, event, '120px')"/></a>
-									<?php if ($v[lenket] > 0){
+									<?php if ($v['lenket'] > 0){
 										$keter=1;
 										echo " <font color='Blue'><b>)*</b></font>";
 									} else {
@@ -313,26 +313,26 @@ OpenDb();
                     			} 
                     		}
                     		/*$sp = "";
-                    		if ($v[status] > 0) {
-                    			if ($v[status] == 1) 
+                    		if ($v['status'] > 0) {
+                    			if ($v['status'] == 1) 
                     				$sp = "(TH)";
-                    			elseif ($v[status] == 2) 
+                    			elseif ($v['status'] == 2) 
                     				$sp = "(TM)";
-                    			elseif ($v[status] == 3) 
+                    			elseif ($v['status'] == 3) 
                     				$sp = "(C)";
-                    			elseif ($v[status] == 4) 
+                    			elseif ($v['status'] == 4) 
                     				$sp = "(L)";
                     		} */
-								$t += $v[nilai];
-								$totCol[$idx] += $v[nilai];
+								$t += $v['nilai'];
+								$totCol[$idx] += $v['nilai'];
 								$idx++;
 								$nkolpinted++;								
                     		?>          
 	                        <td align='center' height='25'>
 									<a href="#null" onClick="newWindow('ubah_nilai_ujian.php?id=<?=$v['id'] ?>&jenis_penilaian=<?=$jenis_penilaian ?>&pelajaran=<?=$pelajaran ?>&kelas=<?=$kelas ?>&semester=<?=$semester ?>&departemen=<?=$departemen ?>&tingkat=<?=$tingkat ?>&tahun=<?=$tahun ?>',
 					            	'Data Nilai Ujian','487','275','resizable=1,scrollbars=1,status=0,toolbar=0')">
-										<?="$v[nilai]"; ?></a>
-										<?php if ($v[lenket] > 0)
+										<?="$v['nilai']"; ?></a>
+										<?php if ($v['lenket'] > 0)
 										echo " <font color='Blue'><b>)*</b></font>";
 										?>
 										<input type="hidden" name="nilai<?=$i ?>" value="<?=$v['nilai'] ?>">
@@ -360,7 +360,7 @@ OpenDb();
 								 "AND nau.idpelajaran = '$pelajaran' ".
 								 "AND nau.idkelas = '$kelas' ".
 								 "AND nau.idsemester = '$semester' ".
-								 "AND nau.nis = '$ns'";
+								 "AND nau.nis = '".$ns."'";
 					$result_nau = QueryDb($query_nau) or die (mysqli_error($mysqlconnection));
 					$row_nau = mysqli_fetch_array($result_nau);
 					?>
@@ -464,8 +464,8 @@ OpenDb();
 					<input type="checkbox" name="rplidju<?=$i ?>" value="<?=$row_qz['replid'] ?>" onClick="clist(<?=$i ?>);">
 					<?php 
 					
-					$tgl = format_tgl($row_qz[tanggal]);
-					echo  "$row_qz[jenisujian]-$i ($tgl) "; 
+					$tgl = format_tgl($row_qz['tanggal']);
+					echo  "$row_qz['jenisujian']-$i ($tgl) "; 
 					
 					$query_nuj = "SELECT nilaiujian FROM jbsakad.nilaiujian WHERE idujian = '".$row_qz['replid']."'";
 					$result_nuj = QueryDb($query_nuj);
@@ -473,7 +473,7 @@ OpenDb();
 					//echo $query_nuj;
 					$row_nuj = @mysqli_fetch_array($result_nuj);
 					
-					//echo "tes$row_nuj[NilaiUjian]";
+					//echo "tes$row_nuj['NilaiUjian']";
 					?>
 					<input type="hidden" name="nilai_ujian<?=$i ?>" value="<?=$row_nuj['nilaiujian'] ?>">
 					</td>
@@ -529,7 +529,7 @@ if(isset($_POST['hitung'])){
 				$info .= "$_POST[$ruj]:$_POST[$b];";	//pengkodean buat infobobot ujian
 				
 				//query buat cari nilai ujian masing-masing siswa berdasarkan idujiannya		
-				$query_iduj = "SELECT * FROM jbsakad.nilaiujian WHERE nilaiujian.idujian = '$_POST[$ruj]'";
+				$query_iduj = "SELECT * FROM jbsakad.nilaiujian WHERE nilaiujian.idujian   = '".$_POST[$ruj]."'";
 			
 				$result_iduj = QueryDb($query_iduj);
 				
@@ -537,8 +537,8 @@ if(isset($_POST['hitung'])){
 				
 				while($row_iduj = mysqli_fetch_array($result_iduj)){
 					
-					$nakhr = $_POST[$b]*$row_iduj[nilaiujian];	//perkalian antara bobot dengan nilaiujian
-					$data_uj[$row_iduj[nis]] += $nakhr; 	//array siswa nis pemjumlahan hasil perkalian
+					$nakhr = $_POST[$b]*$row_iduj['nilaiujian'];	//perkalian antara bobot dengan nilaiujian
+					$data_uj[$row_iduj['nis']] += $nakhr; 	//array siswa nis pemjumlahan hasil perkalian
 					
 				}							
 			}			
@@ -548,13 +548,13 @@ if(isset($_POST['hitung'])){
         //echo "test ".count($data_uj);
 		foreach($data_uj as $ns => $v) {
 			//query buat cek data udah ada belon untuk data jenis penilaian. Klo belum insert, klo udah di update
-			 $query_cek = "SELECT nau.replid, nau.idjenis FROM jbsakad.nau WHERE nau.idjenis = '$jenis_penilaian' AND idsemester = '$semester' AND idkelas = '$kelas' AND nis = '$ns' AND idpelajaran = '$pelajaran'";
+			 $query_cek = "SELECT nau.replid, nau.idjenis FROM jbsakad.nau WHERE nau.idjenis = '$jenis_penilaian' AND idsemester = '$semester' AND idkelas = '$kelas' AND nis = '$ns' AND idpelajaran = '".$pelajaran."'";
 			$result_cek = QueryDb($query_cek);
 			$num_cek = mysqli_num_rows($result_cek);
 			$row_cek = mysqli_fetch_array($result_cek); 
 		
 			$rata=$v/$ttl_bbt;
-			$query_id = "SELECT nau.replid FROM jbsakad.nau WHERE nau.idjenis = '$jenis_penilaian' AND idsemester = '$semester' AND idkelas = '$kelas' AND nis = '$_POST[$ns]' AND idpelajaran = '$pelajaran'";
+			$query_id = "SELECT nau.replid FROM jbsakad.nau WHERE nau.idjenis = '$jenis_penilaian' AND idsemester = '$semester' AND idkelas = '$kelas' AND nis  = '".$_POST[$ns]."' AND idpelajaran = '".$pelajaran."'";
 			$result_id = QueryDb($query_id);
 			$row_id = @mysqli_fetch_array($result_id);
 			if($num_cek == 0){
@@ -565,7 +565,7 @@ if(isset($_POST['hitung'])){
 					$query_nau = "UPDATE jbsakad.nau SET ".
 								 "nilaiAU = '$rata' WHERE nau.nis = '$ns' AND nau.idjenis = '$jenis_penilaian' ".
 								 "AND idpelajaran = '$pelajaran' AND idkelas = '$kelas' ".
-								 "AND idsemester = '$semester'";
+								 "AND idsemester = '".$semester."'";
 					$result_nau = QueryDb($query_nau) or die(mysqli_error($mysqlconnection));		
 			}
 			//echo $query_nau;
@@ -576,7 +576,7 @@ if(isset($_POST['hitung'])){
 		if($num_cek == 0){
 				echo $query_inf = "INSERT INTO jbsakad.infobobotujian ".
 								 "(idpelajaran, idkelas, idsemester, idjenisujian, pilihan, info, keterangan) ".
-								 "VALUES ('$pelajaran', '$kelas','$semester','$jenis_penilaian', '$_POST['rtn']', '$inf','$keterangan')";
+								 "VALUES ('".$pelajaran', '$kelas','$semester','$jenis_penilaian', '".$_POST['rtn']."', '$inf','$keterangan')";
 				$result_inf = QueryDb($query_inf) or die (mysqli_error($mysqlconnection));
 		}elseif($num_cek > 0){
 				$query_inf = "UPDATE jbsakad.infobobotujian SET info = '$inf' WHERE idjenisujian = '$jenis_penilaian'";
@@ -635,7 +635,7 @@ elseif($_POST['rtn'] == "2"){			//jika checklist kedua yg dipilih
 			$result_ns = QueryDb($query_ns);
 							
 			while($row_ns = @mysqli_fetch_array($result_ns)){				
-				echo $data_iduj[$row_ns[nis]]= $row_ns[nilaiujian]; 
+				echo $data_iduj[$row_ns['nis']]= $row_ns['nilaiujian']; 
 			}
 								
 				foreach($data_iduj as $ns => $v) {

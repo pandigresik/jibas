@@ -49,8 +49,8 @@ $bulan_pjg = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','
         while ($row_year=@mysqli_fetch_array($res_year))
         {
             if ($tahun == "")
-                $tahun=$row_year[tahun]; ?>
-            <option value="<?=$row_year[tahun]?>"><?=$row_year[tahun]?></option>
+                $tahun=$row_year['tahun']; ?>
+            <option value="<?=$row_year['tahun']?>"><?=$row_year['tahun']?></option>
 <?php  	}
 	}
     else
@@ -77,7 +77,7 @@ $bulan_pjg = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','
         {
 		  	$sql_cnt = "SELECT COUNT(*)
                           FROM jbsvcr.catatansiswa
-                         WHERE nis='$nis' AND MONTH(tanggal)='$row['bulan']' AND YEAR(tanggal)='$tahun'";
+                         WHERE nis== '".$nis."' AND MONTH(tanggal)='".$row['bulan']."' AND YEAR(tanggal)='$tahun'";
 		  	$res_cnt = QueryDb($sql_cnt);
 			$row_cnt = @mysqli_fetch_row($res_cnt); ?>
             <tr onClick="ShowCatatanSiswa('<?=$nis?>', '<?=$row['bulan']?>', '<?=$tahun?>')" style="cursor:pointer;" title="Klik untuk menampilkan daftar Catatan Siswa">

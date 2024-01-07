@@ -206,7 +206,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 			$success = true;
 			
 			$sql = "UPDATE penerimaanjttcalon SET jumlah='$jbayar', keterangan='$kcicilan', tanggal='$tcicilan', 
-			        alasan='$alasan', petugas='$petugas', info1='$jdiskon' WHERE replid = '$idpembayaran'";
+			        alasan='$alasan', petugas='$petugas', info1='$jdiskon' WHERE replid = '".$idpembayaran."'";
 			QueryDbTrans($sql, $success);
 			
 			$idjurnal = 0;
@@ -218,7 +218,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 			
 			if ($success)
 			{
-				$sql = "UPDATE jurnal SET transaksi='$ketjurnal' WHERE replid = '$idjurnal'";
+				$sql = "UPDATE jurnal SET transaksi='$ketjurnal' WHERE replid = '".$idjurnal."'";
 				QueryDbTrans($sql, $success);	
 			}
 			
@@ -464,7 +464,7 @@ function CalculatePay()
                 while($row = mysqli_fetch_row($res))
                 {
                     $sel = $row[0] == $defrekkas ? "selected" : "";
-                    echo "<option value='$row[0]' $sel>$row[0] $row[1]</option>";
+                    echo "<option value='".$row[0]."' $sel>$row[0] $row[1]</option>";
                 }
                 CloseDb();
                 ?>                

@@ -91,11 +91,11 @@ if(!isset($_SESSION["login"]))
 			if($num2 != 0) 
 			{
 				$_SESSION['login'] = $login;
-				$_SESSION['nama'] = $row2[nama];
+				$_SESSION['nama'] = $row2['nama'];
 				$_SESSION['tingkat'] = 2;
-				$_SESSION['panggilan'] = $row2[panggilan];
-				$_SESSION['theme'] = $row2[tema];
-				if ($row2[tingkat]==2)
+				$_SESSION['panggilan'] = $row2['panggilan'];
+				$_SESSION['theme'] = $row2['tema'];
+				if ($row2['tingkat']==2)
 					$_SESSION['departemen'] = $row2['departemen'];
 				else 
 					$_SESSION['departemen'] = "ALL";

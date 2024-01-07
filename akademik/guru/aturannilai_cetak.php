@@ -108,7 +108,7 @@ $guru = $row[2].' - '.$row[3];
 <?php 			$sql2 = "SELECT g.dasarpenilaian, g.grade, g.nmin, g.nmax 
 					   FROM aturangrading g, tingkat t 
 					  WHERE t.replid = g.idtingkat AND t.departemen = '$departemen' AND g.idpelajaran = '$id'
-					    AND g.idtingkat = '".$row['replid']."' AND g.dasarpenilaian = '".$row1[0]' AND g.nipguru = '$nip' ORDER BY grade";
+					    AND g.idtingkat = '".$row['replid']."' AND g.dasarpenilaian = '".$row1[0]."' AND g.nipguru = '$nip' ORDER BY grade";
 			$result2 = QueryDb($sql2);			
 			while ($row2 = @mysqli_fetch_row($result2)) {
 				echo $row2[1].' : '.$row2[2].' s/d '.$row2[3]. '<br>'; 

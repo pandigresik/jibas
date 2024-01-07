@@ -36,7 +36,7 @@ function SimpanPetugas()
     {
         $sql = "SELECT COUNT(replid)
                   FROM jbsfina.userpos 
-                 WHERE userid = '$userId'";
+                 WHERE userid = '".$userId."'";
         $nData = FetchSingle($sql);
         if ($nData > 0)
         {

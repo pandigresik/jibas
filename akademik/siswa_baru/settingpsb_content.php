@@ -39,7 +39,7 @@ OpenDb();
 
 if (isset($_REQUEST['Simpan']))
 {
-	$sql = "SELECT COUNT(replid) FROM settingpsb WHERE idproses = '$proses'";
+	$sql = "SELECT COUNT(replid) FROM settingpsb WHERE idproses = '".$proses."'";
 	$res = QueryDb($sql);
 	$row = mysqli_fetch_row($res);
 	$ndata = $row[0];
@@ -55,7 +55,7 @@ if (isset($_REQUEST['Simpan']))
 		$nm = $_REQUEST[$fnm];
 		$kd = str_replace("'", "`", $kd);
 		$nm = str_replace("'", "`", $nm);
-		$set .= "$fkd = '$kd', $fnm = '$nm'";
+		$set .= "$fkd = '$kd', $fnm = '".$nm."'";
 	}
 	
 	for($i = 1; $i <= 10; $i++)
@@ -68,25 +68,25 @@ if (isset($_REQUEST['Simpan']))
 		$nm = $_REQUEST[$fnm];
 		$kd = str_replace("'", "`", $kd);
 		$nm = str_replace("'", "`", $nm);
-		$set .= "$fkd = '$kd', $fnm = '$nm'";
+		$set .= "$fkd = '$kd', $fnm = '".$nm."'";
 	}
 	
 	if ($ndata == 0)
 		$sql = "INSERT INTO settingpsb SET idproses = '$proses', $set";
 	else
-		$sql = "UPDATE settingpsb SET $set WHERE idproses = '$proses'";
+		$sql = "UPDATE settingpsb SET $set WHERE idproses = '".$proses."'";
 	
 	QueryDb($sql);
 }
 
-$sql = "SELECT COUNT(replid) FROM settingpsb WHERE idproses = '$proses'";
+$sql = "SELECT COUNT(replid) FROM settingpsb WHERE idproses = '".$proses."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_row($res);
 $ndata = $row[0];
 
 if ($ndata > 0)
 {
-	$sql = "SELECT * FROM settingpsb WHERE idproses = '$proses'";
+	$sql = "SELECT * FROM settingpsb WHERE idproses = '".$proses."'";
 	$res = QueryDb($sql);
 	$row = mysqli_fetch_array($res);
 	

@@ -77,7 +77,7 @@ else
     $sql_idpetugas = " AND j.idpetugas = '$petugas' ";
     $sql = "SELECT nama
               FROM jbssdm.pegawai
-             WHERE nip = '$petugas'";
+             WHERE nip = '".$petugas."'";
     $namapetugas = FetchSingle($sql);         
 }
 
@@ -206,7 +206,7 @@ while($row = mysqli_fetch_array($res))
     {
         $sql = "SELECT nama
                   FROM jbssdm.pegawai
-                 WHERE nip = '$idpetugas'";
+                 WHERE nip = '".$idpetugas."'";
         $res2 = QueryDb($sql);
         $row2 = mysqli_fetch_row($res2);
         $petugas = $row2[0];

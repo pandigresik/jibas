@@ -38,7 +38,7 @@ $tglakhir = $_REQUEST['tglakhir'];
 $urut = $_REQUEST['urut'];
 $urutan = $_REQUEST['urutan'];
 
-$filter1 = "AND t.departemen = '$departemen'";
+$filter1 = "AND t.departemen = '".$departemen."'";
 if ($tingkat <> -1) 
 	$filter1 = "AND k.idtingkat = $tingkat";
 

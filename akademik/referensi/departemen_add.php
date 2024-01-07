@@ -48,10 +48,10 @@ $cek = 0;
 $ERROR_MSG = "";
 if (isset($_REQUEST['Simpan'])) {
 	OpenDb();
-	$sql = "SELECT * FROM departemen WHERE departemen = '$departemen'";
+	$sql = "SELECT * FROM departemen WHERE departemen = '".$departemen."'";
 	$result = QueryDb($sql);
 	
-	$sql1 = "SELECT * FROM departemen WHERE urutan = '$urutan'";
+	$sql1 = "SELECT * FROM departemen WHERE urutan = '".$urutan."'";
 	$result1 = QueryDb($sql1);
 	
 	if (mysqli_num_rows($result) > 0) {		

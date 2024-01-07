@@ -73,19 +73,19 @@ try
     $sql = "DELETE FROM jbsel.mediafile WHERE idmedia = $idMedia";
     QueryDb($sql);
 
-    $sql = "DELETE FROM jbsel.medianotes WHERE idmedia = '$idMedia'";
+    $sql = "DELETE FROM jbsel.medianotes WHERE idmedia = '".$idMedia."'";
     QueryDbEx($sql);
 
-    $sql = "DELETE FROM jbsel.mediamodul WHERE idmedia = '$idMedia'";
+    $sql = "DELETE FROM jbsel.mediamodul WHERE idmedia = '".$idMedia."'";
     QueryDbEx($sql);
 
-    $sql = "DELETE FROM jbsel.medialike WHERE idmedia = '$idMedia'";
+    $sql = "DELETE FROM jbsel.medialike WHERE idmedia = '".$idMedia."'";
     QueryDbEx($sql);
 
-    $sql = "DELETE FROM jbsel.media WHERE id = '$idMedia'";
+    $sql = "DELETE FROM jbsel.media WHERE id = '".$idMedia."'";
     QueryDbEx($sql);
 
-    $sql = "DELETE FROM jbsel.ftdatamedia WHERE idmedia = '$idMedia'";
+    $sql = "DELETE FROM jbsel.ftdatamedia WHERE idmedia = '".$idMedia."'";
     QueryDbEx($sql);
 
     CommitTrans();

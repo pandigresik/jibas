@@ -83,7 +83,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
 <?php     
         OpenDb();
         //$sql_tot = "SELECT nokas, date_format(tanggal, '%d-%b-%Y') AS tanggal, petugas, transaksi, keterangan, debet, kredit FROM transaksilog WHERE departemen='$departemen' AND tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND idtahunbuku = $idtahunbuku with ROLLUP";
-        $sql_tot = "SELECT COUNT(nokas), SUM(debet) AS totdebet, SUM(kredit) AS totkredit FROM $db_name_fina.transaksilog WHERE departemen='$departemen' AND tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND idtahunbuku = '$idtahunbuku'";
+        $sql_tot = "SELECT COUNT(nokas), SUM(debet) AS totdebet, SUM(kredit) AS totkredit FROM $db_name_fina.transaksilog WHERE departemen='$departemen' AND tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND idtahunbuku = '".$idtahunbuku."'";
     
         $result_tot = QueryDb($sql_tot);
         $row_tot = mysqli_fetch_row($result_tot);

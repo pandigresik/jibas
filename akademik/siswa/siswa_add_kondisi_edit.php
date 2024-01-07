@@ -46,7 +46,7 @@ if (isset($_POST['simpan'])) {
 		$ERROR_MSG = "Urutan {$_REQUEST['urutan']} sudah digunakan!";
 		$cek = 1;		
 	} else {
-		$sql = "UPDATE jbsakad.kondisisiswa SET kondisi='".CQ($_POST['kondisi'])."',urutan='$_POST['urutan']' WHERE replid='".$_REQUEST['orig_kondisi']."'";
+		$sql = "UPDATE jbsakad.kondisisiswa SET kondisi='".CQ($_POST['kondisi'])."',urutan='".$_POST['urutan']."' WHERE replid='".$_REQUEST['orig_kondisi']."'";
 		$result = QueryDb($sql);
 	
 	if ($result) { ?>

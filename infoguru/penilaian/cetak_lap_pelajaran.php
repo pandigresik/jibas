@@ -104,20 +104,20 @@ OpenDb();
 	    <td width="94">Semester</td>
 	    <td width="5">:</td>
 	    <td width="330"><?php 
-		$query_sem = "SELECT * FROM jbsakad.semester WHERE replid = '$semester'";
+		$query_sem = "SELECT * FROM jbsakad.semester WHERE replid = '".$semester."'";
 		$result_sem = QueryDb($query_sem);
 		$row_sem = mysqli_fetch_array($result_sem);
-		echo $row_sem[semester] ?></td>
+		echo $row_sem['semester'] ?></td>
 	</tr>
 	<tr>
 		<td>Kelas</td>
 		<td>:</td>		
 		<td>
 		<?php 
-		$query_kls = "SELECT * FROM jbsakad.kelas WHERE replid = '$kelas'";
+		$query_kls = "SELECT * FROM jbsakad.kelas WHERE replid = '".$kelas."'";
 		$result_kls = QueryDb($query_kls);
 		$row_kls = mysqli_fetch_array($result_kls);
-		echo $row_kls[kelas] ?></td>
+		echo $row_kls['kelas'] ?></td>
 	    <td>NIS</td>
 	    <td>:</td>
 	    <td><?=$nis?></td>
@@ -129,19 +129,19 @@ OpenDb();
 		<?php if($pelajaran == "all"){
 				$pel = "Semua Pelajaran";
 			}elseif($pelajaran != "all"){
-				$query_pel = "SELECT nama FROM jbsakad.pelajaran WHERE replid = '$pelajaran'";
+				$query_pel = "SELECT nama FROM jbsakad.pelajaran WHERE replid = '".$pelajaran."'";
 				$result_pel = QueryDb($query_pel);
 				$row_pel = mysqli_fetch_array($result_pel);
-				$pel = $row_pel[nama];
+				$pel = $row_pel['nama'];
 			}
 		echo $pel ?></td>
 	    <td>Nama</td>
 	    <td>:</td>
 	    <td><?php 
-		$query_nama = "SELECT * FROM jbsakad.siswa WHERE nis = '$nis'";
+		$query_nama = "SELECT * FROM jbsakad.siswa WHERE nis = '".$nis."'";
 		$result_nama = QueryDb($query_nama);
 		$row_nama = mysqli_fetch_array($result_nama);
-		echo $row_nama[nama] ?></td>
+		echo $row_nama['nama'] ?></td>
 	</tr>
 	
 	<tr>
@@ -194,9 +194,9 @@ while ($row = @mysqli_fetch_row($result)) {
 			$sql2 = "SELECT AVG(n.nilaiujian) as rata FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$sem[0][0]."' AND u.idjenis = '".$row['replid']."' AND u.replid = n.idujian AND n.nis = '$nis' ";
 			$result2 = QueryDb($sql2);
 			$row2 = @mysqli_fetch_array($result2);
-			$rata = $row2[rata];
+			$rata = $row2['rata'];
 			/*
-			$sql3 = "SELECT nau.nilaiAU as nilaiAU FROM ujian u, pelajaran p, nilaiujian n, nau nau WHERE u.idpelajaran = p.replid AND u.idkelas = $kelas AND u.idpelajaran = $pelajaran AND u.idsemester = ".$sem[0][0]." AND u.idjenis = $row['replid'] AND u.replid = n.idujian AND n.nis = '$nis' AND nau.idjenis=$row['replid'] AND nau.idpelajaran = $pelajaran AND nau.idsemester = ".$sem[0][0];
+			$sql3 = "SELECT nau.nilaiAU as nilaiAU FROM ujian u, pelajaran p, nilaiujian n, nau nau WHERE u.idpelajaran = p.replid AND u.idkelas = $kelas AND u.idpelajaran = $pelajaran AND u.idsemester = ".$sem[0][0]." AND u.idjenis = ".$row['replid']." AND u.replid = n.idujian AND n.nis = '$nis' AND nau.idjenis=$row['replid'] AND nau.idpelajaran = $pelajaran AND nau.idsemester = ".$sem[0][0];
 			$result3 = QueryDb($sql3);
 			$row3 = @mysqli_fetch_array($result3);
 			$nilaiAU = $row3['nilaiAU'];		

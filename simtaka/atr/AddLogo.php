@@ -93,7 +93,7 @@ function formSubmit(){
 		var i = 0;
 		var string4split='.';
 
-		z = file.split(string4split);
+		z = file.explode(string4split);
 		ext = z[z.length-1];
 		
 		if (ext!='JPG' && ext!='jpg' && ext!='Jpg' && ext!='JPg' && ext!='JPEG' && ext!='jpeg'){

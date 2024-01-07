@@ -55,7 +55,7 @@ elseif ($op == "setSumbanganPsb")
     
     $sql = "SELECT sum1, sum2
               FROM jbsakad.calonsiswa
-             WHERE nopendaftaran = '$no'";
+             WHERE nopendaftaran = '".$no."'";
     $res = QueryDb($sql);
     $row = mysqli_fetch_array($res);
     
@@ -72,7 +72,7 @@ elseif ($op == "setUjianPsb")
     $sql = "SELECT ujian1, ujian2, ujian3, ujian4, ujian5,
                    ujian6, ujian7, ujian8, ujian9, ujian10
               FROM jbsakad.calonsiswa
-             WHERE nopendaftaran = '$no'";
+             WHERE nopendaftaran = '".$no."'";
     $res = QueryDb($sql);
     $row = mysqli_fetch_array($res);
     

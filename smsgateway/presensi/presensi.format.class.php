@@ -69,7 +69,7 @@ class FormatPresensi{
                     <div class="TabbedPanelsContent" style="padding-top:5px; overflow:inherit">
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                           <tr>
-                            <td class="td">[SISWA]</td>
+                            <td class="td">['SISWA']</td>
                             <td class="td">Nama Siswa</td>
                           </tr>
                           <tr>
@@ -89,15 +89,15 @@ class FormatPresensi{
                             <td class="td">Bulan Akhir</td>
                           </tr>
                           <tr>
-                            <td class="td">[PENGIRIM]</td>
+                            <td class="td">['PENGIRIM']</td>
                             <td class="td">Pengirim</td>
                           </tr>
                           <tr>
-                            <td class="td">[HADIR]</td>
+                            <td class="td">['HADIR']</td>
                             <td class="td">Jumlah Data Kehadiran Siswa</td>
                           </tr>
                           <tr>
-                            <td class="td">[ABSEN]</td>
+                            <td class="td">['ABSEN']</td>
                             <td class="td">Jumlah Data Absensi Siswa</td>
                           </tr>
                       </table>
@@ -112,8 +112,8 @@ class FormatPresensi{
         		<b>KETERANGAN FORMAT PESAN LAPORAN PRESENSI</b><br /><br/>
                 <span class="Ket">    
                     jika mengirimkan informasi dengan format di bawah ini: <br />
-                    <b>Informasi presensi [SISWA] antara tanggal [TANGGAL1]/[BULAN1] s/d [TANGGAL2]/[BULAN2].<br />
-                    Kehadiran [HADIR]. Absen [ABSEN]. Pengirim [PENGIRIM]</b><br /><br />
+                    <b>Informasi presensi ['SISWA'] antara tanggal [TANGGAL1]/[BULAN1] s/d [TANGGAL2]/[BULAN2].<br />
+                    Kehadiran ['HADIR']. Absen ['ABSEN']. Pengirim ['PENGIRIM']</b><br /><br />
                     maka informasi yang diterima oleh siswa: <br />
                     <b>Informasi presensi Jafar Ashiddiq antara tanggal 1/2 s/d 28/2. Kehadiran 22. Absen 2. Pengirim Bag.Akademik</b>
                 </span>

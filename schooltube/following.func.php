@@ -31,7 +31,7 @@ function ShowFollowModul($sortBy)
               FROM jbsel.modulfollow mf, jbsel.modul m
              WHERE mf.idmodul = m.id
                AND m.aktif = 1
-               AND $userCol = '$userId'";
+               AND $userCol = '".$userId."'";
 
     $res = QueryDb($sql);
     while($row = mysqli_fetch_row($res))
@@ -76,9 +76,9 @@ function ShowFollowModul($sortBy)
 
         echo "<tr style='cursor: pointer; line-height: 18px;' onclick='sr_showModulView($idModul)'>";
         echo "<td align='left' valign='top' width='500px' style='line-height: 20px;'>";
-        echo "<span style='color: blue'>$row['pelajaran'] | $row['channel'] | $row['guru']</span><br>";
-        echo "<span style='font-family: Arial; font-weight: bold; font-size: 14px'>$row['modul']</span><br>";
-        echo "<span style='font-family: 'Times New Roman'; font-size: 12px;'>$row['deskripsi']</span><br><br>";
+        echo "<span style='color: blue'>".$row['pelajaran'] | $row['channel'] | $row['guru']."</span><br>";
+        echo "<span style='font-family: Arial; font-weight: bold; font-size: 14px'>".$row['modul']."</span><br>";
+        echo "<span style='font-family: 'Times New Roman'; font-size: 12px;'>".$row['deskripsi']."</span><br><br>";
         echo "</td>";
         echo "<td align='left' valign='top' width='100px'>";
         echo "<span style='margin-left: 10px; line-height: 18px; color: #666;'>$nMedia Video</span><br>";
@@ -99,7 +99,7 @@ function ShowFollowChannel($sortBy)
               FROM jbsel.channelfollow cf, jbsel.channel c
              WHERE cf.idchannel = c.id
                AND c.aktif = 1
-               AND cf.$userCol = '$userId'";
+               AND cf.$userCol = '".$userId."'";
     $res = QueryDb($sql);
     while($row = mysqli_fetch_row($res))
     {
@@ -142,9 +142,9 @@ function ShowFollowChannel($sortBy)
 
         echo "<tr style='cursor: pointer; line-height: 18px;' onclick='sr_showChannelView($idChannel)'>";
         echo "<td align='left' valign='top' width='500px' style='line-height: 20px;'>";
-        echo "<span style='color: blue'>$row['pelajaran'] | $row['guru']</span><br>";
-        echo "<span style='font-family: Arial; font-weight: bold; font-size: 14px'>$row['channel']</span><br>";
-        echo "<span style='font-family: 'Times New Roman'; font-size: 12px;'>$row['deskripsi']</span><br><br>";
+        echo "<span style='color: blue'>".$row['pelajaran'] | $row['guru']."</span><br>";
+        echo "<span style='font-family: Arial; font-weight: bold; font-size: 14px'>".$row['channel']."</span><br>";
+        echo "<span style='font-family: 'Times New Roman'; font-size: 12px;'>".$row['deskripsi']."</span><br><br>";
         echo "</td>";
         echo "<td align='left' valign='top' width='100px'>";
         echo "<span style='margin-left: 10px; line-height: 18px; color: #666;'>$nMedia Video</span><br>";

@@ -137,8 +137,8 @@ function show_msg(){
               <tr>
                 <td>
                 	<em><?php echo $tglberita2?></em>      <br />
-                  <font color="#3C859C" size="-2"><?php echo $row2[judul]?></font>
-                  <span class="style8"><?php echo $row2[abstrak]?></span>
+                  <font color="#3C859C" size="-2"><?php echo $row2['judul']?></font>
+                  <span class="style8"><?php echo $row2['abstrak']?></span>
                   <div align="right" style="text-align:right"><img src="images/ico/arr1.gif" />&nbsp;&nbsp;<a href="#" onclick="bacaberitasekolah('<?php echo $row2['replid']?>')" >Baca Selengkapnya</a></div>
                 </td>
               </tr>
@@ -179,8 +179,8 @@ function show_msg(){
               <tr>
                 <td>
         <em><?php echo $tglberita?></em>      <br />
-        <font color="#3C859C" size="-2"><?php echo $row1[judul]?></font>
-        <span class="style8"><?php echo $row1[abstrak]?>
+        <font color="#3C859C" size="-2"><?php echo $row1['judul']?></font>
+        <span class="style8"><?php echo $row1['abstrak']?>
           </span>
         <div align="right" style="text-align:right"><img src="images/ico/arr1.gif" />&nbsp;&nbsp;<a href="#" onclick="bacaberitasiswa('<?php echo $row1['replid']?>')" >Baca Selengkapnya</a></div>
           		</td>
@@ -204,7 +204,7 @@ function show_msg(){
          <br /></td>
        </tr>
        <tr>
-         <td width="155" rowspan="7" valign="top"><a href="library/gambar.php?replid=<?php echo $replid?>&table=jbsvcr.profil" rel="lytebox[vacation]"><img src="library/gambar.php?replid=<?php echo $replid?>&table=jbsvcr.profil" 
+         <td width="155" rowspan="7" valign="top"><a href="library/gambar.php?replid=<?php echo $replid?>&table=jbsvcr.profil" rel="lytebox['vacation']"><img src="library/gambar.php?replid=<?php echo $replid?>&table=jbsvcr.profil" 
           width="80px" height="100px" id="theImage"/></a></td>
          <td colspan="3"></td>
        </tr>

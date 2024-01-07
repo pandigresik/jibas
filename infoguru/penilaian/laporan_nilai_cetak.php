@@ -117,7 +117,7 @@ if (isset($_REQUEST['tglakhir']))
     <?php  $sql_get_ta="SELECT tahunajaran FROM jbsakad.tahunajaran WHERE replid='$tahunajaran'";
         $result_get_ta=QueryDb($sql_get_ta);
         $row_get_ta=@mysqli_fetch_array($result_get_ta);?>
-        <td height="20">:&nbsp;<?=$row_get_ta[tahunajaran]?></td>
+        <td height="20">:&nbsp;<?=$row_get_ta['tahunajaran']?></td>
     </tr>
     <tr>
         <td width="6%" height="20">NIS</td>
@@ -128,7 +128,7 @@ if (isset($_REQUEST['tglakhir']))
 <?php      $sql_get_nama="SELECT nama FROM jbsakad.siswa WHERE nis='$nis'";
 	    $result_get_nama=QueryDb($sql_get_nama);
 	    $row_get_nama=@mysqli_fetch_array($result_get_nama);?>
-	    <td height="20">:&nbsp;<?=$row_get_nama[nama]?></td>
+	    <td height="20">:&nbsp;<?=$row_get_nama['nama']?></td>
     </tr>
     <tr>
         <td height="20">Kelas/Semester&nbsp;</td>
@@ -139,7 +139,7 @@ if (isset($_REQUEST['tglakhir']))
         $sql_get_sem="SELECT semester FROM jbsakad.semester WHERE replid='$semester'";
         $result_get_sem=QueryDb($sql_get_sem);
         $row_get_sem=@mysqli_fetch_array($result_get_sem);?>
-        <td height="20">:&nbsp;<?=$row_get_kls[kelas]."/".$row_get_sem[semester]?></td>
+        <td height="20">:&nbsp;<?=$row_get_kls['kelas']."/".$row_get_sem['semester']?></td>
     </tr>
 </table>
 

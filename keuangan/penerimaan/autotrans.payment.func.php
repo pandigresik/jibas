@@ -65,11 +65,11 @@ function GetSelectPayment($departemen, $kelompok)
             if ($idFirst == 0)
             {
                 $idFirst = $row[0];
-                $data .= "<option value='$row[0]' selected>$row[1]</option>";
+                $data .= "<option value='".$row[0]."' selected>$row[1]</option>";
             }
             else
             {
-                $data .= "<option value='$row[0]'>$row[1]</option>";
+                $data .= "<option value='".$row[0]."'>$row[1]</option>";
             }
         }
         $data .= "<select>";
@@ -151,7 +151,7 @@ function GetPaymentList($idAutoTrans, $kelompok, $noid, $idTahunBuku)
                               FROM jbsfina.besarjtt
                              WHERE nis = '$noid'
                                AND idpenerimaan = '$idPayment'
-                               AND info2 = '$idTahunBuku'";
+                               AND info2 = '".$idTahunBuku."'";
                 }
                 else if ($kategori == "CSWJB")
                 {
@@ -160,7 +160,7 @@ function GetPaymentList($idAutoTrans, $kelompok, $noid, $idTahunBuku)
                              WHERE b.idcalon = cs.replid
                                AND cs.nopendaftaran = '$noid'
                                AND b.idpenerimaan = '$idPayment'
-                               AND b.info2 = '$idTahunBuku'";
+                               AND b.info2 = '".$idTahunBuku."'";
                 }
 
                 $res2 = QueryDb($sql);
@@ -225,9 +225,9 @@ function GetPaymentList($idAutoTrans, $kelompok, $noid, $idTahunBuku)
             $tab .= "<td align='center'>$no</td>";
             $tab .= "<td align='center' valign='middle' style='background-color: #3994c6'>";
             $tab .= "<input type='checkbox' id='chPayment-$no' name='chPayment-$no' $checked $disabled $readonly onchange='chPaymentChange($no); calculatePay();' >";
-            $tab .= "<input type='hidden' id='idPayment-$no' name='idPayment-$no' value='$row[0]'>";
+            $tab .= "<input type='hidden' id='idPayment-$no' name='idPayment-$no' value='".$row[0]."'>";
             $tab .= "<input type='hidden' id='payment-$no' name='payment-$no' value='$payment'>";
-            $tab .= "<input type='hidden' id='kategori-$no' name='kategori-$no' value='$row[2]'>";
+            $tab .= "<input type='hidden' id='kategori-$no' name='kategori-$no' value='".$row[2]."'>";
             $tab .= "<input type='hidden' id='besar-$no' name='besar-$no' value='$besar'>";
             $tab .= "<input type='hidden' id='idbesarjtt-$no' name='idbesarjtt-$no' value='$idBesarJtt'>";
             $tab .= "<input type='hidden' id='jumlah-$no' name='jumlah-$no' value='$jumlah'>";

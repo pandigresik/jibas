@@ -202,7 +202,7 @@ while ($row = mysqli_fetch_array($result)) {
 <?php 	$sql = "SELECT date_format(p.tanggal, '%d-%b-%y') as tanggal, jumlah 
 	           FROM penerimaaniuran p, jurnal j
 			  WHERE p.idjurnal = j.replid AND j.idtahunbuku = '$idtahunbuku' 
-			    AND nis = '".$row['nis']' AND idpenerimaan = '$idpenerimaan'";
+			    AND nis = '".$row['nis']."' AND idpenerimaan = '".$idpenerimaan."'";
 		$result2 = QueryDb($sql);
 		$nbayar = mysqli_num_rows($result2);
 		$nblank = $max_n_bayar - $nbayar;

@@ -62,7 +62,7 @@ else if ($op == "delkomentar")
     $jenis = $_REQUEST['jenis'];
 
     OpenDb();
-    $sql = "DELETE FROM jbsakad.pilihkomensos WHERE replid = '$replid'";
+    $sql = "DELETE FROM jbsakad.pilihkomensos WHERE replid = '".$replid."'";
     QueryDb($sql);
 
     echo GetListKomentar($idpelajaran, $idtingkat, $jenis);

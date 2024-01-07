@@ -58,7 +58,7 @@ if ($op=="jfd84rkj843h834jjduw3"){
 	$sql_hapus_nau="DELETE FROM jbsakad.nau WHERE idaturan='".$_REQUEST['idaturan']."'";
 	$result_hapus_nau=QueryDb($sql_hapus_nau);
 	$sql_hapus_rataus="DELETE FROM jbsakad.rataus ".
-					//"WHERE nis='$row_siswa[nis]' ".
+					//"WHERE nis='".$row_siswa['nis']."' ".
 					"WHERE idkelas='$kelas' ".
 					"AND idsemester='$semester' ".
 					"AND idpelajaran='$pelajaran' ".
@@ -86,7 +86,7 @@ $x=1;
 	$result_get_ujian=QueryDb($sql_get_ujian);
 	//$i=1;
 	while ($row_get_ujian=@mysqli_fetch_array($result_get_ujian)){
-	$sql_hapus_bobotnau="DELETE FROM jbsakad.infobobotnau WHERE idujian='$row_get_ujian['replid']."'";
+	$sql_hapus_bobotnau="DELETE FROM jbsakad.infobobotnau WHERE idujian='".$row_get_ujian['replid']."'";
 	//echo $sql_hapus_bobotnau."<br>";
 	$result_hapus_bobotnau=QueryDb($sql_hapus_bobotnau);
 	if ($result_hapus_bobotnau){
@@ -117,7 +117,7 @@ $x=1;
 		$sql_insert_bobot="INSERT INTO jbsakad.bobotnau ".
 		" SET idinfo='$last_id_info',idujian='$idujian',bobot='$bobot'";
 		$result_insert_bobot=QueryDb($sql_insert_bobot);
-		if(@mysqli_affected_rows($conn) >= 0) {
+		if(@mysqli_affected_rows($conn)($conn) >= 0) {
     ?> <!--
     <script language="JavaScript">
                 alert("Bobotnau udah diisi");
@@ -154,23 +154,23 @@ $x=1;
 	$ujian_culip=0;
 	while ($row_get_ujian=@mysqli_fetch_array($result_get_ujian)){
 	//Ambil info bobot
-	$sql_get_info_bobot="SELECT replid FROM jbsakad.infobobotnau WHERE idujian='$row_get_ujian['replid']."'";
+	$sql_get_info_bobot="SELECT replid FROM jbsakad.infobobotnau WHERE idujian='".$row_get_ujian['replid']."'";
 	//echo $sql_get_info_bobot."<br>";
 	$result_get_info_bobot=QueryDb($sql_get_info_bobot);
 	$row_get_info_bobot=@mysqli_fetch_array($result_get_info_bobot);
 	//Ambil bobot
-	$sql_get_bobot="SELECT bobot FROM jbsakad.bobotnau WHERE idinfo='$row_get_info_bobot['replid']."'";
+	$sql_get_bobot="SELECT bobot FROM jbsakad.bobotnau WHERE idinfo='".$row_get_info_bobot['replid']."'";
 	//echo $sql_get_bobot."<br>";
 	$result_get_bobot=QueryDb($sql_get_bobot);
 	$row_get_bobot=@mysqli_fetch_array($result_get_bobot);
 	//Ambil nilai ujian
-	$sql_get_nilai="SELECT nilaiujian FROM jbsakad.nilaiujian WHERE idujian='$row_get_ujian['replid']."' AND nis='$row_get_nis_siswa[nis]'";
+	$sql_get_nilai="SELECT nilaiujian FROM jbsakad.nilaiujian WHERE idujian='".$row_get_ujian['replid']."' AND nis='".$row_get_nis_siswa['nis']."'";
 	//echo $sql_get_nilai."<br>";
 	$result_get_nilai=QueryDb($sql_get_nilai);
 	$row_get_nilai=@mysqli_fetch_array($result_get_nilai);
 	//Hitung NA
-	$na[$ujian_culip]=(int)$row_get_bobot[bobot]*(int)$row_get_nilai[nilaiujian];
-	$bbt[$ujian_culip]=(int)$row_get_bobot[bobot];
+	$na[$ujian_culip]=(int)$row_get_bobot['bobot']*(int)$row_get_nilai['nilaiujian'];
+	$bbt[$ujian_culip]=(int)$row_get_bobot['bobot'];
 	//echo "NAU=".$na[$ujian_culip]."<br>";
 	//echo "bobot=".$bbt[$ujian_culip]."<br>";
 	//Bulatkan NA
@@ -197,12 +197,12 @@ $x=1;
 	//echo " ,  Nilai Rata-rata=".$ratanya;
 	//echo " ,  Nilai Rata-rata Bulat=".$ratabulat;
 	//Hapus dari tabel nau
-	$sql_hapus_nau="DELETE FROM jbsakad.nau WHERE nis='$row_get_nis_siswa[nis]' AND idkelas='$kelas' AND idsemester='$semester' AND idjenis='$jenis_penilaian' AND idaturan='$idaturan'";
+	$sql_hapus_nau="DELETE FROM jbsakad.nau WHERE nis='".$row_get_nis_siswa['nis']."' AND idkelas='$kelas' AND idsemester='$semester' AND idjenis='$jenis_penilaian' AND idaturan='$idaturan'";
 	//echo $sql_hapus_nau."<br>";
 	$result_hapus_nau=QueryDb($sql_hapus_nau);
 	
 	//Insert ke tabel nau
-	$sql_insert_nau="INSERT INTO jbsakad.nau SET nis='$row_get_nis_siswa[nis]',idkelas='$kelas',idsemester='$semester',idjenis='$jenis_penilaian',idpelajaran='$pelajaran',nilaiAU='$ratabulat',idaturan='$idaturan'";
+	$sql_insert_nau="INSERT INTO jbsakad.nau SET nis='".$row_get_nis_siswa['nis']."',idkelas='$kelas',idsemester='$semester',idjenis='$jenis_penilaian',idpelajaran='$pelajaran',nilaiAU='$ratabulat',idaturan='$idaturan'";
 	//echo $sql_insert_nau."<br>";
 	$result_insert_nau=QueryDb($sql_insert_nau);
 	if ($result_insert_nau){
@@ -247,7 +247,7 @@ if ($op=="osdiui4903i03j490dj"){
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-<title>Aturan Perhitungan Nilai Rapor[Menu]</title>
+<title>Aturan Perhitungan Nilai Rapor['Menu']</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/tooltips.js"></script>
@@ -464,7 +464,7 @@ function hapus_nau(){
 	<?php          
         $uji=1;			
         for ($j=1;$j<=count($idujian);$j++) {		
-            $sql_cek_nilai_ujian="SELECT * FROM jbsakad.nilaiujian WHERE idujian='$idujian[$j]' AND nis='$row_siswa[nis]'";
+            $sql_cek_nilai_ujian="SELECT * FROM jbsakad.nilaiujian WHERE idujian='".$idujian[$j]."' AND nis='".$row_siswa['nis']."'";
             //echo $sql_cek_nilai_ujian;
             $result_cek_nilai_ujian=QueryDb($sql_cek_nilai_ujian);
             $row_cek_nilai_ujian=@mysqli_fetch_array($result_cek_nilai_ujian);
@@ -479,7 +479,7 @@ function hapus_nau(){
         			<?=$row_cek_nilai_ujian['nilaiujian']?>
 			<?php } 
             
-				if ($row_cek_nilai_ujian[keterangan]<>"")
+				if ($row_cek_nilai_ujian['keterangan']<>"")
 					echo "<strong><font color='blue'>)*</font></strong>";
            	} else {                 
 				if (SI_USER_LEVEL() != $SI_USER_STAFF) {
@@ -495,7 +495,7 @@ function hapus_nau(){
             </td>
     		<td align="center"><?=round($nilai/count($idujian),2); ?></td>
     		<td align="center">
-	<?php $sql_get_nau_per_nis="SELECT nilaiAU,replid,keterangan FROM jbsakad.nau WHERE nis='$row_siswa[nis]' AND idkelas='$kelas' AND idsemester='$semester' AND idaturan='$idaturan' ";
+	<?php $sql_get_nau_per_nis="SELECT nilaiAU,replid,keterangan FROM jbsakad.nau WHERE nis='".$row_siswa['nis']."' AND idkelas='$kelas' AND idsemester='$semester' AND idaturan='$idaturan' ";
                 
         $result_get_nau_per_nis=QueryDb($sql_get_nau_per_nis);
         $row_get_nau_per_nis=@mysqli_fetch_array($result_get_nau_per_nis);
@@ -506,7 +506,7 @@ function hapus_nau(){
             <?=$row_get_nau_per_nis['nilaiau']?>
     <?php  }
     
-        if ($row_get_nau_per_nis[keterangan]<>"")
+        if ($row_get_nau_per_nis['keterangan']<>"")
             echo "<font color='#067900'><strong>)*</strong></font>";
     ?>
 			</td>
@@ -521,11 +521,11 @@ function hapus_nau(){
 <?php  $sql_cek_ujian_ratakelas="SELECT replid FROM jbsakad.ujian WHERE idkelas='$kelas' AND idsemester='$semester' AND idaturan='$idaturan' ORDER by tanggal ASC";
 	$result_cek_ujian_ratakelas=QueryDb($sql_cek_ujian_ratakelas);
 	while ($row_cek_ujian_ratakelas=@mysqli_fetch_array($result_cek_ujian_ratakelas)){
-		$sql_hitung_ratakelas="SELECT SUM(nilaiujian) as nilaiujian, COUNT(*) as jumlahnya FROM jbsakad.nilaiujian WHERE idujian='$row_cek_ujian_ratakelas['replid']."'";
+		$sql_hitung_ratakelas="SELECT SUM(nilaiujian) as nilaiujian, COUNT(*) as jumlahnya FROM jbsakad.nilaiujian WHERE idujian='".$row_cek_ujian_ratakelas['replid']."'";
 		//echo $sql_hitung_ratakelas;
 		$result_hitung_ratakelas=QueryDb($sql_hitung_ratakelas);
 		$row_hitung_ratakelas=@mysqli_fetch_array($result_hitung_ratakelas);
-		$rataratakelas=$row_hitung_ratakelas[nilaiujian]/$row_hitung_ratakelas[jumlahnya];
+		$rataratakelas=$row_hitung_ratakelas['nilaiujian']/$row_hitung_ratakelas['jumlahnya'];
 		echo "<td align='center' bgcolor='#FFFFFF'>".round($rataratakelas,2)."</td>";
   	}
 ?>
@@ -583,7 +583,7 @@ if ($perubahan==1){
 	$result_cek_ujian=QueryDb($sql_cek_ujian);
 	$ibobot=1;
 	while ($row_cek_ujian=@mysqli_fetch_array($result_cek_ujian)){
-	$sql_get_bobotnya="SELECT b.bobot FROM jbsakad.infobobotnau i, jbsakad.bobotnau b WHERE i.idujian='$row_cek_ujian['replid']."' AND b.idinfo=i.replid";
+	$sql_get_bobotnya="SELECT b.bobot FROM jbsakad.infobobotnau i, jbsakad.bobotnau b WHERE i.idujian='".$row_cek_ujian['replid']."' AND b.idinfo=i.replid";
 	//echo $sql_get_bobotnya;
 	$result_get_bobotnya=QueryDb($sql_get_bobotnya);
 	$nilai_bobotnya=@mysqli_fetch_row($result_get_bobotnya);

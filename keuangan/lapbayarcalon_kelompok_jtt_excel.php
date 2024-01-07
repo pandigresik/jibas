@@ -188,17 +188,17 @@ else
 		$sql_sum_biaya = "SELECT SUM(b.besar) AS TotalBiaya  
 							FROM besarjttcalon b, jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k
 							WHERE c.replid = b.idcalon AND b.idpenerimaan = '$idpenerimaan' AND b.info2='$idtahunbuku'
-							AND c.idkelompok = k.replid AND b.lunas = '$statuslunas'";
+							AND c.idkelompok = k.replid AND b.lunas = '".$statuslunas."'";
 									
 		$sql_sum_bayar_diskon = "SELECT SUM(p.jumlah) AS TotalBayar, SUM(p.info1) AS TotalDiskon  
 									FROM penerimaanjttcalon p RIGHT JOIN besarjttcalon b ON p.idbesarjttcalon = b.replid, jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k
 									WHERE c.replid = b.idcalon AND b.idpenerimaan = '$idpenerimaan' AND b.info2='$idtahunbuku'
-									AND c.idkelompok = k.replid AND b.lunas = '$statuslunas'";
+									AND c.idkelompok = k.replid AND b.lunas = '".$statuslunas."'";
 						
 		$sql_tot = "SELECT DISTINCT c.nopendaftaran, c.nama, k.kelompok, b.replid AS id, b.besar, b.keterangan, b.lunas 
 					  FROM penerimaanjttcalon p RIGHT JOIN besarjttcalon b ON p.idbesarjttcalon = b.replid, jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k
 					 WHERE c.replid = b.idcalon AND b.idpenerimaan = '$idpenerimaan' AND b.info2='$idtahunbuku'
-					   AND c.idkelompok = k.replid AND b.lunas = '$statuslunas'";
+					   AND c.idkelompok = k.replid AND b.lunas = '".$statuslunas."'";
 	
 		$sql = "SELECT DISTINCT c.nopendaftaran, c.nama, k.kelompok, b.replid AS id, b.besar, b.keterangan, b.lunas 
 					 FROM penerimaanjttcalon p RIGHT JOIN besarjttcalon b ON p.idbesarjttcalon = b.replid, jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k
@@ -210,17 +210,17 @@ else
 		$sql_sum_biaya = "SELECT SUM(b.besar) AS TotalBiaya 
 							FROM besarjttcalon b, jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k
 						   WHERE c.replid = b.idcalon AND b.idpenerimaan = '$idpenerimaan' AND b.info2='$idtahunbuku'
-							 AND c.idkelompok = '$kelompok' AND c.idkelompok = k.replid AND b.lunas = '$statuslunas'";
+							 AND c.idkelompok = '$kelompok' AND c.idkelompok = k.replid AND b.lunas = '".$statuslunas."'";
 								  
 		$sql_sum_bayar_diskon = "SELECT SUM(p.jumlah) AS TotalBayar, SUM(p.info1) AS TotalDiskon
 								FROM penerimaanjttcalon p RIGHT JOIN besarjttcalon b ON p.idbesarjttcalon = b.replid, jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k
 								 WHERE c.replid = b.idcalon AND b.idpenerimaan = '$idpenerimaan' AND b.info2='$idtahunbuku'
-								  AND c.idkelompok = '$kelompok' AND c.idkelompok = k.replid AND b.lunas = '$statuslunas'";
+								  AND c.idkelompok = '$kelompok' AND c.idkelompok = k.replid AND b.lunas = '".$statuslunas."'";
 						   
 		$sql_tot = "SELECT DISTINCT c.nopendaftaran, c.nama, k.kelompok, b.replid AS id, b.besar, b.keterangan, b.lunas
 		              FROM penerimaanjttcalon p RIGHT JOIN besarjttcalon b ON p.idbesarjttcalon = b.replid, jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k
 						 WHERE c.replid = b.idcalon AND b.idpenerimaan = '$idpenerimaan' AND b.info2='$idtahunbuku'
-						   AND c.idkelompok = '$kelompok' AND c.idkelompok = k.replid AND b.lunas = '$statuslunas'"; 
+						   AND c.idkelompok = '$kelompok' AND c.idkelompok = k.replid AND b.lunas = '".$statuslunas."'"; 
 		
 		$sql = "SELECT DISTINCT c.nopendaftaran, c.nama, k.kelompok, b.replid AS id, b.besar, b.keterangan, b.lunas 
 		          FROM penerimaanjttcalon p RIGHT JOIN besarjttcalon b ON p.idbesarjttcalon = b.replid, jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k
@@ -262,7 +262,7 @@ while ($row = mysqli_fetch_array($result))
       <?=$row['kelompok'] ?>    
     </font></td>
 <?php
-	$sql = "SELECT count(*) FROM penerimaanjttcalon WHERE idbesarjttcalon = '$idbesarjtt'";
+	$sql = "SELECT count(*) FROM penerimaanjttcalon WHERE idbesarjttcalon = '".$idbesarjtt."'";
 	$result2 = QueryDb($sql);
 	$row2 = mysqli_fetch_row($result2);
 	$nbayar = $row2[0];

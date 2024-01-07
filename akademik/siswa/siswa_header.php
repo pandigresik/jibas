@@ -155,7 +155,7 @@ function focusNext(elemName, evt) {
 			while ($row = @mysqli_fetch_array($result)) {
 				if ($kelas == "")
 					$kelas = $row['replid'];
-				$sql1 = "SELECT COUNT(*) FROM siswa WHERE idkelas = '".$row[0]' AND aktif = 1";				
+				$sql1 = "SELECT COUNT(*) FROM siswa WHERE idkelas = '".$row[0]."' AND aktif = 1";				
 				$result1 = QueryDb($sql1);
 				$row1 = @mysqli_fetch_row($result1); 				
 		?>

@@ -214,7 +214,7 @@ class PegawaiInput
                     $teks = CQ($teks);
 
                     $sql = "INSERT INTO jbssdm.tambahandatapegawai
-                               SET nip = '$this->nip', idtambahan = '$replid', jenis = '$jenis', teks = '$teks'";
+                               SET nip = '$this->nip', idtambahan = '$replid', jenis = '$jenis', teks = '".$teks."'";
                     QueryDbTrans($sql, $success);
                 }
                 else if ($jenis == 2)
@@ -248,7 +248,7 @@ class PegawaiInput
 
                         $sql = "INSERT INTO jbssdm.tambahandatapegawai
                                    SET nip = '$this->nip', idtambahan = '$replid', jenis = '2', 
-                                       filedata = '$datafile', filename = '$namefile', filemime = '$typefile', filesize = '$sizefile'";
+                                       filedata = '$datafile', filename = '$namefile', filemime = '$typefile', filesize = '".$sizefile."'";
                         QueryDbTrans($sql, $success);
                     }
                 }

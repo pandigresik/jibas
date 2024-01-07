@@ -38,7 +38,7 @@
 	if ($span==1){
 		$w=7;
 		$font=2;
-		$s=split('-',$string);
+		$s=explode('-',$string);
 		$string=$s[0]."\n-\n".$s[1];
 	}
 	$im = imagecreate ($width,$height);

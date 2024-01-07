@@ -33,7 +33,7 @@ if (isset($_REQUEST['replid']))
 	$replid=$_REQUEST['replid'];
 
 OpenDb();
-$sql1 = "SELECT m.nis,m.jenismutasi,m.tglmutasi,m.keterangan FROM mutasisiswa m WHERE m.replid = '$replid'";
+$sql1 = "SELECT m.nis,m.jenismutasi,m.tglmutasi,m.keterangan FROM mutasisiswa m WHERE m.replid = '".$replid."'";
 $result1 = QueryDb($sql1);
 $row1 = mysqli_fetch_array($result1);
 $nis = $row1['nis'];
@@ -66,7 +66,7 @@ if (isset($_REQUEST['Simpan'])) {
 	$tglmutasi=TglDb($tanggal);
 	
 	OpenDb();
-	$sql = "UPDATE jbsakad.mutasisiswa SET jenismutasi='$mutasi', tglmutasi='$tglmutasi', keterangan='$keterangan', departemen='$departemen' WHERE replid = '$replid'";
+	$sql = "UPDATE jbsakad.mutasisiswa SET jenismutasi='$mutasi', tglmutasi='$tglmutasi', keterangan='$keterangan', departemen='$departemen' WHERE replid = '".$replid."'";
 	$result = QueryDb($sql);
 	if ($result) { ?>
 	<script type="text/javascript" language="javascript">

@@ -31,7 +31,7 @@ function ShowCbPustaka()
     echo "<select id='ptkadaftar_perpus' name='ptkadaftar_perpus' class='inputbox' onchange='ptkadaftar_perpus_change()'>\r\n";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='$row[0]'>$row[1]</option>\r\n";
+        echo "<option value='".$row[0]."'>$row[1]</option>\r\n";
     }
     echo "<option value='-1'>(Semua Perpustakaan)</option>\r\n";
     echo "</select>\r\n";
@@ -71,7 +71,7 @@ function ShowCbKriteria($choice)
     echo "<select id='ptkadaftar_kriteria' name='ptkadaftar_kriteria' class='inputbox' style='width: 300px;' onchange='ptkadaftar_kriteria_change()'>\r\n";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='$row[0]'>$row[1]</option>\r\n";
+        echo "<option value='".$row[0]."'>$row[1]</option>\r\n";
     }
     echo "</select>\r\n";
 }
@@ -113,11 +113,11 @@ function ShowList($perpus, $pilih, $kriteria, $halaman)
     
     $where = "";
     if ($pilih == "KAT")
-        $where = "AND p.katalog = '$kriteria'";
+        $where = "AND p.katalog = '".$kriteria."'";
     elseif ($pilih == "PNLS")   
-        $where = "AND p.penulis = '$kriteria'";
+        $where = "AND p.penulis = '".$kriteria."'";
     elseif ($pilih == "PNBT")   
-        $where = "AND p.penerbit = '$kriteria'";    
+        $where = "AND p.penerbit = '".$kriteria."'";    
     
     if ($perpus == -1)
     {
@@ -157,7 +157,7 @@ function ShowList($perpus, $pilih, $kriteria, $halaman)
                     AND p.katalog = kt.replid
                     AND p.replid = dp.pustaka
                     $where
-                    AND dp.perpustakaan = '$perpus'";         
+                    AND dp.perpustakaan = '".$perpus."'";         
     }
     
     echo "<div style='overflow: auto; height: 350px'>";
@@ -200,14 +200,14 @@ function ShowList($perpus, $pilih, $kriteria, $halaman)
         {
             $sql = "SELECT COUNT(replid)
                       FROM jbsperpus.daftarpustaka
-                     WHERE pustaka = '$idpustaka'";    
+                     WHERE pustaka = '".$idpustaka."'";    
         }
         else
         {
             $sql = "SELECT COUNT(replid)
                       FROM jbsperpus.daftarpustaka
                      WHERE pustaka = '$idpustaka'
-                       AND perpustakaan = '$perpus'"; 
+                       AND perpustakaan = '".$perpus."'"; 
         }
         $ndata = FetchSingle($sql);
         
@@ -250,7 +250,7 @@ function ShowDetailPustaka($cnt, $idpustaka)
                    IF(LENGTH(TRIM(keteranganfisik)) = 0, '-', keteranganfisik) AS keteranganfisik,
                    IF(LENGTH(TRIM(keyword)) = 0, '-', keyword) AS keyword
               FROM jbsperpus.pustaka
-             WHERE replid = '$idpustaka'";
+             WHERE replid = '".$idpustaka."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) == 0)
     {

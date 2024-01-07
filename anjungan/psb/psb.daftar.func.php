@@ -94,7 +94,7 @@ function ShowKelompokCombo($selProses)
         {
             $sql = "SELECT COUNT(replid)
                       FROM jbsakad.calonsiswa
-                     WHERE idkelompok = '".$row[0]'
+                     WHERE idkelompok = '".$row[0]."'
                        AND aktif = 1";
             $ndata = FetchSingle($sql);           
             

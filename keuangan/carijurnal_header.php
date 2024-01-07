@@ -257,7 +257,7 @@ function show_all()
 					  if ($row[5] == 1)
 							$A = "(A)";
 					  
-					  echo  "<option value='$row[0]' $sel>$row[1] $A</option>";
+					  echo  "<option value='".$row[0]."' $sel>$row[1] $A</option>";
 				 }
 			} ?>
 			</select>

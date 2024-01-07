@@ -35,7 +35,7 @@ $nis = $_REQUEST['nis'];
 
 
 OpenDb();
-$sql = "SELECT s.replid, s.semester, p.nama FROM semester s, pelajaran p WHERE s.departemen = '$departemen' AND p.replid = '$pelajaran' AND p.departemen = '$departemen'"; 
+$sql = "SELECT s.replid, s.semester, p.nama FROM semester s, pelajaran p WHERE s.departemen = '$departemen' AND p.replid = '$pelajaran' AND p.departemen = '".$departemen."'"; 
 $result = QueryDb($sql);
 
 $i = 0;

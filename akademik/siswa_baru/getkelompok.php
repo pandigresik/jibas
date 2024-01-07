@@ -35,7 +35,7 @@ $kelompok = $_REQUEST['kelompok'];
 	while ($row = @mysqli_fetch_row($result)) {
 		if ($kelompok == "") 
 			$kelompok = $row[0];	
-		$sql1 = "SELECT COUNT(replid) FROM calonsiswa WHERE idkelompok = '".$row[0]' AND aktif = 1";
+		$sql1 = "SELECT COUNT(replid) FROM calonsiswa WHERE idkelompok = '".$row[0]."' AND aktif = 1";
 		$result1 = QueryDb($sql1);				
 		$row1 = mysqli_fetch_row($result1);			
 	?>

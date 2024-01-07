@@ -318,7 +318,7 @@ function panggil(elem){
 			//$tingkat = "";
 		} else	{
 			$disable = "";
-			//$tingkat = "AND departemen = '$departemen'";
+			//$tingkat = "AND departemen = '".$departemen."'";
 		} ?>
         </td> 
     </tr>

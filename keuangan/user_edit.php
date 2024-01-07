@@ -74,9 +74,9 @@ if (isset($_REQUEST['simpan'])) {
 		$mysqli_ERROR_MSG = "Pengguna ".$_REQUEST['nip']." sudah mempunyai account untuk tingkat dan departemen ini!";
 	} else {
 		if ($tingkat == 1) {
-			$sql_hakakses="UPDATE jbsuser.hakakses SET tingkat=1, keterangan ='".CQ($_REQUEST['keterangan'])."' WHERE replid = '$replid'";
+			$sql_hakakses="UPDATE jbsuser.hakakses SET tingkat=1, keterangan ='".CQ($_REQUEST['keterangan'])."' WHERE replid = '".$replid."'";
 		} else {
-			$sql_hakakses="UPDATE jbsuser.hakakses SET departemen='$departemen', tingkat=2, keterangan ='".CQ($_REQUEST['keterangan'])."' WHERE replid = '$replid'";
+			$sql_hakakses="UPDATE jbsuser.hakakses SET departemen='$departemen', tingkat=2, keterangan ='".CQ($_REQUEST['keterangan'])."' WHERE replid = '".$replid."'";
 		}
 		
 		$result = QueryDb($sql_hakakses);
@@ -293,7 +293,7 @@ function panggil(elem){
 			} else {
 				$sel[$i] = "";
 			}
-			echo  "<option value='$row_pro['departemen']."' $sel[$i]>$row_pro['departemen']";
+			echo  "<option value='".$row_pro['departemen']."' $sel[$i]>$row_pro['departemen']";
 			$i++;
 		}
 	?>

@@ -39,7 +39,7 @@ $sql_get_nip="SELECT * FROM jbsuser.hakakses WHERE replid='".$_REQUEST['replid']
 $result_get_nip=QueryDb($sql_get_nip);
 $row_get_nip=@mysqli_fetch_array($result_get_nip);
 //echo $row_get_nip['login'];
-$sql_get_nama="SELECT nama FROM jbssdm.pegawai WHERE nip='".$row_get_nip[login]."'";
+$sql_get_nama="SELECT nama FROM jbssdm.pegawai WHERE nip='".$row_get_nip['login']."'";
 $result_get_nama=QueryDb($sql_get_nama);
 $row_get_nama=@mysqli_fetch_array($result_get_nama);
 }
@@ -176,28 +176,28 @@ if (!isset($_POST['simpan'])) {
         <tr>
             <td align="left">Login</td>
             <td align="left">
-            <input type="text" size="30" name="nip" readonly value="<?=$row_get_nip[login]?>" class="disabled"></td>
+            <input type="text" size="30" name="nip" readonly value="<?=$row_get_nip['login']?>" class="disabled"></td>
         </tr>
         <tr>
             <td align="left">Nama</td>
             <td align="left">
-            <input type="text" size="30" name="nama" readonly value="<?=$row_get_nama[nama]?>" class="disabled">
+            <input type="text" size="30" name="nama" readonly value="<?=$row_get_nama['nama']?>" class="disabled">
             </td>
         </tr>
         <?php
         //Ini tuk ngecek user sudah punya login apa belum di SISTO
-        $query_cek = "SELECT * FROM jbsuser.login WHERE login = '".$row_get_nip[login]'";
+        $query_cek = "SELECT * FROM jbsuser.login WHERE login = '".$row_get_nip['login']."'";
         $result_cek = QueryDb($query_cek);
         $num_cek = @mysqli_num_rows($result_cek);
 		$row_cek = @mysqli_fetch_array($result_cek);
-		$query_cek2 = "SELECT * FROM jbsuser.hakakses WHERE login = '".$row_get_nip[login]' AND modul='SIMAKA'";
+		$query_cek2 = "SELECT * FROM jbsuser.hakakses WHERE login = '".$row_get_nip['login']."' AND modul='SIMAKA'";
         $result_cek2 = QueryDb($query_cek2);
         $num_cek2 = @mysqli_num_rows($result_cek2);
 		$row_cek2 = @mysqli_fetch_array($result_cek2);
         if($num_cek == 0) {
             $dis = "";
         }else {
-			$status_user=$row_cek2[tingkat];
+			$status_user=$row_cek2['tingkat'];
             $dis = "disabled='disabled' class='disabled' value='********'";
         }
         ?>
@@ -259,7 +259,7 @@ if (!isset($_POST['simpan'])) {
                     $sel[$i] = "";
                 }
     			echo "
-    				<option value='$row_pro['departemen']."' $sel[$i]>$row_pro['departemen']
+    				<option value='".$row_pro['departemen']."' $sel[$i]>$row_pro['departemen']
     				";
     			$i++;
     		}
@@ -270,7 +270,7 @@ if (!isset($_POST['simpan'])) {
             <td align="left">Keterangan</td>
             <td align="left"><textarea wrap="soft" id="keterangan" name="keterangan" cols="40" rows="3"
             onFocus="showhint('Keterangan tidak boleh lebih dari 255 karakter',
-            this, event, '100px')"><?=$row_cek[keterangan]?></textarea></td>
+            this, event, '100px')"><?=$row_cek['keterangan']?></textarea></td>
         </tr>
         <tr>
             <td colspan="2"><div align="center">

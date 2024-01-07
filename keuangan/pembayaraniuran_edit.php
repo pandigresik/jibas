@@ -174,7 +174,7 @@ if (1 == (int)$_REQUEST['issubmit'])
             $sql = "SELECT SUM(kredit) - SUM(debet)
                       FROM jbsfina.tabungan
                      WHERE nis = '$nis'
-                       AND idtabungan = '$idDataTabungan'";
+                       AND idtabungan = '".$idDataTabungan."'";
             $res = QueryDb($sql);
             $row = mysqli_fetch_row($res);
             $jSaldo = $row[0];
@@ -252,7 +252,7 @@ if (1 == (int)$_REQUEST['issubmit'])
                     $sql = "UPDATE jbsfina.jurnaldetail
                                SET debet = '0', kredit = '$jcicilan'
                              WHERE idjurnal = '$idJurnalTabungan'
-                               AND koderek = '$rekKasTab'";
+                               AND koderek = '".$rekKasTab."'";
                     QueryDbTrans($sql, $success);
                 }
 
@@ -261,7 +261,7 @@ if (1 == (int)$_REQUEST['issubmit'])
                     $sql = "UPDATE jbsfina.jurnaldetail
                                SET debet = '$jcicilan', kredit = '0'
                              WHERE idjurnal = '$idJurnalTabungan'
-                               AND koderek = '$rekUtangTab'";
+                               AND koderek = '".$rekUtangTab."'";
                     QueryDbTrans($sql, $success);
                 }
 
@@ -422,7 +422,7 @@ function focusNext(elemName, evt)
                 while($row = mysqli_fetch_row($res))
                 {
                     $sel = $row[0] == $defrekkas ? "selected" : "";
-                    echo "<option value='$row[0]' $sel>$row[0] $row[1]</option>";
+                    echo "<option value='".$row[0]."' $sel>$row[0] $row[1]</option>";
                 } ?>                
             </select>
 		</td>

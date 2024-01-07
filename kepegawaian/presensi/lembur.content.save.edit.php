@@ -54,7 +54,7 @@ try
 				   jammasuk = '$jmasuk', jampulang = '$jpulang',
 				   jamwaktukerja = '$jkerja', menitwaktukerja = '$mkerja',
 				   keterangan = '$keterangan'
-			 WHERE replid = '$replid'";
+			 WHERE replid = '".$replid."'";
 	QueryDbEx($sql);		 
 	CloseDb();
 	

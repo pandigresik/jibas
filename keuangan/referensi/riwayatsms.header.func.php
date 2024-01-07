@@ -35,7 +35,7 @@ function ShowSelectDept()
         
         $sql = "SELECT replid
                   FROM jbsakad.departemen
-                 WHERE departemen = '$value'";
+                 WHERE departemen = '".$value."'";
         $replid = (int)FetchSingle($sql);
         
         echo "<option value='$replid' " . StringIsSelected($value, $departemen) . ">$value</option>";

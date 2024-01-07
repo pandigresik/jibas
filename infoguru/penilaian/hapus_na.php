@@ -33,12 +33,12 @@ require_once("../include/sessionchecker.php");
 
 <?php
 OpenDb();
-$query3 = "DELETE FROM jbsakad.nau WHERE idjenis = '$_GET['id']."'";
+$query3 = "DELETE FROM jbsakad.nau WHERE idjenis = '".$_GET['id']."'";
 $result3 = QueryDb($query3);
 
 $row3 = @mysqli_fetch_array($result3);
 
-if(mysqli_affected_rows() > 0) {
+if(mysqli_affected_rows($conn) > 0) {
 ?>
     <script language="JavaScript">
         //alert("Jenis Penilaian Siswa berhasil dihapus");

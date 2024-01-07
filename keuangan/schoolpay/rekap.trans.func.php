@@ -32,7 +32,7 @@ function ShowCbVendor()
     echo "<select id='vendor' name='vendor' onchange='clearReport()' style='width: 250px'>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='$row[0]'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>$row[1]</option>";
     }
     echo "</select>";
 }
@@ -230,7 +230,7 @@ function ShowRekapTransReport($showMenu)
                       FROM jbsfina.paymenttrans
                      WHERE vendorid = '$vendorId'
                        AND userid = '$userId'
-                       AND tanggal = '$tanggal'";
+                       AND tanggal = '".$tanggal."'";
             $res = QueryDb($sql);
             if ($row = mysqli_fetch_row($res))
             {

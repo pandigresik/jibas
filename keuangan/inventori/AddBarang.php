@@ -172,7 +172,7 @@ function validate(){
 		var i = 0;
 		var string4split='.';
 
-		z = foto.split(string4split);
+		z = foto.explode(string4split);
 		ext = z[z.length-1];
 		
 		if (ext!='JPG' && ext!='jpg' && ext!='Jpg' && ext!='JPg' && ext!='JPEG' && ext!='jpeg'){

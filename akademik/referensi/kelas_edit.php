@@ -31,11 +31,11 @@ require_once('../include/db_functions.php');
 $replid = $_REQUEST['replid'];
 
 OpenDb();
-/*$sql_get_namatahunajaran = "SELECT tahunajaran FROM jbsakad.tahunajaran WHERE replid = '$tahunajaran'";
+/*$sql_get_namatahunajaran = "SELECT tahunajaran FROM jbsakad.tahunajaran WHERE replid = '".$tahunajaran."'";
 $result_get_namatahunajaran = QueryDb($sql_get_namatahunajaran);
 $row_get_namatahunajaran =@mysqli_fetch_array($result_get_namatahunajaran);
 
-$sql_get_namatingkat = "SELECT tingkat, departemen FROM jbsakad.tingkat WHERE replid = '$tingkat'";
+$sql_get_namatingkat = "SELECT tingkat, departemen FROM jbsakad.tingkat WHERE replid = '".$tingkat."'";
 $result_get_namatingkat = QueryDb($sql_get_namatingkat);
 $row_get_namatingkat =@mysqli_fetch_array($result_get_namatingkat);
 */
@@ -58,7 +58,7 @@ if (isset($_REQUEST['kapasitas']))
 if (isset($_REQUEST['keterangan']))
 	$keterangan = CQ($_REQUEST['keterangan']);
 
-$sql_get_pegawai = "SELECT * FROM jbssdm.pegawai WHERE nip = '".$row_get_kelas[nipwali]'";
+$sql_get_pegawai = "SELECT * FROM jbssdm.pegawai WHERE nip = '".$row_get_kelas['nipwali']."'";
 $result_get_pegawai = QueryDb($sql_get_pegawai);
 $row_get_pegawai =@mysqli_fetch_array($result_get_pegawai);
 $nipwali = $row_get_pegawai['nip'];

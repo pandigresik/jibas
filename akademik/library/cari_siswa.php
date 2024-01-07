@@ -35,7 +35,7 @@ $nis = $_REQUEST['nis'];
 $departemen = $_REQUEST['departemen'];
 $filter = "";
 if ($departemen <> -1) 
-	$filter = "AND t.departemen = '$departemen'";
+	$filter = "AND t.departemen = '".$departemen."'";
 
 $varbaris1=10;
 if (isset($_REQUEST['varbaris1']))

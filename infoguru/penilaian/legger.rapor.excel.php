@@ -45,22 +45,22 @@ header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 
 OpenDb();
 
-$sql = "SELECT tahunajaran FROM tahunajaran WHERE replid = '$tahunajaran'";
+$sql = "SELECT tahunajaran FROM tahunajaran WHERE replid = '".$tahunajaran."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_row($res);
 $ta  = $row[0];
 
-$sql = "SELECT kelas FROM kelas WHERE replid = '$kelas'";
+$sql = "SELECT kelas FROM kelas WHERE replid = '".$kelas."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_row($res);
 $kls = $row[0];
 
-$sql = "SELECT semester FROM semester WHERE replid = '$semester'";
+$sql = "SELECT semester FROM semester WHERE replid = '".$semester."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_row($res);
 $sem = $row[0];
 
-$sql = "SELECT nama FROM pelajaran WHERE replid = '$pelajaran'";
+$sql = "SELECT nama FROM pelajaran WHERE replid = '".$pelajaran."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_row($res);
 $pel = $row[0];
@@ -107,7 +107,7 @@ $sql = "SELECT DISTINCT a.dasarpenilaian, d.keterangan
            AND a.dasarpenilaian = d.dasarpenilaian
            AND i.idpelajaran = '$pelajaran'  
            AND i.idsemester = '$semester' 
-           AND i.idkelas = '$kelas'";
+           AND i.idkelas = '".$kelas."'";
 $res = QueryDb($sql);
 $aspekarr = array();
 while($row = mysqli_fetch_row($res))
@@ -119,7 +119,7 @@ $colwidth = $naspek == 0 ? "*" : round(600 / $naspek);
 
 $sql = "SELECT aktif
           FROM tahunajaran
-         WHERE replid = '$tahunajaran'";
+         WHERE replid = '".$tahunajaran."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_row($res);
 $ta_aktif = (int)$row[0];
@@ -203,7 +203,7 @@ $nsiswa = count($siswa);
                        AND i.idsemester = '$semester' 
                        AND i.idkelas = '$kelas'
                        AND n.idaturan = a.replid 	   
-                       AND a.dasarpenilaian = '$asp'";
+                       AND a.dasarpenilaian = '".$asp."'";
             $res = QueryDb($sql);
             if (mysqli_num_rows($res) > 0)
             {

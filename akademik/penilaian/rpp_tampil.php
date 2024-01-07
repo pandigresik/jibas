@@ -61,7 +61,7 @@ if (isset($_REQUEST['urutan']))
 
 	
 OpenDb();
-$sql="SELECT t.tingkat, t.departemen, p.nama, s.semester FROM tingkat t, pelajaran p, semester s WHERE t.replid = '$tingkat' AND s.replid = '$semester' AND p.replid = '$pelajaran'";
+$sql="SELECT t.tingkat, t.departemen, p.nama, s.semester FROM tingkat t, pelajaran p, semester s WHERE t.replid = '$tingkat' AND s.replid = '$semester' AND p.replid = '".$pelajaran."'";
 
 $result=QueryDb($sql);
 $row=@mysqli_fetch_array($result);

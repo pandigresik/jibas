@@ -48,7 +48,7 @@ if ($sender == "tambah")
   
   $sql1 = "INSERT INTO jbsvcr.beritaguru
 			  SET judul = '$judul', tanggal = '$tanggal $jam',
-			      abstrak = '$abstrak', isi = '$isi', idguru = '$idguru'";
+			      abstrak = '$abstrak', isi = '$isi', idguru = '".$idguru."'";
   QueryDb($sql1);
   CloseDb();?>
   <script language="javascript">

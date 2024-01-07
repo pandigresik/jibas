@@ -31,7 +31,7 @@ function ShowCbPustaka()
     echo "<select id='ptkastat_perpus' name='ptkastat_perpus' class='inputbox' onchange='ptkastat_perpus_change()'>\r\n";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='$row[0]'>$row[1]</option>\r\n";
+        echo "<option value='".$row[0]."'>$row[1]</option>\r\n";
     }
     echo "<option value='-1'>(Semua Perpustakaan)</option>\r\n";
     echo "</select>\r\n";
@@ -172,7 +172,7 @@ function ShowDetailPustaka($cnt, $idpustaka)
                    IF(LENGTH(TRIM(keteranganfisik)) = 0, '-', keteranganfisik) AS keteranganfisik,
                    IF(LENGTH(TRIM(keyword)) = 0, '-', keyword) AS keyword
               FROM jbsperpus.pustaka
-             WHERE replid = '$idpustaka'";
+             WHERE replid = '".$idpustaka."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) == 0)
     {

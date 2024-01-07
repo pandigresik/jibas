@@ -85,10 +85,10 @@ while ($row = @mysqli_fetch_row($result)) {
 			$sql2 = "SELECT AVG(n.nilaiujian) as rata FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = '$kelas' AND u.idpelajaran = '$pelajaran' AND u.idsemester = '".$sem[0][0]."' AND u.idjenis = '".$row['replid']."' AND u.replid = n.idujian AND n.nis = '$nis' ";
 			$result2 = QueryDb($sql2);
 			$row2 = @mysqli_fetch_array($result2);
-			$rata = $row2[rata];
+			$rata = $row2['rata'];
 			
 			/*
-			$sql3 = "SELECT nau.nilaiAU as nilaiAU,nau.keterangan as keterangan FROM ujian u, pelajaran p, nilaiujian n, nau nau WHERE u.idpelajaran = p.replid AND u.idkelas = $kelas AND u.idpelajaran = $pelajaran AND u.idsemester = ".$sem[0][0]." AND u.idjenis = $row['replid'] AND u.replid = n.idujian AND n.nis = '$nis' AND nau.idjenis=$row['replid'] AND nau.idpelajaran = $pelajaran AND nau.idsemester = ".$sem[0][0];
+			$sql3 = "SELECT nau.nilaiAU as nilaiAU,nau.keterangan as keterangan FROM ujian u, pelajaran p, nilaiujian n, nau nau WHERE u.idpelajaran = p.replid AND u.idkelas = $kelas AND u.idpelajaran = $pelajaran AND u.idsemester = ".$sem[0][0]." AND u.idjenis = ".$row['replid']." AND u.replid = n.idujian AND n.nis = '$nis' AND nau.idjenis=$row['replid'] AND nau.idpelajaran = $pelajaran AND nau.idsemester = ".$sem[0][0];
 			$result3 = QueryDb($sql3);
 			$row3 = @mysqli_fetch_array($result3);
 			$nilaiAU = $row3['nilaiAU'];		

@@ -55,7 +55,7 @@ function SimpanData()
     $sql = "SELECT replid 
               FROM tambahandata 
              WHERE kolom = '$kolom'
-               AND departemen = '$departemen'";
+               AND departemen = '".$departemen."'";
     $result = QueryDb($sql);
 
     if (mysqli_num_rows($result) > 0)
@@ -68,7 +68,7 @@ function SimpanData()
     {
         $sql = "INSERT INTO tambahandata 
                    SET departemen = '$departemen', kolom = '$kolom', urutan = '$urutan',
-                       jenis = '$jenis', aktif = 1, keterangan = '$keterangan'";
+                       jenis = '$jenis', aktif = 1, keterangan = '".$keterangan."'";
         $result = QueryDb($sql);
         if ($result)
         { 	?>

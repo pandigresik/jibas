@@ -30,7 +30,7 @@ require_once('../include/sessionchecker.php');
 $nis = SI_USER_ID();
 
 OpenDb();
-$sql = "SELECT nama FROM siswa WHERE nis = '$nis'";
+$sql = "SELECT nama FROM siswa WHERE nis = '".$nis."'";
 $result=QueryDb($sql);
 $row_siswa = mysqli_fetch_array($result); 
 
@@ -404,7 +404,7 @@ function show_wait(areaId) {
 
 function cetaknil(panel){
     var addr;
-    var x = panel.split('_');
+    var x = panel.explode('_');
     var semester = x[1];
     var nis = document.panel3.nis_awal.value;
     var kelas = document.panel3.kelas.value;

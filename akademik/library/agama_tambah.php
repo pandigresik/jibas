@@ -42,7 +42,7 @@ if (isset($_POST['simpan'])) {
 	$sql_cek="SELECT * FROM jbsumum.agama where agama='$agama'";
 	$hasil=QueryDb($sql_cek);
 	
-	$sql1 = "SELECT * FROM jbsumum.agama WHERE urutan = '$urutan'";
+	$sql1 = "SELECT * FROM jbsumum.agama WHERE urutan = '".$urutan."'";
 	$result1 = QueryDb($sql1);
 	
 	if (mysqli_num_rows($hasil) > 0){

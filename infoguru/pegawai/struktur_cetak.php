@@ -177,7 +177,7 @@ function getNEmployee($idjab)
     $sql = "SELECT COUNT(replid)
               FROM jbssdm.pegjab
              WHERE terakhir = 1
-               AND idjabatan = '$idjab'";
+               AND idjabatan = '".$idjab."'";
     $result = QueryDb($sql);
     $row = mysqli_fetch_row($result);
 	

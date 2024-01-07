@@ -82,7 +82,7 @@ $row = mysqli_fetch_row($result);
 $max_n_bayar = $row[0];
 $table_width = 520 + $max_n_bayar * 100;
 
-$sql = "SELECT nama FROM datapenerimaan WHERE replid = '$idpenerimaan'";
+$sql = "SELECT nama FROM datapenerimaan WHERE replid = '".$idpenerimaan."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $namapenerimaan = $row[0];
@@ -156,7 +156,7 @@ while ($row = mysqli_fetch_array($result)) {
 <?php 	$sql = "SELECT date_format(p.tanggal, '%d-%b-%y') as tanggal, jumlah 
                   FROM penerimaaniurancalon p, jurnal j
 				 WHERE p.idjurnal = j.replid AND j.idtahunbuku = '$idtahunbuku' 
-				   AND idcalon = '$replid' AND idpenerimaan = '$idpenerimaan'";
+				   AND idcalon = '$replid' AND idpenerimaan = '".$idpenerimaan."'";
 		$result2 = QueryDb($sql);
 		$nbayar = mysqli_num_rows($result2);
 		$nblank = $max_n_bayar - $nbayar;

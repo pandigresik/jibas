@@ -11,7 +11,7 @@ $replid = $_REQUEST['replid'];
 OpenDb();
 $sql = "SELECT *
           FROM jbsvcr.agenda
-         WHERE replid = '$replid'";
+         WHERE replid = '".$replid."'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
 ?>

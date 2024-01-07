@@ -294,7 +294,7 @@ function panggil(elem)
 					if ($row[5] == 1)
 						$A = "(A)";
 					
-					echo "<option value='$row[0]' $sel>$row[1] $A</option>";
+					echo "<option value='".$row[0]."' $sel>$row[1] $A</option>";
 				}
 			} ?>
         </select>	
@@ -399,7 +399,7 @@ if (isset($_REQUEST['showpembayaran']))
         <td>
     <?php     
         OpenDb();
-        $sql_tot = "SELECT COUNT(nokas), SUM(debet) AS totdebet, SUM(kredit) AS totkredit FROM $db_name_fina.transaksilog WHERE departemen='$departemen' AND tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND idtahunbuku = '$idtahunbuku'";
+        $sql_tot = "SELECT COUNT(nokas), SUM(debet) AS totdebet, SUM(kredit) AS totkredit FROM $db_name_fina.transaksilog WHERE departemen='$departemen' AND tanggal BETWEEN '$tanggal1' AND '$tanggal2' AND idtahunbuku = '".$idtahunbuku."'";
     
         $result_tot = QueryDb($sql_tot);
         $row_tot = mysqli_fetch_row($result_tot);

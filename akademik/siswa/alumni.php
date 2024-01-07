@@ -75,7 +75,7 @@ if ($op == "xm8r389xemx23xb2378e23") {
 	BeginTrans();
 	$success=0;
 	
-	$sql1="UPDATE jbsakad.riwayatkelassiswa SET aktif=1 WHERE nis='$nis' AND idkelas = '$idkelas'";
+	$sql1="UPDATE jbsakad.riwayatkelassiswa SET aktif=1 WHERE nis='$nis' AND idkelas = '".$idkelas."'";
 	$result1=QueryDbTrans($sql1, $success);
 	
 	if ($success){

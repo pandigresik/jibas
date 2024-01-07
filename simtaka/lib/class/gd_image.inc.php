@@ -290,7 +290,7 @@ class Image {
 
     // Get the specific height for a text string
     function GetTextHeight($txt="",$angle=0) {
-        $tmp = preg_split('/\n/',$txt);
+        $tmp = preg_explode('/\n/',$txt);
         $n = count($tmp);
         $m=0;
         for($i=0; $i< $n; ++$i) {
@@ -338,7 +338,7 @@ class Image {
     // etxt width.
     function GetTextWidth($txt,$angle=0) {
 
-        $tmp = preg_split('/\n/',$txt);
+        $tmp = preg_explode('/\n/',$txt);
         $n = count($tmp);
         if( $this->font_family <= FF_FONT2+1 ) {
 
@@ -664,7 +664,7 @@ class Image {
         }
         else {
             if( preg_match('/\n/',$txt) ) {
-                $tmp = preg_split('/\n/',$txt);
+                $tmp = preg_explode('/\n/',$txt);
                 for($i=0; $i < count($tmp); ++$i) {
                     $w1 = $this->GetTextWidth($tmp[$i]);
                     if( $paragraph_align=="left" ) {
@@ -992,7 +992,7 @@ class Image {
             $w=$this->GetTextWidth($txt);
 
             $y -= $linemargin/2;
-            $tmp = preg_split('/\n/',$txt);
+            $tmp = preg_explode('/\n/',$txt);
             $nl = count($tmp);
             $h = $nl * $fh;
 

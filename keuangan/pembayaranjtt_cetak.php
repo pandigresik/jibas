@@ -92,7 +92,7 @@ $departemen = $row[0];
 <tr>
 	<td><strong>Jenis Penerimaan</strong></td>
     <td><strong>:
-<?php $sql = "SELECT nama FROM datapenerimaan WHERE replid = '$idpenerimaan'"; 			
+<?php $sql = "SELECT nama FROM datapenerimaan WHERE replid = '".$idpenerimaan."'"; 			
 	$result = QueryDb($sql);    
 	$row = mysqli_fetch_row($result);
 	echo  $row[0]; ?>
@@ -167,7 +167,7 @@ else
         <tr>
             <td width="25%"><strong>Pembayaran</strong></td>                
             <td><strong>: 
-			<?php $sql = "SELECT nama FROM datapenerimaan WHERE replid = '$idpenerimaan'"; 			
+			<?php $sql = "SELECT nama FROM datapenerimaan WHERE replid = '".$idpenerimaan."'"; 			
                 $result = QueryDb($sql);    
                 $row = mysqli_fetch_row($result);
                 echo  $row[0]; ?>
@@ -252,7 +252,7 @@ else
 <tr>
     <td align="center" colspan="2"> 
 <?php 
-    $sql = "SELECT count(*) FROM penerimaanjtt WHERE idbesarjtt = '$idbesarjtt'";
+    $sql = "SELECT count(*) FROM penerimaanjtt WHERE idbesarjtt = '".$idbesarjtt."'";
     $result = QueryDb($sql);
     $row = mysqli_fetch_row($result);
     $nbayar = $row[0];

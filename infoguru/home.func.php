@@ -10,7 +10,7 @@ function ShowCbDepartemen($id, $onchange)
 	echo "<option value='ALL'>(Semua)</option>";
 	while($row = mysqli_fetch_row($res))
 	{
-		echo "<option value='$row[0]'>$row[0]</option>";
+		echo "<option value='".$row[0]."'>$row[0]</option>";
 	}
 	echo "</select>";
 }
@@ -216,7 +216,7 @@ function ShowLastPesan($minListPesanId, $offsetListPesan)
             $nip = $row['idguru'];
             $sql = "SELECT nama
                       FROM jbssdm.pegawai
-                     WHERE nip = '$nip'";
+                     WHERE nip = '".$nip."'";
             $res2 = QueryDb($sql);
             $row2 = mysqli_fetch_row($res2);
             
@@ -227,7 +227,7 @@ function ShowLastPesan($minListPesanId, $offsetListPesan)
             $nis = $row['nis'];
             $sql = "SELECT nama
                       FROM jbsakad.siswa
-                     WHERE nis = '$nis'";
+                     WHERE nis = '".$nis."'";
             $res2 = QueryDb($sql);
             $row2 = mysqli_fetch_row($res2);
             
@@ -833,7 +833,7 @@ function ShowImageUser()
 	
 	$sql = "SELECT foto, foto IS NULL AS isnull
 			  FROM jbssdm.pegawai
-			 WHERE nip = '$nip'";
+			 WHERE nip = '".$nip."'";
 	$res = QueryDb($sql);	
 
 	if (mysqli_num_rows($res) > 0)

@@ -239,7 +239,7 @@ if (!isset($_POST['lihat'])) {
                     $sel[$i] = "";
                 }
                 echo "
-                    <option value='$row_t['replid']."' $sel[$i]>$row_t[tingkat]</option>
+                    <option value='".$row_t['replid']."' $sel[$i]>".$row_t['tingkat']."</option>
                 ";
                 $i++;
             }
@@ -253,7 +253,7 @@ if (!isset($_POST['lihat'])) {
                         "WHERE departemen = '$departemen' AND aktif = '1' ";
             $result_th = QueryDb($query_th);
             $row_th = @mysqli_fetch_array($result_th);
-            $tahun = $row_th[tahunajaran];
+            $tahun = $row_th['tahunajaran'];
             $replid = $row_th['replid'];
 
             $query_k = "SELECT replid, kelas FROM jbsakad.kelas ".
@@ -273,7 +273,7 @@ if (!isset($_POST['lihat'])) {
                     $sel[$i] = "";
                 }
                 echo "
-                    <option value='$row_k['replid']."' $sel[$i]>$row_k[kelas]</option>
+                    <option value='".$row_k['replid']."' $sel[$i]>".$row_k['kelas']."</option>
                 ";
                 $i++;
             }

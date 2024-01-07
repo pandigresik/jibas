@@ -200,7 +200,7 @@ OpenDb();
 					$result_agama=QueryDB($sql_agama);
 					while ($row_agama = mysqli_fetch_array($result_agama)) {
 					?>
-						<option value="<?=$row_agama['agama']?>"<?=StringIsSelected($row_agama[agama],$agama)?>>
+						<option value="<?=$row_agama['agama']?>"<?=StringIsSelected($row_agama['agama'],$agama)?>>
 						<?=$row_agama['agama']?>
 		                </option>
 					<?php
@@ -224,7 +224,7 @@ OpenDb();
 					$result_suku=QueryDB($sql_suku);
 					while ($row_suku = mysqli_fetch_array($result_suku)) {
 					?>
-					<option value="<?=$row_suku['suku']?>"<?=StringIsSelected($row_suku[suku],$suku)?>>
+					<option value="<?=$row_suku['suku']?>"<?=StringIsSelected($row_suku['suku'],$suku)?>>
 					<?=$row_suku['suku']?>
 					</option>
 					<?php
@@ -247,7 +247,7 @@ OpenDb();
 					$result_status=QueryDB($sql_status);
 					while ($row_status = mysqli_fetch_array($result_status))	{
 					?>
-						<option value="<?=$row_status['status']?>"<?=StringIsSelected($row_status[status],$status)?>>
+						<option value="<?=$row_status['status']?>"<?=StringIsSelected($row_status['status'],$status)?>>
 						<?=$row_status['status']?>
 						</option>
 					<?php
@@ -628,7 +628,7 @@ OpenDb();
 				$result_pend_ayah=QueryDB($sql_pend_ayah);
 				while ($row_pend_ayah = mysqli_fetch_array($result_pend_ayah))
 				{	?>
-                          <option value="<?=$row_pend_ayah['pendidikan']?>" <?=StringIsSelected($row_pend_ayah[pendidikan],$pendidikanayah)?>>
+                          <option value="<?=$row_pend_ayah['pendidikan']?>" <?=StringIsSelected($row_pend_ayah['pendidikan'],$pendidikanayah)?>>
                           <?=$row_pend_ayah['pendidikan']?>
                           </option>
                           <?php
@@ -649,7 +649,7 @@ OpenDb();
 						$result_pend_ibu=QueryDB($sql_pend_ibu);
 						while ($row_pend_ibu = mysqli_fetch_array($result_pend_ibu)) {
 						?>
-							<option value="<?=$row_pend_ibu['pendidikan']?>" <?=StringIsSelected($row_pend_ibu[pendidikan],$pendidikanibu)?>>
+							<option value="<?=$row_pend_ibu['pendidikan']?>" <?=StringIsSelected($row_pend_ibu['pendidikan'],$pendidikanibu)?>>
 							<?=$row_pend_ibu['pendidikan']?>
 							</option>
 						<?php
@@ -697,7 +697,7 @@ OpenDb();
 						$result_kerja_ibu=QueryDB($sql_kerja_ibu);
 						while ($row_kerja_ibu = mysqli_fetch_array($result_kerja_ibu)) {
 						?>
-							<option value="<?=$row_kerja_ibu['pekerjaan']?>"<?=StringIsSelected($row_kerja_ibu[pekerjaan],$pekerjaanibu)?>>
+							<option value="<?=$row_kerja_ibu['pekerjaan']?>"<?=StringIsSelected($row_kerja_ibu['pekerjaan'],$pekerjaanibu)?>>
 								  <?=$row_kerja_ibu['pekerjaan']?>
 							</option>
 						<?php

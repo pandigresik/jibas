@@ -78,14 +78,14 @@ if (1 == (int)$_REQUEST['issubmit'])
 			   SET idpengeluaran='$idpengeluaran', tanggal='$tanggal', jumlah='$jumlah', 
 				   keperluan='$keperluan', keterangan='$keterangan', petugas='$petugas', penerima='$penerima', 
 				   $sqlpemohon, alasan='$alasan' 
-		     WHERE replid = '$idtransaksi'";
+		     WHERE replid = '".$idtransaksi."'";
 	QueryDbTrans($sql, $success);
 		
-	$sql = "UPDATE jurnal SET idtahunbuku = '$idtahunbuku', transaksi='$keperluan' WHERE replid = '$idjurnal'";
+	$sql = "UPDATE jurnal SET idtahunbuku = '$idtahunbuku', transaksi='$keperluan' WHERE replid = '".$idjurnal."'";
 	if ($success) 
 		QueryDbTrans($sql, $success);
 	
-	$sql = "DELETE FROM jurnaldetail WHERE idjurnal = '$idjurnal'";
+	$sql = "DELETE FROM jurnaldetail WHERE idjurnal = '".$idjurnal."'";
 	if ($success) 
 		QueryDbTrans($sql, $success);
 	
@@ -117,7 +117,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 
 $sql = "SELECT idpengeluaran, keperluan, keterangan, jenispemohon, nip, nis, 
 			   pemohonlain, penerima, date_format(tanggal, '%d-%m%-%Y') AS tanggal, jumlah, idjurnal 
-          FROM pengeluaran WHERE replid = '$idtransaksi'";
+          FROM pengeluaran WHERE replid = '".$idtransaksi."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_array($result);
 
@@ -136,13 +136,13 @@ $idjurnal = $row['idjurnal'];
 if ($row['jenispemohon'] == 1) 
 {
 	$idpemohon = $row['nip'];
-	$sql = "SELECT nama FROM jbssdm.pegawai WHERE nip = '$idpemohon'";
+	$sql = "SELECT nama FROM jbssdm.pegawai WHERE nip = '".$idpemohon."'";
 	$jenisinfo = "pegawai";
 } 
 else if ($row['jenispemohon'] == 2) 
 {
 	$idpemohon = $row['nis'];
-	$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '$idpemohon'";
+	$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '".$idpemohon."'";
 	$jenisinfo = "siswa";
 } 
 else 
@@ -182,13 +182,13 @@ $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $rekkredit = $row[0];
 
-$sql = "SELECT nama, departemen FROM datapengeluaran WHERE replid = '$idpengeluaran'";
+$sql = "SELECT nama, departemen FROM datapengeluaran WHERE replid = '".$idpengeluaran."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $namapengeluaran = $row[0];
 $departemen = $row[1];
 
-$sql = "SELECT idtahunbuku FROM jurnal WHERE replid = '$idjurnal'";
+$sql = "SELECT idtahunbuku FROM jurnal WHERE replid = '".$idjurnal."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $idtahunbuku = $row[0];
@@ -365,7 +365,7 @@ function panggil(elem)
         <td colspan="2">
         <?php 
 			OpenDb();
-			$sql = "SELECT replid, tahunbuku FROM tahunbuku WHERE aktif = 1 AND departemen = '$departemen'";
+			$sql = "SELECT replid, tahunbuku FROM tahunbuku WHERE aktif = 1 AND departemen = '".$departemen."'";
             $result = QueryDb($sql);
                 
             $row = mysqli_fetch_row($result);

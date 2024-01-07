@@ -215,7 +215,7 @@ $num = @mysqli_num_rows($result);
 			$sql = "SELECT p.judul
 					  FROM jbsperpus.daftarpustaka dp, jbsperpus.pustaka p
 					 WHERE dp.pustaka = p.replid
-					   AND dp.kodepustaka = '$kodepustaka'";
+					   AND dp.kodepustaka = '".$kodepustaka."'";
 			$res2 = QueryDb($sql);
 			$row2 = @mysqli_fetch_array($res2);
 			$judul = $row2['judul'];
@@ -227,19 +227,19 @@ $num = @mysqli_num_rows($result);
 			{
 				$sql = "SELECT nama
 						  FROM jbsakad.siswa
-						 WHERE nis = '$idanggota'";
+						 WHERE nis = '".$idanggota."'";
 			}
 			elseif ($jenisanggota == "pegawai")
 			{
 				$sql = "SELECT nama
 						  FROM jbssdm.pegawai
-						 WHERE nip = '$idanggota'";
+						 WHERE nip = '".$idanggota."'";
 			}
 			else
 			{
 				$sql = "SELECT nama
 						  FROM jbsperpus.anggota
-						 WHERE noregistrasi = '$idanggota'";
+						 WHERE noregistrasi = '".$idanggota."'";
 			}
 			$res2 = QueryDb($sql);
 			$row2 = mysqli_fetch_row($res2);

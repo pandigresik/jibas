@@ -47,7 +47,7 @@ $pekerjaan_kiriman=$_REQUEST['pekerjaan'];
 
 if (($op == "del") && (strlen($replid) > 0)) {
 	OpenDb();
-	$sql = "DELETE FROM jbsumum.jenispekerjaan WHERE replid = '$replid'";
+	$sql = "DELETE FROM jbsumum.jenispekerjaan WHERE replid = '".$replid."'";
 	$result = QueryDb($sql);
 	CloseDb();
 	$page=0;

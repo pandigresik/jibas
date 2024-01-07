@@ -60,7 +60,7 @@ if (isset($_REQUEST['simpan']))
 		BeginTrans();
 		$success = true;
 		
-		$sql = "UPDATE tahunbuku SET tahunbuku='".CQ($_REQUEST['tahunbuku'])."', tanggalmulai='$tanggalmulai', awalan='".CQ($_REQUEST['awalan'])."',	keterangan='".CQ($_REQUEST['keterangan'])."' WHERE replid = '$id'";
+		$sql = "UPDATE tahunbuku SET tahunbuku='".CQ($_REQUEST['tahunbuku'])."', tanggalmulai='$tanggalmulai', awalan='".CQ($_REQUEST['awalan'])."',	keterangan='".CQ($_REQUEST['keterangan'])."' WHERE replid = '".$id."'";
 		QueryDbTrans($sql, $success);
 		
 		if ($success)
@@ -70,7 +70,7 @@ if (isset($_REQUEST['simpan']))
 			
 			if (strlen($idjurnal) > 0)
 			{
-				$sql = "UPDATE jurnal SET tanggal = '$tanggalmulai' WHERE replid = '$idjurnal'";
+				$sql = "UPDATE jurnal SET tanggal = '$tanggalmulai' WHERE replid = '".$idjurnal."'";
 				QueryDbTrans($sql, $success);
 			}
 		}
@@ -100,7 +100,7 @@ switch ($cek) {
 }
 
 OpenDb();
-$sql = "SELECT tahunbuku, departemen, awalan, keterangan, date_format(tanggalmulai, '%d-%m-%Y') AS tanggalmulai FROM tahunbuku WHERE replid = '$id'";
+$sql = "SELECT tahunbuku, departemen, awalan, keterangan, date_format(tanggalmulai, '%d-%m-%Y') AS tanggalmulai FROM tahunbuku WHERE replid = '".$id."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_array($result);
 CloseDb();

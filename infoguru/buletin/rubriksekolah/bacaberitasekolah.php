@@ -42,19 +42,19 @@ $sql = "SELECT YEAR(b.tanggal) as thn, MONTH(b.tanggal) as bln, DAY(b.tanggal) a
 
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
-$sql_sis="SELECT nama FROM jbsakad.siswa WHERE nis='$row['idpengirim']."'";
+$sql_sis="SELECT nama FROM jbsakad.siswa WHERE nis='".$row['idpengirim']."'";
 $result_sis=QueryDb($sql_sis);
 if (@mysqli_num_rows($result_sis) > 0)
 {
 	$row_sis=@mysqli_fetch_array($result_sis);
-	$nama=$row_sis[nama];
+	$nama=$row_sis['nama'];
 }
 else
 {
-	$sql_peg="SELECT nama FROM jbssdm.pegawai WHERE nip='$row['idpengirim']."'";
+	$sql_peg="SELECT nama FROM jbssdm.pegawai WHERE nip='".$row['idpengirim']."'";
 	$result_peg=QueryDb($sql_peg);
 	$row_peg=@mysqli_fetch_array($result_peg);
-	$nama=$row_peg[nama];
+	$nama=$row_peg['nama'];
 }
 CloseDb();
 

@@ -60,7 +60,7 @@ try
 				   SET nip = '$nip', tanggal = '$tglpresensi',
 					   jammasuk = '$jmasuk', jampulang = '$jpulang',
 					   jamwaktukerja = '$jkerja', menitwaktukerja = '$mkerja',
-					   status = '$status', keterangan = '$keterangan'";
+					   status = '$status', keterangan = '".$keterangan."'";
 		QueryDbEx($sql);
 		
 		$sql = "SELECT LAST_INSERT_ID()";
@@ -73,7 +73,7 @@ try
 					   jammasuk = '$jmasuk', jampulang = '$jpulang',
 					   jamwaktukerja = '$jkerja', menitwaktukerja = '$mkerja',
 					   status = '$status', keterangan = '$keterangan'
-				 WHERE replid = '$replid'";
+				 WHERE replid = '".$replid."'";
 		QueryDbEx($sql);		 
     }
     

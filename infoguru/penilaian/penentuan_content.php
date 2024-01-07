@@ -53,7 +53,7 @@ if(isset($_REQUEST["aspek"]))
 if(isset($_REQUEST["aspekket"]))
 	$aspekket = $_REQUEST["aspekket"];	
 
-$sql = "SELECT nama FROM pelajaran WHERE replid = '$pelajaran'";
+$sql = "SELECT nama FROM pelajaran WHERE replid = '".$pelajaran."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_row($res);
 $namapel = $row[0];
@@ -83,7 +83,7 @@ if (isset($_REQUEST["Simpan"]))
 	}
 	else
 	{
-		$sql = "UPDATE jbsakad.infonap SET nilaimin = '$nilaimin' WHERE replid = '$idinfo'";
+		$sql = "UPDATE jbsakad.infonap SET nilaimin = '$nilaimin' WHERE replid = '".$idinfo."'";
 		QueryDbTrans($sql, $success);
 	}
 	
@@ -243,7 +243,7 @@ while ($row = @mysqli_fetch_array($res))
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Perhitungan Rapor [Content]</title>
+<title>Perhitungan Rapor ['Content']</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
@@ -450,7 +450,7 @@ function panggil(elem, total)
 			$sql = "SELECT n.nilaiAU as nilaiujian 
 			          FROM jbsakad.nau n, jbsakad.aturannhb a 
 				     WHERE n.idpelajaran = $pelajaran AND n.idkelas = $kelas 
-					   AND n.nis = '".$row_siswa[nis]' AND n.idsemester = $semester 
+					   AND n.nis = '".$row_siswa['nis']."' AND n.idsemester = $semester 
 				       AND n.idjenis = $value[2] AND n.idaturan = a.replid 
 					   AND a.replid = $value[0]";
 			$res = QueryDb($sql);
@@ -460,12 +460,12 @@ function panggil(elem, total)
 	   	<td align="center"><strong>
 	<?php 	$ext_idinfo = "";
 		if ($idinfo != "")
-			$ext_idinfo = " AND i.replid = '$idinfo'";
+			$ext_idinfo = " AND i.replid = '".$idinfo."'";
 			
 		$sql = "SELECT n.nilaihuruf, n.nilaiangka, i.nilaimin
 				  FROM jbsakad.nap n, jbsakad.aturannhb a, jbsakad.infonap i 
 				 WHERE n.idinfo = i.replid 
-				   AND n.nis = '".$row_siswa[nis]' 
+				   AND n.nis = '".$row_siswa['nis']."' 
 				   AND i.idpelajaran = '$pelajaran' 
 				   AND i.idsemester = '$semester' 
 				   AND i.idkelas = '$kelas'
@@ -484,9 +484,9 @@ function panggil(elem, total)
 			{		
 				$sql = "SELECT n.nilaiAU 
 						  FROM jbsakad.nau n, jbsakad.aturannhb a 
-						 WHERE n.idkelas = '$kelas' AND n.nis = '".$row_siswa[nis]' 
+						 WHERE n.idkelas = = '".$kelas."' AND n.nis = '".$row_siswa['nis']."' 
 						   AND n.idsemester = '$semester' AND n.idpelajaran = '$pelajaran'
-						   AND n.idjenis = '$value[2]' AND n.idaturan = a.replid 
+						   AND n.idjenis = '".$value[2]."' AND n.idaturan = a.replid 
 						   AND a.replid = '$value[0]'";
 				$res = QueryDb($sql);
 				$row = @mysqli_fetch_array($res);

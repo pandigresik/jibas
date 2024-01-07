@@ -70,12 +70,12 @@ function loadJadwal() {
 	$result = QueryDb($sql);
 	
 	while($row = mysqli_fetch_assoc($result)) {
-		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']][id] = $row['id'];
-		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']][njam] = $row['njam'];
-		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']][pelajaran] = $row['pelajaran'];
-		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']][guru] = $row['guru'];
-		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']][status] = $row['status'];
-		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']][ket] = $row['ket'];
+		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']]['id'] = $row['id'];
+		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']]['njam'] = $row['njam'];
+		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']]['pelajaran'] = $row['pelajaran'];
+		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']]['guru'] = $row['guru'];
+		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']]['status'] = $row['status'];
+		$GLOBALS['jadwal']['row'][$row['hari']][$row['jam']]['ket'] = $row['ket'];
 	}
 	return true;
 }
@@ -84,11 +84,11 @@ function getCell($r, $c) {
 	global $mask, $jadwal;
 	if($mask[$c] == 0) {
 		if(isset($jadwal['row'][$c][$r])) {
-			$mask[$c] = $jadwal['row'][$c][$r][njam] - 1;
+			$mask[$c] = $jadwal['row'][$c][$r]['njam'] - 1;
 			
-			$s = "<td class='jadwal' rowspan='{$jadwal['row'][$c][$r][njam]}' width='95px'>";
-			$s.= "<b>{$jadwal['row'][$c][$r][pelajaran]}</b><br>";
-			$s.= "{$jadwal['row'][$c][$r][guru]}<br><i>{$jadwal['row'][$c][$r][status]}</i><br>{$jadwal['row'][$c][$r][ket]}<br>";
+			$s = "<td class='jadwal' rowspan='{$jadwal['row'][$c][$r]['njam']}' width='95px'>";
+			$s.= "<b>{$jadwal['row'][$c][$r]['pelajaran']}</b><br>";
+			$s.= "{$jadwal['row'][$c][$r]['guru']}<br><i>{$jadwal['row'][$c][$r]['status']}</i><br>{$jadwal['row'][$c][$r]['ket']}<br>";
 			$s.= "</td>";
 			
 			return $s;
@@ -105,7 +105,7 @@ function getCell($r, $c) {
 
 $mask = NULL;
 for($i = 1; $i <= 7; $i++) {
-	$mask[i] = 0;
+	$mask['i'] = 0;
 }
 
 

@@ -165,7 +165,7 @@ for($i = 0; $i < $nSiswa; $i++)
                        AND i.idpelajaran = $idPel
                        AND i.idsemester = $semester
                        AND i.idkelas = $kelas
-                       AND a.dasarpenilaian = '$kdAspek'";
+                       AND a.dasarpenilaian = '".$kdAspek."'";
             $res = QueryDb($sql);
             $nData = mysqli_num_rows($res);
 

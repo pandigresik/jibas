@@ -551,7 +551,7 @@ if (isset($_REQUEST['showpembayaran']))
 				</td>
 			<?php }?>
 				<td align="center">
-		<?php $sql = "SELECT datediff('$tgl', max(tanggal)) FROM jbsfina.penerimaanjtt WHERE idbesarjtt = '$idbesarjtt'";
+		<?php $sql = "SELECT datediff('$tgl', max(tanggal)) FROM jbsfina.penerimaanjtt WHERE idbesarjtt = '".$idbesarjtt."'";
 			//echo $sql;
 			$result2 = QueryDb($sql);
 			$row2 = mysqli_fetch_row($result2);
@@ -756,7 +756,7 @@ if (isset($_REQUEST['showpembayaran']))
 				</td>
 			<?php }?>
 				<td align="center">
-		<?php $sql = "SELECT max(datediff('$tgl', tanggal)) FROM $db_name_fina.penerimaaniuran WHERE nis = '$nis' AND idpenerimaan = '$idpenerimaan'";
+		<?php $sql = "SELECT max(datediff('$tgl', tanggal)) FROM $db_name_fina.penerimaaniuran WHERE nis = '$nis' AND idpenerimaan = '".$idpenerimaan."'";
 			echo $sql;
 			$result2 = QueryDb($sql);
 			$row2 = mysqli_fetch_row($result2);

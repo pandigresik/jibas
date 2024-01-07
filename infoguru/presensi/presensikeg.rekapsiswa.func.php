@@ -38,7 +38,7 @@ function GetCbDepartemen($default, $elmName = "cbDepartemen")
             $default = $row[0];
             
         $selected = $default == $row[0] ? "selected" : "";
-        $selection .= "<option value='$row[0]' $selected>$row[0]</option>\r\n";
+        $selection .= "<option value='".$row[0]."' $selected>$row[0]</option>\r\n";
         
         if ($selected == "selected")
         {
@@ -71,7 +71,7 @@ function GetCbTingkat($departemen, $default)
             $default = $row[0];
             
         $selected = $default == $row[0] ? "selected" : "";
-        $selection .= "<option value='$row[0]' $selected>$row[1]</option>";
+        $selection .= "<option value='".$row[0]."' $selected>$row[1]</option>";
         
         if ($selected == "selected")
         {
@@ -105,7 +105,7 @@ function GetCbKelas($idtingkat, $default)
             $default = $row[0];
             
         $selected = $default == $row[0] ? "selected" : "";
-        $selection .= "<option value='$row[0]' $selected>$row[1]</option>";
+        $selection .= "<option value='".$row[0]."' $selected>$row[1]</option>";
         
         if ($selected == "selected")
         {

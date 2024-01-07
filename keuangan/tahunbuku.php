@@ -77,7 +77,7 @@ if ($op == "12134892y428442323x423") {
 
 if ($op == "d28xen32hxbd32dn239dx") {
 	OpenDb();	
-	$sql = "UPDATE tahunbuku SET aktif = 0 WHERE departemen = '$departemen'";
+	$sql = "UPDATE tahunbuku SET aktif = 0 WHERE departemen = '".$departemen."'";
 	QueryDb($sql);
 	
 	$sql = "UPDATE tahunbuku SET aktif = '".$_REQUEST['newaktif']."' WHERE replid = '".$_REQUEST['id']."'";

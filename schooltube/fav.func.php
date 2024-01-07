@@ -33,7 +33,7 @@ function GetVideoLikedIdList($sortBy, &$count)
               FROM jbsel.medialike ml, jbsel.media m
              WHERE ml.idmedia = m.id
                AND m.aktif = 1
-               AND ml.$userCol = '$userId'";
+               AND ml.$userCol = '".$userId."'";
 
     if ($sortBy == 1)
         $sql .= " ORDER BY ml.timestamp DESC";

@@ -27,7 +27,7 @@ require_once("include/sessionchecker.php");
 
 $nama = SI_USER_NAME();
 if ($nama=="landlord")
-	$nama = "Administrator JIBAS [Infoguru]";
+	$nama = "Administrator JIBAS ['Infoguru']";
 	?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

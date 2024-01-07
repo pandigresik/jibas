@@ -61,7 +61,7 @@ $sql = "SELECT DISTINCT b.bank, bs.bankno
           FROM jbsfina.bank b, jbsfina.banksaldo bs
          WHERE b.bankno = bs.bankno";
 if ($departemen != "ALL")
-    $sql .= " AND bs.departemen = '$departemen'";
+    $sql .= " AND bs.departemen = '".$departemen."'";
 $sql .= " ORDER BY b.bank";
 
 $lsBank = array();
@@ -80,9 +80,9 @@ for($i = 0; $i < count($lsBank); $i++)
 
     $sql = "SELECT SUM(saldo)
               FROM jbsfina.banksaldo
-             WHERE bankno = '$bankNo'";
+             WHERE bankno = '".$bankNo."'";
     if ($departemen != "ALL")
-        $sql .= " AND departemen = '$departemen'";
+        $sql .= " AND departemen = '".$departemen."'";
     $res = QueryDb($sql);
     $saldo = 0;
     if (mysqli_num_rows($res) > 0)

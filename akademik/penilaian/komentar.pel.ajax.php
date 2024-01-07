@@ -64,7 +64,7 @@ else if ($op == "delkomentar")
     $no = $_REQUEST['no'];
 
     OpenDb();
-    $sql = "DELETE FROM jbsakad.pilihkomenpel WHERE replid = '$replid'";
+    $sql = "DELETE FROM jbsakad.pilihkomenpel WHERE replid = '".$replid."'";
     QueryDb($sql);
 
     echo GetListKomentar($idpelajaran, $idtingkat, $kdaspek, $no);

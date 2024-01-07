@@ -34,7 +34,7 @@ $departemen = $_REQUEST['departemen'];
 $idpengeluaran = $_REQUEST['idpengeluaran'];
 
 OpenDb();
-$sql = "SELECT nama FROM datapengeluaran WHERE replid = '$idpengeluaran'";
+$sql = "SELECT nama FROM datapengeluaran WHERE replid = '".$idpengeluaran."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $nama = $row[0];
@@ -112,11 +112,11 @@ function excel() {
 		
 		if ($row['jenispemohon'] == 1) {
 			$idpemohon = $row['nip'];
-			$sql = "SELECT nama FROM jbssdm.pegawai WHERE nip = '$idpemohon'";
+			$sql = "SELECT nama FROM jbssdm.pegawai WHERE nip = '".$idpemohon."'";
 			$jenisinfo = "pegawai";
 		} else if ($row['jenispemohon'] == 2) {
 			$idpemohon = $row['nis'];
-			$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '$idpemohon'";
+			$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '".$idpemohon."'";
 			$jenisinfo = "siswa";
 		} else {
 			$idpemohon = "";

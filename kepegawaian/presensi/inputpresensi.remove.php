@@ -31,7 +31,7 @@ try
 	$tglpresensi = $_REQUEST['tglpresensi'];
     
     $sql = "DELETE FROM jbssdm.presensi
-             WHERE tanggal = '$tglpresensi'";
+             WHERE tanggal = '".$tglpresensi."'";
 	QueryDb($sql);
 		
     http_response_code(200);

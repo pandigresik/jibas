@@ -189,7 +189,7 @@ windowIMA=parent.opener.refresh_change(0,0);
          <?php 
 		if ($departemen <> "") {	
 			OpenDb();
-			$sql = "SELECT COUNT(t.replid) FROM jbsakad.tahunajaran t WHERE t.departemen = '$departemen' UNION SELECT COUNT(k.replid) FROM jbsakad.kalenderakademik k WHERE k.departemen = '$departemen'";
+			$sql = "SELECT COUNT(t.replid) FROM jbsakad.tahunajaran t WHERE t.departemen = '$departemen' UNION SELECT COUNT(k.replid) FROM jbsakad.kalenderakademik k WHERE k.departemen = '".$departemen."'";
 			$result = QueryDb($sql);
 			$row = mysqli_fetch_row($result);
 			$jumlah = $row[0];

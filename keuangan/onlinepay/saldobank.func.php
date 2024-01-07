@@ -51,7 +51,7 @@ function ShowBankSaldo($showMenu)
               FROM jbsfina.bank b, jbsfina.banksaldo bs
              WHERE b.bankno = bs.bankno";
     if ($departemen != "ALL")
-        $sql .= " AND bs.departemen = '$departemen'";
+        $sql .= " AND bs.departemen = '".$departemen."'";
     $sql .= " ORDER BY b.bank";
 
     $res = QueryDb($sql);
@@ -85,9 +85,9 @@ function ShowBankSaldo($showMenu)
 
         $sql = "SELECT SUM(saldo)
                   FROM jbsfina.banksaldo
-                 WHERE bankno = '$bankNo'";
+                 WHERE bankno = '".$bankNo."'";
         if ($departemen != "ALL")
-            $sql .= " AND departemen = '$departemen'";
+            $sql .= " AND departemen = '".$departemen."'";
         $res = QueryDb($sql);
         $saldo = 0;
         if (mysqli_num_rows($res) > 0)
@@ -115,9 +115,9 @@ function ShowRincianSaldo()
 
     $sql = "SELECT DISTINCT replid, kategori, idpenerimaan, idtabungan, idtabunganp, iddeposit, saldo, DATE_FORMAT(lasttime, '%d %b %Y %H:%i') AS flasttime
               FROM jbsfina.banksaldo
-             WHERE bankno = '$bankNo'";
+             WHERE bankno = '".$bankNo."'";
     if ($departemen != "ALL")
-        $sql .= " AND departemen = '$departemen'";
+        $sql .= " AND departemen = '".$departemen."'";
     $sql .= " ORDER BY kelompok";
 
     $res = QueryDb($sql);
@@ -176,7 +176,7 @@ function ShowRincianSaldo()
         echo "<td align='center'>$no</td>";
         echo "<td align='left'><strong>$namaPenerimaan</strong><br><i>$namaKategori</i></td>";
         echo "<td align='right'><span style='font-size: 14px; font-weight: bold'>$rp</span></td>";
-        echo "<td align='center'><i>$row['flasttime']</i></td>";
+        echo "<td align='center'><i>".$row['flasttime']."</i></td>";
         echo "</tr>";
     }
 

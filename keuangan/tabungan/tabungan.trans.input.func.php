@@ -54,7 +54,7 @@ function FetchDataTabungan()
 {
     global $idtabungan, $namatabungan, $defrekkas, $smsinfo;
     
-    $sql = "SELECT nama, rekkas, info2 FROM datatabungan WHERE replid = '$idtabungan'";
+    $sql = "SELECT nama, rekkas, info2 FROM datatabungan WHERE replid = '".$idtabungan."'";
     $result = QueryDb($sql);
     $row = mysqli_fetch_row($result);
     $namatabungan = $row[0];
@@ -86,7 +86,7 @@ function SimpanTarikan()
     $sql = "SELECT SUM(kredit - debet)
               FROM tabungan
              WHERE nis = '$nis'
-               AND idtabungan = '$idtabungan'";
+               AND idtabungan = '".$idtabungan."'";
     $jsaldo = (int)FetchSingle($sql);
     if ($jtarik > $jsaldo)
     {
@@ -101,7 +101,7 @@ function SimpanTarikan()
     // Ambil informasi kode rekening berdasarkan jenis penerimaan
 	$sql = "SELECT rekkas, rekutang, nama
               FROM datatabungan
-             WHERE replid = '$idtabungan'";
+             WHERE replid = '".$idtabungan."'";
 	$row = FetchSingleRow($sql);
 	$rekkas = $row[0];
 	$rekutang = $row[1];
@@ -115,12 +115,12 @@ function SimpanTarikan()
 	$errmsg = "";
     
     //Ambil nama siswa
-    $sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '$nis'";
+    $sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '".$nis."'";
     $row = FetchSingleRow($sql);
     $namasiswa = $row[0];
     
     //Ambil awalan dan cacah tahunbuku untuk bikin nokas;
-    $sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '$idtahunbuku'";
+    $sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '".$idtahunbuku."'";
     $row = FetchSingleRow($sql);
     $awalan = $row[0];
     $cacah = $row[1];
@@ -172,7 +172,7 @@ function SimpanTarikan()
     {
         $sql = "SELECT departemen
                   FROM jbsfina.tahunbuku
-                 WHERE replid = '$idtahunbuku'";
+                 WHERE replid = '".$idtahunbuku."'";
         $departemen = FetchSingle($sql);
 
         $jsaldo = $jsaldo - $jtarik;
@@ -210,7 +210,7 @@ function SimpanSetoran()
     // Ambil informasi kode rekening berdasarkan jenis penerimaan
 	$sql = "SELECT rekkas, rekutang, nama
               FROM datatabungan
-             WHERE replid = '$idtabungan'";
+             WHERE replid = '".$idtabungan."'";
 	$row = FetchSingleRow($sql);
 	$rekkas = $row[0];
 	$rekutang = $row[1];
@@ -219,7 +219,7 @@ function SimpanSetoran()
     $sql = "SELECT SUM(kredit - debet)
               FROM tabungan
              WHERE nis = '$nis'
-               AND idtabungan = '$idtabungan'";
+               AND idtabungan = '".$idtabungan."'";
     $jsaldo = (int)FetchSingle($sql);
     
     if (isset($_REQUEST['rekkas']))
@@ -233,13 +233,13 @@ function SimpanSetoran()
     
     //Ambil nama siswa
 
-    $sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '$nis'";
+    $sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '".$nis."'";
     $row = FetchSingleRow($sql);
     $namasiswa = $row[0];
     
     //Ambil awalan dan cacah tahunbuku untuk bikin nokas;
     $idtahunbuku = $_REQUEST['idtahunbuku'];
-    $sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '$idtahunbuku'";
+    $sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '".$idtahunbuku."'";
     $row = FetchSingleRow($sql);
     $awalan = $row[0];
     $cacah = $row[1];
@@ -290,7 +290,7 @@ function SimpanSetoran()
     {
         $sql = "SELECT departemen
                   FROM jbsfina.tahunbuku
-                 WHERE replid = '$idtahunbuku'";
+                 WHERE replid = '".$idtahunbuku."'";
         $departemen = FetchSingle($sql);
 
         $jsaldo = $jsaldo + $jsetor;

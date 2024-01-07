@@ -103,7 +103,7 @@ if (isset($_REQUEST['harian']))
 	$result_get_ta=QueryDb($sql_get_ta);
 	$row_get_ta=@mysqli_fetch_array($result_get_ta);
 	?>
-    <td height="20">:&nbsp;<?=$row_get_ta[tahunajaran]?></td>
+    <td height="20">:&nbsp;<?=$row_get_ta['tahunajaran']?></td>
   </tr>
   <tr>
     <td width="6%" height="20">NIS 
@@ -118,7 +118,7 @@ if (isset($_REQUEST['harian']))
 	$result_get_nama=QueryDb($sql_get_nama);
 	$row_get_nama=@mysqli_fetch_array($result_get_nama);
 	?>
-	<td height="20">:&nbsp;<?=$row_get_nama[nama]?></td>
+	<td height="20">:&nbsp;<?=$row_get_nama['nama']?></td>
   </tr>
   <tr>
     <td height="20">Kelas/Semester&nbsp;</td>
@@ -132,7 +132,7 @@ if (isset($_REQUEST['harian']))
 	$result_get_sem=QueryDb($sql_get_sem);
 	$row_get_sem=@mysqli_fetch_array($result_get_sem);
 	?>
-    <td height="20">:&nbsp;<?=$row_get_kls[kelas]."/".$row_get_sem[semester]?>
+    <td height="20">:&nbsp;<?=$row_get_kls['kelas']."/".$row_get_sem['semester']?>
     </td>
   </tr>
 </table>
@@ -182,7 +182,7 @@ if (isset($_REQUEST['harian']))
 				 FROM infonap
 				WHERE idpelajaran = '$idpel'
 				  AND idsemester = '$semester'
-			      AND idkelas = '$kelas'";
+			      AND idkelas = '".$kelas."'";
 		$res = QueryDb($sql);
 		$row = mysqli_fetch_row($res);
 		$nilaimin = $row[0];
@@ -212,7 +212,7 @@ if (isset($_REQUEST['harian']))
 					   AND i.idsemester = '$semester' 
 					   AND i.idkelas = '$kelas'
 					   AND n.idaturan = a.replid 	   
-					   AND a.dasarpenilaian = '$asp'";
+					   AND a.dasarpenilaian = '".$asp."'";
 			$res2 = QueryDb($sql);
 			if (mysqli_num_rows($res2) > 0)
 			{
@@ -284,12 +284,12 @@ if (isset($_REQUEST['harian']))
 	$result_get_pelajaran_komentar=QueryDb($sql_get_pelajaran_komentar);
 	$cntpel_komentar=1;
 	while ($row_get_pelajaran_komentar=@mysqli_fetch_array($result_get_pelajaran_komentar)){
-	$sql_get_komentar="SELECT k.komentar FROM jbsakad.komennap k, jbsakad.infonap i WHERE k.nis='$nis' AND i.idpelajaran='$row_get_pelajaran_komentar['replid']."' AND i.replid=k.idinfo";
+	$sql_get_komentar="SELECT k.komentar FROM jbsakad.komennap k, jbsakad.infonap i WHERE k.nis='$nis' AND i.idpelajaran='".$row_get_pelajaran_komentar['replid']."' AND i.replid=k.idinfo";
 	$result_get_komentar=QueryDb($sql_get_komentar);
 	$row_get_komentar=@mysqli_fetch_row($result_get_komentar);
 	?>
 	<tr>
-	<td height="25"><?=$row_get_pelajaran_komentar[nama]?></td>
+	<td height="25"><?=$row_get_pelajaran_komentar['nama']?></td>
 	<td height="25"><?=$row_get_komentar[0]?></td>
 	</tr>
 	<?php
@@ -452,45 +452,45 @@ if (isset($_REQUEST['harian']))
 	while ($row_get_pelajaran_presensi=@mysqli_fetch_array($result_get_pelajaran_presensi)){
 	//ambil semua jumlah presensi per pelajaran 
 	$sql_get_all_presensi="select count(*) as jumlah FROM jbsakad.presensipelajaran pel, jbsakad.ppsiswa pp ".
-						  "WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']."' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
+						  "WHERE pel.idpelajaran='".$row_get_pelajaran_presensi['replid']."' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
 		                  "AND pel.replid=pp.idpp AND pp.nis='$nis'";
 	$result_get_all_presensi=QueryDb($sql_get_all_presensi);
 	$row_get_all_presensi=@mysqli_fetch_array($result_get_all_presensi);
 	//dapet nih jumlahnya
-	$jumlah_presensi=$row_get_all_presensi[jumlah];
+	$jumlah_presensi=$row_get_all_presensi['jumlah'];
 
 
 	//ambil yang hadir
 	$sql_get_hadir="select count(*) as hadir FROM jbsakad.presensipelajaran pel, jbsakad.ppsiswa pp ".
-						  "WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']."' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
+						  "WHERE pel.idpelajaran='".$row_get_pelajaran_presensi['replid']."' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
 		                  "AND pel.replid=pp.idpp AND pp.nis='$nis' AND pp.statushadir=0";
 	$result_get_hadir=QueryDb($sql_get_hadir);
 	$row_get_hadir=@mysqli_fetch_array($result_get_hadir);
-	$hadir=$row_get_hadir[hadir];
+	$hadir=$row_get_hadir['hadir'];
 	$hh[$cntpel_presensi]=$hadir;
 	//ambil yang sakit
 	$sql_get_sakit="select count(*) as sakit FROM jbsakad.presensipelajaran pel, jbsakad.ppsiswa pp ".
-						  "WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']."' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
+						  "WHERE pel.idpelajaran='".$row_get_pelajaran_presensi['replid']."' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
 		                  "AND pel.replid=pp.idpp AND pp.nis='$nis' AND pp.statushadir=1";
 	$result_get_sakit=QueryDb($sql_get_sakit);
 	$row_get_sakit=@mysqli_fetch_array($result_get_sakit);
-	$sakit=$row_get_sakit[sakit];
+	$sakit=$row_get_sakit['sakit'];
 	$ss[$cntpel_presensi]=$sakit;
 	//ambil yang ijin
 	$sql_get_ijin="select count(*) as ijin FROM jbsakad.presensipelajaran pel, jbsakad.ppsiswa pp ".
-						  "WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']."' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
+						  "WHERE pel.idpelajaran='".$row_get_pelajaran_presensi['replid']."' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
 		                  "AND pel.replid=pp.idpp AND pp.nis='$nis' AND pp.statushadir=2";
 	$result_get_ijin=QueryDb($sql_get_ijin);
 	$row_get_ijin=@mysqli_fetch_array($result_get_ijin);
-	$ijin=$row_get_ijin[ijin];
+	$ijin=$row_get_ijin['ijin'];
 	$ii[$cntpel_presensi]=$ijin;
 	//ambil yang alpa
 	$sql_get_alpa="select count(*) as alpa FROM jbsakad.presensipelajaran pel, jbsakad.ppsiswa pp ".
-						  "WHERE pel.idpelajaran='$row_get_pelajaran_presensi['replid']."' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
+						  "WHERE pel.idpelajaran='".$row_get_pelajaran_presensi['replid']."' AND pel.idsemester='$semester' AND pel.idkelas='$kelas' ".
 		                  "AND pel.replid=pp.idpp AND pp.nis='$nis' AND pp.statushadir=3";
 	$result_get_alpa=QueryDb($sql_get_alpa);
 	$row_get_alpa=@mysqli_fetch_array($result_get_alpa);
-	$alpa=$row_get_alpa[alpa];
+	$alpa=$row_get_alpa['alpa'];
 	$aa[$cntpel_presensi]=$alpa;
 	//hitung prosentase kalo jumlahnya gak 0
 	if ($jumlah_presensi<>0){
@@ -506,7 +506,7 @@ if (isset($_REQUEST['harian']))
 	}
 	?>
 	<tr>
-    <td height="25"><?=$row_get_pelajaran_presensi[nama]?></td>
+    <td height="25"><?=$row_get_pelajaran_presensi['nama']?></td>
     <td height="25"><div align="center">
       <?=$hadir?>
     </div></td>
@@ -554,7 +554,7 @@ if (isset($_REQUEST['harian']))
                    "AND pel.replid=pp.idpp AND pp.nis='$nis' AND pp.statushadir=0";
     $result_all_hadir=QueryDb($sql_all_hadir);
 	$row_all_hadir=@mysqli_fetch_array($result_all_hadir);
-	$all_hadir=$row_all_hadir[allhadir];
+	$all_hadir=$row_all_hadir['allhadir'];
 	
 	//sekarang hitung jumlah sakit semua pelajaran
 	$sql_all_sakit="select count(*) as allsakit FROM jbsakad.presensipelajaran pel, jbsakad.ppsiswa pp ".
@@ -562,7 +562,7 @@ if (isset($_REQUEST['harian']))
                    "AND pel.replid=pp.idpp AND pp.nis='$nis' AND pp.statushadir=1";
     $result_all_sakit=QueryDb($sql_all_sakit);
 	$row_all_sakit=@mysqli_fetch_array($result_all_sakit);
-	$all_sakit=$row_all_sakit[allsakit];
+	$all_sakit=$row_all_sakit['allsakit'];
 
 	//sekarang hitung jumlah ijin semua pelajaran
 	$sql_all_ijin="select count(*) as allijin FROM jbsakad.presensipelajaran pel, jbsakad.ppsiswa pp ".
@@ -570,7 +570,7 @@ if (isset($_REQUEST['harian']))
                    "AND pel.replid=pp.idpp AND pp.nis='$nis' AND pp.statushadir=2";
     $result_all_ijin=QueryDb($sql_all_ijin);
 	$row_all_ijin=@mysqli_fetch_array($result_all_ijin);
-	$all_ijin=$row_all_ijin[allijin];
+	$all_ijin=$row_all_ijin['allijin'];
 
 	//sekarang hitung jumlah alpa semua pelajaran
 	$sql_all_alpa="select count(*) as allalpa FROM jbsakad.presensipelajaran pel, jbsakad.ppsiswa pp ".
@@ -578,7 +578,7 @@ if (isset($_REQUEST['harian']))
                    "AND pel.replid=pp.idpp AND pp.nis='$nis' AND pp.statushadir=3";
     $result_all_alpa=QueryDb($sql_all_alpa);
 	$row_all_alpa=@mysqli_fetch_array($result_all_alpa);
-	$all_alpa=$row_all_alpa[allalpa];
+	$all_alpa=$row_all_alpa['allalpa'];
 	*/
 	?>
   <tr>

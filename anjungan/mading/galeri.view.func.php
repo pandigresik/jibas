@@ -25,7 +25,7 @@ function GetOwnerName($ownerid, $ownertype)
 {
     $sql = $ownertype == "S" ?
            "SELECT nama FROM jbsakad.siswa WHERE nis = '$ownerid'" :
-           "SELECT nama FROM jbssdm.pegawai WHERE nip = '$ownerid'";
+           "SELECT nama FROM jbssdm.pegawai WHERE nip = '".$ownerid."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) > 0)
     {
@@ -44,7 +44,7 @@ function ShowImageGallery()
     
     $sql = "SELECT filename, ffileinfo, location, width, height
               FROM jbsvcr.galleryfile
-             WHERE galleryid = '$galleryid'";         
+             WHERE galleryid = '".$galleryid."'";         
     $res = QueryDb($sql);
     $cntcol = 0;
     $nimage = 0;
@@ -68,9 +68,9 @@ function ShowImageGallery()
             $h = ($h > $GalleryViewIconHeight) ? $h * $delta : $h;
             
             if ($h > $GalleryViewIconHeight)
-                $imgdim = "height = '$GalleryViewIconHeight'";
+                $imgdim = "height = '".$GalleryViewIconHeight."'";
             else    
-                $imgdim = "width = '$GalleryViewIconWidth'";
+                $imgdim = "width = '".$GalleryViewIconWidth."'";
         }
         ?>
         
@@ -121,7 +121,7 @@ function ShowPrevCommentLink($galleryid)
     
     $sql = "SELECT COUNT(replid)
               FROM jbsvcr.gallerycomment
-             WHERE galleryid = '$galleryid'";
+             WHERE galleryid = '".$galleryid."'";
     $nCmt = (int)FetchSingle($sql);
     if ($nCmt <= $GalleryViewActiveComment)
         return;
@@ -148,7 +148,7 @@ function ShowPrevComment($galleryid)
     
     $sql = "SELECT COUNT(replid)
               FROM jbsvcr.gallerycomment
-             WHERE galleryid = '$galleryid'";
+             WHERE galleryid = '".$galleryid."'";
     $nCmt = (int)FetchSingleEx($sql);
     $sqlLimit = "LIMIT " . ($nCmt - $GalleryViewActiveComment);
     
@@ -212,7 +212,7 @@ function ShowComment($galleryid, $maxCommentId)
     {
         $sql = "SELECT COUNT(replid)
                   FROM jbsvcr.gallerycomment
-                 WHERE galleryid = '$galleryid'";
+                 WHERE galleryid = '".$galleryid."'";
         $nCmt = (int)FetchSingleEx($sql);
         if ($nCmt > $GalleryViewActiveComment)
             $sqlLimit = "LIMIT " . ($nCmt - $GalleryViewActiveComment) . ", $GalleryViewActiveComment";
@@ -379,7 +379,7 @@ function ValidateCommentOwner($replid, $login)
 function DeleteComment($replid)
 {
     $sql = "DELETE FROM jbsvcr.gallerycomment
-             WHERE replid = '$replid'";
+             WHERE replid = '".$replid."'";
     QueryDbEx($sql);         
 }
 
@@ -408,7 +408,7 @@ function DeleteGallery($galleryid)
     
     $sql = "SELECT *
               FROM jbsvcr.galleryfile
-             WHERE galleryid = '$galleryid'";
+             WHERE galleryid = '".$galleryid."'";
     $res = QueryDbEx($sql);
     while($row = mysqli_fetch_array($res))
     {
@@ -421,12 +421,12 @@ function DeleteGallery($galleryid)
     }
     
     $sql = "DELETE FROM jbsvcr.galleryfile
-             WHERE galleryid = '$galleryid'";
+             WHERE galleryid = '".$galleryid."'";
     echo "$sql<br>";        
     QueryDbEx($sql);
     
     $sql = "DELETE FROM jbsvcr.gallery
-             WHERE replid = '$galleryid'";
+             WHERE replid = '".$galleryid."'";
     echo "$sql<br>";         
     QueryDbEx($sql);
 }

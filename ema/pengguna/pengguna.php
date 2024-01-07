@@ -29,7 +29,7 @@ require_once('../inc/sessioninfo.php');
 OpenDb();
 if (isset($_REQUEST['ac'])){
 	if ($_REQUEST['ac']=="nd7bw6g25gdf"){
-		$sql = "DELETE FROM $db_name_user.hakakses WHERE replid=$_REQUEST['id']";
+		$sql = "DELETE FROM $db_name_user.hakakses WHERE replid= $_REQUEST['id'];
 		QueryDb($sql);
 	}
 	if ($_REQUEST['ac']=="g25gdfnd7bw6"){

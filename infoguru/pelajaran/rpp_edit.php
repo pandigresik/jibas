@@ -57,7 +57,7 @@ if (isset($_REQUEST['Simpan'])) {
 		</script>
         <?php 	
 	} else {
-		$sql = "UPDATE rpp SET koderpp = '$kode', rpp = '$materi', deskripsi = '$deskripsi' WHERE replid = '$replid'";
+		$sql = "UPDATE rpp SET koderpp = '$kode', rpp = '$materi', deskripsi = '$deskripsi' WHERE replid = '".$replid."'";
 		$result = QueryDb($sql);
 		CloseDb();
 	
@@ -71,7 +71,7 @@ if (isset($_REQUEST['Simpan'])) {
 	}
 }
 OpenDb();
-$sql = "SELECT * FROM rpp WHERE replid = '$replid'";
+$sql = "SELECT * FROM rpp WHERE replid = '".$replid."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_array($result);
 $kode = $row['koderpp'];

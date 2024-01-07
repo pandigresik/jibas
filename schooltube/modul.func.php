@@ -35,7 +35,7 @@ function ShowFollowButton($idModul)
     $sql = "SELECT COUNT(id)
               FROM jbsel.modulfollow
              WHERE idmodul = $idModul
-               AND $userCol = '$userId'";
+               AND $userCol = '".$userId."'";
     $nData = FetchSingle($sql);
 
     if ($nData != 0)

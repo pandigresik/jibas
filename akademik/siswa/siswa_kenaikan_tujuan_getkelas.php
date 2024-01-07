@@ -37,7 +37,7 @@ $result_kelas=QueryDb($sql_kelas);
 
 while ($row_kelas=@mysqli_fetch_row($result_kelas)){
 //$idkelas=$row_kelas[0];
-$sql_terisi="SELECT COUNT(*) FROM jbsakad.siswa WHERE idkelas='$row_kelas[0]' AND aktif = 1";
+$sql_terisi="SELECT COUNT(*) FROM jbsakad.siswa WHERE idkelas='".$row_kelas[0]."' AND aktif = 1";
 $result_terisi=QueryDb($sql_terisi);
 $row_terisi=@mysqli_fetch_row($result_terisi);
 $terisi=(int)$row_terisi[0];

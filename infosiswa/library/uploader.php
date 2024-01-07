@@ -28,7 +28,7 @@ require_once('../include/db_functions.php');
 require_once('../include/fileinfo.php');
 require_once('../include/imageresizer.php');
 
-if (isset($_REQUEST['simpan']) && isset($_FILES[foto]))
+if (isset($_REQUEST['simpan']) && isset($_FILES['foto']))
 {
 		$nama = $_REQUEST['nama'];
 		$keterangan = $_REQUEST['keterangan'];

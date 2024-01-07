@@ -249,7 +249,7 @@ if ($op=="x2378e23dkofh73n25ki9234"){
 					QueryDbTrans($sql_lulus_insert_dep, $success);
 				}				
 				if ($success){
-					$sql_alumni="INSERT INTO jbsakad.alumni SET nis='$nis', tgllulus='$sekarang', tktakhir='$tingkatawal', klsakhir='$kelasawal', departemen = '$departemenawal'";
+					$sql_alumni="INSERT INTO jbsakad.alumni SET nis='$nis', tgllulus='$sekarang', tktakhir='$tingkatawal', klsakhir='$kelasawal', departemen = '".$departemenawal."'";
 					QueryDbTrans($sql_alumni,$success);
 				}				
 				if ($success){
@@ -317,7 +317,7 @@ if ($op=="x2378e23dkofh73n25ki9234"){
 				
 				if ($success)
 				{
-					$sql_alumni="INSERT INTO jbsakad.alumni SET nis='$nis', tgllulus='$sekarang', tktakhir='$tingkatawal', klsakhir='$kelasawal', departemen = '$departemenawal'";
+					$sql_alumni="INSERT INTO jbsakad.alumni SET nis='$nis', tgllulus='$sekarang', tktakhir='$tingkatawal', klsakhir='$kelasawal', departemen = '".$departemenawal."'";
 					QueryDbTrans($sql_alumni,$success);
 				}
 				
@@ -604,7 +604,7 @@ function focusNext(elemName, evt) {
 			while ($row_kelas=@mysqli_fetch_array($result_kelas)){
 				if ($kelas=="")
 					$kelas=$row_kelas['replid'];
-				$sql_terisi="SELECT COUNT(*) FROM jbsakad.siswa WHERE idkelas='$row_kelas['replid']."' AND aktif=1 AND idangkatan = '$angkatan'";
+				$sql_terisi="SELECT COUNT(*) FROM jbsakad.siswa WHERE idkelas='".$row_kelas['replid']."' AND aktif=1 AND idangkatan = '".$angkatan."'";
 				$result_terisi=QueryDb($sql_terisi);
 				$row_terisi=@mysqli_fetch_row($result_terisi);
 			?>  
@@ -627,7 +627,7 @@ function focusNext(elemName, evt) {
 		OpenDb();    
 	
 		//$sql_tot = "SELECT s.replid,s.nis,s.nama FROM jbsakad.siswa s, jbsakad.kelas k, jbsakad.tahunajaran t WHERE s.idkelas = $kelas AND k.idtahunajaran = $tahunajaran AND k.idtingkat = $tingkat AND s.idkelas = k.replid AND t.replid = k.idtahunajaran AND s.aktif=1 AND s.idangkatan = $angkatan";
-		$sql_tot = "SELECT s.replid,s.nis,s.nama FROM jbsakad.siswa s WHERE s.idkelas = '$kelas' AND s.aktif=1 AND s.idangkatan = '$angkatan'";
+		$sql_tot = "SELECT s.replid,s.nis,s.nama FROM jbsakad.siswa s WHERE s.idkelas = '$kelas' AND s.aktif=1 AND s.idangkatan = '".$angkatan."'";
 		//echo($sql_tot);
 		$result_tot = QueryDb($sql_tot);
 		$total=ceil(mysqli_num_rows($result_tot)/(int)$varbaris);
@@ -643,7 +643,7 @@ function focusNext(elemName, evt) {
 		$sql5 = "SELECT kelas FROM jbsakad.kelas WHERE replid = $kelas ";
 		$result5 = QueryDb($sql5);
 		$row5 = @mysqli_fetch_array($result5);
-		$nama_kelas = $row5[kelas];
+		$nama_kelas = $row5['kelas'];
 		
 		if ($jum > 0) { ?>
    	<table width="100%" border="1" cellspacing="0" class="tab" id="table" bordercolor="#000000">
@@ -661,7 +661,7 @@ function focusNext(elemName, evt) {
 		$cnt = (int)$page*(int)$varbaris+1;
 		
 	while ($row_siswa=@mysqli_fetch_array($result_siswa)){
-		$sql_riwayat_kelas="SELECT keterangan,status FROM jbsakad.riwayatkelassiswa WHERE nis='$row_siswa[nis]' AND idkelas='$kelas'";
+		$sql_riwayat_kelas="SELECT keterangan,status FROM jbsakad.riwayatkelassiswa WHERE nis='".$row_siswa['nis']."' AND idkelas='$kelas'";
         $result_riwayat_kelas=QueryDb($sql_riwayat_kelas);
         $row_riwayat = mysqli_fetch_array($result_riwayat_kelas);
 		

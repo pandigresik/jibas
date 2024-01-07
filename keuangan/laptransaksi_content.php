@@ -136,7 +136,7 @@ function change_baris() {
                   FROM transaksilog 
                  WHERE departemen='$departemen' 
                    AND tanggal BETWEEN '$tanggal1' AND '$tanggal2' 
-                   AND idtahunbuku = '$idtahunbuku'";
+                   AND idtahunbuku = '".$idtahunbuku."'";
 
 	$result_tot = QueryDb($sql_tot);
 	$row_tot = mysqli_fetch_row($result_tot);

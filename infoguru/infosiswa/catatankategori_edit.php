@@ -57,7 +57,7 @@ if (isset($_REQUEST['Simpan'])) {
 };
 
 OpenDb();
-$sql = "SELECT * FROM jbsvcr.catatankategori WHERE replid = '$replid'"; 
+$sql = "SELECT * FROM jbsvcr.catatankategori WHERE replid = '".$replid."'"; 
 
 $result = QueryDb($sql);
 $row = mysqli_fetch_array($result);

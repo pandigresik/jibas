@@ -38,7 +38,7 @@ $sql = "SELECT k.kelas AS namakelas, s.semester AS namasemester, a.tahunajaran,
 			   a.departemen, l.nama, t.tingkat, j.jenisujian, p.nama AS guru, n.dasarpenilaian,s.departemen as dep 
 		  FROM kelas k, semester s, tahunajaran a, pelajaran l, tingkat t, aturannhb n, jenisujian j, jbssdm.pegawai p 
 		 WHERE k.replid = $kelas AND s.replid = $semester AND  k.idtahunajaran = a.replid AND l.replid = n.idpelajaran 
-		   AND t.replid = k.idtingkat AND n.replid = $idaturan AND n.idjenisujian = j.replid AND p.nip = '$nip'";
+		   AND t.replid = k.idtingkat AND n.replid = $idaturan AND n.idjenisujian = j.replid AND p.nip = '".$nip."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_array($result);
 ?>
@@ -126,11 +126,11 @@ $row = mysqli_fetch_array($result);
         <td><?=$row_get_nis[1]?></td>
     <?php
         for ($i=1;$i<=count($idujian);$i++) {				
-            $sql_get_nilai="SELECT n.nilaiujian FROM jbsakad.nilaiujian n WHERE n.nis='$row_get_nis[0]' AND idujian = $idujian[$i]";
+            $sql_get_nilai="SELECT n.nilaiujian FROM jbsakad.nilaiujian n WHERE n.nis='".$row_get_nis[0]."' AND idujian = ".$idujian[$i];
             $result_get_nilai=QueryDb($sql_get_nilai);
             $row_get_nilai = mysqli_fetch_array($result_get_nilai);
-            echo "<td align='center'>".$row_get_nilai[nilaiujian]."</td>";
-            $nilai = $nilai+$row_get_nilai[nilaiujian];
+            echo "<td align='center'>".$row_get_nilai['nilaiujian']."</td>";
+            $nilai = $nilai+$row_get_nilai['nilaiujian'];
         }
     ?>
         <td align="center"><?=round($nilai/count($idujian),2)?>

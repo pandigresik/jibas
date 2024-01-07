@@ -58,7 +58,7 @@ $pelajaran = $row[1];
 $guru = $row[2].' - '.$row[3];
 $tingkat = $row[4];
 
-$sql = "SELECT keterangan FROM dasarpenilaian WHERE dasarpenilaian = '$aspek'";
+$sql = "SELECT keterangan FROM dasarpenilaian WHERE dasarpenilaian = '".$aspek."'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_row($result);
 $aspekket = $row[0];
@@ -76,7 +76,7 @@ if (isset($_REQUEST['Simpan']))
 		if ($jenis && $cek == 1 && $bobot >= 0) 
 		{
 			if ($id != "") 
-				$sql1 = "UPDATE aturannhb SET bobot='$bobot' WHERE replid = '$id'";				
+				$sql1 = "UPDATE aturannhb SET bobot='$bobot' WHERE replid = '".$id."'";				
 			else 
 				$sql1 = "INSERT INTO aturannhb SET nipguru='$nip_guru',
 						 	idtingkat='$id_tingkat', idpelajaran='$id_pelajaran',
@@ -220,7 +220,7 @@ function validate()
 		$i = 1;
 		while ($row = @mysqli_fetch_row($result)) {
 			
-			$sql1 = "SELECT a.bobot, j.jenisujian, a.replid FROM aturannhb a, jenisujian j WHERE a.idpelajaran = '$id_pelajaran' AND a.nipguru = '".SI_USER_ID()."' AND a.idtingkat = '$id_tingkat' AND a.dasarpenilaian = '$aspek' AND a.idjenisujian = '".$row[0]' AND a.idjenisujian = j.replid"; 
+			$sql1 = "SELECT a.bobot, j.jenisujian, a.replid FROM aturannhb a, jenisujian j WHERE a.idpelajaran = '$id_pelajaran' AND a.nipguru = '".SI_USER_ID()."' AND a.idtingkat = '$id_tingkat' AND a.dasarpenilaian = '$aspek' AND a.idjenisujian = '".$row[0]."' AND a.idjenisujian = j.replid"; 
 			$result1 = QueryDb($sql1);
 			$row1 = @mysqli_fetch_row($result1);
 		

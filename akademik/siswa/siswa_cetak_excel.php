@@ -99,7 +99,7 @@ Data Siswa per Kelas
                 $sql_Tkt="SELECT * FROM jbsakad.tingkat WHERE replid='$tingkat'";
                 $result_Tkt=QueryDb($sql_Tkt);
                 $row_Tkt=@mysqli_fetch_array($result_Tkt);
-                echo $row_Tkt[tingkat];
+                echo $row_Tkt['tingkat'];
                 ?></td>
         </tr>
         <tr>
@@ -108,7 +108,7 @@ Data Siswa per Kelas
                 $sql_Kls="SELECT * FROM jbsakad.kelas WHERE replid='$kelas'";
                 $result_Kls=QueryDb($sql_Kls);
                 $row_Kls=@mysqli_fetch_array($result_Kls);
-                echo $row_Kls[kelas];
+                echo $row_Kls['kelas'];
                 ?></td>
         </tr>
         <tr>
@@ -276,9 +276,9 @@ Data Siswa per Kelas
                         $jenis = $arrDataTambahan[$i][1];
 
                         if ($jenis == 1 || $jenis == 3)
-                            $sql = "SELECT teks FROM tambahandatasiswa WHERE nis = '$nis' AND idtambahan = '$idtambahan'";
+                            $sql = "SELECT teks FROM tambahandatasiswa WHERE nis = '$nis' AND idtambahan = '".$idtambahan."'";
                         else
-                            $sql = "SELECT filename FROM tambahandatasiswa WHERE nis = '$nis' AND idtambahan = '$idtambahan'";
+                            $sql = "SELECT filename FROM tambahandatasiswa WHERE nis = '$nis' AND idtambahan = '".$idtambahan."'";
 
                         $data = "";
                         $res2 = QueryDb($sql);

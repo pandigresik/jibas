@@ -20,7 +20,7 @@ function GetMaxCommentId()
 
 function GetOwnerName($ownerid)
 {
-    $sql = "SELECT nama FROM jbssdm.pegawai WHERE nip = '$ownerid'";
+    $sql = "SELECT nama FROM jbssdm.pegawai WHERE nip = '".$ownerid."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) > 0)
     {
@@ -45,7 +45,7 @@ function ShowPrevCommentLink()
     
     $sql = "SELECT COUNT(replid)
               FROM jbsletter.comment
-             WHERE idsurat = '$idsurat'";
+             WHERE idsurat = '".$idsurat."'";
     $nCmt = (int)FetchSingle($sql);
     if ($nCmt <= $NotesViewActiveComment)
         return;
@@ -74,7 +74,7 @@ function ShowPrevComment()
     
     $sql = "SELECT COUNT(replid)
               FROM jbsletter.comment
-             WHERE idsurat = '$idsurat'";
+             WHERE idsurat = '".$idsurat."'";
     $nCmt = (int)FetchSingle($sql);
     $sqlLimit = "LIMIT " . ($nCmt - $NotesViewActiveComment);
     
@@ -140,7 +140,7 @@ function ShowComment()
     {
         $sql = "SELECT COUNT(replid)
                   FROM jbsletter.comment
-                 WHERE idsurat = '$idsurat'";
+                 WHERE idsurat = '".$idsurat."'";
         $nCmt = (int)FetchSingle($sql);
         if ($nCmt > $NotesViewActiveComment)
             $sqlLimit = "LIMIT " . ($nCmt - $NotesViewActiveComment) . ", $NotesViewActiveComment";
@@ -248,7 +248,7 @@ function ShowCommentBox()
 function DeleteComment($replid)
 {
     $sql = "DELETE FROM jbsletter.comment
-             WHERE replid = '$replid'";
+             WHERE replid = '".$replid."'";
     QueryDb($sql);         
 }
 ?>

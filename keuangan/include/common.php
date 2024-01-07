@@ -106,17 +106,17 @@ function rpad($string, $padchar, $length) {
 }
 
 function MySqlDateFormat($date) {
-	list($d, $m, $y) = split('[/.-]', $date); 
+	list($d, $m, $y) = explode('[/.-]', $date); 
 	return "$y-$m-$d";
 }
 
 function RegularDateFormat($mysqldate) {
-	list($y, $m, $d) = split('[/.-]', $mysqldate); 
+	list($y, $m, $d) = explode('[/.-]', $mysqldate); 
 	return "$d-$m-$y";
 }
 
 function LongDateFormat($mysqldate) {
-	list($y, $m, $d) = split('[/.-]', $mysqldate); 
+	list($y, $m, $d) = explode('[/.-]', $mysqldate); 
 	return "$d ". NamaBulan($m) ." $y";
 }
 

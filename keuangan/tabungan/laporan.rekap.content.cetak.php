@@ -44,7 +44,7 @@ elseif ($petugas == "landlord")
 	$namapetugas = "Administrator JIBAS";
 else
 {
-	$sql = "SELECT nama FROM jbssdm.pegawai WHERE nip = '$petugas'";
+	$sql = "SELECT nama FROM jbssdm.pegawai WHERE nip = '".$petugas."'";
 	$res = QueryDb($sql);
 	$row = mysqli_fetch_row($res);
 	$namapetugas = $row[0];

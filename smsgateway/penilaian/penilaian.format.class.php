@@ -70,7 +70,7 @@ class FormatPenilaian{
                     <div class="TabbedPanelsContent" style="padding-top:5px; overflow:inherit">
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                           <tr>
-                            <td class="td">[SISWA]</td>
+                            <td class="td">['SISWA']</td>
                             <td class="td">Nama Siswa</td>
                           </tr>
                           <tr>
@@ -90,7 +90,7 @@ class FormatPenilaian{
                             <td class="td">Bulan Akhir</td>
                           </tr>
                           <tr>
-                            <td class="td">[PENGIRIM]</td>
+                            <td class="td">['PENGIRIM']</td>
                             <td class="td">Pengirim</td>
                           </tr>
                       </table>
@@ -105,7 +105,7 @@ class FormatPenilaian{
         		<b>KETERANGAN FORMAT PESAN LAPORAN PENILAIAN</b><br /><br/>
                 <span class="Ket">
                     jika mengirimkan informasi dengan format di bawah ini: <br />
-                    <b>Informasi penilaian [SISWA] antara tanggal [TANGGAL1]/[BULAN1] s/d [TANGGAL2]/[BULAN2]. Pengirim [PENGIRIM]</b><br /><br />
+                    <b>Informasi penilaian ['SISWA'] antara tanggal [TANGGAL1]/[BULAN1] s/d [TANGGAL2]/[BULAN2]. Pengirim ['PENGIRIM']</b><br /><br />
                     maka informasi yang diterima oleh siswa: <br />
                     <b>Informasi penilaian Jafar Ashiddiq antara tanggal 1/2 s/d 28/2, UTS FIS 80, PRAK FIS 77. Pengirim Bag.Akademik</b>
                 </span>
@@ -113,7 +113,7 @@ class FormatPenilaian{
           </tr>
         </table>
 		<?php
-		//Kami informasikan presensi [SISWA] tanggal [TANGGAL1]/[BULAN1] s/d [TANGGAL2]/[BULAN2] hadir [HADIR] absen [ABSEN]. [PENGIRIM]
+		//Kami informasikan presensi ['SISWA'] tanggal [TANGGAL1]/[BULAN1] s/d [TANGGAL2]/[BULAN2] hadir ['HADIR'] absen ['ABSEN']. ['PENGIRIM']
 	}
 }
 ?>

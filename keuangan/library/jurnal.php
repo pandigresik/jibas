@@ -91,7 +91,7 @@ function AmbilKodeRekJurnal($idjurnal, $kateakun, $idpenerimaan)
 				  FROM jbsfina.jurnaldetail jd, jbsfina.rekakun rk
 				 WHERE jd.koderek = rk.kode
 				   AND jd.idjurnal = '$idjurnal'
-				   AND rk.kategori = '$kategori'";
+				   AND rk.kategori = '".$kategori."'";
 	}
 	
 	$res = QueryDb($sql);
@@ -108,7 +108,7 @@ function AmbilKodeRekJurnal($idjurnal, $kateakun, $idpenerimaan)
 			
 		$sql = "SELECT $colname
 				  FROM jbsfina.datapenerimaan
-				 WHERE replid = '$idpenerimaan'";
+				 WHERE replid = '".$idpenerimaan."'";
 		//echo "$sql";		 
 		$res = QueryDb($sql);
 		if (mysqli_num_rows($res) > 0)

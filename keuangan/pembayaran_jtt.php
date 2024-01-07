@@ -75,7 +75,7 @@ if ($op == "348328947234923")
 		// ------------------------------------------
 		
 		// cari tahu total pembayaran yang telah dilakukan
-		$sql = "SELECT sum(jumlah), count(replid) FROM penerimaanjtt WHERE idbesarjtt = '$idbesarjtt'";
+		$sql = "SELECT sum(jumlah), count(replid) FROM penerimaanjtt WHERE idbesarjtt = '".$idbesarjtt."'";
 		$row = FetchSingleRow($sql);
 		$totalbayaran = (float)$row[0];
 		$nbayaran = (int)$row[1];
@@ -157,12 +157,12 @@ if ($op == "348328947234923")
 				// Bikin jurnal penyesuaian
 			
 				// Ambil nama siswa	
-				$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '$nis'";
+				$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '".$nis."'";
 				$row = FetchSingleRow($sql);
 				$namasiswa = $row[0];
 				
 				// Ambil awalan dan cacah tahunbuku untuk bikin nokas;
-				$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '$idtahunbuku'";
+				$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '".$idtahunbuku."'";
 				$row = FetchSingleRow($sql);
 				$awalan = $row[0];
 				$cacah = $row[1];
@@ -237,12 +237,12 @@ if ($op == "348328947234923")
 		// ----------------------------------------
 		
 		//Ambil nama siswa
-		$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '$nis'";
+		$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '".$nis."'";
 		$row = FetchSingleRow($sql);
 		$namasiswa = $row[0];
 		
 		//Ambil awalan dan cacah tahunbuku untuk bikin nokas;
-		$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '$idtahunbuku'";
+		$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '".$idtahunbuku."'";
 		$row = FetchSingleRow($sql);
 		$awalan = $row[0];
 		$cacah = $row[1];
@@ -334,7 +334,7 @@ else
 }
 
 //// Ambil nama penerimaan
-$sql = "SELECT nama FROM datapenerimaan WHERE replid = '$idpenerimaan'";
+$sql = "SELECT nama FROM datapenerimaan WHERE replid = '".$idpenerimaan."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $namapenerimaan = $row[0];
@@ -348,7 +348,7 @@ $idbesarjtt = 0;
 // FIXED: 17 Oktober 2010
 $sql = "SELECT b.replid AS id, b.besar, b.keterangan, b.lunas, b.info1 AS idjurnal, cicilan
 	      FROM besarjtt b
-		 WHERE b.nis = '$nis' AND b.idpenerimaan = '$idpenerimaan' AND b.info2 = '$idtahunbuku'";
+		 WHERE b.nis = '$nis' AND b.idpenerimaan = '$idpenerimaan' AND b.info2 = '".$idtahunbuku."'";
 $result = QueryDb($sql);
 
 $bayar = mysqli_num_rows($result);
@@ -709,7 +709,7 @@ function panggil(elem)
         <td align="center" colspan="2"> 
 <?php if ($bayar > 0 && $lunas <> 2) { 
  		    
-      	$sql = "SELECT count(*) FROM penerimaanjtt WHERE idbesarjtt = '$idbesarjtt'";
+      	$sql = "SELECT count(*) FROM penerimaanjtt WHERE idbesarjtt = '".$idbesarjtt."'";
         $result = QueryDb($sql);
         $row = mysqli_fetch_row($result);
         $nbayar = $row[0];

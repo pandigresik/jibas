@@ -75,16 +75,16 @@ if (isset($_POST['simpan'])) {
 
 	if (!$_POST['tanggal_baru']==""){
 	//$tgl=unformat_tgl($_POST['tanggal']);
-    $query = "UPDATE jbsakad.ujian SET deskripsi = '".CQ($_POST['deskripsi'])."',tanggal='$_POST['tanggal_baru']' ".
-             "WHERE replid = '$_POST['iduj']."'";
+    $query = "UPDATE jbsakad.ujian SET deskripsi = '".CQ($_POST['deskripsi'])."',tanggal='".$_POST['tanggal_baru']."' ".
+             "WHERE replid  = '".$_POST['iduj']."'";
     } else {
 	$tgl=unformat_tgl($_POST['tanggal']);
 	$query = "UPDATE jbsakad.ujian SET deskripsi = '".CQ($_POST['deskripsi'])."',tanggal='$tgl' ".
-             "WHERE replid = '$_POST['iduj']."'";
+             "WHERE replid  = '".$_POST['iduj']."'";
 	}
 	$result = QueryDb($query);
 		
-    if(mysqli_affected_rows() >= 0) {
+    if(mysqli_affected_rows($conn) >= 0) {
 ?>
             <script language="JavaScript">
                 alert("Data berhasil diubah");
@@ -183,7 +183,7 @@ if (isset($_POST['simpan'])) {
             <td>Tahun Ajaran</td>
             <td>
 			<?php
-			$query_thn = "SELECT * FROM jbsakad.tahunajaran WHERE tahunajaran.replid = '$tahun'";
+			$query_thn = "SELECT * FROM jbsakad.tahunajaran WHERE tahunajaran.replid = '".$tahun."'";
 			$result_thn = QueryDb($query_thn);
 			
 			$row_thn = @mysqli_fetch_array($result_thn);
@@ -194,7 +194,7 @@ if (isset($_POST['simpan'])) {
 			<td>Semester</td>
 			<td>
 			<?php
-			$query_smt = "SELECT * FROM jbsakad.semester WHERE semester.replid = '$semester'";
+			$query_smt = "SELECT * FROM jbsakad.semester WHERE semester.replid = '".$semester."'";
 			$result_smt =QueryDb($query_smt);
 			
 			$row_smt = @mysqli_fetch_array($result_smt);
@@ -206,7 +206,7 @@ if (isset($_POST['simpan'])) {
             <td>Tingkat</td>
 			<td>
 			<?php
-			$query_tkt = "SELECT * FROM jbsakad.tingkat WHERE tingkat.replid = '$tingkat'";
+			$query_tkt = "SELECT * FROM jbsakad.tingkat WHERE tingkat.replid = '".$tingkat."'";
 			$result_tkt = QueryDb($query_tkt);
 			
 			$row_tkt = @mysqli_fetch_array($result_tkt);
@@ -216,7 +216,7 @@ if (isset($_POST['simpan'])) {
 			<td>Kelas</td>
 			<td>
 			<?php
-			$query_kls = "SELECT * FROM jbsakad.kelas WHERE kelas.replid = '$kelas'";
+			$query_kls = "SELECT * FROM jbsakad.kelas WHERE kelas.replid = '".$kelas."'";
 			$result_kls = QueryDb($query_kls);
 			
 			$row_kls = @mysqli_fetch_array($result_kls);
@@ -228,7 +228,7 @@ if (isset($_POST['simpan'])) {
             <td>Pelajaran</td>
             <td>
 			<?php
-			$query_pel = "SELECT * FROM jbsakad.pelajaran WHERE pelajaran.replid = '$pelajaran'";
+			$query_pel = "SELECT * FROM jbsakad.pelajaran WHERE pelajaran.replid = '".$pelajaran."'";
 			$result_pel = QueryDb($query_pel);
 			
 			$row_pel = @mysqli_fetch_array($result_pel);
@@ -240,7 +240,7 @@ if (isset($_POST['simpan'])) {
 			<td colspan="4">
 			<fieldset><legend><b>Jenis Penilaian : <?=$row_jp['jenisujian'] ?></b></legend>
 			<?php
-			$query_uj = "SELECT * FROM jbsakad.ujian WHERE replid = '$_GET['id']."'";
+			$query_uj = "SELECT * FROM jbsakad.ujian WHERE replid = '".$_GET['id']."'";
 			$result_uj = QueryDb($query_uj);
 			$row_uj = @mysqli_fetch_array($result_uj);
 			

@@ -43,12 +43,12 @@ if(isset($_REQUEST["pelajaran"]))
 				  $result_rpp=QueryDb($sql_rpp);
 				  while ($row_rpp=@mysqli_fetch_array($result_rpp)){
 				  ?>
-                  <option value="<?=$row_rpp['replid']?>"><?=$row_rpp[rpp]?></option>
+                  <option value="<?=$row_rpp['replid']?>"><?=$row_rpp['rpp']?></option>
                   <?php
 				  }
 				  ?>
                   </select><!---->
-                  <!--<input type="text" name="rpp" id="rpp" size="25" readonly onClick="get_rpp('<?=$row_dep['departemen']?>','<?=$row_get_nhb[idtingkat]?>','<?=$semester?>','<?=$row_get_nhb[idpelajaran]?>')"><input type="hidden" name="idrpp" id="idrpp" size="25"--><img src="../images/ico/tambah.png" onClick="get_rpp('<?=$departemen?>','<?=$tingkat?>','<?=$semester?>','<?=$pelajaran?>')" onMouseOver="showhint('Cari RPP!', this, event, '120px')">
+                  <!--<input type="text" name="rpp" id="rpp" size="25" readonly onClick="get_rpp('<?=$row_dep['departemen']?>','<?=$row_get_nhb['idtingkat']?>','<?=$semester?>','<?=$row_get_nhb['idpelajaran']?>')"><input type="hidden" name="idrpp" id="idrpp" size="25"--><img src="../images/ico/tambah.png" onClick="get_rpp('<?=$departemen?>','<?=$tingkat?>','<?=$semester?>','<?=$pelajaran?>')" onMouseOver="showhint('Cari RPP!', this, event, '120px')">
                   <?php
 				  CloseDb();
 				 ?>

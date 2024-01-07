@@ -46,7 +46,7 @@ try
     OpenDb();
     $sql = "SELECT IF(nis IS NULL, 'P', 'S') AS ownertype
               FROM jbsvcr.gallery
-             WHERE replid = '$galleryid'";
+             WHERE replid = '".$galleryid."'";
     $res = QueryDbEx($sql);
     if (mysqli_num_rows($res) == 0)
     {
@@ -126,7 +126,7 @@ try
                SET judul = '$judul', fjudul = '$fjudul', 
                    keterangan = '$pesan', fketerangan = '$fpesan', fprevketerangan = '$fprevpesan',
                    lastactive = NOW(), lastread = NOW()
-             WHERE replid = '$galleryid'";
+             WHERE replid = '".$galleryid."'";
     echo "$sql<br>";
     QueryDbEx($sql);
     
@@ -197,7 +197,7 @@ try
         {
             $sql = "SELECT location, filename
                       FROM jbsvcr.galleryfile
-                     WHERE replid = '$replid'";
+                     WHERE replid = '".$replid."'";
             $res = QueryDbEx($sql);
             if (mysqli_num_rows($res) > 0)
             {
@@ -213,7 +213,7 @@ try
                     unlink($location);
                 
                 $sql = "DELETE FROM jbsvcr.galleryfile
-                         WHERE replid = '$replid'";
+                         WHERE replid = '".$replid."'";
                 echo "$sql<br>";
                 QueryDbEx($sql);
             }
@@ -222,7 +222,7 @@ try
         {
             $sql = "UPDATE jbsvcr.galleryfile
                        SET fileinfo = '$info', ffileinfo = '$finfo'
-                     WHERE replid = '$replid'";
+                     WHERE replid = '".$replid."'";
             echo "$sql<br>";
             QueryDbEx($sql);
         }
@@ -259,7 +259,7 @@ try
         $sql = "INSERT INTO jbsvcr.galleryfile
                    SET galleryid = '$galleryid', filename = '$name', filesize = '$size',
                        filetype = '$type', fileinfo = '$info', ffileinfo = '$finfo', location = '$location',
-                       width = '$width', height = '$height'";
+                       width = '$width', height = '".$height."'";
         echo "$sql<br>";
         QueryDbEx($sql);
     }

@@ -41,10 +41,10 @@ $res_pel=QueryDb($sql_pel);
 	if (@mysqli_num_rows($res_pel)>0){
 	while ($row_pel=@mysqli_fetch_array($res_pel)){
 	if ($pelajaran=="")
-		$pelajaran=$row_pel[pelajaran];
+		$pelajaran=$row_pel['pelajaran'];
 	?>
-        <option value="<?=$row_pel[pelajaran]?>">
-          <?=$row_pel[namapelajaran]?>
+        <option value="<?=$row_pel['pelajaran']?>">
+          <?=$row_pel['namapelajaran']?>
         </option>
         <?php
 	}
@@ -89,7 +89,7 @@ $res_pel=QueryDb($sql_pel);
     <td align="center" rowspan="2"><?=$cnt?></td>
     <td align="center">
 	<?php
-	switch ($row_pp[statushadir]){
+	switch ($row_pp['statushadir']){
 	case 0:
 		echo "Hadir";
 		break;
@@ -108,17 +108,17 @@ $res_pel=QueryDb($sql_pel);
 	}
 	?>
 	</td>
-    <td><?=ShortDateFormat($row_pp[tanggal])."-".$row_pp[jam]?></td>
-    <td>[<?=$row_pp[guru]?>]&nbsp;
+    <td><?=ShortDateFormat($row_pp['tanggal'])."-".$row_pp['jam']?></td>
+    <td>[<?=$row_pp['guru']?>]&nbsp;
 	<?php
-	$res_gr=QueryDb("SELECT nama FROM jbssdm.pegawai WHERE nip='$row_pp[guru]'");
+	$res_gr=QueryDb("SELECT nama FROM jbssdm.pegawai WHERE nip='".$row_pp['guru']."'");
 	$row_gr=@mysqli_fetch_array($res_gr);
-	echo $row_gr[nama];
+	echo $row_gr['nama'];
 	?>
 	</td>
     </tr>
     <tr <?=$a?>>
-    <td colspan="3"><?=$row_pp[catatan]?></td>
+    <td colspan="3"><?=$row_pp['catatan']?></td>
   </tr>
   <?php
   $cnt++;

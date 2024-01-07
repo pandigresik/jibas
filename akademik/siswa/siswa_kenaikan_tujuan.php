@@ -393,7 +393,7 @@ function focusNext(elemName, evt) {
 				if ($kelas=="") 
 					$kelas=$row_kelas['replid'];
 				
-				$sql_terisi="SELECT COUNT(*) FROM jbsakad.siswa WHERE idkelas='$row_kelas['replid']."' AND aktif=1";
+				$sql_terisi="SELECT COUNT(*) FROM jbsakad.siswa WHERE idkelas='".$row_kelas['replid']."' AND aktif=1";
 				$result_terisi=QueryDb($sql_terisi);
 				$row_terisi=@mysqli_fetch_row($result_terisi);
 		?>
@@ -431,7 +431,7 @@ function focusNext(elemName, evt) {
 		$sql5 = "SELECT kelas FROM jbsakad.kelas WHERE replid = '$kelas' ";
 		$result5 = QueryDb($sql5);
 		$row5 = @mysqli_fetch_array($result5);
-		$nama_kelas = $row5[kelas];
+		$nama_kelas = $row5['kelas'];
 		
 		if ($jum > 0) { ?> 
 	
@@ -450,7 +450,7 @@ function focusNext(elemName, evt) {
 		$cnt = (int)$page*(int)$varbaris+1;
 		
 	while ($row_siswa=@mysqli_fetch_array($result_siswa)){
-		$sql_riwayat_kelas="SELECT keterangan,status FROM jbsakad.riwayatkelassiswa WHERE nis='$row_siswa[nis]' AND idkelas='$kelas'";
+		$sql_riwayat_kelas="SELECT keterangan,status FROM jbsakad.riwayatkelassiswa WHERE nis='".$row_siswa['nis']."' AND idkelas='$kelas'";
         $result_riwayat_kelas=QueryDb($sql_riwayat_kelas);
         $row_riwayat = mysqli_fetch_array($result_riwayat_kelas);
 		

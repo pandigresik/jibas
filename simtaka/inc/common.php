@@ -50,7 +50,7 @@ function IntIsSelected($value, $comparer) {
 		return "";
 }
 function LongDateFormat($mysqldate) {
-	list($y, $m, $d) = split('[/.-]', $mysqldate); 
+	list($y, $m, $d) = explode('[/.-]', $mysqldate); 
 	return "$d ". NamaBulan($m) ." $y";
 }
 function NamaBulan($bln) {
@@ -131,11 +131,11 @@ function getname2($field,$table,$field2,$cond){
 	return $row[0];
 }
 function MySqlDateFormat($date) {
-	list($d, $m, $y) = split('[/.-]', $date); 
+	list($d, $m, $y) = explode('[/.-]', $date); 
 	return "$y-$m-$d";
 }
 function RegularDateFormat($date) {
-	list($y, $m, $d) = split('[/.-]', $date); 
+	list($y, $m, $d) = explode('[/.-]', $date); 
 	return "$d-$m-$y";
 }
 function chg_p_to_div($string){

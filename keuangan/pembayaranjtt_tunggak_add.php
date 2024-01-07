@@ -40,11 +40,11 @@ $idtahunbuku_aktif = $_REQUEST['idtahunbuku_aktif'];
 
 OpenDb();
 
-$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '$nis'";
+$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '".$nis."'";
 $nama = FetchSingle($sql);
 
 // -- ambil nama penerimaan -------------------------------
-$sql = "SELECT nama, rekkas FROM datapenerimaan WHERE replid = '$idpenerimaan'";
+$sql = "SELECT nama, rekkas FROM datapenerimaan WHERE replid = '".$idpenerimaan."'";
 $row = FetchSingleRow($sql);
 $namapenerimaan = $row[0];
 $defrekkas = $row[1];
@@ -69,7 +69,7 @@ if (isset($_REQUEST['Simpan']))
 	$rekkas = $_REQUEST['rekkas'];
 	
 	//Ambil nama penerimaan
-	$sql = "SELECT nama, rekkas, rekpendapatan, rekpiutang, info1 FROM datapenerimaan WHERE replid = '$idpenerimaan'";
+	$sql = "SELECT nama, rekkas, rekpendapatan, rekpiutang, info1 FROM datapenerimaan WHERE replid = '".$idpenerimaan."'";
 	$row = FetchSingleRow($sql);
 	$namapenerimaan = $row[0];
 	//$rekkas = $row[1];
@@ -78,14 +78,14 @@ if (isset($_REQUEST['Simpan']))
 	$rekdiskon = $row[4];
 	
 	//Ambil nama siswa
-	$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '$nis'";
+	$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '".$nis."'";
 	$namasiswa = FetchSingle($sql);
 	
 	//// Cari tahu besar pembayaran
 	// FIXED: 27 Agustus 2010
 	$sql = "SELECT b.replid AS id, b.besar
   		   	 FROM besarjtt b
-   	   	WHERE b.nis = '$nis' AND b.idpenerimaan = '$idpenerimaan' AND b.info2 = '$idtahunbuku'";
+   	   	WHERE b.nis = '$nis' AND b.idpenerimaan = '$idpenerimaan' AND b.info2 = '".$idtahunbuku."'";
 	$row = FetchSingleRow($sql);
 	$idbesarjtt = $row[0];
 	$besarjtt = $row[1];
@@ -113,7 +113,7 @@ if (isset($_REQUEST['Simpan']))
 		}
 		else
 		{
-			$sql = "SELECT COUNT(replid) + 1 FROM penerimaanjtt WHERE idbesarjtt = '$idbesarjtt'";
+			$sql = "SELECT COUNT(replid) + 1 FROM penerimaanjtt WHERE idbesarjtt = '".$idbesarjtt."'";
 			$cicilan = FetchSingle($sql);
 			
 			$ketjurnal = "Pembayaran ke-$cicilan $namapenerimaan siswa $namasiswa ($nis)";
@@ -366,7 +366,7 @@ function CalculatePay()
                 while($row = mysqli_fetch_row($res))
                 {
                     $sel = $row[0] == $defrekkas ? "selected" : "";
-                    echo "<option value='$row[0]' $sel>$row[0] $row[1]</option>";
+                    echo "<option value='".$row[0]."' $sel>$row[0] $row[1]</option>";
                 }
                 CloseDb();
                 ?>                

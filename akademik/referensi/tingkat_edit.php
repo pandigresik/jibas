@@ -37,10 +37,10 @@ if (isset($_REQUEST['Simpan']))
 {
 	OpenDb();
 	
-	$sql = "SELECT * FROM tingkat WHERE tingkat = '".$_REQUEST['tingkat']."' AND replid <> '$replid' AND departemen = '$departemen'";
+	$sql = "SELECT * FROM tingkat WHERE tingkat = '".$_REQUEST['tingkat']."' AND replid <> '$replid' AND departemen = '".$departemen."'";
 	$result = QueryDb($sql);
 	
-	$sql1 = "SELECT * FROM tingkat WHERE urutan = '".$_REQUEST['urutan']."' AND replid <> '$replid' AND departemen = '$departemen'";
+	$sql1 = "SELECT * FROM tingkat WHERE urutan = '".$_REQUEST['urutan']."' AND replid <> '$replid' AND departemen = '".$departemen."'";
 	$result1 = QueryDb($sql1);
 	
 	if (@mysqli_num_rows($result) > 0) 

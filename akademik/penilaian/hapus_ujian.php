@@ -32,18 +32,18 @@ require_once('../library/departemen.php');
 
 <?php
 OpenDb();
-$query1 = "DELETE FROM jbsakad.ujian WHERE replid = '$_GET['id']."'";
+$query1 = "DELETE FROM jbsakad.ujian WHERE replid = '".$_GET['id']."'";
 $result1 = QueryDb($query1);
 
-$query2 = "DELETE FROM jbsakad.nau WHERE idujian = '$_GET['id']."'";
+$query2 = "DELETE FROM jbsakad.nau WHERE idujian = '".$_GET['id']."'";
 $result2 = QueryDb($query2);
 
-$query3 = "DELETE FROM jbsakad.rataus WHERE idujian = '$_GET['id']."'";
+$query3 = "DELETE FROM jbsakad.rataus WHERE idujian = '".$_GET['id']."'";
 $result3 = QueryDb($query3);
 
 $row = @mysqli_fetch_array($result1);
 
-if(mysqli_affected_rows() > 0) {
+if(mysqli_affected_rows($conn) > 0) {
 ?>
     <script language="JavaScript">
         //alert("Jenis Penilaian Siswa berhasil dihapus");

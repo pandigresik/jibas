@@ -206,7 +206,7 @@ function focusNext(elemName, evt) {
         <span class="news_content1">Tahun Buku </span>
         <?php
 		if ($departemen != "") {
-			$sql = "SELECT replid AS id, tahunbuku FROM $db_name_fina.tahunbuku WHERE aktif = 1 AND departemen = '$departemen'";
+			$sql = "SELECT replid AS id, tahunbuku FROM $db_name_fina.tahunbuku WHERE aktif = 1 AND departemen = '".$departemen."'";
 			$result = QueryDb($sql);
 			$row = mysqli_fetch_array($result);		
 		}

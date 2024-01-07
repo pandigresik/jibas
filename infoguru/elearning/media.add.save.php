@@ -72,7 +72,7 @@ try
                SET idchannel = '$idChannel', judul = '$judul', urutan = '$urutan', prioritas = '$prioritas', 
                    deskripsi = '$deskripsi', objektif = '$objektif', pertanyaan = '$pertanyaan', cover = '$cover', 
                    videoname = '-', ovideoname = '-', videosize = 0, videotype = '-', videoloc = '-', tstamp = NOW(),
-                   idkategori = $kateValue, katakunci = '$kateKunci'";
+                   idkategori = $kateValue, katakunci = '".$kateKunci."'";
     //$d->Log($sql);
     QueryDbEx2($sql);
 
@@ -131,7 +131,7 @@ try
 
         $sql = "INSERT INTO jbsel.mediafile
                    SET idmedia = '$idMedia', filename = '$filename', ofilename = '$ofilename', filesize = '$filesize',
-                       filetype = '$filetype', fileinfo = '$info', fileloc = '$fileloc'";
+                       filetype = '$filetype', fileinfo = '$info', fileloc = '".$fileloc."'";
         //$d->Log($sql);
         QueryDbEx2($sql);
     }

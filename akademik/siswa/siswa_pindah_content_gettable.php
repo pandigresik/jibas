@@ -58,7 +58,7 @@ $idkelas=$_REQUEST['idkelas'];
 		while ($row_siswa = @mysqli_fetch_array($result_siswa)) {
 		$nis=$row_siswa['nis'];
 		$nama=$row_siswa['nama'];
-		$idkelas=$row_siswa[idkelas];
+		$idkelas=$row_siswa['idkelas'];
 				
 				
 		?>

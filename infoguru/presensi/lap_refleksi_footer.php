@@ -68,17 +68,17 @@ $tglakhir = "$th2-$bln2-$tgl2";
 if (isset($_REQUEST['tglakhir']))
 	$tglakhir = $_REQUEST['tglakhir'];	
 
-$filter1 = "AND t.departemen = '$departemen'";
+$filter1 = "AND t.departemen = '".$departemen."'";
 if ($tingkat <> -1) 
-	$filter1 = "AND k.idtingkat = '$tingkat'";
+	$filter1 = "AND k.idtingkat = '".$tingkat."'";
 
 $filter2 = "";
 if ($kelas <> -1) 
-	$filter2 = "AND k.replid = '$kelas'";
+	$filter2 = "AND k.replid = '".$kelas."'";
 
 $filter3 = "";
 if ($pelajaran <> -1) 
-	$filter3 = "AND p.idpelajaran = '$pelajaran'";
+	$filter3 = "AND p.idpelajaran = '".$pelajaran."'";
  
 
 ?>

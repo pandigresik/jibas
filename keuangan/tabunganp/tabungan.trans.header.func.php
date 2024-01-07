@@ -43,7 +43,7 @@ function ShowTahunBuku()
     $sql = "SELECT replid AS id, tahunbuku
               FROM tahunbuku
              WHERE aktif = 1
-               AND departemen = '$departemen'";
+               AND departemen = '".$departemen."'";
     $result = QueryDb($sql);
 	$row = mysqli_fetch_array($result);		
     echo "<input type='text' name='tahunbuku' id='tahunbuku' size='30' readonly style='background-color:#CCCC99' value='" . $row['tahunbuku'] ."'>";

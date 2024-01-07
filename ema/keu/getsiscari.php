@@ -51,8 +51,8 @@ if ($num==0){
 	while ($row = @mysqli_fetch_array($result)){
 		echo "<tr>
 				<td height='20' align='center'>$cnt</td>
-				<td height='20' align='center'>$row['nis']</td>
-				<td height='20'>$row['nama']</td>
+				<td height='20' align='center'>".$row['nis']."</td>
+				<td height='20'>".$row['nama']."</td>
 				<td height='20' align='center'><input type='button' class='cmbfrm2' value='>' onclick=\"pilihsiswa('".$row['nis']."')\"></td>
 				</tr>";
 				$cnt++;

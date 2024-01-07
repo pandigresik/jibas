@@ -191,7 +191,7 @@ function focusNext(elemName, evt) {
 	<?php 	if ($num_jenispengujian!=0)
         { 
             $sql = "SELECT * FROM ujian 
-                    WHERE idkelas = '$kelas' AND idaturan = '$aturan' AND idsemester = '$semester'";
+                    WHERE idkelas = '$kelas' AND idaturan = '$aturan' AND idsemester = '".$semester."'";
             $result = QueryDb($sql);
                 
             if (mysqli_num_rows($result) > 0) 

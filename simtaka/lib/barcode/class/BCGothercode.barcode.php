@@ -56,7 +56,7 @@ class BCGothercode extends BCGBarcode1D {
      * @return int[]
      */
     public function getDimension($w, $h) {
-        $array = str_split($this->text, 1);
+        $array = str_explode($this->text, 1);
         $textlength = array_sum($array) + count($array);
 
         $w += $textlength;

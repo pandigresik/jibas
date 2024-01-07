@@ -48,7 +48,7 @@ $departemen = $row[0];
 
 $sql = "SELECT nama
           FROM jbsakad.siswa
-         WHERE nis = '$nis'";   
+         WHERE nis = '".$nis."'";   
 $res = QueryDB($sql);	
 $row = mysqli_fetch_row($res);
 $nama = $row[0];

@@ -28,7 +28,7 @@ function GetNoKas()
     //Ambil awalan dan cacah tahunbuku untuk bikin nokas;
     $sql = "SELECT awalan, cacah
               FROM tahunbuku
-             WHERE replid = '$idtahunbuku'";
+             WHERE replid = '".$idtahunbuku."'";
     //echo "$sql<br>";
     $row = FetchSingleRow($sql);
     $awalan = $row[0];
@@ -160,7 +160,7 @@ function SaveIuranWajibSiswa($no)
     // Ambil informasi kode rekening berdasarkan jenis penerimaan
     $sql = "SELECT rekkas, rekpiutang, rekpendapatan, info1, nama
               FROM jbsfina.datapenerimaan
-             WHERE replid = '$idpayment'";
+             WHERE replid = '".$idpayment."'";
     //echo "$sql<br>";
     $row = FetchSingleRow($sql);
     $rekkas = $row[0];
@@ -176,7 +176,7 @@ function SaveIuranWajibSiswa($no)
     //-- Cari jumlah terbayar, yg sudah dibayarkan siswa
     $sql = "SELECT SUM(jumlah), SUM(info1)
               FROM jbsfina.penerimaanjtt
-             WHERE idbesarjtt = '$idbesarjtt'";
+             WHERE idbesarjtt = '".$idbesarjtt."'";
     //echo "$sql<br>";
     $res = QueryDb($sql);
     $row = mysqli_fetch_row($res);
@@ -274,7 +274,7 @@ function SaveIuranSukarelaSiswa($no)
     // Ambil informasi kode rekening berdasarkan jenis penerimaan
     $sql = "SELECT rekkas, rekpiutang, rekpendapatan, info1, nama
               FROM jbsfina.datapenerimaan
-             WHERE replid = '$idpayment'";
+             WHERE replid = '".$idpayment."'";
     //echo "$sql<br>";
     $row = FetchSingleRow($sql);
     $rekkas = $row[0];
@@ -355,7 +355,7 @@ function SaveIuranWajibCalonSiswa($no)
     // Ambil informasi kode rekening berdasarkan jenis penerimaan
     $sql = "SELECT rekkas, rekpiutang, rekpendapatan, info1, nama
               FROM jbsfina.datapenerimaan
-             WHERE replid = '$idpayment'";
+             WHERE replid = '".$idpayment."'";
     //echo "$sql<br>";
     $row = FetchSingleRow($sql);
     $rekkas = $row[0];
@@ -372,7 +372,7 @@ function SaveIuranWajibCalonSiswa($no)
     //-- Cari jumlah terbayar, yg sudah dibayarkan siswa
     $sql = "SELECT SUM(jumlah), SUM(info1)
               FROM jbsfina.penerimaanjttcalon
-             WHERE idbesarjttcalon = '$idbesarjtt'";
+             WHERE idbesarjttcalon = '".$idbesarjtt."'";
     $res = QueryDb($sql);
     $row = mysqli_fetch_row($res);
 
@@ -475,7 +475,7 @@ function SaveIuranSukarelaCalonSiswa($no)
     // Ambil informasi kode rekening berdasarkan jenis penerimaan
     $sql = "SELECT rekkas, rekpiutang, rekpendapatan, info1, nama
               FROM jbsfina.datapenerimaan
-             WHERE replid = '$idpayment'";
+             WHERE replid = '".$idpayment."'";
     //echo "$sql<br>";
     $row = FetchSingleRow($sql);
     $rekkas = $row[0];
@@ -576,7 +576,7 @@ function SaveMultiTransInfo()
             $kategori = $transactions[$i][4];
 
             $sql = "INSERT INTO jbsfina.multitransdata
-                       SET idinfo = $idinfo, notrans = '$notrans', kategori = '$kategori'";
+                       SET idinfo = $idinfo, notrans = '$notrans', kategori = '".$kategori."'";
             QueryDbTrans($sql, $success);
         }
     }

@@ -90,7 +90,7 @@ $departemen = $row[0];
 <tr>
 	<td><strong>Jenis Penerimaan</strong></td>
     <td><strong>:
-<?php $sql = "SELECT nama FROM datapenerimaan WHERE replid = '$idpenerimaan'"; 			
+<?php $sql = "SELECT nama FROM datapenerimaan WHERE replid = '".$idpenerimaan."'"; 			
 	$result = QueryDb($sql);    
 	$row = mysqli_fetch_row($result);
 	echo  $row[0]; ?>
@@ -101,7 +101,7 @@ $departemen = $row[0];
 <?php
 $sql = "SELECT c.nopendaftaran, c.nama, c.telponsiswa as telpon, c.hpsiswa as hp, k.kelompok, c.alamatsiswa as alamattinggal, p.proses
          FROM jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k, jbsakad.prosespenerimaansiswa p 
-		   WHERE c.idkelompok = k.replid AND c.idproses = p.replid AND c.replid = '$replid'";
+		   WHERE c.idkelompok = k.replid AND c.idproses = p.replid AND c.replid = '".$replid."'";
 
 
 $result = QueryDb($sql);
@@ -120,7 +120,7 @@ if (mysqli_num_rows($result) == 0) {
 
 }
 
-$sql = "SELECT nama FROM datapenerimaan WHERE replid = '$idpenerimaan'";
+$sql = "SELECT nama FROM datapenerimaan WHERE replid = '".$idpenerimaan."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $namapenerimaan = $row[0];

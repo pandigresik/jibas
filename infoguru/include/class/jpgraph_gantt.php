@@ -1648,7 +1648,7 @@ class TextProperty {
         $aImg->SetFont($this->iFFamily,$this->iFStyle,$this->iFSize);
         if( is_string($this->iText) ) {
             if( strlen($this->iText) == 0 ) return 0;
-            $tmp = preg_split('/\t/',$this->iText);
+            $tmp = preg_explode('/\t/',$this->iText);
             if( count($tmp) <= 1 || !$aUseTabs ) {
                 $w = $aImg->GetTextWidth($this->iText);
                 return $w + 2*$extra_margin;
@@ -1807,7 +1807,7 @@ class TextProperty {
                 }
             }
             else {
-                $tmp = preg_split('/\t/',$this->iText);
+                $tmp = preg_explode('/\t/',$this->iText);
                 $n = min(count($tmp),count($aX));
                 for($i=0; $i < $n; ++$i) {
                     if( $i < count($this->iFontArray) ) {

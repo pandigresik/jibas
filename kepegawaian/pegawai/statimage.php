@@ -34,7 +34,7 @@ if (isset($_REQUEST['dotype']))
 	$dotype = $_REQUEST['dotype'];
 
 if (strlen($dotype) > 0) {
-	$s = split("-", $dotype);
+	$s = explode("-", $dotype);
 	$type = $s[0];
 	$stat = $s[1];
 }

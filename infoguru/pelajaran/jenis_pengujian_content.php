@@ -38,7 +38,7 @@ if ($op == "xm8r389xemx23xb2378e23") {
 $replid=$_REQUEST['replid'];
 $id=$_REQUEST['id'];
 	OpenDb();
-	$sql = "DELETE FROM jenisujian WHERE replid = '$replid'";
+	$sql = "DELETE FROM jenisujian WHERE replid = '".$replid."'";
 	QueryDb($sql);
 	$result=QueryDb($sql);
 	if ($result) { 

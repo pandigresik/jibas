@@ -49,7 +49,7 @@ function ReadParams()
     if (isset($_REQUEST['komentar']))
         $komentar = CQ($_REQUEST['komentar']);
 
-    $sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '$nis'";
+    $sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '".$nis."'";
     $res = QueryDb($sql);
     $row = mysqli_fetch_row($res);
     $nama = $row[0];
@@ -98,7 +98,7 @@ function SimpanData()
         $param = "komentar$i";
         $komentar = SafeText($_REQUEST[$param]);
 
-        $sql = "UPDATE jbsakad.nap SET komentar = '$komentar' WHERE replid = '$idnap'";
+        $sql = "UPDATE jbsakad.nap SET komentar = '$komentar' WHERE replid = '".$idnap."'";
         //echo "$sql<br>";
         QueryDbTrans($sql, $success);
     }
@@ -127,7 +127,7 @@ function GetListKomentar($idpelajaran, $idtingkat, $kdaspek, $no)
               FROM jbsakad.pilihkomenpel
              WHERE idpelajaran = '$idpelajaran'
                AND idtingkat = '$idtingkat'
-               AND dasarpenilaian = '$kdaspek'";
+               AND dasarpenilaian = '".$kdaspek."'";
     $res2 = QueryDb($sql);
     $numlen = strlen(mysqli_num_rows($res2));
     $cnt = 0;
@@ -153,7 +153,7 @@ function GetKomentar($replid)
 {
     $sql = "SELECT komentar
               FROM jbsakad.pilihkomenpel
-             WHERE replid = '$replid'";
+             WHERE replid = '".$replid."'";
     $res = QueryDb($sql);
     if ($row = mysqli_fetch_row($res))
         return $row[0];

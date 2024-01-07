@@ -40,8 +40,8 @@ $resultsuku = QueryDb($querysuku);
 $num = @mysqli_num_rows($resultsuku);
 
 while ($rowsuku = @mysqli_fetch_assoc($resultsuku)) {
-    $data[] = $rowsuku[Jum];
-    $suku[] = $rowsuku[jenismutasi];
+    $data[] = $rowsuku['Jum'];
+    $suku[] = $rowsuku['jenismutasi'];
     $color = array('red','black','green','blue','gray','darkblue','gold','yellow','navy','orange','darkred','darkgreen', 'pink');
 }
 

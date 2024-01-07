@@ -127,7 +127,7 @@ if (@mysqli_num_rows($result)>0 || @mysqli_num_rows($result2)>0){
 	}
 	while ($row2=@mysqli_fetch_array($result2)){
 	echo "<tr>
-    <td class=\"style8\"><a style=\"text-decoration:none; color:#666666\" class=\"style11\" href='#' onclick=tampilsiswa('".$row2['replid']."')>".$row2[nis]."-".$row2[nama]."</a></td>
+    <td class=\"style8\"><a style=\"text-decoration:none; color:#666666\" class=\"style11\" href='#' onclick=tampilsiswa('".$row2['replid']."')>".$row2['nis']."-".$row2['nama']."</a></td>
   </tr><tr>
     <td background=\"../../images/box_hr1.gif\" style=\"background-repeat:repeat-x; background-position:center\">&nbsp;</td>
   </tr>";

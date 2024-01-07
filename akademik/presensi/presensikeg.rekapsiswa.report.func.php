@@ -26,7 +26,7 @@ $sql = "SELECT DISTINCT pk.idkegiatan
          WHERE pk.idkegiatan = k.replid
            AND MONTH(pk.date_in) = $bulan
            AND YEAR(pk.date_in) = $tahun
-           AND pk.nis = '$nis'";
+           AND pk.nis = '".$nis."'";
 $res = QueryDb($sql);
 
 if (mysqli_num_rows($res) == 0)
@@ -291,7 +291,7 @@ function GetNPeserta($idkegiatan, $jenispeserta, $iddepartemen)
                     AND f.active = 1 
                     AND f.verify = 1
                     AND s.aktif = 1
-                    AND ta.departemen = '$iddepartemen'";
+                    AND ta.departemen = '".$iddepartemen."'";
         $npeserta = FetchSingle($sql);        
     }
     else if ($jenispeserta == 4)
@@ -310,7 +310,7 @@ function GetNPeserta($idkegiatan, $jenispeserta, $iddepartemen)
                     AND f.active = 1 
                     AND f.verify = 1
                     AND s.aktif = 1
-                    AND k.idtingkat = '$idtingkat'";
+                    AND k.idtingkat = '".$idtingkat."'";
         $npeserta = FetchSingle($sql);
     }
     else if ($jenispeserta == 5)

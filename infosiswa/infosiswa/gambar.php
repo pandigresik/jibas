@@ -29,7 +29,7 @@ $table = 'jbsakad.siswa';
 
 OpenDb();
 header("Content-type: image/jpeg");
-$query = "SELECT foto FROM $table WHERE nis = '$nis'";
+$query = "SELECT foto FROM $table WHERE nis = '".$nis."'";
 
 $result = QueryDb($query);
 $num = @mysqli_num_rows($result);

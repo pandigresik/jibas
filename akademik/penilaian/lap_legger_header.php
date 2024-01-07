@@ -163,7 +163,7 @@ OpenDb();
 					   FROM ujian u, pelajaran p
 				  	  WHERE u.idpelajaran = p.replid
 		             AND u.idkelas = '$kelas'
-						 AND u.idsemester = '$semester'";
+						 AND u.idsemester = '".$semester."'";
 		  $result = QueryDb($sql);
 		  while($row = mysqli_fetch_array($result))
 		  { ?>

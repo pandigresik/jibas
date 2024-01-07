@@ -213,7 +213,7 @@ while ($row = mysqli_fetch_row($result)) {
     <td colspan="6"><font size="1"><strong>MODAL</strong></font><br /></td>
 </tr>
 <?php
-$sql = "SELECT tanggalmulai FROM tahunbuku WHERE replid = '$idtahunbuku'";
+$sql = "SELECT tanggalmulai FROM tahunbuku WHERE replid = '".$idtahunbuku."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $tanggal1 = $row[0];

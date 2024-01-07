@@ -52,12 +52,12 @@ if ($jenis == "siswa")
     $sql = "SELECT s.nama, k.kelas, DATE_FORMAT(NOW(), '%d %M %Y') AS tanggal
               FROM jbsakad.siswa s, jbsakad.kelas k
              WHERE s.idkelas = k.replid
-               AND s.nis = '$noid'";
+               AND s.nis = '".$noid."'";
 else
     $sql = "SELECT c.nama, k.kelompok, DATE_FORMAT(NOW(), '%d %M %Y') AS tanggal
 			  FROM jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k
              WHERE c.idkelompok = k.replid
-               AND c.nopendaftaran = '$noid'";
+               AND c.nopendaftaran = '".$noid."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $nama = $row[0];

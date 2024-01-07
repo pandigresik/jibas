@@ -118,7 +118,7 @@ function ShowTagihanSet()
         echo "<td rowspan='2' align='center' valign='top' style='width: 30px; background-color: #efefef;'>$no</td>";
         echo "<td style='font-size: 12px; cursor: pointer;' onclick='showTagihanInfo($no)' colspan='4'>";
         echo "<b> " . $row['nama'] . "</b><br><span style='color: #0000FF;'><b>" . $row['stiuran'] . "</b></span><br>";
-        echo "<span style='color: #b50000; font-style: italic;'>$row['nomor']&nbsp;&nbsp;|&nbsp;&nbsp;$row['ftanggal']</span>";
+        echo "<span style='color: #b50000; font-style: italic;'>".$row['nomor']&nbsp;&nbsp;|&nbsp;&nbsp;$row['ftanggal']."</span>";
         echo "<input type='hidden' id='idtagihanset-$no' value='$idTagihanSet'>";
         $title = "<b>" . $row["nama"] . "</b><br><span style='color: #0000FF'><b>" . $row['stiuran'] . "</b></span>";
         echo "<input type='hidden' id='tagihanset-$no' value=\"$title\">";
@@ -424,7 +424,7 @@ function DaftarTagihanData()
     echo "</tr>";
     echo "<tr>";
     echo "<td align='right' style='font-size: 12px'>Tagihan:</td>";
-    echo "<td align='left' style='font-size: 12px'>$row['info']<br><span style='color: darkred; font-style: italic; font-size: 12px'>$nomorTs</span></td>";
+    echo "<td align='left' style='font-size: 12px'>".$row['info']."<br><span style='color: darkred; font-style: italic; font-size: 12px'>$nomorTs</span></td>";
     echo "</tr>";
     echo "<tr>";
     echo "<td align='right' style='font-size: 12px'>Jumlah:</td>";
@@ -434,11 +434,11 @@ function DaftarTagihanData()
     echo "</tr>";
     echo "<tr>";
     echo "<td align='right' style='font-size: 12px'>Tanggal Buat:</td>";
-    echo "<td align='left' style='font-size: 12px'>$row['ftanggalbuat']</td>";
+    echo "<td align='left' style='font-size: 12px'>".$row['ftanggalbuat']."</td>";
     echo "</tr>";
     echo "<tr>";
     echo "<td align='right' style='font-size: 12px'>Petugas:</td>";
-    echo "<td align='left' style='font-size: 12px'>$row['namapetugas']</td>";
+    echo "<td align='left' style='font-size: 12px'>".$row['namapetugas']."</td>";
     echo "</tr>";
     echo "<tr>";
     echo "<td align='right' valign='top' style='font-size: 12px'>Konfirmasi:</td>";
@@ -451,7 +451,7 @@ function DaftarTagihanData()
     {
         echo "<td align='left' style='font-size: 12px;'><span style='font-weight: bold; color: #0000ff;'>SUDAH</span> <i>tanggal $row['fckdate']</i>";
         if (strlen($row["ckdesc"]) > 0)
-            echo "<br><i>$row['ckdesc']</i>";
+            echo "<br><i>".$row['ckdesc']."</i>";
         echo "</td>";
     }
     echo "</tr>";
@@ -472,7 +472,7 @@ function DaftarTagihanData()
 
     $sql = "SELECT replid, IFNULL(idpenerimaan, 0) AS idpenerimaan, IFNULL(idbesarjtt, 0) AS idbesarjtt, penerimaan, jtagihan, jdiskon, status 
               FROM jbsfina.tagihansiswadata
-             WHERE notagihan = '$noTagihan'";
+             WHERE notagihan = '".$noTagihan."'";
     $res = QueryDb($sql);
     $no = 0;
     while($row = mysqli_fetch_array($res))
@@ -493,7 +493,7 @@ function DaftarTagihanData()
 
         echo "<tr style='height: 25px;'>";
         echo "<td align='center' valign='top'>$no</td>";
-        echo "<td align='left' valign='top'>$row['penerimaan']</td>";
+        echo "<td align='left' valign='top'>".$row['penerimaan']."</td>";
         echo "<td align='right' valign='top'>" . FormatRupiah($jTagihan) . "</td>";
         echo "<td align='right' valign='top'>" . FormatRupiah($jDiskon) . "</td>";
         echo "<td align='right' valign='top'>" . FormatRupiah($jumlah) . "</td>";
@@ -584,14 +584,14 @@ function HapusTagihanData()
         $jumlah = 0;
         $sql = "SELECT SUM(jtagihan - jdiskon) 
                   FROM jbsfina.tagihansiswadata 
-                 WHERE notagihan = '$noTagihan'";
+                 WHERE notagihan = '".$noTagihan."'";
         $res = QueryDbEx($sql);
         if ($row = mysqli_fetch_row($res))
             $jumlah = $row[0];
 
         $sql = "UPDATE jbsfina.tagihansiswainfo
                    SET jumlah = $jumlah
-                 WHERE notagihan = '$noTagihan'";
+                 WHERE notagihan = '".$noTagihan."'";
         QueryDbEx($sql);
 
         CommitTrans();
@@ -614,11 +614,11 @@ function HapusTagihanSiswa()
     try
     {
         $sql = "DELETE FROM jbsfina.tagihansiswadata
-                 WHERE notagihan = '$noTagihan'";
+                 WHERE notagihan = '".$noTagihan."'";
         QueryDbEx($sql);
 
         $sql = "DELETE FROM jbsfina.tagihansiswainfo
-                 WHERE notagihan = '$noTagihan'";
+                 WHERE notagihan = '".$noTagihan."'";
         QueryDbEx($sql);
 
         echo "[1,\"OK\"]";

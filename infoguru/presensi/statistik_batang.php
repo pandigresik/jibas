@@ -30,10 +30,10 @@ include("../library/class/jpgraph_line.php");
 OpenDb();
 //$sql = "SELECT hadir, ijin, sakit, cuti, alpa FROM phsiswa WHERE replid = {$_REQUEST['replid']} ";
 if ($_REQUEST['nis']) {
-	$sql = "SELECT SUM(IF(statushadir = 0,1,0)), SUM(IF(statushadir = 1,1,0)), SUM(IF(statushadir = 2,1,0)), SUM(IF(statushadir = 4,1,0)), SUM(IF(statushadir = 3,1,0)) FROM presensipelajaran p, ppsiswa pp WHERE pp.nis = '".$_REQUEST['nis']."' AND pp.idpp = p.replid AND p.idkelas = '".$_REQUEST['kelas']."' AND p.idsemester = '".$_REQUEST['semester']."' AND p.idpelajaran = '".$_REQUEST['pelajaran']."' AND p.tanggal BETWEEN '$_REQUEST['tglawal']."' AND '$_REQUEST['tglakhir']."' ORDER BY p.tanggal ";
+	$sql = "SELECT SUM(IF(statushadir = 0,1,0)), SUM(IF(statushadir = 1,1,0)), SUM(IF(statushadir = 2,1,0)), SUM(IF(statushadir = 4,1,0)), SUM(IF(statushadir = 3,1,0)) FROM presensipelajaran p, ppsiswa pp WHERE pp.nis = '".$_REQUEST['nis']."' AND pp.idpp = p.replid AND p.idkelas = '".$_REQUEST['kelas']."' AND p.idsemester = '".$_REQUEST['semester']."' AND p.idpelajaran = '".$_REQUEST['pelajaran']."' AND p.tanggal BETWEEN '".$_REQUEST['tglawal']."' AND '".$_REQUEST['tglakhir']."' ORDER BY p.tanggal ";
 	
 } else {
-	$sql = "SELECT SUM(IF(statushadir = 0,1,0)), SUM(IF(statushadir = 1,1,0)), SUM(IF(statushadir = 2,1,0)), SUM(IF(statushadir = 4,1,0)), SUM(IF(statushadir = 3,1,0)), COUNT(DISTINCT pp.nis), COUNT(DISTINCT p.replid) FROM presensipelajaran p, ppsiswa pp WHERE pp.idpp = p.replid AND p.idkelas = '".$_REQUEST['kelas']."' AND p.idsemester = '".$_REQUEST['semester']."' AND p.idpelajaran = '".$_REQUEST['pelajaran']."' AND p.tanggal BETWEEN '$_REQUEST['tglawal']."' AND '$_REQUEST['tglakhir']."' ORDER BY p.tanggal ";	
+	$sql = "SELECT SUM(IF(statushadir = 0,1,0)), SUM(IF(statushadir = 1,1,0)), SUM(IF(statushadir = 2,1,0)), SUM(IF(statushadir = 4,1,0)), SUM(IF(statushadir = 3,1,0)), COUNT(DISTINCT pp.nis), COUNT(DISTINCT p.replid) FROM presensipelajaran p, ppsiswa pp WHERE pp.idpp = p.replid AND p.idkelas = '".$_REQUEST['kelas']."' AND p.idsemester = '".$_REQUEST['semester']."' AND p.idpelajaran = '".$_REQUEST['pelajaran']."' AND p.tanggal BETWEEN '".$_REQUEST['tglawal']."' AND '".$_REQUEST['tglakhir']."' ORDER BY p.tanggal ";	
 }
 
 $result = QueryDb($sql);

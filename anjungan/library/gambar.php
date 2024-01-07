@@ -32,9 +32,9 @@ else
 OpenDb();
 header("Content-type: image/jpeg");
 if (isset($_REQUEST['nis']))
-	$query = "SELECT foto FROM jbsakad.siswa WHERE nis = '$nis'";
+	$query = "SELECT foto FROM jbsakad.siswa WHERE nis = '".$nis."'";
 else 
-	$query = "SELECT foto FROM jbssdm.pegawai WHERE nip = '$nip'";
+	$query = "SELECT foto FROM jbssdm.pegawai WHERE nip = '".$nip."'";
 $result = QueryDb($query);
 if ($row = mysqli_fetch_array($result))
 {

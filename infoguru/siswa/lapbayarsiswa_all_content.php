@@ -55,7 +55,7 @@ $res2 = mysqli_query($mysqlconnection, "SELECT id, tahunbuku FROM tahunbuku WHER
 //"clientid='$G_CL_ID' AND region='$G_CL_REG' AND location='$G_CL_LOC' AND ".
 "aktif = 1 AND departemen = '$departemen'") or trigger_error("Failed to execute sql query: $sql", E_USER_ERROR);
 $row_tb=@mysqli_fetch_array($res2);
-$idtahunbuku=$row_tb[id];
+$idtahunbuku=$row_tb['id'];
 @mysqli_close($conn);
 */
 
@@ -64,7 +64,7 @@ $res2=QueryDb("SELECT id, tahunbuku FROM jbsfina.tahunbuku WHERE ".
 "clientid='$clientid' AND region='$region' AND location='$location' AND ".
 "aktif = 1 AND departemen = '$departemen'");
 $row_tb=@mysqli_fetch_array($res2);
-$idtahunbuku=$row_tb[id];
+$idtahunbuku=$row_tb['id'];
 CloseDb();
 */
 if ($departemen=="")

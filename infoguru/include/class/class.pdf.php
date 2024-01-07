@@ -449,7 +449,7 @@ function o_pages($id,$action,$options=''){
           $res.="\n>>";
           if (isset($o['info']['mediaBox'])){
             $tmp=$o['info']['mediaBox'];
-            $res.="\n/MediaBox [".sprintf('%.3f',$tmp[0]).' '.sprintf('%.3f',$tmp[1]).' '.sprintf('%.3f',$tmp[2]).' '.sprintf('%.3f',$tmp[3]).']."';
+            $res.="\n/MediaBox [".sprintf('%.3f',$tmp[0]).' '.sprintf('%.3f',$tmp[1]).' '.sprintf('%.3f',$tmp[2]).' '.sprintf('%.3f',$tmp[3]).']."'";
           }
         }
         $res.="\n >>\nendobj";

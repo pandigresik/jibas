@@ -31,7 +31,7 @@ if (strlen($departemen) == 0)
 }
 else
 {
-    $sql = "SELECT COUNT(replid) FROM jbsakad.departemen WHERE departemen = '$departemen'";
+    $sql = "SELECT COUNT(replid) FROM jbsakad.departemen WHERE departemen = '".$departemen."'";
     if (0 == (int) FetchSingle($sql))
         $errmsg[] = "Departemen $departemen tidak ditemukan!";
 }
@@ -50,14 +50,14 @@ if (strlen($idkelas) == 0)
 }
 else
 {
-    $sql = "SELECT COUNT(replid) FROM jbsakad.kelas WHERE replid = '$idkelas'";
+    $sql = "SELECT COUNT(replid) FROM jbsakad.kelas WHERE replid = '".$idkelas."'";
     if (0 == (int) FetchSingle($sql))
         $errmsg[] = "Id Kelas $idkelas tidak ditemukan!";
 }
 
 $sql = "SELECT idtingkat 
           FROM jbsakad.kelas
-         WHERE replid = '$idkelas'";
+         WHERE replid = '".$idkelas."'";
 $idtingkat = (int) FetchSingle($sql);
 
 // Validasi NIP ------------------------------------
@@ -68,7 +68,7 @@ if (strlen($nip) == 0)
 }
 else
 {
-    $sql = "SELECT COUNT(replid) FROM jbssdm.pegawai WHERE nip = '$nip'";
+    $sql = "SELECT COUNT(replid) FROM jbssdm.pegawai WHERE nip = '".$nip."'";
     if (0 == (int) FetchSingle($sql))
         $errmsg[] = "NIP Guru $nip tidak ditemukan!";
 }
@@ -138,7 +138,7 @@ for($i = 14; $i <= $nData; $i++)
     }
     else {
         $nis = str_replace("'", "`", $nis);
-        $sql = "SELECT aktif FROM jbsakad.siswa WHERE nis = '$nis'";
+        $sql = "SELECT aktif FROM jbsakad.siswa WHERE nis = '".$nis."'";
         $res2 = QueryDb($sql);
         if (mysqli_num_rows($res2) == 0) {
             $errmsg[] = "NIS Siswa {$nis} baris ke-$i tidak ditemukan!";

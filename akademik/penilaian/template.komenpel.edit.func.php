@@ -42,7 +42,7 @@ function ReadData()
     global $replid, $komentar;
 
     OpenDb();
-    $sql = "SELECT komentar FROM pilihkomenpel WHERE replid = '$replid'";
+    $sql = "SELECT komentar FROM pilihkomenpel WHERE replid = '".$replid."'";
     $res = QueryDb($sql);
     $row = mysqli_fetch_row($res);
     $komentar = $row[0];
@@ -57,7 +57,7 @@ function SimpanData()
     $komentar = CQ($komentar);
     $sql = "UPDATE pilihkomenpel 
                SET komentar = '$komentar'
-             WHERE replid = '$replid'";
+             WHERE replid = '".$replid."'";
     $result = QueryDb($sql);
     if ($result)
     { 	?>

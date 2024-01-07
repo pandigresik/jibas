@@ -42,7 +42,7 @@ $errmsg = $_REQUEST['errmsg'];
 OpenDb();
 
 // -- ambil nama penerimaan -------------------------------
-$sql = "SELECT nama, rekkas FROM datapenerimaan WHERE replid = '$idpenerimaan'";
+$sql = "SELECT nama, rekkas FROM datapenerimaan WHERE replid = '".$idpenerimaan."'";
 $row = FetchSingleRow($sql);
 $namapenerimaan = $row[0];
 $defrekkas = $row[1];
@@ -85,7 +85,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 		$rekkas = trim($_REQUEST['rekkas']);
 	
 	//Ambil awalan dan cacah tahunbuku untuk bikin nokas;
-	$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '$idtahunbuku'";
+	$sql = "SELECT awalan, cacah FROM tahunbuku WHERE replid = '".$idtahunbuku."'";
 	$result = QueryDb($sql);
 	if (mysqli_num_rows($result) == 0) 
 	{
@@ -142,7 +142,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 }
 
 //Muncul pertama kali
-$sql = "SELECT nama FROM datapenerimaan WHERE replid = '$idpenerimaan'";
+$sql = "SELECT nama FROM datapenerimaan WHERE replid = '".$idpenerimaan."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $namapenerimaan = $row[0];
@@ -314,7 +314,7 @@ function panggil(elem){
 						while($row = mysqli_fetch_row($res))
 						{
 							$sel = $row[0] == $defrekkas ? "selected" : "";
-							echo "<option value='$row[0]' $sel>$row[0] $row[1]</option>";
+							echo "<option value='".$row[0]."' $sel>$row[0] $row[1]</option>";
 						} ?>                
 					</select>
 				</td>

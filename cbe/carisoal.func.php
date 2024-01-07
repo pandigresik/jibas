@@ -54,7 +54,7 @@ function showCariSoal($idSoal)
     $sql = "SELECT COUNT(*) 
               FROM jbscbe.webusersoal 
              WHERE idsoal = '$idSoal'
-               AND userid = '$userId'";
+               AND userid = '".$userId."'";
     $nData = (int) FetchSingle($sql);
     if ($nData == 0)
     {
@@ -66,7 +66,7 @@ function showCariSoal($idSoal)
     $sql = "SELECT DISTINCT idsoal, idujianserta, soalthumb, tingkat, semester, jenis, bobot, id, resdir
               FROM jbscbe.webusersoal 
              WHERE idsoal = '$idSoal'
-               AND userid = '$userId'";
+               AND userid = '".$userId."'";
     ?>
 
     <table border='1' cellpadding='2' cellspacing='0' width='740' style='border-collapse: collapse; border-width: 1px;'>

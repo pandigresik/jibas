@@ -79,7 +79,7 @@ if ($ndata == 0)
 {
     $format = "Kami informasikan {NAMA} masih memiliki tunggakan sebesar {TUNGGAKAN} untuk {PEMBAYARAN} - Bag. Keuangan";
     $sql = "INSERT INTO jbsfina.formatsms
-               SET jenis = 'SISTUNG', departemen = '$departemen', format = '$format'";
+               SET jenis = 'SISTUNG', departemen = '$departemen', format = '".$format."'";
     QueryDb($sql);
 }
 

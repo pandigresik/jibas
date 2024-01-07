@@ -47,7 +47,7 @@ $cek = 0;
 $ERROR_MSG = "";
 if (isset($_REQUEST['Simpan'])) {
 	OpenDb();
-	$sql = "SELECT * FROM prosespenerimaansiswa WHERE proses = '$proses' AND departemen = '$departemen'";
+	$sql = "SELECT * FROM prosespenerimaansiswa WHERE proses = '$proses' AND departemen = '".$departemen."'";
 	$result = QueryDb($sql);
 	
 	$sql2="SELECT * from prosespenerimaansiswa WHERE kodeawalan='$kode'";
@@ -69,7 +69,7 @@ if (isset($_REQUEST['Simpan'])) {
 			$result1 = QueryDb($sql1);
 			$row1 = mysqli_fetch_row($result1); 
 			
-			$sql2 = "UPDATE prosespenerimaansiswa SET aktif = 0 WHERE replid <> '$row1[0]' AND departemen = '$departemen'";			
+			$sql2 = "UPDATE prosespenerimaansiswa SET aktif = 0 WHERE replid <> '".$row1[0]."' AND departemen = '".$departemen."'";			
 			QueryDb($sql2);
 			CloseDb();		
 		?>

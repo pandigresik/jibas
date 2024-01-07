@@ -34,7 +34,7 @@ function ShowSelectPetugasTf($id)
     echo "<select id='$id' class='inputbox' style='width: 250px'>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='$row[0]'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>$row[1]</option>";
     }
     echo "</select>";
 }
@@ -53,7 +53,7 @@ function ShowSelectTabungan()
     echo "<select id='seltabungan' class='inputbox' style='width: 250px'>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='$row[0]'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>$row[1]</option>";
     }
     echo "</select>";
 }
@@ -148,7 +148,7 @@ function SimpanTransferBalik()
         $sql = "INSERT INTO jbsfina.bankmutasi
                    SET departemen = '$departemen', bankno = '$bankNo', jenis = 2, tanggal = '$tanggal', 
                        waktu = NOW(), keterangan = '$keterangan', petugas = $idPetugas, berkas = '$buktiTf64',
-                       adaberkas = $adaBukti, nomormutasi = '$nomorTf'";
+                       adaberkas = $adaBukti, nomormutasi = '".$nomorTf."'";
         QueryDbEx($sql);
 
         $sql = "SELECT LAST_INSERT_ID()";
@@ -158,7 +158,7 @@ function SimpanTransferBalik()
 
         $sql = "INSERT INTO jbsfina.bankmutasidata
                        SET kategori = 'LB', idmutasi = $idMutasi, idpenerimaan = 0, idtabungan = 0, idtabunganp = 0,
-                           iddeposit = 0, jumlah = $jLebih, keterangan = '$keterangan', nokas = '$noKasBank'";
+                           iddeposit = 0, jumlah = $jLebih, keterangan = '$keterangan', nokas = '".$noKasBank."'";
         QueryDbEx($sql);
 
         $sql = "UPDATE jbsfina.banksaldo
@@ -263,7 +263,7 @@ function SimpanTabungan()
         $sql = "SELECT p.nis, s.nama
                   FROM jbsfina.pgtrans p
                  INNER JOIN jbsakad.siswa s ON p.nis = s.nis
-                 WHERE p.nomor = '$nomor'";
+                 WHERE p.nomor = '".$nomor."'";
         $res = QueryDbEx($sql);
         if (mysqli_num_rows($res) == 0)
         {
@@ -328,7 +328,7 @@ function SimpanTabungan()
         $sql = "INSERT INTO jbsfina.bankmutasi
                    SET departemen = '$departemen', bankno = '$bankNo', jenis = 2, tanggal = '$tanggal', 
                        waktu = NOW(), keterangan = '$keterangan', petugas = $idPetugas, berkas = '$buktiTf64',
-                       adaberkas = $adaBukti, nomormutasi = '$nomorTf'";
+                       adaberkas = $adaBukti, nomormutasi = '".$nomorTf."'";
         QueryDbEx($sql);
 
         $sql = "SELECT LAST_INSERT_ID()";
@@ -338,7 +338,7 @@ function SimpanTabungan()
 
         $sql = "INSERT INTO jbsfina.bankmutasidata
                    SET kategori = 'LB', idmutasi = $idMutasi, idpenerimaan = 0, idtabungan = 0, idtabunganp = 0,
-                       iddeposit = 0, jumlah = $jLebih, keterangan = '$keterangan', nokas = '$noKasBank'";
+                       iddeposit = 0, jumlah = $jLebih, keterangan = '$keterangan', nokas = '".$noKasBank."'";
         QueryDbEx($sql);
 
         $sql = "UPDATE jbsfina.banksaldo

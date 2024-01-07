@@ -86,7 +86,7 @@ if (isset($_REQUEST['Simpan'])) {
 	$petugasjurnal = $row['petugas'];
 	$ketjurnal = $row['keterangan'];
 		
-	$sql = "INSERT INTO auditinfo SET departemen='$departemen', sumber='$sumberjurnal', idsumber='$idjurnal', tanggal=now(), petugas='$petugas', alasan = '$alasan'";
+	$sql = "INSERT INTO auditinfo SET departemen='$departemen', sumber='$sumberjurnal', idsumber='$idjurnal', tanggal=now(), petugas='$petugas', alasan = '".$alasan."'";
 	QueryDbTrans($sql, $success);
 	//echo  "$success $sql<br>";
 	
@@ -172,7 +172,7 @@ if (isset($_REQUEST['Simpan'])) {
 
 OpenDb();
 
-$sql = "SELECT date_format(tanggal, '%d-%m-%Y') as tanggal, transaksi, petugas, nokas, idtahunbuku, keterangan FROM jurnal WHERE replid = '$idjurnal'";
+$sql = "SELECT date_format(tanggal, '%d-%m-%Y') as tanggal, transaksi, petugas, nokas, idtahunbuku, keterangan FROM jurnal WHERE replid = '".$idjurnal."'";
 
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
@@ -408,7 +408,7 @@ function focusNext(elemName, evt) {
     <tr>
     	<td><strong>Tahun Buku</strong></td>
         <td colspan="4">
-        <?php $sql = "SELECT replid, tahunbuku FROM tahunbuku WHERE aktif = 1 AND departemen = '$departemen'";
+        <?php $sql = "SELECT replid, tahunbuku FROM tahunbuku WHERE aktif = 1 AND departemen = '".$departemen."'";
            $result = QueryDb($sql);
                 
            $row = mysqli_fetch_row($result);

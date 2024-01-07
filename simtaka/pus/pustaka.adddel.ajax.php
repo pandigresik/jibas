@@ -36,7 +36,7 @@ if ($op == "setnewstatus")
     OpenDb();
     $sql = "UPDATE jbsperpus.daftarpustaka
                SET aktif = '$newaktif'
-             WHERE replid = '$iddp'";
+             WHERE replid = '".$iddp."'";
     QueryDb($sql);
     CloseDb();
     
@@ -51,7 +51,7 @@ elseif ($op == "delpustaka")
     $sql = "SELECT p.katalog
               FROM jbsperpus.pustaka p, jbsperpus.daftarpustaka dp
              WHERE p.replid = dp.pustaka
-               AND dp.replid = '$iddp'";
+               AND dp.replid = '".$iddp."'";
     $res = QueryDb($sql);
     $row = mysqli_fetch_row($res);
     $idkatalog = $row[0];
@@ -59,11 +59,11 @@ elseif ($op == "delpustaka")
     $sql = "UPDATE jbsperpus.katalog
                SET counter = counter - 1
              WHERE counter > 0 
-               AND replid = '$idkatalog'";
+               AND replid = '".$idkatalog."'";
     QueryDb($sql);
     
     $sql = "DELETE FROM jbsperpus.daftarpustaka
-             WHERE replid = '$iddp'";
+             WHERE replid = '".$iddp."'";
     QueryDb($sql);
     CloseDb();
 

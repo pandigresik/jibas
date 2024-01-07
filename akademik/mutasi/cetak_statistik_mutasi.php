@@ -77,14 +77,14 @@ $sql1="SELECT * FROM jbsakad.jenismutasi ORDER BY replid";
 $result1=QueryDb($sql1);
 $cnt=1;
 	while ($row1=@mysqli_fetch_array($result1)){
-	$sql2="SELECT COUNT(*) FROM jbsakad.mutasisiswa m,jbsakad.siswa s,jbsakad.kelas k,jbsakad.tahunajaran ta,jbsakad.tingkat ti WHERE s.idkelas=k.replid AND k.idtahunajaran=ta.replid AND k.idtingkat=ti.replid AND ti.departemen='$departemen' AND ta.departemen='$departemen' AND s.statusmutasi='$row1['replid']."' AND m.jenismutasi='$row1['replid']."' AND s.statusmutasi=m.jenismutasi AND m.nis=s.nis";
+	$sql2="SELECT COUNT(*) FROM jbsakad.mutasisiswa m,jbsakad.siswa s,jbsakad.kelas k,jbsakad.tahunajaran ta,jbsakad.tingkat ti WHERE s.idkelas=k.replid AND k.idtahunajaran=ta.replid AND k.idtingkat=ti.replid AND ti.departemen='$departemen' AND ta.departemen='$departemen' AND s.statusmutasi='".$row1['replid']."' AND m.jenismutasi='".$row1['replid']."' AND s.statusmutasi=m.jenismutasi AND m.nis=s.nis";
 	$result2=QueryDb($sql2);
 	$row2=@mysqli_fetch_row($result2);
 
 ?>
 <tr><td><?=$cnt?></td><td><?=$row1['jenismutasi']?></td><td><?=$row2[0]?>&nbsp;siswa</td></tr>
 <?php
-$sql3="SELECT COUNT(*),YEAR(m.tglmutasi) FROM mutasisiswa m,siswa s,kelas k,tingkat ti,tahunajaran ta WHERE m.jenismutasi='$row1['replid']."' AND YEAR(m.tglmutasi)<='$tahunakhir' AND YEAR(m.tglmutasi)>='$tahunawal' AND m.nis=s.nis AND k.idtahunajaran=ta.replid AND k.idtingkat=ti.replid AND s.idkelas=k.replid AND ta.departemen='$departemen' AND ti.departemen='$departemen' GROUP BY YEAR(m.tglmutasi)";
+$sql3="SELECT COUNT(*),YEAR(m.tglmutasi) FROM mutasisiswa m,siswa s,kelas k,tingkat ti,tahunajaran ta WHERE m.jenismutasi='".$row1['replid']."' AND YEAR(m.tglmutasi)<='$tahunakhir' AND YEAR(m.tglmutasi)>='$tahunawal' AND m.nis=s.nis AND k.idtahunajaran=ta.replid AND k.idtingkat=ti.replid AND s.idkelas=k.replid AND ta.departemen='$departemen' AND ti.departemen='$departemen' GROUP BY YEAR(m.tglmutasi)";
 $result3=QueryDb($sql3);
 while ($row3=@mysqli_fetch_row($result3)){
 ?>

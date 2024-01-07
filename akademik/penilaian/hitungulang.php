@@ -68,8 +68,8 @@ if(isset($_POST["nis"])){
 OpenDb();
 
 if (isset($_POST['simpan'])) {
-	$sql = "UPDATE jbsakad.komennap SET predikat = '$_POST['predikat']' ".
-    	   " WHERE nis = '$nois' AND idinfo = '$_POST['idinfo']."'";	
+	$sql = "UPDATE jbsakad.komennap SET predikat = '".$_POST['predikat']."' ".
+    	   " WHERE nis = '$nois' AND idinfo  = '".$_POST['idinfo']."'";	
 	$rs = QueryDb($sql);
 
 	$nnilai = $_POST['nnilai'];
@@ -78,7 +78,7 @@ if (isset($_POST['simpan'])) {
 		$nang = $_POST["nA" . $i];
 		$nihu = $_POST["nH" . $i];
 		$sql = "UPDATE jbsakad.nap SET nilaiangka = '$nang', nilaihuruf = '$nihu' " .
-			   " WHERE nis = '$nois' AND idinfo = '$_POST['idinfo']' AND idaturan = '$idaturan'";
+			   " WHERE nis = = '".$nois."' AND idinfo  = '".$_POST['idinfo']."' AND idaturan = '".$idaturan."'";
 		$rs = QueryDb($sql);	   
 	}
 	
@@ -107,7 +107,7 @@ if (isset($_POST['simpan'])) {
 $query_infonap = "SELECT replid FROM sistoakademik.infonap " .
                  " WHERE infonap.IdKelas = '$kelas'  ".
         		 " AND infonap.IdPelajaran = '$pelajaran' ".
-                 " AND infonap.IdSemester = '$semester'";
+                 " AND infonap.IdSemester = '".$semester."'";
 $result_infonap = QueryDb($query_infonap);
 $row_infonap = @mysqli_fetch_array($result_infonap);
 $num_infonap = @mysqli_num_rows($result_infonap);
@@ -143,7 +143,7 @@ $num = @mysqli_num_rows($result);
 
 $my_data = "";
 while($row = @mysqli_fetch_array($result)) {
-    $my_data[$row['NIS']][nama] = $row['Nama'];
+    $my_data[$row['NIS']]['nama'] = $row['Nama'];
     $my_data[$row['NIS']][$row['IdJenis']] = $row['NilaiAU'];
 }
 
@@ -151,12 +151,12 @@ $query_cek = "SELECT Replid, NilaiMin FROM sistoakademik.infonap ".
              "WHERE IdPelajaran = '$pelajaran' ".
              "AND IdSemester = '$semester' ".
              "AND IdKelas = '$kelas' ".
-             "AND Tingkat = '$tingkat'";
+             "AND Tingkat = '".$tingkat."'";
 $result_cek = QueryDb($query_cek);
 $num_cek = @mysqli_num_rows($result_cek);
 $row_cek = @mysqli_fetch_array($result_cek);
  
-$query_ju = "SELECT Replid, JenisUjian FROM sistoakademik.jenisujian WHERE IdPelajaran = '$pelajaran'";
+$query_ju = "SELECT Replid, JenisUjian FROM sistoakademik.jenisujian WHERE IdPelajaran = '".$pelajaran."'";
 $result_ju = QueryDb($query_ju) or die(mysqli_error($mysqlconnection));
 $num_ju = @mysqli_num_rows($result_ju);
 while($row_ju = @mysqli_fetch_array($result_ju)) {
@@ -165,7 +165,7 @@ while($row_ju = @mysqli_fetch_array($result_ju)) {
        
 $query_nhb = "SELECT Replid, DasarPenilaian, BobotPenilaian ".
              "FROM sistoakademik.aturannhb WHERE IdPelajaran = '$pelajaran' ".
-             "AND IdTingkat = '$tingkat'";
+             "AND IdTingkat = '".$tingkat."'";
 $result_nhb = QueryDb($query_nhb) or die(mysqli_error($mysqlconnection));
 $num_nhb = @mysqli_num_rows($result_nhb);
 while($row_nhb = @mysqli_fetch_array($result_nhb)) {
@@ -200,11 +200,11 @@ if($my_data != "") {
 				$result_nhb = QueryDb($query_nhb) or die(mysqli_error($mysqlconnection));
 		
 				while($row_nhb = @mysqli_fetch_array($result_nhb)) {
-					$plit = split(";", $row_nhb[BobotPenilaian]);
+					$plit = explode(";", $row_nhb['BobotPenilaian']);
 					if($plit != "") {
 						foreach($plit as $pl) {
 							$r++;
-							list($ujian, $bobot) = split(":", $pl);
+							list($ujian, $bobot) = explode(":", $pl);
 							if($bobot != "") {
 								$as[$r] = $bobot;
 							}
@@ -214,15 +214,15 @@ if($my_data != "") {
                                          "AND IdJenis = '$ujian' " .
                                          "AND IdKelas = '$kelas'  ". 
       							     	 "AND IdPelajaran = '$pelajaran' ". 
-                                         "AND IdSemester = '$semester'";
+                                         "AND IdSemester = '".$semester."'";
 							$result_nau = QueryDb($query_nau);
 							$row_nau = mysqli_fetch_array($result_nau);
 
-							$nau_b = $row_nau[NilaiAU] * $bobot;
+							$nau_b = $row_nau['NilaiAU'] * $bobot;
 							$ttl_idat[$nnilai] = $id_aturan;
 							$ttl_bbt[$nnilai] += $bobot;
 							$ttl_nau_b[$nnilai] += $nau_b;
-							$ttl_nama[$nnilai] = $row_nhb[DasarPenilaian];
+							$ttl_nama[$nnilai] = $row_nhb['DasarPenilaian'];
 						} //foreach($plit as $pl) 
                      } //if($plit != "") 
                   } //while($row_nhb = @mysqli_fetch_array($result_nhb)) 

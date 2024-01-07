@@ -36,7 +36,7 @@ $sql = "SELECT YEAR(b.tanggal) as thn, MONTH(b.tanggal) as bln, DAY(b.tanggal) a
                b.replid as replid, b.judul as judul, b.abstrak as abstrak, b.isi as berita, b.idpengirim as idpengirim, p.nama
 		  FROM jbsvcr.beritasekolah b, jbssdm.pegawai p
 		 WHERE b.idpengirim = p.nip
-           AND b.replid = '$replid'";
+           AND b.replid = '".$replid."'";
 
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);

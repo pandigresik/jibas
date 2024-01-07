@@ -286,7 +286,7 @@ function savepesan(){
   $depan="";
   $belakang="";
   $tr="";
-  if ($row1[baru]==1){
+  if ($row1['baru']==1){
   	 	$depan="<strong>";
   		$belakang="</strong>";
 		$tr="style=\"background-color:#fcf7c1;\"";
@@ -313,19 +313,19 @@ function savepesan(){
 	<td height="25"><?=$depan?><div align="center"><?=$row1['tanggal']?><br><?=$row1['waktu']?></div><?=$belakang?></td>
     <td height="25"><?=$depan?>
 	<?php
-	if ($row1[nis]!=""){
-	$r_sis=QueryDb("SELECT nis,nama FROM jbsakad.siswa WHERE nis='$row1[nis]'");
+	if ($row1['nis']!=""){
+	$r_sis=QueryDb("SELECT nis,nama FROM jbsakad.siswa WHERE nis='".$row1['nis']."'");
 	$row_sis=@mysqli_fetch_array($r_sis);
-	$id=$row_sis[nis];
-	$nm=$row_sis[nama];
-	$gol=" [Siswa]";
+	$id=$row_sis['nis'];
+	$nm=$row_sis['nama'];
+	$gol=" ['Siswa']";
 	}
-	if ($row1[idguru]!=""){
-	$r_gr=QueryDb("SELECT nip,nama FROM jbssdm.pegawai WHERE nip='$row1[idguru]'");
+	if ($row1['idguru']!=""){
+	$r_gr=QueryDb("SELECT nip,nama FROM jbssdm.pegawai WHERE nip='".$row1['idguru']."'");
 	$row_gr=@mysqli_fetch_array($r_gr);
-	$id=$row_gr[nip];
-	$nm=$row_gr[nama];
-	$gol=" [Guru]";
+	$id=$row_gr['nip'];
+	$nm=$row_gr['nama'];
+	$gol=" ['Guru']";
 	}
 	echo $id."-".$nm."&nbsp;&nbsp;".$gol;
 	?>

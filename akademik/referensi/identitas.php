@@ -46,9 +46,9 @@ if ($op == "delheader")
 	if ($row[0] != '')
 		$sql = "UPDATE jbsumum.identitas SET nama=NULL, situs=NULL, email=NULL, alamat1=NULL, 
 					   alamat2=NULL, telp1=NULL, telp2=NULL, telp3=NULL, telp4=NULL, fax1=NULL, fax2=NULL 
-				 WHERE departemen = '$departemen'";
+				 WHERE departemen = '".$departemen."'";
 	else
-		$sql = "DELETE FROM jbsumum.identitas WHERE departemen = '$departemen'";
+		$sql = "DELETE FROM jbsumum.identitas WHERE departemen = '".$departemen."'";
 	QueryDb($sql);		
 	CloseDb();		
 }
@@ -60,9 +60,9 @@ if ($op == "dellogo")
 	$result = QueryDb($sql);
 	$row = @mysqli_fetch_row($result);
 	if ($row[0] != '')
-		$sql = "UPDATE jbsumum.identitas SET foto=NULL WHERE departemen = '$departemen'";
+		$sql = "UPDATE jbsumum.identitas SET foto=NULL WHERE departemen = '".$departemen."'";
 	else
-		$sql = "DELETE FROM jbsumum.identitas WHERE departemen = '$departemen'";
+		$sql = "DELETE FROM jbsumum.identitas WHERE departemen = '".$departemen."'";
 	QueryDb($sql);		
 	CloseDb();		
 }

@@ -93,7 +93,7 @@ $jum = @mysqli_num_rows($result);
                 if ($i == 1 || $i % 3 == 1)
                     echo "<tr>";
 						
-				$kode = split('/',$row[0]);
+				$kode = explode('/',$row[0]);
 				$barcode = $row[1];	?>
                 
 				<td width="33%" align="center" >

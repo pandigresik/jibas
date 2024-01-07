@@ -66,14 +66,14 @@ try
             $sql = "INSERT INTO jbsvcr.notescomment
                        SET nis = NULL, nip = '$login', ";
                        
-        $sql .= "notesid = '$notesid', tanggal = NOW(), komen = '$comment', fkomen = '$fcomment'";
+        $sql .= "notesid = '$notesid', tanggal = NOW(), komen = '$comment', fkomen = '".$fcomment."'";
         
         QueryDbEx($sql);
     }
     
     $sql = "UPDATE jbsvcr.notes
                SET lastactive = NOW()
-             WHERE replid = '$notesid'";
+             WHERE replid = '".$notesid."'";
     QueryDbEx($sql);         
     
     CommitTrans();

@@ -32,7 +32,7 @@ function ShowCbSearchDepartemen()
     echo "<option value='ALLDEPT'>(all departement)</option>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='$row[0]'>$row[0]</option>";
+        echo "<option value='".$row[0]."'>$row[0]</option>";
     }
     echo "</select>";
 }
@@ -152,13 +152,13 @@ function ShowUserPict()
     {
         $sql = "SELECT IF(foto IS NULL, 0, 1), foto
                   FROM jbssdm.pegawai
-                 WHERE nip = '$userId'";
+                 WHERE nip = '".$userId."'";
     }
     else
     {
         $sql = "SELECT IF(foto IS NULL, 0, 1), foto
                   FROM jbsakad.siswa
-                 WHERE nis = '$userId'";
+                 WHERE nis = '".$userId."'";
     }
 
     $res = QueryDb($sql);

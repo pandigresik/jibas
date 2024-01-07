@@ -114,7 +114,7 @@ $dept = isset($_REQUEST["dept"]) ? {$_REQUEST["dept"]} : "";
                 $no += 1;
 
                 $awalan = "";
-                $sql = "SELECT awalan FROM jbsfina.formatnomortagihan WHERE departemen = '".$row[0]'";
+                $sql = "SELECT awalan FROM jbsfina.formatnomortagihan WHERE departemen = '".$row[0]."'";
                 $res2 = QueryDb($sql);
                 if ($row2 = mysqli_fetch_row($res2))
                 {
@@ -122,7 +122,7 @@ $dept = isset($_REQUEST["dept"]) ? {$_REQUEST["dept"]} : "";
                 }
                 else
                 {
-                    $sql = "INSERT INTO jbsfina.formatnomortagihan SET awalan = '$no', departemen = '".$row[0]', issync = 0";
+                    $sql = "INSERT INTO jbsfina.formatnomortagihan SET awalan = '$no', departemen = '".$row[0]."', issync = 0";
                     QueryDb($sql);
 
                     $awalan = $no;

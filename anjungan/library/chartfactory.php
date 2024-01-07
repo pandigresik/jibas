@@ -112,7 +112,7 @@ class ChartFactory
 
 		// Setup month as labels on the X-axis
 		$monthyear = $this->xdata;
-		//$monthyear = split('-',$monthyear);
+		//$monthyear = explode('-',$monthyear);
 		//$xlab = $this->bulan[$monthyear[0]-1]." ".$monthyear[1];
 		$graph->xaxis->SetTickLabels($monthyear);
 		$graph->xaxis->SetFont(FF_FONT1,FS_NORMAL,8);

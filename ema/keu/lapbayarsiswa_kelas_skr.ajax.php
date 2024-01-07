@@ -268,7 +268,7 @@ while ($row4 = mysqli_fetch_array($result_tot))
 	$sql3 = "SELECT date_format(p.tanggal, '%d-%b-%y') as tanggal, jumlah 
 	           FROM penerimaaniuran p, jurnal j
 			  WHERE p.idjurnal = j.replid AND j.idtahunbuku = $idtahunbuku 
-			    AND nis = '".$row4[nis]' AND idpenerimaan = $idpenerimaan";
+			    AND nis = '".$row4['nis']."' AND idpenerimaan = $idpenerimaan";
 	$result3 = QueryDb($sql3);
 	$totalbayar2 = 0;
 	while ($row3 = mysqli_fetch_array($result3)) 

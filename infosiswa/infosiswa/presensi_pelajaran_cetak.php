@@ -30,7 +30,7 @@ $kelas = $_REQUEST['kelas'];
 $nis = $_REQUEST['nis'];
 
 OpenDb();
-$sql = "SELECT t.departemen, a.tahunajaran, k.kelas, t.tingkat, s.nama, a.tglmulai, a.tglakhir FROM tahunajaran a, kelas k, tingkat t, siswa s WHERE k.idtingkat = t.replid AND k.idtahunajaran = a.replid AND k.replid = $kelas AND s.nis = '$nis'";  
+$sql = "SELECT t.departemen, a.tahunajaran, k.kelas, t.tingkat, s.nama, a.tglmulai, a.tglakhir FROM tahunajaran a, kelas k, tingkat t, siswa s WHERE k.idtingkat = t.replid AND k.idtahunajaran = a.replid AND k.replid = $kelas AND s.nis = '".$nis."'";  
 
 $result = QueryDB($sql);	
 $row = mysqli_fetch_array($result);

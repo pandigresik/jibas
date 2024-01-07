@@ -74,7 +74,7 @@ else if ($op == "xm8r389xemx23xb2378e23")
     $row = mysqli_fetch_row($res);
     $no = $row[0];
 
-    $sql = "DELETE FROM tambahandatacalon WHERE nopendaftaran = '$no'";
+    $sql = "DELETE FROM tambahandatacalon WHERE nopendaftaran = '".$no."'";
     QueryDb($sql);
 
 	$sql = "DELETE FROM calonsiswa WHERE replid = '".$_REQUEST['replid']."'"; 	
@@ -275,7 +275,7 @@ function change_baris() {
 	if (@mysqli_num_rows($result)>0)
 	{ 
 		$sql1 = "SELECT COUNT(c.replid) AS isi FROM calonsiswa c WHERE c.idkelompok = '$kelompok' AND c.idproses = '$proses' AND c.aktif = 1";	
-		$sql2 = "SELECT kapasitas, keterangan FROM kelompokcalonsiswa k WHERE k.idproses = '$proses' AND k.replid = '$kelompok'";
+		$sql2 = "SELECT kapasitas, keterangan FROM kelompokcalonsiswa k WHERE k.idproses = '$proses' AND k.replid = '".$kelompok."'";
 		$result1 = QueryDb($sql1);
 		$result2 = QueryDb($sql2);
 		$row1 = @mysqli_fetch_array($result1);

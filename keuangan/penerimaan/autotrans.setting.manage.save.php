@@ -64,7 +64,7 @@ else
 {
     $sql = "INSERT INTO jbsfina.autotrans 
                SET judul = '$judul', aktif = 1, kelompok = $kelompok, smsinfo = $smsinfo,  
-                   urutan = $urutan, keterangan = '$keterangan', departemen = '$departemen'";
+                   urutan = $urutan, keterangan = '$keterangan', departemen = '".$departemen."'";
     QueryDbTrans($sql, $success);
 
     if ($success)
@@ -94,7 +94,7 @@ for($i = 0; $success && $i < count($lsPenerimaan); $i++)
             $sql = "INSERT INTO jbsfina.autotransdata 
                        SET idautotrans = $idAutoTrans, idpenerimaan = $info->IdPenerimaan, 
                            besar = $info->Besar, aktif = $info->Aktif, urutan = $info->Urutan, 
-                           keterangan = '$keterangan'";
+                           keterangan = '".$keterangan."'";
             QueryDbTrans($sql, $success);
         }
         else

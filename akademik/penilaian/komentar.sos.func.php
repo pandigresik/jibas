@@ -57,7 +57,7 @@ function ReadParams(): void
         $komentar = CQ($_REQUEST['komentar']);
     }
 
-    $sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '$nis'";
+    $sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '".$nis."'";
     $res = QueryDb($sql);
     $row = mysqli_fetch_row($res);
     $nama = $row[0];
@@ -116,18 +116,18 @@ function SimpanData(): void
                  WHERE nis = '$nis'
                    AND idsemester = '$semester'
                    AND idkelas = '$kelas'
-                   AND jenis = '$jenis'";
+                   AND jenis = '".$jenis."'";
         //echo "$sql<br>";
         $ndata = (int) FetchSingle($sql);
 
         if ($ndata == 0) {
             $sql = "INSERT INTO jbsakad.komenrapor
                        SET nis = '$nis', idsemester = '$semester', idkelas = '$kelas',
-                           predikat = '$predikat', komentar = '$komentar', jenis = '$jenis'";
+                           predikat = '$predikat', komentar = '$komentar', jenis = '".$jenis."'";
         } else {
             $sql = "UPDATE jbsakad.komenrapor
                        SET predikat = '$predikat', komentar = '$komentar', jenis = '$jenis'
-                     WHERE nis = '$nis' AND idsemester = '$semester' AND idkelas = '$kelas'";
+                     WHERE nis = '$nis' AND idsemester = '$semester' AND idkelas = '".$kelas."'";
         }
         //echo "$sql<br>";
 
@@ -158,7 +158,7 @@ function GetListKomentar($idpelajaran, $idtingkat, $jenis): string
               FROM jbsakad.pilihkomensos
              WHERE idpelajaran = '$idpelajaran'
                AND idtingkat = '$idtingkat'
-               AND jenis = '$jenis'";
+               AND jenis = '".$jenis."'";
     $res2 = QueryDb($sql);
     $numlen = strlen((string) mysqli_num_rows($res2));
     $cnt = 0;
@@ -185,7 +185,7 @@ function GetKomentar($replid)
 {
     $sql = "SELECT komentar
               FROM jbsakad.pilihkomensos
-             WHERE replid = '$replid'";
+             WHERE replid = '".$replid."'";
     $res = QueryDb($sql);
     if ($row = mysqli_fetch_row($res)) {
         return $row[0];

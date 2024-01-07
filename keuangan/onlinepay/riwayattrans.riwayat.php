@@ -64,7 +64,7 @@ if (!isset($_REQUEST["stidpgtrans"]))
         $sql .= " AND p.jenis = $metode";
 
     if ($pembayaran != "ALL")
-        $sql .= " AND pd.kategori = '$pembayaran'";
+        $sql .= " AND pd.kategori = '".$pembayaran."'";
 
     if ($idPembayaran != "0")
     {
@@ -77,13 +77,13 @@ if (!isset($_REQUEST["stidpgtrans"]))
     }
 
     if ($siswa != "ALL")
-        $sql .= " AND p.nis = '$nis'";
+        $sql .= " AND p.nis = '".$nis."'";
 
     if ($bankNo <> "ALL")
-        $sql .= " AND p.bankno = '$bankNo'";
+        $sql .= " AND p.bankno = '".$bankNo."'";
 
     if ($idPetugas != "ALL")
-        $sql .= " AND p.idpetugas = '$idPetugas'";
+        $sql .= " AND p.idpetugas = '".$idPetugas."'";
 
     //$sql .= " ORDER BY p.tanggal DESC";
     //echo "$sql<br>";
@@ -210,11 +210,11 @@ $nPage = ceil($nData / $nRowPerPage);
             echo "<table border='0' cellpadding='2' cellspacing='0' width='100%'>";
             echo "<tr>";
             echo "<td width='80%'>";
-            echo "<strong>$row['namasiswa']</strong>  |  $row['nis']<br>";
-            echo "<strong>$row['transaksi']</strong>";
+            echo "<strong>".$row['namasiswa']</strong>  |  $row['nis']."<br>";
+            echo "<strong>".$row['transaksi']."</strong>";
             echo "</td>";
             echo "<td width='20%' align='right'>";
-            echo "<i>$row['fwaktu']</i>";
+            echo "<i>".$row['fwaktu']."</i>";
             echo "</td>";
             echo "</tr>";
             echo "</table>";
@@ -256,7 +256,7 @@ $nPage = ceil($nData / $nRowPerPage);
                 echo "<td width='220px' align='left'>$nama</td>";
                 echo "<td width='110px' align='right'>$rp</td>";
                 echo "<td width='110px' align='center'>";
-                echo "<a href='#' style='color: #0000ff; text-decoration: underline; font-weight: normal;' onclick='showRincianJurnal($cnt)'>$row2[nokas]</a>";
+                echo "<a href='#' style='color: #0000ff; text-decoration: underline; font-weight: normal;' onclick='showRincianJurnal($cnt)'>".$row2['nokas']."</a>";
                 echo "</td>";
                 echo "</tr>";
             }
@@ -279,12 +279,12 @@ $nPage = ceil($nData / $nRowPerPage);
             echo "</td>";
             echo "<td align='left' valign='top'>";
             if ($jenis == 1)
-                echo "<b>$row['nomor']</b><br><i>$nomorTs</i><br><i>$row['paymentid']</i>";
+                echo "<b>".$row['nomor']</b><br><i>$nomorTs</i><br><i>$row['paymentid']."</i>";
             else
-                echo "<b>$row['nomor']</b><br><i>$row['paymentid']</i>";
+                echo "<b>".$row['nomor']</b><br><i>$row['paymentid']."</i>";
             echo "</td>";
-            echo "<td align='left' valign='top'><strong>$row['bank']</strong><br><i>$row['bankno']</i></td>";
-            echo "<td align='left' valign='top'>$row['petugas']<br>$row['idpetugas']<br><i>$row['ketver']</i></td>";
+            echo "<td align='left' valign='top'><strong>".$row['bank']</strong><br><i>$row['bankno']."</i></td>";
+            echo "<td align='left' valign='top'>".$row['petugas']<br>$row['idpetugas']<br><i>$row['ketver']."</i></td>";
 
             echo "</tr>";
         }

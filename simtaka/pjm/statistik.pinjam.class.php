@@ -25,7 +25,7 @@ class CStat{
 	function OnStart(){
 		$op=$_REQUEST['op'];
 		if ($op=="del"){
-			$sql = "DELETE FROM format WHERE replid=$_REQUEST['id']";
+			$sql = "DELETE FROM format WHERE replid= '".$_REQUEST['id']."'";
 			QueryDb($sql);
 		}
 	}
@@ -219,14 +219,14 @@ class CStat{
 		$result1 = QueryDb($sql1);
 		if (@mysqli_num_rows($result1)>0){
 			$row1 = @mysqli_fetch_array($result1);
-			return $row1[nama];
+			return $row1['nama'];
 			//return $sql1;
 		} else {
 			$sql2 = "SELECT nama FROM ".get_db_name('sdm').".pegawai WHERE nip='$idanggota'";
 			$result2 = QueryDb($sql2);
 			if (@mysqli_num_rows($result2)>0){
 				$row2 = @mysqli_fetch_array($result2);
-				return $row2[nama];
+				return $row2['nama'];
 				//return $sql2;
 			} else {
 				$sql3 = "SELECT nama FROM anggota WHERE noregistrasi='$idanggota'";

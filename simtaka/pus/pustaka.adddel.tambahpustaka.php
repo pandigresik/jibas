@@ -56,7 +56,7 @@ if (isset($_REQUEST['Simpan'])) Save();
 <?php
 $sql = "SELECT judul
           FROM jbsperpus.pustaka
-         WHERE replid = '$idpustaka'";
+         WHERE replid = '".$idpustaka."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_row($res);
 $judul = $row[0];
@@ -79,7 +79,7 @@ if ($idperpustakaan == -1)
 else
     $sql = "SELECT replid, nama
               FROM jbsperpus.perpustakaan
-             WHERE replid = '$idperpustakaan'";
+             WHERE replid = '".$idperpustakaan."'";
 $res = QueryDb($sql);
 $cnt = 0;
 while($row = mysqli_fetch_row($res))

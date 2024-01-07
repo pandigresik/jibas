@@ -86,7 +86,7 @@ if ($op == "xm8r389xemx23xb2378e23") {
 	}
 	
 	if ($success){
-		$sql1="DELETE FROM jbsakad.alumni WHERE nis='$nis' AND departemen = '$departemen' AND klsakhir='$idkelas' AND tgllulus = '$tglmutasi'";
+		$sql1="DELETE FROM jbsakad.alumni WHERE nis='$nis' AND departemen = '$departemen' AND klsakhir='$idkelas' AND tgllulus = '".$tglmutasi."'";
 		$result1=QueryDbTrans($sql1, $success);
 	}
 	

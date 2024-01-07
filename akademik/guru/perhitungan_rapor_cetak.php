@@ -39,7 +39,7 @@ OpenDb();
 
 $sql = "SELECT j.departemen, j.nama, p.nip, p.nama 
 		  FROM guru g, jbssdm.pegawai p, pelajaran j 
-		 WHERE g.nip=p.nip AND g.idpelajaran = j.replid AND j.replid = '$id_pelajaran' AND g.nip = '$nip'"; 
+		 WHERE g.nip=p.nip AND g.idpelajaran = j.replid AND j.replid = '$id_pelajaran' AND g.nip = '".$nip."'"; 
 $result = QueryDb($sql);
 $row = @mysqli_fetch_row($result);
 $departemen = $row[0];
@@ -110,8 +110,8 @@ $guru = $row[2].' - '.$row[3];
 		<td height="25">
 <?php 	$query_ju = "SELECT j.jenisujian, a.bobot, a.aktif, a.replid FROM aturannhb a, tingkat t, jenisujian j ".
 				 	"WHERE a.idtingkat = '".$row_tkt['replid']."' AND a.idpelajaran = '$id_pelajaran' AND j.replid = a.idjenisujian ".
-					"AND t.departemen = '$departemen' AND a.dasarpenilaian = '".$row_at[0]' AND t.replid = a.idtingkat ".
-					"AND a.nipguru = '$nip'";
+					"AND t.departemen = '$departemen' AND a.dasarpenilaian = '".$row_at[0]."' AND t.replid = a.idtingkat ".
+					"AND a.nipguru = '".$nip."'";
 		$result_ju = QueryDb($query_ju);
 		while($row_ju = mysqli_fetch_row($result_ju))
 		{

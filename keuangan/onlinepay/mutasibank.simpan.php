@@ -111,7 +111,7 @@ while($row = mysqli_fetch_array($res))
     echo "<td align='center' style='background-color: #efefef'>$no</td>";
     echo "<td align='left'>$row['nama']";
     echo "<input type='hidden' id='iddeposit-$no' value='".$row['replid']."'>";
-    echo "<input type='hidden' id='deposit-$no' value='$row['nama']'>";
+    echo "<input type='hidden' id='deposit-$no' value='".$row['nama']."'>";
     echo "</td>";
     $el = "jum-$no";
     echo "<td align='left'><input type='text' id='$el' class='inputbox' style='width: 180px' value='Rp 0' onblur='formatRupiah(\"$el\"); calcJumSimpan();' onfocus='unformatRupiah(\"$el\")'></td>";

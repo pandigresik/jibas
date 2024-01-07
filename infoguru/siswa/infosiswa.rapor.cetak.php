@@ -36,7 +36,7 @@ $nis = $_REQUEST['nis'];
 $semester = $_REQUEST['semester'];
 
 OpenDb();
-$sql = "SELECT t.departemen, a.tahunajaran, k.kelas, t.tingkat, s.nama, a.tglmulai, a.tglakhir FROM tahunajaran a, kelas k, tingkat t, siswa s WHERE k.idtingkat = t.replid AND k.idtahunajaran = a.replid AND k.replid = '$kelas' AND s.nis = '$nis'";  
+$sql = "SELECT t.departemen, a.tahunajaran, k.kelas, t.tingkat, s.nama, a.tglmulai, a.tglakhir FROM tahunajaran a, kelas k, tingkat t, siswa s WHERE k.idtingkat = t.replid AND k.idtahunajaran = a.replid AND k.replid = '$kelas' AND s.nis = '".$nis."'";  
 
 $result = QueryDB($sql);	
 $row = mysqli_fetch_array($result);
@@ -152,7 +152,7 @@ function ShowKomentar()
                  WHERE k.nis = '$nis' 
                    AND k.idsemester = '$semester' 
                    AND k.idkelas = '$kelas'
-                   AND k.jenis = '$jenis'";
+                   AND k.jenis = '".$jenis."'";
         $res2 = QueryDb($sql);
         $komentar = "";
         $predikat = "";
@@ -290,7 +290,7 @@ function ShowRaporDeskripsi()
                    AND i.idsemester = '$semester' 
                    AND i.idkelas = '$kelas'
                    AND n.idaturan = a.replid 	   
-                   AND a.dasarpenilaian = '$asp'";
+                   AND a.dasarpenilaian = '".$asp."'";
             $res = QueryDb($sql);
             if (mysqli_num_rows($res) > 0)
             {
@@ -409,7 +409,7 @@ function ShowRaporColumn()
                    AND i.idsemester = '$semester' 
                    AND i.idkelas = '$kelas'
                    AND n.idaturan = a.replid 	   
-                   AND a.dasarpenilaian = '$asp'";
+                   AND a.dasarpenilaian = '".$asp."'";
                 $res = QueryDb($sql);
                 if (mysqli_num_rows($res) > 0)
                 {
@@ -471,7 +471,7 @@ function ShowRaporRow()
                  FROM infonap
                 WHERE idpelajaran = '$idpel'
                   AND idsemester = '$semester'
-                  AND idkelas = '$kelas'";
+                  AND idkelas = '".$kelas."'";
         $res = QueryDb($sql);
         $row = mysqli_fetch_row($res);
         $nilaimin = $row[0];
@@ -502,7 +502,7 @@ function ShowRaporRow()
                        AND i.idsemester = '$semester' 
                        AND i.idkelas = '$kelas'
                        AND n.idaturan = a.replid 	   
-                       AND a.dasarpenilaian = '$asp'";
+                       AND a.dasarpenilaian = '".$asp."'";
             $res2 = QueryDb($sql);
             if (mysqli_num_rows($res2) > 0)
             {

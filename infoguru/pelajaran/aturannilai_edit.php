@@ -56,7 +56,7 @@ $tingkat = $row[4];
 $ERROR_MSG = "";
 if (isset($_REQUEST['Simpan'])) {
 	OpenDb();	
-	$sql = "DELETE FROM aturangrading WHERE idpelajaran = '$id' AND nipguru = '$nip' AND idtingkat = '$idtingkat' AND dasarpenilaian = '$aspek'"; 
+	$sql = "DELETE FROM aturangrading WHERE idpelajaran = '$id' AND nipguru = '$nip' AND idtingkat = '$idtingkat' AND dasarpenilaian = '".$aspek."'"; 
 	
 	$result = QueryDb($sql);
 	CloseDb();
@@ -241,7 +241,7 @@ function validate() {
 		</tr>
 		<?php
 		OpenDb();
-		$sql = "SELECT nmin, nmax, grade FROM aturangrading WHERE idpelajaran = '$id' AND nipguru = '$nip' AND idtingkat = '$idtingkat' AND dasarpenilaian = '$aspek'"; 
+		$sql = "SELECT nmin, nmax, grade FROM aturangrading WHERE idpelajaran = '$id' AND nipguru = '$nip' AND idtingkat = '$idtingkat' AND dasarpenilaian = '".$aspek."'"; 
 		$result = QueryDb($sql);
 		CloseDb();
 		

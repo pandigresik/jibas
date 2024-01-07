@@ -65,7 +65,7 @@ try
     $sql = "SELECT SUM(kredit) - SUM(debet)
               FROM jbsfina.tabungan
              WHERE nis = '$nis'
-               AND idtabungan = '$idDataTabungan'";
+               AND idtabungan = '".$idDataTabungan."'";
     echo "$sql<br>";
     $res = QueryDbEx($sql);
     $row = mysqli_fetch_row($res);
@@ -168,7 +168,7 @@ try
 
         $sql = "UPDATE jbsfina.penerimaanjtt 
                    SET jumlah = '$jBayar', alasan='$alasan'
-                 WHERE replid = '$idPenerimaanJtt'";
+                 WHERE replid = '".$idPenerimaanJtt."'";
         echo "$sql<br>";
         $res = QueryDbEx($sql);
 
@@ -182,7 +182,7 @@ try
 
         $sql = "UPDATE jbsfina.jurnal 
                    SET transaksi = '$ketJurnal' 
-                 WHERE replid = '$idJurnal'";
+                 WHERE replid = '".$idJurnal."'";
         echo "$sql<br>";
         $res = QueryDbEx($sql);
 
@@ -238,14 +238,14 @@ try
     $sql = "UPDATE jbsfina.jurnaldetail
                SET debet = '0', kredit = '$jBayar'
              WHERE idjurnal = '$idJurnalTabungan'
-               AND koderek = '$rekKasTab'";
+               AND koderek = '".$rekKasTab."'";
     echo "$sql<br>";
     QueryDbEx($sql);
 
     $sql = "UPDATE jbsfina.jurnaldetail
                SET debet = '$jBayar', kredit = '0'
              WHERE idjurnal = '$idJurnalTabungan'
-               AND koderek = '$rekUtangTab'";
+               AND koderek = '".$rekUtangTab."'";
     echo "$sql<br>";
     QueryDbEx($sql);
 

@@ -33,7 +33,7 @@ require_once('../cek.php');
 OpenDb();
 
 $replid = $_REQUEST["replid"];
-$sql_pegawai = "SELECT * FROM jbssdm.pegawai WHERE replid = '$replid'";
+$sql_pegawai = "SELECT * FROM jbssdm.pegawai WHERE replid = '".$replid."'";
 $result_pegawai = QueryDb($sql_pegawai);
 $row_pegawai = @mysqli_fetch_array($result_pegawai);
 
@@ -459,7 +459,7 @@ function cek_form() {
 	}
 	
 	if (file.length>0){
-		var x = file.split('.');
+		var x = file.explode('.');
 		ext = x[(x.length-1)];
 		if (ext!='JPG' && ext!='jpg' && ext!='Jpg' && ext!='JPg' && ext!='JPEG' && ext!='jpeg'){
 			alert ('Format Gambar harus ber-extensi jpg atau JPG !');

@@ -101,7 +101,7 @@ function ShowLikeButton($idMedia)
     $sql = "SELECT COUNT(id)
               FROM jbsel.medialike
              WHERE idmedia = $idMedia
-               AND $userCol = '$userId'";
+               AND $userCol = '".$userId."'";
     $nLike = FetchSingle($sql);
 
     if ($nLike == 0)
@@ -179,7 +179,7 @@ function ShowCountNotes($idMedia)
     $sql = "SELECT COUNT(id)
               FROM jbsel.medianotes
              WHERE idmedia = $idMedia
-               AND $userCol = '$userId'";
+               AND $userCol = '".$userId."'";
     return FetchSingle($sql);
 
 }
@@ -198,7 +198,7 @@ function SetMediaLike($like, $idMedia)
     else
         $sql = "DELETE FROM jbsel.medialike 
                  WHERE idmedia = $idMedia
-                   AND $userCol = '$userId'";
+                   AND $userCol = '".$userId."'";
     QueryDb($sql);
 
     $nLike = 0;

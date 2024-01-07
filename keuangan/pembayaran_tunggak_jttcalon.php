@@ -54,7 +54,7 @@ $idcalon = 0;
 $sql = "SELECT c.replid, c.nopendaftaran, c.nama, c.telponsiswa as telpon, c.hpsiswa as hp, 
 				   k.kelompok, c.alamatsiswa as alamattinggal, p.proses 
 			 FROM jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k, jbsakad.prosespenerimaansiswa p 
-			WHERE c.idkelompok = k.replid AND c.idproses = p.replid AND c.nopendaftaran = '$nopendaftaran'";
+			WHERE c.idkelompok = k.replid AND c.idproses = p.replid AND c.nopendaftaran = '".$nopendaftaran."'";
 		
 $result = QueryDb($sql);
 if (mysqli_num_rows($result) == 0) 
@@ -76,7 +76,7 @@ else
 }
 
 //// Informasi nama penerimaan
-$sql = "SELECT nama FROM datapenerimaan WHERE replid = '$idpenerimaan'";
+$sql = "SELECT nama FROM datapenerimaan WHERE replid = '".$idpenerimaan."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $namapenerimaan = $row[0];
@@ -92,7 +92,7 @@ $lunas = 0;
 // FIXED: 27 Agustus 2010
 $sql = "SELECT b.replid AS id, b.besar, b.keterangan, b.lunas, b.info1 AS idjurnal 
  		    FROM besarjttcalon b 
-		   WHERE b.idcalon = '$idcalon' AND b.idpenerimaan = '$idpenerimaan' AND b.info2 = '$idtahunbuku'";	
+		   WHERE b.idcalon = '$idcalon' AND b.idpenerimaan = '$idpenerimaan' AND b.info2 = '".$idtahunbuku."'";	
 
 $result = QueryDb($sql);
 $bayar = mysqli_num_rows($result);
@@ -357,7 +357,7 @@ function panggil(elem){
         <td align="center" colspan="2"> 
 <?php 	  if ($bayar > 0 && $lunas <> 2) 
 		  { 
-        		$sql = "SELECT count(*) FROM penerimaanjttcalon WHERE idbesarjttcalon = '$idbesarjtt'";
+        		$sql = "SELECT count(*) FROM penerimaanjttcalon WHERE idbesarjttcalon = '".$idbesarjtt."'";
         		$result = QueryDb($sql);
         		$row = mysqli_fetch_row($result);
         		$nbayar = $row[0];

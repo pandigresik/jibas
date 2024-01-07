@@ -66,7 +66,7 @@ if (isset($_REQUEST['simpan'])) {
 	$jam2=$jam2simpan.":".$menit2simpan;
 	
 	OpenDb();
-	$sql = "SELECT * FROM jam WHERE jamke = $jamke AND departemen = '$departemen'";
+	$sql = "SELECT * FROM jam WHERE jamke = $jamke AND departemen = '".$departemen."'";
 	$result = QueryDb($sql);
 	if (mysqli_num_rows($result) > 0) {
 		CloseDb();

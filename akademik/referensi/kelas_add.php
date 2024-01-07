@@ -69,11 +69,11 @@ if (isset($_REQUEST['Simpan'])) {
 }
 
 OpenDb();
-$sql_get_namatahunajaran = "SELECT tahunajaran FROM jbsakad.tahunajaran WHERE replid = '$tahunajaran'";
+$sql_get_namatahunajaran = "SELECT tahunajaran FROM jbsakad.tahunajaran WHERE replid = '".$tahunajaran."'";
 $result_get_namatahunajaran = QueryDb($sql_get_namatahunajaran);	
 $row_get_namatahunajaran =@mysqli_fetch_array($result_get_namatahunajaran);
 
-$sql_get_namatingkat = "SELECT tingkat FROM jbsakad.tingkat WHERE replid = '$tingkat'";
+$sql_get_namatingkat = "SELECT tingkat FROM jbsakad.tingkat WHERE replid = '".$tingkat."'";
 $result_get_namatingkat = QueryDb($sql_get_namatingkat);
 $row_get_namatingkat =@mysqli_fetch_array($result_get_namatingkat);
 CloseDb();

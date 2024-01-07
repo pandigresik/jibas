@@ -196,13 +196,13 @@ function chg_title_color(id,stat){
                 <em>
 					<?php
 					OpenDb();
-					$sql_get_peg="SELECT nama FROM jbssdm.pegawai WHERE nip='$row1[idpengirim]'";
+					$sql_get_peg="SELECT nama FROM jbssdm.pegawai WHERE nip='".$row1['idpengirim']."'";
 					$res_get_peg=QueryDb($sql_get_peg);
 					if (@mysqli_num_rows($res_get_peg)>0){
 						$row_get_peg=@mysqli_fetch_array($res_get_peg);
 						echo $row1['idpengirim']."-".$row_get_peg['nama'];
 					} else {
-					$sql_get_nis="SELECT nama FROM jbsakad.siswa WHERE nis='$row1[idpengirim]'";
+					$sql_get_nis="SELECT nama FROM jbsakad.siswa WHERE nis='".$row1['idpengirim']."'";
 					$res_get_nis=QueryDb($sql_get_nis);
 					$row_get_nis=@mysqli_fetch_array($res_get_nis);
 						echo $row1['idpengirim']."-".$row_get_nis['nama'];
@@ -213,12 +213,12 @@ function chg_title_color(id,stat){
               </tr>
               <tr onclick="bacaberita('<?=$row1['replid']?>')" onmouseover="chg_title_color('title<?=$row1['replid']?>','1')" onmouseout="chg_title_color('title<?=$row1['replid']?>','0')">
                 <td colspan="2">
-					<?=$row1[abstrak];?>
+					<?=$row1['abstrak'];?>
                 </td>
               </tr>
               <tr>
               	<td colspan="2" align="right">
-              		<?php if ($row1[idguru]==$idguru){ ?>
+              		<?php if ($row1['idguru']==$idguru){ ?>
                         <img src="../../images/ico/ubah.png" border="0" onclick="ubah('<?=$row1['replid']?>','<?=$page?>')" style="cursor:pointer;" title="Ubah Berita ini !" />&nbsp;<img src="../../images/ico/hapus.png" border="0" onclick="hapus('<?=$row1['replid']?>','<?=$page?>')" style="cursor:pointer;" title="Hapus Berita ini !" />
 	                <?php } ?>              	</td>
               </tr>

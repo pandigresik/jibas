@@ -31,10 +31,10 @@ $sessionid = $_SESSION["SessionId"];
 
 OpenDb();
 
-$sql = "DELETE FROM jbscbe.webuserinfo WHERE userid = '$userid' AND sessionid = '$sessionid'";
+$sql = "DELETE FROM jbscbe.webuserinfo WHERE userid = '$userid' AND sessionid = '".$sessionid."'";
 QueryDb($sql);
 
-$sql = "DELETE FROM jbscbe.webuserintent WHERE userid = '$userid'";
+$sql = "DELETE FROM jbscbe.webuserintent WHERE userid = '".$userid."'";
 QueryDb($sql);
 
 CloseDb();

@@ -25,7 +25,7 @@ function GetVendorName($vendorId)
 {
     $vendorName = "";
 
-    $sql = "SELECT nama FROM jbsfina.vendor WHERE vendorid = '$vendorId'";
+    $sql = "SELECT nama FROM jbsfina.vendor WHERE vendorid = '".$vendorId."'";
     $res = QueryDb($sql);
     if ($row = mysqli_fetch_row($res))
     {
@@ -48,7 +48,7 @@ function ShowSelectPetugas($vendorId)
     $res = QueryDb($sql);
     while($row = mysqli_fetch_row($res))
     {
-        $sb->AppendLine("<option value='$row[0]'>$row[1]</option>");
+        $sb->AppendLine("<option value='".$row[0]."'>$row[1]</option>");
     }
     $sb->AppendLine("</select>");
 
@@ -70,7 +70,7 @@ function TambahVendorUser()
     $sql = "SELECT COUNT(replid) 
               FROM jbsfina.vendoruser
              WHERE vendorid = '$vendorId'
-               AND userid = '$userId'";
+               AND userid = '".$userId."'";
     $nData = FetchSingle($sql);
     if ($nData != 0)
         return createJsonReturn(-1, "User id $userId sudah terdaftar sebagai petugas");

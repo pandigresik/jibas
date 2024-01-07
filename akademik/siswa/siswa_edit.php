@@ -312,7 +312,7 @@ require_once('siswa_edit.func.php');
                        <?php if ($row_siswa['kelamin']=="l") echo "checked='checked'";	?>
                         onKeyPress="return focusNext('tmplahir', event)"/>&nbsp;Laki-laki&nbsp;&nbsp;
                 <input type="radio" id="kelamin" name="kelamin" value="p" 
-                       <?php if ($row_siswa[kelamin]=="p") echo "checked='checked'"; ?>
+                       <?php if ($row_siswa['kelamin']=="p") echo "checked='checked'"; ?>
                         onKeyPress="return focusNext('tmplahir', event)"/>&nbsp;Perempuan
             </td>
         </tr>
@@ -321,7 +321,7 @@ require_once('siswa_edit.func.php');
             <td colspan="2">
                 <input type="text" name="tmplahir" id="tmplahir" size="30" maxlength="50"
                        onFocus="showhint('Tempat Lahir tidak boleh kosong!', this, event, '120px');panggil('tmplahir')"
-                       value="<?=$row_siswa[tmplahir]?>" onKeyPress="return focusNext('tgllahir', event)" onBlur="unfokus('tmplahir')"/>
+                       value="<?=$row_siswa['tmplahir']?>" onKeyPress="return focusNext('tgllahir', event)" onBlur="unfokus('tmplahir')"/>
             </td>
         </tr>
         <tr>
@@ -333,7 +333,7 @@ require_once('siswa_edit.func.php');
                         <div id="tgl_info">
                         <select name="tgllahir" id="tgllahir" onKeyPress="return focusNext('blnlahir', event)"
                                 onFocus="panggil('tgllahir')" onBlur="unfokus('tgllahir')">
-                            <option value="">[Tgl]</option>  
+                            <option value="">['Tgl']</option>  
                             <?php for ($tgl=1;$tgl<=$n;$tgl++){	?>
                                 <option value="<?=$tgl?>" <?=StringIsSelected($tgl, $row_siswa['tanggal'])?>><?=$tgl?></option>
                             <?php } ?>
@@ -343,7 +343,7 @@ require_once('siswa_edit.func.php');
                     <td>
                     <select name="blnlahir" id="blnlahir" onChange="change_bln()" onKeyPress="return focusNext('thnlahir', event)"
                             onFocus="panggil('blnlahir')" onBlur="unfokus('blnlahir')">
-                        <option value="">[Bulan]</option>  
+                        <option value="">['Bulan']</option>  
                         <?php 	for ($i=1;$i<=12;$i++) { ?>
                             <option value="<?=$i?>" <?=IntIsSelected($row_siswa['bulan'], $i)?>><?=NamaBulan($i)?></option>	
                         <?php } ?>
@@ -458,9 +458,9 @@ require_once('siswa_edit.func.php');
             <td>Kewarganegaraan</td>
             <td colspan="2">
                 <input type="radio" id="warga" name="warga" value="WNI" 
-                       <?php if ($row_siswa[warga]=="WNI") echo "checked='checked'"; ?> onKeyPress="return focusNext('urutananak', event)"/>&nbsp;WNI&nbsp;&nbsp;
+                       <?php if ($row_siswa['warga']=="WNI") echo "checked='checked'"; ?> onKeyPress="return focusNext('urutananak', event)"/>&nbsp;WNI&nbsp;&nbsp;
                 <input type="radio" id="warga" name="warga" value="WNA" 
-                       <?php if ($row_siswa[warga]=="WNA") echo "checked='checked'"; ?> onKeyPress="return focusNext('urutananak', event)"/>&nbsp;WNA
+                       <?php if ($row_siswa['warga']=="WNA") echo "checked='checked'"; ?> onKeyPress="return focusNext('urutananak', event)"/>&nbsp;WNA
             </td>
         </tr>
         <tr>
@@ -523,7 +523,7 @@ require_once('siswa_edit.func.php');
                 <textarea name="alamatsiswa" id="alamatsiswa" maxlength="255"
                           onFocus="showhint('Alamat siswa tidak boleh lebih dari 255 karakter!', this, event, '120px');panggil('alamatsiswa')"
                           class="Ukuranketerangan" onKeyUp="change_alamat()"  onKeyPress="return focusNext('kodepos', event)"
-                          onBlur="unfokus('alamatsiswa')"><?=$row_siswa[alamatsiswa]?></textarea>
+                          onBlur="unfokus('alamatsiswa')"><?=$row_siswa['alamatsiswa']?></textarea>
             </td>
         </tr>
         <tr>
@@ -601,7 +601,7 @@ require_once('siswa_edit.func.php');
                         $result_sekolah=QueryDB($sql_sekolah);
                         while ($row_sekolah = mysqli_fetch_array($result_sekolah)) {
                         ?>
-                            <option value="<?=$row_sekolah[sekolah]?>" <?=StringIsSelected($row_sekolah['sekolah'], $sekolah)?>>
+                            <option value="<?=$row_sekolah['sekolah']?>" <?=StringIsSelected($row_sekolah['sekolah'], $sekolah)?>>
                             <?=$row_sekolah['sekolah']?>
                             </option>
                         <?php
@@ -663,19 +663,19 @@ require_once('siswa_edit.func.php');
             <td width="20%" valign="top">Gol. Darah</td>
             <td colspan="3">
                 <input type="radio" id="gol" name="gol" value="A" 
-                <?php 	if ($row_siswa[darah]=="A")
+                <?php 	if ($row_siswa['darah']=="A")
                         echo "checked='checked'";	?> onKeyPress="return focusNext('berat', event)"	
                 />&nbsp;A&nbsp;&nbsp;<input type="radio" id="gol" name="gol" value="AB" 
-                <?php 	if ($row_siswa[darah]=="AB")
+                <?php 	if ($row_siswa['darah']=="AB")
                         echo "checked='checked'";	?> onKeyPress="return focusNext('berat', event)"
                 />&nbsp;AB&nbsp;&nbsp;<input type="radio" id="gol" name="gol" value="B" 
-                <?php  if ($row_siswa[darah]=="B")
+                <?php  if ($row_siswa['darah']=="B")
                         echo "checked='checked'";		?> onKeyPress="return focusNext('berat', event)"
                 />&nbsp;B&nbsp;&nbsp;<input type="radio" id="gol" name="gol" value="O" 
-                <?php 	if ($row_siswa[darah]=="O")
+                <?php 	if ($row_siswa['darah']=="O")
                         echo "checked='checked'";		?> onKeyPress="return focusNext('berat', event)"
                 />&nbsp;O&nbsp;&nbsp;<input type="radio" id="gol" name="gol" value="" 
-                <?php 	if ($row_siswa[darah]=="")
+                <?php 	if ($row_siswa['darah']=="")
                         echo "checked='checked'";	?> onKeyPress="return focusNext('berat', event)"
                 />&nbsp;<em>(belum ada data)</em>
             </td>
@@ -921,7 +921,7 @@ require_once('siswa_edit.func.php');
         <tr>
             <td>Nama Wali</td>
             <td colspan="2">
-                <input type="text" name="namawali" id="namawali" size="30" maxlength="100" value="<?=$row_siswa[wali]?>"
+                <input type="text" name="namawali" id="namawali" size="30" maxlength="100" value="<?=$row_siswa['wali']?>"
                        onKeyPress="return focusNext('alamatortu', event)" onFocus="panggil('namawali')" onBlur="unfokus('namawali')" />
             </td>
         </tr>
@@ -930,14 +930,14 @@ require_once('siswa_edit.func.php');
             <td colspan="2">
                 <textarea name="alamatortu" id="alamatortu" size="25" maxlength="100" class="Ukuranketerangan"
                           onKeyPress="return focusNext('telponortu', event)" onFocus="panggil('alamatortu')"
-                          onBlur="unfokus('alamatortu')"><?=$row_siswa[alamatortu]?></textarea>
+                          onBlur="unfokus('alamatortu')"><?=$row_siswa['alamatortu']?></textarea>
             </td>
         </tr>
         <tr>
             <td>Telpon Ortu</td>
             <td colspan="2">
                 <input type="text" name="telponortu" id="telponortu" size="15" maxlength="20"
-                       value="<?=$row_siswa[telponortu]?>" class="ukuran" onKeyPress="return focusNext('hportu', event)"
+                       value="<?=$row_siswa['telponortu']?>" class="ukuran" onKeyPress="return focusNext('hportu', event)"
                        onFocus="panggil('telponortu')" onBlur="unfokus('telponortu')"/>
             </td>
         </tr>
@@ -945,7 +945,7 @@ require_once('siswa_edit.func.php');
             <td>HP Ortu #1</td>
             <td align="left">
                 <input type="text" name="hportu" id="hportu" size="15" maxlength="20"
-                       value="<?=$row_siswa[hportu]?>" class="ukuran" onKeyPress="return focusNext('hportu2', event)"
+                       value="<?=$row_siswa['hportu']?>" class="ukuran" onKeyPress="return focusNext('hportu2', event)"
                        onFocus="panggil('hportu')" onBlur="unfokus('hportu')"/>
             </td>
             <td rowspan="3" align="left" valign="top">
@@ -1028,7 +1028,7 @@ require_once('siswa_edit.func.php');
             $data = "";
             if ($jenis == 1)
             {
-                $sql = "SELECT replid, teks FROM tambahandatasiswa WHERE nis = '$nis' AND idtambahan = '$replid'";
+                $sql = "SELECT replid, teks FROM tambahandatasiswa WHERE nis = '$nis' AND idtambahan = '".$replid."'";
                 $res2 = QueryDb($sql);
                 if ($row2 = mysqli_fetch_row($res2))
                 {
@@ -1038,7 +1038,7 @@ require_once('siswa_edit.func.php');
             }
             else if ($jenis == 2)
             {
-                $sql = "SELECT replid, filename FROM tambahandatasiswa WHERE nis = '$nis' AND idtambahan = '$replid'";
+                $sql = "SELECT replid, filename FROM tambahandatasiswa WHERE nis = '$nis' AND idtambahan = '".$replid."'";
                 $res2 = QueryDb($sql);
                 if ($row2 = mysqli_fetch_row($res2))
                 {
@@ -1049,7 +1049,7 @@ require_once('siswa_edit.func.php');
             }
             else if ($jenis == 3)
             {
-                $sql = "SELECT replid, teks FROM tambahandatasiswa WHERE nis = '$nis' AND idtambahan = '$replid'";
+                $sql = "SELECT replid, teks FROM tambahandatasiswa WHERE nis = '$nis' AND idtambahan = '".$replid."'";
                 $res2 = QueryDb($sql);
                 if ($row2 = mysqli_fetch_row($res2))
                 {

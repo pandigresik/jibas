@@ -140,7 +140,7 @@ else
 		$sql = "SELECT SUM(debet), SUM(kredit)
 			      FROM jbsfina.tabungan
 				 WHERE idtabungan = '$idtabungan'
-				   AND nis = '$nis'";
+				   AND nis = '".$nis."'";
 		$result = QueryDb($sql);
 		if ($row = mysqli_fetch_row($result))
 		{

@@ -90,7 +90,7 @@ OpenDb();
 
 $sql = "SELECT d.departemen,d.nipkepsek,p.nama,d.urutan,d.keterangan 
 		FROM departemen d, jbssdm.pegawai p 
-		WHERE d.nipkepsek = p.nip AND d.replid = '$replid'"; 
+		WHERE d.nipkepsek = p.nip AND d.replid = '".$replid."'"; 
 
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);

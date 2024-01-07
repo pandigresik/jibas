@@ -52,7 +52,7 @@ $sql = "SELECT MIN(nilaiangka) as nmin, MAX(nilaiangka) AS nmax
 		   AND i.idpelajaran = '$pelajaran'
 		   AND i.idsemester = '$semester'
 		   AND k.idtahunajaran = '$tahunajaran'
-		   AND k.idtingkat = '$tingkat'";			
+		   AND k.idtingkat = '".$tingkat."'";			
 //echo $sql;
 $result = Querydb($sql);
 $row = @mysqli_fetch_array($result);
@@ -84,7 +84,7 @@ $sql = "SELECT SUM(IF(nilaiangka >= $rentang[0],1,0)) as j1,
 		   AND i.idpelajaran = '$pelajaran'
 		   AND i.idsemester = '$semester'
 		   AND k.idtahunajaran = '$tahunajaran'
-		   AND k.idtingkat = '$tingkat'";
+		   AND k.idtingkat = '".$tingkat."'";
 		   
 $result = QueryDb($sql);
 

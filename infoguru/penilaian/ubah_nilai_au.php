@@ -65,10 +65,10 @@ OpenDb();
 
 if(isset($_POST['ubah'])) {
 
-    $query_up = "UPDATE jbsakad.nau SET nilaiAU = '$_POST['nilai']' WHERE replid = '$_POST['id']."'";
+    $query_up = "UPDATE jbsakad.nau SET nilaiAU = '".$_POST['nilai']."' WHERE replid  = '".$_POST['id']."'";
 	$result_up = QueryDb($query_up) or die (mysqli_error($mysqlconnection));
 		
-	  if(mysqli_affected_rows> 0){
+	  if(mysqli_affected_rows($conn)> 0){
             ?>
             <script language="JavaScript">
 				opener.document.location.href = "tampil_nilai_pelajaran.php?pelajaran=<?=$_POST['pelajaran'] ?>&kelas=<?=$_POST['kelas'] ?>&semester=<?=$_POST['semester'] ?>&jenis_penilaian=<?=$_POST['jenis_penilaian'] ?>&departemen=<?=$_POST['departemen'] ?>&tahun=<?=$_POST['tahun'] ?>&tingkat=<?=$_POST['tingkat'] ?>";
@@ -76,7 +76,7 @@ if(isset($_POST['ubah'])) {
             </script>
             <?php
         }
-        elseif(mysqli_affected_rows($conni) == 0){ 
+        elseif(mysqli_affected_rows($conn)($conni) == 0){ 
             ?>
             <script language="JavaScript">
                // alert("Gagal mengubah data.");
@@ -87,7 +87,7 @@ if(isset($_POST['ubah'])) {
         }
 
 }
-$query = "SELECT * FROM jbsakad.nau WHERE replid = '$_GET['id']."'";
+$query = "SELECT * FROM jbsakad.nau WHERE replid = '".$_GET['id']."'";
 $result = QueryDb($query);
 $row = @mysqli_fetch_array($result);
  
@@ -125,7 +125,7 @@ $row = @mysqli_fetch_array($result);
 			$result_nm = QueryDb($query_nm);
 			$row_nm = @mysqli_fetch_array($result_nm);
 			?>
-			<input type="text" size="45" name="nama" value="<?=$row_nm[nama];?>" readonly></td>
+			<input type="text" size="45" name="nama" value="<?=$row_nm['nama'];?>" readonly></td>
         </tr>
        
 		<tr>

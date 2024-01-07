@@ -22,7 +22,7 @@
  **[N]**/ ?>
 <?php
 function GetDatePart($value, $part) {
-	$inf = split("-", $value);
+	$inf = explode("-", $value);
 	$part = strtolower($part);
 	
 	/*
@@ -202,21 +202,21 @@ function rpad($string, $padchar, $length) {
 }
 
 function MySqlDateFormat($date) {
-	list($d, $m, $y) = split('[/.-]', $date); 
+	list($d, $m, $y) = explode('[/.-]', $date); 
 	return "$y-$m-$d";
 }
 
 function RegularDateFormat($mysqldate) {
-	list($y, $m, $d) = split('[/.-]', $mysqldate); 
+	list($y, $m, $d) = explode('[/.-]', $mysqldate); 
 	return "$d-$m-$y";
 }
 
 function LongDateFormat($mysqldate) {
-	list($y, $m, $d) = split('[/.-]', $mysqldate); 
+	list($y, $m, $d) = explode('[/.-]', $mysqldate); 
 	return "$d ". NamaBulan($m) ." $y";
 }
 function ShortDateFormat($mysqldate) {
-	list($y, $m, $d) = split('[/.-]', $mysqldate); 
+	list($y, $m, $d) = explode('[/.-]', $mysqldate); 
 	return "$d ". NamaBulanPdk($m) ." $y";
 }
 function change_urut($a, $b, $c) {	

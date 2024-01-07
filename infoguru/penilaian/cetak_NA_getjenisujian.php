@@ -47,7 +47,7 @@ $nip=$_REQUEST["nip"];
 			  $result_jenispengujian=QueryDb($sql_jenispengujian);
 			   if (@mysqli_num_rows($result_jenispengujian)>0){
 			  while ($row_jenispengujian=@mysqli_fetch_array($result_jenispengujian)){
-				$sql_jenisuji="SELECT jenisujian FROM jbsakad.jenisujian WHERE replid='$row_jenispengujian[idjenisujian]'";
+				$sql_jenisuji="SELECT jenisujian FROM jbsakad.jenisujian WHERE replid='".$row_jenispengujian['idjenisujian']."'";
 				$result_jenisuji=QueryDb($sql_jenisuji);
 				$row_jenisuji=@mysqli_fetch_array($result_jenisuji);
 				?>

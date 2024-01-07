@@ -36,7 +36,7 @@ function ShowCbDepartemen()
     {
         if ($selDept == "")
             $selDept = $row[0];
-        $ret .= "<option value='$row[0]'>$row[0]</option>";
+        $ret .= "<option value='".$row[0]."'>$row[0]</option>";
     }
     $ret .= "</select>";
 

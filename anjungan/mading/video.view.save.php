@@ -66,14 +66,14 @@ try
             $sql = "INSERT INTO jbsvcr.videocomment
                        SET nis = NULL, nip = '$login', ";
                        
-        $sql .= "videoid = '$videoid', tanggal = NOW(), komen = '$comment', fkomen = '$fcomment'";
+        $sql .= "videoid = '$videoid', tanggal = NOW(), komen = '$comment', fkomen = '".$fcomment."'";
         
         QueryDbEx($sql);
     }
     
     $sql = "UPDATE jbsvcr.video
                SET lastactive = NOW()
-             WHERE replid = '$videoid'";
+             WHERE replid = '".$videoid."'";
     QueryDbEx($sql);         
     
     CommitTrans();

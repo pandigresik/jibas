@@ -32,7 +32,7 @@ function SimpanInfoBayar()
 
         if ($id == 0)
         {
-            $sql = "INSERT INTO jbsfina.infobayar SET departemen = '$dept', bagian = '$bagian', info = '$info'";
+            $sql = "INSERT INTO jbsfina.infobayar SET departemen = '$dept', bagian = '$bagian', info = '".$info."'";
             QueryDbEx($sql);
 
             $sql = "SELECT LAST_INSERT_ID()";

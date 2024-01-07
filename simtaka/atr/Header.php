@@ -111,7 +111,7 @@ function Cetak(){
 				$sql2 	= "SELECT nama FROM perpustakaan WHERE replid='$perpustakaan'";
 				$result2= QueryDb($sql2);
 				$row2	= @mysqli_fetch_array($result2);
-				echo "<div align='center' style='padding-top:20px'>Belum ada logo untuk perpustakaan ".$row2[nama]."</div>";
+				echo "<div align='center' style='padding-top:20px'>Belum ada logo untuk perpustakaan ".$row2['nama']."</div>";
 			}
 			echo "<div align='center' style='padding-top:20px'><a href=\"javascript:AddLogo('".$perpustakaan."','Add')\"><img src='../img/ico/tambah.png' border='0' />Tambah</a></div>";
 		} else {
@@ -129,7 +129,7 @@ function Cetak(){
 				$sql2 	= "SELECT nama FROM perpustakaan WHERE replid='$perpustakaan'";
 				$result2= QueryDb($sql2);
 				$row2	= @mysqli_fetch_array($result2);
-				echo "<div align='center' style='padding-top:20px'>Belum ada informasi untuk perpustakaan ".$row2[nama]."</div>";
+				echo "<div align='center' style='padding-top:20px'>Belum ada informasi untuk perpustakaan ".$row2['nama']."</div>";
 			}
 			echo "<div align='center' style='padding-top:20px'><a href=\"javascript:AddInfo('".$perpustakaan."','Add')\"><img src='../img/ico/tambah.png' border='0' />Tambah</a></div>";
 		} else {

@@ -46,7 +46,7 @@ if ($_REQUEST['action'] == 'Add')
 	$sql = "SELECT * FROM guru g, pelajaran j, dasarpenilaian d, tingkat t, aturannhb a 
 			WHERE a.nipguru=g.nip AND a.idpelajaran = j.replid AND a.dasarpenilaian = d.dasarpenilaian 
 			AND a.idtingkat = t.replid AND a.idpelajaran = '$id_pelajaran' AND a.nipguru = '$nip_guru' 
-			AND a.idtingkat = '$id_tingkat' AND a.dasarpenilaian = '$aspek'"; 
+			AND a.idtingkat = '$id_tingkat' AND a.dasarpenilaian = '".$aspek."'"; 
 	$result = QueryDb($sql);
 	
 	if (mysqli_num_rows($result) > 0) 
@@ -80,7 +80,7 @@ for ($i = 1; $i <= $jum; $i++)
 		if ($jenis && $cek == 1 && $bobot >= 0) 
 		{
 			if ($id != "" && $id<>0) 
-				$sql1 = "UPDATE aturannhb SET bobot='$bobot', aktif=1, info1=NULL WHERE replid = '$id'";				
+				$sql1 = "UPDATE aturannhb SET bobot='$bobot', aktif=1, info1=NULL WHERE replid = '".$id."'";				
 			else 
 				$sql1 = "INSERT INTO aturannhb SET nipguru='$nip_guru',
 						 idtingkat='$id_tingkat', idpelajaran='$id_pelajaran',

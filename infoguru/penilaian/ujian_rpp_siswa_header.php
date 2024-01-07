@@ -145,7 +145,7 @@ function show(){
 					
         ?>
             <input type="hidden" name="semester" id="semester" value="<?=$row_s['replid']?>">
-            <input type="text" size="34" value="<?=$row_s[semester]?>" readonly class="disabled"></td>
+            <input type="text" size="34" value="<?=$row_s['semester']?>" readonly class="disabled"></td>
     </tr>
 	<tr>
         <td><strong>Kelas</strong></td>
@@ -167,7 +167,7 @@ function show(){
 					$sel[$i] = "";
 				}
 				echo "
-					<option value='$row_t['replid']."' $sel[$i]>$row_t[tingkat]</option>
+					<option value='".$row_t['replid']."' $sel[$i]>".$row_t['tingkat']."</option>
 				";
 				$i++;
 			}
@@ -192,7 +192,7 @@ function show(){
                     $sel[$i] = "";
                 }
                 echo "
-                    <option value='$row_k['replid']."' $sel[$i]>$row_k[kelas]</option>
+                    <option value='".$row_k['replid']."' $sel[$i]>".$row_k['kelas']."</option>
                 ";
                 $i++;
             }
@@ -219,7 +219,7 @@ function show(){
 					$sel[$i] = "";
 				}
 				echo "
-					<option value='$row_p['replid']."' $sel[$i]>$row_p[nama]</option>
+					<option value='".$row_p['replid']."' $sel[$i]>".$row_p['nama']."</option>
 				";
 				$i++;
 			}

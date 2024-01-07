@@ -35,7 +35,7 @@ $kelas = $_REQUEST['kelas'];
 $nis = $_REQUEST['nis'];
 
 OpenDb();
-$sql = "SELECT t.departemen, a.tahunajaran, k.kelas, t.tingkat, s.nama, a.tglmulai, a.tglakhir FROM tahunajaran a, kelas k, tingkat t, siswa s WHERE k.idtingkat = t.replid AND k.idtahunajaran = a.replid AND k.replid = '$kelas' AND s.nis = '$nis'";  
+$sql = "SELECT t.departemen, a.tahunajaran, k.kelas, t.tingkat, s.nama, a.tglmulai, a.tglakhir FROM tahunajaran a, kelas k, tingkat t, siswa s WHERE k.idtingkat = t.replid AND k.idtahunajaran = a.replid AND k.replid = '$kelas' AND s.nis = '".$nis."'";  
 
 $result = QueryDB($sql);	
 $row = mysqli_fetch_array($result);
@@ -147,12 +147,12 @@ function ShowKomentar()
 			{
 				$sql_get_komentar = "SELECT k.komentar 
 		          FROM jbsakad.komennap k, jbsakad.infonap i 
-				 WHERE k.nis='$nis' AND i.idpelajaran='$row_get_pelajaran_komentar['replid']."' AND i.replid = k.idinfo 
-				   AND i.idsemester = '$semester' AND i.idkelas = '$kelas'";
+				 WHERE k.nis='$nis' AND i.idpelajaran='".$row_get_pelajaran_komentar['replid']."' AND i.replid = k.idinfo 
+				   AND i.idsemester = '$semester' AND i.idkelas = '".$kelas."'";
 				$result_get_komentar=QueryDb($sql_get_komentar);
 				$row_get_komentar=@mysqli_fetch_row($result_get_komentar); ?>
         <tr>
-        	<td height="25"><?=$row_get_pelajaran_komentar[nama]?></td>
+        	<td height="25"><?=$row_get_pelajaran_komentar['nama']?></td>
         	<td height="25"><?=$row_get_komentar[0]?></td>
         </tr>
 	<?php 		$cntpel_komentar++;
@@ -233,7 +233,7 @@ function ShowRaporColumn()
 					 FROM infonap
 					WHERE idpelajaran = '$idpel'
 					  AND idsemester = '$semester'
-				     AND idkelas = '$kelas'";
+				     AND idkelas = '".$kelas."'";
 		$res = QueryDb($sql);
 		$row = mysqli_fetch_row($res);
 		$nilaimin = $row[0];
@@ -257,7 +257,7 @@ function ShowRaporColumn()
 						  AND i.idsemester = '$semester' 
 						  AND i.idkelas = '$kelas'
 						  AND n.idaturan = a.replid 	   
-						  AND a.dasarpenilaian = '$asp'";
+						  AND a.dasarpenilaian = '".$asp."'";
 			$res = QueryDb($sql);
 			if (mysqli_num_rows($res) > 0)
 			{
@@ -275,7 +275,7 @@ function ShowRaporColumn()
 				   AND k.nis = '$nis' 
 				   AND i.idpelajaran = '$idpel' 
 				   AND i.idsemester = '$semester' 
-				   AND i.idkelas = '$kelas'";
+				   AND i.idkelas = '".$kelas."'";
 		$res = QueryDb($sql);
 		if (mysqli_num_rows($res) > 0)
 		{
@@ -341,7 +341,7 @@ function ShowRaporRow()
                  FROM infonap
                 WHERE idpelajaran = '$idpel'
                   AND idsemester = '$semester'
-                  AND idkelas = '$kelas'";
+                  AND idkelas = '".$kelas."'";
         $res = QueryDb($sql);
         $row = mysqli_fetch_row($res);
         $nilaimin = $row[0];
@@ -372,7 +372,7 @@ function ShowRaporRow()
                        AND i.idsemester = '$semester' 
                        AND i.idkelas = '$kelas'
                        AND n.idaturan = a.replid 	   
-                       AND a.dasarpenilaian = '$asp'";
+                       AND a.dasarpenilaian = '".$asp."'";
             $res2 = QueryDb($sql);
             if (mysqli_num_rows($res2) > 0)
             {

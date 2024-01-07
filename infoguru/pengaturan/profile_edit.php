@@ -132,7 +132,7 @@ if ($ada>0){
 OpenDb();
 $sql="UPDATE jbsvcr.profil SET nip='".SI_USER_ID()."',nama='".$_REQUEST['nama']."',alamat='".$_REQUEST['alamat']."',".
 	 " telpon='".$_REQUEST['telpon']."', hp='".$_REQUEST['hp']."', email='".$_REQUEST['email']."',hobi='".$_REQUEST['hobi']."',".
-	 " buku='".$_REQUEST['buku']."', riwayat='".$_REQUEST['riwayat']."', tentang='".$_REQUEST['tentang']."' ".$gantifoto.$gantifoto_bg."  WHERE replid=$_REQUEST['replid']";
+	 " buku='".$_REQUEST['buku']."', riwayat='".$_REQUEST['riwayat']."', tentang='".$_REQUEST['tentang']."' ".$gantifoto.$gantifoto_bg."  WHERE replid= $_REQUEST['replid'];
 
 $result=QueryDb($sql);
 if ($result)
@@ -143,7 +143,7 @@ $sql_client="SELECT * FROM jbsclient.localinfo ORDER BY region,location,clientid
 	$result_client=QueryDb($sql_client);
 	$row_client=@mysqli_fetch_array($result_client);
 	
-$sql="INSERT INTO jbsvcr.profil SET region='$row_client[region]',location='$row_client[location]',clientid='$row_client[clientid]',nip='".SI_USER_ID()."',nama='".$_REQUEST['nama']."',alamat='".$_REQUEST['alamat']."',".
+$sql="INSERT INTO jbsvcr.profil SET region='".$row_client[region]',location='".$row_client[location]',clientid='".$row_client['clientid']',nip='".SI_USER_ID()."',nama='".$_REQUEST['nama']."',alamat='".$_REQUEST['alamat']."',".
 	 " telpon='".$_REQUEST['telpon']."', hp='".$_REQUEST['hp']."', email='".$_REQUEST['email']."',hobi='".$_REQUEST['hobi']."',".
 	 " buku='".$_REQUEST['buku']."', riwayat='".$_REQUEST['riwayat']."', tentang='".$_REQUEST['tentang']."' ".$gantifoto.$gantifoto_bg;
 $result=QueryDb($sql);	 

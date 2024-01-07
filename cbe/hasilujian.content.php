@@ -244,7 +244,7 @@ for($i = 0; $i < count($hasilUjian->LsHasilSoal); $i++)
               FROM jbscbe.webusersoal 
              WHERE userid = '$userId' 
                AND idujianserta = '$idUjianSerta' 
-               AND idsoal = '$idSoal'";
+               AND idsoal = '".$idSoal."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) > 0)
     {

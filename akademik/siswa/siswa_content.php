@@ -76,7 +76,7 @@ else if ($op == "xm8r389xemx23xb2378e23")
     $row = mysqli_fetch_row($res);
     $nis = $row[0];
 
-    $sql = "DELETE FROM tambahandatasiswa WHERE nis = '$nis'";
+    $sql = "DELETE FROM tambahandatasiswa WHERE nis = '".$nis."'";
     QueryDbTrans($sql, $success);
 
     if ($success)
@@ -303,7 +303,7 @@ function change_baris() {
 	$result = QueryDb($sql);
 	
 	if (@mysqli_num_rows($result)>0){ 
-		$sql_kapasitas = "SELECT kapasitas FROM kelas WHERE replid = '$kelas'";
+		$sql_kapasitas = "SELECT kapasitas FROM kelas WHERE replid = '".$kelas."'";
 		$result_kapasitas = QueryDb($sql_kapasitas);
 		$row_kapasitas = mysqli_fetch_row($result_kapasitas);
 		$kapasitas = $row_kapasitas[0];

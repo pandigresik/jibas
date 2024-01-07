@@ -44,7 +44,7 @@ if (isset($_REQUEST['Simpan']))
 {
     OpenDb();
 
-    $sql = "SELECT replid FROM kelompokpelajaran WHERE kode = '$kode'";
+    $sql = "SELECT replid FROM kelompokpelajaran WHERE kode = '".$kode."'";
     $result = QueryDb($sql);
 
     if (mysqli_num_rows($result) > 0)
@@ -55,7 +55,7 @@ if (isset($_REQUEST['Simpan']))
     }
     else
     {
-        $sql = "INSERT INTO kelompokpelajaran SET kode = '$kode', kelompok = '$nama', urutan = '$urutan'";
+        $sql = "INSERT INTO kelompokpelajaran SET kode = '$kode', kelompok = '$nama', urutan = '".$urutan."'";
         $result = QueryDb($sql);
         CloseDb();
         if ($result)

@@ -222,7 +222,7 @@ windowIMA=parent.opener.refresh_change(0,0);
 		if ($departemen <> "") {	
 			OpenDb();
 			$sql = "SELECT * FROM jbsakad.kalenderakademik i, jbsakad.tahunajaran t WHERE t.departemen ='$departemen' AND i.idtahunajaran = t.replid";
-			//$sql = "SELECT COUNT(t.replid) FROM jbsakad.tahunajaran t WHERE t.departemen = '$departemen' UNION SELECT COUNT(k.replid) FROM jbsakad.kalenderakademik k WHERE k.departemen = '$departemen'";
+			//$sql = "SELECT COUNT(t.replid) FROM jbsakad.tahunajaran t WHERE t.departemen = '$departemen' UNION SELECT COUNT(k.replid) FROM jbsakad.kalenderakademik k WHERE k.departemen = '".$departemen."'";
 			//echo $sql;
 			$result = QueryDb($sql);
 			$row = mysqli_fetch_row($result);

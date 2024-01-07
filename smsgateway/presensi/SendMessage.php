@@ -69,8 +69,8 @@ if ($op=='SavePresensi'){
 	}
 	
 	$smsgeninfo = "";
-	$x = split(' ',$SendDate);
-	$dt = split('-',$x[0]);
+	$x = explode(' ',$SendDate);
+	$dt = explode('-',$x[0]);
 	$smsgeninfo .= $dt[2].'-'.$SMonth[$dt[1]-1].'-'.$dt[0]."<br>";
 	if ($Type=='0'){
 		$smsgeninfo .= "NIS : ".$NIS;
@@ -97,7 +97,7 @@ if ($op=='SavePresensi'){
 	$res = QueryDb($sql);
 	
 	$NIS2 = "";
-	$ALLNIS	= split(',',$NIS);
+	$ALLNIS	= explode(',',$NIS);
 	for ($i=0;$i<count($ALLNIS);$i++)
 	{
 		if ($NIS2 == "")
@@ -106,13 +106,13 @@ if ($op=='SavePresensi'){
 			$NIS2 = $NIS2.",'".trim($ALLNIS[$i])."'";
 	}
 	$Dt1  = $Date1;
-	$x	= split('-',$Date1);
+	$x	= explode('-',$Date1);
 	$Tgl1 = (int)$x[2];
 	$Bln1 = (int)$x[1];
 	$Thn1 = (int)$x[0];
 	
 	$Dt2  = $Date2;
-	$x	= split('-',$Date2);
+	$x	= explode('-',$Date2);
 	$Tgl2 = (int)$x[2];
 	$Bln2 = (int)$x[1];
 	$Thn2 = (int)$x[0];
@@ -255,7 +255,7 @@ if ($op=='SavePresensi'){
 		{
 			$sql = "SELECT count(statushadir)  
 					  FROM $db_name_akad.ppsiswa 
-					 WHERE nis='$ALLNIS[$i]' AND idpp IN ($IDPP) AND statushadir=0";
+					 WHERE nis='".$ALLNIS[$i]."' AND idpp IN ($IDPP) AND statushadir=0";
 			$res = QueryDb($sql);
 			$row = @mysqli_fetch_row($res);
 			$NumHadir = $row[0];

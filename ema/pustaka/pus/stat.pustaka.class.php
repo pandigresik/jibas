@@ -278,13 +278,13 @@ class CStat
 		$result1 = QueryDb($sql1);
 		if (@mysqli_num_rows($result1)>0){
 			$row1 = @mysqli_fetch_array($result1);
-			return $row1[nama];
+			return $row1['nama'];
 		} else {
 			$sql2 = "SELECT nama FROM $db_name_sdm.pegawai WHERE nip='$idanggota'";
 			$result2 = QueryDb($sql2);
 			if (@mysqli_num_rows($result2)>0){
 				$row2 = @mysqli_fetch_array($result2);
-				return $row2[nama];
+				return $row2['nama'];
 			} else {
 				$sql3 = "SELECT nama FROM jbsperpus.anggota WHERE noregistrasi='$idanggota'";
 				$result3 = QueryDb($sql3);

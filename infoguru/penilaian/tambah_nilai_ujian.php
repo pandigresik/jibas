@@ -45,7 +45,7 @@ OpenDb();
 
 $sql = "SELECT DISTINCT u.idaturan, u.idkelas, u.idsemester, s.nama 
 		FROM jbsakad.ujian u, jbsakad.siswa s 
-		WHERE u.replid = '$idujian' AND s.nis = '$nis'";
+		WHERE u.replid = '$idujian' AND s.nis = '".$nis."'";
 $res = QueryDb($sql);
 $row = @mysqli_fetch_array($res);
 $idkelas = $row['idkelas'];
@@ -58,7 +58,7 @@ if(isset($_REQUEST['ubah']))
 	BeginTrans();
 	$success = true;
 	
-	$sql = "INSERT INTO jbsakad.nilaiujian SET nis = '$nis', idujian = '$idujian', keterangan = '$keterangan', nilaiujian = '$nilai'";
+	$sql = "INSERT INTO jbsakad.nilaiujian SET nis = '$nis', idujian = '$idujian', keterangan = '$keterangan', nilaiujian = '".$nilai."'";
 	QueryDbTrans($sql, $success);
 	
 	if ($success)

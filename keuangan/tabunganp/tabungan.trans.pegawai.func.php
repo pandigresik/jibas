@@ -27,7 +27,7 @@ function ShowPegawai($bagian)
               FROM jbssdm.pegawai";
 
     if ($bagian != "ALL")
-        $sql .= " WHERE bagian = '$bagian'";
+        $sql .= " WHERE bagian = '".$bagian."'";
 
     $sql .= " ORDER BY nama";
 

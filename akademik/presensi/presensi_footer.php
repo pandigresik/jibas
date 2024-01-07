@@ -70,13 +70,13 @@ if ($op == "dw8dxn8w9ms8zs22") {
 } else if ($op == "xm8r389xemx23xb2378e23") {
 	$replid=(int)$_REQUEST['replid'];
 	OpenDb();
-	$sql = "DELETE FROM ppsiswa WHERE idpp = '$replid'";
+	$sql = "DELETE FROM ppsiswa WHERE idpp = '".$replid."'";
 	//echo $sql;
 	QueryDb($sql);
-	$sql = "DELETE FROM presensipelajaran WHERE replid = '$replid'";
+	$sql = "DELETE FROM presensipelajaran WHERE replid = '".$replid."'";
 	//echo $sql;exit;
 	QueryDb($sql);
-	if(mysqli_affected_rows() > 0) {
+	if(mysqli_affected_rows($conn) > 0) {
 	?>
     <script language="JavaScript">
         alert('Data presensi pelajaran berhasil dihapus');
@@ -343,7 +343,7 @@ function focusNext(elemName, evt) {
 		
 		while ($row = @mysqli_fetch_array($result)) {		
 			if ($id) {
-				$sql1 = "SELECT * FROM ppsiswa WHERE idpp = '$id' AND nis='$row['nis']."'";
+				$sql1 = "SELECT * FROM ppsiswa WHERE idpp = '$id' AND nis='".$row['nis']."'";
 				
 				$result1 = QueryDb($sql1);
 				$jml = mysqli_num_rows($result1);

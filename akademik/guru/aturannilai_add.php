@@ -45,7 +45,7 @@ OpenDb();
 $sql = "SELECT j.departemen, j.nama, p.nip, p.nama, t.tingkat 
 		FROM guru g, jbssdm.pegawai p, pelajaran j, tingkat t 
 		WHERE g.nip=p.nip AND g.idpelajaran = j.replid AND t.departemen = j.departemen AND t.replid = '$idtingkat' 
-		AND j.replid = '$id' AND g.nip = '$nip'"; 
+		AND j.replid = '$id' AND g.nip = '".$nip."'"; 
 $result = QueryDb($sql);
 $row = @mysqli_fetch_row($result);
 $departemen = $row[0];

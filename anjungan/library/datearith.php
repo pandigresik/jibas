@@ -72,8 +72,8 @@ class DateArith
 		if (strpos($time2, ":") === FALSE)
 			return;
 		
-		$atime1 = split(":", $time1);
-		$atime2 = split(":", $time2);
+		$atime1 = explode(":", $time1);
+		$atime2 = explode(":", $time2);
 		
 		if (count($atime1) == 2)
 			$itime1 = array($atime1[0], $atime1[1], 0);
@@ -192,7 +192,7 @@ class DateArith
 		if (strpos($time, ":") === FALSE)
 			return 0;
 		
-		$tmp = split(":", $time);
+		$tmp = explode(":", $time);
 		if (is_numeric($tmp[0]) && is_numeric($tmp[1]))
 			return (int)$tmp[0] * 60 + (int)$tmp[1];
 		

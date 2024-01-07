@@ -54,7 +54,7 @@ $ERROR_MSG = "";
 
 if (isset($_REQUEST['Simpan'])) {
 	OpenDb();
-	$sql = "SELECT * FROM rpp WHERE koderpp = '$kode'";
+	$sql = "SELECT * FROM rpp WHERE koderpp = '".$kode."'";
 	$result = QueryDb($sql);
 	
 	if (mysqli_num_rows($result) > 0) {
@@ -65,7 +65,7 @@ if (isset($_REQUEST['Simpan'])) {
 		</script>
         <?php 
 	} else {
-		$sql = "INSERT INTO rpp SET idtingkat = '$tingkat', idsemester = '$semester', idpelajaran = '$pelajaran', koderpp = '$kode', rpp = '$materi', deskripsi = '$deskripsi'";
+		$sql = "INSERT INTO rpp SET idtingkat = '$tingkat', idsemester = '$semester', idpelajaran = '$pelajaran', koderpp = '$kode', rpp = '$materi', deskripsi = '".$deskripsi."'";
 		$result = QueryDb($sql);
 		CloseDb();
 	

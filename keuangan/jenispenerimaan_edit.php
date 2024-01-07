@@ -77,7 +77,7 @@ $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $kategori = $row[0];
 
-$sql = "SELECT * FROM datapenerimaan WHERE replid = '$id'";
+$sql = "SELECT * FROM datapenerimaan WHERE replid = '".$id."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_array($result);
 $nama = $row['nama'];
@@ -95,22 +95,22 @@ if (isset($_REQUEST['nama']))
 if (isset($_REQUEST['keterangan']))
 	$keterangan = $_REQUEST['keterangan'];	
 
-$sql = "SELECT nama FROM rekakun WHERE kode = '$rekkas'";
+$sql = "SELECT nama FROM rekakun WHERE kode = '".$rekkas."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $namarekkas = $row[0];
 
-$sql = "SELECT nama FROM rekakun WHERE kode = '$rekpendapatan'";
+$sql = "SELECT nama FROM rekakun WHERE kode = '".$rekpendapatan."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $namarekpendapatan = $row[0];
 
-$sql = "SELECT nama FROM rekakun WHERE kode = '$rekpiutang'";
+$sql = "SELECT nama FROM rekakun WHERE kode = '".$rekpiutang."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $namarekpiutang = $row[0];
 
-$sql = "SELECT nama FROM rekakun WHERE kode = '$rekdiskon'";
+$sql = "SELECT nama FROM rekakun WHERE kode = '".$rekdiskon."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $namarekdiskon = $row[0];

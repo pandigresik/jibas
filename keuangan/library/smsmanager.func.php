@@ -29,17 +29,17 @@ function GetPhoneList($jenis, $nis)
                        IF(s.info1 IS NULL, '', TRIM(s.info1)),
                        IF(s.info2 IS NULL, '', TRIM(s.info2))
                   FROM jbsakad.siswa s
-                 WHERE nis = '$nis'";
+                 WHERE nis = '".$nis."'";
     else if ($jenis == 'PEGTAB')
         $sql = "SELECT IF(p.handphone IS NULL, '', TRIM(p.handphone)) AS hp
                   FROM jbssdm.pegawai p
-                  WHERE p.nip = '$nis'";
+                  WHERE p.nip = '".$nis."'";
     else
         $sql = "SELECT IF(cs.hportu IS NULL, '', TRIM(cs.hportu)),
                        IF(cs.info1 IS NULL, '', TRIM(cs.info1)),
                        IF(cs.info2 IS NULL, '', TRIM(cs.info2))
                   FROM jbsakad.calonsiswa cs
-                 WHERE nopendaftaran = '$nis'";
+                 WHERE nopendaftaran = '".$nis."'";
     //echo "$sql<br>";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) > 0)
@@ -147,14 +147,14 @@ function CreateSMSTunggakan($jenis, $departemen, $nis, $nama, $sms, &$success)
             $chatId = $chatIdList[$i];
 
             $sql = "INSERT INTO jbstgram.send
-                       SET msgdate = NOW(), destchatid = $chatId, destname = '$nama', srcchatid = 0, msgtext = '$sms', msgtype = 1, msgsource = '$jenis'";
+                       SET msgdate = NOW(), destchatid = $chatId, destname = '$nama', srcchatid = 0, msgtext = '$sms', msgtype = 1, msgsource = '".$jenis."'";
             QueryDbTrans($sql, $success);
 
             $sql = "SELECT LAST_INSERT_ID()";
             $idSend = FetchSingle($sql);
 
             $sql = "INSERT INTO jbstgram.sendhistory
-                       SET idsend = $idSend, msgdate = NOW(), destchatid = $chatId,  destname = '$nama', srcchatid = 0, msgtext = '$sms', msgtype = 1, msgsource = '$jenis'";
+                       SET idsend = $idSend, msgdate = NOW(), destchatid = $chatId,  destname = '$nama', srcchatid = 0, msgtext = '$sms', msgtype = 1, msgsource = '".$jenis."'";
             QueryDbTrans($sql, $success);
 
             $nTgwSend += 1;
@@ -166,7 +166,7 @@ function CreateSMSTunggakan($jenis, $departemen, $nis, $nama, $sms, &$success)
         $jsonTokenList = json_encode($fcmTokenList);
         $jsonTokenList = str_replace('"', '\"', $jsonTokenList);
 
-        $sql = "INSERT INTO jbsjs.notif SET msgdate = NOW(), desttoken = '$jsonTokenList', topicid = '', msgtitle = 'Info Tunggakan', msgbody = '$sms', msgsource = '$jenis'";
+        $sql = "INSERT INTO jbsjs.notif SET msgdate = NOW(), desttoken = '$jsonTokenList', topicid = '', msgtitle = 'Info Tunggakan', msgbody = '$sms', msgsource = '".$jenis."'";
         QueryDbTrans($sql, $success);
 
         $sql = "INSERT INTO jbsjs.notifmessage SET nis = '$nis', nip = null, nic = null, message = '$sms', notifdate = NOW(), source = '$jenis', title = 'Info Tunggakan'";
@@ -189,7 +189,7 @@ function CreateSMSTunggakan($jenis, $departemen, $nis, $nama, $sms, &$success)
     // SMS Gateway
     $sql = "SELECT replid
               FROM jbsakad.departemen
-             WHERE departemen = '$departemen'";
+             WHERE departemen = '".$departemen."'";
     $deptid = (int)FetchSingle($sql);
 
     $idsmsgeninfo = 0;
@@ -253,20 +253,20 @@ function CreateSMSPaymentInfo($jenis, $departemen, $nis, $nama, $tanggal, $besar
     $sql = "SELECT COUNT(*)
               FROM jbsfina.formatsms
              WHERE jenis = '$jenis'
-               AND departemen = '$departemen'";
+               AND departemen = '".$departemen."'";
     $ndata = FetchSingle($sql);
     if ($ndata == 0)
     {
         $format = "Terima kasih, kami telah menerima pembayaran dari {NAMA} tanggal {TANGGAL} sebesar {BESAR} untuk {PEMBAYARAN} - Bag. Keuangan";
         $sql = "INSERT INTO jbsfina.formatsms
-				   SET jenis = '$jenis', departemen = '$departemen', format = '$format'";
+				   SET jenis = '$jenis', departemen = '$departemen', format = '".$format."'";
         QueryDbTrans($sql, $success);
     }
 
     $sql = "SELECT format
               FROM jbsfina.formatsms
              WHERE jenis = '$jenis'
-               AND departemen = '$departemen'";
+               AND departemen = '".$departemen."'";
     $formatsms = FetchSingle($sql);
     if (strlen(trim($formatsms)) == 0)
     {
@@ -302,14 +302,14 @@ function CreateSMSPaymentInfo($jenis, $departemen, $nis, $nama, $tanggal, $besar
             $chatId = $chatIdList[$i];
 
             $sql = "INSERT INTO jbstgram.send
-                       SET msgdate = NOW(), destchatid = $chatId, destname = '$nama', srcchatid = 0, msgtext = '$sms', msgtype = 1, msgsource = '$jenis'";
+                       SET msgdate = NOW(), destchatid = $chatId, destname = '$nama', srcchatid = 0, msgtext = '$sms', msgtype = 1, msgsource = '".$jenis."'";
             QueryDbTrans($sql, $success);
 
             $sql = "SELECT LAST_INSERT_ID()";
             $idSend = FetchSingle($sql);
 
             $sql = "INSERT INTO jbstgram.sendhistory
-                       SET idsend = $idSend, msgdate = NOW(), destchatid = $chatId, destname = '$nama', srcchatid = 0, msgtext = '$sms', msgtype = 1, msgsource = '$jenis'";
+                       SET idsend = $idSend, msgdate = NOW(), destchatid = $chatId, destname = '$nama', srcchatid = 0, msgtext = '$sms', msgtype = 1, msgsource = '".$jenis."'";
             QueryDbTrans($sql, $success);
 
             $nTgwSend += 1;
@@ -321,7 +321,7 @@ function CreateSMSPaymentInfo($jenis, $departemen, $nis, $nama, $tanggal, $besar
         $jsonTokenList = json_encode($fcmTokenList);
         $jsonTokenList = str_replace('"', '\"', $jsonTokenList);
 
-        $sql = "INSERT INTO jbsjs.notif SET msgdate = NOW(), desttoken = '$jsonTokenList', topicid = '', msgtitle = 'Pembayaran', msgbody = '$sms', msgsource = '$jenis'";
+        $sql = "INSERT INTO jbsjs.notif SET msgdate = NOW(), desttoken = '$jsonTokenList', topicid = '', msgtitle = 'Pembayaran', msgbody = '$sms', msgsource = '".$jenis."'";
         QueryDbTrans($sql, $success);
 
         $sql = "INSERT INTO jbsjs.notifmessage SET nis = '$nis', nip = null, nic = null, message = '$sms', notifdate = NOW(), source = '$jenis', title = 'Pembayaran'";
@@ -344,7 +344,7 @@ function CreateSMSPaymentInfo($jenis, $departemen, $nis, $nama, $tanggal, $besar
     // SMS Gateway
     $sql = "SELECT replid
               FROM jbsakad.departemen
-             WHERE departemen = '$departemen'";
+             WHERE departemen = '".$departemen."'";
     $deptid = (int)FetchSingle($sql);
 
     $idsmsgeninfo = 0;
@@ -412,20 +412,20 @@ function CreateSMSTabungan($jenis, $departemen, $nis, $nama, $tanggal, $besar, $
     $sql = "SELECT COUNT(*)
               FROM jbsfina.formatsms
              WHERE jenis = '$jenis'
-               AND departemen = '$departemen'";
+               AND departemen = '".$departemen."'";
     $ndata = FetchSingle($sql);
     if ($ndata == 0)
     {
         $format = "Kami informasikan transaksi tabungan dari {NAMA} tanggal {TANGGAL} sebesar {BESAR} untuk {PEMBAYARAN} saldo {SALDO} keterangan {KETERANGAN} - Bag. Keuangan";
         $sql = "INSERT INTO jbsfina.formatsms
-				   SET jenis = '$jenis', departemen = '$departemen', format = '$format'";
+				   SET jenis = '$jenis', departemen = '$departemen', format = '".$format."'";
         QueryDbTrans($sql, $success);
     }
 
     $sql = "SELECT format
               FROM jbsfina.formatsms
              WHERE jenis = '$jenis'
-               AND departemen = '$departemen'";
+               AND departemen = '".$departemen."'";
     $formatsms = FetchSingle($sql);
     if (strlen(trim($formatsms)) == 0)
     {
@@ -464,14 +464,14 @@ function CreateSMSTabungan($jenis, $departemen, $nis, $nama, $tanggal, $besar, $
             $chatId = $chatIdList[$i];
 
             $sql = "INSERT INTO jbstgram.send
-                       SET msgdate = NOW(), destchatid = $chatId, destname = '$nama', srcchatid = 0, msgtext = '$sms', msgtype = 1, msgsource = '$jenis'";
+                       SET msgdate = NOW(), destchatid = $chatId, destname = '$nama', srcchatid = 0, msgtext = '$sms', msgtype = 1, msgsource = '".$jenis."'";
             QueryDbTrans($sql, $success);
 
             $sql = "SELECT LAST_INSERT_ID()";
             $idSend = FetchSingle($sql);
 
             $sql = "INSERT INTO jbstgram.sendhistory
-                       SET idsend = $idSend, msgdate = NOW(), destchatid = $chatId, destname = '$nama', srcchatid = 0, msgtext = '$sms', msgtype = 1, msgsource = '$jenis'";
+                       SET idsend = $idSend, msgdate = NOW(), destchatid = $chatId, destname = '$nama', srcchatid = 0, msgtext = '$sms', msgtype = 1, msgsource = '".$jenis."'";
             QueryDbTrans($sql, $success);
 
             $nTgwSend += 1;
@@ -483,7 +483,7 @@ function CreateSMSTabungan($jenis, $departemen, $nis, $nama, $tanggal, $besar, $
         $jsonTokenList = json_encode($fcmTokenList);
         $jsonTokenList = str_replace('"', '\"', $jsonTokenList);
 
-        $sql = "INSERT INTO jbsjs.notif SET msgdate = NOW(), desttoken = '$jsonTokenList', topicid = '', msgtitle = 'Tabungan', msgbody = '$sms', msgsource = '$jenis'";
+        $sql = "INSERT INTO jbsjs.notif SET msgdate = NOW(), desttoken = '$jsonTokenList', topicid = '', msgtitle = 'Tabungan', msgbody = '$sms', msgsource = '".$jenis."'";
         QueryDbTrans($sql, $success);
 
         $sql = "INSERT INTO jbsjs.notifmessage SET nis = '$nis', nip = null, nic = null, message = '$sms', notifdate = NOW(), source = '$jenis', title = 'Tabungan'";
@@ -507,7 +507,7 @@ function CreateSMSTabungan($jenis, $departemen, $nis, $nama, $tanggal, $besar, $
 
     $sql = "SELECT replid
               FROM jbsakad.departemen
-             WHERE departemen = '$departemen'";
+             WHERE departemen = '".$departemen."'";
     $deptid = (int)FetchSingle($sql);
 
     $idsmsgeninfo = 0;

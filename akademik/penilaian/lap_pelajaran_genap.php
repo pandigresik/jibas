@@ -34,7 +34,7 @@ $nis = $_REQUEST['nis'];
 
 
 OpenDb();
-$sql = "SELECT s.replid, s.semester, p.nama FROM semester s, pelajaran p WHERE s.departemen = '$departemen' AND p.replid = $pelajaran AND p.departemen = '$departemen'"; 
+$sql = "SELECT s.replid, s.semester, p.nama FROM semester s, pelajaran p WHERE s.departemen = '$departemen' AND p.replid = $pelajaran AND p.departemen = '".$departemen."'"; 
 $result = QueryDb($sql);
 
 $i = 0;
@@ -104,7 +104,7 @@ function cetak() {
 			<td class="header" align="center" height="30">Keterangan</td>
 		</tr>
 		<?php 	OpenDb();		
-			$sql1 = "SELECT u.tanggal, n.nilaiujian, n.keterangan FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = $kelas AND u.idpelajaran = $pelajaran AND u.idsemester = ".$sem[0][0]." AND u.idjenis = $row['replid'] AND u.replid = n.idujian AND n.nis = '$nis' ORDER BY u.tanggal";
+			$sql1 = "SELECT u.tanggal, n.nilaiujian, n.keterangan FROM ujian u, pelajaran p, nilaiujian n WHERE u.idpelajaran = p.replid AND u.idkelas = $kelas AND u.idpelajaran = $pelajaran AND u.idsemester = ".$sem[0][0]." AND u.idjenis = ".$row['replid']." AND u.replid = n.idujian AND n.nis = '$nis' ORDER BY u.tanggal";
 			
 			$result1 = QueryDb($sql1);
 			$cnt = 0;

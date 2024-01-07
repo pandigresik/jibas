@@ -66,7 +66,7 @@ if ($op == "dw8dxn8w9ms8zs22") {
 } else if ($op == "xm8r389xemx23xb2378e23") {
 	$replid=(int)$_REQUEST['replid'];
 	OpenDb();
-	$sql = "DELETE FROM pelajaran WHERE replid = '$replid'";
+	$sql = "DELETE FROM pelajaran WHERE replid = '".$replid."'";
 	QueryDb($sql);
 	CloseDb();
 	$page=0;

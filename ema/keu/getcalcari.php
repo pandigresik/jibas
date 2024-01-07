@@ -50,8 +50,8 @@ if ($num==0){
 	$cnt=1;
 	while ($row = @mysqli_fetch_array($result)){
 		echo "<tr>
-				<td height='20' align='center'>$row['nopendaftaran']</td>
-				<td height='20'>$row['nama']</td>
+				<td height='20' align='center'>".$row['nopendaftaran']."</td>
+				<td height='20'>".$row['nama']."</td>
 				<td height='20' align='center'><input type='button' class='cmbfrm2' value='>' onclick=\"pilihcalon('".$row['replid']."')\"></td>
 				</tr>";
 				$cnt++;

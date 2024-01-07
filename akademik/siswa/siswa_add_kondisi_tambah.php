@@ -43,7 +43,7 @@ if (isset($_POST['simpan'])) {
 	$sql_cek="SELECT * FROM jbsakad.kondisisiswa where kondisi='$kondisi'";
 	$hasil=QueryDb($sql_cek);
 	
-	$sql1 = "SELECT * FROM jbsakad.kondisisiswa WHERE urutan = '$urutan'";
+	$sql1 = "SELECT * FROM jbsakad.kondisisiswa WHERE urutan = '".$urutan."'";
 	$result1 = QueryDb($sql1);
 	
 	if (mysqli_num_rows($hasil) > 0) {

@@ -72,10 +72,10 @@ function GetFromInDst()
                         (MONTH(s.tanggal) <= $bulan2 AND YEAR(s.tanggal) <= $tahun2))";
         
         if ($jenis != "ALL")
-            $sql .= " AND s.jenis = '$jenis'";
+            $sql .= " AND s.jenis = '".$jenis."'";
         
         if ($kategori != 0)
-            $sql .= " AND s.idkategori = '$kategori'";
+            $sql .= " AND s.idkategori = '".$kategori."'";
         
         //echo "$sql<br>";
         
@@ -124,10 +124,10 @@ function GetFromSuratOutDst()
                    AND ((MONTH(s.tanggal) >= $bulan1 AND YEAR(s.tanggal) >= $tahun1) AND 
                         (MONTH(s.tanggal) <= $bulan2 AND YEAR(s.tanggal) <= $tahun2))";
         if ($jenis != "ALL")
-            $sql .= " AND s.jenis = '$jenis'";
+            $sql .= " AND s.jenis = '".$jenis."'";
         
         if ($kategori != 0)
-            $sql .= " AND s.idkategori = '$kategori'";
+            $sql .= " AND s.idkategori = '".$kategori."'";
             
         $res = QueryDb($sql);
         while($row = mysqli_fetch_row($res))
@@ -176,10 +176,10 @@ function GetFromSuratOutSrc()
                         (MONTH(s.tanggal) <= $bulan2 AND YEAR(s.tanggal) <= $tahun2))";
                         
         if ($jenis != "ALL")
-            $sql .= " AND s.jenis = '$jenis'";
+            $sql .= " AND s.jenis = '".$jenis."'";
         
         if ($kategori != 0)
-            $sql .= " AND s.idkategori = '$kategori'";
+            $sql .= " AND s.idkategori = '".$kategori."'";
             
         $res = QueryDb($sql);
         while($row = mysqli_fetch_row($res))
@@ -515,8 +515,8 @@ function ShowListSurat()
         
         echo "<tr style='background-color : $bgcolor' >";
         echo "<td align='center' style='border-color: #bbb; border-width: 1px;' valign='top'>$no</td>";
-        echo "<td align='left' style='border-color: #bbb; border-width: 1px;' valign='top'><font style='color: maroon;'><em>$row['tanggalsurat']</em></font><br>$row['nomor']<br>$jenis</td>";
-        echo "<td align='left' style='border-color: #bbb; border-width: 1px;' valign='top'><strong>$row['perihal']</strong><br>Kategori: $row['kategori']<br>Sifat: $sifat</td>";
+        echo "<td align='left' style='border-color: #bbb; border-width: 1px;' valign='top'><font style='color: maroon;'><em>".$row['tanggalsurat']</em></font><br>$row['nomor']."<br>$jenis</td>";
+        echo "<td align='left' style='border-color: #bbb; border-width: 1px;' valign='top'><strong>".$row['perihal']</strong><br>Kategori: $row['kategori']."<br>Sifat: $sifat</td>";
         echo "<td align='center' style='font-size: 16px; border-color: #bbb; border-width: 1px;' valign='top'>$nberkas</td>";
         echo "<td align='left' style='border-color: #bbb; border-width: 1px;' valign='top'>$sumber</td>";
         echo "<td align='left' style='border-color: #bbb; border-width: 1px;' valign='top'>$tujuan</td>";

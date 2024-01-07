@@ -281,7 +281,7 @@ if ($statuslunas == -1)
 			$sql_tot = "SELECT DISTINCT b.nis, s.nama, k.kelas, b.replid AS id, b.besar, b.keterangan, b.lunas 
 			              FROM penerimaanjtt p RIGHT JOIN besarjtt b ON p.idbesarjtt = b.replid, jbsakad.siswa s, jbsakad.kelas k
 							 WHERE b.info2 = '$idtahunbuku' AND s.nis = b.nis AND b.idpenerimaan = '$idpenerimaan' AND s.idkelas = '$idkelas' 
-							   AND s.idkelas = k.replid AND s.idangkatan = '$idangkatan'"; 
+							   AND s.idkelas = k.replid AND s.idangkatan = '".$idangkatan."'"; 
 			
 			$sql = "SELECT DISTINCT b.nis, s.nama, k.kelas, b.replid AS id, b.besar, b.keterangan, b.lunas 
 			          FROM penerimaanjtt p RIGHT JOIN besarjtt b ON p.idbesarjtt = b.replid, jbsakad.siswa s, jbsakad.kelas k 
@@ -309,7 +309,7 @@ else
 		$sql_tot = "SELECT DISTINCT b.nis, s.nama, k.kelas, t.tingkat, b.replid AS id, b.besar, b.keterangan, b.lunas 
 		              FROM penerimaanjtt p RIGHT JOIN besarjtt b ON p.idbesarjtt = b.replid, jbsakad.siswa s, jbsakad.kelas k, jbsakad.tingkat t
 						 WHERE b.info2 = '$idtahunbuku' AND s.nis = b.nis AND b.idpenerimaan = '$idpenerimaan' AND s.idangkatan = '$idangkatan'
-						   AND s.idkelas = k.replid AND k.idtingkat = t.replid AND b.lunas = '$statuslunas'"; 
+						   AND s.idkelas = k.replid AND k.idtingkat = t.replid AND b.lunas = '".$statuslunas."'"; 
 		
 		$sql = "SELECT DISTINCT b.nis, s.nama, k.kelas, t.tingkat, b.replid AS id, b.besar, b.keterangan, b.lunas
 		          FROM penerimaanjtt p RIGHT JOIN besarjtt b ON p.idbesarjtt = b.replid, jbsakad.siswa s, jbsakad.kelas k, jbsakad.tingkat t 
@@ -334,7 +334,7 @@ else
 			$sql_tot = "SELECT DISTINCT b.nis, s.nama, k.kelas, t.tingkat, b.replid AS id, b.besar, b.keterangan, b.lunas 
 			              FROM penerimaanjtt p RIGHT JOIN besarjtt b ON p.idbesarjtt = b.replid, jbsakad.siswa s, jbsakad.kelas k, jbsakad.tingkat t 
 							 WHERE b.info2 = '$idtahunbuku' AND s.nis = b.nis AND b.idpenerimaan = '$idpenerimaan' AND s.idangkatan = '$idangkatan' 
-							   AND s.idkelas = k.replid AND k.idtingkat = '$idtingkat' AND k.idtingkat = t.replid AND b.lunas = '$statuslunas'";
+							   AND s.idkelas = k.replid AND k.idtingkat = '$idtingkat' AND k.idtingkat = t.replid AND b.lunas = '".$statuslunas."'";
 			
 			$sql = "SELECT DISTINCT b.nis, s.nama, k.kelas, t.tingkat, b.replid AS id, b.besar, b.keterangan, b.lunas 
 			          FROM penerimaanjtt p RIGHT JOIN besarjtt b ON p.idbesarjtt = b.replid, jbsakad.siswa s, jbsakad.kelas k, jbsakad.tingkat t 
@@ -358,7 +358,7 @@ else
 			$sql_tot = "SELECT DISTINCT b.nis, s.nama, k.kelas, b.replid AS id, b.besar, b.keterangan, b.lunas 
 			              FROM penerimaanjtt p RIGHT JOIN besarjtt b ON p.idbesarjtt = b.replid, jbsakad.siswa s, jbsakad.kelas k
 							 WHERE b.info2 = '$idtahunbuku' AND s.nis = b.nis AND b.idpenerimaan = '$idpenerimaan' AND s.idkelas = '$idkelas' 
-							   AND s.idkelas = k.replid AND b.lunas = '$statuslunas' AND s.idangkatan = '$idangkatan'"; 
+							   AND s.idkelas = k.replid AND b.lunas = '$statuslunas' AND s.idangkatan = '".$idangkatan."'"; 
 									
 			$sql = "SELECT DISTINCT b.nis, s.nama, k.kelas, b.replid AS id, b.besar, b.keterangan, b.lunas 
 			          FROM penerimaanjtt p RIGHT JOIN besarjtt b ON p.idbesarjtt = b.replid, jbsakad.siswa s, jbsakad.kelas k
@@ -392,7 +392,7 @@ while ($row = mysqli_fetch_array($result))
     <td><?=$row['nama'] ?></td>
     <td align="center"><?php if ($idkelas == -1) echo  $row['tingkat']." - "; ?><?=$row['kelas'] ?></td>
     <?php
-	$sql = "SELECT count(*) FROM penerimaanjtt WHERE idbesarjtt = '$idbesarjtt'";
+	$sql = "SELECT count(*) FROM penerimaanjtt WHERE idbesarjtt = '".$idbesarjtt."'";
 	$result2 = QueryDb($sql);
 	$row2 = mysqli_fetch_row($result2);
 	$nbayar = $row2[0];

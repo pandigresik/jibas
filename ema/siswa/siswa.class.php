@@ -77,7 +77,7 @@ class CSiswa
 				++$i;
 				if ($dep == "")
 					$dep = $row['departemen'];
-				echo "<option value='$row['departemen']."' ".StringIsSelected($dep,$row['departemen']).">$row['departemen']</option>";
+				echo "<option value='".$row['departemen']."' ".StringIsSelected($dep,$row['departemen']).">".$row['departemen']."</option>";
 			}
 		}
 		echo "</select>";
@@ -104,7 +104,7 @@ class CSiswa
 				++$i;
 				if ($tkt == "")
 					$tkt = $row['replid'];
-				echo "<option value='$row['replid']."' ".StringIsSelected($tkt,$row['replid']).">$row['tingkat']</option>";
+				echo "<option value='".$row['replid']."' ".StringIsSelected($tkt,$row['replid']).">".$row['tingkat']."</option>";
 			}
 		}
 		echo "</select>";
@@ -147,7 +147,7 @@ class CSiswa
 					if ($kls == "")
 						$kls = $row['replid'];
 						
-					echo "<option value='$row['replid']."' ".StringIsSelected($kls,$row['replid']).">$row['kelas']</option>";
+					echo "<option value='".$row['replid']."' ".StringIsSelected($kls,$row['replid']).">".$row['kelas']."</option>";
 				}
 			}
 		}
@@ -181,8 +181,8 @@ class CSiswa
 					$tkt = $row['replid'];
 				echo "<tr>
 					<td height='20' align='center'>$cnt</td>
-					<td height='20' align='center'>$row['nis']</td>
-					<td height='20'>$row['nama']</td>
+					<td height='20' align='center'>".$row['nis']."</td>
+					<td height='20'>".$row['nama']."</td>
 					<td height='20' align='center'><input type='button' class='cmbfrm2' value='>' onclick=\"pilihsiswa('".$row['nis']."')\"></td>
 				</tr>";
 				$cnt++;
@@ -227,9 +227,9 @@ class CSiswa
 			{
 				echo "<tr>
 					<td height='20' align='center'>$cnt</td>
-					<td height='20' align='center'>$row['nis']</td>
-					<td height='20' align='center'>$row['nisn']</td>
-					<td height='20'>$row['nama']</td>
+					<td height='20' align='center'>".$row['nis']."</td>
+					<td height='20' align='center'>".$row['nisn']."</td>
+					<td height='20'>".$row['nama']."</td>
 					<td height='20' align='center'><input type='button' class='cmbfrm2' value='>' onclick=\"pilihsiswa('".$row['nis']."')\"></td>
 				</tr>";
 				$cnt++;

@@ -73,7 +73,7 @@ else
 }
 
 // ambil nama penerimaan
-$sql = "SELECT nama FROM datapenerimaan WHERE replid = '$idpenerimaan'";
+$sql = "SELECT nama FROM datapenerimaan WHERE replid = '".$idpenerimaan."'";
 $namapenerimaan = FetchSingle($sql);
 
 $input_awal = "onload=\"document.getElementById('besar').focus();\"";
@@ -85,7 +85,7 @@ $idbesarjtt = 0;
 // FIXED: 27 Agustus 2010
 $sql = "SELECT b.replid AS id, b.besar, b.keterangan, b.lunas, b.info1 AS idjurnal
 	       FROM besarjtt b
-		   WHERE b.nis = '$nis' AND b.idpenerimaan = '$idpenerimaan' AND b.info2 = '$idtahunbuku'";
+		   WHERE b.nis = '$nis' AND b.idpenerimaan = '$idpenerimaan' AND b.info2 = '".$idtahunbuku."'";
 $result = QueryDb($sql);
 $bayar = mysqli_num_rows($result);
 $tgl_jurnal = date('d-m-Y');
@@ -366,7 +366,7 @@ function panggil(elem)
         <td align="center" colspan="2"> 
 <?php if ($bayar > 0 && $lunas <> 2) 
 	{ 
-   	$sql = "SELECT count(*) FROM penerimaanjtt WHERE idbesarjtt = '$idbesarjtt'";
+   	$sql = "SELECT count(*) FROM penerimaanjtt WHERE idbesarjtt = '".$idbesarjtt."'";
       $result = QueryDb($sql);
       $row = mysqli_fetch_row($result);
       $nbayar = $row[0];

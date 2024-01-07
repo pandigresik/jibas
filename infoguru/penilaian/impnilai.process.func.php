@@ -171,7 +171,7 @@ function SelectJenisUjian()
                AND a.idpelajaran = '$idpelajaran'
                AND a.dasarpenilaian = '$idaspek'
                AND a.nipguru = '$nip'
-               AND k.replid = '$idkelas'";
+               AND k.replid = '".$idkelas."'";
     $res = QueryDb($sql);
 
     $select = "<select name='idaturan' id='idaturan' style='width: 200px; background-color: #f9ffc9;'>";

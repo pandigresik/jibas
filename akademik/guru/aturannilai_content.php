@@ -39,7 +39,7 @@ $aspek = $_REQUEST['aspek'];
 OpenDb();
 $sql = "SELECT j.departemen, j.nama, p.nip, p.nama 
 		  FROM guru g, jbssdm.pegawai p, pelajaran j 
-		 WHERE g.nip=p.nip AND g.idpelajaran = j.replid AND j.replid = '$id' AND g.nip = '$nip'"; 
+		 WHERE g.nip=p.nip AND g.idpelajaran = j.replid AND j.replid = '$id' AND g.nip = '".$nip."'"; 
 
 $result = QueryDb($sql);
 $row = @mysqli_fetch_row($result);
@@ -50,7 +50,7 @@ $guru = $row[2].' - '.$row[3];
 $op = $_REQUEST['op'];
 if ($op == "xm8r389xemx23xb2378e23") 
 {
-	$sql = "DELETE FROM aturangrading WHERE idpelajaran = '$id' AND nipguru = '$nip' AND idtingkat = '$idtingkat' AND dasarpenilaian = '$aspek'"; 
+	$sql = "DELETE FROM aturangrading WHERE idpelajaran = '$id' AND nipguru = '$nip' AND idtingkat = '$idtingkat' AND dasarpenilaian = '".$aspek."'"; 
 	QueryDb($sql);	?>
     <script>refresh();</script> 
 <?php
@@ -192,7 +192,7 @@ function cetak() {
 <?php 		$sql2 = "SELECT g.replid, grade, nmin, nmax
 					   FROM aturangrading g, tingkat t
 					  WHERE t.replid = g.idtingkat AND t.departemen = '$departemen' 
-						AND g.idpelajaran = '$id' AND g.idtingkat = '".$row['replid']."' AND g.dasarpenilaian = '".$row1[0]' 
+						AND g.idpelajaran = '$id' AND g.idtingkat = '".$row['replid']."' AND g.dasarpenilaian = '".$row1[0]."' 
 						AND g.nipguru = '$nip' ORDER BY grade";
 			$result2 = QueryDb($sql2);			
 			while ($row2 = @mysqli_fetch_row($result2)) 

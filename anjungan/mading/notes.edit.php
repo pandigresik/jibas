@@ -43,7 +43,7 @@ $notesid = $_REQUEST['notesid'];
 
 $sql = "SELECT *
           FROM jbsvcr.notes
-         WHERE replid = '$notesid'";
+         WHERE replid = '".$notesid."'";
 $res = QueryDb($sql);
 if (mysqli_num_rows($res) == 0)
 {

@@ -164,7 +164,7 @@ try
     $sql = "INSERT INTO jbsvcr.galleryfile
                SET galleryid = $galleryid, filename = '$pict', filesize = '$size',
                    filetype = '$type', fileinfo = '$fileinfo', ffileinfo = '$ffileinfo', location = '$location',
-                   iscover = 1, width = '$width', height = '$height'";
+                   iscover = 1, width = '$width', height = '".$height."'";
     echo "$sql<br>";
     QueryDbEx($sql);
 
@@ -199,7 +199,7 @@ try
         $sql = "INSERT INTO jbsvcr.galleryfile
                    SET galleryid = $galleryid, filename = '$name', filesize = '$size',
                        filetype = '$type', fileinfo = '$gbrinfo', ffileinfo = '$fgbrinfo', location = '$location',
-                       iscover = 0, width = '$width', height = '$height'";
+                       iscover = 0, width = '$width', height = '".$height."'";
         echo "$sql<br>";
         QueryDbEx($sql);
     }

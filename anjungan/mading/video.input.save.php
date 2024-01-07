@@ -145,7 +145,7 @@ try
     
     $sql = "UPDATE jbsvcr.video
                SET filename = '$vidname'
-             WHERE replid = '$videoid'";
+             WHERE replid = '".$videoid."'";
     echo "$sql<br>";
     QueryDbEx($sql);         
     

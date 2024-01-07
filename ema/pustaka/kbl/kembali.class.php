@@ -32,7 +32,7 @@ class CKembali{
 			
 		$this->op=$_REQUEST['op'];
 		if ($this->op=="del"){
-			$sql = "DELETE FROM format WHERE replid=$_REQUEST['id']";
+			$sql = "DELETE FROM format WHERE replid= $_REQUEST['id'];
 			QueryDb($sql);
 		}
 		$this->num=0;
@@ -204,13 +204,13 @@ class CKembali{
 		$result1 = QueryDb($sql1);
 		if (@mysqli_num_rows($result1)>0){
 			$row1 = @mysqli_fetch_array($result1);
-			return $row1[nama];
+			return $row1['nama'];
 		} else {
 			$sql2 = "SELECT nama FROM ".get_db_name('sdm').".pegawai WHERE nip='$idanggota'";
 			$result2 = QueryDb($sql2);
 			if (@mysqli_num_rows($result2)>0){
 				$row2 = @mysqli_fetch_array($result2);
-				return $row2[nama];
+				return $row2['nama'];
 			} else {
 				$sql3 = "SELECT nama FROM anggota WHERE noregistrasi='$idanggota'";
 				$result3 = QueryDb($sql3);

@@ -21,7 +21,7 @@
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
 <?php
-$sql = "SELECT nama FROM jbssdm.pegawai WHERE nip = '$nip'";
+$sql = "SELECT nama FROM jbssdm.pegawai WHERE nip = '".$nip."'";
 $namapegawai = FetchSingle($sql);
 ?>
 <table width="100%" border="0" height="100%" cellspacing="0" cellpadding="2">

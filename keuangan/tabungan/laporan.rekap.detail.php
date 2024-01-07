@@ -66,10 +66,10 @@ elseif ($petugas == "landlord")
 }
 else
 {
-    $sql_idpetugas = " AND t.petugas = '$petugas'";
+    $sql_idpetugas = " AND t.petugas = '".$petugas."'";
     $sql = "SELECT nama
               FROM jbssdm.pegawai
-             WHERE nip = '$petugas'";
+             WHERE nip = '".$petugas."'";
     $namapetugas = FetchSingle($sql);
 }
 ?>

@@ -45,7 +45,7 @@ $sql = "SELECT MIN(nilaiangka) as nmin, MAX(nilaiangka) AS nmax
            AND i.idpelajaran = '$pelajaran'
            AND i.idsemester = '$semester'
            AND k.idtahunajaran = '$tahunajaran'
-           AND k.idtingkat = '$tingkat'";
+           AND k.idtingkat = '".$tingkat."'";
 //echo "$sql<br>";
 
 $res = QueryDb($sql);
@@ -73,7 +73,7 @@ $filter = array($rentang[0],
 $temp = $filter[$ixrentang];
 if (strpos($temp, "_") !== FALSE)
 {
-    $ix = split("_", $temp);
+    $ix = explode("_", $temp);
     $nmin = $ix[0];
     $nmax = $ix[1];
     
@@ -88,7 +88,7 @@ else
     }
     else
     {
-        $ix = split("_", $temp);
+        $ix = explode("_", $temp);
 		$nmin = $ix[0];
 		$nmax = $ix[1];
     

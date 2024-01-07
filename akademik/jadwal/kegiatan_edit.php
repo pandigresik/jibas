@@ -76,7 +76,7 @@ if (isset($_REQUEST['Simpan'])) {
 		$tanggalawal=TglDb($tglmulai);
 		$tanggalakhir=TglDb($tglakhir);
 				
-		$sql_simpan="UPDATE jbsakad.aktivitaskalender SET idkalender='$kalender', tanggalawal='$tanggalawal', tanggalakhir='$tanggalakhir', kegiatan='$kegiatan', keterangan='$keterangan' WHERE replid = '$replid'";
+		$sql_simpan="UPDATE jbsakad.aktivitaskalender SET idkalender='$kalender', tanggalawal='$tanggalawal', tanggalakhir='$tanggalakhir', kegiatan='$kegiatan', keterangan='$keterangan' WHERE replid = '".$replid."'";
 		//echo 'simpan '.$sql_simpan;
 		$result_simpan=QueryDb($sql_simpan);
 		

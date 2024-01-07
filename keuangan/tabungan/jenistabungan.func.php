@@ -63,7 +63,7 @@ function ReadPageParam()
 
 function DelTabungan($id)
 {
-	$sql = "DELETE FROM datatabungan WHERE replid = '$id'";
+	$sql = "DELETE FROM datatabungan WHERE replid = '".$id."'";
 	QueryDb($sql);
 }
 

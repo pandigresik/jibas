@@ -127,17 +127,17 @@ function cetak() {
         <td><?=$row['login'] ?></td>
         <td>
 		<?php
-		$sql_get_lvl="SELECT DATE_FORMAT(lastlogin,'%Y-%m-%d') as tanggal, TIME(lastlogin) as jam FROM jbsuser.login WHERE login='$row['login']."'";
+		$sql_get_lvl="SELECT DATE_FORMAT(lastlogin,'%Y-%m-%d') as tanggal, TIME(lastlogin) as jam FROM jbsuser.login WHERE login='".$row['login']."'";
 		$result_get_lvl=QueryDb($sql_get_lvl);
 		$row_get_lvl=@mysqli_fetch_array($result_get_lvl);
-		$sql_get_nama="SELECT nama FROM jbssdm.pegawai WHERE nip='$row['login']."'";
+		$sql_get_nama="SELECT nama FROM jbssdm.pegawai WHERE nip='".$row['login']."'";
 		$result_get_nama=QueryDb($sql_get_nama);
 		$row_get_nama=@mysqli_fetch_array($result_get_nama);
-		echo $row_get_nama[nama];
+		echo $row_get_nama['nama'];
 		?></td>
         <td><?=$row['keterangan'] ?>
         </td>
-        <td><?=format_tgl($row_get_lvl[tanggal])?><br><?=$row_get_lvl[jam]?></td>
+        <td><?=format_tgl($row_get_lvl['tanggal'])?><br><?=$row_get_lvl['jam']?></td>
         <td align="center">
         
      </td>

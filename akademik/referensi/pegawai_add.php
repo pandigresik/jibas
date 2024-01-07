@@ -125,7 +125,7 @@ if (isset($_REQUEST['simpan']))
 	
 	$lahir = $thnlahir."-".$blnlahir."-".$tgllahir;
 	
-	$query_cek = "SELECT * FROM jbssdm.pegawai WHERE nip = '$nip'";
+	$query_cek = "SELECT * FROM jbssdm.pegawai WHERE nip = '".$nip."'";
 	$result_cek = QueryDb($query_cek);
 	$num_cek = @mysqli_num_rows($result_cek);
 	if($num_cek > 0) 
@@ -482,7 +482,7 @@ function cek() {
 		var i = 0;
 		var string4split='.';
 
-		z = file.split(string4split);
+		z = file.explode(string4split);
 		ext = z[z.length-1];
 		
 		if (ext!='JPG' && ext!='jpg' && ext!='Jpg' && ext!='JPg' && ext!='JPEG' && ext!='jpeg'){
@@ -624,7 +624,7 @@ function cek() {
 			$result_suku=QueryDB($sql_suku);
 			while ($row_suku = mysqli_fetch_array($result_suku)) {
 				//if($suku == "")
-				//	$suku = $row_suku[suku] ;  
+				//	$suku = $row_suku['suku'] ;  
 			?>
               	<option value="<?=$row_suku['suku']?>"<?=StringIsSelected($row_suku['suku'],$suku)?>><?=$row_suku['suku']?></option>
         	<?php

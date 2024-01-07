@@ -109,7 +109,7 @@ class CK
 			if ($this->idtahunbuku == 0)
 				$this->idtahunbuku = $row[0];
 				
-			echo "<option value='$row[0]' " . IntIsSelected($row[0], $this->idtahunbuku) . " > " . $row[1] . "</option>";
+			echo "<option value='".$row[0]."' " . IntIsSelected($row[0], $this->idtahunbuku) . " > " . $row[1] . "</option>";
 		}
 		echo "</select>";				
 	}
@@ -154,7 +154,7 @@ class CK
 				$lunas = $row['lunas'];
 				$keterangan = $row['keterangan'];
 			
-				$sql = "SELECT SUM(jumlah), SUM(info1) FROM jbsfina.penerimaanjtt WHERE idbesarjtt = '$idbesarjtt'";
+				$sql = "SELECT SUM(jumlah), SUM(info1) FROM jbsfina.penerimaanjtt WHERE idbesarjtt = '".$idbesarjtt."'";
 				$result2 = QueryDb($sql);
 				$pembayaran = 0;
 				$diskon = 0;
@@ -292,7 +292,7 @@ class CK
                     $sql = "SELECT SUM(debet), SUM(kredit)
                               FROM jbsfina.tabungan
                              WHERE idtabungan = '$idTab'
-                               AND nis = '$nis'";
+                               AND nis = '".$nis."'";
                     $res = QueryDb($sql);
                     if ($row = mysqli_fetch_row($res))
                     {

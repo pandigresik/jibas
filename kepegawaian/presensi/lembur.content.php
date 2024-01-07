@@ -99,11 +99,11 @@ while($row = mysqli_fetch_row($res))
     $n++;
     
     echo "<tr>\r\n";
-    echo "<input type='hidden' id='replid$n' name='replid$n' value='$row[5]'>\r\n";
-    echo "<input type='hidden' id='tglpresensi$n' name='tglpresensi$n' value='$row[7]'>\r\n";
+    echo "<input type='hidden' id='replid$n' name='replid$n' value='".$row[5]."'>\r\n";
+    echo "<input type='hidden' id='tglpresensi$n' name='tglpresensi$n' value='".$row[7]."'>\r\n";
     echo "<td align='center'>$n</td>\r\n";
     echo "<td align='center'>$row[6]</td>\r\n";
-    echo "<td align='left'>$row[0] <input type='hidden' name='nip$n' id='nip$n' value='$row[0]'></td>\r\n";
+    echo "<td align='left'>$row[0] <input type='hidden' name='nip$n' id='nip$n' value='".$row[0]."'></td>\r\n";
     echo "<td align='left'>$row[1]</td>\r\n";
     
     $h = "";
@@ -121,7 +121,7 @@ while($row = mysqli_fetch_row($res))
     echo "<input type='text' maxlength='2' size='2' name='menitpulang$n' id='menitpulang$n' value='$m'>\r\n";
     echo "</td>\r\n";
     
-    echo "<td align='left'><input type='text' name='ket$n' id='ket$n' value='$row[4]' size='27' maxlength='255'></td>\r\n";
+    echo "<td align='left'><input type='text' name='ket$n' id='ket$n' value='".$row[4]."' size='27' maxlength='255'></td>\r\n";
     echo "<td align='center'>\r\n";
     
     echo "<input type='button' value='simpan' onclick='SaveEdit($n)'>\r\n";
@@ -144,7 +144,7 @@ function GetHourMinute($strtime, &$hour, &$minute)
 {
     if (strpos($strtime, ":") !== FALSE)
     {
-        $temp = split(":", $strtime);
+        $temp = explode(":", $strtime);
         $hour = $temp[0];
         $minute = $temp[1];
         

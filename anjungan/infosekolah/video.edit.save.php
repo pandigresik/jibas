@@ -46,7 +46,7 @@ try
     OpenDb();
     $sql = "SELECT IF(nis IS NULL, 'P', 'S') AS ownertype
               FROM jbsvcr.video
-             WHERE replid = '$videoid'";
+             WHERE replid = '".$videoid."'";
     $res = QueryDbEx($sql);
     if (mysqli_num_rows($res) == 0)
     {
@@ -108,7 +108,7 @@ try
         // Delete Previous File
         $sql = "SELECT filename, location
                   FROM jbsvcr.video
-                 WHERE replid = '$videoid'";
+                 WHERE replid = '".$videoid."'";
         $res2 = QueryDbEx($sql);
         $row2 = mysqli_fetch_array($res2);
         $prevfile = "$FILESHARE_UPLOAD_DIR/" . $row2['location'] . "/" . $row2['filename'];
@@ -132,7 +132,7 @@ try
                        filename = '$filename', filesize = '$filesize', filetype = '$filetype',
                        fileinfo = '', ffileinfo = '', location = '$location',
                        lastactive = NOW(), lastread = NOW()
-                 WHERE replid = '$videoid'";
+                 WHERE replid = '".$videoid."'";
     }
     else
     {
@@ -140,7 +140,7 @@ try
                    SET judul = '$judul', fjudul = '$fjudul', keterangan = '$keterangan',
                        fprevketerangan = '$fprevketerangan', fketerangan = '$fketerangan',
                        lastactive = NOW(), lastread = NOW()
-                 WHERE replid = '$videoid'";
+                 WHERE replid = '".$videoid."'";
     }
     
     echo $sql;

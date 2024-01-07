@@ -32,7 +32,7 @@ $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $rootname = $row[0];
 
-$sql = "SELECT * FROM jbsvcr.dirshare WHERE replid = '$iddir'";
+$sql = "SELECT * FROM jbsvcr.dirshare WHERE replid = '".$iddir."'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
 $dirfullpath = $row['dirfullpath'];
@@ -142,7 +142,7 @@ function SearchCreateIdFolder($rootfolder, $lastfoldername, &$success)
     $sql = "SELECT replid
               FROM jbsvcr.dirshare
              WHERE idguru = '$idguru'
-               AND dirfullpath = '$currfolder'";
+               AND dirfullpath = '".$currfolder."'";
     //echo "$sql<br>";           
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) == 0)
@@ -150,7 +150,7 @@ function SearchCreateIdFolder($rootfolder, $lastfoldername, &$success)
         $sql = "SELECT replid
                   FROM jbsvcr.dirshare
                  WHERE idguru = '$idguru'
-                   AND dirfullpath = '$rootfolder'";
+                   AND dirfullpath = '".$rootfolder."'";
         //echo "GETROOTFOLDER $sql<br>";           
         $res = QueryDb($sql);
         if (mysqli_num_rows($res) > 0)
@@ -162,7 +162,7 @@ function SearchCreateIdFolder($rootfolder, $lastfoldername, &$success)
                        SET idroot = '$rootid',
                            dirname = '$lastfoldername',
                            dirfullpath = '$currfolder',
-                           idguru = '$idguru'";
+                           idguru = '".$idguru."'";
             //echo "$sql<br>";               
             QueryDbTrans($sql, $success);
             

@@ -41,7 +41,7 @@ try
     
     $sql = "SELECT nama
               FROM jbssdm.pegawai
-             WHERE nip = '$nip'";
+             WHERE nip = '".$nip."'";
     $res = QueryDbEx($sql);
     
     if (mysqli_num_rows($res) == 0)

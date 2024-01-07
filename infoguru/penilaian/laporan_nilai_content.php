@@ -108,7 +108,7 @@ if (isset($_REQUEST['tglakhir']))
 <?php          $sql_get_nama="SELECT nama FROM jbsakad.siswa WHERE nis='$nis'";
 	        $result_get_nama=QueryDb($sql_get_nama);
 	        $row_get_nama=@mysqli_fetch_array($result_get_nama);
-	        echo $row_get_nama[nama];?>
+	        echo $row_get_nama['nama'];?>
 	      </span>
           </span>
       </td>

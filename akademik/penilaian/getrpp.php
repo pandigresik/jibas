@@ -32,7 +32,7 @@ OpenDb();
 <select name="idrpp" id="idrpp" style="width:170px;" onkeypress="return focusNext('deskripsi', event)">
 <option value="" <?=IntIsSelected("", $idrpp) ?> >Tanpa RPP</option>
 <?php 
-	$sql_rpp="SELECT * FROM rpp WHERE idtingkat=$_REQUEST['tingkat'] AND idsemester=$_REQUEST['semester'] AND idpelajaran=$_REQUEST['pelajaran'] AND aktif=1 ORDER BY rpp";
+	$sql_rpp="SELECT * FROM rpp WHERE idtingkat= '".$_REQUEST['tingkat']."' AND idsemester= '".$_REQUEST['semester']."' AND idpelajaran='".$_REQUEST['pelajaran']."' aktif=1 ORDER BY rpp";
 	$result_rpp=QueryDb($sql_rpp);
 	while ($row_rpp=@mysqli_fetch_array($result_rpp)){
 		//if($idrpp=="")

@@ -110,7 +110,7 @@ while ($row = mysqli_fetch_array($result)) {
 	$lunas = $row['lunas'];
 	$keterangan = $row['keterangan'];
 	
-	$sql = "SELECT SUM(jumlah), SUM(info1) FROM jbsfina.penerimaanjtt WHERE idbesarjtt = '$idbesarjtt'";
+	$sql = "SELECT SUM(jumlah), SUM(info1) FROM jbsfina.penerimaanjtt WHERE idbesarjtt = '".$idbesarjtt."'";
 	$result2 = QueryDb($sql);
 	$pembayaran = 0;
 	$diskon = 0;

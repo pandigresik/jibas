@@ -80,7 +80,7 @@ if(isset($_POST['simpan'])){
 		$n = "nis$j";
 		
 		//query buat cek data udah ada belon untuk data jenis penilaian. Klo belum insert, klo udah di update
-		$query_cek = "SELECT nau.replid FROM jbsakad.nau WHERE nau.idjenis = '$jenis_penilaian' AND idsemester = '$semester' AND idkelas = '$kelas' AND nis = '$_POST[$n]' AND idpelajaran = '$pelajaran'";
+		$query_cek = "SELECT nau.replid FROM jbsakad.nau WHERE nau.idjenis = '$jenis_penilaian' AND idsemester = '$semester' AND idkelas = '$kelas' AND nis  = '".$_POST[$n]."' AND idpelajaran = '".$pelajaran."'";
 		echo $query_cek;
 		//exit();
 		$result_cek = QueryDb($query_cek);
@@ -92,13 +92,13 @@ if(isset($_POST['simpan'])){
 							 "VALUES ('$pelajaran','$_POST[$n]','$kelas','$semester','$jenis_penilaian','$_POST[$nau]','$ket')";
 				$result_nau = QueryDb($query_nau) or die (mysqli_error($mysqlconnection));
 		}elseif($num_cek  > 0){
-				$query_nau = "UPDATE jbsakad.nau SET nau.nilaiAU = '$_POST[$nau]', idsemester = '$semester' WHERE nau.nis = '$_POST[$n]' AND idjenis = '$jenis_penilaian'";
+				$query_nau = "UPDATE jbsakad.nau SET nau.nilaiAU   = '".$_POST[$nau]."', idsemester = '$semester' WHERE nau.nis  = '".$_POST[$n]."' AND idjenis = '$jenis_penilaian'";
 				$result_nau = QueryDb($query_nau) or die (mysqli_error($mysqlconnection));
 		}
 		//echo "tes$query_nau<br>";
 		$j++;
 	}
-	  if(mysqli_affected_rows() >= 0) {
+	  if(mysqli_affected_rows($conn) >= 0) {
 	  	?>
 		<script language="javascript">
 			document.location.href = "tampil_nilai_pelajaran.php?jenis_penilaian=<?=$jenis_penilaian ?>&departemen=<?=$departemen ?>&pelajaran=<?=$pelajaran ?>&tingkat=<?=$tingkat ?>&kelas=<?=$kelas ?>&semester=<?=$semester ?>&tahun=<?=$tahun ?>";
@@ -211,7 +211,7 @@ var pilih;
 <input type="hidden" name="tahun" value="<?=$tahun ?>">
 <input type="hidden" name="semester" value="<?=$semester ?>">
 <input type="hidden" name="jenis_penilaian" value="<?=$jenis_penilaian ?>">
-    <fieldset><legend><b>Input Nilai Akhir Manual <?=$row_jp[jenisujian] ?></b>
+    <fieldset><legend><b>Input Nilai Akhir Manual <?=$row_jp['jenisujian'] ?></b>
 		
 	<?php
 	$query_uj = "SELECT nilaiujian.replid, nilaiujian.idujian, nilaiujian.nis, siswa.nama, nilaiujian.nilaiujian ".
@@ -227,11 +227,11 @@ var pilih;
 	//echo $query_uj;
 
 	while($row_uj = @mysqli_fetch_array($result_uj)){
-		$my_data[$row_uj[nis]][n][$row_uj[idujian]][nilai] = $row_uj[nilaiujian];
-		$my_data[$row_uj[nis]][n][$row_uj[idujian]][id] = $row_uj['replid'];
-		$my_data[$row_uj[nis]][n][$row_uj[idujian]][idujian] = $row_uj[idujian];
-		//$my_data[$row_uj[nis]]['replid'] = $row_uj['replid'];
-		$my_data[$row_uj[nis]][nama] = $row_uj[nama];
+		$my_data[$row_uj['nis']]['n'][$row_uj['idujian']]['nilai'] = $row_uj['nilaiujian'];
+		$my_data[$row_uj['nis']]['n'][$row_uj['idujian']]['id'] = $row_uj['replid'];
+		$my_data[$row_uj['nis']]['n'][$row_uj['idujian']]['idujian'] = $row_uj['idujian'];
+		//$my_data[$row_uj['nis']]['replid'] = $row_uj['replid'];
+		$my_data[$row_uj['nis']]['nama'] = $row_uj['nama'];
 	}
 	?>
 	<table width="100%" id="table" class="tab" border="1">
@@ -258,8 +258,8 @@ var pilih;
 			?>
 				<td class="headerlong" align="center"  height="30">				
 				<?php 
-				$tgl = format_tgl($row_qz[tanggal]);
-				echo  "$row_qz[jenisujian] - $i";
+				$tgl = format_tgl($row_qz['tanggal']);
+				echo  "$row_qz['jenisujian'] - $i";
 				$kol_idujian[$nujian] = $row_qz['replid'];
 				$nujian++; 
 				?>
@@ -277,7 +277,7 @@ var pilih;
 			 $result_ju = QueryDb($query_ju);
 			 $row_ju = @mysqli_fetch_array($result_ju);
 			?>
-			<td class="headerlong" align="center" height="30">Nilai Akhir <?=$row_ju[jenisujian] ?></td>
+			<td class="headerlong" align="center" height="30">Nilai Akhir <?=$row_ju['jenisujian'] ?></td>
 		</tr>			
 			<?php
 			$totCol[] = 0;
@@ -292,7 +292,7 @@ var pilih;
 						<input type='hidden' name='nis$i' value='$ns'>
 						$ns
 						</td>
-						<td>$d[nama]</td>
+						<td>".$d['nama']."</td>
                   ";
 					$t = 0;
 					$idx = 0;
@@ -303,8 +303,8 @@ var pilih;
                     		$ujcnt = $ujcntstart;
                     		$ujfound = false;
                     		while ($ujcnt < $nujian && !$ujfound) {
-                    			//echo "$v[idujian] vs $kol_idujian[$ujcnt]";
-                    			if ($v[idujian] == $kol_idujian[$ujcnt]) { 
+                    			//echo "$v['idujian'] vs $kol_idujian[$ujcnt]";
+                    			if ($v['idujian'] == $kol_idujian[$ujcnt]) { 
                     				$ujfound = true;
                     				$ujcntstart = $ujcnt + 1;
                     			} else {
@@ -314,13 +314,13 @@ var pilih;
                     			} 
                     		} 
                     		  
-						  		$t += $v[nilai];
-						  		$totCol[$idx] += $v[nilai];
+						  		$t += $v['nilai'];
+						  		$totCol[$idx] += $v['nilai'];
 						  		$idx++;
 						  		$nkolprinted++;
                     		?>          
                         <td align='center' height="25">
-									<?="$v[nilai]" ?>
+									<?=$v['nilai']?>
 								</td>
 					 <?php
                     }
@@ -339,10 +339,10 @@ var pilih;
 								 "AND nau.idpelajaran = '$pelajaran' ".
 								 "AND nau.idkelas = '$kelas' ".
 								 "AND nau.idsemester = '$semester' ".
-								 "AND nau.nis = '$ns'";
+								 "AND nau.nis = '".$ns."'";
 					$result_nau = QueryDb($query_nau) or die (mysqli_error($mysqlconnection));
 					$row_nau = mysqli_fetch_array($result_nau);
-                   echo " <td align='center'><input type='text' id='nilai_akhir$i' name='nilai_akhir$i' maxlength='8' value='$row_nau[nilaiAU]'></td>
+                   echo " <td align='center'><input type='text' id='nilai_akhir$i' name='nilai_akhir$i' maxlength='8' value='".$row_nau['nilaiAU']."'></td>
 				</tr>";
             }
 			?>

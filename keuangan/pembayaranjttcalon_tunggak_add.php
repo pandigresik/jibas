@@ -41,13 +41,13 @@ $idtahunbuku_aktif = $_REQUEST['idtahunbuku_aktif'];
 OpenDb();
 
 //// Ambil informasi calon siswa
-$sql = "SELECT nama, nopendaftaran FROM jbsakad.calonsiswa WHERE replid = '$replid'";
+$sql = "SELECT nama, nopendaftaran FROM jbsakad.calonsiswa WHERE replid = '".$replid."'";
 $row = FetchSingleRow($sql);
 $nama = $row[0];
 $no = $row[1];
 
 // -- ambil nama penerimaan -------------------------------
-$sql = "SELECT nama, rekkas FROM datapenerimaan WHERE replid = '$idpenerimaan'";
+$sql = "SELECT nama, rekkas FROM datapenerimaan WHERE replid = '".$idpenerimaan."'";
 $row = FetchSingleRow($sql);
 $namapenerimaan = $row[0];
 $defrekkas = $row[1];
@@ -73,7 +73,7 @@ if (isset($_REQUEST['Simpan']))
 		
 	//// Ambil nama penerimaan
 	$sql = "SELECT nama, rekkas, rekpendapatan, rekpiutang, info1
-			  FROM datapenerimaan WHERE replid = '$idpenerimaan'";
+			  FROM datapenerimaan WHERE replid = '".$idpenerimaan."'";
 	$row = FetchSingleRow($sql);
 	$namapenerimaan = $row[0];
 	//$rekkas = $row[1];
@@ -82,7 +82,7 @@ if (isset($_REQUEST['Simpan']))
 	$rekdiskon = $row[4];
 	
 	//// Ambil nama calon siswa
-	$sql = "SELECT nama, nopendaftaran FROM jbsakad.calonsiswa WHERE replid = '$replid'";
+	$sql = "SELECT nama, nopendaftaran FROM jbsakad.calonsiswa WHERE replid = '".$replid."'";
 	$row = FetchSingleRow($sql);
 	$namasiswa = $row[0];
 	$no = $row[1];
@@ -91,14 +91,14 @@ if (isset($_REQUEST['Simpan']))
 	// FIXED: 27 Agustus 2010
 	$sql = "SELECT b.replid AS id, b.besar, b.keterangan, b.lunas 
 			    FROM besarjttcalon b
-			   WHERE b.idcalon = '$replid' AND b.idpenerimaan = '$idpenerimaan' AND b.info2 = '$idtahunbuku'";
+			   WHERE b.idcalon = '$replid' AND b.idpenerimaan = '$idpenerimaan' AND b.info2 = '".$idtahunbuku."'";
 	$res = QueryDb($sql);
 	$row = mysqli_fetch_row($res);
 	$idbesarjtt = $row[0];
 	$besarjtt = $row[1];
 	
 	//// Cari tahu jumlah pembayaran cicilan yang sudah terjadi
-	$sql = "SELECT SUM(jumlah), SUM(info1) FROM penerimaanjttcalon WHERE idbesarjttcalon = '$idbesarjtt'";
+	$sql = "SELECT SUM(jumlah), SUM(info1) FROM penerimaanjttcalon WHERE idbesarjttcalon = '".$idbesarjtt."'";
 	$row = FetchSingleRow($sql);
 	$totalcicilan = $row[0];
 	$totaldiskon = $row[1];
@@ -119,7 +119,7 @@ if (isset($_REQUEST['Simpan']))
 		}
 		else
 		{
-			$sql = "SELECT COUNT(replid) + 1 FROM penerimaanjtt WHERE idbesarjtt = '$idbesarjtt'";
+			$sql = "SELECT COUNT(replid) + 1 FROM penerimaanjtt WHERE idbesarjtt = '".$idbesarjtt."'";
 			$cicilan = FetchSingle($sql);
 			
 			$ketjurnal = "Pembayaran ke-$cicilan $namapenerimaan calon siswa $namasiswa ($no)";
@@ -361,7 +361,7 @@ function CalculatePay()
                 while($row = mysqli_fetch_row($res))
                 {
                     $sel = $row[0] == $defrekkas ? "selected" : "";
-                    echo "<option value='$row[0]' $sel>$row[0] $row[1]</option>";
+                    echo "<option value='".$row[0]."' $sel>$row[0] $row[1]</option>";
                 }
                 CloseDb();
                 ?>                

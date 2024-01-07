@@ -48,7 +48,7 @@ if ($success){
 	RollbackTrans();
 }
 
-	$sql_kelas="SELECT kelas FROM jbsakad.kelas WHERE replid='$row_siswa[idkelas]'";
+	$sql_kelas="SELECT kelas FROM jbsakad.kelas WHERE replid='".$row_siswa['idkelas']."'";
 	$result_kelas=QueryDB($sql_kelas);
 	while ($row_kelas = mysqli_fetch_array($result_kelas)) {
 	$namakelas=$row_kelas['kelas'];

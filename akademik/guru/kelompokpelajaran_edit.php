@@ -51,7 +51,7 @@ if (isset($_REQUEST['Simpan']))
     }
     else
     {
-        $sql = "UPDATE kelompokpelajaran SET kode = '$kode', kelompok = '$nama', urutan = '$urutan' WHERE replid = '$replid'";
+        $sql = "UPDATE kelompokpelajaran SET kode = '$kode', kelompok = '$nama', urutan = '$urutan' WHERE replid = '".$replid."'";
         $result = QueryDb($sql);
         CloseDb();
 
@@ -66,7 +66,7 @@ if (isset($_REQUEST['Simpan']))
 };
 
 OpenDb();
-$sql = "SELECT kode, kelompok, urutan FROM kelompokpelajaran WHERE replid = '$replid'";
+$sql = "SELECT kode, kelompok, urutan FROM kelompokpelajaran WHERE replid = '".$replid."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $kode = $row[0];

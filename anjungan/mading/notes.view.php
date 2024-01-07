@@ -39,7 +39,7 @@ $sql = "SELECT *, IF(nip IS NULL, 'S', 'P') AS ownertype,
                DATE_FORMAT(tanggal, '%d-%m-%Y') AS tglbuat,
                TIME_TO_SEC(TIMEDIFF(NOW(), tanggal)) AS secdiff
           FROM jbsvcr.notes
-         WHERE replid = '$notesid'";
+         WHERE replid = '".$notesid."'";
 $res = QueryDb($sql);
 if (mysqli_num_rows($res) == 0)
 {
@@ -55,7 +55,7 @@ $ownername = GetOwnerName($ownerid, $ownertype);
 
 $sql = "UPDATE jbsvcr.notes
            SET nread = nread + 1, lastread = NOW()
-         WHERE replid = '$notesid'";
+         WHERE replid = '".$notesid."'";
 QueryDb($sql);         
 ?>
 <table border='0' cellpadding='2' cellspacing='0' width='98%'>

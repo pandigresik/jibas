@@ -91,7 +91,7 @@ $pelajaran = $_REQUEST['pelajaran'];
             
         ?>
     <option value="<?=$row_pel['replid']?>" <?=StringIsSelected($pelajaran,$row_pel['replid'])?>>
-      <?=$row_pel[nama]?>
+      <?=$row_pel['nama']?>
       </option>
     <?php
         }
@@ -133,8 +133,8 @@ $pelajaran = $_REQUEST['pelajaran'];
 			if ($sql_tambahdep == "") {
 				unset($depart);
 				unset($ajar);
-				//$sql1 = "SELECT d.departemen, pel.departemen FROM pelajaran pel, departemen d, guru g WHERE g.idpelajaran = pel.replid AND g.nip = '".$row[0]' AND pel.departemen = d.departemen GROUP BY pel.departemen ORDER BY d.urutan";					
-				$sql1 = "SELECT pel.departemen, pel.replid FROM pelajaran pel, departemen d, guru g WHERE g.idpelajaran = pel.replid AND g.nip = '".$row[0]' AND pel.departemen = d.departemen GROUP BY pel.departemen ORDER BY d.urutan, pel.nama";
+				//$sql1 = "SELECT d.departemen, pel.departemen FROM pelajaran pel, departemen d, guru g WHERE g.idpelajaran = pel.replid AND g.nip = '".$row[0]."' AND pel.departemen = d.departemen GROUP BY pel.departemen ORDER BY d.urutan";					
+				$sql1 = "SELECT pel.departemen, pel.replid FROM pelajaran pel, departemen d, guru g WHERE g.idpelajaran = pel.replid AND g.nip = '".$row[0]."' AND pel.departemen = d.departemen GROUP BY pel.departemen ORDER BY d.urutan, pel.nama";
 				$result1 = QueryDb($sql1);
 				$i = 0;
 				while ($row1=mysqli_fetch_array($result1)) {									

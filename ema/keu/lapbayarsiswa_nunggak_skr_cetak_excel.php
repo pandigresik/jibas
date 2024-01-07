@@ -116,13 +116,13 @@ $namatingkat = "";
 $namakelas = "";
 if ($idtingkat <> -1) {
 	if ($idkelas <> -1) {
-		$sql = "SELECT tingkat, kelas FROM kelas k, tingkat t WHERE k.replid = '$idkelas' AND k.idtingkat = t.replid AND t.replid = '$idtingkat'";
+		$sql = "SELECT tingkat, kelas FROM kelas k, tingkat t WHERE k.replid = '$idkelas' AND k.idtingkat = t.replid AND t.replid = '".$idtingkat."'";
 		$result = QueryDb($sql);
 		$row = mysqli_fetch_row($result);
 		$namatingkat = $row[0]." - ";
 		$namakelas = $row[1];	
 	} else {
-		$sql = "SELECT tingkat FROM tingkat t WHERE t.replid = '$idtingkat'";
+		$sql = "SELECT tingkat FROM tingkat t WHERE t.replid = '".$idtingkat."'";
 		$result = QueryDb($sql);
 		$row = mysqli_fetch_row($result);
 		$namatingkat = $row[0];
@@ -195,7 +195,7 @@ while ($row = mysqli_fetch_array($result)) {
     <td align="center"><?=$row['nis'] ?></td>
     <td><?=$row['nama'] ?></td>
     <td align="center"><?php if ($idkelas == -1) echo $row['tingkat']." - "; ?><?=$row['kelas'] ?></td>
-<?php $sql = "SELECT count(*) FROM $db_name_fina.penerimaaniuran WHERE nis = '$nis' AND idpenerimaan = '$idpenerimaan'";
+<?php $sql = "SELECT count(*) FROM $db_name_fina.penerimaaniuran WHERE nis = '$nis' AND idpenerimaan = '".$idpenerimaan."'";
 	//echo "$sql<br>";
 	$result2 = QueryDb($sql);
 	$row2 = mysqli_fetch_row($result2);
@@ -226,7 +226,7 @@ while ($row = mysqli_fetch_array($result)) {
         </td>
     <?php }?>
     <td align="center">
-<?php $sql = "SELECT datediff('$tgl', max(tanggal)) FROM $db_name_fina.penerimaaniuran WHERE nis = '$nis' AND idpenerimaan = '$idpenerimaan'";
+<?php $sql = "SELECT datediff('$tgl', max(tanggal)) FROM $db_name_fina.penerimaaniuran WHERE nis = '$nis' AND idpenerimaan = '".$idpenerimaan."'";
 	//SELECT max(datediff('$tgl', tanggal)) FROM $db_name_fina.penerimaaniuran WHERE nis = '$nis' AND idpenerimaan = $idpenerimaan
 	$result2 = QueryDb($sql);
 	$row2 = mysqli_fetch_row($result2);

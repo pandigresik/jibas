@@ -38,7 +38,7 @@ $cek = 0;
 $ERROR_MSG = "";
 if (isset($_REQUEST['Simpan'])) {
 	OpenDb();
-	$sql = "SELECT * FROM jbsvcr.catatankategori WHERE kategori = '$kategori'";
+	$sql = "SELECT * FROM jbsvcr.catatankategori WHERE kategori = '".$kategori."'";
 	$result = QueryDb($sql);
 	
 	if (mysqli_num_rows($result) > 0) {		

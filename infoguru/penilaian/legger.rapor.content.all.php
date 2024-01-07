@@ -88,7 +88,7 @@ $sql = "SELECT DISTINCT a.dasarpenilaian, d.keterangan
            AND a.dasarpenilaian = d.dasarpenilaian
            AND i.idpelajaran IN ($stidpel)  
            AND i.idsemester = '$semester' 
-           AND i.idkelas = '$kelas'";
+           AND i.idkelas = '".$kelas."'";
 $res = QueryDb($sql);
 while($row = mysqli_fetch_row($res))
 {
@@ -99,7 +99,7 @@ $colwidth = $naspek == 0 ? "*" : round(600 / $naspek);
 
 $sql = "SELECT aktif
           FROM tahunajaran
-         WHERE replid = '$tahunajaran'";
+         WHERE replid = '".$tahunajaran."'";
 $res = QueryDb($sql);
 $row = mysqli_fetch_row($res);
 $ta_aktif = (int) $row[0];
@@ -206,7 +206,7 @@ $nsiswa = count($siswa);
                            AND i.idsemester = '$semester' 
                            AND i.idkelas = '$kelas'
                            AND n.idaturan = a.replid 	   
-                           AND a.dasarpenilaian = '$asp'";
+                           AND a.dasarpenilaian = '".$asp."'";
                 $res = QueryDb($sql);
                 if (mysqli_num_rows($res) > 0)
                 {

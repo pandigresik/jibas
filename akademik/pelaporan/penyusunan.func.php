@@ -34,7 +34,7 @@ function ShowCbTingkat($departemen)
     echo "<option value='0' selected>(Semua Tingkat)</option>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='$row[0]'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>$row[1]</option>";
     }
     echo "</select>";
 }
@@ -62,7 +62,7 @@ function ShowCbKelas($idtingkat)
         echo "<option value='0' selected>(Semua Kelas)</option>";
         while($row = mysqli_fetch_row($res))
         {
-            echo "<option value='$row[0]'>$row[1]</option>";
+            echo "<option value='".$row[0]."'>$row[1]</option>";
         }
         echo "</select>";
     }
@@ -84,7 +84,7 @@ function ShowCbPengantar($departemen)
         if ($idpengantar == 0)
             $idpengantar = $row[0];
             
-        echo "<option value='$row[0]'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>$row[1]</option>";
     }
     echo "</select>";
     
@@ -118,7 +118,7 @@ function ShowCbLampiran($departemen)
         if ($idlampiran == 0)
             $idlampiran = $row[0];
             
-        echo "<option value='$row[0]'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>$row[1]</option>";
     }
     echo "</select>";
     

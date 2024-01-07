@@ -65,7 +65,7 @@ $departemen = $_REQUEST['departemen'];
                 <?php
                 $sql = "SELECT kolom, jenis, keterangan, aktif, urutan, replid  
                           FROM tambahandata 
-                         WHERE departemen = '$departemen'";
+                         WHERE departemen = '".$departemen."'";
                 $result = QueryDB($sql);
                 $cnt = 0;
                 while ($row = mysqli_fetch_array($result)) { ?>

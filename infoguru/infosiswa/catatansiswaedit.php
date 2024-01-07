@@ -64,10 +64,10 @@ if (isset($_REQUEST['simpan'])){
 OpenDb();
 $res=QueryDb("SELECT * FROM jbsvcr.catatansiswa WHERE replid='$replid'");
 $rw=@mysqli_fetch_array($res);
-$tanggal = RegularDateFormat($rw[tanggal]);
-$judul = $rw[judul];
-$catatan = $rw[catatan];
-$idkategori = $rw[kategori];
+$tanggal = RegularDateFormat($rw['tanggal']);
+$judul = $rw['judul'];
+$catatan = $rw['catatan'];
+$idkategori = $rw['kategori'];
 CloseDb();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

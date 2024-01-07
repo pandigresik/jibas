@@ -58,7 +58,7 @@ function acceptPegawai(nis, nama, flag) {
 }
 function ChgTkt(Val){
     var nis = document.getElementById('nis').value;
-	var x = Val.split(",");
+	var x = Val.explode(",");
 	sendRequestText("rataus.left.php",ShowLeft,"oldnis="+nis+"&kls="+x[0]+"&tkt="+x[1]+"&nis="+x[2]);
 	//document.location.href="rataus.left.php?kls="+x[0]+"&tkt="+x[1]+"&oldnis=<?=$oldnis?>&nis="+x[2];
 }

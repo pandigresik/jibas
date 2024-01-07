@@ -182,7 +182,7 @@ function focusNext(elemName, evt) {
         <?php 	
 		if ($kalender <> "" ) {
 			OpenDb();
-			$sql = "SELECT * FROM jbsakad.tahunajaran t, jbsakad.kalenderakademik k WHERE t.replid=k.idtahunajaran AND k.replid = '$kalender'";
+			$sql = "SELECT * FROM jbsakad.tahunajaran t, jbsakad.kalenderakademik k WHERE t.replid=k.idtahunajaran AND k.replid = '".$kalender."'";
 			$result = QueryDb($sql);
 			$row = mysqli_fetch_array($result);
 			$periode = format_tgl($row['tglmulai']).' s/d '.format_tgl($row['tglakhir']);

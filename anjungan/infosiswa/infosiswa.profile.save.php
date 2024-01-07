@@ -130,7 +130,7 @@ try
     if ($inputsekolah == 1)
     {
         $sql = "INSERT INTO jbsakad.asalsekolah
-                   SET departemen = '$dep_asal', sekolah = '$sekolah'";
+                   SET departemen = '$dep_asal', sekolah = '".$sekolah."'";
         //echo "$sql<br>";
         QueryDbEx($sql);
     }
@@ -149,7 +149,7 @@ try
                     penghasilanibu='$penghasilanibu', alamatortu='$alamatortu', telponortu='$telponortu', hportu='$hportu',
                     info1='$hportu2', info2='$hportu3', emailayah='$emailayah', emailibu='$emailibu', alamatsurat='$alamatsurat',
                     keterangan='$keterangan', hobi='$hobi', nisn='$nisn', nik='$nik', noun='$noun'
-              WHERE nis = '$nis'";
+              WHERE nis = '".$nis."'";
     //echo "$sql<br>";
     QueryDbEx($sql);
 
@@ -181,11 +181,11 @@ try
 
                 if ($repliddata == 0)
                     $sql = "INSERT INTO jbsakad.tambahandatasiswa
-                               SET nis = '$nis', idtambahan = '$replid', jenis = '$jenis', teks = '$teks'";
+                               SET nis = '$nis', idtambahan = '$replid', jenis = '$jenis', teks = '".$teks."'";
                 else
                     $sql = "UPDATE jbsakad.tambahandatasiswa
                                SET teks = '$teks'
-                             WHERE replid = '$repliddata'";
+                             WHERE replid = '".$repliddata."'";
 
                 QueryDbEx($sql);
             }

@@ -27,7 +27,7 @@ require_once('../include/db_functions.php');
 $kelas=$_POST['kelas'];
 if ($kelas <> "") {
 OpenDb();
-$sql1 = "SELECT kapasitas FROM kelas WHERE replid = '$kelas'";
+$sql1 = "SELECT kapasitas FROM kelas WHERE replid = '".$kelas."'";
 $result1 = QueryDb($sql1);
 $row_cek1 = mysqli_fetch_array($result1);
 $sql2 = "SELECT COUNT(*) AS jum FROM siswa WHERE idkelas = '$kelas' AND aktif = 1";

@@ -74,8 +74,8 @@ function IntIsSelected($String,$Comparer)
 function SDateFormat($string)
 {
 	global $LMonth;
-	$x = split(' ',$string);
-	$y = split('-',$x[0]);
+	$x = explode(' ',$string);
+	$y = explode('-',$x[0]);
 	//echo $y[2].' '.$LMonth[(int)$y[1]-1].' '.$y[0];
 	$m = ($y[1]-1);
 	echo $y[2].'-'.$y[1].'-'.$y[0];
@@ -84,8 +84,8 @@ function SDateFormat($string)
 function DateFormat($string)
 {
 	global $LMonth;
-	$x = split(' ',$string);
-	$y = split('-',$x[0]);
+	$x = explode(' ',$string);
+	$y = explode('-',$x[0]);
 	//echo $y[2].' '.$LMonth[(int)$y[1]-1].' '.$y[0];
 	$m = ($y[1]-1);
 	echo $y[2].' '.$LMonth[$m].' '.$y[0];
@@ -94,8 +94,8 @@ function DateFormat($string)
 function DateFormat2($string)
 {
 	global $LMonth;
-	$x = split(' ',$string);
-	$y = split('-',$x[0]);
+	$x = explode(' ',$string);
+	$y = explode('-',$x[0]);
 	$m = ($y[1]-1);
 
 	if ($y[2]=='1')
@@ -116,8 +116,8 @@ function FullDateFormat($string)
 {
 	global $LMonth;
 	
-	$x = split(' ',$string);
-	$y = split('-',$x[0]);
+	$x = explode(' ',$string);
+	$y = explode('-',$x[0]);
 	$m = ($y[1]-1);
 	
 	echo $y[2].' '.$LMonth[$m].' '.$y[0].' '.$x[1];
@@ -128,8 +128,8 @@ function FullDateFormat2($string)
 	global $LMonth;
 	global $SMonth;
 	
-	$x = split(' ',$string);
-	$y = split('-',$x[0]);
+	$x = explode(' ',$string);
+	$y = explode('-',$x[0]);
 
 	$m = ($y[1]-1);
 	if ($y[2]=='1')
@@ -148,7 +148,7 @@ function FullDateFormat2($string)
 
 function MysqlDateFormat($string)
 {
-	$y = split('-',$string);
+	$y = explode('-',$string);
 	return $y[2].'-'.$y[1].'-'.$y[0];
 }
 

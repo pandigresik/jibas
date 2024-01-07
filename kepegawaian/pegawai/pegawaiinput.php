@@ -88,7 +88,7 @@ $P = new PegawaiInput();
 	 $checked = "checked='checked'";
 	 while ($row = @mysqli_fetch_row($res))
 	 {
-		 echo "<input type='radio' $checked name='rbBagian' id='rbBagian' value='$row[0]' " .  StringIsChecked($row[0], $P->bagian) . " />&nbsp;$row[0]&nbsp;";
+		 echo "<input type='radio' $checked name='rbBagian' id='rbBagian' value='".$row[0]."' " .  StringIsChecked($row[0], $P->bagian) . " />&nbsp;$row[0]&nbsp;";
 		 $checked = "";
 	 } ?>
     </td>
@@ -177,7 +177,7 @@ $P = new PegawaiInput();
 <?php 	$sql = "SELECT suku FROM jbsumum.suku";
 		$res = QueryDb($sql);
 	    while ($row = @mysqli_fetch_row($res))
-		  echo "<option value='$row[0]' " . StringIsSelected($row[0], $P->suku) . " >$row[0]</option>";
+		  echo "<option value='".$row[0]."' " . StringIsSelected($row[0], $P->suku) . " >$row[0]</option>";
 ?>
     </select>&nbsp;
 <?php 	if (SI_USER_LEVEL() != $SI_USER_STAFF) { ?>

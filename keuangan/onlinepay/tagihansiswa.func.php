@@ -122,7 +122,7 @@ function GetInvoiceList()
         $awalanNoTagihan = "";
         $sql = "SELECT awalan 
                   FROM jbsfina.formatnomortagihan
-                 WHERE departemen = '$dept'";
+                 WHERE departemen = '".$dept."'";
         $res = QueryDbEx($sql);
         if ($row = mysqli_fetch_row($res))
         {
@@ -132,7 +132,7 @@ function GetInvoiceList()
         {
             $sql = "SELECT replid
                       FROM jbsakad.departemen 
-                     WHERE departemen = '$dept'";
+                     WHERE departemen = '".$dept."'";
             $res = QueryDbEx($sql);
             if ($row = mysqli_fetch_row($res))
             {
@@ -244,7 +244,7 @@ function GetInvoiceList()
         $sql = "SELECT DISTINCT idpenerimaan
                   FROM jbsfina.besarjtt 
                  WHERE nis = '$nis'
-                   AND info2 = '$idTahunBuku'";
+                   AND info2 = '".$idTahunBuku."'";
         $res = QueryDbEx($sql);
         while($row = mysqli_fetch_row($res))
         {
@@ -320,7 +320,7 @@ function GetInvoiceList()
                  WHERE b.idpenerimaan = dp.replid
                    AND b.idpenerimaan IN ($stIdInvoice)
                    AND b.nis = '$nis'
-                   AND b.info2 = '$idTahunBuku'";  // change on 2023-03-31
+                   AND b.info2 = '".$idTahunBuku."'";  // change on 2023-03-31
         $res = QueryDbEx($sql);
         $no = 0;
         while($row = mysqli_fetch_row($res))
@@ -469,7 +469,7 @@ function CreateInvoice()
         $awalanNoTagihan = "";
         $sql = "SELECT awalan 
                   FROM jbsfina.formatnomortagihan
-                 WHERE departemen = '$dept'";
+                 WHERE departemen = '".$dept."'";
         $res = QueryDbEx($sql);
         if ($row = mysqli_fetch_row($res))
         {
@@ -479,7 +479,7 @@ function CreateInvoice()
         {
             $sql = "SELECT replid
                       FROM jbsakad.departemen 
-                     WHERE departemen = '$dept'";
+                     WHERE departemen = '".$dept."'";
             $res = QueryDbEx($sql);
             if ($row = mysqli_fetch_row($res))
             {
@@ -625,7 +625,7 @@ function CreateInvoice()
         $sql = "SELECT DISTINCT idpenerimaan
                   FROM jbsfina.besarjtt 
                  WHERE nis = '$nis'
-                   AND info2 = '$idTahunBuku'";
+                   AND info2 = '".$idTahunBuku."'";
         $res = QueryDbEx($sql);
         while($row = mysqli_fetch_row($res))
         {
@@ -689,7 +689,7 @@ function CreateInvoice()
                  WHERE b.idpenerimaan = dp.replid
                    AND b.idpenerimaan IN ($stIdInvoice)
                    AND b.nis = '$nis'
-                   AND b.info2 = '$idTahunBuku'";  // change on 2023-03-31
+                   AND b.info2 = '".$idTahunBuku."'";  // change on 2023-03-31
         $res = QueryDbEx($sql);
         while($row = mysqli_fetch_row($res))
         {

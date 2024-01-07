@@ -25,7 +25,7 @@ function GetOwnerName($ownerid, $ownertype)
 {
     $sql = $ownertype == "S" ?
            "SELECT nama FROM jbsakad.siswa WHERE nis = '$ownerid'" :
-           "SELECT nama FROM jbssdm.pegawai WHERE nip = '$ownerid'";
+           "SELECT nama FROM jbssdm.pegawai WHERE nip = '".$ownerid."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) > 0)
     {
@@ -61,7 +61,7 @@ function ShowPrevCommentLink($videoid)
     
     $sql = "SELECT COUNT(replid)
               FROM jbsvcr.videocomment
-             WHERE videoid = '$videoid'";
+             WHERE videoid = '".$videoid."'";
     $nCmt = (int)FetchSingle($sql);
     if ($nCmt <= $VideoViewActiveComment)
         return;
@@ -88,7 +88,7 @@ function ShowPrevComment($videoid)
     
     $sql = "SELECT COUNT(replid)
               FROM jbsvcr.videocomment
-             WHERE videoid = '$videoid'";
+             WHERE videoid = '".$videoid."'";
     $nCmt = (int)FetchSingleEx($sql);
     $sqlLimit = "LIMIT " . ($nCmt - $VideoViewActiveComment);
     
@@ -152,7 +152,7 @@ function ShowComment($videoid, $maxCommentId)
     {
         $sql = "SELECT COUNT(replid)
                   FROM jbsvcr.videocomment
-                 WHERE videoid = '$videoid'";
+                 WHERE videoid = '".$videoid."'";
         $nCmt = (int)FetchSingleEx($sql);
         if ($nCmt > $VideoViewActiveComment)
             $sqlLimit = "LIMIT " . ($nCmt - $VideoViewActiveComment) . ", $VideoViewActiveComment";
@@ -333,7 +333,7 @@ function ValidateCommentOwner($replid, $login)
 function DeleteComment($replid)
 {
     $sql = "DELETE FROM jbsvcr.videocomment
-             WHERE replid = '$replid'";
+             WHERE replid = '".$replid."'";
     QueryDbEx($sql);         
 }
 
@@ -376,7 +376,7 @@ function DeleteVideo($videoid)
     
     $sql = "SELECT *
               FROM jbsvcr.video
-             WHERE replid = '$videoid'";
+             WHERE replid = '".$videoid."'";
     $res = QueryDbEx($sql);
     while($row = mysqli_fetch_array($res))
     {
@@ -389,7 +389,7 @@ function DeleteVideo($videoid)
     }
     
     $sql = "DELETE FROM jbsvcr.video
-             WHERE replid = '$videoid'";
+             WHERE replid = '".$videoid."'";
     echo "$sql<br>";         
     QueryDbEx($sql);
 }

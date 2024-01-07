@@ -52,10 +52,10 @@ $cek = 0;
 $ERROR_MSG = "";
 if (isset($_REQUEST['Simpan'])) {
 	OpenDb();
-	$sql = "SELECT * FROM jenisjabatan WHERE jenis = '$jenis'";
+	$sql = "SELECT * FROM jenisjabatan WHERE jenis = '".$jenis."'";
 	$result = QueryDb($sql);
 	
-	$sql1 = "SELECT * FROM jenisjabatan WHERE urutan = '$urutan'";
+	$sql1 = "SELECT * FROM jenisjabatan WHERE urutan = '".$urutan."'";
 	$result1 = QueryDb($sql1);
 		
 	if (@mysqli_num_rows($result) > 0) {		

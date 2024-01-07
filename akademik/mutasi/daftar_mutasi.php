@@ -64,7 +64,7 @@ if (isset($_REQUEST['departemen']))
 
 if ($op == "xm8r389xemx23xb2378e23") {
 	OpenDb();
-	$sql="SELECT m.nis, s.idkelas, m.tglmutasi, k.idtahunajaran, k.idtingkat FROM mutasisiswa m, siswa s, kelas k WHERE m.replid=$_REQUEST['replid'] AND s.nis = m.nis AND s.idkelas = k.replid";
+	$sql="SELECT m.nis, s.idkelas, m.tglmutasi, k.idtahunajaran, k.idtingkat FROM mutasisiswa m, siswa s, kelas k WHERE m.replid= '".$_REQUEST['replid']."' s.nis = m.nis AND s.idkelas = k.replid";
 	
 	$result=QueryDb($sql);
 	$row = mysqli_fetch_array($result);
@@ -77,11 +77,11 @@ if ($op == "xm8r389xemx23xb2378e23") {
 	BeginTrans();
 	$success=0;
 	
-	$sql1="UPDATE jbsakad.riwayatkelassiswa SET aktif=1 WHERE nis='$nis' AND idkelas = '$idkelas' ORDER BY mulai DESC LIMIT 1";
+	$sql1="UPDATE jbsakad.riwayatkelassiswa SET aktif=1 WHERE nis='$nis' AND idkelas = '$idkelas'";
 	$result1=QueryDbTrans($sql1, $success);
 	
 	if ($success){
-		$sql1="UPDATE jbsakad.riwayatdeptsiswa SET aktif=1 WHERE nis='$nis' AND departemen='$departemen' ORDER BY mulai DESC LIMIT 1";
+		$sql1="UPDATE jbsakad.riwayatdeptsiswa SET aktif=1 WHERE nis='$nis' AND departemen='$departemen'";
 		$result1=QueryDbTrans($sql1, $success);
 	}
 	
@@ -91,7 +91,7 @@ if ($op == "xm8r389xemx23xb2378e23") {
 	}
 	
 	if ($success){
-		$sql1="DELETE FROM jbsakad.alumni WHERE nis='$nis' AND departemen = '$departemen' AND klsakhir='$idkelas' AND tgllulus = '$tglmutasi'";
+		$sql1="DELETE FROM jbsakad.alumni WHERE nis='$nis' AND departemen = '$departemen' AND klsakhir='$idkelas' AND tgllulus = '".$tglmutasi."'";
 		$result1=QueryDbTrans($sql1, $success);
 	}
 	
@@ -268,7 +268,7 @@ OpenDb();
 if ($jum_tahun > 0){
 
 	OpenDb();    
-	$sql_tot = "SELECT s.replid, s.nis, s.nama, k.kelas, m.tglmutasi, j.jenismutasi, m.keterangan, m.replid, t.tingkat FROM mutasisiswa m, kelas k, tingkat t, siswa s, jenismutasi j WHERE m.departemen='$departemen' AND k.idtingkat=t.replid AND k.replid=s.idkelas AND j.replid = m.jenismutasi AND s.nis = m.nis AND YEAR(tglmutasi) = '$tahun'";
+	$sql_tot = "SELECT s.replid, s.nis, s.nama, k.kelas, m.tglmutasi, j.jenismutasi, m.keterangan, m.replid, t.tingkat FROM mutasisiswa m, kelas k, tingkat t, siswa s, jenismutasi j WHERE m.departemen='$departemen' AND k.idtingkat=t.replid AND k.replid=s.idkelas AND j.replid = m.jenismutasi AND s.nis = m.nis AND YEAR(tglmutasi) = '".$tahun."'";
 	//echo $sql_tot;
 	$result_tot = QueryDb($sql_tot);
 	$total=ceil(mysqli_num_rows($result_tot)/(int)$varbaris);

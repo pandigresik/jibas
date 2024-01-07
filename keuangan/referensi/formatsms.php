@@ -72,7 +72,7 @@ $seldept = isset($_REQUEST['departemen']) ? $_REQUEST['departemen'] : "";
 				$seldept = $row[0];
 			$selected = $seldept == $row[0] ? "selected" : "";
 			
-			echo "<option value='$row[0]' $selected>$row[0]</option>";
+			echo "<option value='".$row[0]."' $selected>$row[0]</option>";
 		} ?>
 		</select><br><br>
 <?php
@@ -85,7 +85,7 @@ $seldept = isset($_REQUEST['departemen']) ? $_REQUEST['departemen'] : "";
 		{
 			$format = "Terima kasih, kami telah menerima pembayaran dari {NAMA} tanggal {TANGGAL} sebesar {BESAR} untuk {PEMBAYARAN} - Bag. Keuangan";
 			$sql = "INSERT INTO jbsfina.formatsms
-					   SET jenis = 'SISPAY', departemen = '$seldept', format = '$format'";		
+					   SET jenis = 'SISPAY', departemen = '$seldept', format = '".$format."'";		
 			QueryDb($sql);		
 		}
 		
@@ -104,7 +104,7 @@ $seldept = isset($_REQUEST['departemen']) ? $_REQUEST['departemen'] : "";
 		{
 			$format = "Terima kasih, kami telah menerima pembayaran dari {NAMA} tanggal {TANGGAL} sebesar {BESAR} untuk {PEMBAYARAN} - Bag. Keuangan";
 			$sql = "INSERT INTO jbsfina.formatsms
-					   SET jenis = 'CSISPAY', departemen = '$seldept', format = '$format'";		
+					   SET jenis = 'CSISPAY', departemen = '$seldept', format = '".$format."'";		
 			QueryDb($sql);		
 		}
 		
@@ -123,7 +123,7 @@ $seldept = isset($_REQUEST['departemen']) ? $_REQUEST['departemen'] : "";
         {
             $format = "Kami informasikan {NAMA} masih memiliki tunggakan sebesar {TUNGGAKAN} untuk {PEMBAYARAN} - Bag. Keuangan";
             $sql = "INSERT INTO jbsfina.formatsms
-                       SET jenis = 'SISTUNG', departemen = '$seldept', format = '$format'";
+                       SET jenis = 'SISTUNG', departemen = '$seldept', format = '".$format."'";
             QueryDb($sql);
         }
 
@@ -142,7 +142,7 @@ $seldept = isset($_REQUEST['departemen']) ? $_REQUEST['departemen'] : "";
         {
             $format = "Kami informasikan transaksi tabungan dari {NAMA} tanggal {TANGGAL} sebesar {BESAR} untuk {PEMBAYARAN} saldo {SALDO} keterangan {KETERANGAN} - Bag. Keuangan";
             $sql = "INSERT INTO jbsfina.formatsms
-                       SET jenis = 'SISTAB', departemen = '$seldept', format = '$format'";
+                       SET jenis = 'SISTAB', departemen = '$seldept', format = '".$format."'";
             QueryDb($sql);
         }
 
@@ -163,7 +163,7 @@ $seldept = isset($_REQUEST['departemen']) ? $_REQUEST['departemen'] : "";
         {
             $format = "Kami informasikan transaksi pembayaran non tunai dari {NAMA} tanggal {TANGGAL} sebesar {BESAR}, saldo tersisa {SALDO}, nomor {TRANSID}";
             $sql = "INSERT INTO jbsfina.formatsms
-                               SET jenis = 'SCHOOLPAY', departemen = '$seldept', format = '$format'";
+                               SET jenis = 'SCHOOLPAY', departemen = '$seldept', format = '".$format."'";
             QueryDb($sql);
         }
 

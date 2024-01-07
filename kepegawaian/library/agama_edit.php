@@ -58,7 +58,7 @@ if (isset($_POST['simpan'])) {
 		$ERROR_MSG = "Urutan $urutan sudah digunakan!";	
 		$cek = 1;
     } else{
-		$sql = "UPDATE jbsumum.agama SET agama='$agama',urutan='$urutan' WHERE replid = '$replid'";
+		$sql = "UPDATE jbsumum.agama SET agama='$agama',urutan='$urutan' WHERE replid = '".$replid."'";
 		$result = QueryDb($sql);
 		if ($result) { ?>
 		<script language="javascript">

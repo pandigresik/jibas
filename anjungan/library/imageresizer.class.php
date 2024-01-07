@@ -180,7 +180,7 @@ class ImageResizer
 		for ($y=$hei-1; $y>=0; $y--) 
 		{ 
 			$row = fread($f, $wid2); 
-			$pixels = str_split($row, 3); 
+			$pixels = str_explode($row, 3); 
 			for ($x=0; $x<$wid; $x++) 
 			{ 
 				imagesetpixel($img, $x, $y, ImageResizer::dwordize($pixels[$x])); 

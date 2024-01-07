@@ -73,7 +73,7 @@ if (isset($_REQUEST['simpan'])) {
 	$jam2=$jam2simpan.":".$menit2simpan;
 	
 	OpenDb();
-	$sql = "SELECT * FROM jam WHERE jamke = '$jamkey' AND replid <> '$replid' AND departemen = '$departemen'";	
+	$sql = "SELECT * FROM jam WHERE jamke = '$jamkey' AND replid <> '$replid' AND departemen = '".$departemen."'";	
 	$result = QueryDb($sql);
 	if (mysqli_num_rows($result) > 0) {
 		CloseDb();
@@ -102,7 +102,7 @@ if (isset($_REQUEST['simpan'])) {
 				$ERROR_MSG = "Jam selesai tidak boleh berpotongan dengan jam awal urutan selanjutnya!";				
 			} else {
 				//proses simpan data
-				$sql_jam_simpan="UPDATE jbsakad.jam SET jamke='$jamkey',jam1='$jam1',jam2='$jam2' WHERE replid = '$replid'";
+				$sql_jam_simpan="UPDATE jbsakad.jam SET jamke='$jamkey',jam1='$jam1',jam2='$jam2' WHERE replid = '".$replid."'";
 				$result_jam_simpan=QueryDb($sql_jam_simpan);
 				if ($result_jam_simpan){
 					?>

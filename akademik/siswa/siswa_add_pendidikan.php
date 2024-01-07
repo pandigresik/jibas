@@ -46,7 +46,7 @@ $replid = $_GET['replid'];
 $pendidikan_kiriman=$_REQUEST['pendidikan'];
 if (($op == "del") && (strlen($replid) > 0)) {
 	OpenDb();
-	$sql = "DELETE FROM jbsumum.tingkatpendidikan WHERE replid = '$replid'";
+	$sql = "DELETE FROM jbsumum.tingkatpendidikan WHERE replid = '".$replid."'";
 	$result = QueryDb($sql);
 	CloseDb();
 	$page=0;

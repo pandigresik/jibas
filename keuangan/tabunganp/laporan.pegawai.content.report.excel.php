@@ -47,7 +47,7 @@ $datetime2 = "$tanggal2 23:59:59";
 OpenDb();
 $sql = "SELECT p.nama, p.bagian
           FROM jbssdm.pegawai p 
-		 WHERE p.nip = '$nip'";
+		 WHERE p.nip = '".$nip."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $namapegawai = $row[0];

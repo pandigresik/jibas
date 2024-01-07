@@ -64,7 +64,7 @@ $sql = "INSERT INTO jbsumum.gambar
                tinggi = $height,
                ukuran = $size,
                lokasi = '$fspath',
-               deskripsi = '$deskripsi'";
+               deskripsi = '".$deskripsi."'";
 QueryDb($sql);
 
 $sql = "SELECT LAST_INSERT_ID()";

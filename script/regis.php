@@ -33,7 +33,7 @@ try
     $transKey = rand(1000, 9999);
 
     $sql = "INSERT INTO jbsumum.appregis
-               SET transid = '$transId', transkey = '$transKey'";
+               SET transid = '$transId', transkey = '".$transKey."'";
     QueryDbEx($sql);
 
     CloseDb();

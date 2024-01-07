@@ -47,7 +47,7 @@ try
 
     $sql = "SELECT transkey
               FROM jbsumum.appregis
-             WHERE transid = '$transId'";
+             WHERE transid = '".$transId."'";
     $res = QueryDbEx($sql);
     if (mysqli_num_rows($res) == 0)
     {
@@ -80,7 +80,7 @@ try
     }
 
     $sql = "DELETE FROM jbsumum.appregis
-             WHERE transid = '$transId'";
+             WHERE transid = '".$transId."'";
     QueryDbEx($sql);
 
     $uploadPath = "$FILESHARE_UPLOAD_DIR/$app";

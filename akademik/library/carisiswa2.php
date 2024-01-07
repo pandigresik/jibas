@@ -153,19 +153,19 @@ openDB();
 if ((isset($_POST["cari"]))){
  	if((trim($_POST['cr_nis']!="")) && (trim($_POST['cr_nama']==""))) {
 		$selectSQL ="SELECT siswa.nis, siswa.nama, kelas.kelas FROM jbsakad.siswa, jbsakad.kelas ".
-		            "WHERE siswa.nis LIKE '$_POST['cr_nis']%' ".
+		            "WHERE siswa.nis LIKE '". $_POST['cr_nis']."%' ".
 					"AND siswa.aktif = '1' ".
 					"AND siswa.idkelas = kelas.replid ".
 					"AND kelas.departemen = '$departemen' ORDER BY nama";
 	}elseif((isset($_POST["cari"])) && (trim($_POST['cr_nama']!="")) && (trim($_POST['cr_nis']==""))){
 		$selectSQL ="SELECT siswa.nis, siswa.nama, kelas.kelas FROM jbsakad.siswa,  jbsakad.kelas ".
-		            "WHERE siswa.nama LIKE '$_POST['cr_nama']%' ".
+		            "WHERE siswa.nama LIKE '". $_POST['cr_nama']."%' ".
 					"AND siswa.aktif = '1' ".
 					"AND siswa.idkelas = kelas.replid ".
 					"AND kelas.departemen = '$departemen' ORDER BY nama";
 	}elseif((isset($_POST["cari"])) && (trim($_POST['cr_nama']!="")) && (trim($_POST['cr_nis']!=""))){
 		$selectSQL ="SELECT siswa.nis, siswa.nama, kelas.kelas FROM jbsakad.siswa, jbsakad.kelas ".
-		            "WHERE siswa.nama LIKE '$_POST['cr_nama']%' AND siswa.nis LIKE '$_POST['cr_nis']%' ".
+		            "WHERE siswa.nama LIKE '". $_POST['cr_nama']."%' AND siswa.nis LIKE '".$_POST['cr_nis']."%' ".
 					"AND siswa.aktif = '1' ".
 					"AND siswa.idkelas = kelas.replid ".
 					"AND kelas.departemen = '$departemen' ORDER BY nama";

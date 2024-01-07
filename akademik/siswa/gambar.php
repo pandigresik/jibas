@@ -31,7 +31,7 @@ require_once('../library/departemen.php');
 $nis=$_REQUEST['nis'];
 OpenDb();
 header("Content-type: image/jpeg");
-$query = "SELECT foto FROM jbsakad.siswa WHERE nis = '$nis'";
+$query = "SELECT foto FROM jbsakad.siswa WHERE nis = '".$nis."'";
 $result = QueryDb($query);
 $num = @mysqli_num_rows($result);
 //while ($row = mysqli_fetch_array($result)) {

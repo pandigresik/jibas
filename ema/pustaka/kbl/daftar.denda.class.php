@@ -259,7 +259,7 @@ class CDaftarDenda
 				$sql = "SELECT p.judul
 						  FROM jbsperpus.daftarpustaka dp, jbsperpus.pustaka p
 						 WHERE dp.pustaka = p.replid
-						   AND dp.kodepustaka = '$kodepustaka'";
+						   AND dp.kodepustaka = '".$kodepustaka."'";
 				$res2 = QueryDb($sql);
 				$row2 = @mysqli_fetch_array($res2);
 				$judul = $row2['judul'];

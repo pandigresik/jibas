@@ -106,7 +106,7 @@ $guru = $row[2].' - '.$row[3];
 		$query_ju = "SELECT j.jenisujian, a.bobot, a.aktif, a.replid 
 		               FROM aturannhb a, tingkat t, jenisujian j 
 				 		  WHERE a.idtingkat = '".$row_tkt['replid']."' AND a.idpelajaran = '$id_pelajaran' AND j.replid = a.idjenisujian 
-							 AND t.departemen = '$departemen' AND a.dasarpenilaian = '".$row_at[0]' AND t.replid = a.idtingkat 
+							 AND t.departemen = '$departemen' AND a.dasarpenilaian = '".$row_at[0]."' AND t.replid = a.idtingkat 
 							 AND a.nipguru = '".SI_USER_ID()."'";
 		$result_ju = QueryDb($query_ju);
 		while($row_ju = mysqli_fetch_row($result_ju))

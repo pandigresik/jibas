@@ -212,7 +212,7 @@ if (!isset($_POST['lihat'])) {
                 
             ?>
             <input type="hidden" name="semester" value="<?=$row_s['replid']?>">
-			<input type="text" size="21" value="<?=$row_s[semester]?>" readonly class="disabled">			</td>
+			<input type="text" size="21" value="<?=$row_s['semester']?>" readonly class="disabled">			</td>
             <td align="left" valign="middle" width="72" rowspan="4"><img src="../images/ico/view.png" width="48" height="48" border="0" onClick="show()" style="cursor:pointer;"></td>
           <td align="right" valign="top" width="398" rowspan="4">
           <font size="4" face="Verdana, Arial, Helvetica, sans-serif" style="background-color:#ffcc66">&nbsp;</font>&nbsp;<font size="4" face="Verdana, Arial, Helvetica, sans-serif" color="Gray">Nilai Rapor Siswa</font><br />
@@ -239,7 +239,7 @@ if (!isset($_POST['lihat'])) {
                     $sel[$i] = "";
                 }
                 echo "
-                    <option value='$row_t['replid']."' $sel[$i]>$row_t[tingkat]</option>
+                    <option value='".$row_t['replid']."' $sel[$i]>".$row_t['tingkat']."</option>
                 ";
                 $i++;
             }
@@ -253,7 +253,7 @@ if (!isset($_POST['lihat'])) {
                         "WHERE departemen = '$departemen' AND aktif = '1' ";
             $result_th = QueryDb($query_th);
             $row_th = @mysqli_fetch_array($result_th);
-            $tahun = $row_th[tahunajaran];
+            $tahun = $row_th['tahunajaran'];
             $replid = $row_th['replid'];
 
             $query_k = "SELECT replid, kelas FROM jbsakad.kelas ".
@@ -273,7 +273,7 @@ if (!isset($_POST['lihat'])) {
                     $sel[$i] = "";
                 }
                 echo "
-                    <option value='$row_k['replid']."' $sel[$i]>$row_k[kelas]</option>
+                    <option value='".$row_k['replid']."' $sel[$i]>".$row_k['kelas']."</option>
                 ";
                 $i++;
             }

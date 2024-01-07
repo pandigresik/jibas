@@ -81,8 +81,8 @@ if ($op=='SavePenilaian')
 	}
 	
 	$smsgeninfo = "";
-	$x = split(' ',$SendDate);
-	$dt = split('-',$x[0]);
+	$x = explode(' ',$SendDate);
+	$dt = explode('-',$x[0]);
 	$smsgeninfo .= $dt[2].'-'.$SMonth[$dt[1]-1].'-'.$dt[0]."<br>";
 	if ($Type=='0'){
 		$smsgeninfo .= "NIS : ".$NIS;
@@ -123,7 +123,7 @@ if ($op=='SavePenilaian')
 	$res = QueryDb($sql);
 	
 	$NIS2 = "";
-	$ALLNIS	= split(',',$NIS);
+	$ALLNIS	= explode(',',$NIS);
 	for ($i=0;$i<count($ALLNIS);$i++){
 		if ($NIS2 == "")
 			$NIS2 = "'".trim($ALLNIS[$i])."'";
@@ -132,12 +132,12 @@ if ($op=='SavePenilaian')
 	}
 	//echo "Jumlah".count($ALLNIS);
 	//exit;
-	$x	= split('-',$Date1);
+	$x	= explode('-',$Date1);
 	$Tgl1 = (int)$x[2];
 	$Bln1 = (int)$x[1];
 	$Thn1 = $x[0];
 	
-	$x	= split('-',$Date2);
+	$x	= explode('-',$Date2);
 	$Tgl2 = (int)$x[2];
 	$Bln2 = (int)$x[1];
 	$Thn2 = $x[0];
@@ -171,7 +171,7 @@ if ($op=='SavePenilaian')
 		$sql = "SELECT replid
 				  FROM $db_name_akad.semester
 				 WHERE aktif = 1
-				   AND departemen = '$departemen'";
+				   AND departemen = '".$departemen."'";
 		$res = QueryDb($sql);
 		$row = @mysqli_fetch_row($res);
 		$idsemester	= $row[0];

@@ -38,7 +38,7 @@ $page = $_REQUEST['page'];
 $total = $_REQUEST['total'];
 
 OpenDb();
-$sql = "SELECT p.proses, k.kelompok, k.keterangan FROM kelompokcalonsiswa k, prosespenerimaansiswa p WHERE k.idproses = '$proses' AND k.replid = '$kelompok'";
+$sql = "SELECT p.proses, k.kelompok, k.keterangan FROM kelompokcalonsiswa k, prosespenerimaansiswa p WHERE k.idproses = '$proses' AND k.replid = '".$kelompok."'";
 $result = QueryDb($sql);
 $row =@mysqli_fetch_array($result);
 $namaproses = $row['proses'];
@@ -103,14 +103,14 @@ $keterangan = $row['keterangan'];
     <td align="center" class="header" width="120" rowspan="2">Status</td>   
 </tr>
 <?php 	
-	$sqlset = "SELECT COUNT(replid) FROM settingpsb WHERE idproses = '$proses'";
+	$sqlset = "SELECT COUNT(replid) FROM settingpsb WHERE idproses = '".$proses."'";
 	$resset = QueryDb($sqlset);
 	$rowset = mysqli_fetch_row($resset);
 	$ndata = $rowset[0];
 	
 	if ($ndata > 0)
 	{
-		$sqlset = "SELECT * FROM settingpsb WHERE idproses = '$proses'";
+		$sqlset = "SELECT * FROM settingpsb WHERE idproses = '".$proses."'";
 		$resset = QueryDb($sqlset);
 		$rowset = mysqli_fetch_array($resset);
 		

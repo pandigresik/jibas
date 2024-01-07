@@ -38,14 +38,14 @@ $idperpustakaan = (int)$_REQUEST['idperpustakaan'];
 
 $sql = "SELECT judul
           FROM pustaka
-         WHERE replid = '$idpustaka'";
+         WHERE replid = '".$idpustaka."'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
 $judul = $row['judul'];
 
 if ($idperpustakaan != -1)
 {
-	$sql = "SELECT nama FROM perpustakaan WHERE replid = '$idperpustakaan'";
+	$sql = "SELECT nama FROM perpustakaan WHERE replid = '".$idperpustakaan."'";
 	$result = QueryDb($sql);
 	$row = @mysqli_fetch_array($result);
 	$nama = $row['nama'];
@@ -96,7 +96,7 @@ $jum = @mysqli_num_rows($result);
                 if ($i == 1 || $i % 3 == 1)
                     echo "<tr>";
 						
-				$kode = split('/',$row[0]);
+				$kode = explode('/',$row[0]);
 				$barcode = $row[1];	?>
 				
                 <td width="33%" align="center">

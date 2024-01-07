@@ -46,7 +46,7 @@ if (isset($_REQUEST['simpan'])){
 	$sql_get_idkelas = "SELECT idkelas FROM jbsakad.siswa WHERE nis='$nis'";
 	$res_get_idkelas = QueryDb($sql_get_idkelas);
 	$row_id = @mysqli_fetch_array($res_get_idkelas);
-	$idkelas = $row_id[idkelas];
+	$idkelas = $row_id['idkelas'];
 	CloseDb();
 	//echo " idkelas = ".$idkelas;
 	$nip = SI_USER_ID();

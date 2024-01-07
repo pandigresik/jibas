@@ -289,7 +289,7 @@ while ($row = mysqli_fetch_array($result)) {
         <td><?=$row['nama'] ?></td>
         <td align="center"><?=$row['kelompok'] ?></td>
     <?php
-	$sql = "SELECT count(*) FROM penerimaanjttcalon WHERE idbesarjttcalon = '$idbesarjtt'";
+	$sql = "SELECT count(*) FROM penerimaanjttcalon WHERE idbesarjttcalon = '".$idbesarjtt."'";
 	$result2 = QueryDb($sql);
 	$row2 = mysqli_fetch_row($result2);
 	$nbayar = $row2[0];
@@ -323,7 +323,7 @@ while ($row = mysqli_fetch_array($result)) {
     <?php }?>
     	<td align="center">
 	<?php 
-	$sql = "SELECT max(datediff('$tgl', tanggal)) FROM penerimaanjttcalon WHERE idbesarjttcalon = '$idbesarjtt'";
+	$sql = "SELECT max(datediff('$tgl', tanggal)) FROM penerimaanjttcalon WHERE idbesarjttcalon = '".$idbesarjtt."'";
 	$result2 = QueryDb($sql);
 	$num2 = mysqli_num_rows($result2);
 	$row2 = mysqli_fetch_row($result2);

@@ -85,7 +85,7 @@ try
     $rekPendapatan = "";
     $sql = "SELECT rekkas, rekpendapatan 
               FROM jbsfina.bank
-             WHERE bankno = '$bankNo'";
+             WHERE bankno = '".$bankNo."'";
     $res = QueryDbEx($sql);
     if ($row = mysqli_fetch_row($res))
     {
@@ -106,7 +106,7 @@ try
     $sql = "INSERT INTO jbsfina.bankmutasi
                SET departemen = '$departemen', bankno = '$bankNo', jenis = 1, tanggal = '$tglMutasi', 
                    waktu = NOW(), keterangan = '$keterangan', petugas = $idPetugas, berkas = '$buktiTransfer64',
-                   adaberkas = $adaBukti, nomormutasi = '$nomorTransfer'";
+                   adaberkas = $adaBukti, nomormutasi = '".$nomorTransfer."'";
     QueryDbEx($sql);
 
     $sql = "SELECT LAST_INSERT_ID()";
@@ -139,7 +139,7 @@ try
 
         $sql = "INSERT INTO jbsfina.bankmutasidata
                    SET kategori = 'DPST', idmutasi = $idMutasi, idpenerimaan = 0, idtabungan = 0, idtabunganp = 0,
-                       iddeposit = $idDeposit, jumlah = $jumlah, keterangan = '$keterangan', nokas = '$noKas'";
+                       iddeposit = $idDeposit, jumlah = $jumlah, keterangan = '$keterangan', nokas = '".$noKas."'";
         QueryDbEx($sql);
 
         $sql = "INSERT INTO jbsfina.banksaldo (departemen, bankno, kategori, idpenerimaan, idtabungan, idtabunganp, iddeposit, kelompok, saldo, lasttime) 

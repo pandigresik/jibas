@@ -54,7 +54,7 @@ $pelajaran = $row[1];
 $guru = $row[2].' - '.$row[3];
 $tingkat = $row[4];
 
-$sql = "SELECT keterangan FROM dasarpenilaian WHERE dasarpenilaian = '$aspek'";
+$sql = "SELECT keterangan FROM dasarpenilaian WHERE dasarpenilaian = '".$aspek."'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_row($result);
 $aspekket = $row[0];

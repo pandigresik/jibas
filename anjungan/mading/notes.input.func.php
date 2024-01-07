@@ -58,7 +58,7 @@ function ValidateInputNotesLogin($dept, $login, $password, &$type, &$info)
         $sql = "SELECT a.departemen
                   FROM jbsakad.siswa s, jbsakad.angkatan a
                  WHERE s.idangkatan = a.replid
-                   AND s.nis = '$login'";
+                   AND s.nis = '".$login."'";
         $res = QueryDb($sql);
         if (mysqli_num_rows($res) > 0)
         {
@@ -83,7 +83,7 @@ function ValidateInputNotesLogin($dept, $login, $password, &$type, &$info)
         $sql = "SELECT COUNT(replid)
                   FROM jbsakad.siswa
                  WHERE nis = '$login'
-                   AND pinsiswa = '$password'";
+                   AND pinsiswa = '".$password."'";
     }
     else
     {

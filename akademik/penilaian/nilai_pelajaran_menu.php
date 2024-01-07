@@ -146,7 +146,7 @@ while($row_ap = @mysqli_fetch_array($result_ap))
 <?php 	$query_jp = "SELECT a.idjenisujian, j.jenisujian, j.replid, a.replid 
 				   FROM jbsakad.aturannhb a, jbsakad.jenisujian j 
 				  WHERE a.idpelajaran = '$idpelajaran' 
-				    AND a.dasarpenilaian = '".$row_ap[dasarpenilaian]' 
+				    AND a.dasarpenilaian = '".$row_ap['dasarpenilaian']."' 
 				    AND a.idjenisujian = j.replid 
 				    AND a.idtingkat = '$tingkat' 
 				    AND a.nipguru='$nip' 

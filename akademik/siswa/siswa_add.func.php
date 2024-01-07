@@ -126,16 +126,16 @@ if (isset($_REQUEST['Simpan']))
 		$year=date(Y);
 		$kumplit = date(Y)."-".date(m)."-".date(j);
 		
-        $suku_sql = ($suku == "") ? "suku = NULL" : "suku = '$suku'";
-        $agama_sql = ($agama == "") ? "agama = NULL" : "agama = '$agama'";
-        $status_sql = ($status == "") ? "status = NULL" : "status = '$status'";
-        $kondisi_sql = ($kondisi == "") ? "kondisi = NULL" : "kondisi = '$kondisi'";
-		$sekolah_sql = ($sekolah == "") ? "asalsekolah = NULL" : "asalsekolah = '$sekolah'";
-		$pendidikanayah_sql = ($pendidikanayah == "") ? "pendidikanayah = NULL" : "pendidikanayah = '$pendidikanayah'";
-		$pendidikanibu_sql = ($pendidikanibu == "") ? "pendidikanibu = NULL" : "pendidikanibu = '$pendidikanibu'";
-		$pekerjaanayah_sql = ($pekerjaanayah == "") ? "pekerjaanayah = NULL" : "pekerjaanayah = '$pekerjaanayah'";
-		$pekerjaanibu_sql = ($pekerjaanibu == "") ? "pekerjaanibu = NULL" : "pekerjaanibu = '$pekerjaanibu'";
-		$kodepos_sql = ($kodepos == "") ? "kodepossiswa = NULL" : "kodepossiswa = '$kodepos'";
+        $suku_sql = ($suku == "") ? "suku = NULL" : "suku = '".$suku."'";
+        $agama_sql = ($agama == "") ? "agama = NULL" : "agama = '".$agama."'";
+        $status_sql = ($status == "") ? "status = NULL" : "status = '".$status."'";
+        $kondisi_sql = ($kondisi == "") ? "kondisi = NULL" : "kondisi = '".$kondisi."'";
+		$sekolah_sql = ($sekolah == "") ? "asalsekolah = NULL" : "asalsekolah = '".$sekolah."'";
+		$pendidikanayah_sql = ($pendidikanayah == "") ? "pendidikanayah = NULL" : "pendidikanayah = '".$pendidikanayah."'";
+		$pendidikanibu_sql = ($pendidikanibu == "") ? "pendidikanibu = NULL" : "pendidikanibu = '".$pendidikanibu."'";
+		$pekerjaanayah_sql = ($pekerjaanayah == "") ? "pekerjaanayah = NULL" : "pekerjaanayah = '".$pekerjaanayah."'";
+		$pekerjaanibu_sql = ($pekerjaanibu == "") ? "pekerjaanibu = NULL" : "pekerjaanibu = '".$pekerjaanibu."'";
+		$kodepos_sql = ($kodepos == "") ? "kodepossiswa = NULL" : "kodepossiswa = '".$kodepos."'";
 			
 		$foto=$_FILES["file_data"];
 		$uploadedfile = $foto['tmp_name'];
@@ -179,7 +179,7 @@ if (isset($_REQUEST['Simpan']))
                               $pendidikanayah_sql, $pendidikanibu_sql, $pekerjaanayah_sql, $pekerjaanibu_sql, wali='$namawali',
                               penghasilanayah=$penghasilanayah, penghasilanibu=$penghasilanibu, alamatortu='$alamatortu', telponortu='$telponortu',
                               hportu='$hportu', info1='$hportu2', info2='$hportu3', emailayah='$emailayah', emailibu='$emailibu', alamatsurat='$alamatsurat',
-                              keterangan='$keterangan', hobi='$hobi', pinsiswa = '$pinsiswa', pinortu = '$pinortu', pinortuibu = '$pinortuibu'";
+                              keterangan='$keterangan', hobi='$hobi', pinsiswa = '$pinsiswa', pinortu = '$pinortu', pinortuibu = '".$pinortuibu."'";
 		QueryDbTrans($sql_simpan,$success);
 		
 		if ($success)
@@ -238,7 +238,7 @@ if (isset($_REQUEST['Simpan']))
                     $teks = CQ($teks);
 
                     $sql = "INSERT INTO jbsakad.tambahandatasiswa
-                               SET nis = '$nis', idtambahan = '$replid', jenis = '$jenis', teks = '$teks'";
+                               SET nis = '$nis', idtambahan = '$replid', jenis = '$jenis', teks = '".$teks."'";
                     QueryDbTrans($sql, $success);
                 }
                 else if ($jenis == 2)
@@ -272,7 +272,7 @@ if (isset($_REQUEST['Simpan']))
 
                         $sql = "INSERT INTO jbsakad.tambahandatasiswa
                                    SET nis = '$nis', idtambahan = '$replid', jenis = '2', 
-                                       filedata = '$datafile', filename = '$namefile', filemime = '$typefile', filesize = '$sizefile'";
+                                       filedata = '$datafile', filename = '$namefile', filemime = '$typefile', filesize = '".$sizefile."'";
                         QueryDbTrans($sql, $success);
                     }
                 }

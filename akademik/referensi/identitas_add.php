@@ -49,7 +49,7 @@ if (isset($_REQUEST['Simpan'])) {
 		$fax1 = CQ($_REQUEST['fax1']);
 		$fax2 = CQ($_REQUEST['fax2']);
 		if (mysqli_num_rows($result1) > 0) {
-			$sql = "UPDATE jbsumum.identitas SET nama='$nama', situs='$situs', email='$email', alamat1='$alamat1', alamat2='$alamat2', telp1='$tlp1', telp2='$tlp2', telp3='$tlp3', telp4='$tlp4', fax1='$fax1', fax2='$fax2' WHERE departemen = '$departemen'";
+			$sql = "UPDATE jbsumum.identitas SET nama='$nama', situs='$situs', email='$email', alamat1='$alamat1', alamat2='$alamat2', telp1='$tlp1', telp2='$tlp2', telp3='$tlp3', telp4='$tlp4', fax1='$fax1', fax2='$fax2' WHERE departemen = '".$departemen."'";
 		} else {
 			$sql = "INSERT INTO jbsumum.identitas SET nama='$nama', situs='$situs', email='$email', alamat1='$alamat1', alamat2='$alamat2', telp1='$tlp1', telp2='$tlp2', telp3='$tlp3', telp4='$tlp4', fax1='$fax1', fax2='$fax2', departemen='$departemen'";
 		}

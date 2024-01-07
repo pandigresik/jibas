@@ -33,7 +33,7 @@ $tglawal = $_REQUEST['tglawal'];
 $tglakhir = $_REQUEST['tglakhir'];
 
 OpenDb();
-$sql = "SELECT t.departemen, a.tahunajaran, s.semester, k.kelas, t.tingkat FROM tahunajaran a, kelas k, tingkat t, semester s, presensiharian p WHERE p.idkelas = k.replid AND k.idtingkat = t.replid AND k.idtahunajaran = a.replid AND p.idsemester = s.replid AND s.replid = '$semester' AND k.replid = '$kelas'";  
+$sql = "SELECT t.departemen, a.tahunajaran, s.semester, k.kelas, t.tingkat FROM tahunajaran a, kelas k, tingkat t, semester s, presensiharian p WHERE p.idkelas = k.replid AND k.idtingkat = t.replid AND k.idtahunajaran = a.replid AND p.idsemester = s.replid AND s.replid = '$semester' AND k.replid = '".$kelas."'";  
 
 $result = QueryDB($sql);	
 $row = mysqli_fetch_array($result);

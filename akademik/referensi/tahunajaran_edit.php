@@ -32,7 +32,7 @@ require_once('../cek.php');
 $replid = $_REQUEST['replid'];
 
 OpenDb();
-$sql = "SELECT * FROM tahunajaran WHERE replid = '$replid'"; 
+$sql = "SELECT * FROM tahunajaran WHERE replid = '".$replid."'"; 
 $result = QueryDb($sql);
 $row = mysqli_fetch_array($result);
 $departemen = $row['departemen'];

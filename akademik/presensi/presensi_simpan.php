@@ -67,9 +67,9 @@ $tanggal = $_REQUEST['tanggal'];
 <?php
 OpenDb();
 if ($_REQUEST['action'] == 'Update') {
-	$sql = "DELETE FROM ppsiswa WHERE idpp = '$replid'";
+	$sql = "DELETE FROM ppsiswa WHERE idpp = '".$replid."'";
 	QueryDb($sql);
-	$sql = "DELETE FROM presensipelajaran WHERE replid = '$replid'";
+	$sql = "DELETE FROM presensipelajaran WHERE replid = '".$replid."'";
 	QueryDb($sql);
 	
 }

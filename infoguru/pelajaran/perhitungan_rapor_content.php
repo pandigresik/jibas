@@ -55,7 +55,7 @@ if ($op == "dw8dxn8w9ms8zs22") {
 	QueryDb($sql);
 	CloseDb();
 } else if ($op == "xm8r389xemx23xb2378e23") {	
-	$sql = "DELETE FROM aturannhb WHERE idpelajaran = '$id_pelajaran' AND nipguru = '$nip_guru' AND idtingkat = '$id_tingkat' AND dasarpenilaian = '$aspek'"; 
+	$sql = "DELETE FROM aturannhb WHERE idpelajaran = '$id_pelajaran' AND nipguru = '$nip_guru' AND idtingkat = '$id_tingkat' AND dasarpenilaian = '".$aspek."'"; 
 	QueryDb($sql);	
 	CloseDb();
 	?>
@@ -218,7 +218,7 @@ function cetak() {
   ?>
   	<br>
   		<fieldset>
-        <legend><b>Tingkat <?=$row_tkt[tingkat] ?> &nbsp;&nbsp;&nbsp;
+        <legend><b>Tingkat <?=$row_tkt['tingkat'] ?> &nbsp;&nbsp;&nbsp;
   	<?php if (@mysqli_num_rows($result_at)>0){ 
 			$cetak = 1; ?>	
     		<a href = "JavaScript:tambah(<?=$row_tkt['replid']?>)">
@@ -248,7 +248,7 @@ function cetak() {
 		OpenDb();
 		$query_ju = "SELECT j.jenisujian, a.bobot, a.aktif, a.replid FROM aturannhb a, tingkat t, jenisujian j ".
 				 	"WHERE a.idtingkat = '".$row_tkt['replid']."' AND a.idpelajaran = '$id_pelajaran' AND j.replid = a.idjenisujian ".
-					"AND t.departemen = '$departemen' AND a.dasarpenilaian = '".$row_at[0]' AND a.nipguru = '$nip_guru' ".
+					"AND t.departemen = '$departemen' AND a.dasarpenilaian = '".$row_at[0]."' AND a.nipguru = '$nip_guru' ".
 					"AND t.replid = a.idtingkat";
 		
 		$result_ju = QueryDb($query_ju);

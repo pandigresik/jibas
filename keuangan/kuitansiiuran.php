@@ -38,12 +38,12 @@ if ($_REQUEST['status'] == 'calon')
 	$sql = "SELECT p.replid AS id, c.nopendaftaran, c.nama, j.nokas, j.transaksi, date_format(p.tanggal, '%d-%b-%Y') as tanggal,
 				   p.keterangan, p.jumlah, p.petugas, j.idtahunbuku
 			FROM penerimaaniurancalon p, jurnal j, jbsakad.calonsiswa c
-			WHERE j.replid = p.idjurnal AND p.idcalon = c.replid AND p.replid = '$id'";
+			WHERE j.replid = p.idjurnal AND p.idcalon = c.replid AND p.replid = '".$id."'";
 else 
 	$sql = "SELECT p.replid AS id, p.nis, s.nama, j.nokas, j.transaksi, date_format(p.tanggal, '%d-%b-%Y') as tanggal,
 				   p.keterangan, p.jumlah, p.petugas, j.idtahunbuku
 			FROM penerimaaniuran p, jurnal j, jbsakad.siswa s
-			WHERE j.replid = p.idjurnal AND p.nis = s.nis AND p.replid = '$id'";
+			WHERE j.replid = p.idjurnal AND p.nis = s.nis AND p.replid = '".$id."'";
 $row = FetchSingleRow($sql);
 $nokas = $row[3];
 $transaksi = $row[4];
@@ -60,7 +60,7 @@ if ($_REQUEST['status'] == "calon")
 	$sql = "SELECT k.kelompok
 			  FROM jbsakad.calonsiswa cs, jbsakad.kelompokcalonsiswa k
 			 WHERE cs.idkelompok = k.replid
-			   AND cs.nopendaftaran = '$nis'";
+			   AND cs.nopendaftaran = '".$nis."'";
 }
 else
 {
@@ -68,7 +68,7 @@ else
 	$sql = "SELECT k.kelas
 			  FROM jbsakad.siswa s, jbsakad.kelas k
 			 WHERE s.idkelas = k.replid
-			   AND s.nis = '$nis'";	
+			   AND s.nis = '".$nis."'";	
 }
 $result = QueryDb($sql);
 $row = @mysqli_fetch_row($result);

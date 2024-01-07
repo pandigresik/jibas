@@ -37,7 +37,7 @@ if(isset($_REQUEST["ujian"]))
 	$ujian = $_REQUEST["ujian"];
 
 OpenDb();
-$sql="SELECT DISTINCT r.rpp, p.nama, t.departemen, r.idpelajaran, r.idsemester, j.jenisujian, s.semester, t.tingkat FROM pelajaran p, rpp r, ujian u, jenisujian j, kelas k, semester s, tingkat t WHERE p.replid=r.idpelajaran AND r.replid= u.idrpp AND j.replid = $ujian AND u.idrpp = '$rpp' AND u.idjenis = j.replid AND u.idkelas = k.replid AND u.idsemester = s.replid AND k.idtingkat = t.replid AND t.replid = '$tingkat'";
+$sql="SELECT DISTINCT r.rpp, p.nama, t.departemen, r.idpelajaran, r.idsemester, j.jenisujian, s.semester, t.tingkat FROM pelajaran p, rpp r, ujian u, jenisujian j, kelas k, semester s, tingkat t WHERE p.replid=r.idpelajaran AND r.replid= u.idrpp AND j.replid = $ujian AND u.idrpp = '$rpp' AND u.idjenis = j.replid AND u.idkelas = k.replid AND u.idsemester = s.replid AND k.idtingkat = t.replid AND t.replid = '".$tingkat."'";
 
 $result=QueryDb($sql);
 $row = mysqli_fetch_array($result);

@@ -27,7 +27,7 @@ $sql = "SELECT DISTINCT t.idtabungan, dt.nama, 'siswa'
            AND dt.departemen = '$departemen'
            AND t.tanggal BETWEEN '$datetime1' AND '$datetime2'";
 if ($petugas != "ALL")
-    $sql .= " AND t.petugas = '$petugas'";
+    $sql .= " AND t.petugas = '".$petugas."'";
     
 $res = QueryDb($sql);
 while($row = mysqli_fetch_row($res))
@@ -41,7 +41,7 @@ $sql = "SELECT DISTINCT t.idtabungan, dt.nama, 'pegawai'
            AND dt.departemen = '$departemen'
            AND t.tanggal BETWEEN '$datetime1' AND '$datetime2'";
 if ($petugas != "ALL")
-    $sql .= " AND t.petugas = '$petugas'";
+    $sql .= " AND t.petugas = '".$petugas."'";
 
 $res = QueryDb($sql);
 while($row = mysqli_fetch_row($res))
@@ -87,7 +87,7 @@ for($i = 0; $i < count($lsTab); $i++)
              WHERE idtabungan = '$idTab'
                AND tanggal BETWEEN '$datetime1' AND '$datetime2' ";
     if ($petugas != "ALL")
-        $sql .= " AND petugas = '$petugas'";
+        $sql .= " AND petugas = '".$petugas."'";
  
     $res = QueryDb($sql);
     if($row = mysqli_fetch_row($res))

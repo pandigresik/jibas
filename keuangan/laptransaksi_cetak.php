@@ -76,7 +76,7 @@ if (isset($_REQUEST['idtahunbuku']))
 	<td width="90"><strong>Tahun Buku </strong></td>
     <td><strong>: 
 	<?php  OpenDb();
-		$sql = "SELECT tahunbuku FROM tahunbuku WHERE replid = '$idtahunbuku'";
+		$sql = "SELECT tahunbuku FROM tahunbuku WHERE replid = '".$idtahunbuku."'";
 	   	$result = QueryDb($sql);
 	   	$row = mysqli_fetch_row($result);
 	   	echo  $row[0];

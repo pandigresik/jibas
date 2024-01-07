@@ -31,7 +31,7 @@ function ShowCbPustaka()
     echo "<select id='ptkacari_perpus' name='ptkacari_perpus' class='inputbox' onchange='ptkacari_perpus_change()'>\r\n";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='$row[0]'>$row[1]</option>\r\n";
+        echo "<option value='".$row[0]."'>$row[1]</option>\r\n";
     }
     echo "<option value='-1'>(Semua Perpustakaan)</option>\r\n";
     echo "</select>\r\n";
@@ -127,7 +127,7 @@ function Search($perpus, $pilih, $keyword, $halaman)
                     AND p.katalog = kt.replid
                     AND p.replid = dp.pustaka
                     $where
-                    AND dp.perpustakaan = '$perpus'";         
+                    AND dp.perpustakaan = '".$perpus."'";         
     }
     
     echo "<div style='overflow: auto; height: 350px'>";
@@ -170,14 +170,14 @@ function Search($perpus, $pilih, $keyword, $halaman)
         {
             $sql = "SELECT COUNT(replid)
                       FROM jbsperpus.daftarpustaka
-                     WHERE pustaka = '$idpustaka'";    
+                     WHERE pustaka = '".$idpustaka."'";    
         }
         else
         {
             $sql = "SELECT COUNT(replid)
                       FROM jbsperpus.daftarpustaka
                      WHERE pustaka = '$idpustaka'
-                       AND perpustakaan = '$perpus'"; 
+                       AND perpustakaan = '".$perpus."'"; 
         }
         $ndata = FetchSingle($sql);
         
@@ -220,7 +220,7 @@ function ShowDetailPustaka($cnt, $idpustaka)
                    IF(LENGTH(TRIM(keteranganfisik)) = 0, '-', keteranganfisik) AS keteranganfisik,
                    IF(LENGTH(TRIM(keyword)) = 0, '-', keyword) AS keyword
               FROM jbsperpus.pustaka
-             WHERE replid = '$idpustaka'";
+             WHERE replid = '".$idpustaka."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) == 0)
     {

@@ -50,7 +50,7 @@ $departemen = $_REQUEST['departemen'];
 $sql = "SELECT COUNT(*)
 		  FROM jbsfina.formatsms
 		 WHERE jenis = 'SISPAY'
-           AND departemen = '$departemen'";
+           AND departemen = '".$departemen."'";
 $ndata = FetchSingle($sql);
 
 if ($ndata > 0)
@@ -58,19 +58,19 @@ if ($ndata > 0)
 	$sql = "UPDATE jbsfina.formatsms
 	           SET format = '$sisformatsms'
 	         WHERE jenis = 'SISPAY'
-	           AND departemen = '$departemen'";
+	           AND departemen = '".$departemen."'";
 }
 else
 {
 	$sql = "INSERT INTO jbsfina.formatsms
-	           SET format = '$sisformatsms', jenis = 'SISPAY', departemen = '$departemen'";	
+	           SET format = '$sisformatsms', jenis = 'SISPAY', departemen = '".$departemen."'";	
 }
 QueryDb($sql);
 
 $sql = "SELECT COUNT(*)
 		  FROM jbsfina.formatsms
 		 WHERE jenis = 'CSISPAY'
-           AND departemen = '$departemen'";
+           AND departemen = '".$departemen."'";
 $ndata = FetchSingle($sql);
 
 if ($ndata > 0)
@@ -78,69 +78,69 @@ if ($ndata > 0)
 	$sql = "UPDATE jbsfina.formatsms
 	           SET format = '$csisformatsms'
 	         WHERE jenis = 'CSISPAY'
-	           AND departemen = '$departemen'";
+	           AND departemen = '".$departemen."'";
 }
 else
 {
 	$sql = "INSERT INTO jbsfina.formatsms
-	           SET format = '$csisformatsms', jenis = 'CSISPAY', departemen = '$departemen'";	
+	           SET format = '$csisformatsms', jenis = 'CSISPAY', departemen = '".$departemen."'";	
 }
 QueryDb($sql);
 
 $sql = "SELECT COUNT(*)
 		  FROM jbsfina.formatsms
 		 WHERE jenis = 'SISTUNG'
-           AND departemen = '$departemen'";
+           AND departemen = '".$departemen."'";
 $ndata = FetchSingle($sql);
 if ($ndata > 0)
 {
     $sql = "UPDATE jbsfina.formatsms
 	           SET format = '$tungformatsms'
 	         WHERE jenis = 'SISTUNG'
-	           AND departemen = '$departemen'";
+	           AND departemen = '".$departemen."'";
 }
 else
 {
     $sql = "INSERT INTO jbsfina.formatsms
-	           SET format = '$tungformatsms', jenis = 'SISTUNG', departemen = '$departemen'";
+	           SET format = '$tungformatsms', jenis = 'SISTUNG', departemen = '".$departemen."'";
 }
 QueryDb($sql);
 
 $sql = "SELECT COUNT(*)
 		  FROM jbsfina.formatsms
 		 WHERE jenis = 'SISTAB'
-           AND departemen = '$departemen'";
+           AND departemen = '".$departemen."'";
 $ndata = FetchSingle($sql);
 if ($ndata > 0)
 {
     $sql = "UPDATE jbsfina.formatsms
 	           SET format = '$tabunganformatsms'
 	         WHERE jenis = 'SISTAB'
-	           AND departemen = '$departemen'";
+	           AND departemen = '".$departemen."'";
 }
 else
 {
     $sql = "INSERT INTO jbsfina.formatsms
-	           SET format = '$tabunganformatsms', jenis = 'SISTAB', departemen = '$departemen'";
+	           SET format = '$tabunganformatsms', jenis = 'SISTAB', departemen = '".$departemen."'";
 }
 QueryDb($sql);
 
 $sql = "SELECT COUNT(*)
 		  FROM jbsfina.formatsms
 		 WHERE jenis = 'SCHOOLPAY'
-           AND departemen = '$departemen'";
+           AND departemen = '".$departemen."'";
 $ndata = FetchSingle($sql);
 if ($ndata > 0)
 {
     $sql = "UPDATE jbsfina.formatsms
 	           SET format = '$paymentformatsms'
 	         WHERE jenis = 'SCHOOLPAY'
-	           AND departemen = '$departemen'";
+	           AND departemen = '".$departemen."'";
 }
 else
 {
     $sql = "INSERT INTO jbsfina.formatsms
-	           SET format = '$paymentformatsms', jenis = 'SCHOOLPAY', departemen = '$departemen'";
+	           SET format = '$paymentformatsms', jenis = 'SCHOOLPAY', departemen = '".$departemen."'";
 }
 QueryDb($sql);
 

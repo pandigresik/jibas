@@ -39,7 +39,7 @@ $vendorId = $_REQUEST["vendorid"];
 $jenis = $_REQUEST["jenis"];
 
 $vendorName = "";
-$sql = "SELECT nama FROM jbsfina.vendor WHERE vendorid = '$vendorId'";
+$sql = "SELECT nama FROM jbsfina.vendor WHERE vendorid = '".$vendorId."'";
 $res = QueryDb($sql);
 if ($row = mysqli_fetch_row($res))
     $vendorName = $row[0];

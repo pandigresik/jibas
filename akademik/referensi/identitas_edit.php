@@ -76,7 +76,7 @@ if (isset($_REQUEST['email']))
 
 if (isset($_REQUEST['Simpan'])) {
 	OpenDb();	
-	$sql = "UPDATE jbsumum.identitas SET nama='$nama', situs='$situs', email='$email', alamat1='$alamat1', alamat2='$alamat2', telp1='$tlp1', telp2='$tlp2', telp3='$tlp3', telp4='$tlp4', fax1='$fax1', fax2='$fax2' WHERE departemen = '$departemen'";
+	$sql = "UPDATE jbsumum.identitas SET nama='$nama', situs='$situs', email='$email', alamat1='$alamat1', alamat2='$alamat2', telp1='$tlp1', telp2='$tlp2', telp3='$tlp3', telp4='$tlp4', fax1='$fax1', fax2='$fax2' WHERE departemen = '".$departemen."'";
 	$result = QueryDb($sql);
 	CloseDb();			
 	if ($result) { 	

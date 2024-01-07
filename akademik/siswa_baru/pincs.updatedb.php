@@ -42,7 +42,7 @@ if ($ndata == 0)
    {
       $replid = $row[0];
       $pincs = random(5);
-      $sql = "UPDATE jbsakad.calonsiswa SET pinsiswa = '$pincs' WHERE replid = '$replid'";
+      $sql = "UPDATE jbsakad.calonsiswa SET pinsiswa = '$pincs' WHERE replid = '".$replid."'";
       QueryDb($sql);
    }
 }

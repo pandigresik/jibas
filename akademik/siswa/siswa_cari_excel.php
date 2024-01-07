@@ -123,17 +123,17 @@ Data Siswa
 		} elseif ($row_siswa['aktif']==0){
 			echo "Tidak Aktif ";
 			if ($row_siswa['alumni']==1){
-				$sql_get_al="SELECT DATE_FORMAT(a.tgllulus, '%d %M %Y') as tgllulus FROM jbsakad.alumni a WHERE a.nis='$row_siswa[nis]'";	
+				$sql_get_al="SELECT DATE_FORMAT(a.tgllulus, '%d %M %Y') as tgllulus FROM jbsakad.alumni a WHERE a.nis='".$row_siswa['nis']."'";	
 				$res_get_al=QueryDb($sql_get_al);
 				$row_get_al=@mysqli_fetch_array($res_get_al);
-				echo "<br><a style='cursor:pointer;' title='Lulus Tgl: ".$row_get_al[tgllulus]."'><u>[Alumnus]</u></a>";
+				echo "<br><a style='cursor:pointer;' title='Lulus Tgl: ".$row_get_al['tgllulus']."'><u>['Alumnus']</u></a>";
 			}
 			if ($row_siswa['statusmutasi']!=NULL){
-				$sql_get_mut="SELECT DATE_FORMAT(m.tglmutasi, '%d %M %Y') as tglmutasi,j.jenismutasi FROM jbsakad.jenismutasi j, jbsakad.mutasisiswa m WHERE j.replid='$row_siswa[statusmutasi]' AND m.nis='$row_siswa[nis]' AND j.replid=m.jenismutasi";	
+				$sql_get_mut="SELECT DATE_FORMAT(m.tglmutasi, '%d %M %Y') as tglmutasi,j.jenismutasi FROM jbsakad.jenismutasi j, jbsakad.mutasisiswa m WHERE j.replid='".$row_siswa['statusmutasi']."' AND m.nis='".$row_siswa['nis']."' AND j.replid=m.jenismutasi";	
 				$res_get_mut=QueryDb($sql_get_mut);
 				$row_get_mut=@mysqli_fetch_array($res_get_mut);
-				//echo "<br><a href=\"NULL\" onmouseover=\"showhint('".$row_get_mut[jenismutasi]."<br>".$row_get_mut['tglmutasi']."', this, event, '50px')\"><u>[Termutasi]</u></a>";
-				echo "<br><a style='cursor:pointer;' title='".$row_get_mut[jenismutasi]."\n Tgl : ".$row_get_mut['tglmutasi']."'><u>[Termutasi]</u></a>";
+				//echo "<br><a href=\"NULL\" onmouseover=\"showhint('".$row_get_mut['jenismutasi']."<br>".$row_get_mut['tglmutasi']."', this, event, '50px')\"><u>['Termutasi']</u></a>";
+				echo "<br><a style='cursor:pointer;' title='".$row_get_mut['jenismutasi']."\n Tgl : ".$row_get_mut['tglmutasi']."'><u>['Termutasi']</u></a>";
 			}
 		}
 		?></td>

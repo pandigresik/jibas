@@ -103,7 +103,7 @@ $dept = isset($_REQUEST["dept"]) ? {$_REQUEST["dept"]} : "";
                     if ($dept == "") $dept = $row[0];
                     $sel = ($dept == $row[0]) ? "selected" : "";
 
-                    echo "<option value='$row[0]' $sel>$row[0]</option>";
+                    echo "<option value='".$row[0]."' $sel>$row[0]</option>";
                 }
 ?>
                 </select>&nbsp;&nbsp;
@@ -128,7 +128,7 @@ $dept = isset($_REQUEST["dept"]) ? {$_REQUEST["dept"]} : "";
                 </tr>
 <?php
                 $no = 0;
-                $sql = "SELECT * FROM jbsfina.bank WHERE departemen = '$dept'";
+                $sql = "SELECT * FROM jbsfina.bank WHERE departemen = '".$dept."'";
                 $res = QueryDb($sql);
                 while ($row = mysqli_fetch_array($res))
                 {

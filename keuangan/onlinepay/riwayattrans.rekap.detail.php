@@ -70,7 +70,7 @@ for($i = 0; $i < count($lsPen); $i++)
     }
     else
     {
-        $penQl .= " pd.kategori = '$kategori'";
+        $penQl .= " pd.kategori = '".$kategori."'";
     }
 }
 
@@ -84,7 +84,7 @@ for($i = 0; $i < count($lsTgl); $i++)
     $tgl = $lsTgl[$i];
 
     if ($tglQl != "") $tglQl .= " OR ";
-    $tglQl .= " p.tanggal = '$tgl'";
+    $tglQl .= " p.tanggal = '".$tgl."'";
 
     if ($i == 0)
     {
@@ -235,19 +235,19 @@ for($i = 0; $i < $nData; $i++)
             $no += 1;
             echo "<tr>";
             echo "<td align='center' style='background-color: #efefef;' rowspan='3' valign='top'>$no</td>";
-            echo "<td align='left' style='background-color: #e5fdff;' colspan='4'><b>$row['transaksi']</b></td>";
+            echo "<td align='left' style='background-color: #e5fdff;' colspan='4'><b>".$row['transaksi']."</b></td>";
             echo "</tr>";
 
             echo "<tr>";
-            echo "<td align='left' style='background-color: #fff;'>$row['fwaktu']</td>";
-            echo "<td align='left' style='background-color: #fff;'><b>$row['nama']</b><br>$row['nis']</td>";
+            echo "<td align='left' style='background-color: #fff;'>".$row['fwaktu']."</td>";
+            echo "<td align='left' style='background-color: #fff;'><b>".$row['nama']</b><br>$row['nis']."</td>";
             echo "<td align='left' style='background-color: #fff;' valign='top'>";
             if ($row["jenis"] == 1)
-                echo "<b>$row['nomor']</b><br><i>$nomorTs</i><br><i>$row['paymentid']</i>";
+                echo "<b>".$row['nomor']</b><br><i>$nomorTs</i><br><i>$row['paymentid']."</i>";
             else
-                echo "<b>$row['nomor']</b><br><i>$row['paymentid']</i>";
+                echo "<b>".$row['nomor']</b><br><i>$row['paymentid']."</i>";
             echo "</td>";
-            echo "<td align='left' style='background-color: #fff;'>$row['bank']<br>$row['bankno']</td>";
+            echo "<td align='left' style='background-color: #fff;'>".$row['bank']<br>$row['bankno']."</td>";
             echo "</tr>";
 
             echo "<tr>";

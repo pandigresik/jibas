@@ -116,7 +116,7 @@ $dept = isset($_REQUEST["dept"]) ? {$_REQUEST["dept"]} : "";
                     $no += 1;
 
                     $pesan = "";
-                    $sql = "SELECT pesan FROM jbsfina.formatpesanpg WHERE departemen = '".$row[0]' AND kelompok = 'TAGIHAN'";
+                    $sql = "SELECT pesan FROM jbsfina.formatpesanpg WHERE departemen = '".$row[0]."' AND kelompok = 'TAGIHAN'";
                     $res2 = QueryDb($sql);
                     if ($row2 = mysqli_fetch_row($res2))
                     {
@@ -124,7 +124,7 @@ $dept = isset($_REQUEST["dept"]) ? {$_REQUEST["dept"]} : "";
                     }
                     else
                     {
-                        $sql = "INSERT INTO jbsfina.formatpesanpg SET departemen = '".$row[0]', pesan = '$defaultNotifTagihan', kelompok = 'TAGIHAN', issync = 0";
+                        $sql = "INSERT INTO jbsfina.formatpesanpg SET departemen = '".$row[0]."', pesan = '$defaultNotifTagihan', kelompok = 'TAGIHAN', issync = 0";
                         QueryDb($sql);
 
                         $pesan = $defaultNotifTagihan;
@@ -169,7 +169,7 @@ $dept = isset($_REQUEST["dept"]) ? {$_REQUEST["dept"]} : "";
                     $no += 1;
 
                     $pesan = "";
-                    $sql = "SELECT pesan FROM jbsfina.formatpesanpg WHERE departemen = '".$row[0]' AND kelompok = 'PEMBAYARAN'";
+                    $sql = "SELECT pesan FROM jbsfina.formatpesanpg WHERE departemen = '".$row[0]."' AND kelompok = 'PEMBAYARAN'";
                     $res2 = QueryDb($sql);
                     if ($row2 = mysqli_fetch_row($res2))
                     {
@@ -177,7 +177,7 @@ $dept = isset($_REQUEST["dept"]) ? {$_REQUEST["dept"]} : "";
                     }
                     else
                     {
-                        $sql = "INSERT INTO jbsfina.formatpesanpg SET departemen = '".$row[0]', pesan = '$defaultNotifBayar', kelompok = 'PEMBAYARAN', issync = 0";
+                        $sql = "INSERT INTO jbsfina.formatpesanpg SET departemen = '".$row[0]."', pesan = '$defaultNotifBayar', kelompok = 'PEMBAYARAN', issync = 0";
                         QueryDb($sql);
 
                         $pesan = $defaultNotifBayar;

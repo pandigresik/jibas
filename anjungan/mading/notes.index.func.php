@@ -49,7 +49,7 @@ function GetOwnerName($ownerid, $ownertype)
 {
     $sql = $ownertype == "S" ?
            "SELECT nama FROM jbsakad.siswa WHERE nis = '$ownerid'" :
-           "SELECT nama FROM jbssdm.pegawai WHERE nip = '$ownerid'";
+           "SELECT nama FROM jbssdm.pegawai WHERE nip = '".$ownerid."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) > 0)
     {
@@ -104,18 +104,18 @@ function ShowNotesIndex($dept, $bulan, $tahun)
         $sql = "SELECT COUNT(replid)
                   FROM jbsvcr.notesfile
                  WHERE filecate = 'pict'
-                   AND notesid = '$notesid'";
+                   AND notesid = '".$notesid."'";
         $npict = (int)FetchSingle($sql);
         
         $sql = "SELECT COUNT(replid)
                   FROM jbsvcr.notesfile
                  WHERE filecate = 'doc'
-                   AND notesid = '$notesid'";
+                   AND notesid = '".$notesid."'";
         $ndoc = (int)FetchSingle($sql);
         
         $sql = "SELECT COUNT(replid)
                   FROM jbsvcr.notescomment
-                 WHERE notesid = '$notesid'";
+                 WHERE notesid = '".$notesid."'";
         $ncomment = (int)FetchSingle($sql);
         
         $nread = (int)$row['nread']; ?>

@@ -186,7 +186,7 @@ function SimpanBesarSiswa($departemen, $idPenerimaan, $idTingkat, $idKelas, $bes
     $sql = "SELECT replid AS id, tahunbuku
               FROM tahunbuku
              WHERE aktif = 1
-               AND departemen = '$departemen'";
+               AND departemen = '".$departemen."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) == 0)
         return "SIMPAN: Tidak ada tahun buku yang aktif di departemen $departemen";
@@ -211,7 +211,7 @@ function SimpanBesarSiswa($departemen, $idPenerimaan, $idTingkat, $idKelas, $bes
                   FROM jbsfina.besarjtt 
                  WHERE nis = '$nis'
                    AND idpenerimaan = '$idPenerimaan'
-                   AND info2 = '$idTahunBuku'";
+                   AND info2 = '".$idTahunBuku."'";
         $res2 = QueryDb($sql);
         $row2 = mysqli_fetch_row($res2);
         $ndata = $row2[0];
@@ -257,7 +257,7 @@ function SimpanBesarSiswa($departemen, $idPenerimaan, $idTingkat, $idKelas, $bes
     {
         $nis = $lsNis[$i];
 
-        $sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '$nis'";
+        $sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '".$nis."'";
         $row = FetchSingleRow($sql);
         $namasiswa = $row[0];
 
@@ -352,7 +352,7 @@ function SimpanBesarCalonSiswa($departemen, $idPenerimaan, $idTingkat, $idKelas,
     $sql = "SELECT replid AS id, tahunbuku
               FROM tahunbuku
              WHERE aktif = 1
-               AND departemen = '$departemen'";
+               AND departemen = '".$departemen."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) == 0)
         return "SIMPAN: Tidak ada tahun buku yang aktif di departemen $departemen";
@@ -377,7 +377,7 @@ function SimpanBesarCalonSiswa($departemen, $idPenerimaan, $idTingkat, $idKelas,
                   FROM jbsfina.besarjttcalon 
                  WHERE idcalon = '$idCalon'
                    AND idpenerimaan = '$idPenerimaan'
-                   AND info2 = '$idTahunBuku'";
+                   AND info2 = '".$idTahunBuku."'";
         $res2 = QueryDb($sql);
         $row2 = mysqli_fetch_row($res2);
         $ndata = $row2[0];
@@ -405,7 +405,7 @@ function SimpanBesarCalonSiswa($departemen, $idPenerimaan, $idTingkat, $idKelas,
     $sql = "SELECT replid, awalan, cacah 
               FROM jbsfina.tahunbuku 
              WHERE aktif = 1
-               AND departemen = '$departemen'";
+               AND departemen = '".$departemen."'";
     $row = FetchSingleRow($sql);
     $idTahunBuku = $row[0];
     $awalan = $row[1];
@@ -420,7 +420,7 @@ function SimpanBesarCalonSiswa($departemen, $idPenerimaan, $idTingkat, $idKelas,
     {
         $idCalon = $lsIdCalon[$i];
 
-        $sql = "SELECT nama, nopendaftaran FROM jbsakad.calonsiswa WHERE replid = '$idCalon'";
+        $sql = "SELECT nama, nopendaftaran FROM jbsakad.calonsiswa WHERE replid = '".$idCalon."'";
         $row = FetchSingleRow($sql);
         $namasiswa = $row[0];
         $nopendaftaran = $row[1];

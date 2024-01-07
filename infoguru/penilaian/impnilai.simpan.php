@@ -60,7 +60,7 @@ $idsemester = (int) FetchSingle($sql);
 
 $sql = "SELECT idjenisujian
           FROM jbsakad.aturannhb
-         WHERE replid = '$idaturan'";
+         WHERE replid = '".$idaturan."'";
 $idjenisujian = (int) FetchSingle($sql);
 
 BeginTrans();
@@ -70,7 +70,7 @@ $sql = "SELECT nilaiAU, replid, keterangan
 	      FROM jbsakad.nau 
 	     WHERE idkelas = '$idkelas' 
 	       AND idsemester = '$idsemester' 
-	       AND idaturan = '$idaturan'";
+	       AND idaturan = '".$idaturan."'";
 //echo "$sql<br>";
 $res = QueryDb($sql);
 if (mysqli_num_rows($res) > 0)
@@ -78,7 +78,7 @@ if (mysqli_num_rows($res) > 0)
     $sql = "DELETE FROM jbsakad.nau 
 		     WHERE idkelas = '$idkelas' 
 		       AND idsemester = '$idsemester' 
-			   AND idaturan = '$idaturan'";
+			   AND idaturan = '".$idaturan."'";
     //echo "$sql<br>";
     QueryDbTrans($sql, $success);
 }
@@ -121,7 +121,7 @@ for($i = 1; $i <= $nnilai; $i++)
                    SET nilaiujian = '$nilai', 
                        nis = '$nis', 
                        idujian = '$idujian', 
-                       keterangan = '$ket'";
+                       keterangan = '".$ket."'";
         //echo "$sql<br>";
         QueryDbTrans($sql, $success);
     }

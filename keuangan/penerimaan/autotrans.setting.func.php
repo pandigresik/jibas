@@ -95,7 +95,7 @@ function ShowDaftar($departemen)
                     while($row2 = mysqli_fetch_array($res2))
                     {
                         echo "<tr style='height: 22px'>";
-                        echo "<td align='left' width='250'>$row2[nama]</td>";
+                        echo "<td align='left' width='250'>".$row2['nama']."</td>";
                         echo "<td align='right' width='150'>" . FormatRupiah($row2['besar']) . "</td>";
                         echo "<tr>";
                     } ?>

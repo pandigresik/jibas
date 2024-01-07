@@ -314,7 +314,7 @@ class Kritik{
 			$idsmsgeninfo = (int)$row[0];
 			$idsmsgeninfo = ($idsmsgeninfo+1);
 
-			$sql = "SELECT SenderNumber FROM inbox WHERE ID = '$id'";
+			$sql = "SELECT SenderNumber FROM inbox WHERE ID = '".$id."'";
 			$res = QueryDb($sql);
 			$row = @mysqli_fetch_row($res);
 			$sender = $row[0];

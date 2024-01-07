@@ -8,7 +8,7 @@ function GetTitle()
     $sql = "SELECT p.judul
               FROM pustaka p, daftarpustaka dp
              WHERE p.replid = dp.pustaka
-               AND dp.kodepustaka = '$kodepustaka'";
+               AND dp.kodepustaka = '".$kodepustaka."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) > 0)
     {

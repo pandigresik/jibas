@@ -77,11 +77,11 @@ $keterangan = $row['keterangan'];
 $petugas = $row['petugas'];
 
 if ($jpemohon == 1) 
-	$sql = "SELECT nama FROM jbssdm.pegawai WHERE nip = '$idpemohon'";
+	$sql = "SELECT nama FROM jbssdm.pegawai WHERE nip = '".$idpemohon."'";
 else if ($jpemohon == 2)
-	$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '$idpemohon'";
+	$sql = "SELECT nama FROM jbsakad.siswa WHERE nis = '".$idpemohon."'";
 else
-	$sql = "SELECT nama FROM pemohonlain WHERE replid = '$idpemohon'";
+	$sql = "SELECT nama FROM pemohonlain WHERE replid = '".$idpemohon."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $namapemohon = $row[0];

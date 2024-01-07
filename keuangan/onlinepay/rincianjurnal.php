@@ -86,7 +86,7 @@ for($i = 0; $i < count($lsJurnal); $i++)
 
     $sql = "SELECT replid, transaksi, DATE_FORMAT(tanggal, '%d %b %Y') AS ftanggal, idpetugas, petugas
               FROM jbsfina.jurnal
-             WHERE nokas = '$noJurnal'";
+             WHERE nokas = '".$noJurnal."'";
     $res = QueryDb($sql);
     if (mysqli_num_rows($res) == 0)
         continue;
@@ -95,9 +95,9 @@ for($i = 0; $i < count($lsJurnal); $i++)
     $idJurnal = $row["replid"];
     echo "<tr>";
     echo "<td style='background-color: #efefef' align='center' valign='top' rowspan='2'>$no</td>";
-    echo "<td valign='top' align='left'><b>$noJurnal</b><br>$row['ftanggal']</td>";
-    echo "<td valign='top' align='left'><b>$row['petugas']</b><br>$row['idpetugas']</td>";
-    echo "<td valign='top' align='left'>$row['transaksi']</td>";
+    echo "<td valign='top' align='left'><b>".$noJurnal</b><br>$row['ftanggal']."</td>";
+    echo "<td valign='top' align='left'><b>".$row['petugas']</b><br>$row['idpetugas']."</td>";
+    echo "<td valign='top' align='left'>".$row['transaksi']."</td>";
     echo "</tr>";
     echo "<tr>";
     echo "<td colspan='3' style='background-color: #fff'>";
@@ -111,8 +111,8 @@ for($i = 0; $i < count($lsJurnal); $i++)
     while($row2 = mysqli_fetch_array($res2))
     {
         echo "<tr>";
-        echo "<td width='50' align='center'>$row2[koderek]</td>";
-        echo "<td width='250'>$row2[nama]</td>";
+        echo "<td width='50' align='center'>".$row2['koderek']."</td>";
+        echo "<td width='250'>".$row2['nama']."</td>";
 
         $rp = FormatRupiah($row2["debet"]);
         echo "<td width='120' align='right'>$rp</td>";
