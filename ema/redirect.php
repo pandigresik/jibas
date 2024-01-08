@@ -111,7 +111,7 @@ if(!isset($_SESSION["login"]))
 
 if(!$user_exists) 
 {	?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         alert("Username atau password tidak cocok!");
         document.location.href = "../ema";
     </script>
@@ -127,7 +127,7 @@ else
 	
 	if ((isset($_SESSION['login'])) && (isset($_SESSION['tingkat'])))
 	{ ?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         top.location.href = "../ema";
     </script>
 <?php }

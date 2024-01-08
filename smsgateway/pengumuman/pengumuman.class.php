@@ -136,7 +136,7 @@ class Pengumuman{
                                     <?php
                                     for ($i=1; $i<=12; $i++){
                                         ?>
-                                        <option value="<?=$i?>" <?=StringIsSelected($i,date(m))?>><?=$LMonth[$i-1]?></option>
+                                        <option value="<?=$i?>" <?=StringIsSelected($i,date('m'))?>><?=$LMonth[$i-1]?></option>
                                         <?php
                                     }
                                     ?>
@@ -145,9 +145,9 @@ class Pengumuman{
                                 <td style="padding-right:2px">
                                 <select name="SendYear" id="SendYear" class="Cmb">
                                     <?php
-                                    for ($i=G_START_YEAR; $i<=date(Y); $i++){
+                                    for ($i=G_START_YEAR; $i<=date('Y'); $i++){
                                         ?>
-                                        <option value="<?=$i?>" <?=StringIsSelected($i,date(Y))?>><?=$i?></option>
+                                        <option value="<?=$i?>" <?=StringIsSelected($i,date('Y'))?>><?=$i?></option>
                                         <?php
                                     }
                                     ?>

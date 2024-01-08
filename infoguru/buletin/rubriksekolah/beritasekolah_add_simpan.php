@@ -31,8 +31,8 @@ $sender = $_REQUEST['sender'];
 if ($sender == "tambah")
 {
 	OpenDb();
-	$dir_bln = date(m);
-	$dir_thn = date(Y);
+	$dir_bln = date('m');
+	$dir_thn = date('Y');
 	$dir = $updir . $dir_thn . $dir_bln;
 
 	$jam = date(H).":".date(i).":00";
@@ -64,8 +64,8 @@ elseif ($sender == "ubah")
 	$page = (int)$_REQUEST['page'];
 	$bulan = $_REQUEST['bulan'];
 	$tahun = $_REQUEST['tahun'];
-	$dir_bln = date(m);
-	$dir_thn = date(Y);
+	$dir_bln = date('m');
+	$dir_thn = date('Y');
 	$dir = $updir . $dir_thn . $dir_bln;
 
 	$judul = CQ($_REQUEST['judul']);

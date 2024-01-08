@@ -63,7 +63,7 @@ if(isset($_REQUEST['semester'])){
 </script>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 
-<script language="JavaScript" src="../script/tables.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tables.js"></script>
 </head>
 
 <body topmargin="0" leftmargin="10" marginheight="0" marginwidth="10"><br>
@@ -178,7 +178,7 @@ if(isset($_POST['nis'])) {
 
 	OpenDBi();
 		
-	$result = mysqli_query($conni,"CALL spTambahNilaiUjian('".$_POST[$uj]','".$_POST['nis']','$_POST[$nuj]','$_POST['ket']."','$_POST[$sts]')") or die (mysqli_error($conni));
+	$result = mysqli_query($conni,"CALL spTambahNilaiUjian('".$_POST[$uj]."','".$_POST['nis']."','".$_POST[$nuj]."','".$_POST['ket']."','$_POST[$sts]')") or die (mysqli_error($conni));
 	$i++;
 	}
 	$i=1;

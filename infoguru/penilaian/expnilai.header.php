@@ -39,9 +39,9 @@ ReadParams();
     <title>Ekspor Nilai Pelajaran</title>
     <link rel="stylesheet" type="text/css" href="../style/style.css">
     <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-    <script language="JavaScript" src="../script/tooltips.js"></script>
-    <script language="JavaScript" src="../script/tools.js"></script>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
+    <script language = "javascript" type = "text/javascript" src="../script/tools.js"></script>
+    <script language = "javascript" type = "text/javascript">
 <?php  require_once("expnilai.header.js.php"); ?>
     </script>
 </head>

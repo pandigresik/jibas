@@ -143,9 +143,9 @@ if (isset($_REQUEST['keterangan']))
 <title>JIBAS SIMAKA [Tambah Pengguna]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript">
 
 function cek_form() {
 	var nip = document.tambah_user.nip.value;

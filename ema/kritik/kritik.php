@@ -33,7 +33,7 @@ if (isset($_REQUEST['ac'])){
 		QueryDb($sql);
 	}
 }
-$Year  = (isset($_REQUEST['Year']))?$_REQUEST['Year']:date(Y);
+$Year  = (isset($_REQUEST['Year']))?$_REQUEST['Year']:date('Y');
 
 $Month = (isset($_REQUEST['Month']))?$_REQUEST['Month']:date(n);
 
@@ -77,7 +77,7 @@ function ChgCmb(){
             <?php
             for ($i=1; $i<=12; $i++){
                 if ($Month=='')
-                    $Month = date(m);
+                    $Month = date('m');
                 ?>
                 <option value="<?=$i?>" <?=StringIsSelected($i,$Month)?>><?=NamaBulan($i)?></option>
                 <?php
@@ -87,9 +87,9 @@ function ChgCmb(){
         <td style="padding-right:2px">
         <select id="Year" class="cmbfrm" onchange="ChgCmb()">
             <?php
-            for ($i=$G_START_YEAR; $i<=date(Y); $i++){
+            for ($i=$G_START_YEAR; $i<=date('Y'); $i++){
                 if ($Year=='')
-                    $Year = date(Y);
+                    $Year = date('Y');
                 ?>
                 <option value="<?=$i?>" <?=StringIsSelected($i,$Year)?>><?=$i?></option>
                 <?php

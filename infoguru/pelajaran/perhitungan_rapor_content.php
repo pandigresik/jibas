@@ -74,7 +74,7 @@ if ($op == "dw8dxn8w9ms8zs22") {
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript">
 
 var win = null;
 function newWindow(mypage,myname,w,h,features) {

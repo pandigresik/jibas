@@ -39,9 +39,9 @@ if(isset($_POST["detail_pegawai"])){
 <title></title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-<script language="JavaScript" src="../script/tooltips.js"></script>
-<script language="JavaScript" src="../script/tables.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tables.js"></script>
+<script language = "javascript" type = "text/javascript">
     var win = null;
 function newWindow(mypage,myname,w,h,features) {
       var winl = (screen.width-w)/2;
@@ -163,14 +163,14 @@ if($row['dokter']== 1 )
 
         if(mysqli_affected_rows($conn) > 0) {
                 ?>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript">
                     opener.document.location.href="pendataan_suku.php?sukuid=<?=$row_id[0] ?>";
     				window.close();
                 </script>
                 <?php
         }else{
                ?>
-               <script language="JavaScript">
+               <script language = "javascript" type = "text/javascript">
                    alert("Gagal menambah data");
                    opener.document.location.href="pendataan_suku.php?sukuid=<?=$row_id[0] ?>";
                    window.close();
@@ -179,7 +179,7 @@ if($row['dokter']== 1 )
         }
     }else {
         ?>
-        <script language="JavaScript">
+        <script language = "javascript" type = "text/javascript">
             alert("Gagal menambah data. Masukkan Jenis Pemantauan yang berbeda");
             opener.document.location.href="pendataan_suku.php?sukuid=<?=$_POST['sukuid'] ?>";
             window.close();

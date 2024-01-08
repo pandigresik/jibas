@@ -56,7 +56,7 @@ if (isset($_REQUEST['tglmulai']))
 if (isset($_REQUEST['tglakhir']))
     $tglakhir = $_REQUEST['tglakhir'];
 ?>
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="../script/tools.js"></script>

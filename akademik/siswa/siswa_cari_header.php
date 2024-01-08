@@ -52,7 +52,7 @@ OpenDb();
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript">
 function blank() {
 	var departemen = document.getElementById('departemen').value;

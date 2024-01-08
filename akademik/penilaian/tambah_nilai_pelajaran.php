@@ -77,8 +77,8 @@ if(isset($_POST["idjenis"])){
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <link rel="stylesheet" type="text/css" href="../style/calendar-win2k-1.css">
-<script language="JavaScript" src="../script/tooltips.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript">
     function set_focus() {
         document.tambah_nilai_pelajaran.kodepelajaran.focus();
     }
@@ -244,7 +244,7 @@ if (!isset($_POST['simpan'])) {
 }
 else {
     $query = "INSERT INTO jbsakad.ujian(idpelajaran, idkelas, idsemester, idjenis, deskripsi, tanggal) ".
-             "VALUES ('".$_POST['idpelajaran']', '".$_POST['idkelas']', '$_POST['idsemester']', '$_POST['idjenis']', '".CQ($_POST['deskripsi'])."','$_POST['tanggal']."')";
+             "VALUES ('".$_POST['idpelajaran']."', '".$_POST['idkelas']."', '".$_POST['idsemester']."', '".$_POST['idjenis']."', '".CQ($_POST['deskripsi'])."','".$_POST['tanggal']."')";
     $result = QueryDb($query) or die (mysqli_error($mysqlconnection));
 		
     if(mysqli_affected_rows($conn) > 0) {
@@ -255,14 +255,14 @@ else {
 		$row_id = @mysqli_fetch_array($result_id);
 		
             ?>
-            <script language="JavaScript">
+            <script language = "javascript" type = "text/javascript">
               //  alert("Data Daftar Pelajaran berhasil diinput");
                 document.location.href="tambah_nilai_pelajaran2.php?departemen=<?=$departemen ?>&pelajaran=<?=$pelajaran ?>&tingkat=<?=$tingkat ?>&tahun=<?=$tahun ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&iduj=<?=$row_id[0] ?>&jenis_penilaian=<?=$jenis_penilaian ?>";
             </script>
             <?php
         }else {
           ?>
-           <script language="JavaScript">
+           <script language = "javascript" type = "text/javascript">
                alert("Gagal menambah data");
                //document.location.href="tampil_daftarpelajaran.php?departemen=<?=$_POST['departemen'] ?>";
            </script>

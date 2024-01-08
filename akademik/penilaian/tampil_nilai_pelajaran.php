@@ -78,12 +78,12 @@ $keter=0;
 <title></title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-<script language="JavaScript" src="../script/tooltips.js"></script>
-<script language="JavaScript" src="../script/tables.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/cal2.js"></script>
 <script language="javascript" src="../script/cal_conf2.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript">
 function change_sel(){
     var departemen = document.tampil_nilai_pelajaran.departemen.value;
 	var tingkat = document.tampil_nilai_pelajaran.tingkat.value;

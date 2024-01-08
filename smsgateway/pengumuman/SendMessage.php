@@ -39,7 +39,7 @@ $X			= explode(' ',$SendTime);
 $smsgeninfo	  = "Pengumuman";	
 
 $idsmsgeninfo = GetLastId('replid','smsgeninfo');	
-$sql = "INSERT INTO smsgeninfo SET replid='$idsmsgeninfo',tanggal='$X[0]',tipe='2',info='$smsgeninfo',pengirim='$Sender'";
+$sql = "INSERT INTO smsgeninfo SET replid='$idsmsgeninfo',tanggal='".$X[0]."',tipe='2',info='$smsgeninfo',pengirim='$Sender'";
 $res = QueryDb($sql);
 
 $No		= explode('>',$NoPe);
@@ -73,7 +73,7 @@ for ($i=0; $i<count($No);$i++)
 
 			$TextMsg = CQ($newformat);
 			//echo $PIN1[$i].",".$PIN2[$i]."#".$No[$i]."->".$TextMsg."<br>";
-			//$sql_insert = "INSERT INTO smsd.outbox SET InsertIntoDB=now(),SendingDateTime=now(),Text='$Message',DestinationNumber='$No[$i]',SenderID='$Sender'";
+			//$sql_insert = "INSERT INTO smsd.outbox SET InsertIntoDB=now(),SendingDateTime=now(),Text='$Message',DestinationNumber='".$No[$i]."',SenderID='$Sender'";
 			$sql_insert = "INSERT INTO outbox SET InsertIntoDB=now(), SendingDateTime='$SendTime', Text='$TextMsg', DestinationNumber='$nohp', SenderID='$Sender', CreatorID='$Sender',idsmsgeninfo=$idsmsgeninfo";
 			QueryDb($sql_insert);
 

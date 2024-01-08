@@ -82,13 +82,13 @@ CloseDb();
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextarea.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="../script/tooltips.js"></script>
-<SCRIPT language="JavaScript" src="../script/validasi.js"></SCRIPT>
-<SCRIPT language="JavaScript" src="../script/tables.js"></SCRIPT>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
+<SCRIPT language="text/javascript" src="../script/validasi.js"></SCRIPT>
+<SCRIPT language="text/javascript" src="../script/tables.js"></SCRIPT>
 <SCRIPT language="javascript" src="../script/common.js"></script>
 <SCRIPT language="javascript" src="../script/tools.js"></script>
 <title>JIBAS SIMAKA [Ubah Jenis Mutasi]</title>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript">
 function validate(){
 	return	validateEmptyText('jenismutasi', 'Jenis Mutasi') &&
 			validateMaxText('keterangan', 255, 'Keterangan');

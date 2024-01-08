@@ -40,9 +40,9 @@ $nama = trim($_REQUEST['nama']);
 $panggilan = trim($_REQUEST['panggilan']);
 $kelamin = $_REQUEST['kelamin'];
 $tmplahir = trim($_REQUEST['tmplahir']);
-$tgllahir = strlen($_REQUEST['tgllahir']) == 0 ? "1" : {$_REQUEST['tgllahir']}; 
-$blnlahir = strlen($_REQUEST['blnlahir']) == 0 ? "1" : {$_REQUEST['blnlahir']};
-$thnlahir = strlen($_REQUEST['thnlahir']) == 0 ? "1970" : {$_REQUEST['thnlahir']};
+$tgllahir = strlen($_REQUEST['tgllahir']) == 0 ? "1" : $_REQUEST['tgllahir']; 
+$blnlahir = strlen($_REQUEST['blnlahir']) == 0 ? "1" : $_REQUEST['blnlahir'];
+$thnlahir = strlen($_REQUEST['thnlahir']) == 0 ? "1970" : $_REQUEST['thnlahir'];
 $lahir = $thnlahir . "-" . $blnlahir . "-" . $tgllahir;
 $suku = $_REQUEST['suku'];
 $agama = $_REQUEST['agama'];
@@ -121,10 +121,10 @@ if (isset($_REQUEST['Simpan']))
 	} 
 	else 
 	{	
-		$date=date(j);
-		$month=date(m);
-		$year=date(Y);
-		$kumplit = date(Y)."-".date(m)."-".date(j);
+		$date=date('j');
+		$month=date('m');
+		$year=date('Y');
+		$kumplit = date('Y')."-".date('m')."-".date('j');
 		
         $suku_sql = ($suku == "") ? "suku = NULL" : "suku = '".$suku."'";
         $agama_sql = ($agama == "") ? "agama = NULL" : "agama = '".$agama."'";

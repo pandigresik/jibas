@@ -88,7 +88,7 @@ if (isset($_REQUEST['Simpan'])) {
 <title>JIBAS INFOGURU [Tambah Rencana Program Pembelajaran]</title>
 <script src="../script/SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>

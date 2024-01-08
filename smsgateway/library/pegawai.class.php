@@ -96,7 +96,7 @@ class Pegawai{
 				</tr>
 				<?php
 				while ($row = @mysqli_fetch_row($res)){
-				$sqlpass = "SELECT count(replid) FROM $db_name_user.login WHERE login='$row[0]'";
+				$sqlpass = "SELECT count(replid) FROM $db_name_user.login WHERE login='".$row[0]."'";
 				$respass = QueryDb($sqlpass);
 				$rowpass = @mysqli_fetch_row($respass);
 				$hp		 = ($rowpass[0]==0)?'false':'true';

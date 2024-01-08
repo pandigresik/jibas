@@ -89,9 +89,9 @@ if ($op == "del") {
 <title></title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-<script language="JavaScript" src="../script/tooltips.js"></script>
-<script language="JavaScript" src="../script/tables.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tables.js"></script>
+<script language = "javascript" type = "text/javascript">
 
 var win = null;
 function newWindow(mypage,myname,w,h,features) {
@@ -186,7 +186,7 @@ if ($replid_infonap == 0) {
 $result = QueryDb($query) or die(mysqli_error($mysqlconnection));
 $num = @mysqli_num_rows($result);
 //echo $query;
-$my_data = "";
+$my_data = [];
  
 while($row = @mysqli_fetch_array($result)) {
     $my_data[$row['nis']]['nama'] = $row['nama'];
@@ -225,7 +225,7 @@ if($num_cek > 0) {
     if($num == 0) {
         echo "
             <font color='red' size='2'><b>Nilai Akhir Ujian untuk pelajaran</font>
-            <font color='black' size='2'>$row_p['nama'] </font><font color='red' size='2'>belum ada.
+            <font color='black' size='2'>'".$row_p['nama']."'</font><font color='red' size='2'>belum ada.
             Masukkanlah terlebih dahulu nilai akhir pelajaran tersebut !</b></font>
         ";
     }else {
@@ -310,7 +310,7 @@ if($num_cek > 0) {
 				
             echo "<td class='headerlong' colspan='2' align='center'>
                 <input type='hidden' name='aturan$v' value='".$row_nhb['replid']."'>
-                <font size='1' color='$color'>Nilai $row_nhb['dasarpenilaian']</font></td>";
+                <font size='1' color='$color'>Nilai '".$row_nhb['dasarpenilaian']."'</font></td>";
         }
         ?>
         <td rowspan="2" class="headerlong" align="center">
@@ -339,7 +339,7 @@ if($num_cek > 0) {
 				else
 					$cnt++;
 			}
-            echo "<td class='headerlong' align='center'><font color='$color'>$row_ju['jenisujian'] $as[$cnt]</font></td>";
+            echo "<td class='headerlong' align='center'><font color='$color'>".$row_ju['jenisujian']. $as[$cnt]."</font></td>";
             $kolom[$row_ju['replid']] = $row_ju['replid'];
         }
 
@@ -352,7 +352,7 @@ if($num_cek > 0) {
     
     <?php
 
-    if($my_data != "") {
+    if(!empty($my_data)) {
         $i = 0;
         foreach($my_data as $ns => $d) {
             $i++;
@@ -458,7 +458,7 @@ if($num_cek > 0) {
 <?php
 if(isset($_POST['simpan'])) {
     $query_p = "INSERT INTO jbsakad.infonap(idpelajaran, idsemester, idkelas,  nilaimin) ".
-                "VALUES('".$_POST['pelajaran']', '".$_POST['semester']', '$_POST['kelas']', '$_POST['nlulus']."')";
+                "VALUES('".$_POST['pelajaran']."', '".$_POST['semester']."', '".$_POST['kelas']."', '".$_POST['nlulus']."')";
     $result_p = QueryDb($query_p) or die(mysqli_error($mysqlconnection));
 
     $query_l = "SELECT LAST_INSERT_ID(replid) As replid FROM jbsakad.infonap ORDER BY replid DESC LIMIT 1";

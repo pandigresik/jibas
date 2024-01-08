@@ -54,7 +54,7 @@ $menit = "";
 if (isset($_REQUEST['menit']))
 	$menit = $_REQUEST['menit'];
 
-$tgl = date(d)."-".date(m)."-".date(Y);
+$tgl = date(d)."-".date('m')."-".date('Y');
 if (isset($_REQUEST['tanggal']))
 	$tgl= $_REQUEST['tanggal'];
 
@@ -114,7 +114,7 @@ OpenDb();
 <script language="javascript" src="../script/cal2.js"></script>
 <script language="javascript" src="../script/cal_conf2.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript">
 var win = null;

@@ -35,7 +35,7 @@ class Inbox{
                     <?php
                     for ($i=1; $i<=12; $i++){
 						if ($Month=='')
-							$Month = date(m);
+							$Month = date('m');
                         ?>
                         <option value="<?=$i?>" <?=StringIsSelected($i,$Month)?>><?=$LMonth[$i-1]?></option>
                         <?php
@@ -46,9 +46,9 @@ class Inbox{
                 <td style="padding-right:2px">
                 <select id="Year" class="Cmb" onchange="ChgCmb()">
                     <?php
-                    for ($i=G_START_YEAR; $i<=date(Y); $i++){
+                    for ($i=G_START_YEAR; $i<=date('Y'); $i++){
                         if ($Year=='')
-							$Year = date(Y);
+							$Year = date('Y');
 						?>
                         <option value="<?=$i?>" <?=StringIsSelected($i,$Year)?>><?=$i?></option>
                         <?php

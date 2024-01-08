@@ -109,9 +109,9 @@ if ($op=="x2378e23dkofh73n25ki9234"){
 	if ((int)$kap_kelas_tujuan <= (int)$row_jum_kelas_tujuan[0]){
 		$ERROR_MSG = "Kapasitas kelas tujuan sudah penuh. Silahkan pilih kelas tujuan lain!";
 	} else { // Jika jumlah murid kelas tujuan < dari kapasitasnya 
-		$tahunsekarang=date(Y);
-		$bulansekarang=date(m);
-		$tanggalsekarang=date(j);
+		$tahunsekarang=date('Y');
+		$bulansekarang=date('m');
+		$tanggalsekarang=date('j');
 		$sekarang=$tahunsekarang."-".$bulansekarang."-".$tanggalsekarang;
 		OpenDb();
 		BeginTrans();
@@ -344,7 +344,7 @@ function refresh_pilih(i) {
 		else 
 			$cnt = (int)$page*(int)$varbaris+1;
 		while ($row_siswa=@mysqli_fetch_row($result_siswa)){
-            $sql_kelas="SELECT replid,kelas FROM jbsakad.kelas WHERE replid='$row_siswa[2]'";
+            $sql_kelas="SELECT replid,kelas FROM jbsakad.kelas WHERE replid='".$row_siswa[2]."'";
             $result_kelas=QueryDb($sql_kelas);
             $row_kelas=@mysqli_fetch_row($result_kelas);
 ?>

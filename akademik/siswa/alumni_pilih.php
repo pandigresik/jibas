@@ -199,7 +199,7 @@ if (isset($_REQUEST['alumnikan']))
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Kelulusan Siswa[Pilih]</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/ajax.js"></script>
@@ -450,7 +450,7 @@ if ($jenis <> "")
 		else 
 			$cnt = (int)$page*(int)$varbaris+1;
 		while ($row_siswa=@mysqli_fetch_row($result_siswa)){
-            $sql_kelas="SELECT replid,kelas FROM jbsakad.kelas WHERE replid='$row_siswa[2]'";
+            $sql_kelas="SELECT replid,kelas FROM jbsakad.kelas WHERE replid='".$row_siswa[2]."'";
             $result_kelas=QueryDb($sql_kelas);
             $row_kelas=@mysqli_fetch_row($result_kelas);
 ?>

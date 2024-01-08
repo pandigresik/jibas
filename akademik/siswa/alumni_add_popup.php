@@ -44,7 +44,7 @@ if(isset($_REQUEST["simpan"])){
 	$result=QueryDbTrans($sql, $success);
 	$row=@mysqli_fetch_array($result);
 	if ($success){
-		$sql="INSERT INTO jbsakad.alumni SET nis='".$row['nis']',klsakhir='".$row['idkelas']',tktakhir='".$row['tingkat']."',tgllulus='$tgl',keterangan='".CQ($_REQUEST['keterangan'])."'";
+		$sql="INSERT INTO jbsakad.alumni SET nis='".$row['nis']."',klsakhir='".$row['idkelas']."',tktakhir='".$row['tingkat']."',tgllulus='$tgl',keterangan='".CQ($_REQUEST['keterangan'])."'";
 		//echo $sql;
 		//exit;
 		QueryDbTrans($sql, $success);
@@ -86,12 +86,12 @@ if(isset($_REQUEST["simpan"])){
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <link rel="stylesheet" type="text/css" href="../style/calendar-win2k-1.css">
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script type="text/javascript" src="../script/calendar.js"></script>
 <script type="text/javascript" src="../script/lang/calendar-en.js"></script>
 <script type="text/javascript" src="../script/calendar-setup.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript">
     function cek_form() {
         var nip,nama,tanggal,keterangan;
 

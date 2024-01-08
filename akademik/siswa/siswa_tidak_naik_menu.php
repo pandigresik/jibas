@@ -65,9 +65,9 @@ switch ($jenis) {
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <title>Tidak Naik Kelas [Menu]</title>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript">
 
 function change_kelas() {	
 	var departemen = document.getElementById("departemen").value;

@@ -99,7 +99,7 @@ class CStat
                 <tr>
 					<td>Bulan</td>
                     <td width="*">
-<?php 					$yearnow = date(Y);	?>
+<?php 					$yearnow = date('Y');	?>
                         <table width="100%" border="0" cellspacing="0" cellpadding="1">
                         <tr>
                             <td>

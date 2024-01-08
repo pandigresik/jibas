@@ -241,8 +241,8 @@ if($my_data != "") {
 <title>Perhitungan Ulang Nilai Rapor <?=$disp_nama?></title>
 <link rel="stylesheet" type="text/css" href="../css/mystyle.css">
 <link rel="stylesheet" type="text/css" href="../css/tooltips.css">
-<script language="JavaScript" src="../javascript/tooltips.js"></script>
-<script language="JavaScript" src="../javascript/tables.js"></script>
+<script language = "javascript" type = "text/javascript" src="../javascript/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../javascript/tables.js"></script>
 
 <body>
 <form name="main" method="post" onSubmit="return confirm('Apakah anda yakin akan mengubah nilai rapor siswa ini?');">

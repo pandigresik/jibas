@@ -122,7 +122,7 @@ if ($op=="show")
 <script language="javascript" src="../script/cal2.js"></script>
 <script language="javascript" src="../script/cal_conf2.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript">
 function change() {

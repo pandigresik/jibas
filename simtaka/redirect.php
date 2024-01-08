@@ -77,7 +77,7 @@ else
 		if ($row['aktif'] == 0)
 		{
 			?>
-			<script language="JavaScript">
+			<script language = "javascript" type = "text/javascript">
 				alert("Status pengguna sedang tidak aktif!");
 				document.location.href = "../simtaka/";
 			</script>
@@ -103,7 +103,7 @@ else
 				$r = mysqli_fetch_array($res);
 				if ($r['aktif']==0)
 				{	?>
-					<script language="JavaScript">
+					<script language = "javascript" type = "text/javascript">
 						alert("Status pengguna sedang tidak aktif!");
 						document.location.href = "../simtaka/";
 					</script>
@@ -129,7 +129,7 @@ else
 
 if (!$user_exists)
 {	?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         alert("Username atau password tidak cocok!");
         document.location.href = "../simtaka/";
     </script>
@@ -151,7 +151,7 @@ else
 	if (isset($_SESSION['login']) && isset($_SESSION['tingkat']))
 	{ 
 	?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         top.location.href = "../simtaka/";
     </script>
     <?php

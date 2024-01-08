@@ -68,11 +68,11 @@ if(isset($_POST["status_user"])){
 <link href="../script/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/cal2.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/cal_conf2.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript">
     function cek_form() {
         var nip,dep,ket,stat,pass,kon;
 

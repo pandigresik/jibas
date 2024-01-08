@@ -100,9 +100,9 @@ if (isset($_REQUEST['Simpan']))
 		$nama = $row['nama'];
 		$nama = str_replace("'", "`", $nama);
 			
-		$date = date(j);
-		$month = date(m);
-		$year = date(Y);
+		$date = date('j');
+		$month = date('m');
+		$year = date('Y');
 		$kumplit = $year."-".$month."-".$date;
 		
 		$pinsiswa = random(5);
@@ -111,21 +111,21 @@ if (isset($_REQUEST['Simpan']))
 
 		BeginTrans();
 		$success = true;		
-		$sql = "INSERT INTO jbsakad.siswa SET nis='".$nis',nama='$nama', panggilan='".$row['panggilan']."', tahunmasuk=$year, 
+		$sql = "INSERT INTO jbsakad.siswa SET nis='".$nis."',nama='$nama', panggilan='".$row['panggilan']."', tahunmasuk=$year, 
 					idangkatan=$angkatan, idkelas=$kelas, suku=$suku, agama=$agama, status=$status, 
-					kondisi=$kondisi, kelamin='".$row['kelamin']', tmplahir='".$row['tmplahir']', tgllahir='".$row['tgllahir']."', 
-					warga='".$row['warga']', anakke=$row['anakke'], jsaudara=$row['jsaudara'], bahasa='".$row['bahasa']."', berat=$row['berat'], 
-					tinggi=$row['tinggi'], darah='".$row['darah']', alamatsiswa='".$row['alamatsiswa']', $kodepos_sql, telponsiswa='".$row['telponsiswa']."', 
-					hpsiswa='".$row['hpsiswa']', emailsiswa='".$row['emailsiswa']', kesehatan='".$row['kesehatan']', $sekolah_sql, ketsekolah='".$row['ketsekolah']."', 
-					namaayah='".$row['namaayah']', namaibu='".$row['namaibu']."', almayah=$row['almayah'], almibu=$row['almibu'], $pendidikanayah_sql, 
-					$pendidikanibu_sql, $pekerjaanayah_sql, $pekerjaanibu_sql, wali='".$row['namawali']."', penghasilanayah=$row['penghasilanayah'], 
-					penghasilanibu=$row['penghasilanibu'], alamatortu='".$row['alamatortu']', telponortu='".$row['telponortu']', hportu='".$row['hportu']."',
-					info1='".$row['info1']."', info2='$row[info2]', 
-					emailayah='".$row['emailayah']', emailibu='".$row['emailibu']', alamatsurat='".$row['alamatsurat']', keterangan='".$row['keterangan']."', 
+					kondisi=$kondisi, kelamin='".$row['kelamin']."', tmplahir='".$row['tmplahir']."', tgllahir='".$row['tgllahir']."', 
+					warga='".$row['warga']."', anakke='".$row['anakke']."', jsaudara='".$row['jsaudara']."', bahasa='".$row['bahasa']."', berat='".$row['berat']."', 
+					tinggi='".$row['tinggi']."', darah='".$row['darah']."', alamatsiswa='".$row['alamatsiswa']."', $kodepos_sql, telponsiswa='".$row['telponsiswa']."', 
+					hpsiswa='".$row['hpsiswa']."', emailsiswa='".$row['emailsiswa']."', kesehatan='".$row['kesehatan']."', $sekolah_sql, ketsekolah='".$row['ketsekolah']."', 
+					namaayah='".$row['namaayah']."', namaibu='".$row['namaibu']."', almayah='".$row['almayah']."', almibu='".$row['almibu']."', $pendidikanayah_sql, 
+					$pendidikanibu_sql, $pekerjaanayah_sql, $pekerjaanibu_sql, wali='".$row['namawali']."', penghasilanayah='".$row['penghasilanayah']."', 
+					penghasilanibu='".$row['penghasilanibu']."', alamatortu='".$row['alamatortu']."', telponortu='".$row['telponortu']."', hportu='".$row['hportu']."',
+					info1='".$row['info1']."', info2='".$row['info2']."', 
+					emailayah='".$row['emailayah']."', emailibu='".$row['emailibu']."', alamatsurat='".$row['alamatsurat']."', keterangan='".$row['keterangan']."', 
 					frompsb=1, ketpsb='$keterangan', pinsiswa='$pinsiswa', pinortu='$pinortu', pinortuibu = '$pinortuibu',nisn='$nisn',
-					nik='".$row['nik']',noun='".$row['noun']',statusanak='".$row['statusanak']',jkandung='".$row['jkandung']',jtiri='$row['jtiri']',jarak='$row['jarak']."',
-					noijasah='".$row['noijasah']', tglijasah='".$row['tglijasah']', statusayah='".$row['statusayah']', statusibu='".$row['statusibu']."',
-					tmplahirayah='".$row['tmplahirayah']', tmplahiribu='".$row['tmplahiribu']', tgllahirayah='".$row['tgllahirayah']', tgllahiribu='".$row['tgllahiribu']."',
+					nik='".$row['nik']."',noun='".$row['noun']."',statusanak='".$row['statusanak']."',jkandung='".$row['jkandung']."',jtiri='".$row['jtiri']."',jarak='".$row['jarak']."',
+					noijasah='".$row['noijasah']."', tglijasah='".$row['tglijasah']."', statusayah='".$row['statusayah']."', statusibu='".$row['statusibu']."',
+					tmplahirayah='".$row['tmplahirayah']."', tmplahiribu='".$row['tmplahiribu']."', tgllahirayah='".$row['tgllahirayah']."', tgllahiribu='".$row['tgllahiribu']."',
 					hobi='".$row['hobi']."'";
 		QueryDbTrans($sql,$success);
 		
@@ -192,7 +192,7 @@ if (isset($_REQUEST['Simpan']))
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextarea.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>

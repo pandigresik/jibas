@@ -104,10 +104,10 @@ if ($op == "dw8dxn8w9ms8zs22") {
 <title>JIBAS SIMAKA [Rencana Program Pembelajaran]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-<script language="JavaScript" src="../script/tables.js"></script>
-<script language="JavaScript" src="../script/tools.js"></script>
-<script language="JavaScript" src="../script/tooltips.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript" src="../script/tables.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tools.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript">
 
 function tambah() {			
 	newWindow('../guru/rpp_add.php?tingkat=<?=$tingkat?>&semester=<?=$semester?>&pelajaran=<?=$pelajaran?>', 'TambahRPP1','700','540','resizable=1,scrollbars=1,status=0,toolbar=0');

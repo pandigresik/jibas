@@ -118,7 +118,7 @@ if (isset($_REQUEST['Simpan'])) {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<SCRIPT type="text/javascript" language="JavaScript" src="../script/tables.js"></SCRIPT>
+<SCRIPT type="text/javascript" language="text/javascript" src="../script/tables.js"></SCRIPT>
 <SCRIPT type="text/javascript" language="javascript" src="../script/common.js"></script>
 <SCRIPT type="text/javascript" language="javascript" src="../script/tools.js"></script>
 <link rel="stylesheet" type="text/css" href="../style/calendar-system.css">

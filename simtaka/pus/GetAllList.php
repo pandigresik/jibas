@@ -49,7 +49,7 @@ $waktu = explode('-', $waktu);
 $sql = "SELECT IF(p.nis IS NOT NULL, p.nis, IF(p.nip IS NOT NULL, p.nip, p.idmember)) AS idanggota,
 		       p.tglpinjam, p.info1, d.kodepustaka, pu.judul
 	      FROM pinjam p, daftarpustaka d, pustaka pu
-		 WHERE MONTH(p.tglpinjam)='".$waktu[0]."' AND YEAR(p.tglpinjam)='$waktu[1]'
+		 WHERE MONTH(p.tglpinjam)='".$waktu[0]."' AND YEAR(p.tglpinjam)='".$waktu[1]."'
 		   AND p.kodepustaka=d.kodepustaka
 		   AND d.pustaka=pu.replid $filter
 		 ORDER BY tglpinjam DESC";

@@ -21,5 +21,5 @@
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
 function get_noreg(){
-	return "ANG".date(Y);
+	return "ANG".date('Y');
 }

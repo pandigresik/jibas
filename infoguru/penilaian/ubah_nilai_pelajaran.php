@@ -86,7 +86,7 @@ if (isset($_POST['simpan'])) {
 		
     if(mysqli_affected_rows($conn) >= 0) {
 ?>
-            <script language="JavaScript">
+            <script language = "javascript" type = "text/javascript">
                 alert("Data berhasil diubah");
                 //document.location.href="tampil_nilai_pelajaran.php?departemen=<?=$departemen ?>&pelajaran=<?=$pelajaran ?>&tingkat=<?=$tingkat ?>&tahun=<?=$tahun ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&jenis_penilaian=<?=$jenis_penilaian ?>";
             	parent.opener.change_sel();
@@ -95,7 +95,7 @@ if (isset($_POST['simpan'])) {
             <?php
     }else {
           ?>
-           <script language="JavaScript">
+           <script language = "javascript" type = "text/javascript">
                alert("Gagal menambah data");
                //document.location.href="tampil_nilai_pelajaran.php?departemen=<?=$departemen ?>&pelajaran=<?=$pelajaran ?>&tingkat=<?=$tingkat ?>&tahun=<?=$tahun ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&jenis_penilaian=<?=$jenis_penilaian ?>";
 			   parent.opener.change_sel();
@@ -112,8 +112,8 @@ if (isset($_POST['simpan'])) {
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <link rel="stylesheet" type="text/css" href="../style/calendar-win2k-1.css">
-<script language="JavaScript" src="../script/tooltips.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript">
     function set_focus() {
         document.ubah_nilai_pelajaran.kodepelajaran.focus();
     }

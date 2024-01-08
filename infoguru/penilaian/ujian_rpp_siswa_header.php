@@ -54,8 +54,8 @@ OpenDb();
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-<script language="JavaScript" src="../script/tooltips.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript">
 function change_sel(){
     var departemen = document.filter_penentuan.departemen.value;
     document.location.href="ujian_rpp_siswa_header.php?departemen="+departemen;

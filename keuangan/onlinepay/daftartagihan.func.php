@@ -449,7 +449,7 @@ function DaftarTagihanData()
     }
     else
     {
-        echo "<td align='left' style='font-size: 12px;'><span style='font-weight: bold; color: #0000ff;'>SUDAH</span> <i>tanggal $row['fckdate']</i>";
+        echo "<td align='left' style='font-size: 12px;'><span style='font-weight: bold; color: #0000ff;'>SUDAH</span> <i>tanggal '".$row['fckdate']."'</i>";
         if (strlen($row["ckdesc"]) > 0)
             echo "<br><i>".$row['ckdesc']."</i>";
         echo "</td>";

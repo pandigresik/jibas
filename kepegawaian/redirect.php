@@ -76,7 +76,7 @@ else
 		if ($row['aktif'] == 0)
 		{
 			?>
-			<script language="JavaScript">
+			<script language = "javascript" type = "text/javascript">
 				alert("Status pengguna sedang tidak aktif!");
 				document.location.href = "../kepegawaian/";
 			</script>
@@ -123,7 +123,7 @@ else
 if (!$user_exists)
 {
 	?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         alert("Username atau password tidak cocok!");
         document.location.href = "../kepegawaian/";
     </script>
@@ -137,7 +137,7 @@ else
 		$query = "UPDATE jbsuser.hakakses SET lastlogin=NOW() WHERE login=$username AND modul = 'SIMPEG'";
 	$result = queryDb($query);
 	?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         top.location.href = "../kepegawaian/";
     </script>
     <?php

@@ -41,8 +41,8 @@ if(isset($_POST["departemen"])){
 <title>JIBAS INFOGURU [Ubah Nilai Akhir Ujian]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-<script language="JavaScript" src="../script/tooltips.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript">
     function cek_form() {
 
       var nilai = document.ubah_nilai_au.kode.value;
@@ -70,7 +70,7 @@ if(isset($_POST['ubah'])) {
 		
 	  if(mysqli_affected_rows($conn)> 0){
             ?>
-            <script language="JavaScript">
+            <script language = "javascript" type = "text/javascript">
 				opener.document.location.href = "tampil_nilai_pelajaran.php?pelajaran=<?=$_POST['pelajaran'] ?>&kelas=<?=$_POST['kelas'] ?>&semester=<?=$_POST['semester'] ?>&jenis_penilaian=<?=$_POST['jenis_penilaian'] ?>&departemen=<?=$_POST['departemen'] ?>&tahun=<?=$_POST['tahun'] ?>&tingkat=<?=$_POST['tingkat'] ?>";
 				window.close();
             </script>
@@ -78,7 +78,7 @@ if(isset($_POST['ubah'])) {
         }
         elseif(mysqli_affected_rows($conn)($conni) == 0){ 
             ?>
-            <script language="JavaScript">
+            <script language = "javascript" type = "text/javascript">
                // alert("Gagal mengubah data.");
 				opener.document.location.href = "tampil_nilai_pelajaran.php?pelajaran=<?=$_POST['pelajaran'] ?>&kelas=<?=$_POST['kelas'] ?>&semester=<?=$_POST['semester'] ?>&jenis_penilaian=<?=$_POST['jenis_penilaian'] ?>&departemen=<?=$_POST['departemen'] ?>&tahun=<?=$_POST['tahun'] ?>&tingkat=<?=$_POST['tingkat'] ?>";
 				window.close();

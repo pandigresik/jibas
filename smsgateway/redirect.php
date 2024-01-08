@@ -74,7 +74,7 @@ else
 	$jum = mysqli_num_rows($result);
 	if ($jum < 1){
 		?>
-		<script language="JavaScript">
+		<script language = "javascript" type = "text/javascript">
 			alert("Username tidak terdaftar!");
 			document.location.href = "../smsgateway";
 		</script>
@@ -85,7 +85,7 @@ else
 		$level = $row[1];
 		if ($row[0]!=md5($password)){
 			?>
-			<script language="JavaScript">
+			<script language = "javascript" type = "text/javascript">
 				alert("Password Anda salah!");
 				document.location.href = "../smsgateway";
 			</script>
@@ -99,7 +99,7 @@ else
 			$row = mysqli_fetch_row($result);
 			if ($row[0]=='0'){
 				?>
-				<script language="JavaScript">
+				<script language = "javascript" type = "text/javascript">
 					alert("Pengguna sedang tidak aktif!");
 					document.location.href = "../smsgateway";
 				</script>
@@ -118,7 +118,7 @@ else
 if(!$user_exists) 
 {
 	?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         alert("Username atau password tidak cocok!");
         document.location.href = "../smsgateway";
     </script>
@@ -136,7 +136,7 @@ else
 	if (isset($_SESSION['login']) && isset($_SESSION['tingkat']))
 	{ 
 	?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         document.location.href = "../smsgateway";
     </script>
     <?php

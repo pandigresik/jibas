@@ -92,9 +92,9 @@ if ($op == "x2378e23dkofh73n25ki9234") {
 	
 	if ($bisapindah=="bisa"){
 		//Bisa Pindah
-		$datetgl=date(j);
-		$datebln=date(m);
-		$datethn=date(Y);
+		$datetgl=date('j');
+		$datebln=date('m');
+		$datethn=date('Y');
 		$tgl=$datethn."-".$datebln."-".$datetgl;
 		OpenDb();
 		BeginTrans();

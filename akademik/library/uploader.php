@@ -38,8 +38,8 @@ require_once('uploader.func.php');
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
-<script language="JavaScript" src="../script/tooltips.js"></script>
-<script language="JavaScript" src="../script/jquery-1.9.1.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/jquery-1.9.1.js"></script>
 <script language="javascript">
 
 var allowedPictType = ['.jpg', '.jpeg', '.png', '.gif', '.bmp'];

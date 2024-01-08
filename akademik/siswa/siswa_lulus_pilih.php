@@ -121,7 +121,7 @@ $n = JmlHari($bln, $th);
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/ajax.js"></script>
@@ -407,7 +407,7 @@ function refresh_pilih(i) {
 		else 
 			$cnt = (int)$page*(int)$varbaris+1;
 		while ($row_siswa=@mysqli_fetch_row($result_siswa)){
-            $sql_kelas="SELECT replid,kelas FROM jbsakad.kelas WHERE replid='$row_siswa[2]'";
+            $sql_kelas="SELECT replid,kelas FROM jbsakad.kelas WHERE replid='".$row_siswa[2]."'";
             $result_kelas=QueryDb($sql_kelas);
             $row_kelas=@mysqli_fetch_row($result_kelas);
 ?>

@@ -52,7 +52,7 @@ OpenDb();
 <head>
 <title>Daftar Siswa</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<SCRIPT type="text/javascript" language="JavaScript" src="../script/tables.js"></SCRIPT>
+<SCRIPT type="text/javascript" language="text/javascript" src="../script/tables.js"></SCRIPT>
 	<SCRIPT type="text/javascript" language="javascript" src="../script/common.js"></script>
 	<SCRIPT type="text/javascript" language="javascript" src="../script/tools.js"></script>
 <link href="../style/style.css" rel="stylesheet" type="text/css">

@@ -45,9 +45,9 @@ OpenDb();
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
-<script language="JavaScript" src="lap_legger_header.js"></script>
+<script language = "javascript" type = "text/javascript" src="lap_legger_header.js"></script>
 </head>
 <body topmargin="0" leftmargin="0" onLoad="document.getElementById('departemen').focus()">
 <form name="main" method="post" action="filter_penentuan.php">

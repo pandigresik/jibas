@@ -41,8 +41,8 @@ if (isset($_REQUEST['bagian']))
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>JIBAS EMA [Daftar Pegawai]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css" />
-<script language="JavaScript" src="../script/tables.js"></script>
-<script language="JavaScript" src="../script/tools.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tables.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/ajax.js"></script>
 <script language="javascript">
 

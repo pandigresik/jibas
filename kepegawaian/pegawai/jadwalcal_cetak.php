@@ -239,7 +239,7 @@ OpenDb();
 $sql="SELECT agenda,nama FROM jenisagenda ORDER BY urutan";
 $result = QueryDb($sql);
 while ($row = mysqli_fetch_row($result)){
-	$sql1 = "SELECT COUNT(*) FROM jadwal WHERE MONTH(tanggal)='".$bln2."' AND YEAR(tanggal)='$thn2' AND jenis='$row[0]'";
+	$sql1 = "SELECT COUNT(*) FROM jadwal WHERE MONTH(tanggal)='".$bln2."' AND YEAR(tanggal)='$thn2' AND jenis='".$row[0]."'";
 	//echo $sql1;
 	$result1 = QueryDb($sql1);
 	$row1 = mysqli_fetch_row($result1);

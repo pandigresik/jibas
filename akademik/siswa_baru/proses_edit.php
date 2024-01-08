@@ -94,7 +94,7 @@ if (isset($_REQUEST['keterangan']))
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>JIBAS SIMAKA [Ubah Proses Penerimaan Siswa Baru]</title>
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>

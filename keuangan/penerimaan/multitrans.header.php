@@ -44,7 +44,7 @@ OpenDb();
     <script language="javascript" src="multitrans.header.js"></script>
 	<script language="javascript" src="../script/tools.js"></script>
     <script language="javascript" src="../script/jquery-1.9.0.js"></script>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         $( document ).ready(function() {
             setTimeout(function () {
                 $('#txBarcode').focus();

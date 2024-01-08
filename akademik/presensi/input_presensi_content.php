@@ -132,13 +132,13 @@ if ($op == "xm8r389xemx23xb2378e23") {
 	
 	if(mysqli_affected_rows($conn) > 0) {
 	?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         
 		parent.menu.location.href = "input_presensi_menu.php?semester=<?=$semester?>&kelas=<?=$kelas?>&th=<?=$th?>&bln=<?=$bln?>";	
 		parent.isi.location.href = "blank_presensi.php?tipe='isi'";
 	</script>
 <?php } else { ?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         alert('Data presensi harian gagal dihapus, periksalah apakah data sudah terpakai');	
 	</script>
 <?php CloseDb();
@@ -181,7 +181,7 @@ OpenDb();
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextarea.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="../script/tools.js"></script>

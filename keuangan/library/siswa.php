@@ -52,8 +52,8 @@ if (isset($_REQUEST['id']))
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="../script/tables.js"></script>
-<script language="JavaScript" src="../script/tools.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tables.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/ajax.js"></script>
 <script language="javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/newwindow.js"></script>

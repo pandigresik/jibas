@@ -78,12 +78,12 @@ if ($op == "dw8dxn8w9ms8zs22") {
 	QueryDb($sql);
 	if(mysqli_affected_rows($conn) > 0) {
 	?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         alert('Data presensi pelajaran berhasil dihapus');
 		parent.header.show();
 	</script>
 <?php } else { ?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         alert('Data presensi pelajaran gagal dihapus, Periksalah apakah data sudah terpakai');	
 	</script>
 <?php CloseDb();
@@ -143,7 +143,7 @@ if ($jml > 0) {
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextarea.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="../script/tools.js"></script>

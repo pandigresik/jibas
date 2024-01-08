@@ -46,11 +46,11 @@ $flag=0;
 <link href="../script/SpryValidationTextarea.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/cal2.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/cal_conf2.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript">
     function cek_form() {
         var nip,dep,ket,stat,pass,kon;
 
@@ -187,7 +187,7 @@ if (!isset($_POST['simpan'])) {
 	$sql_login="UPDATE jbsuser.login SET keterangan='".$_POST['keterangan']."' WHERE login='".$_POST['nip']."'";
 	//$result_login=QueryDb($sql_login);
 	} elseif ($num_cek==0){
-	$sql_login="INSERT INTO jbsuser.login SET login='".$_POST['nip']',password='$pass',keterangan='".$_POST['keterangan']."',aktif=1";
+	$sql_login="INSERT INTO jbsuser.login SET login='".$_POST['nip']."',password='$pass',keterangan='".$_POST['keterangan']."',aktif=1";
 	//$result_login=QueryDb($sql_login);
 	}
 	if ($num_c>0){
@@ -203,7 +203,7 @@ if (!isset($_POST['simpan'])) {
 	$sql_login="UPDATE jbsuser.login SET keterangan='".$_POST['keterangan']."' WHERE login='".$_POST['nip']."'";
 	//$result_login=QueryDb($sql_login);
 	} elseif ($num_cek==0){
-	$sql_login="INSERT INTO jbsuser.login SET login='".$_POST['nip']', password='$pass', keterangan='".$_POST['keterangan']."', aktif=1";
+	$sql_login="INSERT INTO jbsuser.login SET login='".$_POST['nip']."', password='$pass', keterangan='".$_POST['keterangan']."', aktif=1";
 	
 	}
 	if ($num_c>0){

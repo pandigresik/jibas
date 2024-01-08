@@ -51,8 +51,8 @@ $warna=array('fcf5ca','d5fcca','cafcf3','cae6fc','facafc');
 <title>Menu</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
-<script language="JavaScript" src="../script/tables.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript" src="../script/tables.js"></script>
+<script language = "javascript" type = "text/javascript">
 
 function klik(idpelajaran,aspek,aspekket,kelas,semester,nip,tingkat,departemen,tahun){
 

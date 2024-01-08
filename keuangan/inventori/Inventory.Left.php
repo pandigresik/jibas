@@ -149,7 +149,7 @@ if (getNSubDir($row[0])==0)
 ?>
 <li class="liOpen" style="cursor:default">&nbsp;<img src='../images/ico/folder.gif' border='0'>&nbsp;<strong><?=stripslashes($row[1])?></strong>&nbsp;<a href="javascript:AddKelompok('<?=$row[0]?>')"><img src="../images/ico/tambah.png" border='0' title="Tambah Kelompok"></a><a href="javascript:EditGroup('<?=$row[0]?>')"><img src="../images/ico/ubah.png" border='0' title="Ubah Group"></a><a href="javascript:EraseGroup('<?=$row[0]?>')"><img src="../images/ico/hapus.png" border='0' title="Hapus Group"></a>
 <?php
-$sql2 = "SELECT replid,kelompok FROM jbsfina.kelompokbarang WHERE idgroup='$row[0]'"; 
+$sql2 = "SELECT replid,kelompok FROM jbsfina.kelompokbarang WHERE idgroup='".$row[0]."'"; 
 $result2 = QueryDb($sql2);
 $num2 = @mysqli_num_rows($result2);
 if ($num2>0){

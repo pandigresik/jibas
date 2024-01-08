@@ -35,7 +35,7 @@ $status = "";
     <link rel="stylesheet" type="text/css" href="../style/style.css">
     <link href="../script/SpryTabbedPanels.css" rel="stylesheet" type="text/css" />
     <script src="../script/SpryTabbedPanels.js" type="text/javascript"></script>
-    <script language="JavaScript" src="../script/tables.js"></script>
+    <script language = "javascript" type = "text/javascript" src="../script/tables.js"></script>
     <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
     <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
     <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>

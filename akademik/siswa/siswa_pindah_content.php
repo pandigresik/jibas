@@ -126,7 +126,7 @@ if ($op=="xm8r389xemx23xb2378e23"){
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/ajax.js"></script>
 <script language="javascript">
 

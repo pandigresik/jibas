@@ -50,7 +50,7 @@ require_once("include/sessioninfo.php");
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
 <script language="javascript" src="script/clock.js"></script>
-<script type="text/javascript" language="JavaScript">
+<script type="text/javascript" language="text/javascript">
 function get_fresh(){
 	document.location.reload();
 }

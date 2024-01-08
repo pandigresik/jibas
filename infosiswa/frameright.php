@@ -30,7 +30,7 @@ require_once("include/sessioninfo.php");
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-<script type="text/javascript" language="JavaScript">
+<script type="text/javascript" language="text/javascript">
 function get_fresh(){
 	document.location.reload();
 }

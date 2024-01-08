@@ -81,7 +81,7 @@ if (isset($_REQUEST['Simpan'])) {
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationSelect.js" type="text/javascript"></script>
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" language="JavaScript" src="../script/tables.js"></script>
+<script type="text/javascript" language="text/javascript" src="../script/tables.js"></script>
 <script type="text/javascript" language="javascript" src="../script/tools.js"></script>
 <script type="text/javascript" language="javascript" src="../script/validasi.js"></script>
 <script type="text/javascript" language="javascript">

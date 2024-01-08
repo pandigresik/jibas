@@ -73,7 +73,7 @@ if(isset($_REQUEST['ubah']))
 	{	
 		CommitTrans();
 		CloseDb();	?>
-		<script language="JavaScript">
+		<script language = "javascript" type = "text/javascript">
 			opener.refresh();
 			window.close();
 		</script>      	
@@ -92,11 +92,11 @@ if(isset($_REQUEST['ubah']))
 <title>JIBAS SIMAKA [Tambah Data Nilai Ujian]</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript">
 function cek_form() {  
 	return validateEmptyText('nilai', 'Nilai');	
 }

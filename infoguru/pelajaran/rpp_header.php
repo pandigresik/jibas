@@ -50,8 +50,8 @@ OpenDb();
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>JIBAS SIMAKA [Rencana Program Pembelajaran]</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-<script language="JavaScript" src="../script/tooltips.js"></script>
-<script language="JavaScript" src="../menu.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../menu.js"></script>
 <script language="javascript" src="../script/ajax.js"></script>
 <script language="javascript">
 var win = null;

@@ -71,11 +71,11 @@ if(isset($_POST["idjenis"])){
 }
 
 if(isset($_POST['simpan'])) {
-	$sql_del_nau="DELETE FROM jbsakad.nau WHERE  idpelajaran='".$_POST['idpelajaran']."' AND idkelas='".$_POST['idkelas']."' AND idsemester='".$_POST['idsemester']."' AND idjenis='$_POST['idjenis']."'";
+	$sql_del_nau="DELETE FROM jbsakad.nau WHERE  idpelajaran='".$_POST['idpelajaran']."' AND idkelas='".$_POST['idkelas']."' AND idsemester='".$_POST['idsemester']."' AND idjenis='".$_POST['idjenis']."'";
 	$result_del_nau=QueryDb($sql_del_nau);
 	$tanggaldb=unformat_tgl($_POST['tanggal']);
 	$query_ujian = "INSERT INTO jbsakad.ujian(idpelajaran, idkelas, idsemester, idjenis, deskripsi, tanggal) ".
-             "VALUES ('".$_POST['idpelajaran']', '".$_POST['idkelas']', '$_POST['idsemester']', '$_POST['idjenis']."', '".CQ($_POST['deskripsi'])."','$tanggaldb')";
+             "VALUES ('".$_POST['idpelajaran']."', '".$_POST['idkelas']."', '".$_POST['idsemester']."', '".$_POST['idjenis']."', '".CQ($_POST['deskripsi'])."','$tanggaldb')";
     $result_ujian = QueryDb($query_ujian) or die (mysqli_error($mysqlconnection));
 	
 	$query_id = "SELECT last_insert_id() FROM jbsakad.ujian";
@@ -90,7 +90,7 @@ if(isset($_POST['simpan'])) {
 	if ($ndup > 0) {
 		
 	?>
-		<script language="JavaScript">
+		<script language = "javascript" type = "text/javascript">
 			alert("Data Nilai Pelajaran berhasil diinput");
 			parent.opener.change_sel();
 			window.close();
@@ -127,14 +127,14 @@ if(isset($_POST['simpan'])) {
 	$ruk = $tota_nuj1/$t;	
 	
 	$query_ruk = "INSERT INTO jbsakad.ratauk (idkelas, idsemester, idujian, nilaiRK, keterangan) ".
-	             "VALUES ('".$_POST['idkelas']','".$_POST['idsemester']."','$iduj','$ruk','$ket_ruk')";
+	             "VALUES ('".$_POST['idkelas']."','".$_POST['idsemester']."','$iduj','$ruk','$ket_ruk')";
 	$result_ruk = QueryDb($query_ruk) or die (mysqli_error($mysqlconnection));			 
 	
 	//echo $query_ruk;
 	
     if(mysqli_affected_rows($conn)($conni) >= 0) {
             ?>
-            <script language="JavaScript">
+            <script language = "javascript" type = "text/javascript">
                 alert("Data Nilai Pelajaran berhasil diinput");
 				parent.opener.change_sel();
 				window.close();
@@ -143,7 +143,7 @@ if(isset($_POST['simpan'])) {
             <?php
         }else {
           ?>
-           <script language="JavaScript">
+           <script language = "javascript" type = "text/javascript">
                alert("Gagal menambah data");
                parent.opener.change_sel();
 				window.close();
@@ -165,10 +165,10 @@ if(isset($_POST['simpan'])) {
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <link rel="stylesheet" type="text/css" href="../style/calendar-win2k-1.css">
 
-<script language="JavaScript" src="../script/tooltips.js"></script>
-<script language="JavaScript" src="../script/ajax.js"></script>
-<script language="JavaScript" src="../script/validasi.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/ajax.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/validasi.js"></script>
+<script language = "javascript" type = "text/javascript">
     function set_focus() {
         document.tambah_nilai_pelajaran.kodepelajaran.focus();
     }

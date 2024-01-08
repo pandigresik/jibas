@@ -23,7 +23,7 @@
 <?php
 require_once("../include/sessionchecker.php");
 ?>
-<script language="JavaScript" src="../menu.js"></script>
+<script language = "javascript" type = "text/javascript" src="../menu.js"></script>
 <frameset rows = "70, *" border="1" framespacing="yes" name="framecenter"  id="framecenter" frameborder="yes">
 	<frame src = "rpp_header.php" name ="header" scrolling="no" style="border:1; border-bottom-color:#000000; border-bottom-style:solid"/>
     <frame src = "blank_rpp.php" name = "footer" id="footer"/>

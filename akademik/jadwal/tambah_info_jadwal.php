@@ -75,7 +75,7 @@ if ($op=="simpan"){
 <head>
 <title>Tambah Info Jadwal</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
-<SCRIPT type="text/javascript" language="JavaScript" src="../script/tables.js"></SCRIPT>
+<SCRIPT type="text/javascript" language="text/javascript" src="../script/tables.js"></SCRIPT>
 <SCRIPT type="text/javascript" language="javascript" src="../script/common.js"></script>
 <SCRIPT type="text/javascript" language="javascript" src="../script/ajax.js"></script>
 <SCRIPT type="text/javascript" language="javascript" src="../script/tools.js"></script>

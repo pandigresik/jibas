@@ -60,7 +60,7 @@ if ($op=="34983xihxf084bzux834hx8x7x93"){
 		$exist = @mysqli_num_rows($res1);
 		if ($exist==0)
 		{	//Kalo gak ada, hapus semua...........
-			$sql3 = "SELECT p.replid as replid FROM jbsvcr.pesan p, jbsvcr.tujuanpesan t WHERE t.idpesan=p.replid AND t.replid='$msg[$x]'";
+			$sql3 = "SELECT p.replid as replid FROM jbsvcr.pesan p, jbsvcr.tujuanpesan t WHERE t.idpesan=p.replid AND t.replid='".$msg[$x]."'";
 			$res3 = QueryDb($sql3);
 			$row3 = @mysqli_fetch_array($res3);
 			$idpesan = $row3['replid'];
@@ -75,7 +75,7 @@ if ($op=="34983xihxf084bzux834hx8x7x93"){
 			QueryDb($sql6);
 			}
 		} else {
-			$sql4 = "UPDATE jbsvcr.tujuanpesan SET aktif=0, baru=0 WHERE replid='$msg[$x]'";
+			$sql4 = "UPDATE jbsvcr.tujuanpesan SET aktif=0, baru=0 WHERE replid='".$msg[$x]."'";
 			QueryDb($sql4);
 		}
 		CloseDb();

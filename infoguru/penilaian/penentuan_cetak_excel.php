@@ -172,7 +172,7 @@ while ($row = @mysqli_fetch_array($res))
 			$sql = "SELECT n.nilaiAU as nilaiujian 
 			          FROM jbsakad.nau n, jbsakad.aturannhb a 
 				     WHERE n.idpelajaran = = '".$pelajaran."' AND n.idkelas='$kelas' AND n.nis='".$row_siswa['nis']."' AND n.idsemester='$semester' 
-				       AND n.idjenis='".$value[2]."' AND n.idaturan=a.replid AND a.replid='$value[0]'";
+				       AND n.idjenis='".$value[2]."' AND n.idaturan=a.replid AND a.replid='".$value[0]."'";
 			$res = QueryDb($sql);
 			$row = @mysqli_fetch_array($res);
 			echo "<td align='center'>" . $row['nilaiujian'] . "</td>";

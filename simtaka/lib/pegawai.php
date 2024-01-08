@@ -40,8 +40,8 @@ if (isset($_REQUEST['bagian']))
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>JIBAS SIMTAKA[Daftar Pegawai]</title>
 <link rel="stylesheet" type="text/css" href="../sty/style.css" />
-<script language="JavaScript" src="../scr/tables.js"></script>
-<script language="JavaScript" src="../scr/tools.js"></script>
+<script language = "javascript" type = "text/javascript" src="../scr/tables.js"></script>
+<script language = "javascript" type = "text/javascript" src="../scr/tools.js"></script>
 <script language="javascript" src="../scr/ajax.js"></script>
 <script language="javascript">
 

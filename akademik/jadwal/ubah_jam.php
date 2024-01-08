@@ -155,7 +155,7 @@ CloseDb();
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" language="JavaScript" src="../script/tables.js"></script>
+<script type="text/javascript" language="text/javascript" src="../script/tables.js"></script>
 <script type="text/javascript" language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
 

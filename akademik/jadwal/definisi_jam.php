@@ -56,7 +56,7 @@ OpenDb();
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tooltips.js"></script>
-<script type="text/javascript" language="JavaScript" src="../script/tables.js"></script>
+<script type="text/javascript" language="text/javascript" src="../script/tables.js"></script>
 <script type="text/javascript" language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
 function change_departemen(){

@@ -93,7 +93,7 @@ if ($op=='SavePresensi'){
 	$smsgeninfo .= ", Pengirim : ".$Sender;
 	
 	$idsmsgeninfo = GetLastId('replid','smsgeninfo');	
-	$sql = "INSERT INTO smsgeninfo SET replid='$idsmsgeninfo',tanggal='$x[0]',tipe='0',info='$smsgeninfo',pengirim='$Sender'";
+	$sql = "INSERT INTO smsgeninfo SET replid='$idsmsgeninfo',tanggal='".$x[0]."',tipe='0',info='$smsgeninfo',pengirim='$Sender'";
 	$res = QueryDb($sql);
 	
 	$NIS2 = "";
@@ -300,7 +300,7 @@ if ($op=='SavePresensi'){
 			//Finding Phone Number
 			$query	= "SELECT nis, hpsiswa, namaayah, nama, hportu, info1, info2
 						 FROM $db_name_akad.siswa
-						WHERE nis='$ALLNIS[$i]'";
+						WHERE nis='".$ALLNIS[$i]."'";
 			$result = QueryDb($query);
 			$data	= @mysqli_fetch_row($result);
 			

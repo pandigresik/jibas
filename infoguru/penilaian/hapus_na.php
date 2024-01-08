@@ -40,7 +40,7 @@ $row3 = @mysqli_fetch_array($result3);
 
 if(mysqli_affected_rows($conn) > 0) {
 ?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         //alert("Jenis Penilaian Siswa berhasil dihapus");
         document.location.href="tampil_nilai_pelajaran.php?jenis_penilaian=<?=$_GET['jenis_penilaian'] ?>&departemen=<?=$_GET['departemen'] ?>&tahun=<?=$_GET['tahun'] ?>&tingkat=<?=$_GET['tingkat'] ?>&semester=<?=$_GET['semester'] ?>&pelajaran=<?=$_GET['pelajaran'] ?>&kelas=<?=$_GET['kelas'] ?>";
     </script>
@@ -48,7 +48,7 @@ if(mysqli_affected_rows($conn) > 0) {
 }
 else {
 ?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         //alert('Ujian gagal dihapus!');
 		document.location.href="tampil_nilai_pelajaran.php?jenis_penilaian=<?=$_GET['jenis_penilaian'] ?>&departemen=<?=$_GET['departemen'] ?>&tahun=<?=$_GET['tahun'] ?>&tingkat=<?=$_GET['tingkat'] ?>&semester=<?=$_GET['semester'] ?>&pelajaran=<?=$_GET['pelajaran'] ?>&kelas=<?=$_GET['kelas'] ?>";
     </script>

@@ -48,7 +48,7 @@ OpenDb();
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Pendataan Calon Siswa</title>
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/ajax.js"></script>
 <script language="javascript">
 var win = null;

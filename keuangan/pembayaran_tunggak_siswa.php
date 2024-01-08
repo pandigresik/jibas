@@ -51,7 +51,7 @@ $minno = ($page - 1) * $nitem;
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
 <script src="script/SpryTabbedPanels.js" type="text/javascript"></script>
-<script language="JavaScript" src="script/tables.js"></script>
+<script language = "javascript" type = "text/javascript" src="script/tables.js"></script>
 <script src="script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <script src="script/SpryValidationSelect.js" type="text/javascript"></script>

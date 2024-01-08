@@ -65,7 +65,7 @@ $namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agu
 <link href="../../style/style.css" rel="stylesheet" type="text/css" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-<script language="JavaScript" src="../../script/tools.js"></script>
+<script language = "javascript" type = "text/javascript" src="../../script/tools.js"></script>
 <script language="javascript">
 function tambah(tanggal){
 	newWindow('tambahagenda.php?tanggal='+tanggal,'TambahAgenda',660, 480,'resizable=0,scrollbars=0,status=0,toolbar=0');

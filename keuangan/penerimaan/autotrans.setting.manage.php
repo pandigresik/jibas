@@ -189,7 +189,7 @@ if ($idAutoTrans != 0)
 <?php
 if ($idAutoTrans != 0) {
     ?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         var jsonData = $("#jsonData").val();
         lsPenerimaan = JSON.parse(jsonData);
     </script>

@@ -106,7 +106,7 @@ if (isset($_REQUEST['Simpan'])) {
 <link href="../style/style.css" rel="stylesheet" type="text/css">
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script type="text/javascript" src="../script/tools.js"></script>
 <script type="text/javascript" src="../script/calendar.js"></script>
 <script type="text/javascript" src="../script/lang/calendar-en.js"></script>

@@ -347,7 +347,7 @@ class Phonebook
 		{
 			$sql = "SELECT COUNT(replid)
 					  FROM phonebook
-					 WHERE idreplid ='$pb[4]'
+					 WHERE idreplid ='".$pb[4]."'
 					   AND `status` = '$pb[2]'
 					   AND nohp = '$pb[1]'";
 			$res = QueryDb($sql);
@@ -355,17 +355,17 @@ class Phonebook
 			if ($row[0] == 0)
 			{
 				$sql = "INSERT INTO phonebook
-						   SET nama='$pb[0]', nohp='$pb[1]', `status`='$pb[2]',
-							   keterangan='$pb[3]', idreplid='$pb[4]'";
+						   SET nama='".$pb[0]', nohp='$pb[1]', `status`='$pb[2]."',
+							   keterangan='".$pb[3]', idreplid='$pb[4]."'";
 				QueryDb($sql);
 			}
 			else
 			{
 				$sql = "UPDATE phonebook
-						   SET nama='$pb[0]'
-						 WHERE `status`='$pb[2]'
-						   AND idreplid='$pb[4]'
-						   AND nohp='$pb[1]'";
+						   SET nama='".$pb[0]."'
+						 WHERE `status`='".$pb[2]."'
+						   AND idreplid='".$pb[4]."'
+						   AND nohp='".$pb[1]."'";
 				QueryDb($sql);
 			}
 		}

@@ -101,11 +101,11 @@ if ($op=="hgiu82kjs98uqjq89wuj89sga"){
 		$row_rwyt_get=mysqli_fetch_row($result_rwyt_get);
 	}
 	if ($success){
-		$sql_rwyt_upd="UPDATE jbsakad.riwayatkelassiswa SET aktif=1 WHERE nis='$nis' AND idkelas='$row_rwyt_get[0]'";
+		$sql_rwyt_upd="UPDATE jbsakad.riwayatkelassiswa SET aktif=1 WHERE nis='$nis' AND idkelas='".$row_rwyt_get[0]."'";
 		QueryDbTrans($sql_rwyt_upd, $success);
 	}
 	if ($success){
-		$sql_siswa_upd="UPDATE jbsakad.siswa SET idkelas='$row_rwyt_get[0]' WHERE nis='$nis'";
+		$sql_siswa_upd="UPDATE jbsakad.siswa SET idkelas='".$row_rwyt_get[0]."' WHERE nis='$nis'";
 		QueryDbTrans($sql_siswa_upd, $success);
 	}
 	
@@ -147,9 +147,9 @@ if ($op=="x2378e23dkofh73n25ki9234"){
 	if ((int)$kap_kelas_tujuan <= (int)$row_jum_kelas_tujuan[0]){
 		$ERROR_MSG = "Kapasitas kelas tujuan sudah penuh.  Silahkan pilih kelas tujuan lain!";
 	} else { // Jika jumlah murid kelas tujuan < dari kapasitasnya 
-		$tahunsekarang=date(Y);
-		$bulansekarang=date(m);
-		$tanggalsekarang=date(j);
+		$tahunsekarang=date('Y');
+		$bulansekarang=date('m');
+		$tanggalsekarang=date('j');
 		$sekarang=$tahunsekarang."-".$bulansekarang."-".$tanggalsekarang;
 		OpenDb();
 		BeginTrans();
@@ -186,7 +186,7 @@ if ($op=="x2378e23dkofh73n25ki9234"){
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript">
 
 function change_tahunajaran(){

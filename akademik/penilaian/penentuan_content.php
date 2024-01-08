@@ -165,7 +165,7 @@ if ($_REQUEST["op"]  == "dw984j5hx3vbdc")
 	{	
 		CommitTrans(); 
 		CloseDb(); ?>
-		<script language="JavaScript">
+		<script language = "javascript" type = "text/javascript">
             alert ('Data telah dihapus');
             document.location.href="penentuan_content.php?departemen=<?=$departemen?>&tingkat=<?=$tingkat?>&pelajaran=<?=$pelajaran?>&kelas=<?=$kelas?>&semester=<?=$semester?>&nip=<?=$nip?>&tahun=<?=$tahun?>&aspek=<?=urlencode((string) $aspek)?>&aspekket=<?=urlencode((string) $aspekket)?>";
         </script>
@@ -175,7 +175,7 @@ if ($_REQUEST["op"]  == "dw984j5hx3vbdc")
 	{
 		RollbackTrans(); 
 		CloseDb(); ?>
-		<script language="JavaScript">
+		<script language = "javascript" type = "text/javascript">
             alert ('Gagal menghapus data!');
             document.location.href="penentuan_content.php?departemen=<?=$departemen?>&tingkat=<?=$tingkat?>&pelajaran=<?=$pelajaran?>&kelas=<?=$kelas?>&semester=<?=$semester?>&nip=<?=$nip?>&tahun=<?=$tahun?>&aspek=<?=urlencode((string) $aspek)?>&aspekket=<?=urlencode((string) $aspekket)?>";
         </script>
@@ -251,10 +251,10 @@ while ($row = @mysqli_fetch_array($res))
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="../script/tooltips.js"></script>
-<script language="JavaScript" src="../script/tools.js"></script>
-<script language="JavaScript" src="../script/tables.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tools.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tables.js"></script>
+<script language = "javascript" type = "text/javascript">
 
 function cek()
 {

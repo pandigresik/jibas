@@ -38,8 +38,8 @@ $result = QueryDb($sql);
 <title>Detail Presensi Pelajaran</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
-<script language="JavaScript" src="../script/tables.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript" src="../script/tables.js"></script>
+<script language = "javascript" type = "text/javascript">
 </script>
 </head>
 <body>

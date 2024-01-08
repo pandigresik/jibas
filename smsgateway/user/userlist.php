@@ -148,7 +148,7 @@ class UserList{
 				</tr>
 				<?php
 				while ($row = @mysqli_fetch_row($res)){
-				$sqlpeg = "SELECT nama FROM $db_name_sdm.pegawai WHERE nip='$row[0]'";
+				$sqlpeg = "SELECT nama FROM $db_name_sdm.pegawai WHERE nip='".$row[0]."'";
 				$respeg = QueryDb($sqlpeg);
 				$rowpeg = @mysqli_fetch_row($respeg);
 				?>

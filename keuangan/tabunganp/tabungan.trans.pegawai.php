@@ -39,7 +39,7 @@ $status = "";
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Untitled Document</title>
     <link rel="stylesheet" type="text/css" href="../style/style.css">
-    <script language="JavaScript" src="../script/tables.js"></script>
+    <script language = "javascript" type = "text/javascript" src="../script/tables.js"></script>
     <script src="../script/ajax.js" type="text/javascript"></script>
     <script src="../script/jquery-1.9.0.js" type="text/javascript"></script>
     <script type="text/javascript" src="tabungan.trans.pegawai.js"></script>

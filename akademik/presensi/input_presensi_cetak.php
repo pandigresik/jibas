@@ -129,7 +129,7 @@ $hariaktif = $row['hariaktif'];
 			$pesan = "Siswa tidak aktif";
 		} 
 			
-		$sql1 = "SELECT * FROM phsiswa WHERE idpresensi = '$replid' AND nis='$row[0]'";
+		$sql1 = "SELECT * FROM phsiswa WHERE idpresensi = '$replid' AND nis='".$row[0]."'";
 		$result1 = QueryDb($sql1);
 		$row1 = mysqli_fetch_array($result1);
 		

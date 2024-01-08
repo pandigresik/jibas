@@ -51,7 +51,7 @@ class CAnggotaAdd{
 					$fill_foto = ", foto='$foto_binary'"; 
 				}
 				$date = @mysqli_fetch_row(QueryDb("SELECT now()"));
-				$sql = "INSERT INTO anggota SET noregistrasi='".$_REQUEST['noreg']."', nama='$nama', alamat='$alamat', kodepos='$kodepos', email='$email', telpon='$telpon', hp='$hp', pekerjaan='$kerja', institusi='$institusi', keterangan='$keterangan', tgldaftar='$date[0]' $fill_foto";
+				$sql = "INSERT INTO anggota SET noregistrasi='".$_REQUEST['noreg']."', nama='$nama', alamat='$alamat', kodepos='$kodepos', email='$email', telpon='$telpon', hp='$hp', pekerjaan='$kerja', institusi='$institusi', keterangan='$keterangan', tgldaftar='".$date[0]."' $fill_foto";
 				$result = QueryDb($sql);
 				if ($result)
 					$this->success();

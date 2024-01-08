@@ -48,12 +48,12 @@ if ($op=="34983xihxf084bzux834hx8x7x93")
 		   $exist = @mysqli_num_rows($res1);
 		   if ($exist==0)
 		   {
-			   $sql3 = "SELECT p.replid as replid FROM jbsvcr.pesan p, jbsvcr.tujuanpesan t WHERE t.idpesan=p.replid AND t.replid='$msg[$x]'";
+			   $sql3 = "SELECT p.replid as replid FROM jbsvcr.pesan p, jbsvcr.tujuanpesan t WHERE t.idpesan=p.replid AND t.replid='".$msg[$x]."'";
 			   $res3 = QueryDb($sql3);
 			   $row3 = @mysqli_fetch_array($res3);
 			   $idpesan = $row3['replid'];
 
-			   $sql4 = "DELETE FROM jbsvcr.tujuanpesan WHERE replid='$msg[$x]'";
+			   $sql4 = "DELETE FROM jbsvcr.tujuanpesan WHERE replid='".$msg[$x]."'";
 			   QueryDb($sql4);
 
 			   $sql5 = "SELECT * FROM jbsvcr.tujuanpesan WHERE idpesan=(SELECT p.replid as replid FROM jbsvcr.pesan p, jbsvcr.tujuanpesan t WHERE t.idpesan=p.replid AND t.replid='".$msg[$x]."') AND replid<>'$msg[$x]'";
@@ -66,7 +66,7 @@ if ($op=="34983xihxf084bzux834hx8x7x93")
 		   }
 		   else
 		   {
-			   $sql4 = "UPDATE jbsvcr.tujuanpesan SET aktif=0, baru=0 WHERE replid='$msg[$x]'";
+			   $sql4 = "UPDATE jbsvcr.tujuanpesan SET aktif=0, baru=0 WHERE replid='".$msg[$x]."'";
 			   QueryDb($sql4);
 		   }
 		}
@@ -304,7 +304,7 @@ function savepesan(){
 	<td height="25"><?=$depan?><div align="center"><?=$row1['tanggal']?><br><?=$row1['waktu']?></div><?=$belakang?></td>
     <td height="25"><?=$depan?><?=$row1['nip']?>-<?=$row1['nama']?><?=$belakang?></td>
     <?php 
-	$sql2="SELECT direktori,namafile FROM jbsvcr.lampiranpesan WHERE idpesan='$row1[replid2]'";
+	$sql2="SELECT direktori,namafile FROM jbsvcr.lampiranpesan WHERE idpesan='".$row1[replid2]."'";
 	$result2=QueryDb($sql2); 
 	?>
     <td width="22" height="25"><?=$depan?><?php if (@mysqli_num_rows($result2)>0){ ?><img title="Disertai Lampiran" src="../../images/ico/attachment1.png"/><?php } ?><?=$belakang?></td>

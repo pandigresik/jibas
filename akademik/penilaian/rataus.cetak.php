@@ -132,7 +132,7 @@ $namadp = $row[0];
 			$num2 = @mysqli_num_rows($res2);
 			$content = array();
 			while ($row2 = @mysqli_fetch_row($res2)){
-				$sql3 = "SELECT nilaiRK FROM ratauk WHERE idkelas='$kls' AND idsemester='$sem' AND idujian='$row2[3]'";
+				$sql3 = "SELECT nilaiRK FROM ratauk WHERE idkelas='$kls' AND idsemester='$sem' AND idujian='".$row2[3]."'";
 				$res3 = QueryDb($sql3);
 				$row3 = @mysqli_fetch_row($res3);
 				$ratauk = $row[0];

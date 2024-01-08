@@ -43,7 +43,7 @@ require_once('siswa_edit.func.php');
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/rupiah.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/ajax.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="siswa_edit.js"></script>

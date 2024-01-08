@@ -27,9 +27,9 @@ require_once(__DIR__ . '/../cek.php');
 <head>
 <title>Impor Nilai Pelajaran</title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
-<script language="JavaScript" src="../script/jquery-1.9.1.js"></script>
-<script language="JavaScript" src="../script/tools.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript" src="../script/jquery-1.9.1.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tools.js"></script>
+<script language = "javascript" type = "text/javascript">
 <?php require_once("impnilai.js.php"); ?>
 </script>
 </head>

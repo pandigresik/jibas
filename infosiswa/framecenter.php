@@ -58,7 +58,7 @@ $replid=$row['replid']
 <script type="text/javascript" src="../script/lightbox.js"></script>-->
 <script type="text/javascript" language="javascript" src="style/lytebox.js"></script>
 <link rel="stylesheet" href="style/lytebox.css" type="text/css" media="screen" />
-<script language="JavaScript" src="script/resizing_background.js"></script>
+<script language = "javascript" type = "text/javascript" src="script/resizing_background.js"></script>
 <link rel="stylesheet" href="style/style2.css" type="text/css" media="screen" />
 <link href="style/style.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="script/tools.js"></script>

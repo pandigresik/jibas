@@ -83,12 +83,12 @@ if(isset($_REQUEST["ubah"])){
 <script type="text/javascript" src="../script/calendar.js"></script>
 <script type="text/javascript" src="../script/lang/calendar-en.js"></script>
 <script type="text/javascript" src="../script/calendar-setup.js"></script>
-<script language="JavaScript" src="../script/tooltips.js"></script>
-<script language="JavaScript" src="../script/tools.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
 <script src="../script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="../script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript">
 function cek_form() {	
 	return validateEmptyText('deskripsi', 'Deskripsi') && 
 			validateEmptyText('tanggal', 'Tanggal');

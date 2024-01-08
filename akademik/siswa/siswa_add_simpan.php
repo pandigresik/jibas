@@ -32,7 +32,7 @@ $idangkatan=(int)$_POST['angkatan'];
 $tahunmasuk=(int)$_POST['tahunmasuk'];
 $nis=$_POST['nis'];
 $nama=str_replace("'","`",$_POST['nama']);
-$nama=str_replace("""","`",$nama);
+$nama=str_replace('"',"`",$nama);
 $panggilan=$_POST['panggilan'];
 $kelamin=$_POST['kelamin'];
 $tmplahir=$_POST['tmplahir'];
@@ -136,9 +136,9 @@ $departemen=$_POST['departemen'];
 			$foto_data = addslashes(fread(fopen($file_data, "r"), filesize($file_data)));
 		}*/
 
-$date=date(j);
-$month=date(m);
-$year=date(Y);
+$date=date('j');
+$month=date('m');
+$year=date('Y');
 $kumplit=$year."-".$month."-".$date;
 OpenDb();
 BeginTrans();
@@ -195,7 +195,7 @@ if ($success){
 <title>Pendataan Siswa[ADD]</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/ajax.js"></script>
 <script language="javascript">
 var angkatan=document.main.angkatan.value;

@@ -39,7 +39,7 @@ OpenDb();
 <head>
 <title></title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
-<script language="JavaScript" src="../script/tables.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tables.js"></script>
 <link rel="stylesheet" type="text/css" href="../script/ajaxtabs.css" />
 <script type="text/javascript" src="../script/ajaxtabs.js"></script>
 </head>

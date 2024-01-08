@@ -35,7 +35,7 @@ openDb();
 if($num == 0) {
         echo "
             <font color='red' size='2'><b>Nilai Akhir Ujian untuk pelajaran</font>
-            <font color='black' size='2'>$row_p['nama'] </font><font color='red' size='2'>belum ada.
+            <font color='black' size='2'>'".$row_p['nama']."'</font><font color='red' size='2'>belum ada.
             Masukkanlah terlebih dahulu nilai akhir pelajaran tersebut !</b></font>
         ";
 }else {
@@ -122,7 +122,7 @@ if($num == 0) {
 				$color = "yellow";
             echo "<td class='headerlong' colspan='2' align='center'>
                 <input type='hidden' name='aturan$v' value='".$row_nhb['replid']."'>
-                <font size='1' color='$color'>Nilai $row_nhb['dasarpenilaian']</font></td>";
+                <font size='1' color='$color'>Nilai '".$row_nhb['dasarpenilaian']."'</font></td>";
         }
         ?>
         <td rowspan="2" class="headerlong" align="center">
@@ -358,7 +358,7 @@ if(isset($_POST['simpan'])) {
 			 
 			 if (strlen(trim($_POST[$ns])) > 0) {
              	$query_nap = "UPDATE jbsakad.nap SET ".
-                             "nilaiangka   = '".$_POST[$nang]', nilaihuruf  = '".$_POST[$nihu]."' WHERE nis  = '".$_POST[$ns]."' AND idaturan = '".$repinfo2[$b]."' AND idinfo  = '".$_POST['info']."'";
+                             "nilaiangka   = '".$_POST[$nang]."' nilaihuruf  = '".$_POST[$nihu]."' WHERE nis  = '".$_POST[$ns]."' AND idaturan = '".$repinfo2[$b]."' AND idinfo  = '".$_POST['info']."'";
 				//echo $query_nap . "<br>";						 
     	        $result_nap = QueryDb($query_nap) or die (mysqli_error($mysqlconnection));
 			}

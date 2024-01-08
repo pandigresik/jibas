@@ -48,7 +48,7 @@ $telat = 30;
 if (isset($_REQUEST['telat']))
 	$telat = (int)$_REQUEST['telat'];
 
-$tanggal = date(d)."-".date(m)."-".date(Y);
+$tanggal = date(d)."-".date('m')."-".date('Y');
 if (isset($_REQUEST['tanggal']))
 	$tanggal = $_REQUEST['tanggal'];
 $varbaris=10;

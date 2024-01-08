@@ -194,8 +194,8 @@ class CPustaka
 					$kode = $row2[0];
 					$katalog = $row2[1];
 				}
-				$rdipinjam = @mysqli_num_rows(QueryDb("SELECT * FROM daftarpustaka d WHERE d.pustaka='$row[0]' $filter AND d.status=0"));
-				$rtersedia = @mysqli_num_rows(QueryDb("SELECT * FROM daftarpustaka d WHERE d.pustaka='$row[0]' $filter AND d.status=1"));
+				$rdipinjam = @mysqli_num_rows(QueryDb("SELECT * FROM daftarpustaka d WHERE d.pustaka='".$row[0]."' $filter AND d.status=0"));
+				$rtersedia = @mysqli_num_rows(QueryDb("SELECT * FROM daftarpustaka d WHERE d.pustaka='".$row[0]."' $filter AND d.status=1"));
 			  ?>
 			  <tr height='25'>
 				<td align="center"><?=$cnt?></td>

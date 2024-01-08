@@ -69,7 +69,7 @@ if ($op=="jfd84rkj843h834jjduw3"){
 	if ($result_hapus_rataus && $result_hapus_ujian && $result_hapus_nau){
 	?>
     <!--
-	<script language="JavaScript">
+	<script language = "javascript" type = "text/javascript">
                 alert("Ujian udah diapus");
 				//alert("Data Nilai Pelajaran berhasil diinput");
 				//parent.opener.segarkan();
@@ -91,7 +91,7 @@ $x=1;
 	$result_hapus_bobotnau=QueryDb($sql_hapus_bobotnau);
 	if ($result_hapus_bobotnau){
 	?>
-    <!--<script language="JavaScript">
+    <!--<script language = "javascript" type = "text/javascript">
                 alert("Infobobotnau dihapus");
 				//alert("Data Nilai Pelajaran berhasil diinput");
 				//parent.opener.segarkan();
@@ -119,7 +119,7 @@ $x=1;
 		$result_insert_bobot=QueryDb($sql_insert_bobot);
 		if(@mysqli_affected_rows($conn)($conn) >= 0) {
     ?> <!--
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
                 alert("Bobotnau udah diisi");
 				//alert("Data Nilai Pelajaran berhasil diinput");
 				//parent.opener.segarkan();
@@ -130,7 +130,7 @@ $x=1;
 
    } else {
     ?>
-        <script language="JavaScript">
+        <script language = "javascript" type = "text/javascript">
                alert("Gagal menambah data");
                //parent.opener.segarkan();
 			   //window.close();
@@ -209,7 +209,7 @@ $x=1;
 		$manual="";
 		$perubahan="";
 	?>
-        <!--<script language="JavaScript">
+        <!--<script language = "javascript" type = "text/javascript">
                alert("Nilai akhir dunkz...<?=$ratabulat?>");
                segarkan();
 			   //window.close();
@@ -227,7 +227,7 @@ if ($op=="osdiui4903i03j490dj"){
 	$result_hapus_nau=QueryDb($sql_hapus_nau);
 	if ($result_hapus_nau){
 	?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
                 //alert("Data Nilai akhir udah diapus");
 				//alert("Data Nilai Pelajaran berhasil diinput");
 				segarkan();

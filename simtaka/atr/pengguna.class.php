@@ -96,14 +96,14 @@ class CPengguna
 			{
 				$cnt += 1;
 				
-				$sql = "SELECT nama FROM ".get_db_name('sdm').".pegawai WHERE nip='$row[0]'";
+				$sql = "SELECT nama FROM ".get_db_name('sdm').".pegawai WHERE nip='".$row[0]."'";
 				$res = QueryDb($sql);
 				$r = @mysqli_fetch_row($res);
 				$namapeg = $r[0];
 				
 				if ($row[4] == 2)
 				{
-					$sql = "SELECT nama FROM perpustakaan WHERE replid='$row[6]'";
+					$sql = "SELECT nama FROM perpustakaan WHERE replid='".$row[6]."'";
 					$res = QueryDb($sql);
 					$r = @mysqli_fetch_row($res);
 					$namaperpus = $r[0];

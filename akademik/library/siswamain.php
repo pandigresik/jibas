@@ -34,9 +34,9 @@ require_once('departemen.php');
 <title></title>
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link href="../script/SpryTabbedPanels.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="../script/tables.js"></script>
-<script language="JavaScript" src="../script/tools.js"></script>
-<script language="JavaScript" src="../script/ajax.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tables.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tools.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/ajax.js"></script>
 <script src="../script/SpryTabbedPanels.js" type="text/javascript"></script>
 <script language="javascript">
 function show_wait(areaId) {

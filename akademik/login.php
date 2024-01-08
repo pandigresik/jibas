@@ -31,10 +31,10 @@ JIBAS Akademik
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <script type="text/javascript" language="javascript" src='../script/jquery.min.js'></script>
 <script type="text/javascript" language="javascript" src="../script/footer.js"></script>
-<script language="JavaScript" src="script/resizing_background.js"></script>
+<script language = "javascript" type = "text/javascript" src="script/resizing_background.js"></script>
 <link rel="stylesheet" href="../script/bgstretcher.css" />
 <script language="javascript" src="../script/bgstretcher.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript">
 function cek_form() 
 {
 	var user,pass;

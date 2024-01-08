@@ -150,7 +150,7 @@ class CAnggotaEdit{
 			$fill_foto = ", foto='$foto_binary'"; 
 		}
 		$date = @mysqli_fetch_row(QueryDb("SELECT now()"));
-		$sql = "UPDATE anggota SET nama='$nama', alamat='$alamat', kodepos='$kodepos', email='$email', telpon='$telpon', hp='$hp', pekerjaan='$kerja', institusi='$institusi', keterangan='$keterangan', tgldaftar='$date[0]' $fill_foto WHERE replid='$replid'";
+		$sql = "UPDATE anggota SET nama='$nama', alamat='$alamat', kodepos='$kodepos', email='$email', telpon='$telpon', hp='$hp', pekerjaan='$kerja', institusi='$institusi', keterangan='$keterangan', tgldaftar='".$date[0]."' $fill_foto WHERE replid='$replid'";
 		$result = QueryDb($sql);
 		if ($result)
 			$this->success();

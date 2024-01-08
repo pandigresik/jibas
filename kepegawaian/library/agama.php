@@ -62,7 +62,7 @@ $hal=0;
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript">
 var win = null;
 

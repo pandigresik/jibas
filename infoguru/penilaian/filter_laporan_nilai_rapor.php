@@ -64,8 +64,8 @@ if(isset($_POST["semester"])){
 <link href="../script/SpryValidationSelect.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="../style/style.css">
 <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-<script language="JavaScript" src="../script/tooltips.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript">
 function change_sel(){
     var departemen = document.filter_laporan_rapor.departemen.value;
     document.location.href="filter_laporan_nilai_rapor.php?departemen="+departemen;

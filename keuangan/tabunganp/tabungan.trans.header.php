@@ -46,7 +46,7 @@ OpenDb();
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="../style/style.css">
     <link rel="stylesheet" type="text/css" href="../style/tooltips.css">
-    <script language="JavaScript" src="../script/tooltips.js"></script>
+    <script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
     <script language="javascript" src="tabungan.trans.header.js"></script>
 </head>
 

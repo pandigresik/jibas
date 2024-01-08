@@ -56,7 +56,7 @@ OpenDb();
 QueryDb($sql);
 CloseDb();
 ?>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript">
     opener.refreshPage();
     window.close();
 </script>

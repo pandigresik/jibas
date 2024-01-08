@@ -95,7 +95,7 @@ else
 if (!$user_exists) 
 {
     ?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         alert("Username atau password tidak cocok!");
         document.location.href = "../infosiswa/";
     </script>
@@ -120,7 +120,7 @@ else
 	}
 	$result = QueryDb($query);
 	?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         top.location.href = "../infosiswa/";
     </script>
     <?php

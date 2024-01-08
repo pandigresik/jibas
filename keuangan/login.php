@@ -43,13 +43,13 @@ JIBAS Keuangan
 <script type="text/javascript" language="javascript" src='../script/jquery.min.js'></script>
 <script type="text/javascript" language="javascript" src="../script/footer.js"></script>
 <link rel="stylesheet" type="text/css" href="style/style.css">
-<script language="JavaScript" src="script/tools.js"></script>
-<script language="JavaScript" src="script/resizing_background.js"></script>
+<script language = "javascript" type = "text/javascript" src="script/tools.js"></script>
+<script language = "javascript" type = "text/javascript" src="script/resizing_background.js"></script>
 <script src="script/SpryValidationTextField.js" type="text/javascript"></script>
 <link href="script/SpryValidationTextField.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../script/bgstretcher.css" />
 <script language="javascript" src="../script/bgstretcher.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript">
 function cek_form() 
 {
 	var user,pass;

@@ -108,7 +108,7 @@ function FormatRupiah($value) {
 <title>Tampil Siswa</title>
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/ajax.js"></script>
 <script language="javascript" src="../script/rupiah.js"></script>
 <style type="text/css">

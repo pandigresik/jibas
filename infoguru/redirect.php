@@ -112,7 +112,7 @@ else
 if (!$user_exists) 
 {
 ?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
         alert("Username atau password tidak cocok!");
         document.location.href = "../infoguru";
     </script>
@@ -146,13 +146,13 @@ else
 		}
 			
 		$query = "SELECT * FROM jbsvcr.dirshare 
-				   WHERE idroot = $row_root['replid'] AND idguru='".$_SESSION[login]."' AND dirname='$_SESSION['login']'";
+				   WHERE idroot = '".$row_root['replid']."' AND idguru='".$_SESSION['login']."' AND dirname='".$_SESSION['login']."'";
 		if (@mysqli_num_rows(QueryDb($query)) == 0)
 		{
 			$dirfullpath = $row_root['dirfullpath'] . $_SESSION['login'] . "/";
 			
 			$query_dir = "INSERT INTO jbsvcr.dirshare SET idroot='".$row_root['replid']."', 
-							dirname='$_SESSION[login]', dirfullpath='$dirfullpath', idguru='$_SESSION[login]'";
+							dirname='".$_SESSION['login']."', dirfullpath='$dirfullpath', idguru='".$_SESSION['login']."'";
 			QueryDb($query_dir);
 		}
 		
@@ -163,7 +163,7 @@ else
     if (isset($_SESSION['nama']))
 	{ 
 	?>
-    <script language="JavaScript">
+    <script language = "javascript" type = "text/javascript">
 		top.location.href = "../infoguru";
     </script>
     <?php

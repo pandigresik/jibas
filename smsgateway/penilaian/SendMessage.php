@@ -119,7 +119,7 @@ if ($op=='SavePenilaian')
 	$smsgeninfo .= ", Pengirim : ".$Sender;
 	
 	$idsmsgeninfo = GetLastId('replid','smsgeninfo');	
-	$sql = "INSERT INTO smsgeninfo SET replid='$idsmsgeninfo',tanggal='$x[0]',tipe='1',info='$smsgeninfo',pengirim='$Sender'";
+	$sql = "INSERT INTO smsgeninfo SET replid='$idsmsgeninfo',tanggal='".$x[0]."',tipe='1',info='$smsgeninfo',pengirim='$Sender'";
 	$res = QueryDb($sql);
 	
 	$NIS2 = "";
@@ -211,12 +211,12 @@ if ($op=='SavePenilaian')
 		$x = @mysqli_num_rows($res);
 		while ($row = @mysqli_fetch_row($res))
 		{
-			$sql1 = "SELECT kode FROM $db_name_akad.pelajaran WHERE replid='$row[1]'";
+			$sql1 = "SELECT kode FROM $db_name_akad.pelajaran WHERE replid='".$row[1]."'";
 			$res1 = QueryDb($sql1);
 			$row1 = @mysqli_fetch_row($res1);
 			$namapelajaran	= $row1[0];
 
-			$sql2 = "SELECT info1 FROM $db_name_akad.jenisujian WHERE replid='$row[2]'";
+			$sql2 = "SELECT info1 FROM $db_name_akad.jenisujian WHERE replid='".$row[2]."'";
 			$res2 = QueryDb($sql2);
 			$row2 = @mysqli_fetch_row($res2);
 			$namajenisujian	= $row2[0];

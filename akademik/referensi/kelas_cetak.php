@@ -97,7 +97,7 @@ $total = $_REQUEST['total'];
     	<td align="center"><?=$cnt ?></td>
         <td><?=$row[1] ?></td>        
         <td><?php
-		$sql3 = "SELECT p.nip,p.nama FROM jbssdm.pegawai p WHERE p.nip='$row[4]'";
+		$sql3 = "SELECT p.nip,p.nama FROM jbssdm.pegawai p WHERE p.nip='".$row[4]."'";
 		$result3 = QueryDB($sql3);
 		while ($row3 = mysqli_fetch_row($result3)){
 		echo $row3[0]." - ".$row3[1];

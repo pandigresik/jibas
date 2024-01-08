@@ -65,7 +65,7 @@ foreach($a as $key => $value)
 {	
 	if ($success)
 	{
-		$sql = "INSERT INTO nilaiujian SET nilaiujian='$value[0]', nis='$key',idujian = '$id', keterangan='".CQ($value[1])."'";
+		$sql = "INSERT INTO nilaiujian SET nilaiujian='".$value[0]."', nis='$key',idujian = '$id', keterangan='".CQ($value[1])."'";
 		QueryDbTrans($sql, $success);
 	}
 

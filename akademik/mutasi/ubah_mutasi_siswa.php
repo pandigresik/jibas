@@ -97,7 +97,7 @@ if ($Simpan=="Simpan"){
 <script type="text/javascript" src="../script/calendar.js"></script>
 <script type="text/javascript" src="../script/lang/calendar-en.js"></script>
 <script type="text/javascript" src="../script/calendar-setup.js"></script>
-<SCRIPT type="text/javascript" language="JavaScript" src="../script/tables.js"></SCRIPT>
+<SCRIPT type="text/javascript" language="text/javascript" src="../script/tables.js"></SCRIPT>
 <SCRIPT type="text/javascript" language="javascript" src="../script/common.js"></script>
 <SCRIPT type="text/javascript" language="javascript" src="../script/tools.js"></script>
 <link href="../style/style.css" rel="stylesheet" type="text/css">

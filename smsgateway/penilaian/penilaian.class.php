@@ -238,7 +238,7 @@ class Penilaian{
                             <td style="padding-right:2px">
                             <select id="Year2" class="Cmb">
                                 <?php
-                                for ($i=G_START_YEAR; $i<=date(Y); $i++){
+                                for ($i=G_START_YEAR; $i<=date('Y'); $i++){
                                     ?>
                                     <option value="<?=$i?>" <?=StringIsSelected($i,$Year2)?>><?=$i?></option>
                                     <?php
@@ -274,7 +274,7 @@ class Penilaian{
                             <td style="padding-right:2px">
                             <select id="Year1" class="Cmb">
                                 <?php
-                                for ($i=G_START_YEAR; $i<=date(Y); $i++){
+                                for ($i=G_START_YEAR; $i<=date('Y'); $i++){
                                     ?>
                                     <option value="<?=$i?>" <?=StringIsSelected($i,$Year1)?>><?=$i?></option>
                                     <?php
@@ -368,7 +368,7 @@ class Penilaian{
                             <td style="padding-right:7px">
                             <select id="SendYear" class="Cmb">
                                 <?php
-                                for ($i=G_START_YEAR; $i<=date(Y); $i++){
+                                for ($i=G_START_YEAR; $i<=date('Y'); $i++){
                                     ?>
                                     <option value="<?=$i?>" <?=StringIsSelected($i,$Year1)?>><?=$i?></option>
                                     <?php

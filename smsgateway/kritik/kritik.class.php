@@ -95,7 +95,7 @@ class Kritik{
 					<select class="Cmb filter" id='month'>
 						<?php
 						foreach ($arrMonth as $m){
-							echo "<option value='$m[0]' ";
+							echo "<option value='".$m[0]."' ";
 							if ($m[0]==$this->bulan)
 								echo "selected";
 							echo ">$m[1]</option>";

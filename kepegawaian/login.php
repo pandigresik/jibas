@@ -31,7 +31,7 @@
 <script type="text/javascript" language="javascript" src='../script/jquery.min.js'></script>
 <script type="text/javascript" language="javascript" src="../script/footer.js"></script>
 <script language="javascript" src="../script/bgstretcher.js"></script>
-<script language="JavaScript">
+<script language = "javascript" type = "text/javascript">
 function cek_form() 
 {
 	var user,pass;

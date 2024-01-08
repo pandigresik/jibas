@@ -58,7 +58,7 @@ OpenDb();
 <script language="javascript" src="../script/tables.js"></script>
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript" src="../script/rupiah.js"></script>
-<script language="JavaScript" src="../script/tooltips.js"></script>
+<script language = "javascript" type = "text/javascript" src="../script/tooltips.js"></script>
 <script language="javascript" src="../script/ajax.js"></script>
 <script language="javascript" src="../script/validasi.js"></script>
 <script language="javascript" src="calon_add.js"></script>
@@ -90,7 +90,7 @@ OpenDb();
     <input type="hidden" name="kelompok" id="kelompok" value="<?=$kelompok?>" />
     <input type="hidden" name="departemen" id="departemen" value="<?=$departemen?>" />
     <input type="hidden" name="no" id="no" value="0" />
-    <input type="hidden" name="tahunmasuk" id="tahunmasuk" value="<?=date(Y)?>" />
+    <input type="hidden" name="tahunmasuk" id="tahunmasuk" value="<?=date('Y')?>" />
     
     <table width="100%" border="0" cellspacing="0">
     <tr>

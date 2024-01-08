@@ -45,8 +45,8 @@ if (isset($_REQUEST['id']))
 <title>JIBAS SIMAKA [Daftar Siswa]</title>
 <link rel="stylesheet" type="text/css" href="../sty/style.css" />
 <link rel="stylesheet" type="text/css" href="../scr/tooltips.css" />
-<script language="JavaScript" src="../scr/tables.js"></script>
-<script language="JavaScript" src="../scr/tools.js"></script>
+<script language = "javascript" type = "text/javascript" src="../scr/tables.js"></script>
+<script language = "javascript" type = "text/javascript" src="../scr/tools.js"></script>
 <script language="javascript" src="../scr/ajax.js"></script>
 <script language="javascript" src="../scr/tooltips.js"></script>
 <script language="javascript">
