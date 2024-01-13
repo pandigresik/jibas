@@ -423,7 +423,7 @@ function ShowListSurat()
     
     if (0 == count($UserLetterIdList))
     {
-        echo "<tr height='45' style='background-color: $fff'>";
+        echo "<tr height='45' style='background-color: #FFF'>";
         echo "<td align='center' colspan='9' style='border-color: #bbb; border-width: 1px;' valign='middle'><em>Belum ada data surat</em></td>";
         echo "</tr>";
         
@@ -468,7 +468,7 @@ function ShowListSurat()
     
     if (0 == mysqli_num_rows($res))
     {
-        echo "<tr height='45' style='background-color: $fff'>";
+        echo "<tr height='45' style='background-color: #FFF'>";
         echo "<td align='center' colspan='9' style='border-color: #bbb; border-width: 1px;' valign='middle'><em>Tidak ditemukan data surat</em></td>";
         echo "</tr>";
         
@@ -515,8 +515,8 @@ function ShowListSurat()
         
         echo "<tr style='background-color : $bgcolor' >";
         echo "<td align='center' style='border-color: #bbb; border-width: 1px;' valign='top'>$no</td>";
-        echo "<td align='left' style='border-color: #bbb; border-width: 1px;' valign='top'><font style='color: maroon;'><em>".$row['tanggalsurat']</em></font><br>$row['nomor']."<br>$jenis</td>";
-        echo "<td align='left' style='border-color: #bbb; border-width: 1px;' valign='top'><strong>".$row['perihal']</strong><br>Kategori: $row['kategori']."<br>Sifat: $sifat</td>";
+        echo "<td align='left' style='border-color: #bbb; border-width: 1px;' valign='top'><font style='color: maroon;'><em>".$row['tanggalsurat']."</em></font><br>".$row['nomor']."<br>$jenis</td>";
+        echo "<td align='left' style='border-color: #bbb; border-width: 1px;' valign='top'><strong>".$row['perihal']."</strong><br>Kategori: ".$row['kategori']."<br>Sifat: $sifat</td>";
         echo "<td align='center' style='font-size: 16px; border-color: #bbb; border-width: 1px;' valign='top'>$nberkas</td>";
         echo "<td align='left' style='border-color: #bbb; border-width: 1px;' valign='top'>$sumber</td>";
         echo "<td align='left' style='border-color: #bbb; border-width: 1px;' valign='top'>$tujuan</td>";

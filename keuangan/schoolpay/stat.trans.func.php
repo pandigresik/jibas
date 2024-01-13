@@ -33,7 +33,7 @@ function ShowCbVendor()
     echo "<option value='@0#'>(Semua Vendor)</option>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='".$row[0]."'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>".$row[1]."</option>";
     }
     echo "</select>";
 }

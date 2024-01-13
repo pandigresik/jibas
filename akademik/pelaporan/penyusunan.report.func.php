@@ -830,8 +830,8 @@ function SetInfoPresensi()
             echo "<tr height='24'>\r\n";
             echo "<td align='center'>$no</td>\r\n";
             echo "<td align='center'>".$row['xtanggal']."</td>\r\n";
-            echo "<td align='center'>$row[time_in]</td>\r\n";
-            echo "<td align='center'>$row[time_out]</td>\r\n";
+            echo "<td align='center'>".$row[time_in]."</td>\r\n";
+            echo "<td align='center'>".$row[time_out]."</td>\r\n";
             echo "<td align='center'>$telat</td>\r\n";
             echo "<td align='left'>".$row['keterangan']."</td>\r\n";
             echo "</tr>\r\n";
@@ -904,8 +904,8 @@ function SetInfoKegiatan()
             echo "<td align='center'>$no</td>\r\n";
             echo "<td align='center'>".$row['xtanggal']."</td>\r\n";
             echo "<td align='left'>".$row['kegiatan']."</td>\r\n";
-            echo "<td align='center'>$row[time_in]</td>\r\n";
-            echo "<td align='center'>$row[time_out]</td>\r\n";
+            echo "<td align='center'>".$row[time_in]."</td>\r\n";
+            echo "<td align='center'>".$row[time_out]."</td>\r\n";
             echo "<td align='center'>$telat</td>\r\n";
             echo "<td align='left'>".$row['keterangan']."</td>\r\n";
             echo "</tr>\r\n";

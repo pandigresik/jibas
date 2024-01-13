@@ -37,7 +37,7 @@ function ShowCbDepartemen()
         if ($departemen == "")
             $departemen = $row[0];
             
-        echo "<option value='".$row[0]."'>$row[0]</option>";
+        echo "<option value='".$row[0]."'>".$row[0]."</option>";
     }
     echo "</select>";
 }
@@ -55,7 +55,7 @@ function ShowCbKategori($departemen)
     echo "<option value='0'>(Semua Kategori)</option>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='".$row[1]."'>$row[0]</option>";
+        echo "<option value='".$row[1]."'>".$row[0]."</option>";
     }
     echo "</select>";
 }

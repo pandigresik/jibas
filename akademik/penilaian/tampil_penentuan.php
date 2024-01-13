@@ -366,7 +366,7 @@ if($num_cek > 0) {
             foreach($kolom as $k => $v) {
                 $z++;
                 echo "
-                    <td align='center'>$d[$k]</td>
+                    <td align='center'>".$d[$k]."</td>
                 ";
             }
 		if($r_aturan != 0){            

@@ -32,7 +32,7 @@ function ShowCbSearchDepartemen()
     echo "<option value='ALLDEPT'>(all departement)</option>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='".$row[0]."'>$row[0]</option>";
+        echo "<option value='".$row[0]."'>".$row[0]."</option>";
     }
     echo "</select>";
 }

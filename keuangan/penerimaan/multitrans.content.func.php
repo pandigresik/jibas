@@ -87,7 +87,7 @@ function ShowSelectPayment($jenis, $dept)
     echo "<option value='0'>--Pilih Pembayaran--</option>\r\n";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='".$row[0]."'>$row[1]</option>\r\n";
+        echo "<option value='".$row[0]."'>".$row[1]."</option>\r\n";
     }
     echo "</select>\r\n";
 }

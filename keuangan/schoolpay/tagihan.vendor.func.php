@@ -128,7 +128,7 @@ function ShowTagihanReport($showMenu)
             if ($sum == 0)
                 $sb->AppendLine("<td align='right'>$rp</td>");
             else
-                $sb->AppendLine("<td align='right'><a href='#' style='color: #0000ff;' onclick=\"showDetail('$dept','$vendorId', 2)\">$rp</a></td>");
+                $sb->AppendLine("<td align='right'><a href='#' style='color: #0000ff;' onclick=\"showDetail('$dept','$vendorId', 2)\"".$rp."</a></td>");
         }
 
         $sql = "SELECT IFNULL(SUM(p.jumlah), 0)
@@ -149,7 +149,7 @@ function ShowTagihanReport($showMenu)
         if ($sum == 0)
             $sb->AppendLine("<td align='right'>$rp</td>");
         else
-            $sb->AppendLine("<td align='right'><a href='#' style='color: #0000ff;' onclick=\"showDetail('$deptPeg','$vendorId', 1)\">$rp</a></td>");
+            $sb->AppendLine("<td align='right'><a href='#' style='color: #0000ff;' onclick=\"showDetail('$deptPeg','$vendorId', 1)\"".$rp."</a></td>");
 
         $rp = FormatRupiah($vendorTotal);
         $sb->AppendLine("<td align='right' valign='middle' rowspan='2'><strong>$rp</strong></td>");

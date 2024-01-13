@@ -110,9 +110,9 @@ if(isset($_POST['simpan'])) {
 		
 		OpenDbi();
 		if ($_REQUEST[$nuj]==""){
-		$result = mysqli_query($conni,"CALL spTambahNilaiUjianTanpaNilai('$iduj','".$_REQUEST[$n]','".$_REQUEST[$ket]."')") or die (mysqli_error($conni));
+		$result = mysqli_query($conni,"CALL spTambahNilaiUjianTanpaNilai('$iduj','".$_REQUEST[$n]."','".$_REQUEST[$ket]."')") or die (mysqli_error($conni));
 		} else {
-		$result = mysqli_query($conni,"CALL spTambahNilaiUjian('$iduj','".$_REQUEST[$n]','".$_REQUEST[$nuj]','".$_REQUEST[$ket]."')") or die (mysqli_error($conni));
+		$result = mysqli_query($conni,"CALL spTambahNilaiUjian('$iduj','".$_REQUEST[$n]."','".$_REQUEST[$nuj]."','".$_REQUEST[$ket]."')") or die (mysqli_error($conni));
 		}
 		$i++;
 		}

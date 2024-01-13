@@ -34,7 +34,7 @@ OpenDb();
 $K = new CK();
 ?>
 <form name="panelkeu">
-<input type="hidden" name="nis_awal" id="nis_awal" value="<?= {$_REQUEST['nis']} ?> " />
+<input type="hidden" name="nis_awal" id="nis_awal" value="<?= $_REQUEST['nis'] ?> " />
 <table border="0" cellpadding="2" width='700'>
 <tr>
     <td align='left'>

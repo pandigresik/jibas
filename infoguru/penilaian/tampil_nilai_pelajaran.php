@@ -232,7 +232,7 @@ OpenDb();
 			<td class="headerlong" align="center"  height="30">				
 			<?php 
 				$tgl = format_tgl($row_qz['tanggal']);
-				echo  "$row_qz['jenisujian']-$z"; ?>
+				echo  "{$row_qz['jenisujian']}-$z"; ?>
 				<a href="#" onClick="newWindow('ubah_nilai_pelajaran.php?id=<?=$row_qz['replid']; ?>&departemen=<?=$departemen; ?>&tingkat=<?=$tingkat ?>&pelajaran=<?=$pelajaran ?>&semester=<?=$semester ?>&kelas=<?=$kelas ?>&tahun=<?=$tahun ?>&jenis_penilaian=<?=$jenis_penilaian ?>','Ubah Nilai Pelajaran',555,366,'resizable=1,scrollbars=0,status=0,toolbar=0')">
 				<img src="../images/ico/ubah.png" border="0"></a>
 				<a href="hapus_ujian.php?id=<?=$row_qz['replid']; ?>&departemen=<?=$departemen ?>&tahun=<?=$tahun ?>&tingkat=<?=$tingkat ?>&pelajaran=<?=$pelajaran ?>&kelas=<?=$kelas ?>&semester=<?=$semester ?>&jenis_penilaian=<?=$jenis_penilaian ?>"
@@ -284,7 +284,7 @@ OpenDb();
                 	if($kolom != "") {
                 		$nkolpinted = 0;
                 		$ujcntstart = 0;
-                  	foreach($d[n] as $nuj => $v) {
+                  	foreach($d['n'] as $nuj => $v) {
                     		$ujcnt = $ujcntstart;
 								$ujfound = false;
                     		while ($ujcnt < $nujian && !$ujfound) {                  			
@@ -330,7 +330,7 @@ OpenDb();
 	                        <td align='center' height='25'>
 									<a href="#null" onClick="newWindow('ubah_nilai_ujian.php?id=<?=$v['id'] ?>&jenis_penilaian=<?=$jenis_penilaian ?>&pelajaran=<?=$pelajaran ?>&kelas=<?=$kelas ?>&semester=<?=$semester ?>&departemen=<?=$departemen ?>&tingkat=<?=$tingkat ?>&tahun=<?=$tahun ?>',
 					            	'Data Nilai Ujian','487','275','resizable=1,scrollbars=1,status=0,toolbar=0')">
-										<?="$v['nilai']"; ?></a>
+										<?= $v['nilai'] ?></a>
 										<?php if ($v['lenket'] > 0)
 										echo " <font color='Blue'><b>)*</b></font>";
 										?>
@@ -464,7 +464,7 @@ OpenDb();
 					<?php 
 					
 					$tgl = format_tgl($row_qz['tanggal']);
-					echo  "$row_qz['jenisujian']-$i ($tgl) "; 
+					echo  "{$row_qz['jenisujian']}-$i ($tgl) "; 
 					
 					$query_nuj = "SELECT nilaiujian FROM jbsakad.nilaiujian WHERE idujian = '".$row_qz['replid']."'";
 					$result_nuj = QueryDb($query_nuj);
@@ -575,7 +575,7 @@ if(isset($_POST['hitung'])){
 		if($num_cek == 0){
 				echo $query_inf = "INSERT INTO jbsakad.infobobotujian ".
 								 "(idpelajaran, idkelas, idsemester, idjenisujian, pilihan, info, keterangan) ".
-								 "VALUES ('".$pelajaran', '$kelas','$semester','$jenis_penilaian', '".$_POST['rtn']."', '$inf','$keterangan')";
+								 "VALUES ('".$pelajaran."', '$kelas','$semester','$jenis_penilaian', '".$_POST['rtn']."', '$inf','$keterangan')";
 				$result_inf = QueryDb($query_inf) or die (mysqli_error($mysqlconnection));
 		}elseif($num_cek > 0){
 				$query_inf = "UPDATE jbsakad.infobobotujian SET info = '$inf' WHERE idjenisujian = '$jenis_penilaian'";

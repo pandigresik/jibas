@@ -247,7 +247,7 @@ function ShowCbHomeDepartemen($dept)
     while($row = mysqli_fetch_row($res))
     {
         $selected = $row[0] == $dept ? "selected" : "";
-        echo "<option value='".$row[0]."' $selected>$row[0]</option>";
+        echo "<option value='".$row[0]."' $selected>".$row[0]."</option>";
     }
     echo "</select>";
 }

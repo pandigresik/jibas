@@ -31,7 +31,7 @@ $key = $_REQUEST['key'];
 $keyword = $_REQUEST['keyword'];
 $type = $_REQUEST['type'];
 
-if ($kode==""0){
+if ($kode=="0"){
 if ($departemen!="-1")
 	$dep="AND p.departemen='$departemen'";
 

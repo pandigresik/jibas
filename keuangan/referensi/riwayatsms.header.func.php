@@ -38,7 +38,7 @@ function ShowSelectDept()
                  WHERE departemen = '".$value."'";
         $replid = (int)FetchSingle($sql);
         
-        echo "<option value='$replid' " . StringIsSelected($value, $departemen) . ">$value</option>";
+        echo "<option value='$replid' " . StringIsSelected($value, $departemen) . ".$value."</option>";
     }
     echo "</select>";
 }

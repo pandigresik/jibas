@@ -434,7 +434,7 @@ td.barhead  { background-color: #3fa64b; color:#000000;
       echo "<td align=right nowrap><b>&nbsp; $smm &nbsp;</b></tr>\n";
 
       if(!empty($this->ShowPercents[$lgd]) && ($iy>=1) )
-      { //<4> draw data[n-1]/data[n]*100 in percents
+      { //<4> draw data[n-1]/data['n']*100 in percents
         $y2 = $iy; // last row
         $y1 = $iy-1; // row before last
         $prcttl = (strlen($this->ShowPercents[$lgd]) ? $this->ShowPercents[$lgd] : $legend_y[$y1].'/'.$legend_y[$y2].',%');

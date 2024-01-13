@@ -1,4 +1,4 @@
-<?php
+<?
 /**[N]**
  * JIBAS Education Community
  * Jaringan Informasi Bersama Antar Sekolah

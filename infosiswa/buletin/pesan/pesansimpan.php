@@ -47,7 +47,7 @@ BeginTrans();
 
 $sql = "INSERT INTO jbsvcr.pesan
 			  SET tanggalpesan = NOW(), tanggaltampil='$tanggalpesan', judul='$judul',
-					pesan='$pesan', idguru=NULL, nis='$idguru', ke$_REQUEST['kesiapa']=1";
+					pesan='$pesan', idguru=NULL, nis='$idguru', ke".$_REQUEST['kesiapa']."=1";
 QueryDbTrans($sql, $success);
 
 if ($success)

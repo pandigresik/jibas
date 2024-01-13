@@ -210,7 +210,7 @@ $nPage = ceil($nData / $nRowPerPage);
             echo "<table border='0' cellpadding='2' cellspacing='0' width='100%'>";
             echo "<tr>";
             echo "<td width='80%'>";
-            echo "<strong>".$row['namasiswa']</strong>  |  $row['nis']."<br>";
+            echo "<strong>".$row['namasiswa']."</strong>  |  ".$row['nis']."<br>";
             echo "<strong>".$row['transaksi']."</strong>";
             echo "</td>";
             echo "<td width='20%' align='right'>";
@@ -279,12 +279,12 @@ $nPage = ceil($nData / $nRowPerPage);
             echo "</td>";
             echo "<td align='left' valign='top'>";
             if ($jenis == 1)
-                echo "<b>".$row['nomor']</b><br><i>$nomorTs</i><br><i>$row['paymentid']."</i>";
+                echo "<b>".$row['nomor']."</b><br><i>$nomorTs</i><br><i>".$row['paymentid']."</i>";
             else
-                echo "<b>".$row['nomor']</b><br><i>$row['paymentid']."</i>";
+                echo "<b>".$row['nomor']."</b><br><i>".$row['paymentid']."</i>";
             echo "</td>";
-            echo "<td align='left' valign='top'><strong>".$row['bank']</strong><br><i>$row['bankno']."</i></td>";
-            echo "<td align='left' valign='top'>".$row['petugas']<br>$row['idpetugas']<br><i>$row['ketver']."</i></td>";
+            echo "<td align='left' valign='top'><strong>".$row['bank']."</strong><br><i>".$row['bankno']."</i></td>";
+            echo "<td align='left' valign='top'>".$row['petugas']."<br>".$row['idpetugas']."<br><i>".$row['ketver']."</i></td>";
 
             echo "</tr>";
         }

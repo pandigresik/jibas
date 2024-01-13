@@ -48,7 +48,7 @@ function ShowSelectPetugas($vendorId)
     $res = QueryDb($sql);
     while($row = mysqli_fetch_row($res))
     {
-        $sb->AppendLine("<option value='".$row[0]."'>$row[1]</option>");
+        $sb->AppendLine("<option value='".$row[0]."'>".$row[1]."</option>");
     }
     $sb->AppendLine("</select>");
 

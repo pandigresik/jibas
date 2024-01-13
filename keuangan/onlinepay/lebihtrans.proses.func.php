@@ -34,7 +34,7 @@ function ShowSelectPetugasTf($id)
     echo "<select id='$id' class='inputbox' style='width: 250px'>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='".$row[0]."'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>".$row[1]."</option>";
     }
     echo "</select>";
 }
@@ -53,7 +53,7 @@ function ShowSelectTabungan()
     echo "<select id='seltabungan' class='inputbox' style='width: 250px'>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='".$row[0]."'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>".$row[1]."</option>";
     }
     echo "</select>";
 }

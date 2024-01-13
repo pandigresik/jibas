@@ -235,7 +235,7 @@ function getCell1($r, $c, $id, $m)
 			$dt2=explode("/",$dt[1]);
 								
 			$s = "<td align='center' valign='middle' style='background-color: {$color[$m][1]}' colspan='{$jadwal['row'][$id][$r][$c]['njam']}'>";
-			$s.= "<font class='thismonth'>$dt1[0] - $dt2[0]</font>";
+			$s.= "<font class='thismonth'>".$dt1[0] - $dt2[0]."</font>";
 			$s.= "</td>";
 			
 			return $s;

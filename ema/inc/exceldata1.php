@@ -196,21 +196,11 @@ class ExcelData {
 	function Export() {
 	
 		if ($this->sql == "") 
-			ExportFromSql();
+			$this->ExportFromSql();
 		else
-			ExportFromData();
+			$this->ExportFromData();
 		
 	}
 }
 
-var $data;
-var $i = 0;
-while($row = mysql-....
-   $ncol = count($row);
-   for($j = 0; $j < $ncol; $j++) {
-   	   $data[$i][] = $row[$j];
-   }
-   $i++;
-}
-$test->ArrayData($data);
 ?>

@@ -76,7 +76,7 @@ function traverse($idroot, $count)
 		$jab   = $row[2];
 		$nsubdir = getNSubDir($idjab);
 		
-		$sing = "<a href=\"#\" onclick=\"JavaScript:Pilih($idjab, '$jab')\">$sing</a>";
+		$sing = "<a href=\"#\" onclick=\"JavaScript:Pilih($idjab, '$jab')\"".$sing."</a>";
 				
 	
 		if ($nsubdir == 0) {
@@ -117,7 +117,7 @@ else
 	$jab   = $row[2]; 
 	$nsubdir = getNSubDir($idjab);
 	
-	$sing = "<a href=\"#\" onclick=\"JavaScript:Pilih($idjab, '$jab')\">$sing</a>";
+	$sing = "<a href=\"#\" onclick=\"JavaScript:Pilih($idjab, '$jab')\"".$sing."</a>";
 	
 	echo "<ul class='mktree' id='tree1'>\r\n";
 	if ($nsubdir == 0) {

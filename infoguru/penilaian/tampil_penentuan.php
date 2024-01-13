@@ -339,7 +339,7 @@ if($num_cek > 0) {
 				else
 					$cnt++;
 			}
-            echo "<td class='headerlong' align='center'><font color='$color'>$row_ju['jenisujian'] $as[$cnt]</font></td>";
+            echo "<td class='headerlong' align='center'><font color='$color'>".$row_ju['jenisujian'].  $as[$cnt]."</font></td>";
             $kolom[$row_ju['replid']] = $row_ju['replid'];
         }
 
@@ -366,7 +366,7 @@ if($num_cek > 0) {
             foreach($kolom as $k => $v) {
                 $z++;
                 echo "
-                    <td align='center'>$d[$k]</td>
+                    <td align='center'>".$d[$k]."</td>
                 ";
             }
 		if($r_aturan != 0){            

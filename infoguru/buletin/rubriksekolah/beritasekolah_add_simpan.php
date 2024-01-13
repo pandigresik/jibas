@@ -35,7 +35,7 @@ if ($sender == "tambah")
 	$dir_thn = date('Y');
 	$dir = $updir . $dir_thn . $dir_bln;
 
-	$jam = date(H).":".date(i).":00";
+	$jam = date('H').":".date('i').":00";
 	$judul = CQ($_REQUEST['judul']);
 	$tgl = explode("-",$_REQUEST['tanggal']);
 	$tanggal = $tgl[2]."-".$tgl[1]."-".$tgl[0];

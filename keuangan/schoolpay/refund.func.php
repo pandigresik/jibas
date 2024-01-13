@@ -39,7 +39,7 @@ function ShowCbVendor()
     while($row = mysqli_fetch_row($res))
     {
         if ($selVendorId == "") $selVendorId = $row[0];
-        echo "<option value='".$row[0]."'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>".$row[1]."</option>";
     }
     echo "</select>";
 }
@@ -58,7 +58,7 @@ function ShowCbDepartemen()
     while($row = mysqli_fetch_row($res))
     {
         if ($selDepartemen == "") $selDepartemen = $row[0];
-        echo "<option value='".$row[0]."'>$row[0]</option>";
+        echo "<option value='".$row[0]."'>".$row[0]."</option>";
     }
     echo "</select>";
 }
@@ -209,12 +209,12 @@ function ShowRefundHistory($showMenu)
 
         $sb->AppendLine("<tr style='height: 30px'>");
         $sb->AppendLine("<td align='center' valign='top'>$no</td>");
-        $sb->AppendLine("<td align='left' valign='top'>$row[1]</td>");
-        $sb->AppendLine("<td align='left' valign='top'>$row[2]</td>");
-        $sb->AppendLine("<td align='left' valign='top'>$row[3]</td>");
+        $sb->AppendLine("<td align='left' valign='top'>".$row[1]."</td>");
+        $sb->AppendLine("<td align='left' valign='top'>".$row[2]."</td>");
+        $sb->AppendLine("<td align='left' valign='top'>".$row[3]."</td>");
         $sb->AppendLine("<td align='right' valign='top'>" . FormatRupiah($row[4]) . "</td>");
         $sb->AppendLine("<td align='center' valign='top'>$stTanggal</td>");
-        $sb->AppendLine("<td align='left' valign='top'>$row[5]</td>");
+        $sb->AppendLine("<td align='left' valign='top'>".$row[5]."</td>");
         if ($showMenu)
         {
             $sb->AppendLine("<td align='center' valign='top'>");

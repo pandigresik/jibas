@@ -39,10 +39,9 @@ OpenDb();
 if ($_REQUEST['nis']) {
 	$sql = "SELECT SUM(hadir), SUM(ijin), SUM(sakit),  SUM(alpa),SUM(cuti) FROM presensiharian p, phsiswa ph WHERE ph.nis = '".$_REQUEST['nis']."' AND ph.idpresensi = p.replid AND p.idkelas = '".$_REQUEST['kelas']."' AND p.idsemester = '".$_REQUEST['semester']."' AND (((p.tanggal1 BETWEEN '".$_REQUEST['tglawal']."' AND '".$_REQUEST['tglakhir']."') OR (p.tanggal2 BETWEEN '".$_REQUEST['tglawal']."' AND '".$_REQUEST['tglakhir']."')) OR (('".$_REQUEST['tglawal']."' BETWEEN p.tanggal1 AND p.tanggal2) OR ('".$_REQUEST['tglakhir']."' BETWEEN p.tanggal1 AND p.tanggal2))) ORDER BY p.tanggal1 ";
 } else {
-	$sql = "SELECT SUM(hadir), SUM(ijin), SUM(sakit), SUM(alpa), SUM(cuti), COUNT(DISTINCT ph.nis) FROM presensiharian p, phsiswa ph WHERE ph.idpresensi = p.replid AND p.idkelas = $_REQUEST['kelas'] AND p.idsemester = {$_REQUEST['semester'] AND (((p.tanggal1 BETWEEN '".$_REQUEST['tglawal']."' AND '".$_REQUEST['tglakhir']."') OR (p.tanggal2 BETWEEN '".$_REQUEST['tglawal']."' AND '".$_REQUEST['tglakhir']."')) OR (('".$_REQUEST['tglawal']."' BETWEEN p.tanggal1 AND p.tanggal2) OR ('".$_REQUEST['tglakhir']}."' BETWEEN p.tanggal1 AND p.tanggal2))) ORDER BY p.tanggal1 ";	
+	$sql = "SELECT SUM(hadir), SUM(ijin), SUM(sakit), SUM(alpa), SUM(cuti), COUNT(DISTINCT ph.nis) FROM presensiharian p, phsiswa ph WHERE ph.idpresensi = p.replid AND p.idkelas = ".$_REQUEST['kelas']." AND p.idsemester = ".$_REQUEST['semester']." AND (((p.tanggal1 BETWEEN '".$_REQUEST['tglawal']."' AND '".$_REQUEST['tglakhir']."') OR (p.tanggal2 BETWEEN '".$_REQUEST['tglawal']."' AND '".$_REQUEST['tglakhir']."')) OR (('".$_REQUEST['tglawal']."' BETWEEN p.tanggal1 AND p.tanggal2) OR ('".$_REQUEST['tglakhir']."' BETWEEN p.tanggal1 AND p.tanggal2))) ORDER BY p.tanggal1";
 }
 
-//echo 'sql '.$sql;
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 //$total = (int)$row['hadir']+(int)$row['ijin']+(int)$row['sakit']+(int)$row['cuti']+(int)$row['alpa'];

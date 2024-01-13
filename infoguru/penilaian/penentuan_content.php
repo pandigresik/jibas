@@ -344,7 +344,7 @@ function panggil(elem, total)
 		m = parseInt(total) + y;
 		lain[m] = "P_"+x;
 		n = parseInt(total) + m;
-		lain[n] = "G_P_"+x;
+		lain['n'] = "G_P_"+x;
 		g = parseInt(total) + n;
 		lain[g] = "predikat_"+x;
 	}

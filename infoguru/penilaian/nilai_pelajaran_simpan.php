@@ -47,7 +47,7 @@ if (mysqli_num_rows($result_nau) > 0)
 $tanggal = TglDb($_REQUEST['tanggal']);	
 $rpp = "";
 if ($_REQUEST['idrpp'] != '') 
-	$rpp = " ,idrpp= $_REQUEST['idrpp'];
+	$rpp = " ,idrpp= ".$_REQUEST['idrpp'];
 
 $sql1 = "INSERT INTO ujian SET idpelajaran = '".$_REQUEST['pelajaran']."', idkelas = '".$_REQUEST['kelas']."', 
 			idsemester = '".$_REQUEST['semester']."', idjenis = '".$_REQUEST['jenis']."', deskripsi = '".CQ($_REQUEST['deskripsi'])."', 

@@ -31,7 +31,7 @@ class CInfoSiswa
     {
 		if (isset($_REQUEST["nis"]))
 		{
-			$_SESSION["infosiswa.nis"] = {$_REQUEST["nis"]};
+			$_SESSION["infosiswa.nis"] = $_REQUEST["nis"];
 			$_SESSION["infosiswa.name"] = $this->getSiswaName($_REQUEST["nis"]);	
 		}
 		

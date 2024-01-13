@@ -63,7 +63,7 @@ if (isset($_REQUEST['simpan'])) {
 	$tingkat=$_REQUEST['status_user'];
 	
 	$sql_dep = "AND departemen = '".$_REQUEST['departemen']."'";
-	if ($_REQUEST['status_user'] == "" || {$_REQUEST['status_user']} == 1) {
+	if ($_REQUEST['status_user'] == "" || $_REQUEST['status_user'] == 1) {
 		$tingkat = 1;
 		$sql_dep = "";	
 	}	
@@ -294,7 +294,7 @@ function panggil(elem){
 			} else {
 				$sel[$i] = "";
 			}
-			echo "<option value='".$row_pro['departemen']."' $sel[$i]>$row_pro['departemen']";
+			echo "<option value='".$row_pro['departemen']."' $sel[$i]>{$row_pro['departemen']}";
 			$i++;
 		}
 	?>

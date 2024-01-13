@@ -122,7 +122,7 @@ function ShowSetoranInput()
             while($row = mysqli_fetch_row($res))
             {
                 $sel = $row[0] == $defrekkas ? "selected" : "";
-                echo "<option value='".$row[0]."' $sel>$row[0] $row[1]</option>";
+                echo "<option value='".$row[0]."' $sel>".$row[0] $row[1]."</option>";
             } ?>                
         </select>
     </td>
@@ -195,7 +195,7 @@ function ShowTarikanInput()
             while($row = mysqli_fetch_row($res))
             {
                 $sel = $row[0] == $defrekkas ? "selected" : "";
-                echo "<option value='".$row[0]."' $sel>$row[0] $row[1]</option>";
+                echo "<option value='".$row[0]."' $sel>".$row[0] $row[1]."</option>";
             } ?>                
         </select>
     </td>

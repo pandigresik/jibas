@@ -163,7 +163,7 @@ if ((isset($_POST["cari"]))){
 	<tr <?="bgcolor=#".($cnt%2?"ffffff":"EAECEE").""; ?>>
 		<td class='data'><input type="hidden" name="nis<?=$cnt; ?>" value="<?=$row['nis']; ?>">
 		<input type="hidden" name="nama<?=$cnt; ?>" value="<?=$row['nama']; ?>"><input name='siswa' type='radio' value='<?=$row['nis']; ?>' onclick='changeSel(<?=$cnt; ?>)' width='20%'><?=$row['nis']; ?></td>
-		<td width='60%'class='data'><?=$row['nama']; ?></td><td><?="$rw['departemen'] - $rw['kelas']"; ?> </td> 
+		<td width='60%'class='data'><?=$row['nama']; ?></td><td><?="{$rw['departemen']} - {$rw['kelas']}"; ?> </td> 
 	</tr>
 	<?php
 	$cnt++;

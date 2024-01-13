@@ -32,7 +32,7 @@ function ShowSelectDept()
     {
         if ($departemen == "")
             $departemen = $value;
-        echo "<option value='$value' " . StringIsSelected($value, $departemen) . ">$value</option>";
+        echo "<option value='$value' " . StringIsSelected($value, $departemen) . ".$value."</option>";
     }
     echo "</select>";
 }
@@ -65,11 +65,11 @@ function GetSelectPayment($departemen, $kelompok)
             if ($idFirst == 0)
             {
                 $idFirst = $row[0];
-                $data .= "<option value='".$row[0]."' selected>$row[1]</option>";
+                $data .= "<option value='".$row[0]."' selected>".$row[1]."</option>";
             }
             else
             {
-                $data .= "<option value='".$row[0]."'>$row[1]</option>";
+                $data .= "<option value='".$row[0]."'>".$row[1]."</option>";
             }
         }
         $data .= "<select>";

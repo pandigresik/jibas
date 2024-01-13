@@ -52,7 +52,7 @@ function ShowSelectIuranWajib()
     echo "<option value='0' selected>Semua Iuran Wajib</option>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='".$row[0]."'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>".$row[1]."</option>";
     }
     echo "</select>";
 }
@@ -73,7 +73,7 @@ function ShowSelectIuranSukarela()
     echo "<option value='0' selected>Semua Iuran Sukarela</option>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='".$row[0]."'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>".$row[1]."</option>";
     }
     echo "</select>";
 }
@@ -93,7 +93,7 @@ function ShowSelectTabunganSiswa()
     echo "<option value='0' selected>Semua Tabungan Siswa</option>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='".$row[0]."'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>".$row[1]."</option>";
     }
     echo "</select>";
 }
@@ -113,7 +113,7 @@ function ShowSelectBank()
     echo "<option value='ALL' selected>Semua Bank</option>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='".$row[0]."'>$row[1] $row[0]</option>";
+        echo "<option value='".$row[0]."'>".$row[1]. $row[0]."</option>";
     }
     echo "</select>";
 }
@@ -133,7 +133,7 @@ function ShowSelectPetugas()
     echo "<option value='ALL' selected>Semua Petugas</option>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='".$row[0]."'>$row[1] $row[0]</option>";
+        echo "<option value='".$row[0]."'>".$row[1]. $row[0]."</option>";
     }
     echo "</select>";
 }

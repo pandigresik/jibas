@@ -52,7 +52,7 @@ function getDepartemen()
         $select = "<select id='bs_cbDept' class='inputbox' style='width: 220px' onchange='bs_changeCbDept()'>";
         while($row = mysqli_fetch_row($res))
         {
-            $select .= "<option value='".$row[0]."'>$row[0]</option>";
+            $select .= "<option value='".$row[0]."'>".$row[0]."</option>";
         }
         $select .= "</select>";
         CloseDb();
@@ -81,7 +81,7 @@ function getPelajaran($dept)
         $select = "<select id='bs_cbPelajaran' class='inputbox' style='width: 220px' onchange='bs_changeCbPelajaran()'>";
         while($row = mysqli_fetch_row($res))
         {
-            $select .= "<option value='".$row[0]."'>$row[1]</option>";
+            $select .= "<option value='".$row[0]."'>".$row[1]."</option>";
         }
         $select .= "</select>";
         CloseDb();
@@ -112,7 +112,7 @@ function getTingkat($dept, $idPelajaran)
         $select = "<select id='bs_cbTingkat' class='inputbox' style='width: 220px' onchange='bs_changeCbTingkat()'>";
         while($row = mysqli_fetch_row($res))
         {
-            $select .= "<option value='".$row[0]."'>$row[1]</option>";
+            $select .= "<option value='".$row[0]."'>".$row[1]."</option>";
         }
         $select .= "<option value='0'>(semua)</option>";
         $select .= "</select>";
@@ -144,7 +144,7 @@ function getSemester($dept, $idPelajaran)
         $select = "<select id='bs_cbSemester' class='inputbox' style='width: 220px' onchange='bs_changeCbSemester()'>";
         while($row = mysqli_fetch_row($res))
         {
-            $select .= "<option value='".$row[0]."'>$row[1]</option>";
+            $select .= "<option value='".$row[0]."'>".$row[1]."</option>";
         }
         $select .= "<option value='0'>(semua)</option>";
         $select .= "</select>";

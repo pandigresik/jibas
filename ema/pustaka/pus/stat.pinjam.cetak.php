@@ -31,7 +31,7 @@ $departemen='yayasan';
 $perpustakaan	= $_REQUEST['perpustakaan'];
 $from			= $_REQUEST['from'];
 $to				= $_REQUEST['to'];
-$limit			= $_REQUEST['limit'];
+$limit		= $_REQUEST['limit'];
 OpenDb();
 if ($perpustakaan!='-1') {
 	$sql 	= "SELECT nama FROM $db_name_perpus.perpustakaan WHERE replid='$perpustakaan'";
@@ -94,12 +94,12 @@ $to		= explode('-',$to);
 		$result = QueryDb($sql);
 		//echo $sql;
 		?>
-        <img src="<?="statimage.php?type=bar&key=$_REQUEST['from'],$_REQUEST['to']&Limit=$limit&krit=1&perpustakaan=$perpustakaan" ?>" />
+        <img src="<?="statimage.php?type=bar&key={$_REQUEST['from']},{$_REQUEST['to']}&Limit=$limit&krit=1&perpustakaan=$perpustakaan" ?>" />
     </td>
   </tr>
   <tr>
     <td align="center" valign="top">
-    	<img src="<?="statimage.php?type=pie&key=$_REQUEST['from'],$_REQUEST['to']&Limit=$limit&krit=1&perpustakaan=$perpustakaan" ?>" />
+    	<img src="<?="statimage.php?type=pie&key={$_REQUEST['from']},{$_REQUEST['to']}&Limit=$limit&krit=1&perpustakaan=$perpustakaan" ?>" />
     </td>
   </tr>
   <tr>

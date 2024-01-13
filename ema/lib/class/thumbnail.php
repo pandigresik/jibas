@@ -1,4 +1,4 @@
-<?php
+<?
 /**[N]**
  * JIBAS Education Community
  * Jaringan Informasi Bersama Antar Sekolah
@@ -20,7 +20,7 @@
  *  
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
-<?php
+<?
 class Thumbnail
 {
 	var $image;

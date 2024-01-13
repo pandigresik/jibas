@@ -259,8 +259,7 @@ if (!isset($_POST['simpan'])) {
                     $sel[$i] = "";
                 }
     			echo "
-    				<option value='".$row_pro['departemen']."' $sel[$i]>$row_pro['departemen']
-    				";
+    				<option value='".$row_pro['departemen']."' ".$sel[$i].">".$row_pro['departemen'];
     			$i++;
     		}
     		?>

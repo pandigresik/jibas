@@ -78,14 +78,14 @@ $nama = $_REQUEST['nama'];
 $panggilan = $_REQUEST['panggilan'];
 $kelamin = $_REQUEST['kelamin'];
 $tmplahir = $_REQUEST['tmplahir'];
-$tgllahir = strlen($_REQUEST['tgllahir']) == 0 ? "1" : {$_REQUEST['tgllahir']}; 
-$blnlahir = strlen($_REQUEST['blnlahir']) == 0 ? "1" : {$_REQUEST['blnlahir']};
-$thnlahir = strlen($_REQUEST['thnlahir']) == 0 ? "1970" : {$_REQUEST['thnlahir']};
+$tgllahir = strlen($_REQUEST['tgllahir']) == 0 ? "1" : $_REQUEST['tgllahir']; 
+$blnlahir = strlen($_REQUEST['blnlahir']) == 0 ? "1" : $_REQUEST['blnlahir'];
+$thnlahir = strlen($_REQUEST['thnlahir']) == 0 ? "1970" : $_REQUEST['thnlahir'];
 $lahir = $thnlahir . "-" . $blnlahir . "-" . $tgllahir;
-$suku = strlen($_REQUEST['suku']) == 0 ? "NULL" : "'" . {$_REQUEST['suku']} . "'";
-$agama = strlen($_REQUEST['agama']) == 0 ? "NULL" : "'" . {$_REQUEST['agama']} . "'";
-$status = strlen($_REQUEST['status']) == 0 ? "NULL" : "'" . {$_REQUEST['status']} . "'";
-$kondisi = strlen($_REQUEST['kondisi']) == 0 ? "NULL" : "'" . {$_REQUEST['kondisi']} . "'";
+$suku = strlen($_REQUEST['suku']) == 0 ? "NULL" : "'" . $_REQUEST['suku'] . "'";
+$agama = strlen($_REQUEST['agama']) == 0 ? "NULL" : "'" . $_REQUEST['agama'] . "'";
+$status = strlen($_REQUEST['status']) == 0 ? "NULL" : "'" . $_REQUEST['status'] . "'";
+$kondisi = strlen($_REQUEST['kondisi']) == 0 ? "NULL" : "'" . $_REQUEST['kondisi'] . "'";
 $warga = $_REQUEST['warga'];
 $urutananak = strlen($_REQUEST['urutananak']) == 0 ? 0 : $_REQUEST['urutananak'];
 $jumlahanak = strlen($_REQUEST['jumlahanak']) == 0 ? 0 : $_REQUEST['jumlahanak'];
@@ -266,7 +266,7 @@ if ($_REQUEST['action'] == 'ubah')
 				   penghasilanibu=$penghasilanibu, alamatortu='$alamatortu', telponortu='$telponortu',
 				   hportu='$hportu', info1='$hportu2', info2='$hportu3', emailayah='$emailayah', emailibu='$emailibu',
 				   alamatsurat='$alamatsurat', keterangan='$keterangan', hobi='$hobi', nisn='$nisn', nik='$nik', noun='$noun', $set $gantifoto
-			 WHERE replid = $_REQUEST['replid']";
+			 WHERE replid = '".$_REQUEST['replid']."'";
 }
 else
 {
@@ -293,7 +293,7 @@ QueryDbTrans($sql, $success);
 
 if ($success && $_REQUEST['action'] == 'ubah')
 {
-    $sql = "SELECT nopendaftaran FROM jbsakad.calonsiswa WHERE replid = {$_REQUEST['replid']}";
+    $sql = "SELECT nopendaftaran FROM jbsakad.calonsiswa WHERE replid ='". $_REQUEST['replid']."'";
     $res = QueryDb($sql);
     $row = mysqli_fetch_row($res);
     $no = $row[0];

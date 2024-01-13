@@ -75,7 +75,7 @@ if ($iddasar=="12"){
 	//=====================================================
 	if($sum == 0) {
 	  echo "<table width='100%' height='100%'><tr><td align='center' valign='middle'>
-			<font size='2' face='verdana'>Grafik Batang tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk Departemen <b>".$_REQUEST['departemen']</b> dan Angkatan <b>$row['angkatan']."</b></font></td></tr></table>";
+			<font size='2' face='verdana'>Grafik Batang tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk Departemen <b>".$_REQUEST['departemen']."</b> dan Angkatan <b>".$row['angkatan']."</b></font></td></tr></table>";
 	} else {
 		//data group 1
 		$data1 = array($j1);
@@ -279,7 +279,7 @@ if ($iddasar=="12"){
 	if($num == 0) {
 	  echo "<table width='100%' height='100%'><tr><td align='center' valign='middle'>
 			<font size='2' face='verdana'>Grafik Batang tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk
-			Departemen <b>".$_REQUEST['departemen']</b> dan Angkatan <b>$row['angkatan']."</b></font></td></tr></table>";
+			Departemen <b>".$_REQUEST['departemen']."</b> dan Angkatan <b>".$row['angkatan']."</b></font></td></tr></table>";
 	} else {
 		if ($iddasar == "2" || $iddasar=="6" ) { 
 			

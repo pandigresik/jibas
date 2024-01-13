@@ -102,9 +102,9 @@ while($row = mysqli_fetch_row($res))
     echo "<input type='hidden' id='replid$n' name='replid$n' value='".$row[5]."'>\r\n";
     echo "<input type='hidden' id='tglpresensi$n' name='tglpresensi$n' value='".$row[7]."'>\r\n";
     echo "<td align='center'>$n</td>\r\n";
-    echo "<td align='center'>$row[6]</td>\r\n";
+    echo "<td align='center'>".$row[6]."</td>\r\n";
     echo "<td align='left'>$row[0] <input type='hidden' name='nip$n' id='nip$n' value='".$row[0]."'></td>\r\n";
-    echo "<td align='left'>$row[1]</td>\r\n";
+    echo "<td align='left'>".$row[1]."</td>\r\n";
     
     $h = "";
     $m = "";

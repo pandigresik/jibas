@@ -98,7 +98,7 @@ while($row = mysqli_fetch_row($res))
     echo "<input type='hidden' id='replid$n' name='replid$n' value='".$row[6]."'>";
     echo "<td align='center'>$n</td>";
     echo "<td align='center'>$row[0] <input type='hidden' name='nip$n' id='nip$n' value='".$row[0]."'></td>";
-    echo "<td align='left'>$row[1]</td>";
+    echo "<td align='left'>".$row[1]."</td>";
     
     echo "<td align='center'>";
     echo "<select name='status$n' id='status$n'>";

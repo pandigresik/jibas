@@ -103,7 +103,7 @@ function ShowSelectBank()
     echo "<option value='ALL' selected>Semua Bank</option>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='".$row[0]."'>$row[1] $row[0]</option>";
+        echo "<option value='".$row[0]."'>".$row[1]. $row[0]."</option>";
     }
     echo "</select>";
 }
@@ -123,7 +123,7 @@ function ShowSelectPetugas()
     echo "<option value='ALL' selected>Semua Petugas</option>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='".$row[0]."'>$row[1] $row[0]</option>";
+        echo "<option value='".$row[0]."'>".$row[1]. $row[0]."</option>";
     }
     echo "</select>";
 }
