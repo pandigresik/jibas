@@ -84,8 +84,8 @@ function ShowDaftarCatatan($idMedia, $date1, $date2)
 
         echo "<tr style='height: 100px; line-height: 17px;'>";
         echo "<td align='center' valign='top'>$no</td>";
-        echo "<td align='left' valign='top'><b>$row[1]</b><br>$row[0]</td>";
-        echo "<td align='left' valign='top'><i>$row[2]</i><br>$row[3]</td>";
+        echo "<td align='left' valign='top'><b>".$row[1]."</b><br>".$row[0]."</td>";
+        echo "<td align='left' valign='top'><i>".$row[2]."</i><br>".$row[3]."</td>";
         echo "</tr>";
     }
 }

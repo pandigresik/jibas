@@ -150,7 +150,7 @@ if($num == 0) {
 				else
 					$cnt++;
 			}
-            echo "<td class='headerlong' align='center'><font color='$color'>$row_ju['jenisujian'] $as[$cnt]</font></td>";
+            echo "<td class='headerlong' align='center'><font color='$color'>".$row_ju['jenisujian'].  $as[$cnt]."</font></td>";
             $kolom[$row_ju['replid']] = $row_ju['replid'];
         }
 
@@ -173,7 +173,7 @@ if($num == 0) {
             ";
 
             foreach($kolom as $k => $v) {
-                echo "<td align='center'>$d[$k]</td>";
+                echo "<td align='center'>".$d[$k]."</td>";
             }
             
             $id_aturan1 = null;

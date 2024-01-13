@@ -87,7 +87,7 @@ while($row = mysqli_fetch_row($res))
 
     $idModul = $row[0];
     $aktif = 1 == (int) $row[3]? "Aktif" : "Tidak Aktif";
-    $info = "<strong>$row[1]</strong><br>Tanggal buat: $row[5]<br>Urutan: $row[4]<br>Deskripsi: $row[2]";
+    $info = "<strong>".$row[1]."</strong><br>Tanggal buat: $row[5]<br>Urutan: $row[4]<br>Deskripsi: $row[2]";
 
     $sql = "SELECT COUNT(*)
               FROM jbsel.mediamodul

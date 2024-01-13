@@ -25,7 +25,7 @@ class CStat{
 	function OnStart(){
 		$op=$_REQUEST['op'];
 		if ($op=="del"){
-			$sql = "DELETE FROM $db_name_perpus.format WHERE replid= $_REQUEST['id'];
+			$sql = "DELETE FROM $db_name_perpus.format WHERE replid= '".$_REQUEST['id']."'";
 			QueryDb($sql);
 		}
 	}

@@ -164,7 +164,7 @@ Data Siswa per Kelas
         {
             $arrDataTambahan[] = [$row[0], $row[1]];
             $kolom = $row[2];
-            echo "<td rowspan=\"2\" valign=\"middle\" bgcolor=\"#666666\"><div align=\"center\" class=\"style1\">$kolom</div></td>";
+            echo "<td rowspan=\"2\" valign=\"middle\" bgcolor=\"#666666\"><div align=\"center\" class=\"style1\"".$kolom."</div></td>";
         }
             ?>
         <td rowspan="2" valign="middle" bgcolor="#666666"><div align="center" class="style1">Sumbangan 1</div></td>
@@ -283,7 +283,7 @@ Data Siswa per Kelas
                     if ($row2 = mysqli_fetch_row($res2))
                         $data = $row2[0];
 
-                    echo "<td align=\"left\">$data</td>";
+                    echo "<td align=\"left\"".$data."</td>";
                 }
                 ?>
                 <td align="left"><?=$row['sum1']?></td>

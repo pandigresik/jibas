@@ -228,7 +228,7 @@ function getCell1($r, $c, $id, $m) {
 								
 			$s = "<td align='center' valign='middle' style='background-color: {$color[$m][1]}' colspan='{$jadwal['row'][$id][$r][$c]['njam']}'>";
 			//$s.= "<font class='thismonth'>{$jadwal['row'][$id][$r][$c]['awal']}</font>";						
-			$s.= "<font class='thismonth'>$dt1[0] - $dt2[0]</font>";
+			$s.= "<font class='thismonth'>".$dt1[0] - $dt2[0]."</font>";
 			$s.= "<br><img src='../../images/ico/lihat.png' style='cursor:pointer'";
 			$s.= " onclick='lihat($id)'> &nbsp;";			
 			$s.= "</td>";

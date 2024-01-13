@@ -87,7 +87,7 @@ function ShowLebihTransSudah()
         echo "<td style='background-color: #efefef;' align='center' rowspan='2' valign='top'>$no</td>";
         echo "<td align='left'>".$row['fwaktu']."</td>";
 
-        echo "<td align='left'><b>".$row['namasiswa']</b><br>$row['nis']."</td>";
+        echo "<td align='left'><b>".$row['namasiswa']."</b><br>".$row['nis']."</td>";
 
         $rp = FormatRupiah($row["jlebihtrans"]);
         echo "<td align='right'><span style='font-size: 13px; font-weight: bold'>$rp</span></td>";
@@ -99,7 +99,7 @@ function ShowLebihTransSudah()
         $rp = FormatRupiah($jumlah);
 
         echo "<td align='right'><span style='font-size: 13px; font-weight: bold'>$rp</span></td>";
-        echo "<td align='left'><a href='#' style='color: #0000ff; font-weight: normal; text-decoration: underline' onclick='showRincian($row['id'])'>".$row['nomor']</a><br>$row['bank'] - $row['bankno']."</td>";
+        echo "<td align='left'><a href='#' style='color: #0000ff; font-weight: normal; text-decoration: underline' onclick='showRincian(".$row['id'].")'>".$row['nomor']."</a><br>{$row['bank']} - {$row['bankno']}</td>";
         echo "</tr>";
 
         echo "<tr>";
@@ -107,7 +107,7 @@ function ShowLebihTransSudah()
 
         if ($row["prmetode"] == 1)
         {
-            $stNoJurnal = urlencode("$row['prjurnalbank'],$row['prjurnaltabungan']");
+            $stNoJurnal = urlencode("{$row['prjurnalbank']},{$row['prjurnaltabungan']}");
 
             echo "<table cellspacing='0' cellpadding='2'>";
             echo "<tr>";
@@ -132,7 +132,7 @@ function ShowLebihTransSudah()
             echo "<td>Bukti Transfer:</td>";
             echo "<td>";
             if ($row["adaberkas"] == 1)
-                echo "<a href='#' onclick='showBuktiTf($row['id'])' title='lihat bukti transfer' style='text-decoration: underline; font-weight: normal; color: #0000ff;'>".$row['nomormutasi']."</a>";
+                echo "<a href='#' onclick='showBuktiTf(".$row['id'].")' title='lihat bukti transfer' style='text-decoration: underline; font-weight: normal; color: #0000ff;'>".$row['nomormutasi']."</a>";
             else
                 echo $row["nomormutasi"];
             echo "</td>";
@@ -147,7 +147,7 @@ function ShowLebihTransSudah()
         }
         else
         {
-            $stNoJurnal = urlencode("$row['prjurnalbank']");
+            $stNoJurnal = urlencode("{$row['prjurnalbank']}");
             echo "<table cellspacing='0' cellpadding='2'>";
             echo "<tr>";
             echo "<td width='80'>Metode:</td>";
@@ -163,7 +163,7 @@ function ShowLebihTransSudah()
             echo "<td>Bukti Transfer:</td>";
             echo "<td>";
             if ($row["adaberkas"] == 1)
-                echo "<a href='#' onclick='showBuktiTf($row['id'])' title='lihat bukti transfer' style='text-decoration: underline; font-weight: normal; color: #0000ff;'>".$row['nomormutasi']."</a>";
+                echo "<a href='#' onclick='showBuktiTf(".$row['id'].")' title='lihat bukti transfer' style='text-decoration: underline; font-weight: normal; color: #0000ff;'>".$row['nomormutasi']."</a>";
             else
                 echo $row["nomormutasi"];
             echo "</td>";
@@ -228,7 +228,7 @@ function ShowLebihTransBelum()
         echo "<td style='background-color: #efefef;' align='center'>$no</td>";
         echo "<td align='left'>".$row['fwaktu']."</td>";
 
-        echo "<td align='left'><span style='font-size: 13px; font-weight: bold'>".$row['namasiswa']</span><br>$row['nis']."</td>";
+        echo "<td align='left'><span style='font-size: 13px; font-weight: bold'>".$row['namasiswa']."</span><br>".$row['nis']."</td>";
 
         $rp = FormatRupiah($row["jlebihtrans"]);
         echo "<td align='right'><span style='font-size: 13px; font-weight: bold'>$rp</span></td>";
@@ -240,10 +240,10 @@ function ShowLebihTransBelum()
         $rp = FormatRupiah($jumlah);
 
         echo "<td align='right'><b>$rp</b></td>";
-        echo "<td align='left'><a href='#' style='color: #0000ff; font-weight: normal; text-decoration: underline' onclick='showRincian($row['id'])'>".$row['nomor']</a><br>$row['bank'] - $row['bankno']."</td>";
+        echo "<td align='left'><a href='#' style='color: #0000ff; font-weight: normal; text-decoration: underline' onclick='showRincian(".$row['id'].")'>".$row['nomor']."</a><br>".$row['bank'] - $row['bankno']."</td>";
         echo "<td align='center'>";
         if ($row["prstatus"] == 0)
-            echo "<a href='#' title='proses' onclick='prosesLebihTrans($row['id'])'><img src='../images/ico/ubah.png' border='0'></a>";
+            echo "<a href='#' title='proses' onclick='prosesLebihTrans(".$row['id'].")'><img src='../images/ico/ubah.png' border='0'></a>";
         else
             echo "&nbsp;";
         echo "</td>";

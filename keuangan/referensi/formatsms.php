@@ -72,7 +72,7 @@ $seldept = isset($_REQUEST['departemen']) ? $_REQUEST['departemen'] : "";
 				$seldept = $row[0];
 			$selected = $seldept == $row[0] ? "selected" : "";
 			
-			echo "<option value='".$row[0]."' $selected>$row[0]</option>";
+			echo "<option value='".$row[0]."' $selected>".$row[0]."</option>";
 		} ?>
 		</select><br><br>
 <?php

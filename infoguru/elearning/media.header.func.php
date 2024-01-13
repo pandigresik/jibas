@@ -43,7 +43,7 @@ function ShowCbDepartemen()
     {
         if ($selDept == "")
             $selDept = $row[0];
-        $ret .= "<option value='".$row[0]."'>$row[0]</option>";
+        $ret .= "<option value='".$row[0]."'>".$row[0]."</option>";
     }
     $ret .= "</select>";
 
@@ -77,7 +77,7 @@ function ShowCbPelajaran($dept)
     while($row = mysqli_fetch_row($res))
     {
         if ($selPel == "") $selPel = $row[0];
-        $ret .= "<option value='".$row[0]."'>$row[1]</option>";
+        $ret .= "<option value='".$row[0]."'>".$row[1]."</option>";
     }
     $ret .= "</select>";
 
@@ -107,7 +107,7 @@ function ShowCbChannel($idPel)
     $ret = "<select id='channel' name='channel' style='width: 250px;' onchange='ch_changeChannel()'>";
     while($row = mysqli_fetch_row($res))
     {
-        $ret .= "<option value='".$row[0]."'>$row[1]</option>";
+        $ret .= "<option value='".$row[0]."'>".$row[1]."</option>";
     }
     $ret .= "</select>";
 

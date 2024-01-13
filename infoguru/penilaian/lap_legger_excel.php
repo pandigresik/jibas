@@ -235,7 +235,7 @@ for($s = 0; $s < $nsiswa; $s++)
             if (mysqli_num_rows($res) > 0)
             {
                 $row = mysqli_fetch_row($res);
-                echo "<td align='center'>$row[0]</td>";
+                echo "<td align='center'>".$row[0]."</td>";
             }
             else
             {

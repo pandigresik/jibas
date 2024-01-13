@@ -60,7 +60,7 @@ function GetPegawai($idkegiatan, $bulan, $tahun, $bagian)
         $cnt += 1;
         $table .= "<tr>\r\n";
         $table .= "<td align='center'>$cnt</td>\r\n";
-        $table .= "<td align='left'><font style='font-size: 8px; color: green;'>$row[0]</font><br>$row[1]</td>\r\n";
+        $table .= "<td align='left'><font style='font-size: 8px; color: green;'>".$row[0]."</font><br>".$row[1]."</td>\r\n";
         $table .= "<td align='center'><input type='button' class='but' value=' > ' onclick=\"showReport($idkegiatan, $bulan, $tahun, '$row[0]')\"></td>\r\n";
         $table .= "</tr>\r\n";
     }
@@ -90,7 +90,7 @@ function SearchPegawai($idkegiatan, $bulan, $tahun, $filter, $keyword)
         $cnt += 1;
         $table .= "<tr>\r\n";
         $table .= "<td align='center'>$cnt</td>\r\n";
-        $table .= "<td align='left'><font style='font-size: 8px; color: green;'>$row[0]</font><br>$row[1]</td>\r\n";
+        $table .= "<td align='left'><font style='font-size: 8px; color: green;'>".$row[0]."</font><br>".$row[1]."</td>\r\n";
         $table .= "<td align='center'><input type='button' class='but' value=' > ' onclick=\"showReport($idkegiatan, $bulan, $tahun, '$row[0]')\"></td>\r\n";
         $table .= "</tr>\r\n";
     }

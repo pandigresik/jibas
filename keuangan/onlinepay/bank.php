@@ -32,7 +32,7 @@ require_once('../include/errorhandler.php');
 
 OpenDb();
 
-$dept = isset($_REQUEST["dept"]) ? {$_REQUEST["dept"]} : "";
+$dept = isset($_REQUEST["dept"]) ? $_REQUEST["dept"] : "";
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -103,7 +103,7 @@ $dept = isset($_REQUEST["dept"]) ? {$_REQUEST["dept"]} : "";
                     if ($dept == "") $dept = $row[0];
                     $sel = ($dept == $row[0]) ? "selected" : "";
 
-                    echo "<option value='".$row[0]."' $sel>$row[0]</option>";
+                    echo "<option value='".$row[0]."' $sel>".$row[0]."</option>";
                 }
 ?>
                 </select>&nbsp;&nbsp;

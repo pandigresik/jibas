@@ -259,7 +259,7 @@ var pilih;
 				<td class="headerlong" align="center"  height="30">				
 				<?php 
 				$tgl = format_tgl($row_qz['tanggal']);
-				echo  "$row_qz['jenisujian'] - $i";
+				echo  "{$row_qz['jenisujian']} - $i";
 				$kol_idujian[$nujian] = $row_qz['replid'];
 				$nujian++; 
 				?>
@@ -299,7 +299,7 @@ var pilih;
                if($kolom != "") {
                 	  $nkolprinted = 0;	
                     $ujcntstart = 0;
-                    foreach($d[n] as $nuj => $v) {
+                    foreach($d['n'] as $nuj => $v) {
                     		$ujcnt = $ujcntstart;
                     		$ujfound = false;
                     		while ($ujcnt < $nujian && !$ujfound) {

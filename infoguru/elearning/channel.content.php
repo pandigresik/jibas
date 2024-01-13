@@ -99,7 +99,7 @@ while($row = mysqli_fetch_row($res))
              WHERE idchannel = $idChannel";
     $nModul = FetchSingle($sql);
 
-    $info = "<strong>$row[0]</strong><br>Tanggal buat: $row[2]<br>Urutan: $row[4]<br>Deskripsi: $row[1]";
+    $info = "<strong>".$row[0]."</strong><br>Tanggal buat: $row[2]<br>Urutan: $row[4]<br>Deskripsi: $row[1]";
 ?>
     <tr>
         <td align="center" valign="top"><?=$no?></td>

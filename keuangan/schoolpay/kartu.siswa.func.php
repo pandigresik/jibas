@@ -59,7 +59,7 @@ function ShowCbTingkat($departemen)
         if ($selIdTingkat == "") $selIdTingkat = $row[0];
         $sel = $selIdTingkat == $row[0] ? "selected" : "";
 
-        echo "<option value='".$row[0]."' $sel>$row[1]</option>";
+        echo "<option value='".$row[0]."' $sel>".$row[1]."</option>";
     }
     echo "</select>";
 }
@@ -85,7 +85,7 @@ function ShowCbKelas($departemen, $idTingkat)
     echo "<select id='kelas' name='kelas' style='width: 250px' onchange='clearReport()'>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='".$row[0]."' $sel>$row[1]</option>";
+        echo "<option value='".$row[0]."' $sel>".$row[1]."</option>";
     }
     echo "</select>";
 }

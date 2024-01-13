@@ -38,7 +38,7 @@ function GetCbDepartemen($default, $elmName = "cbDepartemen")
             $default = $row[0];
             
         $selected = $default == $row[0] ? "selected" : "";
-        $selection .= "<option value='".$row[0]."' $selected>$row[0]</option>\r\n";
+        $selection .= "<option value='".$row[0]."' $selected>".$row[0]."</option>\r\n";
         
         if ($selected == "selected")
         {
@@ -71,7 +71,7 @@ function GetCbTingkat($departemen, $default)
             $default = $row[0];
             
         $selected = $default == $row[0] ? "selected" : "";
-        $selection .= "<option value='".$row[0]."' $selected>$row[1]</option>";
+        $selection .= "<option value='".$row[0]."' $selected>".$row[1]."</option>";
         
         if ($selected == "selected")
         {
@@ -105,7 +105,7 @@ function GetCbKelas($idtingkat, $default)
             $default = $row[0];
             
         $selected = $default == $row[0] ? "selected" : "";
-        $selection .= "<option value='".$row[0]."' $selected>$row[1]</option>";
+        $selection .= "<option value='".$row[0]."' $selected>".$row[1]."</option>";
         
         if ($selected == "selected")
         {
@@ -143,8 +143,8 @@ function GetSiswa($bulan, $tahun, $idkelas)
         $cnt += 1;
         $table .= "<tr>\r\n";
         $table .= "<td align='center'>$cnt</td>\r\n";
-        $table .= "<td align='left'><font style='font-size: 8px; color: green;'>$row[0]</font><br>$row[1]</td>\r\n";
-        $table .= "<td align='center'>$row[2]</td>\r\n";
+        $table .= "<td align='left'><font style='font-size: 8px; color: green;'>".$row[0]."</font><br>".$row[1]."</td>\r\n";
+        $table .= "<td align='center'>".$row[2]."</td>\r\n";
         $table .= "<td align='center'><input type='button' class='but' value=' > ' onclick=\"showReport($bulan, $tahun, '$row[0]')\"></td>\r\n";
         $table .= "</tr>\r\n";
     }
@@ -176,8 +176,8 @@ function SearchSiswa($bulan, $tahun, $filter, $keyword)
         $cnt += 1;
         $table .= "<tr>\r\n";
         $table .= "<td align='center'>$cnt</td>\r\n";
-        $table .= "<td align='left'><font style='font-size: 8px; color: green;'>$row[0]</font><br>$row[1]</td>\r\n";
-        $table .= "<td align='center'>$row[2]</td>\r\n";
+        $table .= "<td align='left'><font style='font-size: 8px; color: green;'>".$row[0]."</font><br>".$row[1]."</td>\r\n";
+        $table .= "<td align='center'>".$row[2]."</td>\r\n";
         $table .= "<td align='center'><input type='button' class='but' value=' > ' onclick=\"showReport($bulan, $tahun, '$row[0]')\"></td>\r\n";
         $table .= "</tr>\r\n";
     }

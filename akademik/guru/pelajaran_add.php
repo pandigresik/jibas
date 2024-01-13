@@ -173,7 +173,7 @@ function panggil(elem){
         {
             $kode = $row[0];
             $kelompok = $row[1];
-            echo "<option value='$kode'>$kelompok</option>";
+            echo "<option value='$kode'>".$kelompok."</option>";
         }
         CloseDb(); ?>
         </select>

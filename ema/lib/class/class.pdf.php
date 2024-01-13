@@ -1,4 +1,4 @@
-<?php
+<?
 /**[N]**
  * JIBAS Education Community
  * Jaringan Informasi Bersama Antar Sekolah
@@ -270,8 +270,7 @@ function o_destination($id,$action,$options=''){
     case 'out':
       $tmp = $o['info'];
       $res="\n".$id." 0 obj\n".'['.$tmp['page'].' 0 R /'.$tmp['string']."]\nendobj\n";
-      return $res;
-      break;
+      return $res;      
   }
 }
 
@@ -449,7 +448,7 @@ function o_pages($id,$action,$options=''){
           $res.="\n>>";
           if (isset($o['info']['mediaBox'])){
             $tmp=$o['info']['mediaBox'];
-            $res.="\n/MediaBox [".sprintf('%.3f',$tmp[0]).' '.sprintf('%.3f',$tmp[1]).' '.sprintf('%.3f',$tmp[2]).' '.sprintf('%.3f',$tmp[3]).']."'";
+            $res.="\n/MediaBox [".sprintf('%.3f',$tmp[0]).' '.sprintf('%.3f',$tmp[1]).' '.sprintf('%.3f',$tmp[2]).' '.sprintf('%.3f',$tmp[3]).']';
           }
         }
         $res.="\n >>\nendobj";

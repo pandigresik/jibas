@@ -84,10 +84,10 @@ $sql = "SELECT id, nama, kelompok, tanggal
 
         echo "<tr style='height: 22px'>";
         echo "<td align='center'>$no</td>";
-        echo "<td align='left'>$row[0]</td>";
-        echo "<td align='left'>$row[1]</td>";
-        echo "<td align='left'>$row[2]</td>";
-        echo "<td align='left'>$row[3]</td>";
+        echo "<td align='left'>".$row[0]."</td>";
+        echo "<td align='left'>".$row[1]."</td>";
+        echo "<td align='left'>".$row[2]."</td>";
+        echo "<td align='left'>".$row[3]."</td>";
         echo "</tr>";
     }
     ?>

@@ -53,7 +53,7 @@ function ShowPenerimaan($departemen, $idKategori)
     echo "<select name='idPenerimaan' id='idPenerimaan' style='width:200px'>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='".$row[0]."'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>".$row[1]."</option>";
     }
     echo "</select>";
 }

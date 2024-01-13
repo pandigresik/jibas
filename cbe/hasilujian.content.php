@@ -50,7 +50,7 @@ function checkResFileGetUrl($idRes, $resDir, $resType)
 $jsonSession = $_SESSION["Json"];
 
 if (isset($_REQUEST["IdUjianSerta"]))
-    $_SESSION["IdUjianSerta"] = {$_REQUEST["IdUjianSerta"]};
+    $_SESSION["IdUjianSerta"] = $_REQUEST["IdUjianSerta"];
 
 $showInfo = 1;
 if (isset($_REQUEST["ShowInfo"]))

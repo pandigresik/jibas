@@ -57,7 +57,7 @@ function ShowPegawai($bagian)
 
             echo "<tr style='height: 25px;' onclick='pilih(\"$row[0]\")'>";
             echo "<td align='center'>$no</td>";
-            echo "<td align='left'>$row[0]<br><strong>$row[1]</strong></td>";
+            echo "<td align='left'>".$row[0]<br><strong>$row[1]."</strong></td>";
             echo "</tr>";
         }
         echo "</table>";

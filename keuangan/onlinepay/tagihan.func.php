@@ -51,7 +51,7 @@ function ShowSelectTingkat()
             $idTingkat = $row[0];
             $tingkat = $row[1];
         }
-        echo "<option value='".$row[0]."'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>".$row[1]."</option>";
     }
     echo "</select>";
 }

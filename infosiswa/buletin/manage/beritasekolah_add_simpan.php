@@ -32,7 +32,7 @@ $sender=$_REQUEST['sender'];
 if ($sender=="tambah")
 {
    OpenDb();
-   $jam=date(H).":".date(i).":00";
+   $jam=date('H').":".date('i').":00";
    $judul=CQ($_REQUEST['judul']);
    $tgl=explode("-",$_REQUEST['tanggal']);
    $tanggal=$tgl[2]."-".$tgl[1]."-".$tgl[0];

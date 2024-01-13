@@ -298,7 +298,7 @@ var pilih;
                if($kolom != "") {
                 	  $nkolprinted = 0;	
                     $ujcntstart = 0;
-                    foreach($d[n] as $nuj => $v) {
+                    foreach($d['n'] as $nuj => $v) {
                     		$ujcnt = $ujcntstart;
                     		$ujfound = false;
                     		while ($ujcnt < $nujian && !$ujfound) {

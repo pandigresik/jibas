@@ -97,7 +97,7 @@ function ShowSelectPetugas()
     echo "<option value='@0#'>(Semua Petugas)</option>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='".$row[0]."'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>".$row[1]."</option>";
     }
     echo "</select>";
 }
@@ -115,7 +115,7 @@ function ShowSelectVendor($userId)
     echo "<option value='@0#'>(Semua Vendor)</option>";
     while($row = mysqli_fetch_row($res))
     {
-        echo "<option value='".$row[0]."'>$row[1]</option>";
+        echo "<option value='".$row[0]."'>".$row[1]."</option>";
     }
     echo "</select>";
 }
@@ -216,7 +216,7 @@ function ShowDailyReport($showMenu)
         echo "<tr>";
         echo "<td align='center'>$no</td>";
         echo "<td align='left'>".$row['waktu']."</td>";
-        echo "<td align='left'>".$row['namavendor']<br>$row['namauser']."</td>";
+        echo "<td align='left'>".$row['namavendor']<br>".$row['namauser']."</td>";
         echo "<td align='left'>$pelanggan</td>";
         echo "<td align='right'>$jumlah</td>";
         echo "<td align='left'>$pembayaran</td>";

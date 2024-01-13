@@ -97,7 +97,7 @@ class Inbox{
 							echo "<option value='".$m[0]."' ";
 							if ($m[0]==$this->bulan)
 								echo "selected";
-							echo ">$m[1]</option>";
+							echo ">".$m[1]."</option>";
 						}
 						?>
 					</select>
@@ -107,7 +107,7 @@ class Inbox{
 							echo "<option value='$y' ";
 							if ($y==$this->tahun)
 								echo "selected";
-							echo ">$y</option>";
+							echo ".$y."</option>";
 						}
 						?>
 					</select>

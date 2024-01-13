@@ -109,7 +109,7 @@ while($row = mysqli_fetch_array($res))
 
     echo "<tr>";
     echo "<td align='center' style='background-color: #efefef'>$no</td>";
-    echo "<td align='left'>$row['nama']";
+    echo "<td align='left'>".$row['nama'];
     echo "<input type='hidden' id='iddeposit-$no' value='".$row['replid']."'>";
     echo "<input type='hidden' id='deposit-$no' value='".$row['nama']."'>";
     echo "</td>";

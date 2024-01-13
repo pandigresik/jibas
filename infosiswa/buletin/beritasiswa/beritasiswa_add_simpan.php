@@ -35,7 +35,7 @@ if ($sender=="tambah")
   $judul=CQ($_REQUEST['judul']);
   $tgl=explode("-",$_REQUEST['tanggal']);
   $tanggal=$tgl[2]."-".$tgl[1]."-".$tgl[0];
-  $jam=date(H).":".date(i).":00";
+  $jam=date('H').":".date('i').":00";
   $abstrak=CQ($_REQUEST['abstrak']);
   $isi=$_REQUEST['isi'];
   $isi = str_replace("'", "#sq;", $isi);

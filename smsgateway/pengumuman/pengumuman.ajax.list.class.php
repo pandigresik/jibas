@@ -140,7 +140,7 @@ class PengumumanListAjax{
 			  ?>
 			  <tr class="td">
 				<td align="center" valign="top" class="td"><?=$cnt?></td>
-				<td class="td" style="cursor:pointer" onclick="SelectInfoGenList('<?=$row[0]?>')"><?="$row[1]<br><i>$row[2]</i>"?></td>
+				<td class="td" style="cursor:pointer" onclick="SelectInfoGenList('<?=$row[0]?>')"><?="$row[1]<br><i>".$row[2]."</i>"?></td>
 				<td class="td" align="center"><img onclick="DeleteInfoGenList('<?=$row[0]?>')" src="../images/ico/hapus.png" width="16" height="16" border="0" style="cursor:pointer" /></td>
 			  </tr>
 			  <?php

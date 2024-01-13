@@ -92,9 +92,9 @@ while($row = mysqli_fetch_row($res))
     
     echo "<tr>\r\n";
     echo "<td align='center'>$n</td>\r\n";
-    echo "<td align='center'>$row[6]</td>\r\n";
-    echo "<td align='left'>$row[0]</td>\r\n";
-    echo "<td align='left'>$row[1]</td>\r\n";
+    echo "<td align='center'>".$row[6]."</td>\r\n";
+    echo "<td align='left'>".$row[0]."</td>\r\n";
+    echo "<td align='left'>".$row[1]."</td>\r\n";
     
     $h = "";
     $m = "";
@@ -109,7 +109,7 @@ while($row = mysqli_fetch_row($res))
     echo "$h&nbsp;:&nbsp;$m\r\n";
     echo "</td>\r\n";
     
-    echo "<td align='left'>$row[4]</td>\r\n";
+    echo "<td align='left'>".$row[4]."</td>\r\n";
     echo "</tr>\r\n";
 }
 ?>

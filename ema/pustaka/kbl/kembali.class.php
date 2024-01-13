@@ -32,7 +32,7 @@ class CKembali{
 			
 		$this->op=$_REQUEST['op'];
 		if ($this->op=="del"){
-			$sql = "DELETE FROM format WHERE replid= $_REQUEST['id'];
+			$sql = "DELETE FROM format WHERE replid= '".$_REQUEST['id']."'";
 			QueryDb($sql);
 		}
 		$this->num=0;

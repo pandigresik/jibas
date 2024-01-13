@@ -58,7 +58,7 @@ if ($op == "dw8dxn8w9ms8zs22") {
 		}
 	}
 
-	$sql = "UPDATE jbsakad.siswa SET {$_REQUEST['field'] = '$pin' WHERE nis = '".$_REQUEST['nis']}."'";
+	$sql = "UPDATE jbsakad.siswa SET {$_REQUEST['field']} = '$pin' WHERE nis = '".$_REQUEST['nis']."'";
 	QueryDb($sql);
 	CloseDb();
 }

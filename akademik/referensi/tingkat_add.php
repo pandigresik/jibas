@@ -54,7 +54,7 @@ if (isset($_REQUEST['Simpan']))
 	if (mysqli_num_rows($result) > 0) {
 		$row = @mysqli_fetch_array($result);
 		CloseDb();
-		$ERROR_MSG = "Tingkat $tingkat sudah digunakan pada Departemen $row['departemen']!";
+		$ERROR_MSG = "Tingkat $tingkat sudah digunakan pada Departemen ".$row['departemen']."!";
 	} else if (mysqli_num_rows($result1) > 0) {		
 		CloseDb();
 		$ERROR_MSG = "Urutan $urutan sudah digunakan pada Departemen ini!";	

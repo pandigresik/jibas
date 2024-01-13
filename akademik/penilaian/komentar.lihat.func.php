@@ -36,10 +36,10 @@ function ReadParams(): void
     global $urut, $urutan, $departemen, $semester, $tingkat, $tahunajaran, $pelajaran, $kelas, $jum;
 
     $urut = $_REQUEST['urut'];
-    $urut = $urut == "" ? "nama" : {$_REQUEST['urut']};
+    $urut = $urut == "" ? "nama" : $_REQUEST['urut'];
 
     $urutan = $_REQUEST['urutan'];
-    $urutan = $urutan == "" ? "asc" : {$_REQUEST['urutan']};
+    $urutan = $urutan == "" ? "asc" : $_REQUEST['urutan'];
 
     if (isset($_REQUEST['departemen'])) {
         $departemen = $_REQUEST['departemen'];

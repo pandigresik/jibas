@@ -240,14 +240,14 @@ for($i = 0; $i < $nData; $i++)
 
             echo "<tr>";
             echo "<td align='left' style='background-color: #fff;'>".$row['fwaktu']."</td>";
-            echo "<td align='left' style='background-color: #fff;'><b>".$row['nama']</b><br>$row['nis']."</td>";
+            echo "<td align='left' style='background-color: #fff;'><b>".$row['nama']."</b><br>".$row['nis']."</td>";
             echo "<td align='left' style='background-color: #fff;' valign='top'>";
             if ($row["jenis"] == 1)
-                echo "<b>".$row['nomor']</b><br><i>$nomorTs</i><br><i>$row['paymentid']."</i>";
+                echo "<b>".$row['nomor']."</b><br><i>$nomorTs</i><br><i>$row['paymentid']."</i>";
             else
-                echo "<b>".$row['nomor']</b><br><i>$row['paymentid']."</i>";
+                echo "<b>".$row['nomor']."</b><br><i>$row['paymentid']."</i>";
             echo "</td>";
-            echo "<td align='left' style='background-color: #fff;'>".$row['bank']<br>$row['bankno']."</td>";
+            echo "<td align='left' style='background-color: #fff;'>".$row['bank']<br>".$row['bankno']."</td>";
             echo "</tr>";
 
             echo "<tr>";

@@ -552,7 +552,7 @@ Class ReadFileData {
                         $s = '/[\s]*;[\s]*/';
         }
         foreach( $lines as $line => $datarow ) {
-                $split = preg_explode($s,$datarow);
+                $split = preg_split($s,$datarow);
                 $aCol1[] = floatval(trim($split[0]));
                 $aCol2[] = floatval(trim($split[1]));
         }
@@ -581,7 +581,7 @@ Class ReadFileData {
         $mat = array();
         $reg = '/'.$aSepChar.'/';
         foreach( $lines as $line => $datarow ) {
-                $row = preg_explode($reg,trim($datarow));
+                $row = preg_split($reg,trim($datarow));
                 foreach ($row as $key => $cell ) {
                         $row[$key] = floatval(trim($cell));
                 }

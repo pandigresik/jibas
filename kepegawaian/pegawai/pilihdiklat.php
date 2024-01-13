@@ -81,12 +81,12 @@ function traverse($idroot, $count)
 		
 		if ($nsubdir == 0)
 		{
-			$diklat = "<a href=\"#\" onclick=\"JavaScript:Pilih($id, '$diklat')\">$diklat</a>";
+			$diklat = "<a href=\"#\" onclick=\"JavaScript:Pilih($id, '$diklat')\"".$diklat."</a>";
 			echo "$space<li class='liBullet'>&nbsp;$diklat&nbsp;</li>\r\n";
 		}
 		else
 		{
-			$diklat = "<a href=\"#\" onclick=\"JavaScript:Pilih($id, '$diklat')\">$diklat</a>";
+			$diklat = "<a href=\"#\" onclick=\"JavaScript:Pilih($id, '$diklat')\"".$diklat."</a>";
 			echo "$space<li class='liClosed'>&nbsp;$diklat&nbsp;\r\n";
 			
 			echo "$space<ul>\r\n";

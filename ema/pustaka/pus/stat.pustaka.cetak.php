@@ -94,12 +94,12 @@ $to		= explode('-',$to);
 		$result = QueryDb($sql);
 		//echo $sql;
 		?>
-        <img src="<?="statimage.php?type=bar&key=$_REQUEST['from'],$_REQUEST['to']&Limit=$limit&krit=2&perpustakaan=$perpustakaan" ?>" />
+        <img src="<?="statimage.php?type=bar&key={$_REQUEST['from']},{$_REQUEST['to']}&Limit=$limit&krit=2&perpustakaan=$perpustakaan" ?>" />
     </td>
   </tr>
   <tr>
     <td align="center" valign="top">
-    	<img src="<?="statimage.php?type=pie&key=$_REQUEST['from'],$_REQUEST['to']&Limit=$limit&krit=2&perpustakaan=$perpustakaan" ?>" />
+    	<img src="<?="statimage.php?type=pie&key={$_REQUEST['from']},{$_REQUEST['to']}&Limit=$limit&krit=2&perpustakaan=$perpustakaan" ?>" />
     </td>
   </tr>
   <tr>

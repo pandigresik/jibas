@@ -118,11 +118,11 @@ function ShowTagihanSet()
         echo "<td rowspan='2' align='center' valign='top' style='width: 30px; background-color: #efefef;'>$no</td>";
         echo "<td style='font-size: 12px; cursor: pointer;' onclick='showTagihanInfo($no)' colspan='4'>";
         echo "<b> " . $row['nama'] . "</b><br><span style='color: #0000FF;'><b>" . $row['stiuran'] . "</b></span><br>";
-        echo "<span style='color: #b50000; font-style: italic;'>".$row['nomor']&nbsp;&nbsp;|&nbsp;&nbsp;$row['ftanggal']."</span>";
+        echo "<span style='color: #b50000; font-style: italic;'>".$row['nomor']."&nbsp;&nbsp;|&nbsp;&nbsp;".$row['ftanggal']."</span>";
         echo "<input type='hidden' id='idtagihanset-$no' value='$idTagihanSet'>";
         $title = "<b>" . $row["nama"] . "</b><br><span style='color: #0000FF'><b>" . $row['stiuran'] . "</b></span>";
         echo "<input type='hidden' id='tagihanset-$no' value=\"$title\">";
-        $infots = "$row['nomor']&nbsp;&nbsp;|&nbsp;&nbsp;$row['ftanggal']";
+        $infots = $row['nomor']."&nbsp;&nbsp;|&nbsp;&nbsp;".$row['ftanggal'];
         echo "<input type='hidden' id='infotagihanset-$no' value='$infots'>";
         echo "</td>";
         echo "</tr>";
@@ -500,8 +500,8 @@ function DaftarTagihanData()
         if ($status == 0 && $row["idpenerimaan"] != 0)
         {
             echo "<td align='center' valign='top'>";
-            echo "<a href='#' onclick='editTagihan($row['replid'],\"$noTagihan\")'><img src='../images/ico/ubah.png'></a>&nbsp;";
-            echo "<a href='#' onclick='hapusTagihan($row['replid'],\"$noTagihan\")'><img src='../images/ico/hapus.png'></a>";
+            echo "<a href='#' onclick='editTagihan({$row['replid']},\"$noTagihan\")'><img src='../images/ico/ubah.png'></a>&nbsp;";
+            echo "<a href='#' onclick='hapusTagihan({$row['replid']},\"$noTagihan\")'><img src='../images/ico/hapus.png'></a>";
             echo "</td>";
         }
         else

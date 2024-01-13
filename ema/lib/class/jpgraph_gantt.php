@@ -1182,7 +1182,7 @@ class PredefIcons {
     function GetImg($aIdx) {
         if( $aIdx < 0 || $aIdx >= $this->iLen ) {
             JpGraphError::RaiseL(6010,$aIdx);
-            //('Illegal icon index for Gantt builtin icon ['.$aIdx.']."');
+            //('Illegal icon index for Gantt builtin icon ['.$aIdx.']');
         }
         return Image::CreateFromString(base64_decode($this->iBuiltinIcon[$aIdx][1]));
     }
@@ -1648,7 +1648,7 @@ class TextProperty {
         $aImg->SetFont($this->iFFamily,$this->iFStyle,$this->iFSize);
         if( is_string($this->iText) ) {
             if( strlen($this->iText) == 0 ) return 0;
-            $tmp = preg_explode('/\t/',$this->iText);
+            $tmp = preg_split('/\t/',$this->iText);
             if( count($tmp) <= 1 || !$aUseTabs ) {
                 $w = $aImg->GetTextWidth($this->iText);
                 return $w + 2*$extra_margin;
@@ -1807,7 +1807,7 @@ class TextProperty {
                 }
             }
             else {
-                $tmp = preg_explode('/\t/',$this->iText);
+                $tmp = preg_split('/\t/',$this->iText);
                 $n = min(count($tmp),count($aX));
                 for($i=0; $i < $n; ++$i) {
                     if( $i < count($this->iFontArray) ) {
@@ -2771,13 +2771,13 @@ class GanttScale {
                 $m=$ln;
                 break;
             case MONTHSTYLE_SHORTNAMEYEAR2:
-                $m=$sn."'".substr("".$year,2);
+                $m=$sn." '".substr("".$year,2);
                 break;
             case MONTHSTYLE_SHORTNAMEYEAR4:
                 $m=$sn." ".$year;
                 break;
             case MONTHSTYLE_LONGNAMEYEAR2:
-                $m=$ln."'".substr("".$year,2);
+                $m=$ln." '".substr("".$year,2);
                 break;
             case MONTHSTYLE_LONGNAMEYEAR4:
                 $m=$ln." ".$year;
