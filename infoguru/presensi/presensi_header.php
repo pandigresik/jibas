@@ -54,7 +54,7 @@ $menit = "";
 if (isset($_REQUEST['menit']))
 	$menit = $_REQUEST['menit'];
 
-$tgl = date(d)."-".date('m')."-".date('Y');
+$tgl = date('d')."-".date('m')."-".date('Y');
 if (isset($_REQUEST['tanggal']))
 	$tgl= $_REQUEST['tanggal'];
 

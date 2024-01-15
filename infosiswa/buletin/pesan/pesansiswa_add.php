@@ -134,7 +134,7 @@ function simpan(){
   </tr>
   <tr>
     <th scope="row">Tanggal&nbsp;Tampil</th>
-    <td><input title="Klik untuk membuka kalender !" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=date(d)."-".date('m')."-".date('Y'); ?>"/><img title="Klik untuk membuka kalender !" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
+    <td><input title="Klik untuk membuka kalender !" type="text" name="tanggal" id="tanggal" size="25" readonly="readonly" class="disabled" value="<?=date('d')."-".date('m')."-".date('Y'); ?>"/><img title="Klik untuk membuka kalender !" src="../../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/></td>
   </tr>
   <tr>
     <th colspan="2" valign="top" scope="row">Pesan<br />

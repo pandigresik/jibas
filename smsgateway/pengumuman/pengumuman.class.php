@@ -125,7 +125,7 @@ class Pengumuman{
                                     <?php
                                     for ($i=1; $i<=31; $i++){
                                         ?>
-                                        <option value="<?=$i?>" <?=StringIsSelected($i,date(d))?>><?=$i?></option>
+                                        <option value="<?=$i?>" <?=StringIsSelected($i,date('d'))?>><?=$i?></option>
                                         <?php
                                     }
                                     ?>

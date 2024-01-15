@@ -149,7 +149,7 @@ function validate(){
     <td><strong>Tanggal</strong></td>
     <td>
         <input title="Klik untuk membuka kalender !" type="text" name="tanggal" id="tanggal" size="10" readonly="readonly"
-               class="disabled" value="<?=date(d)."-".date('m')."-".date('Y'); ?>"
+               class="disabled" value="<?=date('d')."-".date('m')."-".date('Y'); ?>"
                style="font-size: 14px; height: 24px; background-color: #eee" />&nbsp;
         <img title="Klik untuk membuka kalender !" src="../images/ico/calendar_1.png" name="btntanggal" width="16" height="16" border="0" id="btntanggal"/>
     </td>
