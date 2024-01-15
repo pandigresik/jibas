@@ -45,7 +45,7 @@ class CPenggunaAdd
 			}
 			else
 			{
-				$temp = explode(":", {$_REQUEST['perpustakaan']});
+				$temp = explode(":", $_REQUEST['perpustakaan']);
 				$idperpustakaan = $temp[0];
 		
 				$sql = "UPDATE ".get_db_name('user').".hakakses

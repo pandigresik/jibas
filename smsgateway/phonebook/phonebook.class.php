@@ -355,8 +355,7 @@ class Phonebook
 			if ($row[0] == 0)
 			{
 				$sql = "INSERT INTO phonebook
-						   SET nama='".$pb[0]', nohp='$pb[1]', `status`='$pb[2]."',
-							   keterangan='".$pb[3]', idreplid='$pb[4]."'";
+						   SET nama='".$pb[0]."', nohp='$pb[1]', `status`='".$pb[2]."',keterangan='".$pb[3]."', idreplid='".$pb[4]."'";
 				QueryDb($sql);
 			}
 			else

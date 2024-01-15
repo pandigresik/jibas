@@ -62,7 +62,7 @@ else
 <table border="0">
 <tr>
     <td><strong>Tanggal </strong></td>
-    <td><strong>: <?= LongDateInaFormat($_REQUEST["tahun"], $_REQUEST["bulan"], {$_REQUEST["tanggal"]}) ?></strong></td>
+    <td><strong>: <?= LongDateInaFormat($_REQUEST["tahun"], $_REQUEST["bulan"], $_REQUEST["tanggal"]) ?></strong></td>
 </tr>
 <tr>
     <td><strong>Petugas </strong></td>

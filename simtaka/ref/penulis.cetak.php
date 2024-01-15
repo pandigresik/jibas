@@ -63,7 +63,7 @@ $departemen='yayasan';
 	  <?php
 	  if ($num>0){
 		  while ($row=@mysqli_fetch_array($result)){
-				$num_judul = @mysqli_num_rows(QueryDb("SELECT * FROM pustaka p, penulis pn WHERE pn.replid=$row['replid'] AND pn.replid=p.penulis"));
+				$num_judul = @mysqli_num_rows(QueryDb("SELECT * FROM pustaka p, penulis pn WHERE pn.replid={$row['replid']} AND pn.replid=p.penulis"));
 				$num_pustaka = @mysqli_fetch_row(QueryDb("SELECT COUNT(d.replid) FROM pustaka p, daftarpustaka d, penulis pn WHERE d.pustaka=p.replid AND pn.replid='".$row['replid']."' AND p.penulis=pn.replid"));	
 		  ?>
 		  <tr>

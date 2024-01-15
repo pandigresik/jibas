@@ -36,11 +36,11 @@ class CPustakaAdd
 			}
 			else
 			{
-				$departemen = ($_REQUEST['dep'] == "--ALL--") ? "NULL" : "'" . {$_REQUEST['dep']} . "'";
+				$departemen = ($_REQUEST['dep'] == "--ALL--") ? "NULL" : "'" . $_REQUEST['dep'] . "'";
 				
 				$sql = "INSERT INTO perpustakaan
-						   SET nama = '" . {$_REQUEST['nama']} . "',
-							   keterangan = '" . {$_REQUEST['keterangan']} . "',
+						   SET nama = '" . $_REQUEST['nama'] . "',
+							   keterangan = '" . $_REQUEST['keterangan'] . "',
 							   departemen = $departemen";
 				QueryDb($sql);
 			

@@ -293,7 +293,7 @@ function panggil(elem){
 			} else {
 				$sel[$i] = "";
 			}
-			echo  "<option value='".$row_pro['departemen']."' $sel[$i]>$row_pro['departemen']";
+			echo  "<option value='".$row_pro['departemen']."' $sel[$i]>".$row_pro['departemen'];
 			$i++;
 		}
 	?>

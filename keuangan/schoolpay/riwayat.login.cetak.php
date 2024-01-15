@@ -60,7 +60,7 @@ OpenDb();
         </tr>
         <tr>
             <td><strong>Tanggal</strong></td>
-            <td><strong>: <?= LongDateInaFormat($_REQUEST["tahun"], $_REQUEST["bulan"], {$_REQUEST["tanggal"]}) ?></strong></td>
+            <td><strong>: <?= LongDateInaFormat($_REQUEST["tahun"], $_REQUEST["bulan"], $_REQUEST["tanggal"]) ?></strong></td>
         </tr>
         </table>
         <br />

@@ -37,7 +37,7 @@ class Pegawai{
 								echo "<option value='$bagian' ";
 								if ($bagian==$this->bag)
 									echo "selected";
-								echo ".$bagian."</option>";
+								echo ">".$bagian."</option>";
 							}
 							?>
 						</select>

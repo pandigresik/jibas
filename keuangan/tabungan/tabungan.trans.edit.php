@@ -120,7 +120,7 @@ if (1 == (int)$_REQUEST['issubmit'])
                 while($row = mysqli_fetch_row($res))
                 {
                     $sel = $row[0] == $rekkastrans ? "selected" : "";
-                    echo "<option value='".$row[0]."' $sel>".$row[0] $row[1]."</option>";
+                    echo "<option value='".$row[0]."' $sel>{$row[0]} {$row[1]}</option>";
                 } ?>                
             </select>
         </td>

@@ -44,7 +44,7 @@ $urutan = $_REQUEST["urutan"];
 $keterangan = SafeText($_REQUEST["keterangan"]);
 $smsinfo = isset($_REQUEST["smsinfo"]) ? 1 : 0;
 
-$temp = str_replace("`", "\"", {$_REQUEST["lsPenerimaan"]});
+$temp = str_replace("`", "\"", $_REQUEST["lsPenerimaan"]);
 $lsPenerimaan = json_decode($temp);
 
 OpenDb();

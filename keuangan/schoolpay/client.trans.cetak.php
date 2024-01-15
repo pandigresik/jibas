@@ -55,7 +55,7 @@ OpenDb();
         <table border="0">
         <tr>
             <td><strong>Bulan </strong></td>
-            <td><strong>: <?= InaMonthName($_REQUEST["bulan"]) . " " . {$_REQUEST["tahun"]} ?></strong></td>
+            <td><strong>: <?= InaMonthName($_REQUEST["bulan"]) . " " . $_REQUEST["tahun"] ?></strong></td>
         </tr>
         </table>
         <br />

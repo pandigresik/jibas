@@ -32,7 +32,7 @@ function ShowSelectDept()
     {
         if ($departemen == "")
             $departemen = $value;
-        echo "<option value='$value' " . StringIsSelected($value, $departemen) . ".$value."</option>";
+        echo "<option value='$value' " . StringIsSelected($value, $departemen) . ">".$value."</option>";
     }
     echo "</select>";
 }

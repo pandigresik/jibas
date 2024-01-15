@@ -95,7 +95,7 @@ function BrowseChannel($idPelajaran)
         echo "</td>";
         echo "<td align='left' valign='top' width='100px'><br>";
         echo "<span style='margin-left: 10px; line-height: 18px; color: #666;'>$nMedia Video</span><br>";
-        echo "<span style='margin-left: 10px; line-height: 18px; color: #666;'>$row['nfollower'] Follower</span><br>";
+        echo "<span style='margin-left: 10px; line-height: 18px; color: #666;'>{$row['nfollower']} Follower</span><br>";
         echo "</td>";
         echo "</tr>";
     }

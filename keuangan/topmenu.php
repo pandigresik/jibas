@@ -34,7 +34,7 @@ if (isset($_REQUEST['op']))
 
 if ($op=="a5t2vb7ys763yhuy7s")
 {
-	$sql="UPDATE jbsuser.hakakses SET theme='".$_REQUEST['tema'] 'WHERE login='".getIdUser()."' AND modul='KEUANGAN'";
+	$sql="UPDATE jbsuser.hakakses SET theme='".$_REQUEST['tema']."' WHERE login='".getIdUser()."' AND modul='KEUANGAN'";
 	$result=QueryDb($sql);
 	session_name("jbsfina");
 	session_start();

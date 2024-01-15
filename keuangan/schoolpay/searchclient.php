@@ -30,9 +30,9 @@ require_once('../library/departemen.php');
 require_once('searchclient.func.php');
 
 $departemen = $_REQUEST["departemen"];
-$filter = isset($_REQUEST["filter"]) ? {$_REQUEST["filter"]} : "nama";
-$data = isset($_REQUEST["data"]) ? {$_REQUEST["data"]} : "siswa";
-$keyword = isset($_REQUEST["keyword"]) ? {$_REQUEST["keyword"]} : "";
+$filter = isset($_REQUEST["filter"]) ? $_REQUEST["filter"] : "nama";
+$data = isset($_REQUEST["data"]) ? $_REQUEST["data"] : "siswa";
+$keyword = isset($_REQUEST["keyword"]) ? $_REQUEST["keyword"] : "";
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

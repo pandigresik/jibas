@@ -83,12 +83,12 @@ $to		= explode('-',$to);
 </tr>
 <tr>
     <td align="center" valign="top">
-        <img src="<?="statimage.php?type=bar&key=$_REQUEST['from'],$_REQUEST['to']&Limit=$limit&krit=3&perpustakaan=$perpustakaan" ?>" />
+        <img src="<?="statimage.php?type=bar&key={$_REQUEST['from']},{$_REQUEST['to']}&Limit=$limit&krit=3&perpustakaan=$perpustakaan" ?>" />
     </td>
 </tr>
 <tr>
     <td align="center" valign="top">
-    	<img src="<?="statimage.php?type=pie&key=$_REQUEST['from'],$_REQUEST['to']&Limit=$limit&krit=3&perpustakaan=$perpustakaan" ?>" />
+    	<img src="<?="statimage.php?type=pie&key={$_REQUEST['from']},{$_REQUEST['to']}&Limit=$limit&krit=3&perpustakaan=$perpustakaan" ?>" />
     </td>
 </tr>
 <tr>

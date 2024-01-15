@@ -108,7 +108,7 @@ class Kritik{
 							echo "<option value='$y' ";
 							if ($y==$this->tahun)
 								echo "selected";
-							echo ".$y."</option>";
+							echo ">".$y."</option>";
 						}
 						?>
 					</select>

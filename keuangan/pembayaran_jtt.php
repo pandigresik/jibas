@@ -301,7 +301,7 @@ if ($op == "348328947234923")
 	CloseDb();
 
     $r = rand(10000, 99999);		
-	header("Location: pembayaran_jtt.php?r=$r&idkategori=$idkategori&idpenerimaan=$idpenerimaan&nis=$nis&idtahunbuku=$idtahunbuku&errmsg=$errmsg&besar=$besar&cicilan=$cicilan&keterangan=$_REQUEST['keterangan']&lunas=$lunas");
+	header("Location: pembayaran_jtt.php?r=$r&idkategori=$idkategori&idpenerimaan=$idpenerimaan&nis=$nis&idtahunbuku=$idtahunbuku&errmsg=$errmsg&besar=$besar&cicilan=$cicilan&keterangan={$_REQUEST['keterangan']}&lunas=$lunas");
 	
 	exit();
 } 
