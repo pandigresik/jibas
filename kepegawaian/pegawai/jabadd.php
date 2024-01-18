@@ -64,7 +64,7 @@ if (isset($_REQUEST['btSubmit']))
 	
 	if ($success)
 	{
-		if (strlen(trim($idjabatan)) == 0)
+		if (strlen(trim((string) $idjabatan)) == 0)
 			$sql = "INSERT INTO pegjab SET namajab='$jabatan', nip='$nip', tmt='$tmt', sk='$sk', keterangan='$keterangan', terakhir='1', jenis='$jenis'";
 		else
 			$sql = "INSERT INTO pegjab SET namajab='$jabatan', nip='$nip', idjabatan=$idjabatan, tmt='$tmt', sk='$sk', keterangan='$keterangan', terakhir='1', jenis='$jenis'";

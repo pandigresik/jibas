@@ -37,13 +37,13 @@ if ($sender == "tambah")
   $jam = date('H').":".date('i').":00";
   $judul = CQ($_REQUEST['judul']);
   
-  $tgl = explode("-", $_REQUEST['tanggal']);
+  $tgl = explode("-", (string) $_REQUEST['tanggal']);
   $tanggal = $tgl[2]."-".$tgl[1]."-".$tgl[0];
   
   $abstrak = CQ($_REQUEST['abstrak']);
   
   $isi = $_REQUEST['isi'];
-  $isi = str_replace("'", "#sq;", $isi);
+  $isi = str_replace("'", "#sq;", (string) $isi);
   $idguru = SI_USER_ID();
   
   $sql1 = "INSERT INTO jbsvcr.beritaguru
@@ -67,13 +67,13 @@ elseif ($sender == "ubah")
 	
 	$judul = CQ($_REQUEST['judul']);
 	
-	$tgl = explode("-",$_REQUEST['tanggal']);
+	$tgl = explode("-",(string) $_REQUEST['tanggal']);
 	$tanggal = $tgl[2]."-".$tgl[1]."-".$tgl[0];
 	
 	$abstrak = CQ($_REQUEST['abstrak']);
 	
 	$isi = $_REQUEST['isi'];
-	$isi = str_replace("'", "#sq;", $isi);
+	$isi = str_replace("'", "#sq;", (string) $isi);
 	
 	$idguru = SI_USER_ID();
 	

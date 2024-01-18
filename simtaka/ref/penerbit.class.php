@@ -161,7 +161,7 @@ class CPenerbit{
 					?>				</td>
 			</tr>
 		</table>
-        <?php
+<?php
 	}
 }
 ?>

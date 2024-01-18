@@ -40,7 +40,7 @@ function ReadParams()
     if (isset($_REQUEST['no']))
         $no = CQ($_REQUEST['no']);
 
-    $komentar = urldecode($komentar);
+    $komentar = urldecode((string) $komentar);
 }
 
 function SimpanData()

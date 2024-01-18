@@ -82,7 +82,7 @@ $departemen = $row[0];
         <tr>
             <td colspan='2' align='left'>
             <span id='divPegawai'>
-        <?php      echo GetPegawai($idkegiatan, $bulan, $tahun, "Akademik"); ?>        
+        <?php      echo GetPegawai($idkegiatan, $bulan, $tahun); ?>        
             </span>    
             </td>
         </tr>

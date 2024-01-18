@@ -224,7 +224,7 @@ Halaman
 for($i = $minrownum - 1; $i < $maxrownum && $i < $ndata; $i++)
 {
 	$idpeg = $arridpeg[$i];
-	if (strlen(trim($idpeg)) == 0)
+	if (strlen(trim((string) $idpeg)) == 0)
 		continue;
 	
 	$cnt = $i;

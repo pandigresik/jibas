@@ -40,7 +40,7 @@ $pelajaran = $_REQUEST['pelajaran'];
 				$pelajaran = $row['replid'];			
 		?>
         
-    	<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $pelajaran)?> ><?=$row['nama']?></option>
+    	<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $pelajaran)?> ><?=$row['nama']?></option>
                   
     <?php } ?>
 </select>

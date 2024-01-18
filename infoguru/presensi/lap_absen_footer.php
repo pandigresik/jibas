@@ -210,7 +210,7 @@ function change_urut(urut,urutan) {
             <td align="center"><?=$row[13]?></td>
             <?php } ?>
             <td><?=$row[2]?></td>
-            <td align="center"><?=$row[3].'-'.$row[4].'-'.substr($row[5],2,2)?></td>
+            <td align="center"><?=$row[3].'-'.$row[4].'-'.substr((string) $row[5],2,2)?></td>
            	<td align="center"><?=$st ?></td>
             <td><?=$row[7] ?></td>
             <td align="center"><?=$row[8]?></td>

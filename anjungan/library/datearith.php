@@ -26,24 +26,24 @@ class DateArith
 	public static function DateToMinute($dt)
 	{
 		$pos1 = 0;
-		$pos2 = strpos($dt, "-", $pos1);
-		$YY =   substr($dt, $pos1, $pos2 - $pos1);
+		$pos2 = strpos((string) $dt, "-", $pos1);
+		$YY =   substr((string) $dt, $pos1, $pos2 - $pos1);
 		
 		$pos1 = $pos2 + 1;
-		$pos2 = strpos($dt, "-", $pos1);
-		$MM   = substr($dt, $pos1, $pos2 - $pos1);
+		$pos2 = strpos((string) $dt, "-", $pos1);
+		$MM   = substr((string) $dt, $pos1, $pos2 - $pos1);
 	
 		$pos1 = $pos2 + 1;
-		$pos2 = strpos($dt, " ", $pos1);
-		$DD   = substr($dt, $pos1, $pos2 - $pos1);
+		$pos2 = strpos((string) $dt, " ", $pos1);
+		$DD   = substr((string) $dt, $pos1, $pos2 - $pos1);
 	
 		$pos1 = $pos2 + 1;
-		$pos2 = strpos($dt, ":", $pos1);
-		$HH   = substr($dt, $pos1, $pos2 - $pos1);
+		$pos2 = strpos((string) $dt, ":", $pos1);
+		$HH   = substr((string) $dt, $pos1, $pos2 - $pos1);
 		
 		$pos1 = $pos2 + 1;
-		$pos2 = strpos($dt, ":", $pos1);
-		$MN   = substr($dt, $pos1, $pos2 - $pos1);
+		$pos2 = strpos((string) $dt, ":", $pos1);
+		$MN   = substr((string) $dt, $pos1, $pos2 - $pos1);
 		
 		$total  = $MN;
 		$total += $HH * 60;
@@ -57,7 +57,7 @@ class DateArith
 	
 	public static function FormatDigit($digit)
 	{
-		return strlen($digit) == 2 ? $digit : "0$digit";
+		return strlen((string) $digit) == 2 ? $digit : "0$digit";
 	}
 	
 	public static function TimeDiff($time1, $time2, &$hourDiff, &$minuteDiff, &$secondDiff)
@@ -66,24 +66,24 @@ class DateArith
 		$minuteDiff = 0;
 		$secondDiff = 0;
 		
-		if (strpos($time1, ":") === FALSE)
+		if (!str_contains((string) $time1, ":"))
 			return;
 		
-		if (strpos($time2, ":") === FALSE)
+		if (!str_contains((string) $time2, ":"))
 			return;
 		
-		$atime1 = explode(":", $time1);
-		$atime2 = explode(":", $time2);
+		$atime1 = explode(":", (string) $time1);
+		$atime2 = explode(":", (string) $time2);
 		
 		if (count($atime1) == 2)
-			$itime1 = array($atime1[0], $atime1[1], 0);
+			$itime1 = [$atime1[0], $atime1[1], 0];
 		else
-			$itime1 = array($atime1[0], $atime1[1], $atime1[2]);
+			$itime1 = [$atime1[0], $atime1[1], $atime1[2]];
 			
 		if (count($atime2) == 2)
-			$itime2 = array($atime2[0], $atime2[1], 0);
+			$itime2 = [$atime2[0], $atime2[1], 0];
 		else
-			$itime2 = array($atime2[0], $atime2[1], $atime2[2]);
+			$itime2 = [$atime2[0], $atime2[1], $atime2[2]];
 			
 		if (count($itime1) != 3 || count($itime2) != 3)
 			return;
@@ -133,23 +133,15 @@ class DateArith
 	
 	public static function InaDayName($weekday)
 	{
-		switch($weekday)
-		{
-			case 0:
-				return "Senin";
-			case 1:
-				return "Selasa";
-			case 2:
-				return "Rabu";
-			case 3:
-				return "Kamis";
-			case 4:
-				return "Jum'at";
-			case 5:
-				return "Sabtu";
-			default:
-				return "Minggu";
-		}
+		return match ($weekday) {
+      0 => "Senin",
+      1 => "Selasa",
+      2 => "Rabu",
+      3 => "Kamis",
+      4 => "Jum'at",
+      5 => "Sabtu",
+      default => "Minggu",
+  };
 	}
 	
 	public static function ToStringHour($h, $m, $s)
@@ -159,16 +151,16 @@ class DateArith
             $m = $m + (int)($s / 60);
             $s = $s % 60;
         }
-        $ss = str_pad($s, 2, '0', STR_PAD_LEFT);
+        $ss = str_pad((string) $s, 2, '0', STR_PAD_LEFT);
 
         if ($m > 60)
         {
             $h = $h + (int)($m / 60);
             $m = $m % 60;
         }
-        $ms = str_pad($m, 2, '0', STR_PAD_LEFT);
+        $ms = str_pad((string) $m, 2, '0', STR_PAD_LEFT);
 
-        $hs = str_pad($h, 2, '0', STR_PAD_LEFT);
+        $hs = str_pad((string) $h, 2, '0', STR_PAD_LEFT);
 
         return "$hs:$ms:$ss";
     }
@@ -181,7 +173,7 @@ class DateArith
 			$h = (int)($m / 60);
 			$m = $m % 60;
 		}
-		$ms = str_pad($m, 2, '0', STR_PAD_LEFT);
+		$ms = str_pad((string) $m, 2, '0', STR_PAD_LEFT);
 		$hs = str_pad($h, 2, '0', STR_PAD_LEFT); 
 
 		return "$hs:$ms";
@@ -189,10 +181,10 @@ class DateArith
 	
 	public static function TimeToMinute($time)
 	{
-		if (strpos($time, ":") === FALSE)
+		if (!str_contains((string) $time, ":"))
 			return 0;
 		
-		$tmp = explode(":", $time);
+		$tmp = explode(":", (string) $time);
 		if (is_numeric($tmp[0]) && is_numeric($tmp[1]))
 			return (int)$tmp[0] * 60 + (int)$tmp[1];
 		

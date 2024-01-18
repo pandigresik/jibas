@@ -131,20 +131,9 @@ $aspekket = $row2[0];
 			$dasar = '10'; //satuan
 			
 		//echo "dasar = $dasar<br>";	
-        $rentang = array(9*$dasar, 8*$dasar, 7*$dasar,
-						 6*$dasar, 5*$dasar, 4*$dasar,
-						 3*$dasar, 2*$dasar, 1*$dasar, 0);
+        $rentang = [9*$dasar, 8*$dasar, 7*$dasar, 6*$dasar, 5*$dasar, 4*$dasar, 3*$dasar, 2*$dasar, 1*$dasar, 0];
 		
-        $filter = array($rentang[0],
-						$rentang[1].'_'.$rentang[0],
-						$rentang[2].'_'.$rentang[1],
-						$rentang[3].'_'.$rentang[2],
-						$rentang[4].'_'.$rentang[3],
-						$rentang[5].'_'.$rentang[4],
-						$rentang[6].'_'.$rentang[5],
-						$rentang[7].'_'.$rentang[6],
-						$rentang[8].'_'.$rentang[7],
-						$rentang[9].'_'.$rentang[8]);
+        $filter = [$rentang[0], $rentang[1].'_'.$rentang[0], $rentang[2].'_'.$rentang[1], $rentang[3].'_'.$rentang[2], $rentang[4].'_'.$rentang[3], $rentang[5].'_'.$rentang[4], $rentang[6].'_'.$rentang[5], $rentang[7].'_'.$rentang[6], $rentang[8].'_'.$rentang[7], $rentang[9].'_'.$rentang[8]];
 		
 		$sql = "SELECT SUM(IF(nilaiangka >= $rentang[0],1,0)) as j1,
 					   SUM(IF(nilaiangka>=$rentang[1] AND nilaiangka<$rentang[0],1,0)) as j2,
@@ -186,9 +175,7 @@ $aspekket = $row2[0];
             //$lab = array(">=90",">=80",">=70",">=60",">=50",">=40",">=30",">=20",">=10");
             while($fetch = @mysqli_fetch_array($result))
 			{			
-                $data = array($fetch[j1], $fetch[j2], $fetch[j3],
-							  $fetch[j4], $fetch[j5], $fetch[j6],
-							  $fetch[j7], $fetch[j8], $fetch[j9], $fetch[j10]);
+                $data = [$fetch[\J1], $fetch[\J2], $fetch[\J3], $fetch[\J4], $fetch[\J5], $fetch[\J6], $fetch[\J7], $fetch[\J8], $fetch[\J9], $fetch[\J10]];
             }
         }
                     
@@ -213,7 +200,7 @@ $aspekket = $row2[0];
                         <?php } ?>            </td>
                         <?php //} ?>
                       </tr>
-                      <?php
+<?php
                       }
                       ?>
                     </table>

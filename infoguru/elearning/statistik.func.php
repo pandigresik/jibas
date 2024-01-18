@@ -45,7 +45,7 @@ function ShowCbDepartemen()
 
 function ShowDaftarStatistik($dept)
 {
-    $pelList = array();
+    $pelList = [];
 
     $sql = "SELECT c.idpelajaran, p.nama
               FROM jbsel.channel c, jbsakad.pelajaran p 
@@ -57,7 +57,7 @@ function ShowDaftarStatistik($dept)
     $res = QueryDb($sql);
     while($row = mysqli_fetch_row($res))
     {
-        $pelList[] = array($row[0], $row[1]);
+        $pelList[] = [$row[0], $row[1]];
     }
 
     $nPel = count($pelList);

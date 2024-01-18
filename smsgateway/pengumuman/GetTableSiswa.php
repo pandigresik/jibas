@@ -63,7 +63,7 @@ $Nama = $_REQUEST['Nama'];
     <td class="td"><?=$row['hpsiswa']?></td>
     <td class="td"><?=$row['hportu']?></td>
     <td class="td" align="center">
-    <?php if (strlen($row['hpsiswa'])>0 || strlen($row['hportu'])>0){ ?>
+    <?php if (strlen((string) $row['hpsiswa'])>0 || strlen((string) $row['hportu'])>0){ ?>
     <div align="center" class="BtnSilver90" onclick="InsertNewReceipt2('<?=$row['hpsiswa']?>_<?=$row['hportu']?>','<?=$row['nama']?>_<?=$row['namaayah']?>','<?=$row['nis']?>')"  />Pilih</div>
     <?php } ?>
     </td>

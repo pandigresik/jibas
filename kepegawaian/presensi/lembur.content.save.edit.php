@@ -37,7 +37,7 @@ try
     $jampulang = DateArith::FormatDigit($_REQUEST['jampulang']);
     $menitpulang = DateArith::FormatDigit($_REQUEST['menitpulang']);
     $keterangan = $_REQUEST['keterangan'];
-	$keterangan = str_replace("'", "`", $keterangan);
+	$keterangan = str_replace("'", "`", (string) $keterangan);
 	$tglpresensi = $_REQUEST['tglpresensi'];
     
 	$jmasuk = "";

@@ -72,7 +72,7 @@ $row=@mysqli_fetch_array($result);
     <td width="236" height="13" style="background-image:url(../../images/agenda_09.jpg);"><span class="style2"><?=$row['judul']?></span><br /><br />
 	<?php
 	$komentar = $row['komentar'];
-	$komentar = str_replace("#sq;", "'", $komentar);
+	$komentar = str_replace("#sq;", "'", (string) $komentar);
     $komentar = str_replace("`", "\"", $komentar);
 	echo $komentar;
 	?>

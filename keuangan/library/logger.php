@@ -1,16 +1,16 @@
 <?php
 class Logger
 {
-    private $logFile = "";
+    private string $logFile = "";
     private $file;
 
     public function __construct()
     {
-        $logPath = realpath(dirname(__FILE__)) . "/../log";
+        $logPath = realpath(__DIR__) . "/../log";
         if (!file_exists($logPath))
             mkdir($logPath);
 
-        $this->logFile = realpath(dirname(__FILE__)) . "/../log/debugger.log";
+        $this->logFile = realpath(__DIR__) . "/../log/debugger.log";
 
         $this->file = fopen($this->logFile, "a");
         fwrite($this->file, "-------------------------------------------\r\n");

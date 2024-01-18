@@ -30,7 +30,7 @@ $sql = "SELECT replid,kode,nama FROM penulis ORDER BY nama";
 $result = QueryDb($sql);
 $max=0;
 while ($row = @mysqli_fetch_row($result)){
-	$newmax = strlen($row[2]);
+	$newmax = strlen((string) $row[2]);
 	if ($newmax>$max)
 		$max=$newmax;
 }
@@ -40,7 +40,7 @@ while ($row = @mysqli_fetch_row($result)){
 $sql = "SELECT replid,kode,nama FROM penulis ORDER BY nama";
 $result = QueryDb($sql);
 while ($row = @mysqli_fetch_row($result)){
-$len = strlen($row[2]);
+$len = strlen((string) $row[2]);
 $space = GetSpace($max,$len);
 if ($penulis=="")
 	$penulis = $row[0];	

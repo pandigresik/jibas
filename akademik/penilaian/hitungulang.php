@@ -182,7 +182,7 @@ if($my_data != "") {
     	$i++;
 		
 		$disp_nis = $ns;
-		$disp_nama = $d[nama];
+		$disp_nama = $d[\NAMA];
 				
 		if($r_aturan != 0){            
 			$id_aturan = null;
@@ -200,11 +200,11 @@ if($my_data != "") {
 				$result_nhb = QueryDb($query_nhb) or die(mysqli_error($mysqlconnection));
 		
 				while($row_nhb = @mysqli_fetch_array($result_nhb)) {
-					$plit = explode(";", $row_nhb['BobotPenilaian']);
+					$plit = explode(";", (string) $row_nhb['BobotPenilaian']);
 					if($plit != "") {
 						foreach($plit as $pl) {
 							$r++;
-							list($ujian, $bobot) = explode(":", $pl);
+							[$ujian, $bobot] = explode(":", $pl);
 							if($bobot != "") {
 								$as[$r] = $bobot;
 							}

@@ -143,13 +143,13 @@ function FormatRupiah($value) {
 }
 
 function UnformatRupiah($value) {
-	$pos = strpos($value, "(");
+	$pos = strpos((string) $value, "(");
 
 	$negatif = true;
 	if ($pos === false) 
 		$negatif = false;
 
-	$value = str_replace("Rp","",$value);
+	$value = str_replace("Rp","",(string) $value);
 	$value = str_replace(".","",$value);
 	$value = str_replace(" ","",$value);
 	$value = str_replace("(","",$value);

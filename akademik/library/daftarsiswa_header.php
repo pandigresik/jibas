@@ -159,7 +159,7 @@ function tampil() {
 			if ($tingkat == "")
 				$tingkat = $row['replid'];				
 			?>
-          <option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat) ?>>
+          <option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat) ?>>
             <?=$row['tingkat']?>
             </option>
           <?php
@@ -179,7 +179,7 @@ function tampil() {
 			if ($kelas == "")
 				$kelas = $row['replid'];				 
 			?>
-    	<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $kelas) ?>><?=$row['kelas']?></option>
+    	<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $kelas) ?>><?=$row['kelas']?></option>
              
     		<?php
 			} //while

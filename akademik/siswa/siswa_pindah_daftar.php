@@ -33,8 +33,8 @@ $idtingkat = $_REQUEST['idtingkat'];
 $idtahunajaran = $_REQUEST['idtahunajaran'];
 $idkelas = $_REQUEST['idkelas'];
 $jenis = $_REQUEST['jenis'];
-$nis = trim($_REQUEST['nis']);
-$nama = trim($_REQUEST['nama']);
+$nis = trim((string) $_REQUEST['nis']);
+$nama = trim((string) $_REQUEST['nama']);
 $pilihan = "";	
 if (isset($_REQUEST['pilihan']))
 	$pilihan = $_REQUEST['pilihan'];	

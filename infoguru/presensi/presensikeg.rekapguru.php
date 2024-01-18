@@ -31,8 +31,8 @@ require_once('../library/datearith.php');
 require_once('../sessionchecker.php');
 require_once('presensikeg.rekapguru.func.php');
 
-$bulan = isset($_REQUEST['bulan']) ? $_REQUEST['bulan'] : date('n');
-$tahun = isset($_REQUEST['tahun']) ? $_REQUEST['tahun'] : date('Y');
+$bulan = $_REQUEST['bulan'] ?? date('n');
+$tahun = $_REQUEST['tahun'] ?? date('Y');
 
 $nip = SI_USER_ID();    
 

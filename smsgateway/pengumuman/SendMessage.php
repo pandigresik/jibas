@@ -27,7 +27,7 @@ require_once('../include/common.php');
 
 OpenDb();
 $Sender		= CQ($_REQUEST['Sender']);// => Ellyf TS
-$Message	= stripslashes($_REQUEST['Message']);// => Pesannnya
+$Message	= stripslashes((string) $_REQUEST['Message']);// => Pesannnya
 $Message	= str_replace("^","&",$Message);
 $NoPe		= $_REQUEST['NoPe'];// =>; 085624084062,085624084062
 $SendTime	= $_REQUEST['SendTime'];// => 2010-2-2 16:37:00
@@ -35,18 +35,18 @@ $NoIn		= $_REQUEST['NoIn'];
 $pin1		= $_REQUEST['Pin1'];
 $pin2		= $_REQUEST['Pin2'];
 $Nama		= $_REQUEST['Nama'];
-$X			= explode(' ',$SendTime);
+$X			= explode(' ',(string) $SendTime);
 $smsgeninfo	  = "Pengumuman";	
 
 $idsmsgeninfo = GetLastId('replid','smsgeninfo');	
 $sql = "INSERT INTO smsgeninfo SET replid='$idsmsgeninfo',tanggal='".$X[0]."',tipe='2',info='$smsgeninfo',pengirim='$Sender'";
 $res = QueryDb($sql);
 
-$No		= explode('>',$NoPe);
-$Nama	= explode('>',$Nama);
-$NoID	= explode('>',$NoIn);
-$PIN1	= explode('>',$pin1);
-$PIN2	= explode('>',$pin2);
+$No		= explode('>',(string) $NoPe);
+$Nama	= explode('>',(string) $Nama);
+$NoID	= explode('>',(string) $NoIn);
+$PIN1	= explode('>',(string) $pin1);
+$PIN2	= explode('>',(string) $pin2);
 
 $Receiver = 0;
 for ($i=0; $i<count($No);$i++)

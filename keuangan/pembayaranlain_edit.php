@@ -368,12 +368,12 @@ function angka(){
     <td width="28" background="<?=GetThemeDir() ?>bgpop_09.jpg">&nbsp;</td>
 </tr>
 </table>
-<?php if (strlen($mysqli_ERROR_MSG) > 0) { ?>
+<?php if (strlen((string) $mysqli_ERROR_MSG) > 0) { ?>
 	<center>
     <font color="red"><strong><?=$mysqli_ERROR_MSG?></strong></font>
     </center>
 <?php } ?>
-<?php if (strlen($ERROR_MSG) > 0) { ?>
+<?php if (strlen((string) $ERROR_MSG) > 0) { ?>
 	<center>
     <font color="red"><strong><?=$ERROR_MSG?></strong></font>
     </center>

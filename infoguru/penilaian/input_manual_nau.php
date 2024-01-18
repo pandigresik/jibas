@@ -150,7 +150,7 @@ function focusNext(elemName, evt) {
         $i=1;
         while ($row_cek_ujian=@mysqli_fetch_array($result_cek_ujian)){
             $idujian[$i] = $row_cek_ujian['replid'];			
-            $tgl = explode("-",$row_cek_ujian['tanggal']);
+            $tgl = explode("-",(string) $row_cek_ujian['tanggal']);
             
         ?>
            <td height="30" width="50" class="headerlong" align="center" onMouseOver="showhint('Deskripsi :\n <?=$row_cek_ujian['deskripsi']?>', this, event, '120px')"><?=$namajenis."-".$i?>&nbsp;

@@ -122,8 +122,8 @@ $row = mysqli_fetch_array($result);
      <tr height="25" valign="middle">        			
         <td align="center" valign="middle"><span class="style7"><?=$cnt?></span></td>
       	<td align="center" valign="middle"><span class="style7">
-		<?=$row[1].'-'.$row[2].'-'.substr($row[3],2,2)?></span></td>
-      	<td align="center" valign="middle"><span class="style7"><?=substr($row[4],0,5)?></span></td>
+		<?=$row[1].'-'.$row[2].'-'.substr((string) $row[3],2,2)?></span></td>
+      	<td align="center" valign="middle"><span class="style7"><?=substr((string) $row[4],0,5)?></span></td>
         <td align="center" valign="middle"><span class="style7"><?=$row[0]?></span></td>
       	<td valign="middle"><span class="style7"><?=$row[5]?></span></td>
       	<td valign="middle"><span class="style7"><?=$row[6]?></span></td>
@@ -158,8 +158,8 @@ $row = mysqli_fetch_array($result);
         <td valign="middle" align="center"><span class="style7"><?=$cnt?></span></td>
         <td valign="middle" align="center"><span class="style7"><?=$row1[0]?></span></td>
         <td valign="middle" align="center"><span class="style7">
-		<?=$row1[1].'-'.$row1[2].'-'.substr($row1[3],2,2)?></span></td>
-        <td valign="middle" align="center"><span class="style7"><?=substr($row1[4],0,5)?></span></td>
+		<?=$row1[1].'-'.$row1[2].'-'.substr((string) $row1[3],2,2)?></span></td>
+        <td valign="middle" align="center"><span class="style7"><?=substr((string) $row1[4],0,5)?></span></td>
         <td valign="middle"><span class="style7"><?=$row1[5]?></span></td>
         <td valign="middle"><span class="style7"><?=$row1[6]?></span></td>
         <td valign="middle"><span class="style7"><?=$row1[7]?></span></td>

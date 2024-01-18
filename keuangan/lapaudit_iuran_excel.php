@@ -61,8 +61,8 @@ header('Content-Disposition: attachment; filename='.$filename);
 header('Expires: 0');  
 header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 		
-$tgl1 = explode(' ',$tanggal1);
-$tgl2 = explode(' ',$tanggal2);
+$tgl1 = explode(' ',(string) $tanggal1);
+$tgl2 = explode(' ',(string) $tanggal2);
 
 
 ?>
@@ -74,7 +74,7 @@ $tgl2 = explode(' ',$tanggal2);
 </head>
 
 <body>
-<center><font size="4" face="Verdana"><strong>LAPORAN AUDIT PERUBAHAN DATA IURAN SUKARELA <?=strtoupper($judul)?>SISWA</strong></font><br /> 
+<center><font size="4" face="Verdana"><strong>LAPORAN AUDIT PERUBAHAN DATA IURAN SUKARELA <?=strtoupper((string) $judul)?>SISWA</strong></font><br /> 
 </center>
 <br /><br />
 

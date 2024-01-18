@@ -95,21 +95,21 @@ function edit(id) {
 }
 
 function refresh() {	
-	document.location.href = "lappengeluaran_cari_content.php?departemen=<?=$departemen?>&tanggal1=<?=$tanggal1?>&tanggal2=<?=$tanggal2?>&kriteria=<?=$kriteria?>&keyword=<?=urlencode($keyword)?>";
+	document.location.href = "lappengeluaran_cari_content.php?departemen=<?=$departemen?>&tanggal1=<?=$tanggal1?>&tanggal2=<?=$tanggal2?>&kriteria=<?=$kriteria?>&keyword=<?=urlencode((string) $keyword)?>";
 	//document.location.reload();
 }
 
 function cetak() {
 	var total = document.getElementById("total").value;
 	
-	var addr = "lappengeluaran_cari_cetak.php?idtahunbuku=<?=$idtahunbuku?>&departemen=<?=$departemen?>&tanggal1=<?=$tanggal1?>&tanggal2=<?=$tanggal2?>&kriteria=<?=$kriteria?>&keyword=<?=urlencode($keyword)?>&urut=<?=$urut?>&urutan=<?=$urutan?>&varbaris=<?=$varbaris?>&page=<?=$page?>&total="+total;
+	var addr = "lappengeluaran_cari_cetak.php?idtahunbuku=<?=$idtahunbuku?>&departemen=<?=$departemen?>&tanggal1=<?=$tanggal1?>&tanggal2=<?=$tanggal2?>&kriteria=<?=$kriteria?>&keyword=<?=urlencode((string) $keyword)?>&urut=<?=$urut?>&urutan=<?=$urutan?>&varbaris=<?=$varbaris?>&page=<?=$page?>&total="+total;
 	newWindow(addr, 'CetakCariDetailLapPengeluaran','780','580','resizable=1,scrollbars=1,status=0,toolbar=0');
 }
 
 function excel() {
 	var total = document.getElementById("total").value;
 	
-	var addr = "lappengeluaran_cari_excel.php?idtahunbuku=<?=$idtahunbuku?>&departemen=<?=$departemen?>&tanggal1=<?=$tanggal1?>&tanggal2=<?=$tanggal2?>&kriteria=<?=$kriteria?>&keyword=<?=urlencode($keyword)?>&urut=<?=$urut?>&urutan=<?=$urutan?>&varbaris=<?=$varbaris?>&page=<?=$page?>&total="+total;
+	var addr = "lappengeluaran_cari_excel.php?idtahunbuku=<?=$idtahunbuku?>&departemen=<?=$departemen?>&tanggal1=<?=$tanggal1?>&tanggal2=<?=$tanggal2?>&kriteria=<?=$kriteria?>&keyword=<?=urlencode((string) $keyword)?>&urut=<?=$urut?>&urutan=<?=$urutan?>&varbaris=<?=$varbaris?>&page=<?=$page?>&total="+total;
 	newWindow(addr, 'ExcelCariDetailLapPengeluaran','780','580','resizable=1,scrollbars=1,status=0,toolbar=0');
 }
 
@@ -122,7 +122,7 @@ function change_urut(urut,urutan) {
 		urutan="ASC"
 	}
 	
-	document.location.href = "lappengeluaran_cari_content.php?departemen=<?=$departemen?>&tanggal1=<?=$tanggal1?>&tanggal2=<?=$tanggal2?>&urut="+urut+"&urutan="+urutan+"&page=<?=$page?>&hal=<?=$hal?>&varbaris="+varbaris+"&kriteria=<?=$kriteria?>&keyword=<?=urlencode($keyword)?>";
+	document.location.href = "lappengeluaran_cari_content.php?departemen=<?=$departemen?>&tanggal1=<?=$tanggal1?>&tanggal2=<?=$tanggal2?>&urut="+urut+"&urutan="+urutan+"&page=<?=$page?>&hal=<?=$hal?>&varbaris="+varbaris+"&kriteria=<?=$kriteria?>&keyword=<?=urlencode((string) $keyword)?>";
 }
 
 function change_page(page) {

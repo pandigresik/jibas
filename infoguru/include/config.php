@@ -83,10 +83,10 @@ $full_url = "http://$G_SERVER_ADDR/infoguru/";
 function FmtReq_PreventInjection($value)
 {
     $result = $value;
-    $loValue = strtolower($result);
+    $loValue = strtolower((string) $result);
 
-    $arrKeyFound = array();
-    $arrKey = array("union ", "union*", "select ", "select*", "-- ");
+    $arrKeyFound = [];
+    $arrKey = ["union ", "union*", "select ", "select*", "-- "];
     for($i = 0; $i < count($arrKey); $i++)
     {
         $key = $arrKey[$i];
@@ -96,7 +96,7 @@ function FmtReq_PreventInjection($value)
         if ($pos === false)
             continue;
 
-        $search = substr($result, $pos, $keyLen);
+        $search = substr((string) $result, $pos, $keyLen);
         $arrKeyFound[] = $search;
     }
 
@@ -104,7 +104,7 @@ function FmtReq_PreventInjection($value)
     {
         $search = $arrKeyFound[$i];
         $replace = substr($search, 0, 1) . " " . substr($search, 1);
-        $result = str_replace($search, $replace, $result);
+        $result = str_replace($search, $replace, (string) $result);
     }
 
     return $result;
@@ -112,7 +112,7 @@ function FmtReq_PreventInjection($value)
 
 function FmtReq_FormatValue($value)
 {
-    $value = str_replace("'", "`", $value);  //&#39;
+    $value = str_replace("'", "`", (string) $value);  //&#39;
 	$value = str_replace('"', "`", $value);  //&#34;
 	$value = addslashes($value);
 

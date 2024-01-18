@@ -178,7 +178,7 @@ function hapusfile(field){
     <td colspan="2">
 		<textarea name="abstrak" id="abstrak" cols="100">
 <?php 	$abstrak = $row['abstrak'];
-		$abstrak = str_replace("#sq;", "'", $abstrak);
+		$abstrak = str_replace("#sq;", "'", (string) $abstrak);
 		echo $abstrak;	 ?>
 		</textarea>
 	 </td>
@@ -188,7 +188,7 @@ function hapusfile(field){
     <td colspan="2">
 		<textarea name="isi" id="isi" rows="30" cols="100">
 <?php  	$isi = $row['isi'];
-		$isi = str_replace("#sq;", "'", $isi);
+		$isi = str_replace("#sq;", "'", (string) $isi);
 		echo $isi; ?>
 		</textarea></td>
   </tr>

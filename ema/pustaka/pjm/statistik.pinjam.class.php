@@ -210,7 +210,7 @@ class CStat{
 		  </tr>
 		</table>
 
-        <?php
+<?php
 	}
 	function GetMemberName(){
 		$idanggota = $this->idanggota;

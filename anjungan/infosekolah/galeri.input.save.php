@@ -118,11 +118,11 @@ try
         $nip = "'$login'";
     }
     
-    $text = trim($_REQUEST['judul']);
+    $text = trim((string) $_REQUEST['judul']);
     $judul = $text;
     $fjudul = FormattedText($text);
     
-    $text = trim($_REQUEST['keterangan']);
+    $text = trim((string) $_REQUEST['keterangan']);
     $keterangan = RecodeNewLine($text);
     $fketerangan = FormattedText($text);
     $fprevketerangan = FormattedPreviewText($text, $previewTextLength);
@@ -143,13 +143,13 @@ try
     
     // == Save Cover
     $file = $_FILES["cover_file"];
-    $text = trim($_REQUEST["cover_info"]);
+    $text = trim((string) $_REQUEST["cover_info"]);
     $fileinfo = $text;
     $ffileinfo = FormattedText($text);
     
-    $rnd = rand(10000, 99999);
+    $rnd = random_int(10000, 99999);
     $name = $file['name'];
-    $pict = $galleryid . "_" . $rnd . "_" . str_replace(" ", "_", $name);
+    $pict = $galleryid . "_" . $rnd . "_" . str_replace(" ", "_", (string) $name);
     $type = $file['type'];
     $size = $file['size'];
     $location = "anjungan/galeri/" . date('Y');
@@ -176,14 +176,14 @@ try
         $file = $_FILES[$doc];
         
         $reqid = "gambar_info_$i";
-        $text = trim($_REQUEST[$reqid]);
+        $text = trim((string) $_REQUEST[$reqid]);
         $gbrinfo = $text;
         $fgbrinfo = FormattedText($text);
         
-        $rnd = rand(10000, 99999);
+        $rnd = random_int(10000, 99999);
         
         $name = $file['name'];
-        $name = $galleryid . "_" . $rnd . "_" . str_replace(" ", "_", $name);
+        $name = $galleryid . "_" . $rnd . "_" . str_replace(" ", "_", (string) $name);
         $type = $file['type'];
         $size = $file['size'];
         $location = "anjungan/galeri/" . date('Y');

@@ -119,8 +119,8 @@ $adaBerkas = $row[3];
             $rp = FormatRupiah($jumlah);
             $total += $jumlah;
 
-            $noKas = trim($row["nokas"]);
-            $keterangan = trim($row["keterangan"]);
+            $noKas = trim((string) $row["nokas"]);
+            $keterangan = trim((string) $row["keterangan"]);
 
             $info = "";
             if (strlen($noKas) > 0)

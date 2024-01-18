@@ -36,7 +36,7 @@ if ($op=="34983xihxf084bzux834hx8x7x93")
 	$numdel=(int)$_REQUEST["numdel"]-1;
 	$msgall=$_REQUEST["listdel"];
 	$x=0;
-	$msg=explode("|",$msgall);
+	$msg=explode("|",(string) $msgall);
 
 	OpenDb();	
 	while ($x<=$numdel)
@@ -304,14 +304,14 @@ function savepesan(){
 	<td height="25"><?=$depan?><div align="center"><?=$row1['tanggal']?><br><?=$row1['waktu']?></div><?=$belakang?></td>
     <td height="25"><?=$depan?><?=$row1['nip']?>-<?=$row1['nama']?><?=$belakang?></td>
     <?php 
-	$sql2="SELECT direktori,namafile FROM jbsvcr.lampiranpesan WHERE idpesan='".$row1[replid2]."'";
+	$sql2="SELECT direktori,namafile FROM jbsvcr.lampiranpesan WHERE idpesan='".$row1[\REPLID2]."'";
 	$result2=QueryDb($sql2); 
 	?>
     <td width="22" height="25"><?=$depan?><?php if (@mysqli_num_rows($result2)>0){ ?><img title="Disertai Lampiran" src="../../images/ico/attachment1.png"/><?php } ?><?=$belakang?></td>
     <td height="25"><?=$depan?><?php if ($row1['baru']==1) { ?><img title="Belum dibaca..." src="../../images/ico/unread.png" /><?php } else { ?><img src="../../images/ico/readen.png" title="Sudah dibaca..." /><?php } ?><a href="#" onClick="bacapesan('<?=$row1['replid']?>')">
 	<?php 
-	$judul=substr($row1['judul'],0,20);
-	if (strlen($row1['judul'])>20){
+	$judul=substr((string) $row1['judul'],0,20);
+	if (strlen((string) $row1['judul'])>20){
 	echo $judul." ...";
 	} else {
 	echo $judul;

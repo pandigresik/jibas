@@ -62,9 +62,7 @@ if ($row['nmin'] >= 0 && $row['nmax'] <= 10)
 else
 	$dasar = '10'; //satuan
 		
-$rentang = array(9*$dasar, 8*$dasar, 7*$dasar,
-				 6*$dasar, 5*$dasar, 4*$dasar,
-				 3*$dasar, 2*$dasar, 1*$dasar, 0);
+$rentang = [9*$dasar, 8*$dasar, 7*$dasar, 6*$dasar, 5*$dasar, 4*$dasar, 3*$dasar, 2*$dasar, 1*$dasar, 0];
 					
 $sql = "SELECT SUM(IF(nilaiangka >= $rentang[0],1,0)) as j1,
 			   SUM(IF(nilaiangka>=$rentang[1] AND nilaiangka<$rentang[0],1,0)) as j2,
@@ -105,13 +103,11 @@ else
 	//$lab = array(">=90",">=80",">=70",">=60",">=50",">=40",">=30",">=20",">=10");
 	while($fetch = @mysqli_fetch_array($result))
 	{			
-		$data = array($fetch[j1], $fetch[j2], $fetch[j3],
-					  $fetch[j4], $fetch[j5], $fetch[j6],
-					  $fetch[j7], $fetch[j8], $fetch[j9], $fetch[j10]);
+		$data = [$fetch[\J1], $fetch[\J2], $fetch[\J3], $fetch[\J4], $fetch[\J5], $fetch[\J6], $fetch[\J7], $fetch[\J8], $fetch[\J9], $fetch[\J10]];
 	}
 }
 		
-$color = array('#cd9b9b','#7d26cd','#8b1c62','#b03060','#faf0e6','#ff69b4','#d2d2d2','#7fff00','#00bfff','#ff1493','#6e8b3d','#b8860b','#00ffff','#dcdcdc','#00c5cd','#a52a2a');
+$color = ['#cd9b9b', '#7d26cd', '#8b1c62', '#b03060', '#faf0e6', '#ff69b4', '#d2d2d2', '#7fff00', '#00bfff', '#ff1493', '#6e8b3d', '#b8860b', '#00ffff', '#dcdcdc', '#00c5cd', '#a52a2a'];
 
 	//=====================================================
 	$graph = new Graph(550,275,"auto");

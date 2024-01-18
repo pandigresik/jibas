@@ -102,9 +102,9 @@ function Refresh() {
 </tr>
 <?php
 $sql = "";
-if (strlen($nama) > 0)
+if (strlen((string) $nama) > 0)
 	$sql = "SELECT nip, nama, replid FROM pegawai WHERE nama LIKE '%$nama%' ORDER BY nama";
-elseif (strlen($nip) > 0)
+elseif (strlen((string) $nip) > 0)
 	$sql = "SELECT nip, nama, replid FROM pegawai WHERE nip LIKE '%$nip%' ORDER BY nama"; 
 
 if ($show == "all")

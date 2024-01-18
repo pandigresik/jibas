@@ -27,7 +27,7 @@ require_once("../include/db_functions.php");
 require_once("../include/common.php");
 require_once('../include/theme.php');
 
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+$namabulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember"];
 
 $agenda = $_REQUEST['agenda'];
 $bln = $_REQUEST['bln'];
@@ -76,7 +76,7 @@ $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $njenis = $row[0];
 ?>
-<span class="style2"><span class="style1">DAFTAR AGENDA<br><?=strtoupper($njenis)?></span><br />
+<span class="style2"><span class="style1">DAFTAR AGENDA<br><?=strtoupper((string) $njenis)?></span><br />
 <br />
 </span></div>
 <strong>Periode : <?=$namabulan[$bln-1]?> <?=$thn?></strong><br />

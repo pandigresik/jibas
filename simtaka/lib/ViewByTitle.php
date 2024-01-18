@@ -103,7 +103,7 @@ $num = @mysqli_num_rows($result);
                         </div>
                     </td>
                     <td>
-                    <span class="news_content1"><?=stripslashes($row2[0])?></span></td>
+                    <span class="news_content1"><?=stripslashes((string) $row2[0])?></span></td>
                   </tr>
                   <tr>
                     <td>
@@ -119,7 +119,7 @@ $num = @mysqli_num_rows($result);
           </tr>
 		  <?php } ?>
           <?php $i++; ?>
-		  <?php } ?>
+<?php } ?>
         </table>
 	</div>
 </body>

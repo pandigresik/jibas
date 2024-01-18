@@ -33,7 +33,7 @@ for($i = 0; $i < count($eset); $i++)
     $symbols = $eset[$i][1];
     
     $icon = "<img src='../images/emoticons/$iconname'>";
-    $iconname = str_replace(".png",  "", $iconname);
+    $iconname = str_replace(".png",  "", (string) $iconname);
     $symbol = "";
     for($j = 0; $j < count($symbols); $j++)
     {

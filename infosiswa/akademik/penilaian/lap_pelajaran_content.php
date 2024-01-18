@@ -34,7 +34,7 @@ $sql_sem = "SELECT * FROM semester WHERE departemen = '".$departemen."'";
 $result_sem = QueryDb($sql_sem);
 $i = 0;
 while ($row_sem = @mysqli_fetch_array($result_sem)) {
-	$sem[$i] = array($row_sem['replid'],$row_sem['semester']);
+	$sem[$i] = [$row_sem['replid'], $row_sem['semester']];
 	$i++;
 }
 $sql_pel = "SELECT nama FROM pelajaran WHERE replid = '".$pelajaran."'";

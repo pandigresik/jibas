@@ -830,7 +830,7 @@ OpenDb();
                          ORDER BY urutan";
                 $res2 = QueryDb($sql);
 
-                $arrList = array();
+                $arrList = [];
                 if (mysqli_num_rows($res2) == 0)
                     $arrList[] = "-";
 

@@ -49,7 +49,7 @@ if ($kalender==""){
 	if ($kalender == "")
 	$kalender = $row_kalender['replid'];
 ?>
-		<option value="<?=urlencode($row_kalender['replid'])?>" <?=StringIsSelected($row_kalender['replid'], $kalender) ?>><?=$row_kalender['kalender']?></option>
+		<option value="<?=urlencode((string) $row_kalender['replid'])?>" <?=StringIsSelected($row_kalender['replid'], $kalender) ?>><?=$row_kalender['kalender']?></option>
 <?php
 	} //while
 	} 

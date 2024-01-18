@@ -25,7 +25,7 @@ require_once('../include/config.php');
 require_once('../include/db_functions.php');
 OpenDb();
 if (isset($_REQUEST['Simpan'])){
-	$sql = "SELECT * FROM jbsfina.groupbarang WHERE namagroup='".addslashes(trim($_REQUEST['groupname']))."'";
+	$sql = "SELECT * FROM jbsfina.groupbarang WHERE namagroup='".addslashes(trim((string) $_REQUEST['groupname']))."'";
 	if (@mysqli_num_rows(QueryDb($sql))>0){
 		?>
         <script language="javascript">
@@ -33,7 +33,7 @@ if (isset($_REQUEST['Simpan'])){
         </script>
         <?php
 	} else {
-		QueryDb("INSERT INTO jbsfina.groupbarang SET namagroup='".addslashes(trim($_REQUEST['groupname']))."', keterangan='".addslashes(trim($_REQUEST['keterangan']))."'");
+		QueryDb("INSERT INTO jbsfina.groupbarang SET namagroup='".addslashes(trim((string) $_REQUEST['groupname']))."', keterangan='".addslashes(trim((string) $_REQUEST['keterangan']))."'");
 		?>
         <script language="javascript">
 			parent.opener.GetFresh();
@@ -68,11 +68,11 @@ function validate(){
 <table width="100%" border="0" cellspacing="2" cellpadding="2">
   <tr>
     <td>Nama Group</td>
-    <td><input name="groupname" id="groupname" type="text" maxlength="45" style="width:100%" value="<?=stripslashes(trim($_REQUEST['groupname']))?>" /></td>
+    <td><input name="groupname" id="groupname" type="text" maxlength="45" style="width:100%" value="<?=stripslashes(trim((string) $_REQUEST['groupname']))?>" /></td>
   </tr>
   <tr>
     <td>Keterangan</td>
-    <td><textarea name="keterangan" id="keterangan" style="width:100%" rows="5"><?=stripslashes(trim($_REQUEST['keterangan']))?></textarea></td>
+    <td><textarea name="keterangan" id="keterangan" style="width:100%" rows="5"><?=stripslashes(trim((string) $_REQUEST['keterangan']))?></textarea></td>
   </tr>
   <tr>
     <td colspan="2" align="center"><input class="but" type="submit" name="Simpan" value="Simpan" />&nbsp;&nbsp;<input type="button" value="Batal" onClick="window.close()" class="but" /></td>

@@ -29,8 +29,8 @@ class CAktivitasAdd{
 		$this->tglInput = $rowDate[0];		
 		$timeInput = $rowDate[1];
 		if (isset($_REQUEST['simpan'])){
-			$perpustakaan = trim(addslashes($_REQUEST['perpustakaan']));
-			$tanggal = trim(addslashes($_REQUEST['tglInput']));
+			$perpustakaan = trim(addslashes((string) $_REQUEST['perpustakaan']));
+			$tanggal = trim(addslashes((string) $_REQUEST['tglInput']));
 			$aktivitas = CQ($_REQUEST['aktivitas']);
 			$sql = "INSERT INTO aktivitas SET perpustakaan='$perpustakaan',tanggal='".MysqlDateFormat($tanggal)." ".$timeInput."',aktivitas='$aktivitas'";
 			$result = QueryDb($sql);

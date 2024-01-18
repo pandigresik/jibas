@@ -190,7 +190,7 @@ $res = QueryDb($sql);
 $i = 0;
 while($row = mysqli_fetch_row($res))
 {
-    $aspekarr[$i++] = array($row[0], $row[1]);
+    $aspekarr[$i++] = [$row[0], $row[1]];
 }
 
 $naspek = count($aspekarr);
@@ -209,7 +209,7 @@ echo "<input type='hidden' id='idtingkat' name='idtingkat' value='$tingkat'>";
 for($i = 0; $i < count($aspekarr); $i++)
 {
     $kdaspek = $aspekarr[$i][0];
-    $nmaspek = strtoupper($aspekarr[$i][1]);
+    $nmaspek = strtoupper((string) $aspekarr[$i][1]);
 
     $sql = "SELECT n.nilaiangka, n.nilaihuruf, n.replid, n.komentar
 			  FROM infonap i, nap n, aturannhb a 
@@ -256,7 +256,7 @@ for($i = 0; $i < count($aspekarr); $i++)
     echo "<td width='400' rowspan='3' valign='top'>";
     echo "<strong>Pilih Komentar dari Template: </strong><br>";
     echo "<table border='0'><tr><td>";
-    ShowListKomentar($pelajaran, $tingkat, $kdaspek, $i);
+    ShowListKomentar($pelajaran, $tingkat, $kdaspek);
     echo "</td><td>";
     echo "<input type='button' class='but' value='pilih' onclick='pilihKomentar($i)'>&nbsp;&nbsp;";
     echo "<a onclick='editKomentar($i)'><img src='../images/ico/ubah.png'></a>&nbsp;";

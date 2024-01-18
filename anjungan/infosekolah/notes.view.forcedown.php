@@ -21,8 +21,8 @@
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
 <?php
-$furl = urldecode($_REQUEST['furl']);
-$name = urldecode($_REQUEST['name']);
+$furl = urldecode((string) $_REQUEST['furl']);
+$name = urldecode((string) $_REQUEST['name']);
 
 header('Pragma: public'); 	// required
 header('Expires: 0');		// no cache

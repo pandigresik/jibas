@@ -42,7 +42,7 @@ $suku_kiriman=$_REQUEST['suku'];
 		
 	?>
 	<option value="<?=$row_suku['suku']?>" <?=StringIsSelected($row_suku['suku'], $suku_kiriman)?> ><?=$row_suku['suku']?></option>
-	<?php
+<?php
     } 
 	CloseDb();
 	// Akhir Olah Data suku

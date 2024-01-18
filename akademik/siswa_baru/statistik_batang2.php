@@ -35,20 +35,20 @@ OpenDb();
 $i = 0;
 
 if ($dasar == 'Golongan Darah') {
-	$row = array('A','0','B','AB','');
-	$judul = array(1=>'A','0','B','AB','Tidak ada data');	
+	$row = ['A', '0', 'B', 'AB', ''];
+	$judul = [1=>'A', '0', 'B', 'AB', 'Tidak ada data'];	
 	$jum = count($row);	
 } elseif ($dasar == 'Jenis Kelamin') {
-	$row = array('l','p');
-	$judul = array(1=>'Laki-laki','Perempuan');
+	$row = ['l', 'p'];
+	$judul = [1=>'Laki-laki', 'Perempuan'];
 	$jum = count($row);
 } elseif ($dasar == 'Kewarganegaraan') {
-	$row = array('WNI','WNA');
-	$judul = array(1=>'WNI','WNA');
+	$row = ['WNI', 'WNA'];
+	$judul = [1=>'WNI', 'WNA'];
 	$jum = count($row);
 } elseif ($dasar == 'Status Aktif') {
-	$row = array(1,0);
-	$judul = array(1 => 'Aktif','Tidak Aktif');
+	$row = [1, 0];
+	$judul = [1 => 'Aktif', 'Tidak Aktif'];
 	$jum = count($row);
 } elseif ($dasar == 'Kondisi Siswa') {	
 	$query = "SELECT $tabel FROM jbsakad.kondisisiswa ORDER BY $tabel ";
@@ -67,8 +67,8 @@ if ($dasar == 'Golongan Darah') {
 	$result = QueryDb($query);
 	$jum = @mysqli_num_rows($result);
 } elseif ($dasar == 'Penghasilan Orang Tua') {		
-	$batas = array(0,1000000,2500000,5000000);
-	$judul = array(1 => '< Rp1jt','Rp1jt-Rp2.5jt','Rp2.5jt-Rp5jt','> Rp5jt');
+	$batas = [0, 1_000_000, 2_500_000, 5_000_000];
+	$judul = [1 => '< Rp1jt', 'Rp1jt-Rp2.5jt', 'Rp2.5jt-Rp5jt', '> Rp5jt'];
 	$jum = count($judul);
 } elseif ($dasar == 'Agama' || $dasar == 'Suku') {		
 	$query = "SELECT $tabel FROM jbsumum.$tabel";
@@ -143,9 +143,9 @@ for ($i=1;$i<=$jum;$i++) {
 		$jud = $jud.'/'.$judul[$i];
 	}
 }
-$jud = array($jud);
+$jud = [$jud];
 
-$color = array(1 =>'green@0.5','red@0.5','yellow@0.5','blue@0.5','orange@0.5','gold@0.5','navy@0.5','darkblue@0.5','darkred@0.5','darkgreen@0.5', 'pink@0.5','black@0.5','gray@0.5');
+$color = [1 =>'green@0.5', 'red@0.5', 'yellow@0.5', 'blue@0.5', 'orange@0.5', 'gold@0.5', 'navy@0.5', 'darkblue@0.5', 'darkred@0.5', 'darkgreen@0.5', 'pink@0.5', 'black@0.5', 'gray@0.5'];
 //$color = array(1 => "#FF9900@0.5","#e6dc29@0.5","#bd290c@0.5","#3560ae@0.5","#0e7b2d@0.5");
 // kuning, merah, biru, hijau, 
 //echo $queryL;
@@ -184,7 +184,7 @@ $graph = new Graph(450,300,"auto");
 $graph->SetScale("textlin");
 
 //seting kanvas
-$lab = array($dasar);
+$lab = [$dasar];
 $graph->SetShadow();
 $graph->img->SetMargin(50,40,50,40);
 $graph->xaxis->SetTickLabels($jud);

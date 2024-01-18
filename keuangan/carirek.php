@@ -138,7 +138,7 @@ function change_urut(urut,urutan)
     	<td align="left" width="50%"><strong>Kategori&nbsp;</strong>
 <?php 		if ($option == "ro") { ?>
 
-			<input type="text" name="kategori" id="kategori" readonly="readonly" style="background-color:#DDD" value="<?= strtoupper($kategori) ?>">
+			<input type="text" name="kategori" id="kategori" readonly="readonly" style="background-color:#DDD" value="<?= strtoupper((string) $kategori) ?>">
 
 <?php 	} else { ?>
 

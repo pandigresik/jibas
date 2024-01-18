@@ -110,7 +110,7 @@ require_once('../include/mainconfig.php');
 
 <div id="Partner">
 <?php
-$_REQUEST = array();
+$_REQUEST = [];
 $_REQUEST['relpath'] = "..";
 include('../partner.php');
 ?>

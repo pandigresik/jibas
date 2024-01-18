@@ -105,7 +105,7 @@ header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 </head>
 
 <body>
-<center><font size="4" face="Verdana"><strong>DATA JURNAL <?=strtoupper($jurnal)?></strong></font><br /> 
+<center><font size="4" face="Verdana"><strong>DATA JURNAL <?=strtoupper((string) $jurnal)?></strong></font><br /> 
 </center>
 <br /><br />
 <table border="0">
@@ -175,7 +175,7 @@ while ($row = mysqli_fetch_array($result)) {
     </em></font></td>
     <td valign="top" bgcolor="<?=$bgcolor ?>"><font size="2" face="Arial">
       <?=$row['transaksi'] ?>
-      <?php if (strlen($row['keterangan']) > 0 )  { ?>
+      <?php if (strlen((string) $row['keterangan']) > 0 )  { ?>
 	    <br />
 	    <strong>Keterangan:</strong>
 	    <?=$row['keterangan'] ?> 

@@ -37,7 +37,7 @@ $sql_year = "SELECT DISTINCT YEAR(tanggal) as tahun
 $res_year = QueryDb($sql_year);
 
 $tahun = "";
-$bulan_pjg = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+$bulan_pjg = [1=>'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 ?>
 <table width="100%" border="0" cellspacing="5">
 <tr>

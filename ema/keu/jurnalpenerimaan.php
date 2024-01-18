@@ -470,7 +470,7 @@ if (isset($_REQUEST['showpembayaran']))
         <td align="center" rowspan="2" bgcolor="<?=$bgcolor ?>"><font size="4"><strong><?=$cnt ?></strong></font></td>
         <td align="center" bgcolor="<?=$bgcolor ?>"><strong><?=$row['nokas']?></strong><br /><em><?=LongDateFormat($row['tanggal'])?></em></td>
         <td valign="top" bgcolor="<?=$bgcolor ?>"><?=$row['transaksi'] ?>
-    <?php if (strlen($row['keterangan']) > 0 )  { ?>
+    <?php if (strlen((string) $row['keterangan']) > 0 )  { ?>
             <br /><strong>Keterangan:</strong><?=$row['keterangan'] ?> 
     <?php } ?>    
         </td>

@@ -64,7 +64,7 @@ function getPilihanUjian()
         if ((int) $protocol->Status < 0)
             return sendCbeServerInfo($protocol->Data); // CBE Server Application send Error
 
-        $jsonPilihan = trim($protocol->Data);
+        $jsonPilihan = trim((string) $protocol->Data);
 
         //$d = new Debugger();
         //$d->Log($jsonPilihan);
@@ -124,7 +124,7 @@ function getPilihanDept()
     {
         $jsonData = getIntentData();
 
-        $data = json_decode($jsonData);
+        $data = json_decode((string) $jsonData, null, 512, JSON_THROW_ON_ERROR);
         $select = createSelectDept($data);
 
         return GenericReturn::createJson(1, "OK", $select);
@@ -153,7 +153,7 @@ function getPilihanPelajaran($dept)
     {
         $jsonData = getIntentData();
 
-        $data = json_decode($jsonData);
+        $data = json_decode((string) $jsonData, null, 512, JSON_THROW_ON_ERROR);
 
         $select = "<select id='um_cbPelajaran' class='inputbox' style='width: 220px' onchange='um_changeCbPelajaran()'>";
         foreach($data as $key => $info)
@@ -198,7 +198,7 @@ function getDaftarUjian($dept, $viewDaftarUjian, $idPelajaran)
         $jsonData = $result->Data;
         $protocol = CbeDataProtocol::fromJson($jsonData);
 
-        $jsonUjian = trim($protocol->Data);
+        $jsonUjian = trim((string) $protocol->Data);
         if (strlen($jsonUjian) == 0)
             return GenericReturn::createJson(1, "Tidak ada data ujian", "Tidak ada data ujian");
 
@@ -214,7 +214,7 @@ function getDaftarUjian($dept, $viewDaftarUjian, $idPelajaran)
 
 function createTableUjian($jsonUjian)
 {
-    $ujianArr = json_decode($jsonUjian);
+    $ujianArr = json_decode((string) $jsonUjian, null, 512, JSON_THROW_ON_ERROR);
 
     $table  = "<table border='1' cellpadding='5' cellspacing='0' style='border-width: 1px; border-collapse: collapse; border-color: #0a6aa1;' >";
     $table .= "<tr style='background-color: #0a6aa1; height: 30px; color: white;'>";
@@ -237,10 +237,10 @@ function createTableUjian($jsonUjian)
         $tag->IdJadwalUjian = $ujianInfo->IdJadwalUjian;
         $tag->StatusUjian = $ujianInfo->StatusUjian;
         $tag->JumlahSoal = $ujianInfo->JumlahSoal;
-        $tag->Judul = str_replace("\"", "'", $ujianInfo->Judul);
+        $tag->Judul = str_replace("\"", "'", (string) $ujianInfo->Judul);
 
         $jsonTag = $tag->toJson();
-        $jsonTag = str_replace("\"", "`", $jsonTag);
+        $jsonTag = str_replace("\"", "`", (string) $jsonTag);
 
 
         $table .= "<tr style='background-color: $bgcolor'>";
@@ -289,7 +289,7 @@ function startUjian($idUjian, $idRemedUjian, $idUjianSerta, $idJadwalUjian)
 
         $protocol = CbeDataProtocol::fromJson($result->Data);
 
-        $ujianData = json_decode($protocol->Data);
+        $ujianData = json_decode((string) $protocol->Data, null, 512, JSON_THROW_ON_ERROR);
         $_SESSION["UserName"] = $ujianData->Info->UserName;
         $_SESSION["IdUjian"] = $ujianData->Info->IdUjian;
         $_SESSION["IdUjianRemed"] = $ujianData->Info->IdUjianRemed;
@@ -302,7 +302,7 @@ function startUjian($idUjian, $idRemedUjian, $idUjianSerta, $idJadwalUjian)
         $userid = $_SESSION["UserId"];
         $sessionid = $_SESSION["SessionId"];
         $intent = $protocol->Data;
-        $intent = str_replace("'", "`", $intent);
+        $intent = str_replace("'", "`", (string) $intent);
 
         OpenDb();
         $sql = "SELECT COUNT(*) 

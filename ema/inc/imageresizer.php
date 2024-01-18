@@ -28,13 +28,13 @@
 function ResizeImage($foto, $newwidth, $newheight, $quality, $output)
 {
 	$uploadedfile = $foto['tmp_name'];	
-	if (strlen($uploadedfile) != 0)
+	if (strlen((string) $uploadedfile) != 0)
 	{
 		// get type
 		$type = $foto['type'];
 		
 		// get image size
-		list($width, $height) = getimagesize($uploadedfile);
+		[$width, $height] = getimagesize($uploadedfile);
 	
 		// get scalling factor
 		$npercent = 1.0;
@@ -71,7 +71,7 @@ function ResizeImage($foto, $newwidth, $newheight, $quality, $output)
 		if ($type == "image/jpeg")
 			imagejpeg($tmp, $output, $quality);
 		elseif ($type == "image/gif")
-			imagegif($tmp, $output, $quality);
+			imagegif($tmp, $output);
 		elseif ($type == "image/png")
 			imagepng($tmp, $output, $quality);
 		

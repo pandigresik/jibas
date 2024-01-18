@@ -178,7 +178,7 @@ function show(x) {
        
     </tr>
     
-    <?php } ?>
+<?php } ?>
     </table>
     <script language='JavaScript'>
         Tables('table', 1, 0);

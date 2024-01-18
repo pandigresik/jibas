@@ -247,7 +247,7 @@ function SaveNotes($idMedia, $notes)
         return;
 
     $notes = SafeInputText($notes);
-    $notes = str_replace("\n", "<br>", $notes);
+    $notes = str_replace("\n", "<br>", (string) $notes);
     $userCol = $_SESSION["UserCol"];
     $userId = $_SESSION["UserId"];
 

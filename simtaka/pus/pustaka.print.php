@@ -195,7 +195,7 @@ switch ($kategori){
         <td><?=$row[1]?></td>
         <td align="center"><?=$rtersedia?></td>
         <td align="center"><?=$rdipinjam?></td>
-        <td align="center"><?=stripslashes($row[2])?></td>
+        <td align="center"><?=stripslashes((string) $row[2])?></td>
       </tr>
       <?php
       $cnt++;

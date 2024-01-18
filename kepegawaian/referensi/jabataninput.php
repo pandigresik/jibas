@@ -44,11 +44,11 @@ if (isset($_REQUEST['btSimpan']))
 {
 	$eselon = $_REQUEST['cbEselon'];
 	$jabatan = $_REQUEST['txJabatan'];
-	$singkatan = strtoupper($_REQUEST['txSingkatan']);
+	$singkatan = strtoupper((string) $_REQUEST['txSingkatan']);
 	$satker = $_REQUEST['cbSatKer'];
 	$sql = "INSERT INTO jabatan SET rootid=$rootid, eselon='$eselon', jabatan='$jabatan', singkatan='$singkatan', satker='$satker'";
 	QueryDb($sql);
-	CloseDb($sql);
+	CloseDb();
 	?>
 	<script language="javascript">
 		opener.RefreshPage(<?=$rootid?>);

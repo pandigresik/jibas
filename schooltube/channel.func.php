@@ -177,7 +177,7 @@ function ShowMedia($idMediaList, $page)
 {
     global $G_ROW_PER_PAGE;
 
-    if (strlen(trim($idMediaList)) == 0)
+    if (strlen(trim((string) $idMediaList)) == 0)
     {
         echo "<br><br><i>Belum ada video</i>";
         return;
@@ -186,7 +186,7 @@ function ShowMedia($idMediaList, $page)
     $startIndex = ($page - 1) * $G_ROW_PER_PAGE;
     $stopIndex = ($page * $G_ROW_PER_PAGE) - 1;
 
-    $idArr = explode(",", $idMediaList);
+    $idArr = explode(",", (string) $idMediaList);
     if ($startIndex > count($idArr))
     {
         echo "";

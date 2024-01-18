@@ -35,20 +35,20 @@ OpenDb();
 $i = 0;
 
 if ($dasar == 'Golongan Darah') {
-	$row = array('A','O','B','AB','');
-	$judul = array(1=>'A','O','B','AB','Tidak ada data');
+	$row = ['A', 'O', 'B', 'AB', ''];
+	$judul = [1=>'A', 'O', 'B', 'AB', 'Tidak ada data'];
 	$jum = count($row);	
 } elseif ($dasar == 'Jenis Kelamin') {
-	$row = array('l','p');
-	$judul = array(1=>'Laki-laki','Perempuan');
+	$row = ['l', 'p'];
+	$judul = [1=>'Laki-laki', 'Perempuan'];
 	$jum = count($row);
 } elseif ($dasar == 'Kewarganegaraan') {
-	$row = array('WNI','WNA');
-	$judul = array(1=>'WNI','WNA');
+	$row = ['WNI', 'WNA'];
+	$judul = [1=>'WNI', 'WNA'];
 	$jum = count($row);
 } elseif ($dasar == 'Status Aktif') {
-	$row = array(1,0);
-	$judul = array(1 => 'Aktif','Tidak Aktif');
+	$row = [1, 0];
+	$judul = [1 => 'Aktif', 'Tidak Aktif'];
 	$jum = count($row);
 } elseif ($dasar == 'Kondisi Siswa') {	
 	$query = "SELECT $tabel FROM jbsakad.kondisisiswa ORDER BY $tabel ";
@@ -67,8 +67,8 @@ if ($dasar == 'Golongan Darah') {
 	$result = QueryDb($query);
 	$jum = @mysqli_num_rows($result);
 } elseif ($dasar == 'Penghasilan Orang Tua') {		
-	$batas = array(0,1000000,2500000,5000000);
-	$judul = array(1 => '< Rp1jt','Rp1jt-Rp2.5jt','Rp2.5jt-Rp5jt','> Rp5jt');
+	$batas = [0, 1_000_000, 2_500_000, 5_000_000];
+	$judul = [1 => '< Rp1jt', 'Rp1jt-Rp2.5jt', 'Rp2.5jt-Rp5jt', '> Rp5jt'];
 	$jum = count($judul);
 } elseif ($dasar == 'Agama' || $dasar == 'Suku') {		
 	$query = "SELECT $tabel FROM jbsumum.$tabel";

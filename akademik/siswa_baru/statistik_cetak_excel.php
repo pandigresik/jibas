@@ -39,10 +39,10 @@ $dasar = $_REQUEST['dasar'];
 $judul = $_REQUEST['judul'];
 $keyword = $_REQUEST['keyword'];
 
-$str = array("'","+");
-$str_replace = array("\'","x123x");	
+$str = ["'", "+"];
+$str_replace = ["\'", "x123x"];	
 
-$query1 = str_replace($str_replace,$str, $_REQUEST['sql']);
+$query1 = str_replace($str_replace,$str, (string) $_REQUEST['sql']);
 $result1 = QueryDb($query1);
 
 

@@ -104,16 +104,16 @@ try
         mkdir($uploadPath, 0755);
     
     // == Save Video
-    $text = trim($_REQUEST['judul']);
+    $text = trim((string) $_REQUEST['judul']);
     $judul = $text;
     $fjudul = FormattedText($text);
     
-    $text = trim($_REQUEST['keterangan']);
+    $text = trim((string) $_REQUEST['keterangan']);
     $keterangan = RecodeNewLine($text);
     $fketerangan = FormattedText($text);
     $fprevketerangan = FormattedPreviewText($text, $previewTextLength);
     
-    $text = trim($_REQUEST["video_info"]);
+    $text = trim((string) $_REQUEST["video_info"]);
     $fileinfo = $text;
     $ffileinfo = FormattedText($text);
     
@@ -136,9 +136,9 @@ try
     $row = mysqli_fetch_row($res);
     $videoid = $row[0];
     
-    $rnd = rand(10000, 99999);
+    $rnd = random_int(10000, 99999);
     $name = $file['name'];
-    $vidname = $videoid . "_" . $rnd . "_" . str_replace(" ", "_", $name);
+    $vidname = $videoid . "_" . $rnd . "_" . str_replace(" ", "_", (string) $name);
     $dest = "$FILESHARE_UPLOAD_DIR/$location/$vidname";
     
     move_uploaded_file($file['tmp_name'], $dest);

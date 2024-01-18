@@ -31,7 +31,7 @@ $op = $_REQUEST['op'];
 if ($op == "setTglLahirSiswa")
 {
     $y = $_REQUEST['y'];
-    $m = isset($_REQUEST['m']) ? $_REQUEST['m'] : date('j');
+    $m = $_REQUEST['m'] ?? date('j');
     $d = $y == date('Y') && $m == date('n') ? date('j') : 1;
     
     ShowDateCombo('is_tgllahir', 'is_changeTanggalLahirSiswa()', $y, $m, $d); 
@@ -39,7 +39,7 @@ if ($op == "setTglLahirSiswa")
 elseif ($op == "setTglLahirAyah")
 {
     $y = $_REQUEST['y'];
-    $m = isset($_REQUEST['m']) ? $_REQUEST['m'] : date('j');
+    $m = $_REQUEST['m'] ?? date('j');
     $d = $y == date('Y') && $m == date('n') ? date('j') : 1;
     
     ShowDateCombo('is_tgllahirayah', 'is_changeTanggalLahirAyah()', $y, $m, $d); 
@@ -47,7 +47,7 @@ elseif ($op == "setTglLahirAyah")
 elseif ($op == "setTglLahirIbu")
 {
     $y = $_REQUEST['y'];
-    $m = isset($_REQUEST['m']) ? $_REQUEST['m'] : date('j');
+    $m = $_REQUEST['m'] ?? date('j');
     $d = $y == date('Y') && $m == date('n') ? date('j') : 1;
     
     ShowDateCombo('is_tgllahiribu', 'is_changeTanggalLahirIbu()', $y, $m, $d); 

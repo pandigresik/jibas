@@ -33,7 +33,7 @@ if ($op == "login")
 }
 else if ($op == "connecterror")
 {
-    $message = urldecode($_REQUEST['message']);
+    $message = urldecode((string) $_REQUEST['message']);
     echo getConnectError($message);
 }
 ?>

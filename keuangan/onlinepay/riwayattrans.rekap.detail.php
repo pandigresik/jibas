@@ -41,8 +41,8 @@ $jsonPen = $_REQUEST["jsonpen"];
 $jsonTgl = $_REQUEST["jsontgl"];
 $page = $_REQUEST["page"];
 
-$jsonPen2 = str_replace("`", "\"", $jsonPen);
-$lsPen = json_decode($jsonPen2);
+$jsonPen2 = str_replace("`", "\"", (string) $jsonPen);
+$lsPen = json_decode($jsonPen2, null, 512, JSON_THROW_ON_ERROR);
 
 $stPenerimaan = "";
 $penQl = "";
@@ -74,8 +74,8 @@ for($i = 0; $i < count($lsPen); $i++)
     }
 }
 
-$jsonTgl2 = str_replace("`", "\"", $jsonTgl);
-$lsTgl = json_decode($jsonTgl2);
+$jsonTgl2 = str_replace("`", "\"", (string) $jsonTgl);
+$lsTgl = json_decode($jsonTgl2, null, 512, JSON_THROW_ON_ERROR);
 
 $stTanggal = "";
 $tglQl = "";
@@ -118,7 +118,7 @@ else
     $stCurIdPgTrans = $_REQUEST["stcuridpgtrans"];
 }
 
-$lsIdPgTrans = explode(",", $stCurIdPgTrans);
+$lsIdPgTrans = explode(",", (string) $stCurIdPgTrans);
 $nData = count($lsIdPgTrans);
 $nPage = ceil($nData / $nRowPerPage);
 $nStart = ($page - 1) * $nRowPerPage;

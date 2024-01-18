@@ -80,13 +80,13 @@ if (isset($_REQUEST['Submit'])) {
 	$nama = $_REQUEST['nama'];
 	$nip = $_REQUEST['nip'];
 
-	if ((strlen($nama) > 0) && (strlen($nip) > 0))
+	if ((strlen((string) $nama) > 0) && (strlen((string) $nip) > 0))
 		$sql = "SELECT nip, nama FROM jbssdm.pegawai WHERE aktif = 1 AND nama LIKE '%$nama%' AND nip LIKE '%$nip%' AND nip NOT IN (SELECT login FROM jbsuser.hakakses WHERE MODUL='INFOGURU') ORDER BY nama"; 
-	else if (strlen($nama) > 0)
+	else if (strlen((string) $nama) > 0)
 		$sql = "SELECT nip, nama FROM jbssdm.pegawai WHERE aktif = 1 AND nama LIKE '%$nama%' AND nip NOT IN (SELECT login FROM jbsuser.hakakses WHERE MODUL='INFOGURU')ORDER BY nama"; 
-	else if (strlen($nip) > 0)
+	else if (strlen((string) $nip) > 0)
 		$sql = "SELECT nip, nama FROM jbssdm.pegawai WHERE aktif = 1 AND nip LIKE '%$nip%' AND nip NOT IN (SELECT login FROM jbsuser.hakakses WHERE MODUL='INFOGURU')ORDER BY nama"; 
-	else if ((strlen($nama) == 0) || (strlen($nip) == 0)) 
+	else if ((strlen((string) $nama) == 0) || (strlen((string) $nip) == 0)) 
 		$sql = "SELECT nip, nama FROM jbssdm.pegawai WHERE aktif = 1 AND nip NOT IN (SELECT login FROM jbsuser.hakakses WHERE MODUL='INFOGURU')ORDER BY nama";		
 } else {
 	$sql = "SELECT nip, nama FROM jbssdm.pegawai WHERE aktif = 1 AND nip NOT IN (SELECT login FROM jbsuser.hakakses WHERE MODUL='INFOGURU')ORDER BY nama"; 

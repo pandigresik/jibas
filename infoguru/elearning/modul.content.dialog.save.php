@@ -36,7 +36,7 @@ $idChannel = $_REQUEST['idChannel'];
 $idModul = $_REQUEST['idModul'];
 
 $judul = SafeInputText($_REQUEST["judul"]);
-$urutan = trim($_REQUEST["urutan"]);
+$urutan = trim((string) $_REQUEST["urutan"]);
 $deskripsi = SafeInputText($_REQUEST["deskripsi"]);
 
 if ($idModul == 0)

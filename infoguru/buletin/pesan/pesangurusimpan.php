@@ -32,11 +32,11 @@ $bulan=$_REQUEST['bulan'];
 $tahun=$_REQUEST['tahun'];
 
 $judul = CQ($_REQUEST['judul']);
-$tgl = explode("-",$_REQUEST['tanggal']);
+$tgl = explode("-",(string) $_REQUEST['tanggal']);
 $tanggaltampil = $tgl[2]."-".$tgl[1]."-".$tgl[0];
 
 $pesan = $_REQUEST['pesan'];
-$pesan = str_replace("'", "#sq;", $pesan);
+$pesan = str_replace("'", "#sq;", (string) $pesan);
 
 $idguru = SI_USER_ID();
 
@@ -67,7 +67,7 @@ if ($success)
 $jum = (int)$_REQUEST['jum']-1;
 $receiverall = $_REQUEST['receiver'];
 $x = 0;
-$receiver = explode("|",$receiverall);
+$receiver = explode("|",(string) $receiverall);
 while ($x <= $jum && $success)
 {
 	if ($receiver[$x] != "")

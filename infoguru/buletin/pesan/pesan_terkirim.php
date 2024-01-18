@@ -287,7 +287,7 @@ function delpesan(){
 	?></a>
     </td>
     <td><div align="center">
-    <img src="../../images/ico/hapus.png" border="0" onClick="hapus('<?=$row1[replid_tkrm]?>')" style="cursor:pointer;" title="Hapus Pesan ini !" />
+    <img src="../../images/ico/hapus.png" border="0" onClick="hapus('<?=$row1[\REPLID_TKRM]?>')" style="cursor:pointer;" title="Hapus Pesan ini !" />
    </div></td>
   </tr>
   <?php 

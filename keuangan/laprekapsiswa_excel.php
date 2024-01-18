@@ -79,7 +79,7 @@ function excel()
 OpenDb();
 
 // Ambil penerimaan di departemen terpilih
-$arrpen = array();
+$arrpen = [];
 $sql = "SELECT replid, nama FROM datapenerimaan WHERE departemen='$departemen' AND idkategori='JTT'";
 $res = QueryDb($sql);
 $i = 0;
@@ -165,7 +165,7 @@ $width = 1180 + $n_arrpen * 600;
 <?php $res = QueryDb($sqlsiswa);
 	$n = 0;
 
-	$arrtotal = array();
+	$arrtotal = [];
 	for($i = 0; $i < $n_arrpen; $i++)
 		for($j = 0; $j < 8; $j++)
 			if ($j > 0 && $j < 5)

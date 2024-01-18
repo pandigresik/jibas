@@ -107,7 +107,7 @@ $row = mysqli_fetch_array($res);
         $res2 = QueryDb($sql);
         $row2 = mysqli_fetch_array($res2);
         $coverfile = $row2['location'] . "/" . $row2['filename'];
-        $coverinfo = str_replace("'", "`", $row2['fileinfo']);
+        $coverinfo = str_replace("'", "`", (string) $row2['fileinfo']);
 ?>
         <tbody>
         <tr>
@@ -164,7 +164,7 @@ $row = mysqli_fetch_array($res);
         while($row2 = mysqli_fetch_array($res2))
         {
             $file = $row2['location'] . "/" . $row2['filename'];
-            $info = str_replace("'", "`", $row2['fileinfo']);
+            $info = str_replace("'", "`", (string) $row2['fileinfo']);
             
             $n += 1; ?>
             

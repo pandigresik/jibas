@@ -43,7 +43,7 @@ class CPenggunaAdd
 			$this->dep = $_REQUEST['dep'];
 		
 		$perpus = $_REQUEST['perpustakaan'];
-		$temp = explode(":", $perpus);
+		$temp = explode(":", (string) $perpus);
 		$this->perpustakaan = $temp[1];
 		$this->idperpustakaan = $temp[0];
 		
@@ -94,7 +94,7 @@ class CPenggunaAdd
 			}
 			else
 			{
-				$password = trim(addslashes($_REQUEST['password1']));
+				$password = trim(addslashes((string) $_REQUEST['password1']));
 				
 				$sql = "INSERT INTO ".get_db_name('user').".login
 						   SET login='$nip', password='".md5($password)."'";
@@ -148,7 +148,7 @@ class CPenggunaAdd
 			parent.opener.getfresh();
 			window.close();
         </script>
-        <?php
+<?php
 	}
 	
 	function add()

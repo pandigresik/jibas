@@ -122,7 +122,7 @@ function ShowNotesIndex($dept, $bulan, $tahun)
         
         <tr id='not_list_row_<?=$notesid?>' style='background-color: #fff;'>
             <td align='center' valign='top'>
-                <img src='notes.list.gambar.php?r=<?= rand(1, 99999)?>&ownerid=<?=$ownerid?>&ownertype=<?=$ownertype?>' height='40'><br>
+                <img src='notes.list.gambar.php?r=<?= random_int(1, 99999)?>&ownerid=<?=$ownerid?>&ownertype=<?=$ownertype?>' height='40'><br>
                 <strong><?=$ownername?></strong><br>
                 <font class='NotesAge'>
                 <?= SecToAge($row['secdiff']) ?>

@@ -96,7 +96,7 @@ OpenDb();
 		}
 		
 
-$color = array("#afafaf","#000000");
+$color = ["#afafaf", "#000000"];
 
 
 function loadKalender1($kalender)
@@ -113,8 +113,8 @@ function loadKalender1($kalender)
 	$i = 0;	
 	while($row = mysqli_fetch_row($result))
 	{		
-		$tgl1 = explode('-',$row[2]);
-		$tgl2 = explode('-',$row[3]);
+		$tgl1 = explode('-',(string) $row[2]);
+		$tgl2 = explode('-',(string) $row[3]);
 		$awal = $tgl1[2].'/'.$tgl1[1].'/'.substr($tgl1[0],2,2).' - '.$tgl2[2].'/'.$tgl2[1].'/'.substr($tgl2[0],2,2);
 		
 		$GLOBALS['keg']['row'][$i]['id'] = $row[0];				
@@ -217,7 +217,7 @@ function loadKalender2($kalender, $bulan1, $tahun1, $bulan2, $tahun2)
 		//echo "<br><br> kolom: (blnawal-bulan1) x 4 + awal";
 		//echo '<br> blnawal '.$blnawal. ' bulan1 '.$bulan1.' awal '.$awal.' kolom '.$kolom.' selisih '.$selisih;
 		//echo '<br>'.(($blnakhir-$blnawal)*4+$akhir).' - '.$kolom;
-		$tanggal = $row[6].'/'.$row[4].'/'.substr($row[8],2,2).' - '.$row[7].'/'.$row[5].'/'.substr($row[9],2,2);
+		$tanggal = $row[6].'/'.$row[4].'/'.substr((string) $row[8],2,2).' - '.$row[7].'/'.$row[5].'/'.substr((string) $row[9],2,2);
 		//$tanggal = $row[6].'/'.$row[4].' - '.$row[7].'/'.$row[5];
 		if ($selisih == 0) {
 			$selisih = 1;			
@@ -247,7 +247,7 @@ function getCell1($r, $c, $id, $m) {
 			
 			$mask[$c+1] = $jadwal['row'][$id][$r][$c]['njam'] - 1;
 			
-			$dt=explode("-",$jadwal['row'][$id][$r][$c]['awal']);
+			$dt=explode("-",(string) $jadwal['row'][$id][$r][$c]['awal']);
 			$dt1=explode("/",$dt[0]);
 			$dt2=explode("/",$dt[1]);
 								
@@ -442,7 +442,7 @@ function getCell1($r, $c, $id, $m) {
             ?>
         
     </tr>
-	<?php 	} ?>
+<?php 	} ?>
 <?php }?> 
 	 </table>
 	 <br>
@@ -549,10 +549,10 @@ function getCell1($r, $c, $id, $m) {
             ?>
         
     </tr>
-	<?php 	} ?>
+<?php 	} ?>
 <?php } ?> 
 	 </table>
-	<?php
+<?php
 	} else {
 	?> 
     <table width="100%" border="0" align="center">          

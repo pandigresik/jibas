@@ -46,7 +46,7 @@ $status_kiriman=$_REQUEST['status'];
 	// end of tambahan
 	?>
     <option value="<?=$row_status['status']?>"<?=StringIsSelected($row_status['status'],$status_kiriman)?> ><?=$row_status['status']?></option>
-	<?php
+<?php
     } 
 	CloseDb();
 	// Akhir Olah Data status

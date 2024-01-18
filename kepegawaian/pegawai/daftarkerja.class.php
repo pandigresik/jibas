@@ -25,7 +25,7 @@ class DaftarKerja
 {
     public $nip;
     public $nama;
-    
+
     public function __construct()
     {
         $this->nip = $_REQUEST['nip'];
@@ -34,29 +34,29 @@ class DaftarKerja
         $result = QueryDb($sql);
         $row = mysqli_fetch_row($result);
         $this->nama = $row[0];
-        
+
         $id = $_REQUEST['id'];
         $op = $_REQUEST['op'];
         if ($op == "cn0948cm2478923c98237n23") 
         {
             $success = true;
             BeginTrans();
-            
+
             $sql = "UPDATE pegkerja SET terakhir=0 WHERE nip='$this->nip'";
             QueryDbTrans($sql, $success);
-            
+
             if ($success)
             {
                 $sql = "UPDATE pegkerja SET terakhir=1 WHERE replid=$id";
                 QueryDbTrans($sql, $success);
             }
-            
+
             if ($success)
             {
                 $sql = "UPDATE peglastdata SET idpegkerja=$id WHERE nip='$this->nip'";
                 QueryDbTrans($sql, $success);
             }
-            
+
             if ($success)
                 CommitTrans();
             else
@@ -66,16 +66,16 @@ class DaftarKerja
         {
             $success = true;
             BeginTrans();
-            
+
             $sql = "DELETE FROM pegkerja WHERE replid=$id";	
             QueryDbTrans($sql, $success);
-            
+
             if ($success)
             {
                 $sql = "UPDATE peglastdata SET idpegkerja=NULL WHERE idpegkerja=$id AND nip='$this->nip'";
                 QueryDbTrans($sql, $success);
             }
-            
+
             if ($success)
                 CommitTrans();
             else

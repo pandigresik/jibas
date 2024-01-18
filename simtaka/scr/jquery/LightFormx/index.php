@@ -78,13 +78,13 @@ $to = 'yourname@domain.com';
 
 
 //User info (DO NOT EDIT!)
-$name = stripslashes($_POST['name']); //sender's name
-$email = stripslashes($_POST['email']); //sender's email
-$website = stripslashes($_POST['website']); //sender's website
+$name = stripslashes((string) $_POST['name']); //sender's name
+$email = stripslashes((string) $_POST['email']); //sender's email
+$website = stripslashes((string) $_POST['website']); //sender's website
 
 //The subject
 $subject  = "[LightFormX Contact Form] "; //The default subject. Will appear by default in all messages. Change this if you want.
-$subject .= stripslashes($_POST['subject']); // the subject
+$subject .= stripslashes((string) $_POST['subject']); // the subject
 
 
 //The message you will receive in your mailbox
@@ -94,7 +94,7 @@ $msg  = "From : $name \r\n";  //add sender's name to the message
 $msg .= "e-Mail : $email \r\n";  //add sender's email to the message
 $msg .= "Website : $website \r\n"; //add sender's website to the message
 $msg .= "Subject : $subject \r\n\n"; //add subject to the message (optional! It will be displayed in the header anyway)
-$msg .= "---Message--- \r\n".stripslashes($_POST['message'])."\r\n\n";  //the message itself
+$msg .= "---Message--- \r\n".stripslashes((string) $_POST['message'])."\r\n\n";  //the message itself
 
 //Extras: User info (Optional!)
 //Delete this part if you don't need it

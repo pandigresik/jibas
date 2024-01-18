@@ -49,8 +49,8 @@ function loadJam($id) {
 	$GLOBALS['maxJam'] = mysqli_num_rows($result);
 	
 	while($row = mysqli_fetch_array($result)) {
-		$GLOBALS['jam']['row'][$row[0]][jam1] = $row[1];
-		$GLOBALS['jam']['row'][$row[0]][jam2] = $row[2];
+		$GLOBALS['jam']['row'][$row[0]][\JAM1] = $row[1];
+		$GLOBALS['jam']['row'][$row[0]][\JAM2] = $row[2];
 	}
 	return true;
 }

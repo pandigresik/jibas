@@ -49,8 +49,8 @@ $calon = "";
 if (isset($_REQUEST['calon']))
 	$calon = $_REQUEST['calon'];
 	
-$tgl1 = explode(' ',$tanggal1);
-$tgl2 = explode(' ',$tanggal2);
+$tgl1 = explode(' ',(string) $tanggal1);
+$tgl2 = explode(' ',(string) $tanggal2);
 
 if ($calon == "calon") 
 	$judul = "Calon ";
@@ -60,7 +60,7 @@ if ($calon == "calon")
 <head>
 <link rel="stylesheet" type="text/css" href="style/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Audit Perubahan Data Iuran Wajib <?=judul?>Siswa]</title>
+<title>JIBAS KEU [Laporan Audit Perubahan Data Iuran Wajib <?=\JUDUL?>Siswa]</title>
 <script language="javascript" src="script/tables.js"></script>
 <script language="javascript" src="script/tools.js"></script>
 </head>
@@ -71,7 +71,7 @@ if ($calon == "calon")
 
 <?=getHeader($departemen)?>
 
-<center><font size="4"><strong>LAPORAN AUDIT PERUBAHAN DATA IURAN WAJIB <?=strtoupper($judul)?>SISWA</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>LAPORAN AUDIT PERUBAHAN DATA IURAN WAJIB <?=strtoupper((string) $judul)?>SISWA</strong></font><br /> </center><br /><br />
 
 <table border="0">
 <tr>

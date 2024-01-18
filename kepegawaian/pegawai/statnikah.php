@@ -72,12 +72,12 @@ function Cetak() {
 		OpenDb();
 		$result = QueryDb($sql);
 		while($row = mysqli_fetch_row($result)) {
-			$data[] = array($row[1], $row[2]);
+			$data[] = [$row[1], $row[2]];
 			$legend_x[] = $row[0];
 		}
 		CloseDb();
 		
-		$legend_y = array("Nikah", "Belum");
+		$legend_y = ["Nikah", "Belum"];
 		
 		$title = "<font face='Arial' size='-1' color='black'>Statistik Pegawai<br>Berdasarkan Status Pernikahan Per Satuan Kerja</font>"; 
 		

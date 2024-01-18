@@ -99,7 +99,7 @@ if ($dept == "ALL")
 }
 else
 {
-	$darray = array( $dept );
+	$darray = [$dept];
 }
 
 if ($petugas == "ALL")
@@ -189,7 +189,7 @@ for($k = 0; $k < count($darray); $k++)
 	
 	// tarray -> tanggal array
 	// n -> conter tarray
-	$tarray = array();
+	$tarray = [];
 	$tres = QueryDb($sql);
 	$n = 0;
 	while ($trow = mysqli_fetch_row($tres))
@@ -204,7 +204,7 @@ for($k = 0; $k < count($darray); $k++)
 		// ambil nama-nama penerimaan pada departemen terpilih
 		// parray -> penerimaan array
 		// m -> counter parray
-		$parray = array();
+		$parray = [];
 		$sql = "SELECT replid, nama FROM jbsfina.datapenerimaan WHERE departemen='$dept' AND aktif=1 AND idkategori='$idkategori'";
 		$pres = QueryDb($sql);
 		$m = 0;
@@ -216,7 +216,7 @@ for($k = 0; $k < count($darray); $k++)
 		}
 		
 		// rarray -> result array
-		$rarray = array();
+		$rarray = [];
 		for($i = 0; $i < $m; $i++)
 		{
 			$idp = $parray[$i][0];

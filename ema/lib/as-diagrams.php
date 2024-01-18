@@ -33,35 +33,35 @@ Please read "as-diagrams.htm" for detailed instructions
 $css_drawn = 0;
 class CAsBarDiagram
 { // bar diagram class
-  var $imgpath = '../include/img/'; // place all 'diagram' images in this "folder";
-  var $bt_lgtitle = '';
-  var $graf_height = 240;
-  var $bwidth = 0;
-  var $precision  = 2;
-  var $bt_total   = 'Totals';
-  var $showtotals = 1;
-  var $btilemode = 0;
-  var $showdigits = 1; // in the bottom show digits by default
-  var $autoshrink = 1024; // auto-adjust graph width to not greater than this value (pixels)
-  var $legendx_url = ''; // URL with {ID} macro. If not empty, legend texts on X-axis become "hrefs"
-  var $legendx_onClick = ''; // onClick event string, for the URL above, (with {ID} macro)
-  var $legendy_url = ''; // URL with {ID} macro. If not empty, legend texts on Y-axis become "hrefs"
-  var $legendy_onClick = ''; // onClick event string, for the URL above, (with {ID} macro)
-  var $cell_url = ''; // tamplate for cell-URLs : {X}, {Y} will be subst-ed with current x,y "legend" values
-  var $legendx_id = 0; // here must be an array of ID values for all x URL's. If not set, titles will be used
-  var $data = array();
-  var $legendx = array(); // for auto-making legend from SQL query
-  var $legendy = array();
-  var $ShowPercents = array(); // one element: showPercents['legend_y'] = "title" - as percent after [n2] row
-  var $debug = 0; // show debug info
+  public $imgpath = '../include/img/'; // place all 'diagram' images in this "folder";
+  public $bt_lgtitle = '';
+  public $graf_height = 240;
+  public $bwidth = 0;
+  public $precision  = 2;
+  public $bt_total   = 'Totals';
+  public $showtotals = 1;
+  public $btilemode = 0;
+  public $showdigits = 1; // in the bottom show digits by default
+  public $autoshrink = 1024; // auto-adjust graph width to not greater than this value (pixels)
+  public $legendx_url = ''; // URL with {ID} macro. If not empty, legend texts on X-axis become "hrefs"
+  public $legendx_onClick = ''; // onClick event string, for the URL above, (with {ID} macro)
+  public $legendy_url = ''; // URL with {ID} macro. If not empty, legend texts on Y-axis become "hrefs"
+  public $legendy_onClick = ''; // onClick event string, for the URL above, (with {ID} macro)
+  public $cell_url = ''; // tamplate for cell-URLs : {X}, {Y} will be subst-ed with current x,y "legend" values
+  public $legendx_id = 0; // here must be an array of ID values for all x URL's. If not set, titles will be used
+  public $data = [];
+  public $legendx = []; // for auto-making legend from SQL query
+  public $legendy = [];
+  public $ShowPercents = []; // one element: showPercents['legend_y'] = "title" - as percent after [n2] row
+  public $debug = 0; // show debug info
 
   function InitData($legend_x=0, $legend_y=0)
   { // clears all gathered data. If legends passed, fills (X x Y) with 0 values
-    $this->data = array();
+    $this->data = [];
     if(!is_array($legend_x) || !is_array($legend_y)) return;
     $lenx = count($legend_x);
     $leny = count($legend_y);
-    $onecol = array();
+    $onecol = [];
     for($kk=0; $kk<$leny; $kk++) {
         $onecol[] = 0;
     }
@@ -157,7 +157,7 @@ td.barhead  { background-color: #3fa64b; color:#000000;
   if($pos_part)
   { //<1-1>
     $maxfound = false;
-    $decbase = array(0.01, 0.016, 0.02, 0.024, 0.032, 0.04, 0.05,0.06,0.08);
+    $decbase = [0.01, 0.016, 0.02, 0.024, 0.032, 0.04, 0.05, 0.06, 0.08];
     for($tt=0; ($tt < 15) && (!$maxfound); $tt++)
     { //<2>
      for($ii=0; $ii < count($decbase); $ii++) { //<3>
@@ -174,7 +174,7 @@ td.barhead  { background-color: #3fa64b; color:#000000;
 
   if($neg_part)
   { //<1-1>
-    $decbase = array(0.01, 0.016, 0.02, 0.024, 0.032, 0.04, 0.05,0.06,0.08);
+    $decbase = [0.01, 0.016, 0.02, 0.024, 0.032, 0.04, 0.05, 0.06, 0.08];
     $maxfound = false;
     for($tt=0; ($tt < 15) && (!$maxfound); $tt++)
     { //<2>
@@ -286,8 +286,8 @@ td.barhead  { background-color: #3fa64b; color:#000000;
             width=$this->bwidth height=$hght border=1 bordercolor=black></td></tr></table>");
         if(!empty($this->cell_url))
         {
-          $ato = array( $legend_x[$ix], $legend_y[$iy]);
-          $onebar = "<a href='".(str_replace(array('{X}','{Y}'),$ato, $this->cell_url))."'>$onebar</a>";
+          $ato = [$legend_x[$ix], $legend_y[$iy]];
+          $onebar = "<a href='".(str_replace(['{X}', '{Y}'],$ato, (string) $this->cell_url))."'>$onebar</a>";
         }
         if($hght>0) {
           echo empty($this->btilemode)? "<td>$onebar</td>" : "<table cellspacing=0 border=0 cellpadding=0><tr><td class='tbar$iy'>$onebar</td></tr></table>";
@@ -397,8 +397,8 @@ td.barhead  { background-color: #3fa64b; color:#000000;
     // $legendx_url, $legendx_onClick - use them !
     $ltext = $legend_x[$ix];
     if(!empty($this->legendx_url)) { //<3>
-       $idval = isset($this->legendx_id[$ix]) ? $this->legendx_id[$ix] : $legend_x[$ix];
-       $lurl = str_replace('{ID}',$idval, $this->legendx_url);
+       $idval = $this->legendx_id[$ix] ?? $legend_x[$ix];
+       $lurl = str_replace('{ID}',$idval, (string) $this->legendx_url);
        $onClick = empty($this->legendx_onClick) ? '' : str_replace('{ID}',$idval, 'onClick="'.$this->legendx_onClick.'"');
        $ltext = "<a href='$lurl' $onClick>$ltext</a>";
     } //<3>
@@ -415,8 +415,8 @@ td.barhead  { background-color: #3fa64b; color:#000000;
       $summs = 0;
       $lgd = $legend_y[$iy];
       if(!empty($this->legendy_url)) { //<3>
-         $idval = isset($this->legendy_id[$iy]) ? $this->legendy_id[$iy] : $legend_y[$iy];
-         $lurl = str_replace('{ID}',$idval, $this->legendy_url);
+         $idval = $this->legendy_id[$iy] ?? $legend_y[$iy];
+         $lurl = str_replace('{ID}',$idval, (string) $this->legendy_url);
          $onClick = empty($this->legendy_onClick) ? '' : str_replace('{ID}',$idval, 'onClick="'.$this->legendy_onClick.'"');
          $lgd = "<a href='$lurl' $onClick>$lgd</a>";
       } //<3>
@@ -438,7 +438,7 @@ td.barhead  { background-color: #3fa64b; color:#000000;
       { //<4> draw data[n-1]/data['n']*100 in percents
         $y2 = $iy; // last row
         $y1 = $iy-1; // row before last
-        $prcttl = (strlen($this->ShowPercents[$lgd]) ? $this->ShowPercents[$lgd] : $legend_y[$y1].'/'.$legend_y[$y2].',%');
+        $prcttl = (strlen((string) $this->ShowPercents[$lgd]) ? $this->ShowPercents[$lgd] : $legend_y[$y1].'/'.$legend_y[$y2].',%');
         $cls = ($cls=='bareven') ? 'barodd' : 'bareven';
         echo "   <tr class='$cls'><td nowrap>$prcttl</td>\n"; // title "percents"
         $sum1 = 0;
@@ -491,7 +491,7 @@ td.barhead  { background-color: #3fa64b; color:#000000;
   { // runs sql query and places all needed data into array for drawing
     // if legend_* array not passed, SQL query will be used to make them
 //    echo "GatherData: $sqlquery<br>"; // debug
-    $onecol = array();
+    $onecol = [];
     $lenx = is_array($legend_x) ? count($legend_x) : 0;
     $leny = is_array($legend_y) ? count($legend_y) : 0;
     for($kk=0; $kk<max($leny,1); $kk++) {

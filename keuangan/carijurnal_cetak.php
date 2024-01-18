@@ -115,7 +115,7 @@ switch ($kriteria) {
 <?=getHeader($departemen)?>
 
 
-<center><font size="4"><strong>DATA JURNAL <?=strtoupper($jurnal)?></strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>DATA JURNAL <?=strtoupper((string) $jurnal)?></strong></font><br /> </center><br /><br />
 
 <table border="0">
 <tr>
@@ -173,7 +173,7 @@ while ($row = mysqli_fetch_array($result)) {
 	<td align="center" rowspan="2" bgcolor="<?=$bgcolor ?>"><font size="4"><strong><?=$cnt ?></strong></font></td>
     <td align="center" bgcolor="<?=$bgcolor ?>"><strong><?=$row['nokas']?></strong><br /><em><?=LongDateFormat($row['tanggal'])?></em></td>
     <td valign="top" bgcolor="<?=$bgcolor ?>"><?=$row['transaksi'] ?>
-<?php if (strlen($row['keterangan']) > 0 )  { ?>
+<?php if (strlen((string) $row['keterangan']) > 0 )  { ?>
 	    <br /><strong>Keterangan:</strong><?=$row['keterangan'] ?> 
 <?php } ?>    
     </td>

@@ -119,11 +119,11 @@ function ShowKartuSiswa($showMenu)
              GROUP BY p.nis
              ORDER BY s.nama";
 
-    $lsUser = array();
+    $lsUser = [];
     $res = QueryDb($sql);
     while($row = mysqli_fetch_row($res))
     {
-        $lsUser[] = array($row[0], $row[1]);
+        $lsUser[] = [$row[0], $row[1]];
     }
 
     echo "<br>";

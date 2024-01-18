@@ -40,7 +40,7 @@ function errorHandler ($errno, $errstr, $errfile, $errline)
       case E_CORE_ERROR:
       case E_COMPILE_ERROR:
 		 		
-		 $r = rand(1, 30000);
+		 $r = random_int(1, 30000);
 		 
 		 if (file_exists("displayerror.php"))
 		 {

@@ -32,10 +32,10 @@ $sql	= "SELECT * FROM ".$db_name_umum.".identitas WHERE status=1 AND perpustakaa
 $result = QueryDb($sql);
 $row	= @mysqli_fetch_array($result);
 $nama 	= $row['nama'];
-$alamat	= $row[alamat1];
-$telp1 	= $row[telp1];
-$telp2 	= $row[telp2];
-$fax 	= $row[fax1];
+$alamat	= $row[\ALAMAT1];
+$telp1 	= $row[\TELP1];
+$telp2 	= $row[\TELP2];
+$fax 	= $row[\FAX1];
 $website= $row['situs'];
 $email 	= $row['email']; 
 if (isset($_REQUEST['Simpan'])){
@@ -86,19 +86,19 @@ if (isset($_REQUEST['Simpan'])){
   </tr>
   <tr>
     <td align="right">Alamat</td>
-    <td><textarea name="alamat" class="areatxt" id="alamat" cols="28" rows="3"><?=$row[alamat1]?></textarea></td>
+    <td><textarea name="alamat" class="areatxt" id="alamat" cols="28" rows="3"><?=$row[\ALAMAT1]?></textarea></td>
   </tr>
   <tr>
     <td align="right">Telepon 1</td>
-    <td><input type="text" name="telp1" id="telp1" class="inputtxt" style="width:175px" value="<?=$row[telp1]?>" /></td>
+    <td><input type="text" name="telp1" id="telp1" class="inputtxt" style="width:175px" value="<?=$row[\TELP1]?>" /></td>
   </tr>
   <tr>
     <td align="right">Telepon 2</td>
-    <td><input type="text" name="telp2" id="telp2" class="inputtxt" style="width:175px" value="<?=$row[telp2]?>" /></td>
+    <td><input type="text" name="telp2" id="telp2" class="inputtxt" style="width:175px" value="<?=$row[\TELP2]?>" /></td>
   </tr>
   <tr>
     <td align="right">Fax</td>
-    <td><input type="text" name="fax" id="fax" class="inputtxt" style="width:175px" value="<?=$row[fax1]?>" /></td>
+    <td><input type="text" name="fax" id="fax" class="inputtxt" style="width:175px" value="<?=$row[\FAX1]?>" /></td>
   </tr>
   <tr>
     <td align="right">Website</td>

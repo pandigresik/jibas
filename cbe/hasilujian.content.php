@@ -80,7 +80,7 @@ if ((int) $info->Status < 0)
 }
 
 $hasilUjianJson = $info->Data;
-$hasilUjian = json_decode($hasilUjianJson);
+$hasilUjian = json_decode((string) $hasilUjianJson, null, 512, JSON_THROW_ON_ERROR);
 
 $nilaiColor = "#DDDDDD";
 $sNilai = "--";
@@ -237,7 +237,7 @@ for($i = 0; $i < count($hasilUjian->LsHasilSoal); $i++)
     $tag->TipeDataJawaban = $info->TipeDataJawaban;
 
     $jsonTag = $tag->toJson();
-    $jsonTag = str_replace("\"", "`", $jsonTag);
+    $jsonTag = str_replace("\"", "`", (string) $jsonTag);
 
     $imSoal = "";
     $sql = "SELECT id, resdir 

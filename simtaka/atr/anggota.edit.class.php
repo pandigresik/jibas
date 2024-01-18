@@ -22,7 +22,7 @@
  **[N]**/ ?>
 <?php
 class CAnggotaEdit{
-	var $replid;
+	public $replid;
 	function OnStart(){
 		if (isset($_REQUEST['simpan'])){
 			$this->save();		
@@ -71,15 +71,15 @@ class CAnggotaEdit{
   		  </tr>
           <tr>
             <td width="77">&nbsp;<strong>Nama</strong></td>
-            <td colspan="2"><input name="nama" type="text" class="inputtxt" id="nama" size="35" value="<?=stripslashes($this->nama)?>"></td>
+            <td colspan="2"><input name="nama" type="text" class="inputtxt" id="nama" size="35" value="<?=stripslashes((string) $this->nama)?>"></td>
           </tr>
           <tr>
             <td width="77">&nbsp;<strong>Alamat</strong></td>
-            <td colspan="2"><textarea name="alamat" cols="45" rows="3" class="areatxt" id="alamat"><?=stripslashes($this->alamat)?></textarea></td>
+            <td colspan="2"><textarea name="alamat" cols="45" rows="3" class="areatxt" id="alamat"><?=stripslashes((string) $this->alamat)?></textarea></td>
           </tr>
           <tr>
             <td width="77">&nbsp;Kodepos</td>
-            <td width="64%"><input name="kodepos" type="text" class="inputtxt" id="kodepos"  value="<?=stripslashes($this->kodepos)?>"/></td>
+            <td width="64%"><input name="kodepos" type="text" class="inputtxt" id="kodepos"  value="<?=stripslashes((string) $this->kodepos)?>"/></td>
             <td width="29%" rowspan="4">
             	<table width="120" border="0" cellspacing="0" cellpadding="0">
                     <tr>
@@ -92,11 +92,11 @@ class CAnggotaEdit{
           </tr>
           <tr>
             <td width="77">&nbsp;Telepon</td>
-            <td><input name="telpon" type="text" class="inputtxt" id="telpon" value="<?=stripslashes($this->telpon)?>" /></td>
+            <td><input name="telpon" type="text" class="inputtxt" id="telpon" value="<?=stripslashes((string) $this->telpon)?>" /></td>
           </tr>
           <tr>
             <td width="77">&nbsp;HP</td>
-            <td><input name="hp" type="text" class="inputtxt" id="hp" value="<?=stripslashes($this->hp)?>" /></td>
+            <td><input name="hp" type="text" class="inputtxt" id="hp" value="<?=stripslashes((string) $this->hp)?>" /></td>
           </tr>
           <tr>
             <td width="77">&nbsp;Foto</td>
@@ -105,20 +105,20 @@ class CAnggotaEdit{
           </tr>
           <tr>
             <td width="77">&nbsp;Email</td>
-            <td colspan="2"><input name="email" type="text" class="inputtxt" id="email" size="40" value="<?=stripslashes($this->email)?>" /></td>
+            <td colspan="2"><input name="email" type="text" class="inputtxt" id="email" size="40" value="<?=stripslashes((string) $this->email)?>" /></td>
           </tr>
           <tr>
             <td width="77">&nbsp;Pekerjaan</td>
-            <td colspan="2"><input name="kerja" type="text" class="inputtxt" id="kerja" size="40" value="<?=stripslashes($this->pekerjaan)?>" /></td>
+            <td colspan="2"><input name="kerja" type="text" class="inputtxt" id="kerja" size="40" value="<?=stripslashes((string) $this->pekerjaan)?>" /></td>
           </tr>
           <tr>
             <td width="77">&nbsp;Institusi</td>
-            <td colspan="2"><input name="institusi" type="text" class="inputtxt" id="institusi" size="50" value="<?=stripslashes($this->institusi)?>" /></td>
+            <td colspan="2"><input name="institusi" type="text" class="inputtxt" id="institusi" size="50" value="<?=stripslashes((string) $this->institusi)?>" /></td>
           </tr>
           
           <tr>
             <td width="77">&nbsp;Keterangan</td>
-            <td colspan="2"><textarea name="keterangan" cols="45" rows="5" class="areatxt" id="keterangan"><?=stripslashes($this->keterangan)?></textarea></td>
+            <td colspan="2"><textarea name="keterangan" cols="45" rows="5" class="areatxt" id="keterangan"><?=stripslashes((string) $this->keterangan)?></textarea></td>
           </tr>
           <tr>
             <td colspan="3" align="center"><input type="submit" class="cmbfrm2" name="simpan" value="Simpan" >&nbsp;<input type="button" class="cmbfrm2" name="batal" value="Batal" onClick="window.close()" ></td>
@@ -129,21 +129,21 @@ class CAnggotaEdit{
 	}
 	function save(){
 		$replid = $_REQUEST['replid'];
-		$nama = trim(addslashes($_REQUEST['nama']));
-		$alamat = trim(addslashes($_REQUEST['alamat']));
-		$kodepos = trim(addslashes($_REQUEST['kodepos']));
-		$email = trim(addslashes($_REQUEST['email']));
-		$telpon = trim(addslashes($_REQUEST['telpon']));
-		$hp = trim(addslashes($_REQUEST['hp']));
-		$kerja = trim(addslashes($_REQUEST['kerja']));
-		$institusi = trim(addslashes($_REQUEST['institusi']));
-		$keterangan = trim(addslashes($_REQUEST['keterangan']));
+		$nama = trim(addslashes((string) $_REQUEST['nama']));
+		$alamat = trim(addslashes((string) $_REQUEST['alamat']));
+		$kodepos = trim(addslashes((string) $_REQUEST['kodepos']));
+		$email = trim(addslashes((string) $_REQUEST['email']));
+		$telpon = trim(addslashes((string) $_REQUEST['telpon']));
+		$hp = trim(addslashes((string) $_REQUEST['hp']));
+		$kerja = trim(addslashes((string) $_REQUEST['kerja']));
+		$institusi = trim(addslashes((string) $_REQUEST['institusi']));
+		$keterangan = trim(addslashes((string) $_REQUEST['keterangan']));
 		$foto = $_FILES['foto'];
 		$uploadedfile = $foto['tmp_name'];
 		$uploadedfile_name = $foto['name'];
 		//echo $uploadedfile; exit;
-		if (strlen($uploadedfile)!=0){
-			$filename=str_replace(GetFileName($uploadedfile_name),'temp',GetFileName($uploadedfile_name)).GetFileExt($uploadedfile_name);
+		if (strlen((string) $uploadedfile)!=0){
+			$filename=str_replace(GetFileName($uploadedfile_name),'temp',(string) GetFileName($uploadedfile_name)).GetFileExt($uploadedfile_name);
 			ResizeImage($foto, 100, 80, 100, $filename);
 			$handle = fopen($filename, "r");
 			$foto_binary = addslashes(fread(fopen($filename,"r"),filesize($filename)));

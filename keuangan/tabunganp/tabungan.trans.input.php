@@ -101,7 +101,7 @@ SimpanTransaksi();
 <?php      ShowSetoranInput() ?>        
 		</td>
         <td align="left" width="*"> 
-<?php      ShowTarikanInput(0) ?>        
+<?php      ShowTarikanInput() ?>        
 		</td>
 	</tr>
 	<tr>
@@ -114,7 +114,7 @@ SimpanTransaksi();
 </tr>
 </table>
 
-<?php if (strlen($errmsg) > 0) { ?>
+<?php if (strlen((string) $errmsg) > 0) { ?>
 <script language="javascript">
 alert('<?=$errmsg ?>');
 </script>

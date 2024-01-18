@@ -69,7 +69,7 @@ if ($op == "cx5429zsda53h3cs52q836b")
 	$row = mysqli_fetch_row($res);
 	
 	$FileShareDir = "$FILESHARE_UPLOAD_DIR/fileshare/";
-	$dir = str_replace($rootname, $FileShareDir, $row[0]);
+	$dir = str_replace($rootname, $FileShareDir, (string) $row[0]);
 	
 	deleteFolderRecursive($dir);
 	recursiveDataFolderDelete($iddir);
@@ -209,7 +209,7 @@ function traverse($iddir, $count)
 				if ($msg == "")
 					echo "<img onclick='delfolder($iddir)' src='../../images/ico/hapus.png'>";
 			}
-			else if (strtoupper(SI_USER_ID()) == "LANDLORD")
+			else if (strtoupper((string) SI_USER_ID()) == "LANDLORD")
 			{
 				if ($msg == "")
 					echo "<img onclick='delfolder($iddir)' src='../../images/ico/hapus.png'>";
@@ -227,7 +227,7 @@ function traverse($iddir, $count)
 					if ($msg == "")
 						echo "<img onclick='delfolder($iddir)' src='../../images/ico/hapus.png'>";
 			}
-			else if (strtoupper(SI_USER_ID()) =="LANDLORD")
+			else if (strtoupper((string) SI_USER_ID()) =="LANDLORD")
 			{
 				if ($msg == "")
 					echo "<img onclick='delfolder($iddir)' src='../../images/ico/hapus.png'>";
@@ -260,7 +260,7 @@ if (mysqli_num_rows($result) > 0)
 	if ($nsubdir == 0)
 	{
 		echo "&nbsp;<li class='liBullet'>&nbsp;<a style='text-decoration:none;' href='files.php?iddir=$iddir' target='files'><img src='../../images/ico/folder.gif' border='0'>&nbsp;(root)</a>&nbsp;";
-		if (SI_USER_ID() == $idguru || strtoupper(SI_USER_ID()) =="LANDLORD")
+		if (SI_USER_ID() == $idguru || strtoupper((string) SI_USER_ID()) =="LANDLORD")
 			echo "</li>\r\n";
 	}
 	else

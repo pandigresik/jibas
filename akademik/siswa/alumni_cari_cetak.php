@@ -32,7 +32,7 @@ $departemen=$_REQUEST['departemen'];
 $tahun=$_REQUEST['tahun'];
 $cari=$_REQUEST['cari'];
 
-$tipe = array("nis" => "NIS", "idangkatan" => "Angkatan", "tgllulus" => "Tahun Lulus", "nama" => "Nama","panggilan" => "Nama Panggilan", "agama" =>"Agama", "suku" => "Suku", "status" => "Status", "kondisi"=>"Kondisi Siswa", "darah"=>"Golongan Darah", "alamatsiswa" => "Alamat Siswa", "asalsekolah" => "Asal Sekolah", "namaayah" => "Nama Ayah", "namaibu" => "Nama Ibu", "alamatortu" => "Alamat Orang Tua", "keterangan" => "Keterangan" );
+$tipe = ["nis" => "NIS", "idangkatan" => "Angkatan", "tgllulus" => "Tahun Lulus", "nama" => "Nama", "panggilan" => "Nama Panggilan", "agama" =>"Agama", "suku" => "Suku", "status" => "Status", "kondisi"=>"Kondisi Siswa", "darah"=>"Golongan Darah", "alamatsiswa" => "Alamat Siswa", "asalsekolah" => "Asal Sekolah", "namaayah" => "Nama Ayah", "namaibu" => "Nama Ibu", "alamatortu" => "Alamat Orang Tua", "keterangan" => "Keterangan"];
 
 $urut = $_REQUEST['urut'];
 $urutan = $_REQUEST['urutan'];

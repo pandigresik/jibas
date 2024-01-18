@@ -33,7 +33,7 @@ class NewInbox{
 		$this->InboxID = $InboxID;
 
 		$TxtToReply = CQ($_REQUEST['TxtToReply']);
-		$this->TxtToReply = trim($TxtToReply);
+		$this->TxtToReply = trim((string) $TxtToReply);
 
 		$ID = $_REQUEST['ID'];
 		$this->ID = $ID;
@@ -76,8 +76,8 @@ class NewInbox{
 				?>
 				<input type="text" id="Content<?=$row['ID']?>" style="width:100%" value="<span class='Link'><?=$row['SenderNumber']?></span>#><?=FullDateFormat($row['ReceivingDateTime'])?>#>
 				<?php
-				if (strlen($row['Text'])>50)
-					echo substr($row['Text'],0,50)."...";
+				if (strlen((string) $row['Text'])>50)
+					echo substr((string) $row['Text'],0,50)."...";
 				else
 					echo $row['Text'];
 				?>
@@ -172,7 +172,7 @@ class NewInbox{
 		  $bg = "";
 		  //if ($cnt%2==0)
 		  	//	$bg = "background-color:#cfddd1;";
-		  $nohp  = str_replace("+62","",$row['SenderNumber']);	
+		  $nohp  = str_replace("+62","",(string) $row['SenderNumber']);	
           $sqlph = "SELECT nama FROM phonebook WHERE nohp LIKE '%$nohp'";
 		  $resph = QueryDb($sqlph);
 		  $rowph = @mysqli_fetch_row($resph);
@@ -184,8 +184,8 @@ class NewInbox{
             <td class="td" onclick="ReadMessage('<?=$row['ID']?>');" ><?=FullDateFormat($row['ReceivingDateTime'])?></td>
             <td class="td" onclick="ReadMessage('<?=$row['ID']?>');">
 			<?php
-			if (strlen($row['Text'])>50)
-				echo substr($row['Text'],0,50)."...";
+			if (strlen((string) $row['Text'])>50)
+				echo substr((string) $row['Text'],0,50)."...";
 			else
 				echo $row['Text'];
 			?>

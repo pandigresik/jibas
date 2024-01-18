@@ -202,7 +202,7 @@ function SimpanBesarSiswa($departemen, $idPenerimaan, $idTingkat, $idKelas, $bes
     if (mysqli_num_rows($res) == 0)
         return "SIMPAN: Tidak ditemukan data siswa";
 
-    $lsNis = array();
+    $lsNis = [];
     while($row = mysqli_fetch_row($res))
     {
         $nis = $row[0];
@@ -368,7 +368,7 @@ function SimpanBesarCalonSiswa($departemen, $idPenerimaan, $idTingkat, $idKelas,
     if (mysqli_num_rows($res) == 0)
         return "SIMPAN: Tidak ditemukan data calon siswa";
 
-    $lsIdCalon = array();
+    $lsIdCalon = [];
     while($row = mysqli_fetch_row($res))
     {
         $idCalon = $row[0];

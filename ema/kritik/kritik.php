@@ -33,9 +33,9 @@ if (isset($_REQUEST['ac'])){
 		QueryDb($sql);
 	}
 }
-$Year  = (isset($_REQUEST['Year']))?$_REQUEST['Year']:date('Y');
+$Year  = $_REQUEST['Year'] ?? date('Y');
 
-$Month = (isset($_REQUEST['Month']))?$_REQUEST['Month']:date(n);
+$Month = $_REQUEST['Month'] ?? date(\N);
 
 $Type  = $_REQUEST['Type'];
 ?>
@@ -118,7 +118,7 @@ function ChgCmb(){
     <td width="7%" height="25" align="center" class="header">No.</td>
     <td width="12%" height="25" align="center" class="header">No Pengirim</td>
     <td width="14%" align="center" class="header">Tanggal</td>
-    <td width="44%" align="center" class="header"><?=ucfirst($Type) ?></td>
+    <td width="44%" align="center" class="header"><?=ucfirst((string) $Type) ?></td>
     <!--td height="25" align="center" class="header">Status</td-->
     <td width="8%" height="25" align="center" class="header">&nbsp;</td>
   </tr>
@@ -129,7 +129,7 @@ function ChgCmb(){
   if ($num>0){
   $cnt=1;
   while ($row = @mysqli_fetch_row($result)){
-	$nohp  = str_replace("+62","",$row[1]);	
+	$nohp  = str_replace("+62","",(string) $row[1]);	
 	$sqlph = "SELECT nama FROM $db_name_sms.phonebook WHERE nohp LIKE '%$nohp'";
 	$resph = QueryDb($sqlph);
 	$rowph = @mysqli_fetch_row($resph);

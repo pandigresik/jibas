@@ -37,7 +37,7 @@ if (!isset($_REQUEST["stnojurnal"]))
 
 OpenDb();
 
-$stNoJurnal = urldecode($_REQUEST["stnojurnal"]);
+$stNoJurnal = urldecode((string) $_REQUEST["stnojurnal"]);
 //echo "$stNoJurnal<br>";
 $lsJurnal = explode(",", $stNoJurnal);
 ?>

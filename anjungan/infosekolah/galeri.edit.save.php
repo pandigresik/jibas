@@ -113,11 +113,11 @@ try
     if (!file_exists($uploadPath))
         mkdir($uploadPath, 0755);
     
-    $text = trim($_REQUEST['judul']);
+    $text = trim((string) $_REQUEST['judul']);
     $judul = $text;
     $fjudul = FormattedText($text);
     
-    $text = trim($_REQUEST['pesan']);
+    $text = trim((string) $_REQUEST['pesan']);
     $pesan = RecodeNewLine($text);
     $fpesan = FormattedText($text);
     $fprevpesan = FormattedPreviewText($text, $previewTextLength);
@@ -133,17 +133,17 @@ try
     $newcover = (int)$_REQUEST['newcover'];
     if ($newcover == 1)
     {
-        $rnd = rand(10000, 99999);
+        $rnd = random_int(10000, 99999);
         
         $file = $_FILES["newcover_file"];
         $name = $file['name'];
-        $name = $galleryid . "_" . $rnd . "_" . str_replace(" ", "_", $name);
+        $name = $galleryid . "_" . $rnd . "_" . str_replace(" ", "_", (string) $name);
         $type = $file['type'];
         $size = $file['size'];
         $location = "anjungan/galeri/" . date('Y');
         $dest = "$FILESHARE_UPLOAD_DIR/$location/$name";
         
-        $text = trim($_REQUEST['newcover_info']);
+        $text = trim((string) $_REQUEST['newcover_info']);
         $info = $text;
         $finfo = FormattedText($text);
         
@@ -167,7 +167,7 @@ try
     }
     else
     {
-        $text = trim($_REQUEST['cover_info']);
+        $text = trim((string) $_REQUEST['cover_info']);
         $info = $text;
         $finfo = FormattedText($text);
         
@@ -235,14 +235,14 @@ try
         $file = $_FILES[$doc];
         
         $info = "gambar_info_$i";
-        $text = trim($_REQUEST[$info]);
+        $text = trim((string) $_REQUEST[$info]);
         $info = $text;
         $finfo = FormattedText($text);
         
-        $rnd = rand(10000, 99999);
+        $rnd = random_int(10000, 99999);
         
         $name = $file['name'];
-        $name = $galleryid . "_" . $rnd . "_" . str_replace(" ", "_", $name);
+        $name = $galleryid . "_" . $rnd . "_" . str_replace(" ", "_", (string) $name);
         $type = $file['type'];
         $size = $file['size'];
         $location = "anjungan/galeri/" . date('Y');

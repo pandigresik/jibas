@@ -290,7 +290,7 @@ function focusNext(elemName, evt) {
 			if ($tingkat == "")
 				$tingkat = $row['replid'];			
 			?>
-          <option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat) ?>><?=$row['tingkat']?>
+          <option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat) ?>><?=$row['tingkat']?>
             </option>
           <?php
 			} //while
@@ -314,7 +314,7 @@ function focusNext(elemName, evt) {
 				$ada = "(Aktif)";					
 			?>
             
-    		<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $tahunajaran)?> ><?=$row['tahunajaran'].' '.$ada?></option>
+    		<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $tahunajaran)?> ><?=$row['tahunajaran'].' '.$ada?></option>
                   
     		<?php
 			}
@@ -332,7 +332,7 @@ function focusNext(elemName, evt) {
 			if ($kelas == "")
 				$kelas = $row['replid'];				 
 			?>
-    		<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $kelas) ?>><?=$row['kelas']?></option>
+    		<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $kelas) ?>><?=$row['kelas']?></option>
              
     		<?php
 			} //while
@@ -356,7 +356,7 @@ function focusNext(elemName, evt) {
 				$ada = "(Aktif)";
 			?>
             
-    		<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $semester)?> ><?=$row['semester'].' '.$ada?></option>
+    		<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $semester)?> ><?=$row['semester'].' '.$ada?></option>
                  
     		<?php
 			}
@@ -376,7 +376,7 @@ function focusNext(elemName, evt) {
 				$pelajaran = $row['replid'];			
 			?>
             
-    		<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $pelajaran)?> ><?=$row['nama']?></option>
+    		<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $pelajaran)?> ><?=$row['nama']?></option>
                   
     		<?php
 			}

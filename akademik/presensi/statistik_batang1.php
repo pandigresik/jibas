@@ -43,9 +43,9 @@ for ($i=0;$i<5;$i++) {
 		$data[] = ($row[$i]/$total)*100;
 }
 
-$judul = array('Hadir', 'Ijin', 'Sakit', 'Cuti', 'Alpa');
+$judul = ['Hadir', 'Ijin', 'Sakit', 'Cuti', 'Alpa'];
 
-$color = array('green@0.5','red@0.5','yellow@0.5','blue@0.5','orange@0.5','gold@0.5','navy@0.5','darkblue@0.5','darkred@0.5','darkgreen@0.5', 'pink@0.5','black@0.5','gray@0.5');
+$color = ['green@0.5', 'red@0.5', 'yellow@0.5', 'blue@0.5', 'orange@0.5', 'gold@0.5', 'navy@0.5', 'darkblue@0.5', 'darkred@0.5', 'darkgreen@0.5', 'pink@0.5', 'black@0.5', 'gray@0.5'];
 
 
 //Buat grafik

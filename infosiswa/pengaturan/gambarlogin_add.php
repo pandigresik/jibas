@@ -79,7 +79,7 @@ if (isset($_REQUEST['Simpan'])) {
 	$cnt=(int)$lastid+1;
 	$filename="bg".$cnt.".jpg";
 	//$filename = "x.jpg";
-	list($width,$height)=getimagesize($uploadedfile);
+	[$width, $height]=getimagesize($uploadedfile);
 	if ($width<$height){
 	$newheight=1024;
    	$newwidth=1280;

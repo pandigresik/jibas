@@ -70,12 +70,12 @@ function Cetak() {
 		OpenDb();
 		$result = QueryDb($sql);
 		while($row = mysqli_fetch_row($result)) {
-			$data[] = array($row[1], $row[2]);
+			$data[] = [$row[1], $row[2]];
 			$legend_x[] = $row[0];
 		}
 		CloseDb();
 		
-		$legend_y = array("Pria", "Wanita");
+		$legend_y = ["Pria", "Wanita"];
 		
 		$title = "<font face='Arial' size='-1' color='black'>Banyaknya Pegawai Berdasarkan Jenis Kelamin</font>"; // title for the diagram
 		

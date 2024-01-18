@@ -64,7 +64,7 @@ if (isset($_REQUEST['Simpan'])) {
 		$cek = 2;
 		
 	} else {
-		$departemen = str_replace("'", "`", $departemen);
+		$departemen = str_replace("'", "`", (string) $departemen);
 		$sql = "INSERT INTO departemen SET departemen='$departemen',nipkepsek='$nipkepsek',urutan='$urutan',keterangan='$keterangan'";
 		//echo $sql;
 		$result = QueryDb($sql);

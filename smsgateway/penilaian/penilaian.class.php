@@ -201,12 +201,12 @@ class Penilaian{
                         $res = QueryDb($sql);
                         $row = @mysqli_fetch_row($res);
                         
-                        $x 	 = explode('-',$row[0]);
+                        $x 	 = explode('-',(string) $row[0]);
                         $Date1 = $x[0];
                         $Month1 = $x[1];
                         $Year1 = $x[2];
                         
-                        $y 	 = explode('-',$row[1]);
+                        $y 	 = explode('-',(string) $row[1]);
                         $Date2 = $y[0];
                         $Month2 = $y[1];
                         $Year2 = $y[2];
@@ -421,7 +421,7 @@ class Penilaian{
         </td>
       </tr>
     </table>    
-	<?php
+<?php
     }
 }
 ?>

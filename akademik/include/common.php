@@ -23,12 +23,12 @@
 <?php
 require_once("sessionchecker.php");
 
-$kriteria = array(1 => 'Agama','Asal Sekolah','Golongan Darah','Jenis Kelamin','Kewarganegaraan','Kode Pos Siswa','Kondisi Siswa','Pekerjaan Ayah','Pekerjaan Ibu','Pendidikan Ayah','Pendidikan Ibu','Total Penghasilan Orang Tua','Status Aktif','Status Siswa','Suku','Tahun Kelahiran','Usia');
-$kriteria_judul = array(1 => 'AGAMA','ASAL SEKOLAH','GOLONGAN DARAH','JENIS KELAMIN','KEWARGANEGARAAN','KODE POS SISWA','KONDISI SISWA','PEKERJAAN AYAH','PEKERJAAN IBU','PENDIDIKAN AYAH','PENDIDIKAN IBU','TOTAL PENGHASILAN ORANG TUA','STATUS AKTIF','STATUS SISWA','SUKU','TAHUN KELAHIRAN','USIA');
-$kriteria_tabel = array(1 => 'agama','asalsekolah','darah','kelamin','warga','kodepossiswa','kondisi','pekerjaanayah','pekerjaanibu','pendidikanayah','pendidikanibu','penghasilanayah','aktif','status','suku','tgllahir');
-$kriteria_file = array(1 => 'agama','asalsekolah','darah','kelamin','warga','kodepos','kondisi','pekerjaanayah','pekerjaanibu','pendidikanayah','pendidikanibu','penghasilan','aktif','status','suku','tahunlahir','usia');
-$bulan = array(1=>'Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agust','Sep','Okt','Nov','Des');
-$bulan_pjg = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+$kriteria = [1 => 'Agama', 'Asal Sekolah', 'Golongan Darah', 'Jenis Kelamin', 'Kewarganegaraan', 'Kode Pos Siswa', 'Kondisi Siswa', 'Pekerjaan Ayah', 'Pekerjaan Ibu', 'Pendidikan Ayah', 'Pendidikan Ibu', 'Total Penghasilan Orang Tua', 'Status Aktif', 'Status Siswa', 'Suku', 'Tahun Kelahiran', 'Usia'];
+$kriteria_judul = [1 => 'AGAMA', 'ASAL SEKOLAH', 'GOLONGAN DARAH', 'JENIS KELAMIN', 'KEWARGANEGARAAN', 'KODE POS SISWA', 'KONDISI SISWA', 'PEKERJAAN AYAH', 'PEKERJAAN IBU', 'PENDIDIKAN AYAH', 'PENDIDIKAN IBU', 'TOTAL PENGHASILAN ORANG TUA', 'STATUS AKTIF', 'STATUS SISWA', 'SUKU', 'TAHUN KELAHIRAN', 'USIA'];
+$kriteria_tabel = [1 => 'agama', 'asalsekolah', 'darah', 'kelamin', 'warga', 'kodepossiswa', 'kondisi', 'pekerjaanayah', 'pekerjaanibu', 'pendidikanayah', 'pendidikanibu', 'penghasilanayah', 'aktif', 'status', 'suku', 'tgllahir'];
+$kriteria_file = [1 => 'agama', 'asalsekolah', 'darah', 'kelamin', 'warga', 'kodepos', 'kondisi', 'pekerjaanayah', 'pekerjaanibu', 'pendidikanayah', 'pendidikanibu', 'penghasilan', 'aktif', 'status', 'suku', 'tahunlahir', 'usia'];
+$bulan = [1=>'Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agust', 'Sep', 'Okt', 'Nov', 'Des'];
+$bulan_pjg = [1=>'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 
 function StringIsSelected($value, $comparer) 
 {
@@ -42,7 +42,7 @@ function ShortDateFormat($mysqldate)
 {
 	global $bulan;
 	
-	list($y, $m, $d) = explode('[/.-]', $mysqldate); 
+	[$y, $m, $d] = explode('[/.-]', (string) $mysqldate); 
 	
 	return "$d ". $bulan[$m] ." $y";
 }
@@ -79,7 +79,7 @@ function RandStr($length)
 	$charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	$s = "";
 	while(strlen($s) < $length) 
-		$s .= substr($charset, rand(0, 61), 1);
+		$s .= substr($charset, random_int(0, 61), 1);
 	return $s;		
 }
 
@@ -131,7 +131,7 @@ function NamaHari($hari)
 
 function rpad($string, $padchar, $length) 
 {
-	$result = trim($string);
+	$result = trim((string) $string);
 	if (strlen($result) < $length) 
 	{
 		$nzero = $length - strlen($result);
@@ -145,41 +145,41 @@ function rpad($string, $padchar, $length)
 
 function MySqlDateFormat($date) 
 {
-	list($d, $m, $y) = explode('[/.-]', $date); 
+	[$d, $m, $y] = explode('[/.-]', (string) $date); 
 	return "$y-$m-$d";
 }
 
 function RegularDateFormat($mysqldate) 
 {
-	list($y, $m, $d) = explode('[/.-]', $mysqldate); 
+	[$y, $m, $d] = explode('[/.-]', (string) $mysqldate); 
 	return "$d-$m-$y";
 }
 
 function LongDateFormat($mysqldate) 
 {
-	list($y, $m, $d) = explode('[/.-]', $mysqldate); 
+	[$y, $m, $d] = explode('[/.-]', (string) $mysqldate); 
 	return "$d ". NamaBulan($m) ." $y";
 }
 
 function TglDb($value) 
 {
-	$tgl = explode('-', $value);
+	$tgl = explode('-', (string) $value);
 	$tglx = $tgl[2]."-".$tgl[1]."-".$tgl[0];
 	return $tglx;
 }
 
 function TglText($value) 
 {
-	$tahun = substr($value,0,4);
-	$bulan = substr($value,5,2);
-	$tanggal = substr($value,8,2);
+	$tahun = substr((string) $value,0,4);
+	$bulan = substr((string) $value,5,2);
+	$tanggal = substr((string) $value,8,2);
 	$tgl=$tanggal."-".$bulan."-".$tahun;
 	return $tgl;
 }
 
 function TglTextLong($value) 
 {
-	$value = trim($value);
+	$value = trim((string) $value);
 	$tahun = substr($value, 0, 4);
 	$bulan = substr($value, 5, 2);
 	$tanggal = substr($value, 8, 2);
@@ -239,9 +239,9 @@ function TglTextLong($value)
 
 function TglTextShort($value) 
 {
-	$tahun = substr($value,0,4);
-	$bulan = substr($value,5,2);
-	$tanggal = substr($value,8,2);
+	$tahun = substr((string) $value,0,4);
+	$bulan = substr((string) $value,5,2);
+	$tanggal = substr((string) $value,8,2);
 	switch ($bulan)
 	{
 		case '01':
@@ -295,7 +295,7 @@ function TglTextShort($value)
 
 function format_tgl($tanggal)
 {
-	$mdy = explode('-',$tanggal);
+	$mdy = explode('-',(string) $tanggal);
 	$hasil = $mdy[2].' '.NamaBulan($mdy[1]).' '.$mdy[0];
 	
 	return $hasil;
@@ -303,7 +303,7 @@ function format_tgl($tanggal)
 
 function format_tgl_blnnmr($tanggal)
 {
-	$mdy = explode('-',$tanggal);
+	$mdy = explode('-',(string) $tanggal);
 	$hasil = $mdy[2].'-'.$mdy[1].'-'.$mdy[0];
 	
 	return $hasil;
@@ -311,7 +311,7 @@ function format_tgl_blnnmr($tanggal)
 
 function unformat_tgl($tanggal)
 {
-	$mdy = explode('-',$tanggal);
+	$mdy = explode('-',(string) $tanggal);
 	$hasil = $mdy[2].'-'.$mdy[1].'-'.$mdy[0];
 	
 	return $hasil;
@@ -334,10 +334,11 @@ function random($number)
 {
 	if ($number)
 	{
+		$total = '';
     	for($i=1;$i<=$number;$i++)
 		{
-       		$nr=rand(0,9);
-       		$total=$total.$nr;
+       		$nr=random_int(0,9);
+       		$total .= $nr;
        	}
     	return $total;
 	}
@@ -347,7 +348,7 @@ function resize_foto($file)
 {
 	$src = imagecreatefromjpeg($file); 
 	$filename = "../temp/x.jpg";
-	list($width,$height)=getimagesize($file);
+	[$width, $height]=getimagesize($file);
 	if ($width<$height)
 	{
 		$newheight=320;

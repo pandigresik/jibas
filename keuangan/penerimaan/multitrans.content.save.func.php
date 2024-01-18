@@ -190,7 +190,7 @@ function SaveIuranSukarelaSiswa($rowno)
 		QueryDbTrans($sql, $success);
 	}
 	
-	$transactions[] = array($nokas, $infocicil, $jumlah, 0, "SKR", 0);
+	$transactions[] = [$nokas, $infocicil, $jumlah, 0, "SKR", 0];
 	
 	return $success;
 }
@@ -273,7 +273,7 @@ function SaveIuranSukarelaCalonSiswa($rowno)
 		QueryDbTrans($sql, $success);
 	}
 	
-	$transactions[] = array($nokas, $infocicil, $jumlah, 0, "CSSKR", 0);
+	$transactions[] = [$nokas, $infocicil, $jumlah, 0, "CSSKR", 0];
 	
 	return $success;
 }
@@ -411,7 +411,7 @@ function SaveIuranWajibSiswa($rowno)
 	{
 		$nokas = GetNoKas();
 		
-		$transactions[] = array($nokas, $infocicil, $jcicilan, $jdiskon, "JTT", $tersisa);
+		$transactions[] = [$nokas, $infocicil, $jcicilan, $jdiskon, "JTT", $tersisa];
 		
 		//echo "SimpanJurnal($idtahunbuku, $tcicilan, $infocicil, $nokas, '', $petugas, 'penerimaanjtt', $idjurnal)<br>";
 		$success = SimpanJurnal($idtahunbuku, $tcicilan, $infociciljurnal, $nokas, "", $idpetugas, $petugas, "penerimaanjtt", $idjurnal);
@@ -609,7 +609,7 @@ function SaveIuranWajibCalonSiswa($rowno)
 	{
 		$nokas = GetNoKas();
 		
-		$transactions[] = array($nokas, $infocicil, $jcicilan, $jdiskon, "CSWJB", $tersisa);
+		$transactions[] = [$nokas, $infocicil, $jcicilan, $jdiskon, "CSWJB", $tersisa];
 		
 		//echo "SimpanJurnal($idtahunbuku, $tcicilan, $infocicil, $nokas, '', $petugas, 'penerimaanjttcalon', $idjurnal)<br>";
 		$success = SimpanJurnal($idtahunbuku, $tcicilan, $infociciljurnal, $nokas, "", $idpetugas, $petugas, "penerimaanjttcalon", $idjurnal);

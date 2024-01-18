@@ -60,7 +60,7 @@ try
         $tahun = $_REQUEST['tahun'];
         $idkelas = $_REQUEST['idkelas'];
         
-        echo GetSiswa($idkegiatan, $bulan, $tahun, $idkelas);
+        echo GetSiswa($idkegiatan, $bulan, $tahun);
     }
     else if ($op == "searchsiswa")
     {
@@ -70,7 +70,7 @@ try
         $filter = $_REQUEST['filter'];
         $keyword = $_REQUEST['keyword'];
         
-        echo SearchSiswa($idkegiatan, $bulan, $tahun, $filter, $keyword);
+        echo SearchSiswa($idkegiatan, $bulan, $tahun, $filter);
     }
     
     CloseDb();

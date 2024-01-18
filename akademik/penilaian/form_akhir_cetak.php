@@ -97,7 +97,7 @@ $row = mysqli_fetch_array($result);
     while ($row_nhb_PK = @mysqli_fetch_array($result_nhb_PK))
 	{
         $idujian[$cntujian] = $row_nhb_PK['replid'];
-		$tgl = explode("-",$row_nhb_PK['tanggal']); ?>
+		$tgl = explode("-",(string) $row_nhb_PK['tanggal']); ?>
         <td class="headerlong">
           <?=$row['jenisujian']."&nbsp;".$cntujian."<br>".$tgl[2]."/".$tgl[1]."/".substr((string) $tgl[0],2)?>
         </td>

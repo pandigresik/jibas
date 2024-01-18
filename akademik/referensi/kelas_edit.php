@@ -77,7 +77,7 @@ if (isset($_REQUEST['Simpan'])) {
 		CloseDb();
 		$ERROR_MSG = "Kelas ".$kelas." sudah digunakan!";
 	} else {
-		$sql = "UPDATE kelas SET kelas='$kelas',kapasitas='".$_REQUEST['kapasitas']."', nipwali='".trim($_REQUEST['nipwali'])."', keterangan='$keterangan' WHERE replid= '$replid'";
+		$sql = "UPDATE kelas SET kelas='$kelas',kapasitas='".$_REQUEST['kapasitas']."', nipwali='".trim((string) $_REQUEST['nipwali'])."', keterangan='$keterangan' WHERE replid= '$replid'";
 		
 		$result = QueryDb($sql);
 		if ($result) { ?>

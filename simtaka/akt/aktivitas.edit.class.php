@@ -28,7 +28,7 @@ class CAktivitasEdit{
 		$result = QueryDb($sql);
 		$row = @mysqli_fetch_array($result);
 		$this->perpustakaan = $row['perpustakaan'];
-		$tgl = explode(' ',$row['tanggal']);
+		$tgl = explode(' ',(string) $row['tanggal']);
 		$this->tanggal = $tgl[0];
 		$this->aktivitas = $row['aktivitas'];
 		$sqlDate = "SELECT DATE_FORMAT(now(),'%Y-%m-%d'),DATE_FORMAT(now(),'%H:%i:%s')";
@@ -37,9 +37,9 @@ class CAktivitasEdit{
 		$this->tglInput = $rowDate[0];		
 		$timeInput = $rowDate[1];
 		if (isset($_REQUEST['simpan'])){
-			$perpustakaan = trim(addslashes($_REQUEST['perpustakaan']));
-			$tanggal = trim(addslashes($_REQUEST['tglInput']));
-			$aktivitas = trim(addslashes($_REQUEST['aktivitas']));
+			$perpustakaan = trim(addslashes((string) $_REQUEST['perpustakaan']));
+			$tanggal = trim(addslashes((string) $_REQUEST['tglInput']));
+			$aktivitas = trim(addslashes((string) $_REQUEST['aktivitas']));
 			$sql = "UPDATE aktivitas SET perpustakaan='$perpustakaan',tanggal='".MysqlDateFormat($tanggal)." ".$timeInput."',aktivitas='$aktivitas' WHERE replid=".$this->replid;
 			//echo $sql;exit;
 			$result = QueryDb($sql);
@@ -80,7 +80,7 @@ class CAktivitasEdit{
           </tr>
           <tr>
             <td width="6%">&nbsp;<strong>Aktivitas</strong></td>
-            <td width="94%"><textarea name="aktivitas" cols="80" rows="25" class="areatxt" id="aktivitas"><?=stripslashes($this->aktivitas)?></textarea></td>
+            <td width="94%"><textarea name="aktivitas" cols="80" rows="25" class="areatxt" id="aktivitas"><?=stripslashes((string) $this->aktivitas)?></textarea></td>
           </tr>
           <tr>
             <td colspan="2" align="center"><input type="submit" class="cmbfrm2" name="simpan" value="Simpan" >&nbsp;<input type="button" class="cmbfrm2" name="batal" value="Batal" onClick="document.location.href='aktivitas.php'" ></td>

@@ -335,7 +335,7 @@ function focusNext(elemName, evt) {
 			}
 			$nilaiujian[$i] = 0;
 			$idujian[$i] = $row_cek_ujian['replid'];			
-            $tgl = explode("-",$row_cek_ujian['tanggal']);
+            $tgl = explode("-",(string) $row_cek_ujian['tanggal']);
 			
         ?>
            <td height="30" width="50" class="headerlong" align="center" onMouseOver="showhint('RPP: <?=$namarpp .'<br>'?> Materi: <?=$row_cek_ujian['deskripsi']?>', this, event, '120px')"><?=$namajenis."-".$i?>&nbsp;

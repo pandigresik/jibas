@@ -41,8 +41,8 @@ $tanggal2 = "";
 if (isset($_REQUEST['tanggal2']))
 	$tanggal2 = $_REQUEST['tanggal2'];
 
-$tgl1 = explode(' ',$tanggal1);
-$tgl2 = explode(' ',$tanggal2);
+$tgl1 = explode(' ',(string) $tanggal1);
+$tgl2 = explode(' ',(string) $tanggal2);
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

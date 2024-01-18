@@ -66,7 +66,7 @@ function FormatRupiah($value) {
 	}
 		
 	$duit = (string)$value;
-	$value = trim(duit);
+	$value = trim((string) \DUIT);
 	if (strlen($duit) == 0) return "";
 	$len = strlen($duit);
 	$nPoint = (int)($len / 3);

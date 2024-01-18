@@ -72,7 +72,7 @@ function GetFileName()
 
 function FormatName($name)
 {
-    $name = str_replace(" ", "_", $name);
+    $name = str_replace(" ", "_", (string) $name);
     $name = str_replace("'", "", $name);
     
     return $name;
@@ -128,7 +128,7 @@ function GetNisList(&$ndata)
         
         // Cek dulu apa NIS nya valid 
         $nisinfo = $_REQUEST['nisinfo'];
-        $temp = explode(",", $nisinfo);
+        $temp = explode(",", (string) $nisinfo);
         
         if (0 == count($temp))
         {
@@ -288,9 +288,9 @@ function SetAddress()
         
         echo "<font style='font-family: Verdana; line-height: 18px; font-size: 14px;'>\r\n";
         echo "Kepada Yth:<br>\r\n";
-        if (strlen(trim($ortu)) != 0)
+        if (strlen(trim((string) $ortu)) != 0)
             echo "<strong>$ortu</strong><br>\r\n";
-        echo "Orangtua <strong>" . strtoupper($nama) . "</strong><br>\r\n";
+        echo "Orangtua <strong>" . strtoupper((string) $nama) . "</strong><br>\r\n";
         echo "$alamat<br>\r\n";
         echo "$kodepos<br>\r\n";
         echo "</font>\r\n";
@@ -310,9 +310,9 @@ function SetAddress()
         
         echo "<font style='font-family: Verdana; line-height: 18px; font-size: 14px;'>\r\n";
         echo "Kepada Yth:<br>\r\n";
-        if (strlen(trim($ortu)) != 0)
+        if (strlen(trim((string) $ortu)) != 0)
             echo "<strong>$ortu</strong><br>\r\n";
-        echo "Orangtua <strong>" . strtoupper($nama) . "</strong><br>\r\n";
+        echo "Orangtua <strong>" . strtoupper((string) $nama) . "</strong><br>\r\n";
         echo "$alamat<br>\r\n";
         echo "$kodepos<br>\r\n";
         echo "</font>\r\n";
@@ -354,7 +354,7 @@ function SetHeader()
 	echo "<table style='font-family: Arial; font-size: 12px; font-weight: bold;' border='0' cellpadding='0' cellspacing='0' width='100%'>\r\n";
 	echo "<tr>\r\n";
 	echo "  <td width='20%' align='center'>\r\n";
-	echo "      <img src='" . $full_url . "library/gambar.php?replid=".$replid."&table=jbsumum.identitas&" . rand(1, 5000) . "' />\r\n";
+	echo "      <img src='" . $full_url . "library/gambar.php?replid=".$replid."&table=jbsumum.identitas&" . random_int(1, 5000) . "' />\r\n";
 	echo "  </td>\r\n";
 	echo "	<td valign='top' align='left'>\r\n";
 	if ($num > 0)
@@ -429,7 +429,7 @@ function SetAutoFormat($text)
 {
     global $nis, $nama, $kelas, $pin, $departemen;
        
-    $ftext = str_replace("{NIS}", $nis, $text);
+    $ftext = str_replace("{NIS}", $nis, (string) $text);
     $ftext = str_replace("{NAMA}", $nama, $ftext);
     $ftext = str_replace("{KELAS}", $kelas, $ftext);
     $ftext = str_replace("{PIN}", $pin, $ftext);
@@ -601,7 +601,7 @@ function SetInfoKeuangan()
         {
             $no += 1;
             
-            $keterangan = trim($row['keterangan']);
+            $keterangan = trim((string) $row['keterangan']);
             $rowspan = strlen($keterangan) == 0 ? "" : "rowspan='2'";
             
             $sql = "SELECT SUM(jumlah) + SUM(info1)
@@ -658,7 +658,7 @@ function SetInfoKeuangan()
         {
             $no += 1;
             
-            $keterangan = trim($row['keterangan']);
+            $keterangan = trim((string) $row['keterangan']);
             $rowspan = strlen($keterangan) == 0 ? "" : "rowspan = '2'";
             
             echo "<tr height='24'>\r\n";
@@ -830,8 +830,8 @@ function SetInfoPresensi()
             echo "<tr height='24'>\r\n";
             echo "<td align='center'>$no</td>\r\n";
             echo "<td align='center'>".$row['xtanggal']."</td>\r\n";
-            echo "<td align='center'>".$row[time_in]."</td>\r\n";
-            echo "<td align='center'>".$row[time_out]."</td>\r\n";
+            echo "<td align='center'>".$row[\TIME_IN]."</td>\r\n";
+            echo "<td align='center'>".$row[\TIME_OUT]."</td>\r\n";
             echo "<td align='center'>$telat</td>\r\n";
             echo "<td align='left'>".$row['keterangan']."</td>\r\n";
             echo "</tr>\r\n";
@@ -904,8 +904,8 @@ function SetInfoKegiatan()
             echo "<td align='center'>$no</td>\r\n";
             echo "<td align='center'>".$row['xtanggal']."</td>\r\n";
             echo "<td align='left'>".$row['kegiatan']."</td>\r\n";
-            echo "<td align='center'>".$row[time_in]."</td>\r\n";
-            echo "<td align='center'>".$row[time_out]."</td>\r\n";
+            echo "<td align='center'>".$row[\TIME_IN]."</td>\r\n";
+            echo "<td align='center'>".$row[\TIME_OUT]."</td>\r\n";
             echo "<td align='center'>$telat</td>\r\n";
             echo "<td align='left'>".$row['keterangan']."</td>\r\n";
             echo "</tr>\r\n";
@@ -958,11 +958,11 @@ function SetNilaiCbe()
                AND p.status = $status
              ORDER BY us.tanggal DESC";
 
-    $lsId = array();
+    $lsId = [];
     $res = QueryDb($sql);
     while($row = mysqli_fetch_row($res))
     {
-        $lsId[] = array($row[0], $row[1], $row[2], $row[3]);
+        $lsId[] = [$row[0], $row[1], $row[2], $row[3]];
     }
 
     if (count($lsId) == 0)
@@ -977,7 +977,7 @@ function SetNilaiCbe()
         return;
     }
 
-    $lsIdUjian = array();
+    $lsIdUjian = [];
     for($i = 0; $i < count($lsId); $i++)
     {
         $id = $lsId[$i][0];
@@ -991,7 +991,7 @@ function SetNilaiCbe()
         $res = QueryDb($sql);
         while($row = mysqli_fetch_row($res))
         {
-            $lsIdUjian[] = array($row[0], $row[1], $row[2], $tglUjian, $idPelajaran, $pelajaran);
+            $lsIdUjian[] = [$row[0], $row[1], $row[2], $tglUjian, $idPelajaran, $pelajaran];
         }
     }
 

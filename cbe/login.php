@@ -162,7 +162,7 @@ $checkCurl = function_exists('curl_exec');
 
 <div id="Partner">
     <?php
-    $_REQUEST = array();
+    $_REQUEST = [];
     $_REQUEST['relpath'] = "..";
     include('../partner.php');
     ?>

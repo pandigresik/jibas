@@ -54,6 +54,6 @@ function ganti() {
 </style>
 </head>
 <body leftmargin="0" topmargin="0" onload="ganti()">
-<input type="hidden" id="login" value="<?=trim(SI_USER_NAME())?>">
+<input type="hidden" id="login" value="<?=trim((string) SI_USER_NAME())?>">
 </body>
 </html>

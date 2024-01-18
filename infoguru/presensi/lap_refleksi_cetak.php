@@ -139,8 +139,8 @@ $row = mysqli_fetch_array($result);
 	while ($row = mysqli_fetch_row($result)) { ?>
     <tr height="25">    	    	 			
 		<td align="center" ><?=++$cnt?></td>
-        <td align="center" ><?=$row[0].' '.$bulan[$row[1]].' '.substr($row[2],2,2)?></td>
-        <td align="center" ><?=substr($row[3],0,5)?></td>
+        <td align="center" ><?=$row[0].' '.$bulan[$row[1]].' '.substr((string) $row[2],2,2)?></td>
+        <td align="center" ><?=substr((string) $row[3],0,5)?></td>
 		<?php if ($kelas == -1) { ?>
         <td align="center"><?=$row[12]?></td>
         <?php } ?>

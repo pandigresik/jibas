@@ -165,7 +165,7 @@ $ada_get_comment = @mysqli_num_rows($result_get_comment);
 	$i = 0;
 	while($row = mysqli_fetch_row($res))
 	{
-		$aspek[$i++] = array($row[0], $row[1]);
+		$aspek[$i++] = [$row[0], $row[1]];
 	} ?>
     <strong>Informasi Nilai Rapor Siswa:</strong>
 	<table border="1" class="tab" id="table" bordercolor="#000000">  

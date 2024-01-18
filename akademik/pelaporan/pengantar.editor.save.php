@@ -38,11 +38,11 @@ $id = $_REQUEST['id'];
 $departemen = $_REQUEST['departemen'];
 $status = $_REQUEST['status'];
 
-$judul = trim($_REQUEST['judul']);
+$judul = trim((string) $_REQUEST['judul']);
 $judul = str_replace("`", "'", $judul);
 $judul = addslashes($judul);
 
-$pengantar = trim($_REQUEST['pengantar']);
+$pengantar = trim((string) $_REQUEST['pengantar']);
 $pengantar = str_replace("`", "'", $pengantar);
 $pengantar = addslashes($pengantar);
 

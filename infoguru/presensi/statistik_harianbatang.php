@@ -76,9 +76,9 @@ for ($i=0;$i<5;$i++) {
 
 
 //$data = array(1 => ($row['hadir']/$total), ($row['ijin']/$total), ($row['sakit']/$total), ($row['cuti']/$total), ($row['alpa']/$total));
-$judul = array('Hadir', 'Ijin', 'Sakit', 'Alpa', 'Cuti');
+$judul = ['Hadir', 'Ijin', 'Sakit', 'Alpa', 'Cuti'];
 
-$color = array('green@0.5','red@0.5','yellow@0.5','blue@0.5','orange@0.5','gold@0.5','navy@0.5','darkblue@0.5','darkred@0.5','darkgreen@0.5', 'pink@0.5','black@0.5','gray@0.5');
+$color = ['green@0.5', 'red@0.5', 'yellow@0.5', 'blue@0.5', 'orange@0.5', 'gold@0.5', 'navy@0.5', 'darkblue@0.5', 'darkred@0.5', 'darkgreen@0.5', 'pink@0.5', 'black@0.5', 'gray@0.5'];
 
 //Buat grafik
 $graph = new Graph(300,200,"auto");

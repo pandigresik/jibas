@@ -52,8 +52,8 @@ $idtahunbuku = 0;
 if (isset($_REQUEST['idtahunbuku']))
 	$idtahunbuku = $_REQUEST['idtahunbuku'];	
 
-$tgl1 = explode(' ',$tanggal1);
-$tgl2 = explode(' ',$tanggal2);
+$tgl1 = explode(' ',(string) $tanggal1);
+$tgl2 = explode(' ',(string) $tanggal2);
 
 
 ?>

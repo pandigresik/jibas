@@ -39,9 +39,9 @@ class AppServer
     static function CreateQs($op, $data = "", $info = "", $extra = "")
     {
         $qs = "op=$op";
-        if (strlen($data) > 0) $qs .= "&data=" . urlencode($data);
-        if (strlen($info) > 0) $qs .= "&info=" . urlencode($info);
-        if (strlen($extra) > 0) $qs .= "&extra=" . urlencode($extra);
+        if (strlen((string) $data) > 0) $qs .= "&data=" . urlencode((string) $data);
+        if (strlen((string) $info) > 0) $qs .= "&info=" . urlencode((string) $info);
+        if (strlen((string) $extra) > 0) $qs .= "&extra=" . urlencode((string) $extra);
 
         return $qs;
     }
@@ -49,9 +49,9 @@ class AppServer
     static function SendQs($op, $data = "", $info = "", $extra = "")
     {
         $qs = "op=$op";
-        if (strlen($data) > 0) $qs .= "&data=" . urlencode($data);
-        if (strlen($info) > 0) $qs .= "&info=" . urlencode($info);
-        if (strlen($extra) > 0) $qs .= "&extra=" . urlencode($extra);
+        if (strlen((string) $data) > 0) $qs .= "&data=" . urlencode((string) $data);
+        if (strlen((string) $info) > 0) $qs .= "&info=" . urlencode((string) $info);
+        if (strlen((string) $extra) > 0) $qs .= "&extra=" . urlencode((string) $extra);
 
         return AppServer::Send($qs);
     }

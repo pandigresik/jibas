@@ -57,8 +57,8 @@ function ShowSelectPetugas($vendorId)
 
 function createJsonReturn($status, $message)
 {
-    $ret = array($status, $message);
-    return json_encode($ret);
+    $ret = [$status, $message];
+    return json_encode($ret, JSON_THROW_ON_ERROR);
 }
 
 function TambahVendorUser()

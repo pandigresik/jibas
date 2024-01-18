@@ -126,7 +126,7 @@ $jenis = $row['replid'];
 			}
 			$nilaiujian[$i] = 0;
 			$idujian[$i] = $row_cek_ujian['replid'];			
-            $tgl = explode("-",$row_cek_ujian['tanggal']);
+            $tgl = explode("-",(string) $row_cek_ujian['tanggal']);
 			
         ?>
     <td height="30" bgcolor="#666666" align="center" ><font color="white"><strong><?=$namajenis."-".$i?>&nbsp;<br />
@@ -259,7 +259,7 @@ $jenis = $row['replid'];
                 <?=$nilai_bobotnya['bobot']?>
                 </td>
             </tr>
-			<?php
+<?php
 				}
 				$ibobot++;
 			}

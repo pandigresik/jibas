@@ -48,7 +48,7 @@ header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 SetDocHeader($ndata, $fname);
 
 $nisList = GetNisList($ndata);
-if (strlen(trim($nisList)) == 0)
+if (strlen(trim((string) $nisList)) == 0)
 {
     echo "Tidak ada data siswa!";
     

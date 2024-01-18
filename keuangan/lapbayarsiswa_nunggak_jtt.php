@@ -379,11 +379,11 @@ while ($row = mysqli_fetch_array($result)) {
         <td align="right"><?=FormatRupiah($besarjtt - $totalbayar - $totaldiskon) ?></td>
         <td><?=$ketjtt ?></td>
         <td align="center">
-            <input type="hidden" name="penerimaan<?=$cnt?>" id="penerimaan<?=$cnt?>" value='<?=str_replace("'", "`", $namapenerimaan)?>' ?>
+            <input type="hidden" name="penerimaan<?=$cnt?>" id="penerimaan<?=$cnt?>" value='<?=str_replace("'", "`", (string) $namapenerimaan)?>' ?>
             <?php $tunggakan = $besarjtt - $totalbayar - $totaldiskon ?>
             <input type="hidden" name="tunggakan<?=$cnt?>" id="tunggakan<?=$cnt?>" value='<?=$tunggakan?>' ?>
-            <input type="hidden" name="nama<?=$cnt?>" id="nama<?=$cnt?>" value='<?=str_replace("'", "`", $nama)?>' ?>
-            <input type="hidden" name="nis<?=$cnt?>" id="nis<?=$cnt?>" value='<?=str_replace("'", "`", $nis)?>' ?>
+            <input type="hidden" name="nama<?=$cnt?>" id="nama<?=$cnt?>" value='<?=str_replace("'", "`", (string) $nama)?>' ?>
+            <input type="hidden" name="nis<?=$cnt?>" id="nis<?=$cnt?>" value='<?=str_replace("'", "`", (string) $nis)?>' ?>
             <input type="button" class="but" value="Kirim" onclick="createSms(<?=$cnt?>)">
         </td>
     </tr>

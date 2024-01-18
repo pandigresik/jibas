@@ -135,10 +135,10 @@ class PengumumanAjax
 				$cnt=1;
 				while ($row = @mysqli_fetch_array($res))
 				{
-					$hp = trim($row['hpsiswa']);
+					$hp = trim((string) $row['hpsiswa']);
 					if (strlen($hp) < 7)
 						continue;
-					if (substr($hp, 0, 1) == "#")
+					if (str_starts_with($hp, "#"))
 						continue;
 			?>
 			<tr>
@@ -209,10 +209,10 @@ class PengumumanAjax
 			$cnt = 1;
 			while ($row = @mysqli_fetch_array($res))
 			{
-				$hp = trim($row['hpsiswa']);
+				$hp = trim((string) $row['hpsiswa']);
 				if (strlen($hp) < 7)
 					continue;
-				if (substr($hp, 0, 1) == "#")
+				if (str_starts_with($hp, "#"))
 					continue; ?>
 			<tr>
 				<td align="center" class="td"><?=$cnt?></td>
@@ -285,28 +285,28 @@ class PengumumanAjax
 			while ($row = @mysqli_fetch_array($res))
 			{
 				$n = 0;  
-				$hparr = array();
+				$hparr = [];
 					
-				$temp = trim($row['hportu']);
-				if (strlen($temp) >= 7 && substr($temp, 0, 1) != "#")
+				$temp = trim((string) $row['hportu']);
+				if (strlen($temp) >= 7 && !str_starts_with($temp, "#"))
 				{
 					$hparr[$n] = $temp;
 					$n += 1;
 				}
 					
-				$temp = trim($row['info1']);  
-				if (strlen($temp) >= 7 && substr($temp, 0, 1) != "#")
+				$temp = trim((string) $row['info1']);  
+				if (strlen($temp) >= 7 && !str_starts_with($temp, "#"))
 				{
 					$hparr[$n] = $temp;
 					$n += 1;
 				}
 					  
-				$temp = trim($row['info2']);    
-				if (strlen($temp) >= 7 && substr($temp, 0, 1) != "#")
+				$temp = trim((string) $row['info2']);    
+				if (strlen($temp) >= 7 && !str_starts_with($temp, "#"))
 					$hparr[$n] = $temp;
 					
 				$namaortu = $row['namaayah'];
-				if (strlen($row['namaayah']) == 0)
+				if (strlen((string) $row['namaayah']) == 0)
 					$namaortu = "Ortu " . $row['nama'];
 				
 				$nama = $row['nama'];	
@@ -383,28 +383,28 @@ class PengumumanAjax
 				while ($row = @mysqli_fetch_array($res))
 				{
 					$n = 0;
-					$hparr = array();
+					$hparr = [];
 					
-					$temp = trim($row['hportu']);
-					if (strlen($temp) >= 7 && substr($temp, 0, 1) != "#")
+					$temp = trim((string) $row['hportu']);
+					if (strlen($temp) >= 7 && !str_starts_with($temp, "#"))
 					{
 						$hparr[$n] = $temp;
 						$n += 1;
 					}
 				
-					$temp = trim($row['info1']);  
-					if (strlen($temp) >= 7 && substr($temp, 0, 1) != "#")
+					$temp = trim((string) $row['info1']);  
+					if (strlen($temp) >= 7 && !str_starts_with($temp, "#"))
 					{
 						$hparr[$n] = $temp;
 						$n += 1;
 					}
 				  
-					$temp = trim($row['info2']);    
-					if (strlen($temp) >= 7 && substr($temp, 0, 1) != "#")
+					$temp = trim((string) $row['info2']);    
+					if (strlen($temp) >= 7 && !str_starts_with($temp, "#"))
 						$hparr[$n] = $temp;
 						
 					$namaortu = $row['namaayah'];
-					if (strlen($row['namaayah']) == 0)
+					if (strlen((string) $row['namaayah']) == 0)
 						$namaortu = $row['nama'];
 					
 					$nama = $row['nama'];
@@ -633,7 +633,7 @@ class PengumumanAjax
 				<td class="td"><?=$row['nama']?></td>
 				<td class="td"><?=$row['handphone']?></td>
 				<td class="td" align="center">
-				<?php if (strlen($row['handphone'])>0){ ?>
+				<?php if (strlen((string) $row['handphone'])>0){ ?>
 				<input type="checkbox" class="checkboxpegawai" hp="<?=$row['handphone']?>" nama="<?=$row['nama']?>" nip="<?=$row['nip']?>"  pin="<?=$row['pinpegawai']?>">
 				<!--span style="cursor:pointer" class="Link" onclick="InsertNewReceipt('<?=$row['handphone']?>','<?=$row['nama']?>','<?=$row['nip']?>')" align="center" />Pilih</span-->
 				<?php } ?>
@@ -787,7 +787,7 @@ class PengumumanAjax
 				<td class="td"><?=$row['nama']?></td>
                 <td class="td"><?=$row['hpsiswa']?></td>
                 <td class="td" align="center">
-                <?php if (strlen($row['hpsiswa'])>0){ ?>
+                <?php if (strlen((string) $row['hpsiswa'])>0){ ?>
                 <span style="cursor:pointer" align="center" class="Link" onclick="InsertNewReceipt2('<?=$row['hpsiswa']?>_<?=$row['hportu']?>','<?=$row['nama']?>_<?=$row['namaayah']?>','<?=$row['nis']?>')"  />Pilih</span>
                 <?php } ?>
                 </td>
@@ -859,7 +859,7 @@ class PengumumanAjax
 			<td class="td"><?=$row['nama']?></td>
 			<td class="td"><?=$row['handphone']?></td>
 			<td class="td" align="center">
-			<?php if (strlen($row['handphone'])>0){ ?>
+			<?php if (strlen((string) $row['handphone'])>0){ ?>
 			<!--span style="cursor:pointer" class="Link" onclick="InsertNewReceipt('<?=$row['handphone']?>','<?=$row['nama']?>','<?=$row['nip']?>')" align="center"  />Pilih</span-->
 			<input type="checkbox" class="checkboxpegawai" hp="<?=$row['handphone']?>" nama="<?=$row['nama']?>" nip="<?=$row['nip']?>" pin="<?=$row['pinpegawai']?>">
 			<?php } ?>

@@ -56,11 +56,11 @@ $nip = $_REQUEST['nip'];
 <?php
 if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) { 
 	OpenDb();
-	if ((strlen($nama) > 0) && (strlen($nip) > 0))
+	if ((strlen((string) $nama) > 0) && (strlen((string) $nip) > 0))
 		$sql = "SELECT nip, nama, bagian FROM jbssdm.pegawai WHERE nama LIKE '%$nama%' AND nip LIKE '%$nip%' ORDER BY nama"; 
-	else if (strlen($nama) > 0)
+	else if (strlen((string) $nama) > 0)
 		$sql = "SELECT nip, nama, bagian FROM jbssdm.pegawai WHERE nama LIKE '%$nama%' ORDER BY nama"; 
-	else if (strlen($nip) > 0)
+	else if (strlen((string) $nip) > 0)
 		$sql = "SELECT nip, nama, bagian FROM jbssdm.pegawai WHERE nip LIKE '%$nip%' ORDER BY nama"; 
 	//else if ((strlen($nama) == 0) || (strlen($nip) == 0))
 	//	$sql = "SELECT nip, nama FROM jbssdm.pegawai ORDER BY nama"; 

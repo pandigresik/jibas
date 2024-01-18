@@ -31,7 +31,7 @@ if (isset($_REQUEST['simpan'])){
 OpenDb();
 $judul=$_REQUEST['judul'];
 $komentar=$_REQUEST['komentar'];
-$tgl=explode("-",$_REQUEST['tanggal']);
+$tgl=explode("-",(string) $_REQUEST['tanggal']);
 $tanggal=$tgl[2]."-".$tgl[1]."-".$tgl[0];
 $idguru=SI_USER_ID();
 $sql="INSERT INTO jbsvcr.agenda SET tanggal='$tanggal',judul='$judul',komentar='$komentar',idguru=NULL,nis='$idguru'";

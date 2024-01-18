@@ -104,10 +104,10 @@ function Cetak(){
 			$sql3 = "INSERT INTO ".$db_name_umum.".identitas SET status=1, perpustakaan='$perpustakaan', departemen='P_".$perpustakaan."'"; 
 			QueryDb($sql3);
 		}
-		if (strlen($row['foto'])==0){
-			if (strlen($row['foto'])==0 && $perpustakaan=='alls'){
+		if (strlen((string) $row['foto'])==0){
+			if (strlen((string) $row['foto'])==0 && $perpustakaan=='alls'){
 				echo "<div align='center' style='padding-top:20px'>Belum ada logo untuk semua perpustakaan</div>";
-			} elseif (strlen($row['foto'])==0 && $perpustakaan!='alls'){
+			} elseif (strlen((string) $row['foto'])==0 && $perpustakaan!='alls'){
 				$sql2 	= "SELECT nama FROM perpustakaan WHERE replid='$perpustakaan'";
 				$result2= QueryDb($sql2);
 				$row2	= @mysqli_fetch_array($result2);
@@ -122,10 +122,10 @@ function Cetak(){
         ?>        </td>
         <td>
         <?php
-		if (strlen($row['nama'])==0){
-			if (strlen($row['nama'])==0 && $perpustakaan=='alls'){
+		if (strlen((string) $row['nama'])==0){
+			if (strlen((string) $row['nama'])==0 && $perpustakaan=='alls'){
 				echo "<div align='center' style='padding-top:20px'>Belum ada logo untuk semua perpustakaan</div>";
-			} elseif (strlen($row['nama'])==0 && $perpustakaan!='alls'){
+			} elseif (strlen((string) $row['nama'])==0 && $perpustakaan!='alls'){
 				$sql2 	= "SELECT nama FROM perpustakaan WHERE replid='$perpustakaan'";
 				$result2= QueryDb($sql2);
 				$row2	= @mysqli_fetch_array($result2);
@@ -139,23 +139,23 @@ function Cetak(){
             </span>
             <br />
             <strong>
-			<?=$row[alamat1]?>
+			<?=$row[\ALAMAT1]?>
             <?php
-			if ($row[telp1]!='' || $row[telp2]!=''){
+			if ($row[\TELP1]!='' || $row[\TELP2]!=''){
 				echo " <br>Telp : ";
-				if ($row[telp1]!='' && $row[telp2]=='')
-					echo $row[telp1];
-				elseif ($row[telp2]!='' && $row[telp1]=='')
-					echo $row[telp2];
-				elseif ($row[telp2]!='' && $row[telp1]!='')
-					echo $row[telp1]." , ".$row[telp2];		
+				if ($row[\TELP1]!='' && $row[\TELP2]=='')
+					echo $row[\TELP1];
+				elseif ($row[\TELP2]!='' && $row[\TELP1]=='')
+					echo $row[\TELP2];
+				elseif ($row[\TELP2]!='' && $row[\TELP1]!='')
+					echo $row[\TELP1]." , ".$row[\TELP2];		
 			}
-			if ($row[telp1]!='' || $row[telp2]!=''){
-				if ($row[fax1]!='')
-					echo " Fax : ".$row[fax1];
+			if ($row[\TELP1]!='' || $row[\TELP2]!=''){
+				if ($row[\FAX1]!='')
+					echo " Fax : ".$row[\FAX1];
 			} else {
-				if ($row[fax1]!='')
-					echo " Fax : ".$row[fax1];
+				if ($row[\FAX1]!='')
+					echo " Fax : ".$row[\FAX1];
 			}
 			
 			?>

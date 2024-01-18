@@ -27,7 +27,7 @@ require_once("../include/db_functions.php");
 require_once("../include/common.php");
 require_once('../include/theme.php');
 
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+$namabulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember"];
 
 $agenda = $_REQUEST['agenda'];
 $bln = $_REQUEST['bln'];
@@ -124,7 +124,7 @@ CloseDb();
 function getIdDel($idroot) {
 	global $iddel;
 	
-	if (strlen($iddel) > 0) 
+	if (strlen((string) $iddel) > 0) 
 		$iddel = $iddel . ",";
 	$iddel = $iddel . $idroot;	
 	
@@ -206,7 +206,7 @@ function traverse($idroot, $count)
             echo "<li class='liBullet' style='margin-left:20px'>";
             
             echo "<span style='border:1px solid black; background-color:black; color:white; font-size:11px; font-weight:bold;'>&nbsp;&nbsp;";
-            echo strtoupper($jab) . " [" . getNEmployee($idjab) . "]";
+            echo strtoupper((string) $jab) . " [" . getNEmployee($idjab) . "]";
             echo "&nbsp;&nbsp;</span><br>";
             echo "<table border='0' cellpadding='0' cellspacing='0' width='450px'>";
             echo "<tr><td width='20'>&nbsp;</td>";
@@ -223,7 +223,7 @@ function traverse($idroot, $count)
 			echo "$space<li class='liClosed' style='margin-left:20px'>";
             
             echo "<span style='border:1px solid black; background-color:black; color:white; font-size:11px; font-weight:bold;'>&nbsp;&nbsp;";
-            echo strtoupper($jab) . " [" . getNEmployee($idjab) . "]";
+            echo strtoupper((string) $jab) . " [" . getNEmployee($idjab) . "]";
             echo "&nbsp;&nbsp;</span><br>";
             echo "<table border='0' cellpadding='0' cellspacing='0' width='450px'>";
             echo "<tr><td width='20'>&nbsp;</td>";

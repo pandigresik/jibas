@@ -38,9 +38,9 @@ if ($_REQUEST['action'] <> "manual")
 {	
 	for ($i = 1; $i <= $_REQUEST['jumujian']; $i++ && $success) 
 	{
-		$ujian = trim($_REQUEST['ujian'.$i]);
-		$bobot = trim($_REQUEST['bobot'.$i]);
-		$id = trim($_REQUEST['replid'.$i]);
+		$ujian = trim((string) $_REQUEST['ujian'.$i]);
+		$bobot = trim((string) $_REQUEST['bobot'.$i]);
+		$id = trim((string) $_REQUEST['replid'.$i]);
 		$cek = $_REQUEST['jenisujian'.$i];
 		
 		if ($cek)

@@ -69,11 +69,11 @@ if (!function_exists('http_response_code'))
                 case 504: $text = 'Gateway Time-out'; break;
                 case 505: $text = 'HTTP Version not supported'; break;
                 default:
-                    exit('Unknown http status code "' . htmlentities($code) . '"');
+                    exit('Unknown http status code "' . htmlentities((string) $code) . '"');
                 break;
             }
 
-            $protocol = (isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0');
+            $protocol = ($_SERVER['SERVER_PROTOCOL'] ?? 'HTTP/1.0');
 
             header($protocol . ' ' . $code . ' ' . $text);
 
@@ -83,7 +83,7 @@ if (!function_exists('http_response_code'))
         else
         {
 
-            $code = (isset($GLOBALS['http_response_code']) ? $GLOBALS['http_response_code'] : 200);
+            $code = ($GLOBALS['http_response_code'] ?? 200);
 
         }
 

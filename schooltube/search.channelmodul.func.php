@@ -28,7 +28,7 @@ function DisplayModulSearchList($idList, $page)
     $startIndex = $page * $G_ROW_PER_PAGE;
     $stopIndex = (($page + 1) * $G_ROW_PER_PAGE) - 1;
 
-    $idArr = explode(",", $idList);
+    $idArr = explode(",", (string) $idList);
     if ($stopIndex < 0) $stopIndex = count($idArr);
 
     for($i = 0; $i < count($idArr); $i++)
@@ -77,7 +77,7 @@ function DisplayChannelSearchList($idList, $page)
     $startIndex = $page * $G_ROW_PER_PAGE;
     $stopIndex = (($page + 1) * $G_ROW_PER_PAGE) - 1;
 
-    $idArr = explode(",", $idList);
+    $idArr = explode(",", (string) $idList);
     for($i = 0; $i < count($idArr); $i++)
     {
         if ($i < $startIndex)

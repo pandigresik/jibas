@@ -193,7 +193,7 @@ function SaveIuranWajibSiswa($no)
     {
         $nokas = GetNoKas();
 
-        $transactions[] = array($nokas, $infocicil, $jcicilan, $jdiskon, "JTT", $tersisa);
+        $transactions[] = [$nokas, $infocicil, $jcicilan, $jdiskon, "JTT", $tersisa];
 
         //echo "SimpanJurnal($idtahunbuku, $tcicilan, $infocicil, $nokas, '', $petugas, 'penerimaanjtt', $idjurnal)<br>";
         $success = SimpanJurnal($idtahunbuku, $tcicilan, $infociciljurnal, $nokas, "", $idpetugas, $petugas, "penerimaanjtt", $idjurnal);
@@ -327,7 +327,7 @@ function SaveIuranSukarelaSiswa($no)
 
     if ($success)
     {
-        $transactions[] = array($nokas, $infocicil, $jumlah, 0, "SKR", 0);
+        $transactions[] = [$nokas, $infocicil, $jumlah, 0, "SKR", 0];
     }
 
     return $success;
@@ -389,7 +389,7 @@ function SaveIuranWajibCalonSiswa($no)
     {
         $nokas = GetNoKas();
 
-        $transactions[] = array($nokas, $infocicil, $jcicilan, $jdiskon, "CSWJB", $tersisa);
+        $transactions[] = [$nokas, $infocicil, $jcicilan, $jdiskon, "CSWJB", $tersisa];
 
         //echo "SimpanJurnal($idtahunbuku, $tcicilan, $infocicil, $nokas, '', $petugas, 'penerimaanjttcalon', $idjurnal)<br>";
         $success = SimpanJurnal($idtahunbuku, $tcicilan, $infociciljurnal, $nokas, "", $idpetugas, $petugas, "penerimaanjttcalon", $idjurnal);
@@ -526,7 +526,7 @@ function SaveIuranSukarelaCalonSiswa($no)
 
     if ($success)
     {
-        $transactions[] = array($nokas, $infocicil, $jumlah, 0, "CSSKR", 0);
+        $transactions[] = [$nokas, $infocicil, $jumlah, 0, "CSSKR", 0];
     }
 
     return $success;

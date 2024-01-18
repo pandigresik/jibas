@@ -43,7 +43,7 @@ if (isset($_REQUEST['hal']))
 $op = $_GET['op'];
 $nama_agama = $_GET['nama_agama'];
 $agama_kiriman=$_REQUEST['agama'];
-if (($op == "del") && (strlen($nama_agama) > 0)) {
+if (($op == "del") && (strlen((string) $nama_agama) > 0)) {
 	OpenDb();
 	$sql = "DELETE FROM jbsumum.agama WHERE agama = '$nama_agama'";
 	$result = QueryDb($sql);

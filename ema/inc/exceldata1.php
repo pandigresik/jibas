@@ -25,26 +25,18 @@ require_once("../include/config.php");
 require_once("../include/db_functions.php");
 
 class ExcelHeader {
-	var $title;
-	var $width;
-	var $isno;
-	
-	function ExcelHeader($tit, $wid, $isn) {
-		$this->title  = $tit;
-		$this->width  = $wid;
-		$this->isno   = $isn;
-	}
+	function __construct(public $title, public $width, public $isno)
+ {
+ }
 }
 
 class ExcelData {
-	var $sql = "";
-	var $eheader;
-	var $title;
-	var $data; 
+	public $sql = "";
+	public $eheader;
+	public $data; 
 	
-	function ExcelData($tit) {
+	function __construct(public $title) {
 		$this->eheader[] = new ExcelHeader("No", "", 100, true);
-		$this->title = $tit;
 	}
 	
 	function AddHeader($tit, $wid) {
@@ -113,7 +105,7 @@ class ExcelData {
 
 		$html .= "</table></body></html>";
 		
-		$file = str_replace(" ", "_", $this->title);
+		$file = str_replace(" ", "_", (string) $this->title);
 		
 		header('Content-Type: application/vnd.ms-excel'); //IE and Opera  
 	    header('Content-Type: application/x-msexcel'); // Other browsers  
@@ -180,7 +172,7 @@ class ExcelData {
 
 		$html .= "</table></body></html>";
 		
-		$file = str_replace(" ", "_", $this->title);
+		$file = str_replace(" ", "_", (string) $this->title);
 		
 		header('Content-Type: application/vnd.ms-excel'); //IE and Opera  
 	    header('Content-Type: application/x-msexcel'); // Other browsers  

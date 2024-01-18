@@ -93,7 +93,7 @@ if (isset($_REQUEST['5623bu9nfd98932jhkd'])){
 			parent.frametop.get_fresh();
 			//document.location.href="../home.php";
 		</script>
-        <?php
+<?php
 }
 function GetThemeImage($theme) {
 	// Change this variable with user's SESSION theme

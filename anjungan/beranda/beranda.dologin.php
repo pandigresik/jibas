@@ -28,7 +28,7 @@ require_once('../include/db_functions.php');
 $ERRMSG = "";
 
 $op = $_REQUEST['op'];
-$password = trim($_REQUEST['password']);
+$password = trim((string) $_REQUEST['password']);
 
 if (strlen($password) == 0)
 {

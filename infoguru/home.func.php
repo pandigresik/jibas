@@ -41,8 +41,8 @@ function ShowCbBulan()
 
 function ShowCbTanggal($tahun, $bulan)
 {
-	$yy = isset($tahun) ? $tahun : date('Y');
-	$mm = isset($bulan) ? $bulan : date('n');
+	$yy = $tahun ?? date('Y');
+	$mm = $bulan ?? date('n');
 	$maxday = DateArith::DaysInMonth($mm, $yy);
 	
 	echo "<select id='tanggal' onchange='changeCbTanggal()' onkeyup='changeCbTanggal()'>";
@@ -841,7 +841,7 @@ function ShowImageUser()
 		$row = mysqli_fetch_array($res);
 		if ($row['isnull'] == 0)
 		{
-			$pict = base64_encode($row['foto']);    
+			$pict = base64_encode((string) $row['foto']);    
 		}
 		else
 		{

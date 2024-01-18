@@ -23,64 +23,37 @@
 <?php
 function GetMaxDay($year, $month)
 {
-    switch ($month)
-    {
-        case 1:
-        case 3:
-        case 5:
-        case 7:
-        case 8:
-        case 10:
-        case 12:
-            $nday = 31;
-            break;
-        case 2:
-            $nday = $year % 4 == 0 ? 29 : 28;
-            break;
-        default:
-            $nday = 30;
-            break;
-    }
+    $nday = match ($month) {
+        1, 3, 5, 7, 8, 10, 12 => 31,
+        2 => $year % 4 == 0 ? 29 : 28,
+        default => 30,
+    };
 
     return $nday;
 }
 
 function InaMonthName($month)
 {
-    switch ($month)
-    {
-        case 1:
-            return "Januari";
-        case 2:
-            return "Februari";
-        case 3:
-            return "Maret";
-        case 4:
-            return "April";
-        case 5:
-            return "Mei";
-        case 6:
-            return "Juni";
-        case 7:
-            return "Juli";
-        case 8:
-            return "Agustus";
-        case 9:
-            return "September";
-        case 10:
-            return "Oktober";
-        case 11:
-            return "Nopember";
-        case 12:
-            return "Desember";
-        default:
-            return "";
-    }
+    return match ($month) {
+        1 => "Januari",
+        2 => "Februari",
+        3 => "Maret",
+        4 => "April",
+        5 => "Mei",
+        6 => "Juni",
+        7 => "Juli",
+        8 => "Agustus",
+        9 => "September",
+        10 => "Oktober",
+        11 => "Nopember",
+        12 => "Desember",
+        default => "",
+    };
 }
 
 function LongDateInaFormat($tahun, $bulan, $tanggal)
 {
-    $result = str_pad($tanggal, 2, "0", STR_PAD_LEFT);
+    $result = str_pad((string) $tanggal, 2, "0", STR_PAD_LEFT);
     $result = $result . " " . InaMonthName($bulan);
     $result = $result . " " . $tahun;
 
@@ -89,7 +62,7 @@ function LongDateInaFormat($tahun, $bulan, $tanggal)
 
 function FormatMySqlDate($date)
 {
-    $temp = explode("-", $date);
+    $temp = explode("-", (string) $date);
     if (count($temp) != 3)
         return $date;
 

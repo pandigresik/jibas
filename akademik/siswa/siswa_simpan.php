@@ -30,7 +30,7 @@ require_once('../include/db_functions.php');
 $no = $_REQUEST['no'];
 $tahunmasuk = $_REQUEST['tahunmasuk'];
 $nama=$_REQUEST['nama'];
-$nama=str_replace("'", "`", $nama);
+$nama=str_replace("'", "`", (string) $nama);
 $panggilan=$_REQUEST['panggilan'];
 $kelamin=$_REQUEST['kelamin'];
 $tmplahir=$_REQUEST['tmplahir'];

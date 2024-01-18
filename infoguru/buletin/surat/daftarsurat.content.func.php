@@ -21,7 +21,7 @@
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
 <?php
-$UserLetterIdList = array();
+$UserLetterIdList = [];
 $UserGroupList = "";
 
 function GetUserGroup()
@@ -47,11 +47,7 @@ function GetFromInDst()
     global $UserGroupList, $UserLetterIdList;
     global $nip, $departemen, $jenis, $kategori, $bulan1, $tahun1, $bulan2, $tahun2;
     
-    $tableList = array(
-        array("jbsletter.suratindstuser", "iduser", "'" . $nip. "'"),
-        array("jbsletter.suratindstgroup", "idkelompok", $UserGroupList),
-        array("jbsletter.suratindstcc", "iduser", "'" . $nip. "'")
-    );
+    $tableList = [["jbsletter.suratindstuser", "iduser", "'" . $nip. "'"], ["jbsletter.suratindstgroup", "idkelompok", $UserGroupList], ["jbsletter.suratindstcc", "iduser", "'" . $nip. "'"]];
     
     for($i = 0; $i < count($tableList); $i++)
     {
@@ -59,7 +55,7 @@ function GetFromInDst()
         $colName = $tableList[$i][1];
         $colValue = $tableList[$i][2];
         
-        if (0 == strlen($colValue))
+        if (0 == strlen((string) $colValue))
             continue;
         
         $sql = "SELECT DISTINCT s.replid
@@ -101,10 +97,7 @@ function GetFromSuratOutDst()
     global $UserGroupList, $UserLetterIdList;
     global $nip, $departemen, $jenis, $kategori, $bulan1, $tahun1, $bulan2, $tahun2;
     
-    $tableList = array(
-        array("jbsletter.suratoutdst", "iduser", "'" . $nip. "'"),
-        array("jbsletter.suratoutdst", "idkelompok", $UserGroupList)
-    );
+    $tableList = [["jbsletter.suratoutdst", "iduser", "'" . $nip. "'"], ["jbsletter.suratoutdst", "idkelompok", $UserGroupList]];
     
     for($i = 0; $i < count($tableList); $i++)
     {
@@ -112,7 +105,7 @@ function GetFromSuratOutDst()
         $colName = $tableList[$i][1];
         $colValue = $tableList[$i][2];
         
-        if (0 == strlen($colValue))
+        if (0 == strlen((string) $colValue))
             continue;
         
         $sql = "SELECT DISTINCT s.replid
@@ -151,11 +144,7 @@ function GetFromSuratOutSrc()
     global $UserGroupList, $UserLetterIdList;
     global $nip, $departemen, $jenis, $kategori, $bulan1, $tahun1, $bulan2, $tahun2;
     
-    $tableList = array(
-        array("jbsletter.suratoutsrcuser", "iduser", "'" . $nip. "'"),
-        array("jbsletter.suratoutsrcgroup", "idkelompok", $UserGroupList),
-        array("jbsletter.suratoutsrccc", "iduser", "'" . $nip. "'")
-    );
+    $tableList = [["jbsletter.suratoutsrcuser", "iduser", "'" . $nip. "'"], ["jbsletter.suratoutsrcgroup", "idkelompok", $UserGroupList], ["jbsletter.suratoutsrccc", "iduser", "'" . $nip. "'"]];
     
     for($i = 0; $i < count($tableList); $i++)
     {
@@ -163,7 +152,7 @@ function GetFromSuratOutSrc()
         $colName = $tableList[$i][1];
         $colValue = $tableList[$i][2];
         
-        if (0 == strlen($colValue))
+        if (0 == strlen((string) $colValue))
             continue;
         
         $sql = "SELECT DISTINCT s.replid

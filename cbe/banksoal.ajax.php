@@ -63,6 +63,6 @@ else if ($op == "getsoalpenjelasan")
     $idUjianSerta = $_REQUEST["idujianserta"];
     $viewExp = $_REQUEST["viewexp"];
 
-    echo getSoalPenjelasan($idSoal, $idUjianSerta, $viewExp);
+    echo getSoalPenjelasan($idSoal, $idUjianSerta);
 }
 ?>

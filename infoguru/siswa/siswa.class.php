@@ -24,10 +24,10 @@
 
 class CSiswa
 {
-	var $dep;
-    var $tkt;
-	var $kls;
-	var $ta;
+	public $dep;
+    public $tkt;
+	public $kls;
+	public $ta;
 	
 	function OnStart()
 	{

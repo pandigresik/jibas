@@ -51,7 +51,7 @@ $row = mysqli_fetch_array($res);
 <?php
 				if ($row['isnull'] == 0)
 				{
-					$pict = base64_encode($row['foto']);    
+					$pict = base64_encode((string) $row['foto']);    
 				}
 				else
 				{

@@ -32,7 +32,7 @@ if ($petugas != "ALL")
 $res = QueryDb($sql);
 while($row = mysqli_fetch_row($res))
 {
-    $lsTab[] = array($row[0], $row[1], $row[2]);
+    $lsTab[] = [$row[0], $row[1], $row[2]];
 }
 
 $sql = "SELECT DISTINCT t.idtabungan, dt.nama, 'pegawai'
@@ -46,7 +46,7 @@ if ($petugas != "ALL")
 $res = QueryDb($sql);
 while($row = mysqli_fetch_row($res))
 {
-    $lsTab[] = array($row[0], $row[1], $row[2]);
+    $lsTab[] = [$row[0], $row[1], $row[2]];
 }
 
 if (count($lsTab) == 0)

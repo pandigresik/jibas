@@ -203,7 +203,7 @@ $jenjangsekolah = $row2['departemen'];
         $bln = date('n');
         $tgl = date('j');
         
-        $date = explode("-", $row['tgllahir']);
+        $date = explode("-", (string) $row['tgllahir']);
         if (count($date) == 3)
         {
             $thn = $date[0];
@@ -513,7 +513,7 @@ $jenjangsekolah = $row2['departemen'];
         $bln = date('n');
         $tgl = date('j');
         
-        $date = explode("-", $row['tgllahirayah']);
+        $date = explode("-", (string) $row['tgllahirayah']);
         if (count($date) == 3)
         {
             $thn = $date[0];
@@ -531,7 +531,7 @@ $jenjangsekolah = $row2['departemen'];
         $bln = date('n');
         $tgl = date('j');
         
-        $date = explode("-", $row['tgllahiribu']);
+        $date = explode("-", (string) $row['tgllahiribu']);
         if (count($date) == 3)
         {
             $thn = $date[0];
@@ -781,7 +781,7 @@ $jenjangsekolah = $row2['departemen'];
                      ORDER BY urutan";
             $res2 = QueryDb($sql);
 
-            $arrList = array();
+            $arrList = [];
             if (mysqli_num_rows($res2) == 0)
                 $arrList[] = "-";
 

@@ -42,13 +42,10 @@ $subject = 'SimpleModal Contact Form';
 
 // Include extra submitter data?
 // FALSE = do not include
-$extra = array(
-	'ip'		 => TRUE,
-	'user_agent' => TRUE
-);
+$extra = ['ip'		 => TRUE, 'user_agent' => TRUE];
 
 // Process
-$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
+$action = $_REQUEST['action'] ?? '';
 if (empty($action)) {
 	// Send back the contact form HTML
 	echo "<div style='display:none'>
@@ -77,9 +74,9 @@ if (empty($action)) {
 }
 else if ($action == 'send') {
 	// Send the email
-	$name = isset($_REQUEST['name']) ? $_REQUEST['name'] : '';
-	$email = isset($_REQUEST['email']) ? $_REQUEST['email'] : '';
-	$message = isset($_REQUEST['message']) ? $_REQUEST['message'] : '';
+	$name = $_REQUEST['name'] ?? '';
+	$email = $_REQUEST['email'] ?? '';
+	$message = $_REQUEST['message'] ?? '';
 
 	sendEmail($name, $email, $message);
 	echo "Message successfully sent.";
@@ -118,34 +115,34 @@ function sendEmail($name, $email, $message) {
 	$header .= "X-Mailer: PHP/SimpleModalContactForm";
 
 	// Send email
-	@mail($to, $subject, $body, $header) or 
+	@mail((string) $to, (string) $subject, $body, $header) or 
 		die('Unfortunately, your message could not be delivered.');
 }
 
 // Remove any un-safe values to prevent email injection
 function filter($value) {
-	$pattern = array("/\n/","/\r/","/content-type:/i","/to:/i", "/from:/i", "/cc:/i");
-	$value = preg_replace($pattern, '', $value);
+	$pattern = ["/\n/", "/\r/", "/content-type:/i", "/to:/i", "/from:/i", "/cc:/i"];
+	$value = preg_replace($pattern, '', (string) $value);
 	return $value;
 }
 
 // Validate email address format in case client-side validation "fails"
 // Validate email address format in case client-side validation "fails"
 function validateEmail($email) {
-	$at = strrpos($email, "@");
+	$at = strrpos((string) $email, "@");
 
 	// Make sure the at (@) sybmol exists and  
 	// it is not the first or last character
-	if ($at && ($at < 1 || ($at + 1) == strlen($email)))
+	if ($at && ($at < 1 || ($at + 1) == strlen((string) $email)))
 		return false;
 
 	// Make sure there aren't multiple periods together
-	if (preg_match('/(\.{2,})/', $email))
+	if (preg_match('/(\.{2,})/', (string) $email))
 		return false;
 
 	// Break up the local and domain portions
-	$local = substr($email, 0, $at);
-	$domain = substr($email, $at + 1);
+	$local = substr((string) $email, 0, $at);
+	$domain = substr((string) $email, $at + 1);
 
 
 	// Check lengths

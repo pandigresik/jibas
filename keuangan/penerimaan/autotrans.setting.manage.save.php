@@ -29,7 +29,7 @@ require_once('../include/compatibility.php');
 
 function SafeText($text)
 {
-    $text = str_replace("'", "`", $text);
+    $text = str_replace("'", "`", (string) $text);
     $text = str_replace("<", "&lt;", $text);
     $text = str_replace(">", "&gt;", $text);
 
@@ -44,8 +44,8 @@ $urutan = $_REQUEST["urutan"];
 $keterangan = SafeText($_REQUEST["keterangan"]);
 $smsinfo = isset($_REQUEST["smsinfo"]) ? 1 : 0;
 
-$temp = str_replace("`", "\"", $_REQUEST["lsPenerimaan"]);
-$lsPenerimaan = json_decode($temp);
+$temp = str_replace("`", "\"", (string) $_REQUEST["lsPenerimaan"]);
+$lsPenerimaan = json_decode($temp, null, 512, JSON_THROW_ON_ERROR);
 
 OpenDb();
 

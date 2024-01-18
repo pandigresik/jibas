@@ -36,7 +36,7 @@ class PresensiListAjax{
 		$this->OutboxID = $OutboxID;
 		
 		$DestNumb = $_REQUEST['DestNumb'];
-		$this->DestNumb = str_replace(' 62','0',$DestNumb);
+		$this->DestNumb = str_replace(' 62','0',(string) $DestNumb);
 		
 		$Txt = CQ($_REQUEST['Txt']);
 		$this->Txt = $Txt;
@@ -104,7 +104,7 @@ class PresensiListAjax{
 		QueryDb($sql);
 		$sql = "DELETE FROM smsgeninfo WHERE replid='$this->IdInfoGen'";
 		QueryDb($sql);
-		$this->GetInfoGenList($this->IdInfoGen);
+		$this->GetInfoGenList();
 	}
 	function DeleteDetailInfoGenList(){
 		$sql = "SELECT idsmsgeninfo FROM outboxhistory WHERE ID='".$this->OutboxID."'";

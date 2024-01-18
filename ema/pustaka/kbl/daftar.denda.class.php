@@ -191,7 +191,7 @@ class CDaftarDenda
 			if ($this->kriteria=='nis' || $this->kriteria=='nip' )
 			{ ?>
 			<tr id="nis">
-				<td width="110" align="right"><?=strtoupper($this->kriteria)?></td>
+				<td width="110" align="right"><?=strtoupper((string) $this->kriteria)?></td>
 				<td colspan="3">
 					<input type="hidden" id="statuspeminjam" value="<?=$this->statuspeminjam?>" />
 					<input type="text" class="inptxt-small-text" name="noanggota" id="noanggota" readonly="readonly"  onclick="cari()" value="<?=$this->noanggota?>" style="width:150px" />

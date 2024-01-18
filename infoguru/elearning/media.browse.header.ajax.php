@@ -35,14 +35,14 @@ if ($op == "getpelajaran")
 {
     OpenDb();
     $dept = $_REQUEST["dept"];
-    ShowCbPelajaran($dept, 0);
+    ShowCbPelajaran($dept);
     CloseDb();
 }
 else if ($op == "getchannel")
 {
     OpenDb();
     $idPel = $_REQUEST["idpel"];
-    ShowCbChannel($idPel, 0);
+    ShowCbChannel($idPel);
     CloseDb();
 }
 

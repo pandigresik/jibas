@@ -48,9 +48,9 @@ do
 	if ($nrow > 0)
 	{
 		$row = mysqli_fetch_array($result);
-		$dep[] = array($row['departemen'], $check_nis);
+		$dep[] = [$row['departemen'], $check_nis];
 		
-		if (strlen($row['nislama']) > 0)
+		if (strlen((string) $row['nislama']) > 0)
 			$check_nis = $row['nislama'];
 		else
 			$nrow = 0;
@@ -68,7 +68,7 @@ $result_ajaran = QueryDb($sql_ajaran);
 $k = 0;
 while ($row_ajaran = @mysqli_fetch_array($result_ajaran))
 {
-	$ajaran[$k] = array($row_ajaran['replid'], $row_ajaran['tahunajaran']);
+	$ajaran[$k] = [$row_ajaran['replid'], $row_ajaran['tahunajaran']];
 	$k++;
 }
 
@@ -79,7 +79,7 @@ $result_kls = QueryDb($sql_kls);
 $j = 0;
 while ($row_kls = @mysqli_fetch_array($result_kls))
 {
-	$kls[$j] = array($row_kls['idkelas'], $row_kls['kelas'], $row_kls['tingkat'], $row_kls['idtahunajaran']);
+	$kls[$j] = [$row_kls['idkelas'], $row_kls['kelas'], $row_kls['tingkat'], $row_kls['idtahunajaran']];
 	$j++;
 }
 
@@ -167,15 +167,15 @@ if (isset($_REQUEST['kelas']))
 		$data_title = "<span class=\"nav_title\">STATISTIK PRESENSI HARIAN</span>"; // title for the diagram
 
         // sample data array
-        $data = array();
+        $data = [];
 
         while($row1 = mysqli_fetch_row($result1)) {
-            $data[] = array($row1[1],$row1[2],$row1[3],$row1[4],$row1[5]);
+            $data[] = [$row1[1], $row1[2], $row1[3], $row1[4], $row1[5]];
             $legend_x[] = $row1[0];			
         }
 				
         //$legend_x = array('Jan','Feb','Maret','April','Mei');
-        $legend_y = array('Hadir','Ijin','Sakit','Alpa', 'Cuti');
+        $legend_y = ['Hadir', 'Ijin', 'Sakit', 'Alpa', 'Cuti'];
 
         $graph = new CAsBarDiagram;
         $graph->bwidth = 10; // set one bar width, pixels
@@ -201,7 +201,7 @@ if (isset($_REQUEST['kelas']))
             
             $result2 = QueryDb($sql1);
             while ($row2 = @mysqli_fetch_row($result2)) {		
-                $waktu = explode(" ",$row2[0]);
+                $waktu = explode(" ",(string) $row2[0]);
             ?>	
             <tr height="25">        			
                 <td align="center"><?=NamaBulan($row2[6]).' '.$waktu[1]?></td>

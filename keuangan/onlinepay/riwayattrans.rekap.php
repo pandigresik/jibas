@@ -104,7 +104,7 @@ $sql = "SELECT DISTINCT tanggal
          ORDER BY tanggal DESC";
 //echo "$sql<br>";
 
-$lsTanggal = array();
+$lsTanggal = [];
 $res = QueryDb($sql);
 while($row = mysqli_fetch_row($res))
 {
@@ -115,7 +115,7 @@ while($row = mysqli_fetch_row($res))
 //print_r($lsTanggal);
 //echo "</pre>";
 
-$lsPembayaran = array();
+$lsPembayaran = [];
 if ($pembayaran == "ALL")
 {
     $sql = "SELECT DISTINCT kategori, IFNULL(idpenerimaan, 0) AS idpenerimaan,
@@ -141,14 +141,14 @@ if ($pembayaran == "ALL")
         else if ($kategori == "PEGTAB")
             $idPembayaran = $row["idtabunganp"];
 
-        $lsPembayaran[] = array($kategori, $idPembayaran);
+        $lsPembayaran[] = [$kategori, $idPembayaran];
     }
 }
 else
 {
     if ($idPembayaran != "0")
     {
-        $lsPembayaran[] = array($pembayaran, $idPembayaran);
+        $lsPembayaran[] = [$pembayaran, $idPembayaran];
     }
     else
     {
@@ -176,7 +176,7 @@ else
             else if ($kategori == "PEGTAB")
                 $idPembayaran = $row["idtabunganp"];
 
-            $lsPembayaran[] = array($kategori, $idPembayaran);
+            $lsPembayaran[] = [$kategori, $idPembayaran];
         }
     }
 }
@@ -190,10 +190,10 @@ echo "<a href='#' onclick='excelRekap()'><img src='../images/ico/excel.png' bord
 echo "<div id='dvTableContent'>";
 
 echo "<input type='hidden' id='stidpgtrans' value='$stIdPgTrans'>";
-$jsonPen = json_encode($lsPembayaran);
+$jsonPen = json_encode($lsPembayaran, JSON_THROW_ON_ERROR);
 $jsonPen = str_replace("\"", "`", $jsonPen);
 echo "<input type='hidden' id='jsonpen' value='$jsonPen'>";
-$jsonTgl = json_encode($lsTanggal);
+$jsonTgl = json_encode($lsTanggal, JSON_THROW_ON_ERROR);
 $jsonTgl = str_replace("\"", "`", $jsonTgl);
 echo "<input type='hidden' id='jsontgl' value='$jsonTgl'>";
 
@@ -216,7 +216,7 @@ for($i = 0; $i < count($lsPembayaran); $i++)
 echo "<td class='header' width='180' align='center'>Sub Total</td>";
 echo "</tr>";
 
-$lsSubTotalPenerimaan = array();
+$lsSubTotalPenerimaan = [];
 for($j = 0; $j < count($lsPembayaran); $j++)
 {
     $lsSubTotalPenerimaan[] = 0;
@@ -274,12 +274,12 @@ for($i = 0; $i < count($lsTanggal); $i++)
         }
         else
         {
-            $lsPen = array($lsItem);
+            $lsPen = [$lsItem];
             $jsonPen = json_encode($lsPen);
             $jsonPen = str_replace("\"", "`", $jsonPen);
 
-            $lsTgl = array($tanggal);
-            $jsonTgl = json_encode($lsTgl);
+            $lsTgl = [$tanggal];
+            $jsonTgl = json_encode($lsTgl, JSON_THROW_ON_ERROR);
             $jsonTgl = str_replace("\"", "`", $jsonTgl);
 
             //echo "<a href='#' onclick='showRekapDetail(\"$stIdPgTrans\",\"$kategori\",\"$idPenerimaan\",\"$namaPenerimaan\",\"$tanggal\")' style='color: #0000ff; font-weight: normal; text-decoration: none'>$rp</a>";
@@ -296,11 +296,11 @@ for($i = 0; $i < count($lsTanggal); $i++)
     }
     else
     {
-        $jsonPen = json_encode($lsPembayaran);
+        $jsonPen = json_encode($lsPembayaran, JSON_THROW_ON_ERROR);
         $jsonPen = str_replace("\"", "`", $jsonPen);
 
-        $lsTgl = array($tanggal);
-        $jsonTgl = json_encode($lsTgl);
+        $lsTgl = [$tanggal];
+        $jsonTgl = json_encode($lsTgl, JSON_THROW_ON_ERROR);
         $jsonTgl = str_replace("\"", "`", $jsonTgl);
 
         echo "<a href='#' onclick='showRekapDetail2(\"$stIdPgTrans\",\"$jsonPen\",\"$jsonTgl\")' style='color: #0000ff; font-weight: bold; text-decoration: none'>$rp</a>";
@@ -315,7 +315,7 @@ for($i = 0; $i < count($lsTanggal); $i++)
 echo "<tr>";
 echo "<td align='right' colspan='2' style=' background-color: #ffc038'><strong>Sub Total</strong></td>";
 
-$jsonPen = json_encode($lsPembayaran);
+$jsonPen = json_encode($lsPembayaran, JSON_THROW_ON_ERROR);
 $jsonPen = str_replace("\"", "`", $jsonPen);
 for($i = 0; $i < count($lsSubTotalPenerimaan); $i++)
 {
@@ -324,11 +324,11 @@ for($i = 0; $i < count($lsSubTotalPenerimaan); $i++)
     $kategori = $lsItem[0];
     $idPenerimaan = $lsItem[1];
 
-    $lsPen = array($lsItem);
+    $lsPen = [$lsItem];
     $jsonPen = json_encode($lsPen);
     $jsonPen = str_replace("\"", "`", $jsonPen);
 
-    $jsonTgl = json_encode($lsTanggal);
+    $jsonTgl = json_encode($lsTanggal, JSON_THROW_ON_ERROR);
     $jsonTgl = str_replace("\"", "`", $jsonTgl);
 
     $jumlah = $lsSubTotalPenerimaan[$i];
@@ -349,10 +349,10 @@ if ($allTotal == 0)
 }
 else
 {
-    $jsonPen = json_encode($lsPembayaran);
+    $jsonPen = json_encode($lsPembayaran, JSON_THROW_ON_ERROR);
     $jsonPen = str_replace("\"", "`", $jsonPen);
 
-    $jsonTgl = json_encode($lsTanggal);
+    $jsonTgl = json_encode($lsTanggal, JSON_THROW_ON_ERROR);
     $jsonTgl = str_replace("\"", "`", $jsonTgl);
 
     echo "<a href='#' onclick='showRekapDetail2(\"$stIdPgTrans\",\"$jsonPen\",\"$jsonTgl\")' style='color: #0000ff; font-weight: bold; text-decoration: none'>$rp</a>";

@@ -49,8 +49,8 @@ $calon = "";
 if (isset($_REQUEST['calon']))
 	$calon = $_REQUEST['calon'];
 	
-$tgl1 = explode(' ',$tanggal1);
-$tgl2 = explode(' ',$tanggal2);
+$tgl1 = explode(' ',(string) $tanggal1);
+$tgl2 = explode(' ',(string) $tanggal2);
 
 if ($calon == "calon") 
 	$judul = "Calon ";
@@ -72,7 +72,7 @@ if ($calon == "calon")
 <?=getHeader($departemen)?>
 
 
-<center><font size="4"><strong>LAPORAN AUDIT PERUBAHAN DATA IURAN SUKARELA <?=strtoupper($judul)?>SISWA</strong></font><br /> </center><br /><br />
+<center><font size="4"><strong>LAPORAN AUDIT PERUBAHAN DATA IURAN SUKARELA <?=strtoupper((string) $judul)?>SISWA</strong></font><br /> </center><br /><br />
 
 <table border="0">
 <tr>

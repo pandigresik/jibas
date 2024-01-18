@@ -107,10 +107,10 @@ $namatingkat = $row['tingkat'];
             //$data[] = array($row1[1],$row1[2],$row1[3],$row1[4],$row1[5]);			
             //$legend_x[] = $row1[0];			
 			$legend_x[] = ++$cnt;
-			$data[] = array($row1[1]);
+			$data[] = [$row1[1]];
 			//$data[] = $row1[1];
         }
-		$legend_y = array('Rata');
+		$legend_y = ['Rata'];
 		//$legend_y = 'Rata';
 				
         $graph = new CAsBarDiagram;
@@ -162,7 +162,7 @@ $namatingkat = $row['tingkat'];
 				//echo $row['rata'];
 					?></td>
       	</tr>
-  <?php 	}  ?>
+<?php 	}  ?>
         </table>
 </td>
   </tr>

@@ -84,12 +84,12 @@ $query_aturan = "SELECT DISTINCT aturannhb.idpelajaran, pelajaran.nama
 				    AND aturannhb.aktif = 1 
 				  ORDER BY pelajaran.nama";
 
-$arrpel = array();
+$arrpel = [];
 
 $res = QueryDb($query_aturan);
 while($row = mysqli_fetch_row($res))
 {
-    $arrpel[] = array($row[0], $row[1]);
+    $arrpel[] = [$row[0], $row[1]];
 }
 
 if (count($arrpel) == 0)

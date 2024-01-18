@@ -29,7 +29,7 @@ $row = @mysqli_fetch_array($result);
     <td width="236" height="13" style="background-image:url(images/agenda_09.jpg);">
         <span class="style2" style='font-weight: bold; font-size: 12px;'><?=$row['judul']?></span><br /><br />
 <?php $komentar = $row['komentar'];
-	$komentar = str_replace("#sq;", "'", $komentar);
+	$komentar = str_replace("#sq;", "'", (string) $komentar);
 	echo $komentar;	?>
 	</td>
     <td width="42" height="13" style="background-image:url(images/agenda_09.jpg);">&nbsp;</td>

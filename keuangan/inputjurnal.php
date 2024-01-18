@@ -98,7 +98,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 		$debet = UnformatRupiah($_REQUEST['debet' . $i]);
 		$kredit = UnformatRupiah($_REQUEST['kredit' . $i]);
 		
-		if (strlen(trim($koderek)) > 0) 
+		if (strlen(trim((string) $koderek)) > 0) 
 		{
 			$sql = "INSERT INTO jurnaldetail SET idjurnal='$idjurnal', koderek='$koderek', debet='$debet', kredit='$kredit'";
 			if ($success) 
@@ -451,7 +451,7 @@ function focusNext(elemName, evt) {
 </table>
 <?php CloseDb() ?>
 
-<?php if (strlen($msg) > 0) {?>
+<?php if (strlen((string) $msg) > 0) {?>
 <script language="javascript">
 	alert('<?=$msg ?>');
 </script>

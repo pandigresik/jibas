@@ -34,13 +34,13 @@ $res_nm_sis=QueryDb("SELECT nama FROM jbsakad.siswa WHERE nis='$nis'");
 $row_nm_sis=@mysqli_fetch_array($res_nm_sis);
 $tglawal = "";
 if (isset($_REQUEST['tglawal'])){
-	$tglawl = explode('-',$_REQUEST['tglawal']);
+	$tglawl = explode('-',(string) $_REQUEST['tglawal']);
 	$tglawal = $tglawl[2]."-".$tglawl[1]."-".$tglawl[0];
 	
 }
 $tglakhir = "";
 if (isset($_REQUEST['tglakhir'])){
-	$tglakhr =  explode('-',$_REQUEST['tglakhir']);
+	$tglakhr =  explode('-',(string) $_REQUEST['tglakhir']);
 	$tglakhir = $tglakhr[2]."-".$tglakhr[1]."-".$tglakhr[0];
 	
 }
@@ -100,7 +100,7 @@ if (@mysqli_num_rows($result)>0){
   ?>
   <tr height="25" <?=$a?>>
     <td align="center"><?=$cnt?></td>
-    <td><?=ShortDateFormat($row[tanggal1])?> s.d. <?=ShortDateFormat($row[tanggal2])?></td>
+    <td><?=ShortDateFormat($row[\TANGGAL1])?> s.d. <?=ShortDateFormat($row[\TANGGAL2])?></td>
     <td><?=$row['keterangan']?></td>
   </tr>
   <?php

@@ -27,8 +27,8 @@ require_once('../include/db_functions.php');
 
 $ERRMSG = "";
 
-$nis = trim($_REQUEST['nis']);
-$pin = trim($_REQUEST['pin']);
+$nis = trim((string) $_REQUEST['nis']);
+$pin = trim((string) $_REQUEST['pin']);
 
 if (strlen($nis) == 0 || strlen($pin) == 0)
 {

@@ -23,7 +23,7 @@
 <?php
 function ShowTagihanReport($showMenu)
 {
-    $lsDept = array();
+    $lsDept = [];
     $nDept = 0;
 
     $sql = "SELECT departemen
@@ -45,7 +45,7 @@ function ShowTagihanReport($showMenu)
     if ($row = mysqli_fetch_row($res))
         $deptPeg = $row[0];
 
-    $lsVendor = array();
+    $lsVendor = [];
     $sql = "SELECT vendorid, nama
               FROM jbsfina.vendor
              WHERE aktif = 1 
@@ -53,10 +53,10 @@ function ShowTagihanReport($showMenu)
     $res = QueryDb($sql);
     while($row = mysqli_fetch_row($res))
     {
-        $lsVendor[] = array($row[0], $row[1]);
+        $lsVendor[] = [$row[0], $row[1]];
     }
 
-    $lsSubTotal = array();
+    $lsSubTotal = [];
     for($i = 0; $i < $nDept; $i++)
     {
         $lsSubTotal[] = 0; // Siswa

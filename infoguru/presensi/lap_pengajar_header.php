@@ -269,7 +269,7 @@ function panggil(elem){
 				else 
 					$ada = '';			 
 			?>
-            <option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $tahunajaran)?> >
+            <option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $tahunajaran)?> >
               <?=$row['tahunajaran'].' '.$ada?>
               </option>
             <?php
@@ -309,7 +309,7 @@ function panggil(elem){
         <?php  for ($i = $tahun1; $i <= $tahun2; $i++) { ?>
 		<?php  //for($i=$th1-10;$i<=$th1;$i++){ ?>
           	<option value="<?=$i?>" <?=IntIsSelected($th1, $i)?>><?=$i?></option>	   
-       	<?php } ?>	
+<?php } ?>	
         	</select> s/d 
      	</td>
         <td width="10">
@@ -332,7 +332,7 @@ function panggil(elem){
        	<?php  for ($i = $tahun1; $i <= $tahun2; $i++) { ?>
 		<?php  //for($i=$th2-10;$i<=$th2;$i++){ ?>
         	<option value="<?=$i?>" <?=IntIsSelected($th2, $i)?>><?=$i?></option>	   
-    	<?php } ?>	
+<?php } ?>	
         	</select>        </td>        
     </tr>
 	</table>

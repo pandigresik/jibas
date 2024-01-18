@@ -197,10 +197,10 @@ $nsiswa = count($siswa);
         echo "<td align='left' style='background-color: #eee' colspan='$npelspan'><strong>$nmpel</strong></td>";
         echo "</tr>";
 
-        $ratapel = array();
+        $ratapel = [];
         for($j = 0; $j < $naspek; $j++)
         {
-            $ratapel[] = array(0, 0); // index, totna, divna
+            $ratapel[] = [0, 0]; // index, totna, divna
         }
 
         $totratasis = 0;

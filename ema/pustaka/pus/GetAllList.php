@@ -36,7 +36,7 @@ if ($idperpustakaan != -1)
   $filter=" AND d.perpustakaan=".$idperpustakaan;
   
 $waktu = $_REQUEST['waktu'];
-$waktu = explode('-', $waktu);
+$waktu = explode('-', (string) $waktu);
 ?>
 <table width="100%" border="1" cellspacing="0" cellpadding="5" class="tab">
 <tr height='25'>
@@ -63,7 +63,7 @@ while ($row = @mysqli_fetch_row($result))
 	<td align="center"><?=LongDateFormat($row[1])?></td>
     <td align="left">
 	  <font style='font-size: 9px'><?=$row[0]?></font><br>
-	  <font style='font-size: 11px; font-weight: bold;'><?=GetMemberName($row[0], $row[2])?></font>
+	  <font style='font-size: 11px; font-weight: bold;'><?=GetMemberName($row[0])?></font>
 	</td>
 	<td align="left">
 	  <font style='font-size: 9px'><?=$row[3]?></font><br>

@@ -53,8 +53,8 @@ if (isset($_REQUEST['Simpan']))
 		$fnm = "nmsum$i";
 		$kd = $_REQUEST[$fkd];
 		$nm = $_REQUEST[$fnm];
-		$kd = str_replace("'", "`", $kd);
-		$nm = str_replace("'", "`", $nm);
+		$kd = str_replace("'", "`", (string) $kd);
+		$nm = str_replace("'", "`", (string) $nm);
 		$set .= "$fkd = '$kd', $fnm = '".$nm."'";
 	}
 	
@@ -66,8 +66,8 @@ if (isset($_REQUEST['Simpan']))
 		$fnm = "nmujian$i";
 		$kd = $_REQUEST[$fkd];
 		$nm = $_REQUEST[$fnm];
-		$kd = str_replace("'", "`", $kd);
-		$nm = str_replace("'", "`", $nm);
+		$kd = str_replace("'", "`", (string) $kd);
+		$nm = str_replace("'", "`", (string) $nm);
 		$set .= "$fkd = '$kd', $fnm = '".$nm."'";
 	}
 	

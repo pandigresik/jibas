@@ -29,7 +29,7 @@ require_once('../include/db_functions.php');
 require_once('../library/departemen.php');
 require_once('../cek.php');
 
-$tipe = array(array("nis","NIS"),array("nisn","N I S N"), array("nama","Nama"), array("panggilan","Nama Panggilan"), array("agama","Agama"), array("suku","Suku"), array ("status","Status"), array("kondisi","Kondisi Siswa"), array("darah","Golongan Darah"), array("alamatsiswa","Alamat Siswa"), array("asalsekolah","Asal Sekolah"), array("namaayah","Nama Ayah"), array("namaibu","Nama Ibu"), array("alamatortu","Alamat Orang Tua"), array("keterangan","Keterangan"));
+$tipe = [["nis", "NIS"], ["nisn", "N I S N"], ["nama", "Nama"], ["panggilan", "Nama Panggilan"], ["agama", "Agama"], ["suku", "Suku"], ["status", "Status"], ["kondisi", "Kondisi Siswa"], ["darah", "Golongan Darah"], ["alamatsiswa", "Alamat Siswa"], ["asalsekolah", "Asal Sekolah"], ["namaayah", "Nama Ayah"], ["namaibu", "Nama Ibu"], ["alamatortu", "Alamat Orang Tua"], ["keterangan", "Keterangan"]];
 
 $departemen = "";
 if (isset($_REQUEST['departemen']))
@@ -138,7 +138,7 @@ function focusNext(elemName, evt) {
          <?php
 	
 	if ($jenis == 'darah') {
-		$row = array('A','O','B','AB');
+		$row = ['A', 'O', 'B', 'AB'];
 		$jum = 4;
 ?>				
 			<select name="cari" id="cari" style="width:140px;" onKeyPress="return focusNext('tabel', event)">

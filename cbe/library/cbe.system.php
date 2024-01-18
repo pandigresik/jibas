@@ -23,6 +23,6 @@
 <?php
 class CbeSystem
 {
-    const APP_COMP_VERSION = "18.0";
+    final public const APP_COMP_VERSION = "18.0";
 }
 ?>

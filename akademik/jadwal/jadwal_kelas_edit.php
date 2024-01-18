@@ -83,7 +83,7 @@ if (isset($_REQUEST['nipguru']))
 if (isset($_REQUEST['status']))
 	$status = $_REQUEST['status'];	
 	
-if (strlen($nip) > 0)
+if (strlen((string) $nip) > 0)
 {
 	$sql = "SELECT nama FROM jbssdm.pegawai WHERE nip='$nip'";	
 	$res = QueryDb($sql);
@@ -106,7 +106,7 @@ if (isset($_REQUEST['Simpan']))
 	$res = QueryDb($sql);
 	$num = mysqli_num_rows($res);
 	if ($num>0){
-		$dayname = array("", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu", "Minggu");
+		$dayname = ["", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu", "Minggu"];
 		
 		$sql = "SELECT replid FROM infojadwal WHERE aktif=1";
 		$res = QueryDb($sql);

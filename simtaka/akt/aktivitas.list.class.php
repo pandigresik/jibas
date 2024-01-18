@@ -84,9 +84,9 @@ class CAktivitas{
 			  ?>
 			  <tr>
 				<td width="50" height="25" align="center"><?=++$cnt?></td>
-				<td width="150" height="25" align="left">&nbsp;<?=substr($row['tanggal'],8,2)."-".substr($row['tanggal'],5,2)."-".substr($row['tanggal'],0,4)." ".substr($row['tanggal'],11,8)?></td>
+				<td width="150" height="25" align="left">&nbsp;<?=substr((string) $row['tanggal'],8,2)."-".substr((string) $row['tanggal'],5,2)."-".substr((string) $row['tanggal'],0,4)." ".substr((string) $row['tanggal'],11,8)?></td>
 				<td height="25" align="left">
-			    <div align="justify"><?=chg_p_to_div(stripslashes($row['aktivitas']))?></div>
+			    <div align="justify"><?=chg_p_to_div(stripslashes((string) $row['aktivitas']))?></div>
                 </td>
 				<?php if (IsAdmin()) { ?>
 				<td width="50" height="25" align="center" bgcolor="#FFFFFF"><a href="javascript:ubah('<?=$row['replid']?>')"><img src="../img/ico/ubah.png" width="16" height="16" border="0"></a>&nbsp;<a href="javascript:hapus('<?=$row['replid']?>')"><img src="../img/ico/hapus.png" border="0"></a></td>

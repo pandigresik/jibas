@@ -31,7 +31,7 @@ require_once('../include/db_functions.php');
 $login = SI_USER_ID();
 
 if (isset($_REQUEST['simpan'])) {
-	$nis=trim($_REQUEST['nis']);
+	$nis=trim((string) $_REQUEST['nis']);
 	OpenDb();
 	$sql = "SELECT password FROM jbsuser.adminsiswa WHERE password=md5('".$_REQUEST['passlama']."') ";
 	$result = QueryDb($sql);
@@ -145,7 +145,7 @@ function validasi() {
 	</td>
 </tr>
 </table>
-<?php if (strlen($mysqli_ERROR_MSG) > 0) { ?>
+<?php if (strlen((string) $mysqli_ERROR_MSG) > 0) { ?>
 <script language="javascript">
     alert('<?=$mysqli_ERROR_MSG ?>');
 </script>

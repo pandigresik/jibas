@@ -33,12 +33,12 @@ require_once('../inc/sessioninfo.php');
 if (isset($_REQUEST['gntpass'])){
 	if (SI_USER_ID()=='landlord' || SI_USER_ID()=='LANDLORD'){
 		OpenDb();
-		$sql = "SELECT password FROM jbsuser.landlord WHERE password='".md5($_REQUEST['passlama'])."'";
+		$sql = "SELECT password FROM jbsuser.landlord WHERE password='".md5((string) $_REQUEST['passlama'])."'";
 		$result = QueryDb($sql);
 		if (mysqli_num_rows($result) == 0) {
 			$err = "Password Lama Anda Salah!";
 		} else {
-			$sql = "UPDATE jbsuser.landlord SET password='".md5($_REQUEST['password'])."'";
+			$sql = "UPDATE jbsuser.landlord SET password='".md5((string) $_REQUEST['password'])."'";
 			$result = QueryDb($sql);
 			CloseDb();
 			?>
@@ -52,10 +52,10 @@ if (isset($_REQUEST['gntpass'])){
 		$sql = "SELECT password FROM $db_name_user.login WHERE login='".SI_USER_ID()."'";
 		$result = QueryDb($sql);
 		$row = @mysqli_fetch_array($result);
-		if (md5($_REQUEST['passlama'])!=$row['password']){
+		if (md5((string) $_REQUEST['passlama'])!=$row['password']){
 			$err = "Password Lama Anda Salah!";
 		} else {
-			$sql = "UPDATE $db_name_user.login SET password='".md5($_REQUEST['password'])."' WHERE login='".SI_USER_ID()."'";
+			$sql = "UPDATE $db_name_user.login SET password='".md5((string) $_REQUEST['password'])."' WHERE login='".SI_USER_ID()."'";
 			$res = QueryDb($sql);
 			if ($res){
 			?>

@@ -78,7 +78,7 @@ QueryDb($sql);
 <tr>
 <td align='center' valign='top' width='15%'>
     <font class='NotesViewTanggal'>Dari</font><br><br>
-    <img src='notes.list.gambar.php?r=<?= rand(1, 99999)?>&ownerid=<?=$ownerid?>&ownertype=<?=$ownertype?>' height='70'><br>
+    <img src='notes.list.gambar.php?r=<?= random_int(1, 99999)?>&ownerid=<?=$ownerid?>&ownertype=<?=$ownertype?>' height='70'><br>
     <strong><?=$ownername?></strong><br>
     <font class='NotesViewAge'><?= SecToAgeDate($row['secdiff'], $row['tglbuat']) ?></font><br><br>
     <font class='NotesViewTanggal'>Kepada</font><br><br>

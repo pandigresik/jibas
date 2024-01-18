@@ -46,7 +46,7 @@ function SimpanInfoBayar()
             QueryDbEx($sql);
         }
 
-        return createJsonReturn(1, "OK", $id);
+        return createJsonReturn(1, "OK");
     }
     catch (Exception $ex)
     {
@@ -57,7 +57,7 @@ function SimpanInfoBayar()
 
 function createJsonReturn($status, $message, $data)
 {
-    $ret = array($status, $message, $data);
-    return json_encode($ret);
+    $ret = [$status, $message, $data];
+    return json_encode($ret, JSON_THROW_ON_ERROR);
 }
 ?>

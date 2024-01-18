@@ -148,10 +148,10 @@ function cetak(){
         while($row1 = mysqli_fetch_row($result1)) {
             //$data[] = array($row1[1],$row1[2],$row1[3],$row1[4],$row1[5]);			
             $legend_x[] = $row1[0];			
-			$data[] = array($row1[1]);
+			$data[] = [$row1[1]];
 			//$data[] = $row1[1];
         }
-		$legend_y = array('Rata');
+		$legend_y = ['Rata'];
 		//$legend_y = 'Rata';
 				
         $graph = new CAsBarDiagram;

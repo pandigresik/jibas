@@ -54,7 +54,7 @@ $semester = $_REQUEST['semester'];
 OpenDb();
 
 $stidpel = "";
-$pelarr = array();
+$pelarr = [];
 
 $sql = "SELECT DISTINCT p.replid, p.nama
           FROM infonap i, pelajaran p
@@ -65,7 +65,7 @@ $sql = "SELECT DISTINCT p.replid, p.nama
 $res = QueryDb($sql);
 while($row = mysqli_fetch_row($res))
 {
-    $pelarr[] = array($row[0], $row[1]);
+    $pelarr[] = [$row[0], $row[1]];
 
     if ($stidpel != "") $stidpel .= ",";
     $stidpel .= $row[0];
@@ -79,7 +79,7 @@ if ($stidpel == "")
     exit();
 }
 
-$aspekarr = array();
+$aspekarr = [];
 
 $sql = "SELECT DISTINCT a.dasarpenilaian, d.keterangan
           FROM infonap i, nap n, aturannhb a, dasarpenilaian d
@@ -92,7 +92,7 @@ $sql = "SELECT DISTINCT a.dasarpenilaian, d.keterangan
 $res = QueryDb($sql);
 while($row = mysqli_fetch_row($res))
 {
-    $aspekarr[] = array($row[0], $row[1]);
+    $aspekarr[] = [$row[0], $row[1]];
 }
 $naspek = count($aspekarr);
 $colwidth = $naspek == 0 ? "*" : round(600 / $naspek);
@@ -118,10 +118,10 @@ else
              ORDER BY nama";
 $res = QueryDb($sql);
 
-$siswa = array();
+$siswa = [];
 while($row = mysqli_fetch_row($res))
 {
-    $siswa[] = array($row[0], $row[1]);
+    $siswa[] = [$row[0], $row[1]];
 }
 $nsiswa = count($siswa);
 
@@ -166,10 +166,10 @@ $nsiswa = count($siswa);
         echo "<td align='left' style='background-color: #eee' colspan='$npelspan'><strong>$nmpel</strong></td>";
         echo "</tr>";
 
-        $ratapel = array();
+        $ratapel = [];
         for($j = 0; $j < $naspek; $j++)
         {
-            $ratapel[] = array(0, 0); // totna, divna
+            $ratapel[] = [0, 0]; // totna, divna
         }
 
         $totratasis = 0;

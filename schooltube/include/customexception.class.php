@@ -35,14 +35,14 @@ abstract class CustomException extends Exception implements IException
     public function __construct($message = null, $code = 0)
     {
         if (!$message) {
-            throw new $this('Unknown '. get_class($this));
+            throw new $this('Unknown '. static::class);
         }
         parent::__construct($message, $code);
     }
    
-    public function __toString()
+    public function __toString(): string
     {
-        return get_class($this) . " '{$this->message}' in {$this->file}({$this->line})<br>"
+        return static::class . " '{$this->message}' in {$this->file}({$this->line})<br>"
                                 . "{$this->getTraceAsString()}";
     }
 }

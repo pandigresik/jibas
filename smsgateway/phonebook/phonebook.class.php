@@ -9,10 +9,10 @@ class Phonebook
 {
 	public function __construct()
 	{
-		$cmd = (isset($_REQUEST['cmd']))?$_REQUEST['cmd']:'';
+		$cmd = $_REQUEST['cmd'] ?? '';
 		
 		$this->cmd		= $cmd;
-		$this->page		= (isset($_REQUEST['page']))?$_REQUEST['page']:1;
+		$this->page		= $_REQUEST['page'] ?? 1;
 		
 		if ($cmd=='add' || $cmd=='edit')
 		{
@@ -65,7 +65,7 @@ class Phonebook
 		$res   = QueryDb($sql); 
 		$this->num = @mysqli_num_rows($res);
 		$res   = QueryDb($sql." LIMIT ".((($this->page)-1)*showList).",".showList);
-		$this->data  = array();
+		$this->data  = [];
 		while ($row = @mysqli_fetch_row($res))
 			array_push($this->data,$row);
 		
@@ -86,7 +86,7 @@ class Phonebook
 		$res   = QueryDb($sql); 
 		$this->num = @mysqli_num_rows($res);
 		$res   = QueryDb($sql." LIMIT ".($this->page*showList).",".showList);
-		$this->data  = array();
+		$this->data  = [];
 		while ($row = @mysqli_fetch_row($res))
 			array_push($this->data,$row);
 
@@ -102,7 +102,7 @@ class Phonebook
 		if (count($this->data)>0)
 		{
 			$cnt = ($this->page==1)?1:((($this->page)-1)*showList)+1;
-			$arrNama = array('Siswa','Orang Tua','Pegawai','Lainnya','Alumni');
+			$arrNama = ['Siswa', 'Orang Tua', 'Pegawai', 'Lainnya', 'Alumni'];
 			?>
 			<table cellspacing="0" cellpadding="0" border="1" width="100%" class="tab">
 			<tr class="Header">
@@ -190,17 +190,17 @@ class Phonebook
 		<tr>
 			<td>No HP</td>
 			<td>:</td>
-			<td><input type="text" id="nohp" class='InputTxt' style='width:98%' onkeypress="return numbersonly(this, event)" value="<?php echo stripslashes($hp) ?>" /></td>
+			<td><input type="text" id="nohp" class='InputTxt' style='width:98%' onkeypress="return numbersonly(this, event)" value="<?php echo stripslashes((string) $hp) ?>" /></td>
 		</tr>
 		<tr>
 			<td>Nama</td>
 			<td>:</td>
-			<td><input type="text" id="nama" class='InputTxt' style='width:98%' value="<?php echo stripslashes($nama) ?>" /></td>
+			<td><input type="text" id="nama" class='InputTxt' style='width:98%' value="<?php echo stripslashes((string) $nama) ?>" /></td>
 		</tr>
 		<tr>
 			<td>Keterangan</td>
 			<td>:</td>
-			<td><textarea class="AreaTxt" id="ket" rows='3'  style='width:99%'><?php echo stripslashes($ket) ?></textarea></td>
+			<td><textarea class="AreaTxt" id="ket" rows='3'  style='width:99%'><?php echo stripslashes((string) $ket) ?></textarea></td>
 		</tr>
 		<tr>
 			<td colspan='3' align='center'>
@@ -258,17 +258,17 @@ class Phonebook
 		<tr>
 			<td>No HP</td>
 			<td>:</td>
-			<td><input type="text" id="nohp" class='InputTxt' style='width:98%' onkeypress="return numbersonly(this, event)" value="<?php echo stripslashes($hp) ?>" /></td>
+			<td><input type="text" id="nohp" class='InputTxt' style='width:98%' onkeypress="return numbersonly(this, event)" value="<?php echo stripslashes((string) $hp) ?>" /></td>
 		</tr>
 		<tr>
 			<td>Nama</td>
 			<td>:</td>
-			<td><input type="text" id="nama" class='InputTxt' style='width:98%' value="<?php echo stripslashes($nama) ?>" /></td>
+			<td><input type="text" id="nama" class='InputTxt' style='width:98%' value="<?php echo stripslashes((string) $nama) ?>" /></td>
 		</tr>
 		<tr>
 			<td>Keterangan</td>
 			<td>:</td>
-			<td><textarea class="AreaTxt" id="ket" rows='3'  style='width:99%'><?php echo stripslashes($ket) ?></textarea></td>
+			<td><textarea class="AreaTxt" id="ket" rows='3'  style='width:99%'><?php echo stripslashes((string) $ket) ?></textarea></td>
 		</tr>
 		<tr>
 			<td colspan='3' align='center'>
@@ -290,14 +290,14 @@ class Phonebook
 				  FROM $db_name_sdm.pegawai
 				 WHERE aktif = 1";
 		$res = QueryDb($sql);
-		$data = array();
+		$data = [];
 		while ($row = @mysqli_fetch_row($res))
 		{
 			$temp = $row[1];
-			$temp = str_replace("#", "", $temp);
+			$temp = str_replace("#", "", (string) $temp);
 			
 			if (strlen($temp) >= 7)
-				array_push($data, array($row[0], $row[1], 2, '', $row[2]));
+				array_push($data, [$row[0], $row[1], 2, '', $row[2]]);
 		}
 		
 		$sql = "SELECT nama,
@@ -315,32 +315,32 @@ class Phonebook
 		{
 			// hpsiswa
 			$temp = $row[1];
-			$temp = str_replace("#", "", $temp);
+			$temp = str_replace("#", "", (string) $temp);
 			if (strlen($temp) >= 7)
 			{
 				if ($row[5] == '1')
-					array_push($data, array($row[0], $temp, 4, '', $row[4]));
+					array_push($data, [$row[0], $temp, 4, '', $row[4]]);
 				else
-					array_push($data, array($row[0], $temp, 0, '', $row[4]));
+					array_push($data, [$row[0], $temp, 0, '', $row[4]]);
 			}
 			
 			// hportu
 			$temp = $row[3];
-			$temp = str_replace("#", "", $temp);
+			$temp = str_replace("#", "", (string) $temp);
 			if (strlen($temp) >= 7)
-				array_push($data, array($row[2], $temp, 1, "Orangtua $row[0]", $row[4]));
+				array_push($data, [$row[2], $temp, 1, "Orangtua $row[0]", $row[4]]);
 			
 			// hp from info1
 			$temp = $row[6];
-			$temp = str_replace("#", "", $temp);
+			$temp = str_replace("#", "", (string) $temp);
 			if (strlen($temp) >= 7)
-				array_push($data, array($row[2], $temp, 1, "Orangtua $row[0]", $row[4]));
+				array_push($data, [$row[2], $temp, 1, "Orangtua $row[0]", $row[4]]);
 			
 			// hp from info2
 			$temp = $row[7];
-			$temp = str_replace("#", "", $temp);
+			$temp = str_replace("#", "", (string) $temp);
 			if (strlen($temp) >= 7)
-				array_push($data, array($row[2], $temp, 1, "Orangtua $row[0]", $row[4]));	
+				array_push($data, [$row[2], $temp, 1, "Orangtua $row[0]", $row[4]]);	
 		}
 
 		foreach($data as $pb)

@@ -158,7 +158,7 @@ if (1 == (int)$_REQUEST['issubmit'])
                      INNER JOIN jbsfina.tabungan t ON p.idjurnaltabcust = t.idjurnal
                      INNER JOIN jbsfina.datatabungan dt ON t.idtabungan = dt.replid
                      WHERE p.idpenerimaaniuran = $idpembayaran";
-            $res = QueryDb($sql, $success);
+            $res = QueryDb($sql);
 
             $row = mysqli_fetch_array($res);
             $idDataTabungan = $row["iddatatabungan"];
@@ -465,12 +465,12 @@ function focusNext(elemName, evt)
 </tr>
 </table>
 
-<?php if (strlen($mysqli_ERROR_MSG) > 0) { ?>
+<?php if (strlen((string) $mysqli_ERROR_MSG) > 0) { ?>
 	<center>
     <font color="red"><strong><?=$mysqli_ERROR_MSG?></strong></font>
     </center>
 <?php } ?>
-<?php if (strlen($ERROR_MSG) > 0) { ?>
+<?php if (strlen((string) $ERROR_MSG) > 0) { ?>
 	<center>
     <font color="red"><strong><?=$ERROR_MSG?></strong></font>
     </center>

@@ -186,7 +186,7 @@ Data Siswa per Kelas
             <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Hobi</div></td>
             <td valign="middle" bgcolor="#666666"><div align="center" class="style1">Keterangan</div></td>
             <?php
-            $arrDataTambahan = array();
+            $arrDataTambahan = [];
             $sql = "SELECT replid, jenis, kolom
                       FROM tambahandata 
                      WHERE aktif = 1
@@ -195,7 +195,7 @@ Data Siswa per Kelas
             $res = QueryDb($sql);
             while($row = mysqli_fetch_row($res))
             {
-                $arrDataTambahan[] = array($row[0], $row[1]);
+                $arrDataTambahan[] = [$row[0], $row[1]];
                 $kolom = $row[2];
                 echo "<td valign=\"middle\" bgcolor=\"#666666\"><div align=\"center\" class=\"style1\"".$kolom."</div></td>";
             }

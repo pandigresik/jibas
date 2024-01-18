@@ -48,7 +48,7 @@ foreach($_SESSION as $k => $v)
 // DELETE ALL COOKIES
 foreach($_COOKIE as $k => $v)
 {
-    setcookie($k, "", time() - 3600, "/");
+    setcookie($k, "", ['expires' => time() - 3600, 'path' => "/"]);
 }
 
 if (file_exists("login.php"))

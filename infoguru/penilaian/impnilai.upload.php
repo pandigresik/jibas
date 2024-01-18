@@ -29,7 +29,7 @@ $rand = "";
 $dict = "0123456789abcdefghijklmnopqrstuvwxyz";
 $dictLen = strlen($dict);
 for($i = 0; $i < 32; $i++)
-    $rand .= $dict[rand(0, $dictLen - 1)];
+    $rand .= $dict[random_int(0, $dictLen - 1)];
 
 $upFile = "../temp/$rand.xlsx";
 move_uploaded_file($fexcel["tmp_name"], $upFile);

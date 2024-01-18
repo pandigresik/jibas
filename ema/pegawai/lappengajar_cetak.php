@@ -133,8 +133,8 @@ if (isset($_REQUEST['tglakhir']))
     ?>	
     <tr>        			
         <td height="25" align="center"><?=++$cnt?></td>
-        <td height="25" align="center"><?=$row[0].'-'.$row[1].'-'.substr($row[2],2,2)?></td>
-        <td height="25" align="center"><?=substr($row[3],0,5)?></td>
+        <td height="25" align="center"><?=$row[0].'-'.$row[1].'-'.substr((string) $row[2],2,2)?></td>
+        <td height="25" align="center"><?=substr((string) $row[3],0,5)?></td>
         <td height="25" align="center"><?=$row[4]?></td>
         <td height="25"><?=$row[5]?></td>
         <td height="25"><?=$row[6]?></td>
@@ -148,7 +148,7 @@ if (isset($_REQUEST['tglakhir']))
    		</td>--> 
 	<?php //} ?>    
     </tr>
- 	<?php 	
+<?php 	
 	} 
 	CloseDb();	?>
 	</table>

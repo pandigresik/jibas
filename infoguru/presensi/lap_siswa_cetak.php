@@ -120,7 +120,7 @@ $row = mysqli_fetch_array($result);
     <tr>        			
         <td height="25" align="center"><?=$cnt?></td>      	
       	<td height="25" align="center"><?=ShortDateFormat($row[3].'-'.$row[2].'-'.$row[1])?></td>
-      	<td height="25" align="center"><?=substr($row[4],0,5)?></td>
+      	<td height="25" align="center"><?=substr((string) $row[4],0,5)?></td>
         <td height="25" align="center"><?=$row[0]?></td>        
       	<td height="25"><?=$row[5]?></td>
       	<td height="25"><?=$row[6]?></td>
@@ -161,7 +161,7 @@ $row = mysqli_fetch_array($result);
     <tr>        			
         <td height="25" align="center"><?=$cnt?></td>        
         <td height="25" align="center"><?=ShortDateFormat($row[3].'-'.$row[2].'-'.$row[1])?></td>
-        <td height="25" align="center"><?=substr($row1[4],0,5)?></td>
+        <td height="25" align="center"><?=substr((string) $row1[4],0,5)?></td>
         <td height="25" align="center"><?=$row1[0]?></td>
         <td height="25"><?=$row1[5]?></td>
         <td height="25"><?=$row1[6]?></td>

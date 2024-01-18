@@ -22,7 +22,7 @@
  **[N]**/ ?>
 <?php
 class CRakEdit{
-	var $rak, $replid, $keterangan;
+	public $rak, $replid, $keterangan;
 	function OnStart(){
 		if (isset($_REQUEST['simpan'])){
 			$sql = "SELECT rak FROM rak WHERE rak='".CQ($_REQUEST['rak'])."' AND replid <> '".$_REQUEST['replid']."'";

@@ -50,11 +50,11 @@ function GetSelectPayment($departemen, $kelompok)
 
     if ($num == 0)
     {
-        $arrJson = array(0, "Belum ada konfigurasi pembayaran!", "");
+        $arrJson = [0, "Belum ada konfigurasi pembayaran!", ""];
     }
     else
     {
-        $arrKet = array();
+        $arrKet = [];
 
         $idFirst = 0;
         $data = "<select id='paymentSelect' onchange='changePayment()' style='width: 350px; font-size: 14px;'>";
@@ -74,10 +74,10 @@ function GetSelectPayment($departemen, $kelompok)
         }
         $data .= "<select>";
 
-        $arrJson = array($idFirst, $data, json_encode($arrKet));
+        $arrJson = [$idFirst, $data, json_encode($arrKet, JSON_THROW_ON_ERROR)];
     }
 
-    echo json_encode($arrJson);
+    echo json_encode($arrJson, JSON_THROW_ON_ERROR);
 }
 
 function GetPaymentList($idAutoTrans, $kelompok, $noid, $idTahunBuku)
@@ -100,7 +100,7 @@ function GetPaymentList($idAutoTrans, $kelompok, $noid, $idTahunBuku)
 
     if ($num == 0)
     {
-        $arrJson = array(0, "Tidak ditemukan daftar pembayaran!");
+        $arrJson = [0, "Tidak ditemukan daftar pembayaran!"];
     }
     else
     {
@@ -286,11 +286,11 @@ function GetPaymentList($idAutoTrans, $kelompok, $noid, $idTahunBuku)
         }
 
         if ($no > 0)
-            $arrJson = array($num, $tab);
+            $arrJson = [$num, $tab];
         else
-            $arrJson = array(0, "Tidak ada daftar pembayaran yang aktif!");
+            $arrJson = [0, "Tidak ada daftar pembayaran yang aktif!"];
     }
-    echo json_encode($arrJson);
+    echo json_encode($arrJson, JSON_THROW_ON_ERROR);
 }
 
 function ShowAccYear()

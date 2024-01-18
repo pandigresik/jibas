@@ -140,8 +140,8 @@ function ShowKomentar()
 {
 	global $semester, $kelas, $nis;
 
-    $arrjenis = array('SPI', 'SOS');
-    $arrnmjenis = array('Spiritual', 'Sosial');
+    $arrjenis = ['SPI', 'SOS'];
+    $arrnmjenis = ['Spiritual', 'Sosial'];
     for($i = 0; $i < count($arrjenis); $i++)
     {
         $jenis = $arrjenis[$i];
@@ -230,7 +230,7 @@ function ShowRaporDeskripsi()
     $i = 0;
     while($row = mysqli_fetch_row($res))
     {
-        $aspekarr[$i++] = array($row[0], $row[1]);
+        $aspekarr[$i++] = [$row[0], $row[1]];
     }
     $naspek = count($aspekarr);
     $colwidth = $naspek == 0 ? "*" : round(55 / count($aspekarr)) . "%"; ?>
@@ -328,7 +328,7 @@ function ShowRaporColumn()
     $i = 0;
     while($row = mysqli_fetch_row($res))
     {
-        $aspekarr[$i++] = array($row[0], $row[1]);
+        $aspekarr[$i++] = [$row[0], $row[1]];
     }
     $naspek = count($aspekarr);
     $colwidth = $naspek == 0 ? "*" : round(50 / count($aspekarr)) . "%";
@@ -459,7 +459,7 @@ function ShowRaporRow()
     $i = 0;
     while($row = mysqli_fetch_row($res))
     {
-        $pelarr[$i++] = array($row[0], $row[1]);
+        $pelarr[$i++] = [$row[0], $row[1]];
     }
     
     for($i = 0; $i < count($pelarr); $i++)
@@ -486,7 +486,7 @@ function ShowRaporRow()
                  AND a.dasarpenilaian = d.dasarpenilaian
                  AND d.aktif = 1";
         $res = QueryDb($sql);				 
-        $aspekarr = array();				 
+        $aspekarr = [];				 
         $j = 0;
         while($row = mysqli_fetch_row($res))
         {
@@ -511,7 +511,7 @@ function ShowRaporRow()
                 $nh = $row2[1];
             }
             
-            $aspekarr[$j++] = array($row[0], $row[1], $na, $nh);
+            $aspekarr[$j++] = [$row[0], $row[1], $na, $nh];
         } 
         $naspek = count($aspekarr);
         

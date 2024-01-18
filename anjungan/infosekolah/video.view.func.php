@@ -119,7 +119,7 @@ function ShowPrevComment($videoid)
         <tr id='<?=$rowId?>'>
             <td style='background-color: #fff' width='3%' align='left'>&nbsp;</td>
             <td class='VideoViewCommentCell' width='10%' align='center' valign='top'>
-                <img src='notes.list.gambar.php?r=<?= rand(1, 99999)?>&ownerid=<?=$ownerid?>&ownertype=<?=$ownertype?>' height='35'><br>
+                <img src='notes.list.gambar.php?r=<?= random_int(1, 99999)?>&ownerid=<?=$ownerid?>&ownertype=<?=$ownertype?>' height='35'><br>
             </td>
             <td class='VideoViewCommentCell' width='*' align='left' valign='top'>
                 <div style='position: relative'>
@@ -191,7 +191,7 @@ function ShowComment($videoid, $maxCommentId)
         <tr id='<?=$rowId?>'>
             <td style='background-color: #fff' width='3%' align='left'>&nbsp;</td>
             <td class='VideoViewCommentCell' width='10%' align='center' valign='top'>
-                <img src='notes.list.gambar.php?r=<?= rand(1, 99999)?>&ownerid=<?=$ownerid?>&ownertype=<?=$ownertype?>' height='35'><br>
+                <img src='notes.list.gambar.php?r=<?= random_int(1, 99999)?>&ownerid=<?=$ownerid?>&ownertype=<?=$ownertype?>' height='35'><br>
             </td>
             <td class='VideoViewCommentCell' width='*' align='left' valign='top'>
                 <div style='position: relative'>
@@ -269,7 +269,7 @@ function ShowCommentBox($videoid)
 
 function ValidateDelCmtLogin($login, $password, &$type, &$info)
 {
-    if (strtolower($login) == "jibas")
+    if (strtolower((string) $login) == "jibas")
     {
         $sql = "SELECT COUNT(replid)
                   FROM jbsuser.landlord
@@ -291,7 +291,7 @@ function ValidateDelCmtLogin($login, $password, &$type, &$info)
 
 function ValidateVideoOwner($videoid, $login)
 {
-    if (strtolower($login) == "jibas")
+    if (strtolower((string) $login) == "jibas")
         return true;
     
     $sql = "SELECT COUNT(replid)
@@ -307,7 +307,7 @@ function ValidateVideoOwner($videoid, $login)
 
 function ValidateCommentOwner($replid, $login)
 {
-    if (strtolower($login) == "jibas")
+    if (strtolower((string) $login) == "jibas")
         return true;
     
     $sql = "SELECT COUNT(replid)
@@ -339,7 +339,7 @@ function DeleteComment($replid)
 
 function ValidateEditVideoLogin($login, $password, &$type, &$info)
 {
-    if (strtolower($login) == "jibas")
+    if (strtolower((string) $login) == "jibas")
     {
         $info = "Anda tidak berhak mengubah video ini!";
         return false;
@@ -350,7 +350,7 @@ function ValidateEditVideoLogin($login, $password, &$type, &$info)
 
 function ValidateDeleteVideoLogin($login, $password, &$type, &$info)
 {
-    if (strtolower($login) == "jibas")
+    if (strtolower((string) $login) == "jibas")
     {
         $sql = "SELECT COUNT(replid)
                   FROM jbsuser.landlord

@@ -112,7 +112,7 @@ SimpanData();
 </table>
 
 <!-- Tamplikan error jika ada -->
-<?php if (strlen($ERROR_MSG) > 0) { ?>
+<?php if (strlen((string) $ERROR_MSG) > 0) { ?>
     <script language="javascript">
         alert('<?=$ERROR_MSG?>');
     </script>

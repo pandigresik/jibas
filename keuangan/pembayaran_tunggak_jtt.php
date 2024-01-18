@@ -481,7 +481,7 @@ function panggil(elem)
 </tr>
 </table>
 
-<?php if (strlen($errmsg) > 0) { ?>
+<?php if (strlen((string) $errmsg) > 0) { ?>
 <script language="javascript">
 alert('<?=$errmsg ?>');
 </script>

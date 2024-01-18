@@ -50,8 +50,8 @@ function loadJam($id)
 	$GLOBALS['maxJam'] = mysqli_num_rows($result);
 	
 	while($row = mysqli_fetch_array($result)) {
-		$GLOBALS['jam']['row'][$row[0]][jam1] = $row[1];
-		$GLOBALS['jam']['row'][$row[0]][jam2] = $row[2];
+		$GLOBALS['jam']['row'][$row[0]][\JAM1] = $row[1];
+		$GLOBALS['jam']['row'][$row[0]][\JAM2] = $row[2];
 	}
 	return true;
 }
@@ -202,7 +202,7 @@ if(isset($jam['row'])) {
 	foreach($jam['row'] as $k => $v) {
 	?> 
 	<tr>
-		<td class="jam" width="110px"><b><?=++$j ?>.</b> <?=$v[jam1] ?> - <?=$v[jam2] ?></td>
+		<td class="jam" width="110px"><b><?=++$j ?>.</b> <?=$v[\JAM1] ?> - <?=$v[\JAM2] ?></td>
 		<?php for($i = 1; $i <= 7; $i++) {?> 
 		<?=getCell($k, $i); ?> 
 		<?php }?>  

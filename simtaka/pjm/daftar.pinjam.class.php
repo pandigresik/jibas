@@ -140,7 +140,7 @@ class CDaftar
 			if ($this->kriteria=='nis' || $this->kriteria=='nip' )
 			{ ?>
 				<tr id="nis">
-					<td align="right"><?=strtoupper($this->kriteria)?></td>
+					<td align="right"><?=strtoupper((string) $this->kriteria)?></td>
 					<td>
 						<input type="hidden" id="statuspeminjam" value="<?=$this->statuspeminjam?>" />
 						<input type="text" class="inptxt-small-text" name="noanggota" id="noanggota"

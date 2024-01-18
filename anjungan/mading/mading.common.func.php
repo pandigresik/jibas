@@ -23,28 +23,20 @@
 <?php
 function DayName($weekday)
 {
-    switch($weekday)
-    {
-        case 1:
-            return "Mgu";
-        case 2:
-            return "Sen";
-        case 3:
-            return "Sel";
-        case 4:
-            return "Rab";
-        case 5:
-            return "Kam";
-        case 6:
-            return "Jum";
-        default:
-            return "Sab";
-    }
+    return match ($weekday) {
+        1 => "Mgu",
+        2 => "Sen",
+        3 => "Sel",
+        4 => "Rab",
+        5 => "Kam",
+        6 => "Jum",
+        default => "Sab",
+    };
 }
 
 function SafeInput($text)
 {
-    $text = str_replace("'", "`", $text);
+    $text = str_replace("'", "`", (string) $text);
     $text = str_replace("<", "&lt;", $text);
     $text = str_replace(">", "&gt;", $text);
     
@@ -55,18 +47,18 @@ function ChangeNewLine($text)
 {
     
     //return str_replace(chr(13), "<br>", $text);
-    return str_replace("[{*@NL#$]}", "<br>", $text);
+    return str_replace("[{*@NL#$]}", "<br>", (string) $text);
 
 }
 
 function RecodeNewLine($text)
 {
-    return str_replace("[{*@NL#$]}", chr(13) . chr(10), $text);
+    return str_replace("[{*@NL#$]}", chr(13) . chr(10), (string) $text);
 }
 
 function ChangeSingleQuote($text)
 {
-    return str_replace("'", "'", $text);
+    return str_replace("'", "'", (string) $text);
 }
 
 function SecToAge($secdiff)
@@ -102,34 +94,34 @@ function SecToAgeDate($secdiff, $date)
 
 function GetEmoticonSet()
 {
-    $eset[] = array("Devil.png", array(">:)", ">:-)"));
-    $eset[] = array("Laughing.png", array(":))"));
-    $eset[] = array("Sacred.png", array("O:)", "O:-)"));
-    $eset[] = array("Smile.png", array(":-)", ":)", ":]", "=)"));
+    $eset[] = ["Devil.png", [">:)", ">:-)"]];
+    $eset[] = ["Laughing.png", [":))"]];
+    $eset[] = ["Sacred.png", ["O:)", "O:-)"]];
+    $eset[] = ["Smile.png", [":-)", ":)", ":]", "=)"]];
     
-    $eset[] = array("Crying-Loud.png", array(":(("));
-    $eset[] = array("Broken-Heart.png", array("=(("));
-    $eset[] = array("Angry.png", array(">:(", ">:-(",  "x("));
-    $eset[] = array("Crying.png", array("T_T"));   
-    $eset[] = array("Sad.png", array(":-(", ":(", ":[", "=("));
+    $eset[] = ["Crying-Loud.png", [":(("]];
+    $eset[] = ["Broken-Heart.png", ["=(("]];
+    $eset[] = ["Angry.png", [">:(", ">:-(", "x("]];
+    $eset[] = ["Crying.png", ["T_T"]];   
+    $eset[] = ["Sad.png", [":-(", ":(", ":[", "=("]];
     
-    $eset[] = array("Winking.png", array(";-)", ";)"));
-    $eset[] = array("Big-Grin.png", array(":-D", ":D", "=D"));
-    $eset[] = array("Smug.png", array("8-|", "8|", "B-|", "B|", "8-)", "8)", "B-)", "B)"));
+    $eset[] = ["Winking.png", [";-)", ";)"]];
+    $eset[] = ["Big-Grin.png", [":-D", ":D", "=D"]];
+    $eset[] = ["Smug.png", ["8-|", "8|", "B-|", "B|", "8-)", "8)", "B-)", "B)"]];
     
-    $eset[] = array("Scared.png", array(":-O", ":O",  ":-o",  ":o"));
-    $eset[] = array("Cool.png", array("(Y)", "(y)"));
-    $eset[] = array("Love.png", array("<3", ":x", ":X"));
-    $eset[] = array("Thinking.png", array(":?", ":-?"));
-    $eset[] = array("Whew.png", array(":<", ":-<"));
-    $eset[] = array("Confused.png", array(":-/", ":/",  ":-\\", ":\\"));
-    $eset[] = array("Sick.png", array(":&", ":-&"));
-    $eset[] = array("Sleepy.png", array("i-)", "i)"));
-    $eset[] = array("Kiss.png", array(":*", ":-*"));
-    $eset[] = array("Nerd.png", array(":-b",  ":b"));
-    $eset[] = array("Straight-Face.png", array(":-|",  ":|"));
-    $eset[] = array("Silly.png", array("8-}", "8}", "B-}", "B}"));
-    $eset[] = array("Hug.png", array(">:D<"));
+    $eset[] = ["Scared.png", [":-O", ":O", ":-o", ":o"]];
+    $eset[] = ["Cool.png", ["(Y)", "(y)"]];
+    $eset[] = ["Love.png", ["<3", ":x", ":X"]];
+    $eset[] = ["Thinking.png", [":?", ":-?"]];
+    $eset[] = ["Whew.png", [":<", ":-<"]];
+    $eset[] = ["Confused.png", [":-/", ":/", ":-\\", ":\\"]];
+    $eset[] = ["Sick.png", [":&", ":-&"]];
+    $eset[] = ["Sleepy.png", ["i-)", "i)"]];
+    $eset[] = ["Kiss.png", [":*", ":-*"]];
+    $eset[] = ["Nerd.png", [":-b", ":b"]];
+    $eset[] = ["Straight-Face.png", [":-|", ":|"]];
+    $eset[] = ["Silly.png", ["8-}", "8}", "B-}", "B}"]];
+    $eset[] = ["Hug.png", [">:D<"]];
     
     return $eset;
 }
@@ -143,7 +135,7 @@ function FormatEmoticon($text)
         $symbol = $eset[$i][1];
         
         $icon = "<img src=\'../images/emoticons/$icon\' class=\'EmoticonSmall\'>";
-        $text = str_replace($symbol, $icon, $text);
+        $text = str_replace($symbol, $icon, (string) $text);
     }
     
     return $text;
@@ -152,7 +144,7 @@ function FormatEmoticon($text)
 function FormattedText($text)
 {
     $text = FormatEmoticon($text);
-    $text = strip_tags($text, "<img>");
+    $text = strip_tags((string) $text, "<img>");
     $text = ChangeNewLine($text);
     //$text = MySqlSafe($text);
         
@@ -161,15 +153,15 @@ function FormattedText($text)
 
 function MySqlSafe($text)
 {
-    $search = array("\\", "\0", "\n", "\r", "\x1a", "'", '"');
-    $replace = array("\\\\", "\\0", "\\n", "\\r", "\Z", "\'", '\"');
+    $search = ["\\", "\0", "\n", "\r", "\x1a", "'", '"'];
+    $replace = ["\\\\", "\\0", "\\n", "\\r", "\Z", "\'", '\"'];
     
-    return str_replace($search, $replace, $text);
+    return str_replace($search, $replace, (string) $text);
 }
 
 function FormattedPreviewText($text, $length)
 {
-    $text = trim($text);
+    $text = trim((string) $text);
     if (strlen($text) <= $length)
         return FormattedText($text);
     

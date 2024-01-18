@@ -33,7 +33,7 @@ class NewKritik{
 		$this->KritikID = $KritikID;
 
 		$TxtToReply = $_REQUEST['TxtToReply'];
-		$this->TxtToReply = trim($TxtToReply);
+		$this->TxtToReply = trim((string) $TxtToReply);
 
 		$ID = $_REQUEST['ID'];
 		$this->ID = $ID;
@@ -73,7 +73,7 @@ class NewKritik{
 			while ($row = @mysqli_fetch_array($res)){
 				  $IDList = ($IDList=="")?$row['replid']:$IDList.','.$row['replid'];
 				  
-				  $msg 	  = (strlen($row['message'])>50)?substr($row['message'],0,50)."...":$row['message'];
+				  $msg 	  = (strlen((string) $row['message'])>50)?substr((string) $row['message'],0,50)."...":$row['message'];
 				?>
 				<input type="text" id="Content<?=$row['replid']?>" style="width:100%" value="<span class='Link'><?=$row['sender']?></span>#><?=FullDateFormat($row['senddate'])?>#><?=$msg	?>#><?=$row['replid']?>#><?=$row['from']?>" />
 				<?php
@@ -116,7 +116,7 @@ class NewKritik{
             <td>No</td>
             <td>Pengirim</td>
             <td>Tanggal</td>
-            <td><?=ucfirst($this->Type) ?></td>
+            <td><?=ucfirst((string) $this->Type) ?></td>
             <td>&nbsp;</td>
           </tr>
           <?php
@@ -139,7 +139,7 @@ class NewKritik{
 		  //if ($cnt%2==0)
 		  	//	$bg = "background-color:#cfddd1;";		
 		  
-		  $nohp  = str_replace("+62","",$row[2]);	
+		  $nohp  = str_replace("+62","",(string) $row[2]);	
           $sqlph = "SELECT nama FROM phonebook WHERE nohp LIKE '%$nohp'";
 		  $resph = QueryDb($sqlph);
 		  $rowph = @mysqli_fetch_row($resph);
@@ -152,8 +152,8 @@ class NewKritik{
             <td class="td" onclick="ReadMessage('<?=$row[0]?>');">
 			<?php
 			//echo ucfirst($row[4])." : <br>";
-			if (strlen($row[5])>50)
-				echo substr($row[5],0,50)."...";
+			if (strlen((string) $row[5])>50)
+				echo substr((string) $row[5],0,50)."...";
 			else
 				echo $row[5];
 			?>

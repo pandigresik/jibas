@@ -142,7 +142,7 @@ function traverse($iddir, $count)
 		if ($nsubdir == 0)
 		{
 			echo "$space<li class='liBullet'>&nbsp;</span><a $msg href='files.php?iddir=$iddir' style='text-decoration:none;' target='files'><img src='../../images/ico/folder.gif' border='0'>&nbsp;$uname</a>&nbsp;";
-			if (strtoupper(SI_USER_ID()) == "LANDLORD")
+			if (strtoupper((string) SI_USER_ID()) == "LANDLORD")
 			{
 				if ($msg == "")
 					echo "<img onclick='delfolder($iddir)' src='../../images/ico/hapus.png'>";
@@ -153,7 +153,7 @@ function traverse($iddir, $count)
 		{
 			echo "$space<li class='liClosed'>&nbsp;<a $msg style='text-decoration:none;' href='files.php?iddir=$iddir' target='files'><img src='../../images/ico/folder.gif' border='0'>&nbsp;$uname</a>&nbsp;";
 			
-			if (strtoupper(SI_USER_ID()) =="LANDLORD")
+			if (strtoupper((string) SI_USER_ID()) =="LANDLORD")
 			{
 				if ($msg == "")
 					echo "<img onclick='delfolder($iddir)' src='../../images/ico/hapus.png'>";
@@ -186,7 +186,7 @@ if (mysqli_num_rows($result) > 0)
 	if ($nsubdir == 0)
 	{
 		echo "&nbsp;<li class='liBullet'>&nbsp;<a style='text-decoration:none;' href='files.php?iddir=$iddir' target='files'><img src='../../images/ico/folder.gif' border='0'>&nbsp;(root)</a>&nbsp;";
-		if (SI_USER_ID() == $idguru || strtoupper(SI_USER_ID()) =="LANDLORD")
+		if (SI_USER_ID() == $idguru || strtoupper((string) SI_USER_ID()) =="LANDLORD")
 			echo "</li>\r\n";
 	}
 	else

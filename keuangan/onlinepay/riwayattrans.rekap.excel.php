@@ -38,13 +38,13 @@ $stIdPgTrans = $_REQUEST["stidpgtrans"];
 //EchoBr($stIdPgTrans);
 
 $jsonPen = $_REQUEST["jsonpen"];
-$jsonPen = str_replace("`", "\"", $jsonPen);
-$lsPembayaran = json_decode($jsonPen);
+$jsonPen = str_replace("`", "\"", (string) $jsonPen);
+$lsPembayaran = json_decode($jsonPen, null, 512, JSON_THROW_ON_ERROR);
 //PrePrintR($lsPembayaran);
 
 $jsonTgl = $_REQUEST["jsontgl"];
-$jsonTgl = str_replace("`", "\"", $jsonTgl);
-$lsTanggal = json_decode($jsonTgl);
+$jsonTgl = str_replace("`", "\"", (string) $jsonTgl);
+$lsTanggal = json_decode($jsonTgl, null, 512, JSON_THROW_ON_ERROR);
 //PrePrintR($lsTanggal);
 
 header('Content-Type: application/vnd.ms-excel'); //IE and Opera
@@ -72,7 +72,7 @@ for($i = 0; $i < count($lsPembayaran); $i++)
 echo "<td>Sub Total</td>";
 echo "</tr>";
 
-$lsSubTotalPenerimaan = array();
+$lsSubTotalPenerimaan = [];
 for($j = 0; $j < count($lsPembayaran); $j++)
 {
     $lsSubTotalPenerimaan[] = 0;
@@ -136,7 +136,7 @@ echo "<tr>";
 echo "<td>&nbsp;</td>";
 echo "<td>Sub Total</td>";
 
-$jsonPen = json_encode($lsPembayaran);
+$jsonPen = json_encode($lsPembayaran, JSON_THROW_ON_ERROR);
 $jsonPen = str_replace("\"", "`", $jsonPen);
 for($i = 0; $i < count($lsSubTotalPenerimaan); $i++)
 {
@@ -145,11 +145,11 @@ for($i = 0; $i < count($lsSubTotalPenerimaan); $i++)
     $kategori = $lsItem[0];
     $idPenerimaan = $lsItem[1];
 
-    $lsPen = array($lsItem);
-    $jsonPen = json_encode($lsPen);
+    $lsPen = [$lsItem];
+    $jsonPen = json_encode($lsPen, JSON_THROW_ON_ERROR);
     $jsonPen = str_replace("\"", "`", $jsonPen);
 
-    $jsonTgl = json_encode($lsTanggal);
+    $jsonTgl = json_encode($lsTanggal, JSON_THROW_ON_ERROR);
     $jsonTgl = str_replace("\"", "`", $jsonTgl);
 
     $jumlah = $lsSubTotalPenerimaan[$i];

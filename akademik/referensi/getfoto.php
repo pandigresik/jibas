@@ -57,14 +57,14 @@ if (isset($_REQUEST['Simpan'])) {
 	$uploadedfile = $foto1['tmp_name'];
 	$uploadedtypefile = $foto1['type'];
 	$uploadedsizefile = $foto1['size'];
-	if (strlen($uploadedfile)!=0){
+	if (strlen((string) $uploadedfile)!=0){
 		$ua = get_browser ();
 		if (( $ua->browser != "Default Browser" ) && ($ua->version != 3)) 
 			header('Content-Type: image/jpeg');
 		$src = imagecreatefromjpeg($uploadedfile);
 		$filename = "../images/logokecil.jpg";
 	
-		list($width,$height)=getimagesize($uploadedfile);
+		[$width, $height]=getimagesize($uploadedfile);
 		if ($width < $height){
 			$newheight=125;
 			$newwidth=90;

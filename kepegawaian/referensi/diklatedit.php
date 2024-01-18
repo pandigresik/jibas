@@ -36,7 +36,7 @@ if (isset($_REQUEST['btSimpan']))
 	$diklat = $_REQUEST['txDiklat'];
 	$sql = "UPDATE diklat SET diklat='$diklat' WHERE replid = $id";
 	QueryDb($sql);
-	CloseDb($sql);
+	CloseDb();
 	?>
 	<script language="javascript">
 		opener.RefreshPage(<?=$id?>);

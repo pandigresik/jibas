@@ -144,9 +144,9 @@ function change_urut(urut,urutan) {
 </head>
 <body topmargin="0" leftmargin="0">
 <div align="right">
-<?php $str = array("'","+");
-	$str_replace = array("\'","x123x");	
-  	$sql = str_replace($str, $str_replace, $query1);
+<?php $str = ["'", "+"];
+	$str_replace = ["\'", "x123x"];	
+  	$sql = str_replace($str, $str_replace, (string) $query1);
 	//echo $sql;
 ?>
 <!--<a href="#" onclick="newWindow('statistik_cetak_excel.php?idangkatan=<?=$idangkatan?>&departemen=<?=$departemen?>&dasar=<?=$dasar?>&tabel=<?=$tabel?>&judul=<?=$judul?>&iddasar=<?=$iddasar?>&keyword=<?=$keyword?>','CetakExcel',100,100,'');">-->

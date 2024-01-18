@@ -872,7 +872,7 @@ $n = JmlHari($blnlahir, $thnlahir);
                      ORDER BY urutan";
             $res2 = QueryDb($sql);
 
-            $arrList = array();
+            $arrList = [];
             if (mysqli_num_rows($res2) == 0)
                 $arrList[] = "-";
 
@@ -934,7 +934,7 @@ $n = JmlHari($blnlahir, $thnlahir);
 </tr>
 </table>
 <!-- Tamplikan error jika ada -->
-<?php if (strlen($ERROR_MSG) > 0) { ?>
+<?php if (strlen((string) $ERROR_MSG) > 0) { ?>
 <script language="javascript">
 	alert('<?=$ERROR_MSG?>');
 </script>

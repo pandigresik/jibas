@@ -170,7 +170,7 @@ if (isset($_REQUEST['harian']))
 	$i = 0;
 	while($row = mysqli_fetch_row($res))
 	{
-		$pelarr[$i++] = array($row[0], $row[1]);
+		$pelarr[$i++] = [$row[0], $row[1]];
 	}
 	
 	for($i = 0; $i < count($pelarr); $i++)
@@ -196,7 +196,7 @@ if (isset($_REQUEST['harian']))
 			     AND n.idaturan = a.replid  	   
 			     AND a.dasarpenilaian = d.dasarpenilaian";	
 		$res = QueryDb($sql);				 
-		$aspekarr = array();				 
+		$aspekarr = [];				 
 		$j = 0;
 		while($row = mysqli_fetch_row($res))
 		{
@@ -221,7 +221,7 @@ if (isset($_REQUEST['harian']))
 				$nh = $row2[1];
 			}
 			
-			$aspekarr[$j++] = array($row[0], $row[1], $na, $nh);
+			$aspekarr[$j++] = [$row[0], $row[1], $na, $nh];
 		} 
 		$naspek = count($aspekarr);
 		
@@ -595,7 +595,7 @@ if (isset($_REQUEST['harian']))
 </table>
     </fieldset></td>
   </tr>
-  <?php } ?>  
+<?php } ?>  
 </table>
 
 </BODY>

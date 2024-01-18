@@ -35,7 +35,7 @@ $result = QueryDb($sql);
 $row = @mysqli_fetch_row($result);
 $departemen = $row[0];
 CloseDb();
-$bulan_pjg = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+$bulan_pjg = [1=>'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 OpenDb();
 $sql_pp="SELECT pel.nama as namapelajaran, ppsiswa.statushadir as statushadir, pp.tanggal as tanggal, pp.jam as jam, pp.gurupelajaran as guru, ppsiswa.catatan as catatan FROM jbsakad.pelajaran pel, jbsakad.presensipelajaran pp, jbsakad.ppsiswa ppsiswa WHERE ppsiswa.nis='$nis' AND ppsiswa.idpp=pp.replid AND pel.replid=pp.idpelajaran AND ppsiswa.catatan<>'' AND pp.idpelajaran='$pelajaran'";
 $res_pp=QueryDb($sql_pp);

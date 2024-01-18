@@ -35,7 +35,7 @@ $stIdPgTrans = $_REQUEST["stidpgtrans"];
 
 OpenDb();
 
-$lsPenerimaan = array();
+$lsPenerimaan = [];
 $sql = "SELECT DISTINCT kategori, IFNULL(idpenerimaan, 0) AS idpenerimaan,
                IFNULL(idtabungan, 0) AS idtabungan,
                IFNULL(idtabunganp, 0) AS idtabunganp
@@ -65,7 +65,7 @@ while($row = mysqli_fetch_array($res))
     }
 
     $namaPenerimaan = NamaPenerimaan($kategori, $idPenerimaan);
-    $lsItem = array($kategori, $idPenerimaan, $namaPenerimaan, $colName);
+    $lsItem = [$kategori, $idPenerimaan, $namaPenerimaan, $colName];
     $lsPenerimaan[] = $lsItem;
 }
 

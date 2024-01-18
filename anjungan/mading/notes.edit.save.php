@@ -160,18 +160,18 @@ try
         mkdir($uploadPath, 0755);
     
     
-    $text = trim($_REQUEST['judul']);
+    $text = trim((string) $_REQUEST['judul']);
     $judul = $text;
     $fjudul = FormattedText($text);
     
     $kepada = SafeInput($_REQUEST['kepada']);
     
-    $text = trim($_REQUEST['pesan']);
+    $text = trim((string) $_REQUEST['pesan']);
     $pesan = RecodeNewLine($text);
     $fpesan = FormattedText($text);
     $fprevpesan = FormattedPreviewText($text, $previewTextLength);
     
-    $tautan = trim($_REQUEST['tautan']);
+    $tautan = trim((string) $_REQUEST['tautan']);
     
     $sql = "UPDATE jbsvcr.notes
                SET judul = '$judul', fjudul = '$fjudul', kepada = '$kepada',
@@ -237,14 +237,14 @@ try
         $file = $_FILES[$doc];
         
         $info = "gambar_info_$i";
-        $text = trim($_REQUEST[$info]);
+        $text = trim((string) $_REQUEST[$info]);
         $info = $text;
         $finfo = FormattedText($text);
         
-        $rnd = rand(10000, 99999);
+        $rnd = random_int(10000, 99999);
         
         $name = $file['name'];
-        $name = $notesid . "_" . $rnd . "_" . str_replace(" ", "_", $name);
+        $name = $notesid . "_" . $rnd . "_" . str_replace(" ", "_", (string) $name);
         $type = $file['type'];
         $size = $file['size'];
         $location = "anjungan/notes/" . date('Y');
@@ -271,7 +271,7 @@ try
         $isdel = $_REQUEST[$parm];
         
         $parm = "edit_file_info_$i";
-        $text = trim($_REQUEST[$parm]);
+        $text = trim((string) $_REQUEST[$parm]);
         $info = $text;
         $finfo = FormattedText($info);
                 
@@ -317,14 +317,14 @@ try
         $file = $_FILES[$doc];
         
         $info = "file_info_$i";
-        $text = trim($_REQUEST[$info]);
+        $text = trim((string) $_REQUEST[$info]);
         $info = $text;
         $finfo = FormattedText($text);
                 
-        $rnd = rand(10000, 99999);
+        $rnd = random_int(10000, 99999);
         
         $name = $file['name'];
-        $name = $notesid . "_" . $rnd . "_" . str_replace(" ", "_", $name);
+        $name = $notesid . "_" . $rnd . "_" . str_replace(" ", "_", (string) $name);
         $type = $file['type'];
         $size = $file['size'];
         $location = "anjungan/notes/" . date('Y');

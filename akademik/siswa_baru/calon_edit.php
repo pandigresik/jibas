@@ -199,7 +199,7 @@ else
 						$kelompok = $row['replid'];
 					
 			?>
-    			<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $kelompok)?> ><?=$row['kelompok'].', kapasitas: '.$row['kapasitas'] .', terisi: '.$row1[0]?>
+    			<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $kelompok)?> ><?=$row['kelompok'].', kapasitas: '.$row['kapasitas'] .', terisi: '.$row1[0]?>
                 </option>
     		<?php
 				//$cnt++; 
@@ -1033,7 +1033,7 @@ else
                          ORDER BY urutan";
                 $res2 = QueryDb($sql);
 
-                $arrList = array();
+                $arrList = [];
                 if (mysqli_num_rows($res2) == 0)
                     $arrList[] = "-";
 

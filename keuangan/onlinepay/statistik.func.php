@@ -168,7 +168,7 @@ function StatistikPembayaranHarian()
             return;
         }
 
-        $lsTanggal = array();
+        $lsTanggal = [];
         while($row = mysqli_fetch_row($res))
         {
             $lsTanggal[] = $row[0];
@@ -333,10 +333,10 @@ function StatistikPembayaranBulanan()
             return;
         }
 
-        $lsBulan = array();
+        $lsBulan = [];
         while($row = mysqli_fetch_row($res))
         {
-            $lsBulan[] = array($row[0], $row[1]);
+            $lsBulan[] = [$row[0], $row[1]];
         }
 
         echo "<span style='font-size: 16px'>STATISTIK BULANAN</span><br><br>";

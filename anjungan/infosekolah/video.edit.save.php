@@ -73,11 +73,11 @@ try
     if (!file_exists($uploadPath))
         mkdir($uploadPath, 0755);
         
-    $text = trim($_REQUEST['judul']);
+    $text = trim((string) $_REQUEST['judul']);
     $judul = $text;
     $fjudul = FormattedText($text);
     
-    $text = trim($_REQUEST['pesan']);
+    $text = trim((string) $_REQUEST['pesan']);
     $keterangan = RecodeNewLine($text);
     $fketerangan = FormattedText($text);
     $fprevketerangan = FormattedPreviewText($text, $previewTextLength);    
@@ -116,12 +116,12 @@ try
             unlink($prevfile);
         
         // Upload 
-        $rnd = rand(10000, 99999);
+        $rnd = random_int(10000, 99999);
         $name = $file['name'];
         $filetype = $file['type'];
         $filesize = $file['size'];
         $location = "anjungan/video/" . date('Y');
-        $filename = $videoid . "_" . $rnd . "_" . str_replace(" ", "_", $name);
+        $filename = $videoid . "_" . $rnd . "_" . str_replace(" ", "_", (string) $name);
         $dest = "$FILESHARE_UPLOAD_DIR/$location/$filename";
         
         move_uploaded_file($file['tmp_name'], $dest);

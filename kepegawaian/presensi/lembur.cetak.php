@@ -126,9 +126,9 @@ CloseDb();
 <?php
 function GetHourMinute($strtime, &$hour, &$minute)
 {
-    if (strpos($strtime, ":") !== FALSE)
+    if (str_contains((string) $strtime, ":"))
     {
-        $temp = explode(":", $strtime);
+        $temp = explode(":", (string) $strtime);
         $hour = $temp[0];
         $minute = $temp[1];
         

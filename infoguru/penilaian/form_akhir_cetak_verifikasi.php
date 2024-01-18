@@ -182,7 +182,7 @@ function focusNext(elemName, evt) {
 			{
 				if ($aturan=="")
 					$aturan=$row_jenispengujian['replid'];	?>
-    		    <option value="<?=urlencode($row_jenispengujian['replid'])?>" <?=IntIsSelected($row_jenispengujian['replid'], $aturan) ?>><?=$row_jenispengujian['jenisujian']?>
+    		    <option value="<?=urlencode((string) $row_jenispengujian['replid'])?>" <?=IntIsSelected($row_jenispengujian['replid'], $aturan) ?>><?=$row_jenispengujian['jenisujian']?>
    		        </option>
 		<?php  } ?>
   		    </select>

@@ -158,7 +158,7 @@ class CPenulis{
 					?>				</td>
 			</tr>
 		</table>
-        <?php
+<?php
 	}
 }
 ?>

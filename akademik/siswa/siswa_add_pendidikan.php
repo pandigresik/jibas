@@ -44,7 +44,7 @@ if (isset($_REQUEST['hal']))
 $op = $_GET['op'];
 $replid = $_GET['replid'];
 $pendidikan_kiriman=$_REQUEST['pendidikan'];
-if (($op == "del") && (strlen($replid) > 0)) {
+if (($op == "del") && (strlen((string) $replid) > 0)) {
 	OpenDb();
 	$sql = "DELETE FROM jbsumum.tingkatpendidikan WHERE replid = '".$replid."'";
 	$result = QueryDb($sql);

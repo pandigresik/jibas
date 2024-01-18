@@ -40,7 +40,7 @@ if ($op == "getlistkomentar")
     $no = $_REQUEST['no'];
 
     OpenDb();
-    echo GetListKomentar($idpelajaran, $idtingkat, $kdaspek, $no);
+    echo GetListKomentar($idpelajaran, $idtingkat, $kdaspek);
     CloseDb();
 
     http_response_code(200);
@@ -68,7 +68,7 @@ else if ($op == "delkomentar")
     $sql = "DELETE FROM jbsakad.pilihkomenpel WHERE replid = '".$replid."'";
     QueryDb($sql);
 
-    echo GetListKomentar($idpelajaran, $idtingkat, $kdaspek, $no);
+    echo GetListKomentar($idpelajaran, $idtingkat, $kdaspek);
     CloseDb();
 
     http_response_code(200);

@@ -34,11 +34,11 @@ $departemen = $_REQUEST['departemen'];
 $deskripsi = $_REQUEST["deskripsi"];
 $gambar = $_FILES["gambar"];
 $size = $gambar['size'];
-$ext = substr(strrchr($gambar["name"], "."), 1); 
-list($width, $height) = getimagesize($gambar["tmp_name"]);
+$ext = substr(strrchr((string) $gambar["name"], "."), 1); 
+[$width, $height] = getimagesize($gambar["tmp_name"]);
 
 $nama = $gambar["name"];
-$nama = str_replace(" ", "_", $nama);
+$nama = str_replace(" ", "_", (string) $nama);
 $nama = str_replace("'", "", $nama);
 
 $fspath = "gambar/" . date('Y');

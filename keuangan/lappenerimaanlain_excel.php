@@ -77,7 +77,7 @@ $row = mysqli_fetch_row($result);
 $namapenerimaan = $row[0];
 ?>
 
-<center><font size="4" face="Verdana"><strong>LAPORAN PENERIMAAN <?=strtoupper($namapenerimaan) ?></strong></font><br /> 
+<center><font size="4" face="Verdana"><strong>LAPORAN PENERIMAAN <?=strtoupper((string) $namapenerimaan) ?></strong></font><br /> 
 </center>
 <br /><br />
 

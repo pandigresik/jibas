@@ -88,7 +88,7 @@ function SimpanTarikan()
     {
         $errmsg = "Saldo tabungan tidak mencukupi untuk penarikan";
         
-        $r = rand(10000, 99999);		
+        $r = random_int(10000, 99999);		
         header("Location: tabungan.trans.input.php?r=$r&idtabungan=$idtabungan&nip=$nip&idtahunbuku=$idtahunbuku&errmsg=$errmsg&jtarik=$jtarik&keterangantarik=$keterangantarik");
 	
         exit();   
@@ -190,7 +190,7 @@ function SimpanTarikan()
         
     CloseDb();
 
-    $r = rand(10000, 99999);		
+    $r = random_int(10000, 99999);		
 	header("Location: tabungan.trans.input.php?r=$r&idtabungan=$idtabungan&nip=$nip&idtahunbuku=$idtahunbuku&errmsg=$errmsg&jtarik=$jtarik&keterangantarik=$keterangantarik");
 	
 	exit();   
@@ -309,7 +309,7 @@ function SimpanSetoran()
         
     CloseDb();
     
-    $r = rand(10000, 99999);		
+    $r = random_int(10000, 99999);		
 	header("Location: tabungan.trans.input.php?r=$r&idtabungan=$idtabungan&nip=$nip&idtahunbuku=$idtahunbuku&errmsg=$errmsg&jsetor=$jsetor&keterangansetor=$keterangansetor");
 	
 	exit();    

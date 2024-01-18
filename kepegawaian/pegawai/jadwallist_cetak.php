@@ -27,7 +27,7 @@ require_once("../include/db_functions.php");
 require_once("../include/common.php");
 require_once('../include/theme.php');
 
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+$namabulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember"];
 
 $tgl = $_REQUEST['tgl'];
 $bln = $_REQUEST['bln'];

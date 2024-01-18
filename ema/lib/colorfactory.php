@@ -23,28 +23,17 @@
 <?php
 class ColorFactory
 {
-    private $minValue;
-    private $maxValue;
-
     private $baseMinColor;
     private $baseMaxColor;
 
-    private $zeroColor = array(209, 209, 209);  // gray
+    private array $zeroColor = [209, 209, 209];  // gray
 
-    private $homogenColor = array(0, 166, 255); // blue?
+    private array $homogenColor = [0, 166, 255];
 
-    private $weight = 1;
-    private $reverseColor = false;
-
-    public function __construct($minValue, $maxValue, $weight = 1, $reverseColor = false)
+    public function __construct(private $minValue, private $maxValue, private $weight = 1, private $reverseColor = false)
     {
-        $this->minValue = $minValue;
-        $this->maxValue = $maxValue;
-        $this->weight = $weight;
-        $this->reverseColor = $reverseColor;
-
-        $this->baseMinColor = $this->rgb2hsv(array(183, 13, 13));
-        $this->baseMaxColor = $this->rgb2hsv(array(35, 166, 46));
+        $this->baseMinColor = $this->rgb2hsv([183, 13, 13]);
+        $this->baseMaxColor = $this->rgb2hsv([35, 166, 46]);
 
         //$this->baseMinColor = $this->rgb2hsv(array(18, 12, 9));
         //$this->baseMaxColor = $this->rgb2hsv(array(105, 195, 18));
@@ -59,7 +48,7 @@ class ColorFactory
 
     private function rgb2hsv($c)
     {
-        list($r, $g, $b) = $c;
+        [$r, $g, $b] = $c;
 
         $v = max($r, $g, $b);
         $t = min($r, $g, $b);
@@ -79,16 +68,16 @@ class ColorFactory
             $h = ($h < 0) ? $h + 360 : $h;
         }
 
-        return array($h, $s, $v);
+        return [$h, $s, $v];
     }
 
     private function hsv2rgb($c)
     {
-        list($h, $s, $v) = $c;
+        [$h, $s, $v] = $c;
 
         if ($s == 0)
         {
-            return array($v, $v, $v);
+            return [$v, $v, $v];
         }
         else
         {
@@ -100,7 +89,7 @@ class ColorFactory
             $q[3] = $q[4] = $v;
             $q[5] = $v * (1 - $s * $f);
 
-            return(array($q[($i + 4) % 6], $q[($i + 2) % 6], $q[$i % 6])); //[1]
+            return([$q[($i + 4) % 6], $q[($i + 2) % 6], $q[$i % 6]]); //[1]
         }
     }
 
@@ -125,13 +114,13 @@ class ColorFactory
         $r2 = $this->transition($value, $this->baseMinColor[1], $this->baseMaxColor[1]);
         $r3 = $this->transition($value, $this->baseMinColor[2], $this->baseMaxColor[2]);
 
-        return array($r1, $r2, $r3);
+        return [$r1, $r2, $r3];
     }
 
     private function rgb2html($r, $g =- 1, $b =- 1)
     {
         if (is_array($r) && sizeof($r) == 3)
-            list($r, $g, $b) = $r;
+            [$r, $g, $b] = $r;
 
         $r = intval($r);
         $g = intval($g);
@@ -222,7 +211,7 @@ class ColorFactory
         else
             $resultRGB = $this->hsv2rgb($this->transition3($value));
 
-        return array(floor($resultRGB[0]), floor($resultRGB[1]), floor($resultRGB[2]));
+        return [floor($resultRGB[0]), floor($resultRGB[1]), floor($resultRGB[2])];
     }
 }
 ?>

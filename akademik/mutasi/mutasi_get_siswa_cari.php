@@ -39,13 +39,13 @@ $nama = $_REQUEST['nama'];
 $nis = $_REQUEST['nis'];
 $departemen = $_REQUEST['departemen'];
 
-if ((strlen($nama) > 0) && (strlen($nip) > 0))
+if ((strlen((string) $nama) > 0) && (strlen((string) $nip) > 0))
 	$sql = "SELECT s.nis, s.nama, k.kelas FROM jbsakad.siswa s,jbsakad.kelas k ,jbsakad.tingkat ti,jbsakad.tahunajaran ta WHERE s.nama LIKE '%$nama%' AND s.nis LIKE '%$nis%' AND k.replid=s.idkelas AND k.idtahunajaran=ta.replid AND k.idtingkat=ti.replid AND ta.departemen='$departemen' AND ti.departemen='$departemen' ORDER BY s.nama"; 
-else if (strlen($nama) > 0)
+else if (strlen((string) $nama) > 0)
 	$sql = "SELECT s.nis, s.nama, k.kelas FROM jbsakad.siswa s,jbsakad.kelas k ,jbsakad.tingkat ti,jbsakad.tahunajaran ta  WHERE s.nama LIKE '%$nama%' AND k.replid=s.idkelas AND k.idtahunajaran=ta.replid AND k.idtingkat=ti.replid AND ta.departemen='$departemen' AND ti.departemen='$departemen' ORDER BY s.nama"; 
-else if (strlen($nis) > 0)
+else if (strlen((string) $nis) > 0)
 	$sql = "SELECT s.nis, s.nama, k.kelas FROM jbsakad.siswa s,jbsakad.kelas k ,jbsakad.tingkat ti,jbsakad.tahunajaran ta  WHERE k.replid=s.idkelas AND s.nis LIKE '%$nis%' AND k.idtahunajaran=ta.replid AND k.idtingkat=ti.replid AND ta.departemen='$departemen' AND ti.departemen='$departemen' ORDER BY s.nama"; 
-else if ((strlen($nama) == 0) || (strlen($nis) == 0))
+else if ((strlen((string) $nama) == 0) || (strlen((string) $nis) == 0))
 	$sql = "SELECT s.nis, s.nama, k.kelas FROM jbsakad.siswa s,jbsakad.kelas k,jbsakad.tingkat ti,jbsakad.tahunajaran ta WHERE k.replid=s.idkelas AND k.idtahunajaran=ta.replid AND k.idtingkat=ti.replid AND ta.departemen='$departemen' AND ti.departemen='$departemen' ORDER BY s.nama"; 
 $result = QueryDb($sql);
 $cnt = 1;

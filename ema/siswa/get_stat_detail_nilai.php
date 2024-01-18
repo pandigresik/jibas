@@ -56,22 +56,11 @@ if ($row['nmin'] >= 0 && $row['nmax'] <= 10)
 else
     $dasar = 10; //satuan
 
-$rentang = array(9*$dasar, 8*$dasar, 7*$dasar,
-				 6*$dasar, 5*$dasar, 4*$dasar,
-				 3*$dasar, 2*$dasar, 1*$dasar, 0);
-$filter = array($rentang[0],
-                $rentang[1].'_'.$rentang[0],
-                $rentang[2].'_'.$rentang[1],
-                $rentang[3].'_'.$rentang[2],
-                $rentang[4].'_'.$rentang[3],
-                $rentang[5].'_'.$rentang[4],
-                $rentang[6].'_'.$rentang[5],
-                $rentang[7].'_'.$rentang[6],
-                $rentang[8].'_'.$rentang[7],
-				$rentang[9].'_'.$rentang[8]);
+$rentang = [9*$dasar, 8*$dasar, 7*$dasar, 6*$dasar, 5*$dasar, 4*$dasar, 3*$dasar, 2*$dasar, 1*$dasar, 0];
+$filter = [$rentang[0], $rentang[1].'_'.$rentang[0], $rentang[2].'_'.$rentang[1], $rentang[3].'_'.$rentang[2], $rentang[4].'_'.$rentang[3], $rentang[5].'_'.$rentang[4], $rentang[6].'_'.$rentang[5], $rentang[7].'_'.$rentang[6], $rentang[8].'_'.$rentang[7], $rentang[9].'_'.$rentang[8]];
 
 $temp = $filter[$ixrentang];
-if (strpos($temp, "_") !== FALSE)
+if (str_contains($temp, "_"))
 {
     $ix = explode("_", $temp);
     $nmin = $ix[0];

@@ -610,7 +610,7 @@ function CalculatePay()
     <td width="28" background="<?=GetThemeDir() ?>bgpop_09.jpg">&nbsp;</td>
 </tr>
 </table>
-<?php if (strlen($errmsg) > 0) { ?>
+<?php if (strlen((string) $errmsg) > 0) { ?>
 <script language="javascript">alert('<?=$errmsg?>');</script>
 <?php } ?>
 </body>

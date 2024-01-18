@@ -36,13 +36,13 @@ else if ($op == "getsoal")
 else if ($op == "updateintent")
 {
     $json = $_REQUEST["json"];
-    $json = str_replace("\\", "", $json);
+    $json = str_replace("\\", "", (string) $json);
     echo updateUjianData($json);
 }
 else if ($op == "simpanjawaban")
 {
     $jwbJson = $_REQUEST["jwbjson"];
-    $jwbJson = str_replace("\\", "", $jwbJson);
+    $jwbJson = str_replace("\\", "", (string) $jwbJson);
     echo simpanJawaban($jwbJson);
 }
 else if ($op == "getelapsedtime")

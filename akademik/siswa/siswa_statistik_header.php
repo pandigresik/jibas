@@ -116,11 +116,11 @@ function focusNext(elemName, evt) {
 						//$departemen = $row['departemen'];
 			?>
             	<option value="<?=urlencode((string) $row['departemen'])?>" <?=StringIsSelected($row['departemen'], $departemen) ?>><?=$row['departemen']?></option>
-            <?php
+<?php
 				} //while
 			?>
    	  		</select>
-	  		<?php } else {	?>
+<?php } else {	?>
 			<select name="departemen" id="departemen" onchange="change_departemen()" style="width:240px;" onKeyPress="return focusNext('angkatan', event)">
         	<?php
 				$dep = getDepartemen(SI_USER_ACCESS());    

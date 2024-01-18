@@ -29,7 +29,7 @@ require_once("../include/compatibility.php");
 
 function Safe($string)
 {
-    $string = str_replace("'", "`", $string);
+    $string = str_replace("'", "`", (string) $string);
     $string = str_replace("\"", "`", $string);
     $string = str_replace("<", "&lt;", $string);
     $string = str_replace(">", "&gt;", $string);
@@ -72,7 +72,7 @@ $alamatsiswa = $_REQUEST['psb_alamatsiswa'];
 $kodepos = $_REQUEST['psb_kodepos'];
 $jarak = (float)$_REQUEST['psb_jarak'];
 $telponsiswa = $_REQUEST['psb_telponsiswa'];
-$hpsiswa = trim($_REQUEST['psb_hpsiswa']);
+$hpsiswa = trim((string) $_REQUEST['psb_hpsiswa']);
 $emailsiswa= $_REQUEST['psb_emailsiswa'] ;
 $dep_asal = $_REQUEST['psb_dep_asal'];
 $inputsekolah = (int)$_REQUEST['psb_inputsekolah']; // 0-> Sekolah Baru, 1-> Sekolah Yg Sudah Ada
@@ -129,7 +129,7 @@ for($i = 1; $i <= 2; $i++)
 		$sumbujian .= ", ";
     $fname = "sum$i";    
 	$fkd = "psb_sum$i";
-	$kd = trim($_REQUEST[$fkd]);
+	$kd = trim((string) $_REQUEST[$fkd]);
 	$kd = (strlen($kd) == 0) ? "0" : $kd;
 	$kd = UnformatRupiah($kd);
 	$sumbujian .= "$fname = '".$kd."'";
@@ -141,7 +141,7 @@ for($i = 1; $i <= 10; $i++)
 		$sumbujian .= ", ";
     $fname = "ujian$i";        
 	$fkd = "psb_ujian$i";
-	$kd = trim($_REQUEST[$fkd]);
+	$kd = trim((string) $_REQUEST[$fkd]);
 	$kd = (strlen($kd) == 0) ? 0 : $kd;
 	$sumbujian .= "$fname = '".$kd."'";
 }
@@ -184,14 +184,14 @@ try
               FROM jbsakad.prosespenerimaansiswa
              WHERE replid = '".$proses."'";	
     $kode_no = FetchSingleEx($sql);
-    $kodelen = strlen($kode_no);
+    $kodelen = strlen((string) $kode_no);
   
     $sql = "SELECT MAX(LPAD(nopendaftaran, " . ($kodelen + 20) . ",'*'))
               FROM jbsakad.calonsiswa
              WHERE idproses = '".$proses."'";
     $nom = FetchSingleEx($sql);
     
-    $nom = str_replace("*", "", $nom);
+    $nom = str_replace("*", "", (string) $nom);
     $counter = (int)substr($nom, $kodelen + 2);
     $thn_no = substr(date('Y'), 2);
     do
@@ -235,12 +235,12 @@ try
     //echo "$sql<br>";
     QueryDbEx($sql);
 
-    if (strlen($idtambahan) > 0)
+    if (strlen((string) $idtambahan) > 0)
     {
-        if (strpos($idtambahan, ",") === false)
-            $arridtambahan = array($idtambahan);
+        if (!str_contains((string) $idtambahan, ","))
+            $arridtambahan = [$idtambahan];
         else
-            $arridtambahan = explode(",", $idtambahan);
+            $arridtambahan = explode(",", (string) $idtambahan);
 
         for($i = 0; $i < count($arridtambahan); $i++)
         {
@@ -269,7 +269,7 @@ try
                                SET teks = '$teks'
                              WHERE replid = '".$repliddata."'";
 
-                QueryDbEx($sql, $success);
+                QueryDbEx($sql);
             }
         }
     }

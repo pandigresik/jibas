@@ -69,7 +69,7 @@ if ($op=='SavePresensi'){
 	}
 	
 	$smsgeninfo = "";
-	$x = explode(' ',$SendDate);
+	$x = explode(' ',(string) $SendDate);
 	$dt = explode('-',$x[0]);
 	$smsgeninfo .= $dt[2].'-'.$SMonth[$dt[1]-1].'-'.$dt[0]."<br>";
 	if ($Type=='0'){
@@ -97,7 +97,7 @@ if ($op=='SavePresensi'){
 	$res = QueryDb($sql);
 	
 	$NIS2 = "";
-	$ALLNIS	= explode(',',$NIS);
+	$ALLNIS	= explode(',',(string) $NIS);
 	for ($i=0;$i<count($ALLNIS);$i++)
 	{
 		if ($NIS2 == "")
@@ -106,13 +106,13 @@ if ($op=='SavePresensi'){
 			$NIS2 = $NIS2.",'".trim($ALLNIS[$i])."'";
 	}
 	$Dt1  = $Date1;
-	$x	= explode('-',$Date1);
+	$x	= explode('-',(string) $Date1);
 	$Tgl1 = (int)$x[2];
 	$Bln1 = (int)$x[1];
 	$Thn1 = (int)$x[0];
 	
 	$Dt2  = $Date2;
-	$x	= explode('-',$Date2);
+	$x	= explode('-',(string) $Date2);
 	$Tgl2 = (int)$x[2];
 	$Bln2 = (int)$x[1];
 	$Thn2 = (int)$x[0];
@@ -153,7 +153,7 @@ if ($op=='SavePresensi'){
 			if (0 != (int)$row['A'])
 				$textAbsen .= " alpa: " . $row['A'];	
 			
-			$newformat = str_replace('[SISWA]','harian '.$row['nama'],$format);
+			$newformat = str_replace('[SISWA]','harian '.$row['nama'],(string) $format);
 			$newformat = str_replace('[TANGGAL1]',$Tgl1,$newformat);
 			$newformat = str_replace('[BULAN1]',$Bln1,$newformat);
 			$newformat = str_replace('[TANGGAL2]',$Tgl2,$newformat);
@@ -179,10 +179,10 @@ if ($op=='SavePresensi'){
 			{
 				for($i = 3; $i <= 5; $i++)
 				{
-					$hportu = trim($data[$i]);
+					$hportu = trim((string) $data[$i]);
 					if (strlen($hportu) < 7)
 						continue;
-					if (substr($hportu, 0, 1) == "#")
+					if (str_starts_with($hportu, "#"))
 						continue;
 					
 					$nohp = $hportu;
@@ -206,8 +206,8 @@ if ($op=='SavePresensi'){
 			
 			if ($KeSiswa == 1)
 			{
-				$hpsiswa = trim($data[1]);
-				if (strlen($hpsiswa) >= 7 && substr($hpsiswa, 0, 1) != "#")
+				$hpsiswa = trim((string) $data[1]);
+				if (strlen($hpsiswa) >= 7 && !str_starts_with($hpsiswa, "#"))
 				{	
 					$nohp = $hpsiswa;
 					$nohp = str_replace(" 62","0",$nohp);
@@ -284,7 +284,7 @@ if ($op=='SavePresensi'){
 			}
 			
 			
-			$newformat = str_replace('[TANGGAL1]',$Tgl1,$format);
+			$newformat = str_replace('[TANGGAL1]',$Tgl1,(string) $format);
 			$newformat = str_replace('[BULAN1]',$Bln1,$newformat);
 			$newformat = str_replace('[TANGGAL2]',$Tgl2,$newformat);
 			$newformat = str_replace('[BULAN2]',$Bln2,$newformat);
@@ -311,10 +311,10 @@ if ($op=='SavePresensi'){
 			{
 				for($j = 4; $j <= 6; $j++)
 				{
-					$hportu = trim($data[$j]);
+					$hportu = trim((string) $data[$j]);
 					if (strlen($hportu) < 7)
 						continue;
-					if (substr($hportu, 0, 1) == "#")
+					if (str_starts_with($hportu, "#"))
 						continue;
 					
 					$nohp = $hportu;
@@ -337,8 +337,8 @@ if ($op=='SavePresensi'){
 			
 			if ($KeSiswa == 1)
 			{
-				$hpsiswa = trim($data[1]);
-				if (strlen($hpsiswa) >= 7 && substr($hpsiswa, 0, 1) != "#")
+				$hpsiswa = trim((string) $data[1]);
+				if (strlen($hpsiswa) >= 7 && !str_starts_with($hpsiswa, "#"))
 				{	
 					$nohp = $hpsiswa;
 					$nohp = str_replace(" 62","0",$nohp);

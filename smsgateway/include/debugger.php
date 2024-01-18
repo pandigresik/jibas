@@ -1,6 +1,6 @@
 <?php
-define(ENABLE_DEBUG, true);
-define(DEBUGPATH, "/workspace/html/jibas-3.2/debug.log");
+define('ENABLE_DEBUG', true);
+define('DEBUGPATH', "/workspace/html/jibas-3.2/debug.log");
 
 function DebugLog($variable, $type)
 {
@@ -47,13 +47,13 @@ function DebugVar($variable)
    DebugLog($arr, "VARIABLE");
 }
 
-function ShowExit($value)
+function ShowExit($value): never
 {
 	echo $value;
 	exit();
 }
 
-function ShowPreExit($value)
+function ShowPreExit($value): never
 {
 	echo "<pre>";
 	print_r($value);

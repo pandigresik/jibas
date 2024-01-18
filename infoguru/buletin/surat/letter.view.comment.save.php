@@ -21,7 +21,7 @@ try
     for($i = 1; $i <= $ncomment; $i++)
     {
         $id = "comment_$i";
-        $text = trim($_REQUEST[$id]);
+        $text = trim((string) $_REQUEST[$id]);
         $comment = $text;
         $fcomment = FormattedText($text);
         

@@ -59,11 +59,11 @@ $blnakhir = $row['bulakhir'];
 $thnakhir = $row['thnakhir'];*/
 
 
-$jgk1 = explode('-',$row['tanggalawal']);
-$jgk2 = explode('-',$row['tanggalakhir']);
+$jgk1 = explode('-',(string) $row['tanggalawal']);
+$jgk2 = explode('-',(string) $row['tanggalakhir']);
 
-$jgk3 = explode('-',$row['tglmulai']);
-$jgk4 = explode('-',$row['tglakhir']);
+$jgk3 = explode('-',(string) $row['tglmulai']);
+$jgk4 = explode('-',(string) $row['tglakhir']);
 
 $jangka_waktu = '('.$jgk1[2].'/'.$jgk1[1].'/'.substr($jgk1[0],2,2).' - '.$jgk2[2].'/'.$jgk2[1].'/'.substr($jgk2[0],2,2).')';
 
@@ -188,19 +188,19 @@ function loadKalender1($kalender, $id) {
 	$result = QueryDb($sql);
 	$i = 0;	
 	while($row = mysqli_fetch_row($result)) {		
-		$tgl1 = explode('-',$row[2]);
-		$tgl2 = explode('-',$row[3]);
+		$tgl1 = explode('-',(string) $row[2]);
+		$tgl2 = explode('-',(string) $row[3]);
 		$jangka = '('.$tgl1[2].'/'.$tgl1[1].'/'.substr($tgl1[0],2,2).' - '.$tgl2[2].'/'.$tgl2[1].'/'.substr($tgl2[0],2,2).')';
 		//$jangka = '('.$row[6].'/'.$row[4].'/'.substr($row[8],2,2).' - '.$row[7].'/'.$row[5].'/'.substr($row[9],2,2).')';
 		
 		$GLOBALS['keg']['row'][$i]['id'] = $row[0];				
 		$GLOBALS['keg']['row'][$i]['judul'] = $row[1];				
-		$GLOBALS['keg']['row'][$i][tanggal1] = $tgl1[2];
-		$GLOBALS['keg']['row'][$i][bulan1] = $tgl1[1];				
-		$GLOBALS['keg']['row'][$i][tahun1] = $tgl1[0];
-		$GLOBALS['keg']['row'][$i][tanggal2] = $tgl2[2];
-		$GLOBALS['keg']['row'][$i][bulan2] = $tgl2[1];
-		$GLOBALS['keg']['row'][$i][tahun2] = $tgl2[0];
+		$GLOBALS['keg']['row'][$i][\TANGGAL1] = $tgl1[2];
+		$GLOBALS['keg']['row'][$i][\BULAN1] = $tgl1[1];				
+		$GLOBALS['keg']['row'][$i][\TAHUN1] = $tgl1[0];
+		$GLOBALS['keg']['row'][$i][\TANGGAL2] = $tgl2[2];
+		$GLOBALS['keg']['row'][$i][\BULAN2] = $tgl2[1];
+		$GLOBALS['keg']['row'][$i][\TAHUN2] = $tgl2[0];
 		$GLOBALS['keg']['row'][$i]['jangka'] = $jangka;
 		
 		if ($id == $row[0]) {
@@ -380,11 +380,11 @@ function tampil(replid) {
 					//if ($warna[$m] == 1) {
 						//$style_in[$m] = "style='background-color: {$color_in[$m]}'";
 						if (($bln == $bulan) && ($thn == $tahun)) {
-                    		if (($keg['row'][$id][tanggal1]==$tgl && $bln==$keg['row'][$id][bulan1] && $thn==$keg['row'][$id][tahun1])){
+                    		if (($keg['row'][$id][\TANGGAL1]==$tgl && $bln==$keg['row'][$id][\BULAN1] && $thn==$keg['row'][$id][\TAHUN1])){
                         	    $style_in[$m] = "";    
 								//$style_in[$m] = "style='background-color: {$color_in[$m]}'";
                     		}
-                    		if (($keg['row'][$id][tanggal2]<$tgl && $bln==$keg['row'][$id][bulan2] && $thn==$keg['row'][$id][tahun2])){
+                    		if (($keg['row'][$id][\TANGGAL2]<$tgl && $bln==$keg['row'][$id][\BULAN2] && $thn==$keg['row'][$id][\TAHUN2])){
                         		$style_in[$m] = "";
 							}
                 		}		
@@ -445,8 +445,8 @@ function tampil(replid) {
         $GLOBALS['keg']['row'][$i][tahun2] = $tgl2[0];
         */
 		//$color_in = array("#FFCC33","#C7C6EA","#FF8e8e","#9DD7CB","#f2ade4","#C1E6AC");
-		$color_in = array("#C1E6AC","#f2ade4","#9DD7CB","#FF8e8e","#C7C6EA","#FFCC33");
-		loadKalender1($idkalender, $replid);
+		$color_in = ["#C1E6AC", "#f2ade4", "#9DD7CB", "#FF8e8e", "#C7C6EA", "#FFCC33"];
+		loadKalender1($idkalender);
 		$cnt = 0;
 		$clr = 0;
 		
@@ -456,15 +456,15 @@ function tampil(replid) {
 					
 		$style = "";
 			
-			if (($keg['row'][$i][tahun1] == $tahun) && ($keg['row'][$i][bulan1] <= $bulan)) {
+			if (($keg['row'][$i][\TAHUN1] == $tahun) && ($keg['row'][$i][\BULAN1] <= $bulan)) {
 				//$style =  'style="background-color: '.$color_in[$clr].'"';
 				$style = 'style = "color:#FF0000;font-weight: bold;"';			
 				$warna[$clr] = $i;
 				++$clr;			
 			}
 			
-			if ($keg['row'][$i][tahun1] < $tahun) { 
-				if ($keg['row'][$i][tahun2] == $tahun && $keg['row'][$i][bulan2] >= $bulan){
+			if ($keg['row'][$i][\TAHUN1] < $tahun) { 
+				if ($keg['row'][$i][\TAHUN2] == $tahun && $keg['row'][$i][\BULAN2] >= $bulan){
 				//$style =  'style="background-color: '.$color_in[$clr].'"';
 				$style = 'style = "color:#FF0000;font-weight: bold;"';
 				$warna[$clr] = $i;
@@ -478,7 +478,7 @@ function tampil(replid) {
 		<?php //echo '<br>'.$keg['row'][$i][tahun1].' = '.$tahun.' dan '.$keg['row'][$i][bulan1].' = '.$bulan?>     
    		</td>
     </tr>   
-    <?php   
+<?php   
 		}     
     }
 	?>

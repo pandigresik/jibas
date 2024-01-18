@@ -107,14 +107,14 @@ $tingkat = $row['tingkat'];
 	$result1 = QueryDb($sql1);
 	$num = mysqli_num_rows($result1);
 	
-	$data = array();
+	$data = [];
 
 	while($row1 = mysqli_fetch_row($result1)) {
-		$data[] = array($row1[1],$row1[2],$row1[3],$row1[4],$row1[5]);
+		$data[] = [$row1[1], $row1[2], $row1[3], $row1[4], $row1[5]];
 		$legend_x[] = $row1[0];			
     }
 	
-	$legend_y = array('Hadir','Ijin','Sakit','Alpa', 'Cuti');
+	$legend_y = ['Hadir', 'Ijin', 'Sakit', 'Alpa', 'Cuti'];
 
     $graph = new CAsBarDiagram;
     $graph->bwidth = 10; // set one bar width, pixels
@@ -142,7 +142,7 @@ $tingkat = $row['tingkat'];
     
     $result2 = QueryDb($sql1);
     while ($row2 = @mysqli_fetch_row($result2)) {		
-        $waktu = explode(" ",$row2[0]);
+        $waktu = explode(" ",(string) $row2[0]);
     ?>	
     <tr height="25">        			
         <td align="center"><?=NamaBulan($row2[6]).' '.$waktu[1]?></td>

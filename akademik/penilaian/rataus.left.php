@@ -30,17 +30,17 @@ $oldnis = $_REQUEST['oldnis'];
 $sql = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '".$oldnis."'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
-$dep[0] = array($row['departemen'], $oldnis);
+$dep[0] = [$row['departemen'], $oldnis];
 if ($row['nislama'] <> "") {
 	$sql1 = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '".$row['nislama']."'";
 	$result1 = QueryDb($sql1);
 	$row1 = @mysqli_fetch_array($result1);	
-	$dep[1] = array($row1['departemen'], $row['nislama']);
+	$dep[1] = [$row1['departemen'], $row['nislama']];
 	if ($row1['nislama'] <> "") {				
 		$sql2 = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '".$row1['nislama']."'";
 		$result2 = QueryDb($sql2);
 		$row2 = @mysqli_fetch_array($result2);					
-		$dep[2] = array($row2['departemen'],$row1['nislama']) ;
+		$dep[2] = [$row2['departemen'], $row1['nislama']] ;
 	}	
 }	
 $allnis = "";

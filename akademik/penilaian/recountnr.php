@@ -28,9 +28,9 @@ class RecountNilaiRapor
 	
 	private $idinfo = 0;
 	private $idpemkon = 0;
-	private $ujian;
+	private ?array $ujian = null;
 		
-	public function RecountNilaiRapor()
+	public function __construct()
 	{
 		$this->idpelajaran = $_REQUEST['pelajaran'];
 		$this->idkelas = $_REQUEST['kelas'];
@@ -106,7 +106,7 @@ class RecountNilaiRapor
 		$res = QueryDb($sql);
 		while ($row = mysqli_fetch_array($res))
 		{
-			$this->ujian[] = array($row['replid'], $row['bobot'], $row['idjenisujian'], $this->aspek);
+			$this->ujian[] = [$row['replid'], $row['bobot'], $row['idjenisujian'], $this->aspek];
 		}
 	}
 	

@@ -127,7 +127,7 @@ $nama = $row[0];
 			$sql2 = "SELECT u.tanggal,u.deskripsi, n.nilaiujian,u.replid, n.keterangan FROM ujian u, nilaiujian n WHERE u.idkelas = '$kls' AND u.idsemester = '$sem' AND u.idjenis = '".$row[0]."' AND u.replid = n.idujian  AND u.idaturan='".$row[2]."' AND n.nis = '$nis' ORDER BY u.tanggal";
 			$res2 = QueryDb($sql2);
 			$num2 = @mysqli_num_rows($res2);
-			$content = array();
+			$content = [];
 			while ($row2 = @mysqli_fetch_row($res2)){
 				$sql3 = "SELECT nilaiRK FROM ratauk WHERE idkelas='$kls' AND idsemester='$sem' AND idujian='".$row2[3]."'";
 				$res3 = QueryDb($sql3);
@@ -137,7 +137,7 @@ $nama = $row[0];
 				if ($prosen>0)
 					$prosen = "+".$prosen;	
 				$numnilai += $row2[2];
-				$content[] = array($row2[0],$row2[1],$row2[2],$row3[0],$prosen);	
+				$content[] = [$row2[0], $row2[1], $row2[2], $row3[0], $prosen];	
 			}
 			
 			if ($num2>0)

@@ -98,7 +98,7 @@ if (isset($_REQUEST['Simpan']))
 			$pekerjaanibu_sql = "pekerjaanibu = NULL";
 		
 		$nama = $row['nama'];
-		$nama = str_replace("'", "`", $nama);
+		$nama = str_replace("'", "`", (string) $nama);
 			
 		$date = date('j');
 		$month = date('m');

@@ -118,7 +118,7 @@ if ($dept == "ALL")
 }
 else
 {
-	$darray = array( $dept );
+	$darray = [$dept];
 }
 
 if ($petugas == "ALL")
@@ -144,7 +144,7 @@ for($k = 0; $k < count($darray); $k++)
 	$idtahunbuku = FetchSingle($sql);
 	
 	$subtotal = 0;
-	$rarray = array();
+	$rarray = [];
 	$sql = "SELECT replid, nama FROM jbsfina.datapenerimaan WHERE departemen='$dept' AND aktif=1 AND idkategori='$idkategori'";
 	$pres = QueryDb($sql);
 	while($prow = mysqli_fetch_row($pres))

@@ -37,7 +37,7 @@ $jumlah = (int)$row['jumlah'];
 $kondisi = $row['kondisi'];
 $keterangan = $row['keterangan'];
 $satuan = $row['satuan'];
-$tgl = substr($row['tglperolehan'],8,2)."-".substr($row['tglperolehan'],5,2)."-".substr($row['tglperolehan'],0,4);
+$tgl = substr((string) $row['tglperolehan'],8,2)."-".substr((string) $row['tglperolehan'],5,2)."-".substr((string) $row['tglperolehan'],0,4);
 $harga = (int)$row['info1'];
 $total = $harga * $jumlah;
 
@@ -56,7 +56,7 @@ if (isset($_REQUEST['Simpan'])){
 		$uploadedfile = $foto['tmp_name'];
 		$uploadedtypefile = $foto['type'];
 		$uploadedsizefile = $foto['size'];
-		if (strlen($uploadedfile)!=0)
+		if (strlen((string) $uploadedfile)!=0)
 		{
 			$tmp_path = realpath(".") . "/../../temp";
 			$tmp_exists = file_exists($tmp_path) && is_dir($tmp_path);
@@ -78,9 +78,9 @@ if (isset($_REQUEST['Simpan'])){
 		$tgl = MySqlDateFormat($_REQUEST['tgl']);
 		
 		$sql = "UPDATE jbsfina.barang
-				   SET kode='".trim($_REQUEST['kode'])."', nama='".trim($_REQUEST['nama'])."',
-					   jumlah='".trim($_REQUEST['jumlah'])."',kondisi='".addslashes(trim($_REQUEST['kondisi']))."',tglperolehan='$tgl',
-					   keterangan='".addslashes(trim($_REQUEST['keterangan']))."',idkelompok='".$_REQUEST['idkelompok']."',
+				   SET kode='".trim((string) $_REQUEST['kode'])."', nama='".trim((string) $_REQUEST['nama'])."',
+					   jumlah='".trim((string) $_REQUEST['jumlah'])."',kondisi='".addslashes(trim((string) $_REQUEST['kondisi']))."',tglperolehan='$tgl',
+					   keterangan='".addslashes(trim((string) $_REQUEST['keterangan']))."',idkelompok='".$_REQUEST['idkelompok']."',
 					   satuan='".$_REQUEST['satuan']."', info1='".$_REQUEST['angkaharga']."' $isifoto
 				 WHERE replid='".$_REQUEST['idbarang']."'";
 		$result = QueryDb($sql);
@@ -222,17 +222,17 @@ function salinharga()
 <table width="100%" border="0" cellspacing="2" cellpadding="2">
   <tr>
     <td width="14%" align="right"><strong>Kode&nbsp;Barang</strong></td>
-    <td width="86%"><input type="text" id="kode" name="kode" maxlength="20" value="<?=stripslashes($kode)?>" /></td>
+    <td width="86%"><input type="text" id="kode" name="kode" maxlength="20" value="<?=stripslashes((string) $kode)?>" /></td>
     <td width="86%" rowspan="5" align="center" valign="middle"><img src="gambar.php?table=jbsfina.barang&replid=<?=$_REQUEST['idbarang']?>" style="padding:2px" /></td>
   </tr>
   <tr>
     <td align="right"><strong>Nama&nbsp;Barang</strong></td>
-    <td><input type="text" id="nama" name="nama" style="width:95%" maxlength="50" value="<?=stripslashes($nama)?>" /></td>
+    <td><input type="text" id="nama" name="nama" style="width:95%" maxlength="50" value="<?=stripslashes((string) $nama)?>" /></td>
     </tr>
   <tr>
     <td align="right"><strong>Jumlah</strong></td>
     <td><input type="text" id="jumlah" name="jumlah" size="5" maxlength="10" value="<?=stripslashes($jumlah)?>" />
-    &nbsp;Satuan&nbsp;<input type="text" id="satuan" name="satuan" size="10" maxlength="20" value="<?=stripslashes($satuan)?>" /></td>
+    &nbsp;Satuan&nbsp;<input type="text" id="satuan" name="satuan" size="10" maxlength="20" value="<?=stripslashes((string) $satuan)?>" /></td>
   </tr>
   <tr>
     <td align="right">Harga Satuan</td>
@@ -255,11 +255,11 @@ function salinharga()
     </tr>
   <tr>
     <td align="right">Kondisi</td>
-    <td colspan="2"><textarea name="kondisi" id="kondisi"  style="width:95%"><?=stripslashes($kondisi)?></textarea></td>
+    <td colspan="2"><textarea name="kondisi" id="kondisi"  style="width:95%"><?=stripslashes((string) $kondisi)?></textarea></td>
     </tr>
   <tr>
     <td align="right">Keterangan</td>
-    <td colspan="2"><textarea name="keterangan" rows="4" id="keterangan"  style="width:95%"><?=stripslashes($keterangan)?></textarea></td>
+    <td colspan="2"><textarea name="keterangan" rows="4" id="keterangan"  style="width:95%"><?=stripslashes((string) $keterangan)?></textarea></td>
     </tr>
   <tr>
     <td colspan="3" align="center"><input name="Simpan" type="submit" class="but" value="Simpan" />

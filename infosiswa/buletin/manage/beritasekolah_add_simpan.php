@@ -34,12 +34,12 @@ if ($sender=="tambah")
    OpenDb();
    $jam=date('H').":".date('i').":00";
    $judul=CQ($_REQUEST['judul']);
-   $tgl=explode("-",$_REQUEST['tanggal']);
+   $tgl=explode("-",(string) $_REQUEST['tanggal']);
    $tanggal=$tgl[2]."-".$tgl[1]."-".$tgl[0];
    $jenis=$_REQUEST['jenisberita'];
    $abstrak=CQ($_REQUEST['abstrak']);
    $isi=$_REQUEST['isi'];
-   $isi=str_replace("'", "#sq;", $isi);
+   $isi=str_replace("'", "#sq;", (string) $isi);
    $idpengirim=SI_USER_ID();
    $sql1="INSERT INTO jbsvcr.beritasekolah SET judul='$judul', tanggal='".$tanggal." ".$jam."', jenisberita='$jenis',abstrak='$abstrak', isi='$isi', idpengirim='$idpengirim'";
    $result1=QueryDb($sql1);
@@ -58,12 +58,12 @@ elseif ($sender=="ubah")
 	
 	//KAlo dari ubah berita guru================================================================================================================================
 	$judul=CQ($_REQUEST['judul']);
-	$tgl=explode("-",$_REQUEST['tanggal']);
+	$tgl=explode("-",(string) $_REQUEST['tanggal']);
 	$tanggal=$tgl[2]."-".$tgl[1]."-".$tgl[0];
 	$jenisberita=$_REQUEST['jenisberita'];
 	$abstrak=CQ($_REQUEST['abstrak']);
 	$isi=$_REQUEST['isi'];
-   $isi=str_replace("'", "#sq;", $isi);
+   $isi=str_replace("'", "#sq;", (string) $isi);
 	$idpengirim=SI_USER_ID();
 	$replid=$_REQUEST['replid'];
 	

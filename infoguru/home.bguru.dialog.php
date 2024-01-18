@@ -102,7 +102,7 @@ $tglberita = $row['tgl'] . " " . NamaBulan($row['bln'] - 1) . " " . $row['thn'];
 					<font style="font-size:11px; line-height: 18px;">
 					<?php
 					$berita = $row['berita'];
-					$berita = str_replace("#sq;", "'", $berita);
+					$berita = str_replace("#sq;", "'", (string) $berita);
 					echo $berita;
 					?>
 					</font>

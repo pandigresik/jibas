@@ -121,28 +121,28 @@ OpenDb();
 			while ($row = @mysqli_fetch_array($res))
 			{
 				$n = 0;  
-				$hparr = array();
+				$hparr = [];
 				
-				$temp = trim($row['hportu']);
-				if (strlen($temp) >= 7 && substr($temp, 0, 1) != "#")
+				$temp = trim((string) $row['hportu']);
+				if (strlen($temp) >= 7 && !str_starts_with($temp, "#"))
 				{
 				  $hparr[$n] = $temp;
 				  $n += 1;
 				}
 				
-				$temp = trim($row['info1']);  
-				if (strlen($temp) >= 7 && substr($temp, 0, 1) != "#")
+				$temp = trim((string) $row['info1']);  
+				if (strlen($temp) >= 7 && !str_starts_with($temp, "#"))
 				{
 				  $hparr[$n] = $temp;
 				  $n += 1;
 				}
 				  
-				$temp = trim($row['info2']);    
-				if (strlen($temp) >= 7 && substr($temp, 0, 1) != "#")
+				$temp = trim((string) $row['info2']);    
+				if (strlen($temp) >= 7 && !str_starts_with($temp, "#"))
 				  $hparr[$n] = $temp;
 				
 				$namaortu = $row['namaayah'];
-				if (strlen($row['namaayah']) == 0)
+				if (strlen((string) $row['namaayah']) == 0)
 				  $namaortu = $row['nama'];  
 				
 				$nama = $row['nama'];

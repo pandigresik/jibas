@@ -23,10 +23,10 @@
 <?php
 class CK
 {
-	var $nis, $db_name_fina;
+	public $nis, $db_name_fina;
 	
 	private $departemen;
-	private $arrdept;
+	private ?array $arrdept = null;
 	
 	private $idtahunbuku;
 	private $arrta;
@@ -56,9 +56,9 @@ class CK
 			if ($nrow > 0)
 			{
 				$row = mysqli_fetch_array($result);
-				$this->arrdept[] = array($row['departemen'], $check_nis);
+				$this->arrdept[] = [$row['departemen'], $check_nis];
 				
-				if (strlen($row['nislama']) > 0)
+				if (strlen((string) $row['nislama']) > 0)
 					$check_nis = $row['nislama'];
 				else
 					$nrow = 0;
@@ -371,7 +371,7 @@ class CK
 			</tr>
 		</td>
 		</table>
-        <?php
+<?php
 			}
 }
 ?>

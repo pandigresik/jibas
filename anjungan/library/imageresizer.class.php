@@ -11,7 +11,7 @@ class ImageResizer
 		}
 		
 		// Determine new dimension
-		list($width, $height) = getimagesize($uploadedfile);
+		[$width, $height] = getimagesize($uploadedfile);
 		$npercent = 1.0;
 		$scalewidth  = $newwidth / $width;
 		$scaleheight = $newheight / $height;
@@ -24,42 +24,42 @@ class ImageResizer
 		
 		// Create Source Graphics
 		$type = $foto['type'];
-		if (strpos($type, "jpeg") || strpos($type, "jpg"))
+		if (strpos((string) $type, "jpeg") || strpos((string) $type, "jpg"))
 		{
 			$src = imagecreatefromjpeg($uploadedfile);
 		}
-		elseif (strpos($type, "gif"))
+		elseif (strpos((string) $type, "gif"))
 		{
 			$src = imagecreatefromgif($uploadedfile);
 		}
-		elseif (strpos($type, "png"))
+		elseif (strpos((string) $type, "png"))
 		{
 			$src = imageCreateFromPNG($uploadedfile);
 		}
-		elseif (strpos($type, "bmp"))
+		elseif (strpos((string) $type, "bmp"))
 		{
 			$src = ImageResizer::imagecreatefrombmp($uploadedfile);
 		}
 		
 		// Create Target Graphics
 		$tmp = imagecreatetruecolor($newwidth, $newheight);
-		if (strpos($type, "png") === false)
+		if (!str_contains((string) $type, "png"))
 			imagecopyresampled($tmp, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
 		
-		if (strpos($type, "jpeg") || strpos($type, "jpg"))
+		if (strpos((string) $type, "jpeg") || strpos((string) $type, "jpg"))
 		{
 			imagejpeg($tmp, $output, $quality);
 		}
-		elseif (strpos($type, "gif"))
+		elseif (strpos((string) $type, "gif"))
 		{
 			$background = imagecolorallocate($tmp, 0, 0, 0);
 			ImageColorTransparent($tmp, $background); // make the new temp image all transparent
 			imagealphablending($tmp, false); // turn off the alpha blending to keep the alpha channel
 			imagesavealpha($tmp,true);
 			imagecopyresized($tmp, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
-			imagegif($tmp, $output, $quality);
+			imagegif($tmp, $output);
 		}
-		elseif (strpos($type, "png"))
+		elseif (strpos((string) $type, "png"))
 		{
 			$background = imagecolorallocate($tmp, 0, 0, 0);
 			ImageColorTransparent($tmp, $background); // make the new temp image all transparent
@@ -69,7 +69,7 @@ class ImageResizer
 			$quality = $quality / 100;
 			imagepng($tmp, $output, $quality);
 		}
-		elseif (strpos($type, "bmp"))
+		elseif (strpos((string) $type, "bmp"))
 		{
 			ImageResizer::imagebmp($tmp, $output);	
 		}
@@ -114,7 +114,7 @@ class ImageResizer
 			$f = fopen($filename, "wb"); 
 			foreach ($header AS $h) 
 			{ 
-				fwrite($f, $h); 
+				fwrite($f, (string) $h); 
 			} 
 			 
 			//save pixels 
@@ -123,7 +123,7 @@ class ImageResizer
 				for ($x=0; $x<$wid; $x++) 
 				{ 
 					$rgb = imagecolorat($img, $x, $y); 
-					fwrite($f, ImageResizer::byte3($rgb)); 
+					fwrite($f, (string) ImageResizer::byte3($rgb)); 
 				} 
 				fwrite($f, $wid_pad); 
 			} 

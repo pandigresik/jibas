@@ -166,7 +166,7 @@ require_once('siswa_edit.func.php');
                     $result = QueryDb($sql);
                     while ($row = @mysqli_fetch_array($result))
                     { ?>
-                        <option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat)?> ><?=$row['tingkat']?></option>
+                        <option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat)?> ><?=$row['tingkat']?></option>
                 <?php } ?>
                 </select>
                 </div>
@@ -182,7 +182,7 @@ require_once('siswa_edit.func.php');
                         $result1 = QueryDb($sql1);
                         $row1 = @mysqli_fetch_row($result1); 				
                 ?>
-                    <option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $kelas)?> >
+                    <option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $kelas)?> >
                     <?=$row['kelas'].', kapasitas: '.$row['kapasitas'].', terisi: '.$row1[0]?>
                     </option>
                 <?php  } ?>
@@ -964,7 +964,7 @@ require_once('siswa_edit.func.php');
             <td>HP Ortu #3</td>
             <td align="left">
                 <input type="text" name="hportu3" id="hportu3" size="15" maxlength="20"
-                       value="<?=$row_siswa[info2]?>" class="ukuran" onKeyPress="return focusNext('alamatsurat', event)"
+                       value="<?=$row_siswa[\INFO2]?>" class="ukuran" onKeyPress="return focusNext('alamatsurat', event)"
                        onFocus="panggil('hportu3')" onBlur="unfokus('hportu3')"/>
             </td>
         </tr>
@@ -1064,7 +1064,7 @@ require_once('siswa_edit.func.php');
                          ORDER BY urutan";
                 $res2 = QueryDb($sql);
 
-                $arrList = array();
+                $arrList = [];
                 if (mysqli_num_rows($res2) == 0)
                     $arrList[] = "-";
 
@@ -1133,7 +1133,7 @@ require_once('siswa_edit.func.php');
 </tr>
 </table>
 <!-- Tamplikan error jika ada -->
-<?php if (strlen($ERROR_MSG) > 0) { ?>
+<?php if (strlen((string) $ERROR_MSG) > 0) { ?>
 <script language="javascript">
 	alert('<?=$ERROR_MSG?>');
 </script>

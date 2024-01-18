@@ -101,14 +101,14 @@ if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) {
 	
 	OpenDb();
 	
-	if ((strlen($nama) > 0) && (strlen($nip) > 0)) {
+	if ((strlen((string) $nama) > 0) && (strlen((string) $nip) > 0)) {
 		$sql_tot = "SELECT nip, nama, bagian FROM jbssdm.pegawai WHERE aktif = 1 AND nama LIKE '%$nama%' AND nip LIKE '%$nip%' $sql_tambahbag ORDER BY nama"; 
 		$sql_pegawai = "SELECT nip, nama, bagian FROM jbssdm.pegawai WHERE aktif = 1 AND nama LIKE '%$nama%' AND nip LIKE '%$nip%' $sql_tambahbag ORDER BY $urut1 $urutan1 LIMIT ".(int)$page1*(int)$varbaris1.",$varbaris1";
 		//$sql = "SELECT nip, nama, bagian FROM jbssdm.pegawai WHERE nama LIKE '%$nama%' AND nip LIKE '%$nip%' $sql_tambahbag ORDER BY nama"; 
-	} else if (strlen($nama) > 0) {
+	} else if (strlen((string) $nama) > 0) {
 		$sql_tot = "SELECT nip, nama, bagian FROM jbssdm.pegawai WHERE aktif = 1 AND nama LIKE '%$nama%' $sql_tambahbag ORDER BY nama"; 
 		$sql_pegawai = "SELECT nip, nama, bagian FROM jbssdm.pegawai WHERE aktif = 1 AND nama LIKE '%$nama%' $sql_tambahbag ORDER BY $urut1 $urutan1 LIMIT ".(int)$page1*(int)$varbaris1.",$varbaris1";
-	} else if (strlen($nip) > 0) {
+	} else if (strlen((string) $nip) > 0) {
 		$sql_tot = "SELECT nip, nama, bagian FROM jbssdm.pegawai WHERE aktif = 1 AND nip LIKE '%$nip%' $sql_tambahbag ORDER BY nama"; 		
 		$sql_pegawai = "SELECT nip, nama, bagian FROM jbssdm.pegawai WHERE aktif = 1 AND nip LIKE '%$nip%' $sql_tambahbag ORDER BY $urut1 $urutan1 LIMIT ".(int)$page1*(int)$varbaris1.",$varbaris1";
 	} 

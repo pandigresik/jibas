@@ -44,7 +44,7 @@ $idtahunbuku = $_REQUEST['idtahunbuku'];
 $studentid = $_REQUEST['noid'];
 $studentname = $_REQUEST['nama'];
 $ktransaksi = $_REQUEST['ktransaksi'];
-$ktransaksi = str_replace("'", "`", $ktransaksi);
+$ktransaksi = str_replace("'", "`", (string) $ktransaksi);
 $ktransaksi = str_replace('"', '`', $ktransaksi);
 $smsinfo = isset($_REQUEST['smsinfo']) ? 1 : 0;
 ?>
@@ -97,7 +97,7 @@ OpenDb();
 $success = true;
 BeginTrans();
 
-$transactions = array();
+$transactions = [];
 
 $ndata = $_REQUEST["ndata"];
 for($i = 1; $i <= $ndata; $i++)

@@ -396,7 +396,7 @@ function change_baris() {
         <br />Klik &nbsp;<a href="JavaScript:tambah()" ><font size = "2" color ="green">di sini</font></a>&nbsp;untuk mengisi data baru. 
         <?php //} ?>
         </b></font>
-   	<?php } else { ?>
+<?php } else { ?>
     	  <font size = "2" color ="red"><b>Belum ada data Departemen.
           <br />Silahkan isi terlebih dahulu di menu Departemen pada bagian Referensi.
           </b></font>

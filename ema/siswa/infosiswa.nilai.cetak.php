@@ -187,8 +187,8 @@ CloseDb();
                         <?php } ?>
                     </fieldset>                    </td>	
                 </tr>
-                    <?php } //1 ?>
-                    <?php } else { //2?>
+<?php } //1 ?>
+<?php } else { //2?>
                 <tr>
                     <td width="72%" height="50" align="center" valign="middle">
                     <table border="0" width="100%" id="table1" cellpadding="0" cellspacing="0">
@@ -197,7 +197,7 @@ CloseDb();
                     </tr>
                     </table>                    </td>
                 </tr>
-                <?php } //2?>
+<?php } //2?>
             </table>
               </td>
             </tr>

@@ -47,11 +47,11 @@ function ShowKartuPegawai($showMenu)
              GROUP BY p.nip
              ORDER BY pg.nama";
 
-    $lsUser = array();
+    $lsUser = [];
     $res = QueryDb($sql);
     while($row = mysqli_fetch_row($res))
     {
-        $lsUser[] = array($row[0], $row[1]);
+        $lsUser[] = [$row[0], $row[1]];
     }
 
     echo "<br>";

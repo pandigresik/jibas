@@ -216,7 +216,7 @@ $(document).ready(function () {
     </div>
 	<div id="Partner">
     <?php
-		$_REQUEST = array();
+		$_REQUEST = [];
 		$_REQUEST['relpath'] = "..";
 		include('../partner.php');
 	?>

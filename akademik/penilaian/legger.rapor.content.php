@@ -63,10 +63,10 @@ $sql = "SELECT DISTINCT a.dasarpenilaian, d.keterangan
            AND i.idsemester = '$semester' 
            AND i.idkelas = '".$kelas."'";
 $res = QueryDb($sql);
-$aspekarr = array();
+$aspekarr = [];
 while($row = mysqli_fetch_row($res))
 {
-    $aspekarr[] = array($row[0], $row[1]);
+    $aspekarr[] = [$row[0], $row[1]];
 }
 $naspek = count($aspekarr);
 $colwidth = $naspek == 0 ? "*" : round(600 / $naspek);
@@ -92,10 +92,10 @@ else
              ORDER BY nama";
 
 $res = QueryDb($sql);
-$siswa = array();
+$siswa = [];
 while($row = mysqli_fetch_row($res))
 {
-    $siswa[] = array($row[0], $row[1]);
+    $siswa[] = [$row[0], $row[1]];
 }
 $nsiswa = count($siswa);
 
@@ -129,10 +129,10 @@ $nsiswa = count($siswa);
 <?php  } ?>
 </tr>
 <?php
-    $ratapel = array();
+    $ratapel = [];
     for($j = 0; $j < $naspek; $j++)
     {
-        $ratapel[] = array(0, 0); // totna, divna
+        $ratapel[] = [0, 0]; // totna, divna
     }
 
     $totratasis = 0;

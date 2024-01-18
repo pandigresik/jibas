@@ -164,7 +164,7 @@ if (1 == (int)$_REQUEST['issubmit'])
     <td width="28" background="../images/default/bgpop_09.jpg">&nbsp;</td>
 </tr>
 </table>
-<?php if (strlen($errmsg) > 0) { ?>
+<?php if (strlen((string) $errmsg) > 0) { ?>
 <script language="javascript">alert('<?=$errmsg?>');</script>
 <?php } ?>
 </body>

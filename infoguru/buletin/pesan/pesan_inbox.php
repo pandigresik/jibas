@@ -49,7 +49,7 @@ if ($op=="34983xihxf084bzux834hx8x7x93"){
 	$numdel=(int)$_REQUEST["numdel"]-1;
 	$msgall=$_REQUEST["listdel"];
 	$x=0;
-	$msg=explode("|",$msgall);
+	$msg=explode("|",(string) $msgall);
 	while ($x<=$numdel){
 		if ($msg[$x]!=""){
 		OpenDb();

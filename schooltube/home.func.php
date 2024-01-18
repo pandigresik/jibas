@@ -137,7 +137,7 @@ function ShowMediaList($idList, $page)
     $startIndex = ($page - 1) * 8;
     $stopIndex = ($page * 8) - 1;
 
-    $idArr = explode(",", $idList);
+    $idArr = explode(",", (string) $idList);
     if ($startIndex > count($idArr))
     {
         echo "";

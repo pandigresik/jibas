@@ -47,12 +47,12 @@ function ReadParam()
 
     $filename = "";
     if (isset($_REQUEST['filename']))
-        $filename = urldecode($_REQUEST['filename']);
+        $filename = urldecode((string) $_REQUEST['filename']);
 }
 
 function SafeName($name)
 {
-    $name = str_replace("'", "", $name);
+    $name = str_replace("'", "", (string) $name);
     $name = str_replace("\"", "", $name);
     $name = str_replace("/", "", $name);
     $name = str_replace("!", "", $name);

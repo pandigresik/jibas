@@ -38,7 +38,7 @@ if ($op == "search")
         $perpus = $_REQUEST['perpus'];
         $pilih = $_REQUEST['pilih'];
         $keyword = $_REQUEST['keyword'];
-        $halaman = isset($_REQUEST['halaman']) ? $_REQUEST['halaman'] : 1;
+        $halaman = $_REQUEST['halaman'] ?? 1;
         
         Search($perpus, $pilih, $keyword, $halaman);
         CloseDb();

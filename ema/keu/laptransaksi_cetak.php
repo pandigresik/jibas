@@ -148,7 +148,7 @@ $nperiode = LongDateFormat($tanggal1)." s.d. ".LongDateFormat($tanggal2);
         </tr>
     <?php 	//} ?>
       </table>
-    <?php } ?>
+<?php } ?>
   </td>
 </tr>    
 </table>

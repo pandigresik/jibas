@@ -51,9 +51,9 @@ do
 	if ($nrow > 0)
 	{
 		$row = mysqli_fetch_array($result);
-		$dep[] = array($row['departemen'], $check_nis);
+		$dep[] = [$row['departemen'], $check_nis];
 		
-		if (strlen($row['nislama']) > 0)
+		if (strlen((string) $row['nislama']) > 0)
 			$check_nis = $row['nislama'];
 		else
 			$nrow = 0;
@@ -70,7 +70,7 @@ $result_ajaran = QueryDb($sql_ajaran);
 $k = 0;
 while ($row_ajaran = @mysqli_fetch_array($result_ajaran))
 {
-	$ajaran[$k] = array($row_ajaran['replid'], $row_ajaran['tahunajaran']);
+	$ajaran[$k] = [$row_ajaran['replid'], $row_ajaran['tahunajaran']];
 	$k++;
 }
 
@@ -85,7 +85,7 @@ $result_kls = QueryDb($sql_kls);
 $j = 0;
 while ($row_kls = @mysqli_fetch_array($result_kls))
 {
-	$kls[$j] = array($row_kls['idkelas'], $row_kls['kelas'], $row_kls['tingkat'], $row_kls['idtahunajaran']);
+	$kls[$j] = [$row_kls['idkelas'], $row_kls['kelas'], $row_kls['tingkat'], $row_kls['idtahunajaran']];
 	if ($row_kls['idtahunajaran']==$tahunajaran)
 		$kelas = $row_kls['idkelas'];	
 	$j++;

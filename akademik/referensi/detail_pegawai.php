@@ -76,7 +76,7 @@ function newWindow(mypage,myname,w,h,features) {
 OpenDb();
 if (!isset($_POST['simpan'])) {
 $query = "select replid,nip,noid,nama,bagian, tmplahir,day(tgllahir) as tanggal,year(tgllahir) as tahun,month(tgllahir) as bulan,suku,dokter from jibiklinik.pendataanpegawai  where replid = '$lihat_pegawai'";
-$result_query= Querydb($query) or die(mysqli_error);
+$result_query= Querydb($query) or die(\MYSQLI_ERROR);
 $row=mysqli_fetch_array($result_query);
 $tmplahir=$row['tmplahir'];
 $tgllahir=$row['tanggal'];

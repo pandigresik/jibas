@@ -166,10 +166,10 @@ $nsiswa = count($siswa);
         <?php  } ?>
     </tr>
     <?php
-    $ratapel = array();
+    $ratapel = [];
     for($j = 0; $j < $naspek; $j++)
     {
-        $ratapel[] = array(0, 0); // totna, divna
+        $ratapel[] = [0, 0]; // totna, divna
     }
 
     $totratasis = 0;

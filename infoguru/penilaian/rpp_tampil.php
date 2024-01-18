@@ -81,7 +81,7 @@ if ($op == "dw8dxn8w9ms8zs22") {
     	<script language="javascript">
     	document.location.href="rpp_tampil.php?departemen=<?=$departemen?>&tingkat=<?=$tingkat?>&semester=<?=$semester?>&pelajaran=<?=$pelajaran?>";
     	</script>
-	<?php }
+<?php }
 	//CloseDb();			
 } else if ($op == "xm8r389xemx23xb2378e23") {
 	//OpenDb();
@@ -93,7 +93,7 @@ if ($op == "dw8dxn8w9ms8zs22") {
     	<script language="javascript">
     	document.location.href="rpp_tampil.php?departemen=<?=$departemen?>&tingkat=<?=$tingkat?>&semester=<?=$semester?>&pelajaran=<?=$pelajaran?>";
     	</script>
-	<?php }
+<?php }
 	
 }
 ?>
@@ -362,7 +362,7 @@ function ByeWin() {
             <a href="JavaScript:hapus(<?=$row[0] ?>)"><img src="../images/ico/hapus.png" border="0" onMouseOver="showhint('Hapus RPP!', this, event, '50px')"/></a>
         </td>
     </tr>
-	<?php } ?>
+<?php } ?>
     </table>
     <script language='JavaScript'>
 	    Tables('table', 1, 0);

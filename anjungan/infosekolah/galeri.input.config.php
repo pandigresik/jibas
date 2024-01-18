@@ -21,7 +21,7 @@
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
 <?php
-$allowedPictType = array('.jpg', '.jpeg', '.png', '.gif', '.bmp');
+$allowedPictType = ['.jpg', '.jpeg', '.png', '.gif', '.bmp'];
 $maxCoverWidth = 220;
 $maxCoverHeight = 180;
 $maxPictWidth = 800;

@@ -302,7 +302,7 @@ while ($row_siswa1=@mysqli_fetch_array($result_get_siswa1)){
 	$i = 0;
 	while($row = mysqli_fetch_row($res))
 	{
-		$pelarr[$i++] = array($row[0], $row[1]);
+		$pelarr[$i++] = [$row[0], $row[1]];
 	}
 	
 	for($i = 0; $i < count($pelarr); $i++)
@@ -328,7 +328,7 @@ while ($row_siswa1=@mysqli_fetch_array($result_get_siswa1)){
 			     AND n.idaturan = a.replid  	   
 			     AND a.dasarpenilaian = d.dasarpenilaian";	
 		$res = QueryDb($sql);				 
-		$aspekarr = array();				 
+		$aspekarr = [];				 
 		$j = 0;
 		while($row = mysqli_fetch_row($res))
 		{
@@ -353,7 +353,7 @@ while ($row_siswa1=@mysqli_fetch_array($result_get_siswa1)){
 				$nh = $row2[1];
 			}
 			
-			$aspekarr[$j++] = array($row[0], $row[1], $na, $nh);
+			$aspekarr[$j++] = [$row[0], $row[1], $na, $nh];
 		} 
 		$naspek = count($aspekarr);
 		

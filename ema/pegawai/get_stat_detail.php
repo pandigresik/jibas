@@ -29,11 +29,11 @@ require_once('../inc/db_functions.php');
 
 $kriteria = $_REQUEST['kriteria'];
 $kondisi = $_REQUEST['kondisi'];
-$krit = array('','Bagian','Agama','Gelar','Jenis Kelamin','Status Aktif','Status Menikah','Suku','Tahun Kelahiran','Usia');
-$field = array('','bagian','agama','gelar','kelamin','aktif','nikah','suku','YEAR(tgllahir)','');
+$krit = ['', 'Bagian', 'Agama', 'Gelar', 'Jenis Kelamin', 'Status Aktif', 'Status Menikah', 'Suku', 'Tahun Kelahiran', 'Usia'];
+$field = ['', 'bagian', 'agama', 'gelar', 'kelamin', 'aktif', 'nikah', 'suku', 'YEAR(tgllahir)', ''];
 
 if ($kriteria == 9){
-	$kondisi = str_replace("__","-",$kondisi);
+	$kondisi = str_replace("__","-",(string) $kondisi);
 	$filter2 = " AND $kondisi";
 } else {
 	$filter2 = " AND ".$field[$kriteria]."='$kondisi'";

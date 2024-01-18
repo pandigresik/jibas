@@ -45,13 +45,11 @@ if (isset($_REQUEST['pilihan']))
 if (isset($_REQUEST['jenis']))
 	$jenis = $_REQUEST['jenis'];
 
-switch ($jenis) {
-	case 'combo' : $input_awal = "onload=\"document.getElementById('kelas').focus()\"";
-		break;
-	case 'text' : $input_awal = "onload=\"document.getElementById('nis').focus()\"";
-		break;
-	default	: $input_awal = "onload=\"document.getElementById('kelas').focus()\"";
-}	
+$input_awal = match ($jenis) {
+    'combo' => "onload=\"document.getElementById('kelas').focus()\"",
+    'text' => "onload=\"document.getElementById('nis').focus()\"",
+    default => "onload=\"document.getElementById('kelas').focus()\"",
+};	
 
 OpenDb();
 ?>

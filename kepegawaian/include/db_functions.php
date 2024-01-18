@@ -176,12 +176,12 @@ function LogError($sql, $errno, $error)
 	if (!$G_ENABLE_QUERY_ERROR_LOG)
 		return;
 		
-	$logPath = @realpath(@dirname(__FILE__)) . "/../../log";
+	$logPath = @realpath(@__DIR__) . "/../../log";
 	$logExists = @file_exists($logPath) && @is_dir($logPath);
 	if (!$logExists)
 		@mkdir($logPath, 0755);
 	
-	$logFile = @realpath(@dirname(__FILE__)) . "/../../log/kepegawaian-error.log";
+	$logFile = @realpath(@__DIR__) . "/../../log/kepegawaian-error.log";
 	$modeFile = (@file_exists($logFile) && @filesize($logFile) > 1024 * 1024) ? "w" : "a";
 	
 	$fp = @fopen($logFile, $modeFile);

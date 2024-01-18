@@ -71,8 +71,8 @@ if ($_REQUEST['replid']<> "") {
 	$semester=$row['idsemester'];
 	$pelajaran=$row['idpelajaran'];
 	$tgl=TglText($row['tanggal']);
-	$jam=substr($row['jam'],0,2);
-	$menit=substr($row['jam'],3,2);
+	$jam=substr((string) $row['jam'],0,2);
+	$menit=substr((string) $row['jam'],3,2);
 }	
 	
 
@@ -289,7 +289,7 @@ function focusNext(elemName, evt) {
 			if ($tingkat == "")
 				$tingkat = $row['replid'];				
 			?>
-          <option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat) ?>>
+          <option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat) ?>>
             <?=$row['tingkat']?>
             </option>
           <?php
@@ -320,7 +320,7 @@ function focusNext(elemName, evt) {
 			if ($kelas == "")
 				$kelas = $row['replid'];				 
 			?>
-    		<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $kelas) ?>><?=$row['kelas']?></option>
+    		<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $kelas) ?>><?=$row['kelas']?></option>
              
     		<?php
 			} //while
@@ -348,7 +348,7 @@ function focusNext(elemName, evt) {
 				$pelajaran = $row['replid'];			
 			?>
             
-    		<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $pelajaran)?> ><?=$row['nama']?></option>
+    		<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $pelajaran)?> ><?=$row['nama']?></option>
                   
     		<?php
 			}

@@ -145,7 +145,7 @@ function focusNext(elemName, evt) {
 					else 
 						$ada = '';
 			?>
-          <option value="<?=urlencode($row_kalender['replid'])?>" <?=IntIsSelected($row_kalender['replid'], $kalender) ?> >
+          <option value="<?=urlencode((string) $row_kalender['replid'])?>" <?=IntIsSelected($row_kalender['replid'], $kalender) ?> >
             <?=$row_kalender['kalender'].' '.$ada?>
           </option>
           <?php } //while	?>

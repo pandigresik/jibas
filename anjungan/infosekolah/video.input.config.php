@@ -21,7 +21,7 @@
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
 <?php
-$allowedVideoType = array('.mp4', '.m4v', '.flv', '.f4v');
+$allowedVideoType = ['.mp4', '.m4v', '.flv', '.f4v'];
 $maxCoverWidth = 220;
 $maxCoverHeight = 180;
 $maxNotesLength = 2000;

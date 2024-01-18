@@ -27,13 +27,13 @@ require_once('../include/common.php');
 new Inbox();
 class Inbox{
 	public function __construct(){
-		$this->sms = array();
-		$this->newSms = array();
-		$cmd = (isset($_REQUEST['cmd']))?$_REQUEST['cmd']:'';
-		$this->bulan = (isset($_REQUEST['m']))?$_REQUEST['m']:date('m');
-		$this->tahun = (isset($_REQUEST['y']))?$_REQUEST['y']:date('Y');
+		$this->sms = [];
+		$this->newSms = [];
+		$cmd = $_REQUEST['cmd'] ?? '';
+		$this->bulan = $_REQUEST['m'] ?? date('m');
+		$this->tahun = $_REQUEST['y'] ?? date('Y');
 		$this->cmd		= $cmd;
-		$this->page		= (isset($_REQUEST['page']))?$_REQUEST['page']:1;
+		$this->page		= $_REQUEST['page'] ?? 1;
 		if ($cmd==""){
 			echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">';
 			echo '<html xmlns="http://www.w3.org/1999/xhtml">';
@@ -76,13 +76,13 @@ class Inbox{
 	public function showMsgList(){
 		ob_start();
 			global $G_START_YEAR,$LMonth;
-			$arrYear = array();
+			$arrYear = [];
 			for ($y = $G_START_YEAR; $y <= date('Y'); $y++ )
 				array_push($arrYear,$y);
 
-			$arrMonth= array();
+			$arrMonth= [];
 			for ($m = 1; $m <= 12; $m++ )
-				array_push($arrMonth,array($m,$LMonth[($m-1)]));
+				array_push($arrMonth,[$m, $LMonth[($m-1)]]);
 			
 			
 			?>
@@ -132,12 +132,12 @@ class Inbox{
 			if ($this->num>0){
 				$res   = QueryDb($sql." LIMIT ".((($this->page)-1)*showList).",".showList);
 				while ($row = @mysqli_fetch_row($res)){
-					$nohp  = str_replace("+62","",$row[1]);	
+					$nohp  = str_replace("+62","",(string) $row[1]);	
 					$sqlph = "SELECT nama FROM phonebook WHERE nohp LIKE '%$nohp'";
 					$resph = QueryDb($sqlph);
 					$rowph = @mysqli_fetch_row($resph);
 					$nama  = $rowph[0];
-					array_push($this->sms,array($row[0],"($row[1]) $nama",$row[2],$row[3],$row[4]));
+					array_push($this->sms,[$row[0], "($row[1]) $nama", $row[2], $row[3], $row[4]]);
 				}
 			}
 			$sql = "SELECT max(ID) FROM inbox";
@@ -165,8 +165,8 @@ class Inbox{
 				foreach($this->sms as $data){
 					$tmp = $this->getRowTemplate();
 					if ($data[4]=='0')
-						$tmp = str_replace("<tr","<tr class='bold'",$tmp);
-					$tmp = str_replace("_SENDER_",$data[1],$tmp);
+						$tmp = str_replace("<tr","<tr class='bold'",(string) $tmp);
+					$tmp = str_replace("_SENDER_",$data[1],(string) $tmp);
 					$tmp = str_replace("_DATE_",$data[3],$tmp);
 					$tmp = str_replace("_MSG_",$data[2],$tmp);
 					$tmp = str_replace("_ID_",$data[0],$tmp);
@@ -215,19 +215,19 @@ class Inbox{
 			$num = @mysqli_num_rows($res);
 			if ($num>0){
 				while ($row = @mysqli_fetch_row($res)){
-					$nohp  = str_replace("+62","",$row[1]);	
+					$nohp  = str_replace("+62","",(string) $row[1]);	
 					$sqlph = "SELECT nama FROM phonebook WHERE nohp LIKE '%$nohp'";
 					$resph = QueryDb($sqlph);
 					$rowph = @mysqli_fetch_row($resph);
 					$nama  = $rowph[0];
-					array_push($this->newSms,array("($row[1]) $nama",$row[3],$row[2],$row[0]));
+					array_push($this->newSms,["($row[1]) $nama", $row[3], $row[2], $row[0]]);
 				}
 			}
 			$sql = "SELECT max(ID) FROM inbox";
 			$res = QueryDb($sql);
 			$row = @mysqli_fetch_row($res);
 			$_SESSION['maxID'] = $row[0];
-			echo json_encode(array('num'=>$num,'data'=>$this->newSms));
+			echo json_encode(['num'=>$num, 'data'=>$this->newSms], JSON_THROW_ON_ERROR);
 		ob_flush();
 	}
 
@@ -249,7 +249,7 @@ class Inbox{
 			$sql = "SELECT ID,SenderNumber,Text,DATE_FORMAT(ReceivingdateTime,'%e %b %Y %T') FROM inbox WHERE ID='$id'";
 			$res = QueryDb($sql);
 			$data = @mysqli_fetch_row($res);
-			$nohp  = str_replace("+62","",$data[1]);	
+			$nohp  = str_replace("+62","",(string) $data[1]);	
 			$sqlph = "SELECT nama FROM phonebook WHERE nohp LIKE '%$nohp'";
 			$resph = QueryDb($sqlph);
 			$rowph = @mysqli_fetch_row($resph);
@@ -308,7 +308,7 @@ class Inbox{
 			$sql = "INSERT INTO outbox SET InsertIntoDB=now(), SendingDateTime=now(), Text='$text', DestinationNumber='$sender', SenderID='$sender', CreatorID='$sender', idsmsgeninfo=$idsmsgeninfo";
 			$res = QueryDb($sql);
 			$output = ($res)?1:0;
-			echo json_encode(array('status'=>$output));
+			echo json_encode(['status'=>$output], JSON_THROW_ON_ERROR);
 		ob_flush();
 	}
 

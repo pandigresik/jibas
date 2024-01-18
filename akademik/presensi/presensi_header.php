@@ -71,8 +71,8 @@ if ($_REQUEST['replid']<> "") {
 	$semester=$row['idsemester'];
 	$pelajaran=$row['idpelajaran'];
 	$tgl=TglText($row['tanggal']);
-	$jam=substr($row['jam'],0,2);
-	$menit=substr($row['jam'],3,2);
+	$jam=substr((string) $row['jam'],0,2);
+	$menit=substr((string) $row['jam'],3,2);
 }	
 	
 

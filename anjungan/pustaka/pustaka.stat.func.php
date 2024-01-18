@@ -123,7 +123,7 @@ function ShowStatistics($perpus, $bln1, $thn1, $bln2, $thn2, $jum)
         return;
     }
     
-    $rnd = rand(0, 1000);
+    $rnd = random_int(0, 1000);
     ?>
     <img src="<?= "pustaka/pustaka.stat.image.php?perpus=$perpus&bln1=$bln1&thn1=$thn1&bln2=$bln2&thn2=$thn2&jum=$jum&rnd=$rnd" ?>" />
     <table width="98%" border="1" cellspacing="0" cellpadding="5" class="tab">

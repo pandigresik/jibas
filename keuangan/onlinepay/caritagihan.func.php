@@ -117,8 +117,8 @@ function ShowTagihanSiswaTable()
     echo "<table border='0' cellpadding='5' cellspacing='0' width='100%'>";
     echo "<tr><td width='100%'>";
     echo "Bulan: ";
-    ShowSelectBulan($bulan);
-    ShowSelectTahun($tahun);
+    ShowSelectBulan();
+    ShowSelectTahun();
     echo "</td></tr>";
     echo "<tr><td width='100%'>";
     echo "<div id='dvTagihanSiswa'>";

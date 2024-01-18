@@ -31,7 +31,7 @@ require_once('../library/departemen.php');
 $idangkatan=(int)$_POST['angkatan'];
 $tahunmasuk=(int)$_POST['tahunmasuk'];
 $nis=$_POST['nis'];
-$nama=str_replace("'","`",$_POST['nama']);
+$nama=str_replace("'","`",(string) $_POST['nama']);
 $nama=str_replace('"',"`",$nama);
 $panggilan=$_POST['panggilan'];
 $kelamin=$_POST['kelamin'];
@@ -75,10 +75,10 @@ $pendidikanibu=$_POST['pendidikanibu'];
 $pekerjaanayah=$_POST['pekerjaanayah'];
 $pekerjaanibu=$_POST['pekerjaanibu'];
 $penghasilanayah=(int)$_POST['penghasilanayah'];
-if ($penghasilanayah=="")
+if ($penghasilanayah==0)
 $penghasilanayah=0;
 $penghasilanibu=(int)$_POST['penghasilanibu'];
-if ($penghasilanibu=="")
+if ($penghasilanibu==0)
 $penghasilanibu=0;
 $namawali=$_POST['namawali'];
 $alamatortu=$_POST['alamatortu'];
@@ -106,12 +106,12 @@ $departemen=$_POST['departemen'];
 		$uploadedfile = $foto['tmp_name'];
 		$uploadedtypefile = $foto['type'];
 		$uploadedsizefile = $foto['size'];
-		if (strlen($uploadedfile)!=0){
+		if (strlen((string) $uploadedfile)!=0){
 			//$gantifoto=", foto='$foto_data'";
 		if($uploadedtypefile=='image/jpeg')
 		$src = imagecreatefromjpeg($uploadedfile);
 		$filename = "x.jpg";
-		list($width,$height)=getimagesize($uploadedfile);
+		[$width, $height]=getimagesize($uploadedfile);
 		if ($width<$height){
 		$newheight=170;
 		$newwidth=113;

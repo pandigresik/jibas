@@ -198,7 +198,7 @@ function ShowRaporColumn()
 	$i = 0;
 	while($row = mysqli_fetch_row($res))
 	{
-		$aspekarr[$i++] = array($row[0], $row[1]);
+		$aspekarr[$i++] = [$row[0], $row[1]];
 	} ?>  
 	<table width="100%" border="1" class="tab" id="table" bordercolor="#000000">
 	<tr>
@@ -282,16 +282,14 @@ function ShowRaporColumn()
 			$row = mysqli_fetch_row($res);
 			$tmp = (int)$row[0];
 			
-			switch ($tmp)
-			{
-				case 4:	$pred = "Istimewa"; break;
-				case 3:	$pred = "Baik"; break;
-				case 2:	$pred = "Cukup"; break;
-				case 1:	$pred = "Kurang"; break;
-				case 0:	$pred = "Buruk"; break;
-				default:
-					$pred = "Baik";
-			}
+			$pred = match ($tmp) {
+       4 => "Istimewa",
+       3 => "Baik",
+       2 => "Cukup",
+       1 => "Kurang",
+       0 => "Buruk",
+       default => "Baik",
+   };
 		}			
 		echo "<td align='left'>$pred</td>"; 
 		echo "</tr>";
@@ -329,7 +327,7 @@ function ShowRaporRow()
     $i = 0;
     while($row = mysqli_fetch_row($res))
     {
-        $pelarr[$i++] = array($row[0], $row[1]);
+        $pelarr[$i++] = [$row[0], $row[1]];
     }
     
     for($i = 0; $i < count($pelarr); $i++)
@@ -356,7 +354,7 @@ function ShowRaporRow()
                  AND a.dasarpenilaian = d.dasarpenilaian
                  AND d.aktif = 1";
         $res = QueryDb($sql);				 
-        $aspekarr = array();				 
+        $aspekarr = [];				 
         $j = 0;
         while($row = mysqli_fetch_row($res))
         {
@@ -381,7 +379,7 @@ function ShowRaporRow()
                 $nh = $row2[1];
             }
             
-            $aspekarr[$j++] = array($row[0], $row[1], $na, $nh);
+            $aspekarr[$j++] = [$row[0], $row[1], $na, $nh];
         } 
         $naspek = count($aspekarr);
         

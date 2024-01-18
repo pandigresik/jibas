@@ -64,9 +64,9 @@ if (isset($_REQUEST['Simpan'])) {
 	for ($i=1;$i<=10;$i++) {
 		$nmin = $_REQUEST['nmin'.$i];
 		$nmax = $_REQUEST['nmax'.$i];
-		$grade = strtoupper($_REQUEST['grade'.$i]);
+		$grade = strtoupper((string) $_REQUEST['grade'.$i]);
 		
-		if (strlen($nmin)>0 && strlen($nmax)>0 && strlen($grade)>0) {	
+		if (strlen((string) $nmin)>0 && strlen((string) $nmax)>0 && strlen($grade)>0) {	
 			OpenDb();
 			$sql = "INSERT INTO aturangrading SET nipguru='$nip',idtingkat='$idtingkat',idpelajaran='$id',dasarpenilaian='$aspek',nmin='$nmin',nmax='$nmax',grade='$grade'";
 			QueryDb($sql);

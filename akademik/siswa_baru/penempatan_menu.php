@@ -50,13 +50,11 @@ if (isset($_REQUEST['warna']))
 if (isset($_REQUEST['cari']))
 	$cari = $_REQUEST['cari'];
 
-switch ($cari) {
-	case 'tampil' : $input_awal = "onload=\"document.getElementById('kelompok').focus()\"";
-		break;
-	case 'cari' : $input_awal = "onload=\"document.getElementById('no').focus()\"";
-		break;
-	default	: $input_awal = "onload=\"document.getElementById('kelompok').focus()\"";
-}
+$input_awal = match ($cari) {
+    'tampil' => "onload=\"document.getElementById('kelompok').focus()\"",
+    'cari' => "onload=\"document.getElementById('no').focus()\"",
+    default => "onload=\"document.getElementById('kelompok').focus()\"",
+};
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

@@ -66,10 +66,10 @@ if (mysqli_num_rows($res) == 0)
     exit();
 }
 
-$lsBulan = array();
+$lsBulan = [];
 while($row = mysqli_fetch_row($res))
 {
-    $lsBulan[] = array($row[0], $row[1]);
+    $lsBulan[] = [$row[0], $row[1]];
 }
 
 //PrePrintR($lsTanggal);

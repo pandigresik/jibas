@@ -37,7 +37,7 @@ $pelajaran=$_REQUEST['pelajaran'];
 			if ($jenis == "")
 				$jenis = $row['replid'];				
 			?>
-          <option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $jenis) ?>>
+          <option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $jenis) ?>>
             <?=$row['status']?>
             </option>
           <?php

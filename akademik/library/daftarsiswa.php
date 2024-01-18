@@ -122,7 +122,7 @@ function tambah() {
 		if ($tingkat == "")
 			$tingkat = $row['replid'];				
 		?>
-        <option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat) ?>>
+        <option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat) ?>>
            <?=$row['tingkat']?>
         </option>
         <?php

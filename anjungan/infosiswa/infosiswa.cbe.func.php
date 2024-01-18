@@ -23,7 +23,7 @@
 <?php
 function showSelectBulan()
 {
-    $arrBulan = array("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember");
+    $arrBulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember"];
 
     $select = "<select id='cbe_cbBulan' class='inputbox' style='width: 120px' onchange='cbe_getPelajaran()'>";
     for($i = 0; $i < count($arrBulan); $i++)
@@ -108,18 +108,18 @@ function showRekapUjian($bulan, $tahun, $jenis, $idpelajaran)
 
     $sql .= " ORDER BY us.tanggal DESC";
 
-    $lsId = array();
+    $lsId = [];
     $res = QueryDb($sql);
     while($row = mysqli_fetch_row($res))
     {
-        $lsId[] = array($row[0], $row[1]);
+        $lsId[] = [$row[0], $row[1]];
     }
 
     if (count($lsId) == 0)
         return " Tidak ada data hasil ujian!";
 
     $stIdUjian = "";
-    $lsIdUjian = array();
+    $lsIdUjian = [];
 
     for($i = 0; $i < count($lsId); $i++)
     {
@@ -132,7 +132,7 @@ function showRekapUjian($bulan, $tahun, $jenis, $idpelajaran)
         $res = QueryDb($sql);
         while($row = mysqli_fetch_row($res))
         {
-            $lsIdUjian[] = array($row[0], $row[1], $row[2], $tglUjian);
+            $lsIdUjian[] = [$row[0], $row[1], $row[2], $tglUjian];
         }
     }
 

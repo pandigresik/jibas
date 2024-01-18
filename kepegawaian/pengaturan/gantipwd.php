@@ -34,14 +34,14 @@ if (isset($_REQUEST['simpan'])) {
 	$result_c = QueryDb($sql_c);
 	$row_c = @mysqli_fetch_row($result_c);
 	
-	if ($row_c[0]!=md5($_REQUEST['pwlama'])) { ?>
+	if ($row_c[0]!=md5((string) $_REQUEST['pwlama'])) { ?>
 	    <script language="javascript">
 	    	alert ('Password Lama Anda Salah !');
 	    	document.location.href="gantipwd.php";
 	    </script>
 	<?php
 	} else {
-		$sql_u="UPDATE pengguna SET password='".md5($_REQUEST['pwbaru'])."'";
+		$sql_u="UPDATE pengguna SET password='".md5((string) $_REQUEST['pwbaru'])."'";
 		$result_u=QueryDb($sql_u);
 		if ($result_u) { ?>
 			<script language="javascript">

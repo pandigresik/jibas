@@ -29,8 +29,8 @@ require_once('infosiswa.security.php');
 
 $nis = $_SESSION["infosiswa.nis"];
 
-$bulan = isset($_REQUEST['bulan']) ? $_REQUEST['bulan'] : date('n');
-$tahun = isset($_REQUEST['tahun']) ? $_REQUEST['tahun'] : date('Y');
+$bulan = $_REQUEST['bulan'] ?? date('n');
+$tahun = $_REQUEST['tahun'] ?? date('Y');
 
 OpenDb();
 ?>

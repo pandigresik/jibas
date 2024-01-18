@@ -141,7 +141,7 @@ if (isset($_REQUEST['Simpan'])) {
 		$kredit = (int)$kredit;
 		
 	
-		if (strlen(trim($koderek)) > 0) {
+		if (strlen(trim((string) $koderek)) > 0) {
 			$sql = "INSERT INTO jurnaldetail SET idjurnal='$idjurnal', koderek='$koderek', debet='$debet', kredit='$kredit'";
 			if ($success) QueryDbTrans($sql, $success);
 			//echo  "$success $sql<br>";
@@ -524,7 +524,7 @@ function focusNext(elemName, evt) {
 </tr>
 </table><?php CloseDb() ?>
 
-<?php if (strlen($errmsg) > 0) {?>
+<?php if (strlen((string) $errmsg) > 0) {?>
 <script language="javascript">
 	alert('<?=$errmsg ?>');
 </script>

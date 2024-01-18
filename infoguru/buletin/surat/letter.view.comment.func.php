@@ -103,7 +103,7 @@ function ShowPrevComment()
         <tr id='<?=$rowId?>'>
             <td style='background-color: #fff' width='1%' align='left'>&nbsp;</td>
             <td class='NotesViewCommentCell' width='10%' align='center' valign='top'>
-                <img src='letter.view.comment.gambar.php?r=<?= rand(1, 99999)?>&ownerid=<?=$ownerid?>' height='35'><br>
+                <img src='letter.view.comment.gambar.php?r=<?= random_int(1, 99999)?>&ownerid=<?=$ownerid?>' height='35'><br>
             </td>
             <td class='NotesViewCommentCell' width='*' align='left' valign='top'>
                 <div style='position: relative'>
@@ -178,7 +178,7 @@ function ShowComment()
         <tr id='<?=$rowId?>'>
             <td style='background-color: #fff' width='1%' align='left'>&nbsp;</td>
             <td class='NotesViewCommentCell' width='10%' align='center' valign='top'>
-                <img src='letter.view.comment.gambar.php?r=<?= rand(1, 99999)?>&ownerid=<?=$ownerid?>' height='35'><br>
+                <img src='letter.view.comment.gambar.php?r=<?= random_int(1, 99999)?>&ownerid=<?=$ownerid?>' height='35'><br>
             </td>
             <td class='NotesViewCommentCell' width='*' align='left' valign='top'>
                 <div style='position: relative'>

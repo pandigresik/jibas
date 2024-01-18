@@ -43,7 +43,7 @@ try
         $tahun = $_REQUEST['tahun'];
         $bagian = $_REQUEST['bagian'];
         
-        echo GetPegawai($idkegiatan, $bulan, $tahun, $bagian);
+        echo GetPegawai($idkegiatan, $bulan, $tahun);
     }
     else if ($op == "searchpegawai")
     {
@@ -53,7 +53,7 @@ try
         $filter = $_REQUEST['filter'];
         $keyword = $_REQUEST['keyword'];
         
-        echo SearchPegawai($idkegiatan, $bulan, $tahun, $filter, $keyword);
+        echo SearchPegawai($idkegiatan, $bulan, $tahun, $filter);
     }
     else if ($op == "getcbactivity")
     {

@@ -34,7 +34,7 @@ if (isset($_REQUEST['nis']))
 
 if (isset($_REQUEST['simpan'])){
 	$nis = $_REQUEST['nis'];
-	$tgl=explode("-",$_REQUEST['tanggal']);
+	$tgl=explode("-",(string) $_REQUEST['tanggal']);
 	$tanggal=$tgl[2]."-".$tgl[1]."-".$tgl[0];
 	$judul = $_REQUEST['judul'];
 	$catatan = $_REQUEST['catatan'];

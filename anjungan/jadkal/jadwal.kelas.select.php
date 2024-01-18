@@ -24,7 +24,7 @@
 require_once("../include/config.php");
 require_once("../include/db_functions.php");
 
-$dept = isset($_REQUEST['dept']) ? $_REQUEST['dept'] : "";
+$dept = $_REQUEST['dept'] ?? "";
 $tingkat = isset($_REQUEST['tingkat']) ? (int)$_REQUEST['tingkat'] : 0;
 $kelas = isset($_REQUEST['kelas']) ? (int)$_REQUEST['kelas'] : 0;
 $jadwal = isset($_REQUEST['jadwal']) ? (int)$_REQUEST['jadwal'] : 0;

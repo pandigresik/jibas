@@ -109,8 +109,8 @@ $kelas = $_REQUEST['kelas'];
         </fieldset>
         </td>	
     </tr>
-		<?php } //1 ?>
-        <?php } else { //2?>
+<?php } //1 ?>
+<?php } else { //2?>
     <tr>
         <td align="center" valign="middle" height="50">
         <table border="0" width="100%" id="table1" cellpadding="0" cellspacing="0">
@@ -121,5 +121,5 @@ $kelas = $_REQUEST['kelas'];
         </table>
         </td>
     </tr>
-    <?php } //2?>
+<?php } //2?>
 </table>

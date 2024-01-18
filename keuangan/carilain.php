@@ -283,7 +283,7 @@ function change_baris() {
       	</select></td>
     </tr>
     </table>
-   <?php } else { ?>	
+<?php } else { ?>	
     <table width="100%" border="0" align="center">            
     <tr>
         <td align="center" valign="middle" height="200">    

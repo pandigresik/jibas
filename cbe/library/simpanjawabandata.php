@@ -31,7 +31,7 @@ class SimpanJawabanData
 
     public function toJson()
     {
-        return json_decode($this);
+        return json_decode($this, null, 512, JSON_THROW_ON_ERROR);
     }
 }
 ?>

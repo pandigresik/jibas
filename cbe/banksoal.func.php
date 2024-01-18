@@ -268,7 +268,7 @@ function showBankSoal($dept, $idPelajaran, $idTingkat, $idSemester)
         $tag->TipeDataJawaban = 0;
 
         $jsonTag = $tag->toJson();
-        $jsonTag = str_replace("\"", "`", $jsonTag);
+        $jsonTag = str_replace("\"", "`", (string) $jsonTag);
         ?>
 
         <tr style='height: 100px;'>
@@ -349,7 +349,7 @@ function getSoalPenjelasan($idSoal, $idUjianSerta, $viewExp)
                 $jenis = (int) $row[0];
                 if ($jenis == 1)
                 {
-                    $jawaban = base64_encode($row[2]);
+                    $jawaban = base64_encode((string) $row[2]);
                     $jenisJawaban = 2;
                     break;
                 }

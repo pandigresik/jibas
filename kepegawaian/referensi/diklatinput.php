@@ -38,7 +38,7 @@ if (isset($_REQUEST['btSimpan']))
 	$diklat = $_REQUEST['txDiklat'];
 	$sql = "INSERT INTO diklat SET rootid=$rootid, tingkat=$tingkat, diklat='$diklat', jenis='$jenis'";
 	QueryDb($sql);
-	CloseDb($sql);
+	CloseDb();
 	?>
 	<script language="javascript">
 		opener.RefreshPage(<?=$rootid?>);

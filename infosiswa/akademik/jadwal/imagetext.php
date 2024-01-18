@@ -24,7 +24,7 @@
 	header("Content-Type: image/png");
 	session_start();
 	$string = $_REQUEST["string"];
-	$string = str_replace(' ','',$string);
+	$string = str_replace(' ','',(string) $string);
 	$span = (int)$_REQUEST["span"];
 	//----------------
 	//create image

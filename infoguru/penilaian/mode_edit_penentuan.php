@@ -90,11 +90,11 @@ if($num == 0) {
 		$idpraktek = "#";
 		$idkonsep = "#";
         while($row_nhb = @mysqli_fetch_array($result_nhb)) {
-            $plit = explode(";", $row_nhb['bobot']);
+            $plit = explode(";", (string) $row_nhb['bobot']);
             if($plit != "") {
                 foreach($plit as $pl) {
                     $r++;
-                    list($ujian, $bobot) = explode(":", $pl);
+                    [$ujian, $bobot] = explode(":", $pl);
                     if($bobot != "") {
                         $cnt = 0;
 						$found = false;
@@ -189,14 +189,14 @@ if($num == 0) {
 				$result_nhb = QueryDb($query_nhb) or die(mysqli_error($mysqlconnection));
 				
 				while($row_nhb = @mysqli_fetch_array($result_nhb)) {
-					$plit = explode(";", $row_nhb['bobot']);
+					$plit = explode(";", (string) $row_nhb['bobot']);
 					if($plit != "") {
 					$r=0;
 						$ttl_nau_b = 0;
 						$ttl_bbt = 0;
 						foreach($plit as $pl) {
 							$r++;
-							list($ujian, $bobot) = explode(":", $pl);
+							[$ujian, $bobot] = explode(":", $pl);
 							if($bobot != "") {
 								$as[$r] = $bobot;
 							}
@@ -356,7 +356,7 @@ if(isset($_POST['simpan'])) {
              $nang = "nA$k$b";
              $nihu = "nH$k$b";
 			 
-			 if (strlen(trim($_POST[$ns])) > 0) {
+			 if (strlen(trim((string) $_POST[$ns])) > 0) {
              	$query_nap = "UPDATE jbsakad.nap SET ".
                              "nilaiangka   = '".$_POST[$nang]."' nilaihuruf  = '".$_POST[$nihu]."' WHERE nis  = '".$_POST[$ns]."' AND idaturan = '".$repinfo2[$b]."' AND idinfo  = '".$_POST['info']."'";
 				//echo $query_nap . "<br>";						 
@@ -372,7 +372,7 @@ if(isset($_POST['simpan'])) {
 			alert ('Pel=<?=$_POST['pelajaran']?>,Tkt=<?=$_POST['tingkat']?>,Kls=<?=$_POST['kelas']?>,Smst=<?=$_POST['semester']?>');
             document.location.href = "tampil_penentuan.php?pelajaran=<?=$_POST['pelajaran']?>&tingkat=<?=$_POST['tingkat']?>&kelas=<?=$_POST['kelas']?>&semester=<?=$_POST['semester']?>";
         </script>
-        <?php
+<?php
     }
 }
 ?>

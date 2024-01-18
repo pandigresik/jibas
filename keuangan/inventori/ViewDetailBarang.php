@@ -45,33 +45,33 @@ $row = @mysqli_fetch_array($result);
   <tr>
     <td width="29%" align="right"><strong>Kode Barang</strong></td>
     <td width="2" align="right"><strong>:</strong></td>
-    <td width="33%"><?=stripslashes($row['kode'])?></td>
+    <td width="33%"><?=stripslashes((string) $row['kode'])?></td>
     <td width="38%" rowspan="4" align="center" valign="middle"><img src="gambar.php?table=jbsfina.barang&replid=<?=$row['replid']?>" align="left" style="padding:2px" /></td>
   </tr>
   <tr>
     <td align="right"><strong>Nama Barang</strong></td>
     <td width="2" align="right"><strong>:</strong></td>
-    <td><?=stripslashes($row['nama'])?></td>
+    <td><?=stripslashes((string) $row['nama'])?></td>
   </tr>
   <tr>
     <td align="right"><strong>Jumlah</strong></td>
     <td width="2" align="right"><strong>:</strong></td>
-    <td><?=$row['jumlah']?>&nbsp;<?=stripslashes($row['satuan'])?></td>
+    <td><?=$row['jumlah']?>&nbsp;<?=stripslashes((string) $row['satuan'])?></td>
   </tr>
   <tr>
     <td align="right"><strong>Tanggal Perolehan</strong></td>
     <td width="2" align="right"><strong>:</strong></td>
-    <td><?=substr($row['tglperolehan'],8,2)."-".substr($row['tglperolehan'],5,2)."-".substr($row['tglperolehan'],0,4)?></td>
+    <td><?=substr((string) $row['tglperolehan'],8,2)."-".substr((string) $row['tglperolehan'],5,2)."-".substr((string) $row['tglperolehan'],0,4)?></td>
   </tr>  
   <tr>
     <td align="right"><strong>Kondisi</strong></td>
     <td width="2" align="right"><strong>:</strong></td>
-    <td colspan="2"><?=stripslashes($row['kondisi'])?></td>
+    <td colspan="2"><?=stripslashes((string) $row['kondisi'])?></td>
   </tr>
   <tr>
     <td align="right"><strong>Keterangan</strong></td>
     <td width="2" align="right"><strong>:</strong></td>
-    <td colspan="2"><?=stripslashes($row['keterangan'])?></td>
+    <td colspan="2"><?=stripslashes((string) $row['keterangan'])?></td>
   </tr>
   <tr>
     <td colspan="4" align="center"><input type="button" value="Tutup" onclick="window.close()" class="but" /></td>

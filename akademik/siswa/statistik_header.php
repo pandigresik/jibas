@@ -122,7 +122,7 @@ function panggil(elem){
         	<option value="<?=urlencode((string) $row['departemen'])?>" <?=StringIsSelected($row['departemen'], $departemen) ?>><?=$row['departemen']?></option>
         <?php 	} //while 	?>
      	</select>
-        <?php 	} else { ?>
+<?php 	} else { ?>
         <select name="departemen" id="departemen" onchange="change()" style="width:240px;" onKeyPress="return focusNext('angkatan', event)" onfocus="panggil('departemen')">
         <?php
 			$dep = getDepartemen(SI_USER_ACCESS());    

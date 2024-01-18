@@ -28,7 +28,7 @@ require_once("../include/common.php");
 require_once('../include/theme.php');
 require_once("../include/sessioninfo.php");
 
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+$namabulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember"];
 OpenDb();
 
 $tglskrg = date("d");

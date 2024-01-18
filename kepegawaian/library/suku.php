@@ -46,7 +46,7 @@ $suku_kiriman=$_REQUEST['suku'];
 $aktif = $_GET['aktif'];
 $isnew = $_GET['isnew'];
 
-if (($op == "del") && (strlen($nama_suku) > 0)) {
+if (($op == "del") && (strlen((string) $nama_suku) > 0)) {
 	OpenDb();
 	$sql = "DELETE FROM jbsumum.suku WHERE suku = '$nama_suku'";
 	$result = QueryDb($sql);

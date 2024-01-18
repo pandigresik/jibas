@@ -23,25 +23,18 @@
 <?php
 class GenericReturn
 {
-    public $Code;
-    public $Message;
-    public $Data;
-
-    public function __construct($code, $message, $data)
+    public function __construct(public $Code, public $Message, public $Data)
     {
-        $this->Code = $code;
-        $this->Message = $message;
-        $this->Data = $data;
     }
 
     public function toJson()
     {
-        return json_encode($this);
+        return json_encode($this, JSON_THROW_ON_ERROR);
     }
 
     public static function fromJson($json)
     {
-        return json_decode($json);
+        return json_decode((string) $json, null, 512, JSON_THROW_ON_ERROR);
     }
 
     public static function createJson($code, $message, $data)

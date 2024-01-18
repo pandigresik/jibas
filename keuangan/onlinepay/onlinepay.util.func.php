@@ -23,38 +23,25 @@
 <?php
 function inaMonthName($month)
 {
-    switch ($month)
-    {
-        case 1:
-            return "Jan";
-        case 2:
-            return "Feb";
-        case 3:
-            return "Mar";
-        case 4:
-            return "Apr";
-        case 5:
-            return "Mei";
-        case 6:
-            return "Jun";
-        case 7:
-            return "Jul";
-        case 8:
-            return "Agt";
-        case 9:
-            return "Sep";
-        case 10:
-            return "Okt";
-        case 11:
-            return "Nop";
-        default:
-            return "Des";
-    }
+    return match ($month) {
+        1 => "Jan",
+        2 => "Feb",
+        3 => "Mar",
+        4 => "Apr",
+        5 => "Mei",
+        6 => "Jun",
+        7 => "Jul",
+        8 => "Agt",
+        9 => "Sep",
+        10 => "Okt",
+        11 => "Nop",
+        default => "Des",
+    };
 }
 
 function formatInaMySqlDate($date)
 {
-    $lsDate = explode("-", $date);
+    $lsDate = explode("-", (string) $date);
     $d = str_pad($lsDate[2], 2, "0", STR_PAD_LEFT);
     $m = inaMonthName($lsDate[1]);
     $y = $lsDate[0];
@@ -175,7 +162,7 @@ function EchoBr($data)
 
 function SafeInput($data)
 {
-    $data = str_replace("\"", "`", $data);
+    $data = str_replace("\"", "`", (string) $data);
     $data = str_replace("<", "&lt;", $data);
     return str_replace(">", "&gt;", $data);
 }

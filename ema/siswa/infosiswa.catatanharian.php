@@ -28,7 +28,7 @@ require_once('../inc/db_functions.php');
 require_once('../inc/common.php');
 
 $nis = $_SESSION["infosiswa.nis"];
-$bulan_pjg = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+$bulan_pjg = [1=>'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 
 OpenDb();
 $sql_thn = "SELECT ph.tanggal1,ph.tanggal2,phsiswa.keterangan
@@ -40,13 +40,13 @@ $res_thn = QueryDb($sql_thn);
 $s = "SELECT DATE(now())";
 $re = QueryDb($s);
 $r = @mysqli_fetch_row($re);
-$d = explode("-", $r[0]);
+$d = explode("-", (string) $r[0]);
 $now = $d[2]."-".$d[1]."-".$d[0];
 if ($d[1]==1)
     $y=12;
 else
 	$y=$d[1]-1;
-if (strlen($y)==1)
+if (strlen((string) $y)==1)
 	$y="0".$y;
 $ytd = $d[2]."-".$y."-".$d[0];
 CloseDb();

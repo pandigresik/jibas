@@ -59,10 +59,10 @@ require_once('../../include/sessionchecker.php');
     <td align="center" valign="middle"><br /><br /><br /><br />
     <?php if (SI_USER_ID()!="landlord"){ ?>
 	<span class="style1">Folder milik Anda adalah folder </span><span class="style2">'
-	<?=trim(SI_USER_ID())?>
+	<?=trim((string) SI_USER_ID())?>
     '</span><span class="style1"> yang berada di bawah folder </span><span class="style2">'(root)'</span><br />
     <span class="style1">Anda dapat mengelola file atau folder yang berada di dalam folder</span> <span class="style2">'
-    <?=trim(SI_USER_ID())?>
+    <?=trim((string) SI_USER_ID())?>
     '</span><span class="style1">.</span>
     <?php } ?>
 	</td>

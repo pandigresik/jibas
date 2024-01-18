@@ -25,7 +25,7 @@ require_once("sessionchecker.php");
 
 //$UPLOAD_DIR = "c:\\xampp\\htdocs\\alfakeu\\upload\\";
 //$BASE_ADDR  = "http://localhost/alfakeu/";
-$bulan = array(1=>'Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agust','Sep','Okt','Nov','Des');
+$bulan = [1=>'Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agust', 'Sep', 'Okt', 'Nov', 'Des'];
 
 function StringIsSelected($value, $comparer) {
 	if ($value == $comparer) 
@@ -62,7 +62,7 @@ function RandStr($length) {
 	$charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	$s = "";
 	while(strlen($s) < $length) 
-		$s .= substr($charset, rand(0, 61), 1);
+		$s .= substr($charset, random_int(0, 61), 1);
 	return $s;		
 }
 
@@ -94,7 +94,7 @@ function NamaBulan($bln) {
 }
 
 function rpad($string, $padchar, $length) {
-	$result = trim($string);
+	$result = trim((string) $string);
 	if (strlen($result) < $length) {
 		$nzero = $length - strlen($result);
 		$zero = "";
@@ -106,17 +106,17 @@ function rpad($string, $padchar, $length) {
 }
 
 function MySqlDateFormat($date) {
-	list($d, $m, $y) = explode('[/.-]', $date); 
+	[$d, $m, $y] = explode('[/.-]', (string) $date); 
 	return "$y-$m-$d";
 }
 
 function RegularDateFormat($mysqldate) {
-	list($y, $m, $d) = explode('[/.-]', $mysqldate); 
+	[$y, $m, $d] = explode('[/.-]', (string) $mysqldate); 
 	return "$d-$m-$y";
 }
 
 function LongDateFormat($mysqldate) {
-	list($y, $m, $d) = explode('[/.-]', $mysqldate); 
+	[$y, $m, $d] = explode('[/.-]', (string) $mysqldate); 
 	return "$d ". NamaBulan($m) ." $y";
 }
 

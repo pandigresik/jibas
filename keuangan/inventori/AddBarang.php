@@ -52,7 +52,7 @@ if (isset($_REQUEST['Simpan']))
 		$uploadedfile = $foto['tmp_name'];
 		$uploadedtypefile = $foto['type'];
 		$uploadedsizefile = $foto['size'];
-		if (strlen($uploadedfile) != 0)
+		if (strlen((string) $uploadedfile) != 0)
 		{
 			$tmp_path = realpath(".") . "/../../temp";
 			$tmp_exists = file_exists($tmp_path) && is_dir($tmp_path);
@@ -73,9 +73,9 @@ if (isset($_REQUEST['Simpan']))
 		
 		$tgl = MySqlDateFormat($_REQUEST['tgl']);
 		
-		$sql = "INSERT INTO jbsfina.barang SET kode='".trim($_REQUEST['kode'])."', nama='".trim($_REQUEST['nama'])."',
-					   jumlah='".trim($_REQUEST['jumlah'])."',kondisi='".addslashes(trim($_REQUEST['kondisi']))."',tglperolehan='$tgl',
-					   keterangan='".addslashes(trim($_REQUEST['keterangan']))."',idkelompok='".$_REQUEST['idkelompok']."',
+		$sql = "INSERT INTO jbsfina.barang SET kode='".trim((string) $_REQUEST['kode'])."', nama='".trim((string) $_REQUEST['nama'])."',
+					   jumlah='".trim((string) $_REQUEST['jumlah'])."',kondisi='".addslashes(trim((string) $_REQUEST['kondisi']))."',tglperolehan='$tgl',
+					   keterangan='".addslashes(trim((string) $_REQUEST['keterangan']))."',idkelompok='".$_REQUEST['idkelompok']."',
 					   satuan='".$_REQUEST['satuan']."', info1='".$_REQUEST['angkaharga']."' $isifoto";
 		$result = QueryDb($sql);
 		if ($result){

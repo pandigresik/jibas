@@ -92,8 +92,8 @@ while($row = mysqli_fetch_array($res))
     $cnt += 1;
     
     $idkegiatan = $row["idkegiatan"];
-    $ti = trim($row["time_in"]);
-    $to = trim($row["time_out"]);
+    $ti = trim((string) $row["time_in"]);
+    $to = trim((string) $row["time_out"]);
     $tomark = "";
     if (strlen($to) == 0)
     {

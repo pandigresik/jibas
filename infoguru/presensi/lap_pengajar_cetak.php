@@ -108,8 +108,8 @@ $row = mysqli_fetch_array($result);
 	while ($row = mysqli_fetch_row($result)) { ?>
     <tr height="25">    	
     	<td align="center"><?=++$cnt?></td>
-		<td align="center"><?=$row[0].'-'.$row[1].'-'.substr($row[2],2,2)?></td>
-        <td align="center"><?=substr($row[3],0,5)?></td>
+		<td align="center"><?=$row[0].'-'.$row[1].'-'.substr((string) $row[2],2,2)?></td>
+        <td align="center"><?=substr((string) $row[3],0,5)?></td>
         <td align="center"><?=$row[4]?></td>
         <td><?=$row[5]?></td>
         <td><?=$row[6]?></td>

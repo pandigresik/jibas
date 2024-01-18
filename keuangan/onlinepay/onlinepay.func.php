@@ -202,7 +202,7 @@ function CheckGetServiceFee()
         $schoolId = $PG_SCHOOL_ID;
         $dbId = $PG_DATABASE_ID;
 
-        if (strlen($schoolId) != 5 || strlen($dbId) != 5)
+        if (strlen((string) $schoolId) != 5 || strlen((string) $dbId) != 5)
             return;
 
         $pgServiceAddr = $PG_ADDR . "/jbsfina/svcf.php";
@@ -214,7 +214,7 @@ function CheckGetServiceFee()
             return;
 
         $jsonInfo = $sendGr->Data;
-        $info = json_decode($jsonInfo);
+        $info = json_decode((string) $jsonInfo, null, 512, JSON_THROW_ON_ERROR);
         $valid = $info[0];
         $message = $info[1];
         $serviceFee = $info[2];

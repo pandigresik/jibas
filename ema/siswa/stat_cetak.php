@@ -50,7 +50,7 @@ if ($angkatan==''){
 	$row = @mysqli_fetch_array($result);
 	$nangkatan = $row['angkatan'];
 }	
-$krit = array('','Agama','Asal Sekolah','Golongan Darah','Jenis Kelamin','Kewarganegaraan','Kode Pos Siswa','Kondisi Siswa','Pekerjaan Ayah','Pekerjaan Ibu','Pendidikan Ayah','Pendidikan Ibu','Penghasilan Orang Tua','Status Aktif','Status Siswa','Suku','Tahun Kelahiran','Usia');
+$krit = ['', 'Agama', 'Asal Sekolah', 'Golongan Darah', 'Jenis Kelamin', 'Kewarganegaraan', 'Kode Pos Siswa', 'Kondisi Siswa', 'Pekerjaan Ayah', 'Pekerjaan Ibu', 'Pendidikan Ayah', 'Pendidikan Ibu', 'Penghasilan Orang Tua', 'Status Aktif', 'Status Siswa', 'Suku', 'Tahun Kelahiran', 'Usia'];
 $nkriteria = $krit[$kriteria];
 $dep = $departemen;
 if ($departemen=='-1')

@@ -43,8 +43,8 @@ $bln = $_REQUEST['bln'];
 $thn = $_REQUEST['thn'];	
 
 if (isset($_REQUEST['tanggal'])) {
-	$bln = (int)substr($_REQUEST['tanggal'],3,2);
-	$thn = (int)substr($_REQUEST['tanggal'],6,4);	
+	$bln = (int)substr((string) $_REQUEST['tanggal'],3,2);
+	$thn = (int)substr((string) $_REQUEST['tanggal'],6,4);	
 }
 
 OpenDb();
@@ -245,7 +245,7 @@ function focusNext(elemName, evt) {
 			?>
 		<?php  //for($i=$th1-10;$i<=$th1;$i++){ ?>
           	<option value="<?=$i?>" <?=IntIsSelected($thn, $i)?>><?=$i?></option>	   
-       	<?php } ?>	
+<?php } ?>	
        	</select> 
  	</td> 
 </tr>

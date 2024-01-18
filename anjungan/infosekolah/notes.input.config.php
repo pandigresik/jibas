@@ -21,9 +21,8 @@
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
 <?php
-$allowedPictType = array('.jpg', '.jpeg', '.png', '.gif', '.bmp');
-$allowedDocType  = array('.txt', '.doc', '.docx', '.xls', '.xlsx',
-						 '.ppt', '.pptx', '.pdf', '.odt', '.ods', '.odp');
+$allowedPictType = ['.jpg', '.jpeg', '.png', '.gif', '.bmp'];
+$allowedDocType  = ['.txt', '.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.pdf', '.odt', '.ods', '.odp'];
 $maxPictWidth = 800;
 $maxPictHeight = 600;
 $maxPictQuality = 90;

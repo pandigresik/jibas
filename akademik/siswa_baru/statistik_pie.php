@@ -32,7 +32,7 @@ $departemen=$_REQUEST['departemen'];
 $iddasar = $_REQUEST['iddasar'];
 
 //$color = array('red','black','green','blue','gray','yellow');
-$color = array('red','green','yellow','blue','orange','darkblue','gold','navy','gray','darkred','darkgreen', 'pink','black');
+$color = ['red', 'green', 'yellow', 'blue', 'orange', 'darkblue', 'gold', 'navy', 'gray', 'darkred', 'darkgreen', 'pink', 'black'];
 
 OpenDb();
 if ($departemen=="-1" && $idproses<0)
@@ -70,8 +70,8 @@ if ($iddasar=="12"){
 	$j5 = $row5['Jum'];
 
 	$sum = $j1 + $j2 +$j3 + $j4 + $j5;
-	$data = array($j1,$j2,$j3,$j4,$j5);
-	$leg = array("< Rp 1.000.000", "Rp 1.000.000 - Rp 2.500.000", "Rp 2.500.000 - Rp 5.000.000", "> Rp 5.000.000", "Tidak ada data");
+	$data = [$j1, $j2, $j3, $j4, $j5];
+	$leg = ["< Rp 1.000.000", "Rp 1.000.000 - Rp 2.500.000", "Rp 2.500.000 - Rp 5.000.000", "> Rp 5.000.000", "Tidak ada data"];
 } if ($iddasar=="1"){
 	$titlenya="Statistik Calon Siswa Aktif Berdasarkan Agama";
 	$query1 = "SELECT COUNT(s.replid) As Jum, s.agama FROM jbsakad.calonsiswa s, jbsakad.prosespenerimaansiswa a WHERE $kondisi AND s.aktif = 1  GROUP BY s.agama";

@@ -159,7 +159,7 @@ $row = mysqli_fetch_array($result);
         <td align="center"><span class="style7"><?=$row[13]?></span></td>
         <?php } ?>
         <td><span class="style7"><?=$row[2]?></span></td>
-        <td align="center"><span class="style7"><?=$row[3].'-'.$row[4].'-'.substr($row[5],2,2)?></span></td>
+        <td align="center"><span class="style7"><?=$row[3].'-'.$row[4].'-'.substr((string) $row[5],2,2)?></span></td>
         <td align="center"><span class="style7"><?=$st ?></span></td>
         <td><span class="style7"><?=$row[7] ?></span></td>
         <td><span class="style7">'<?=$row[8]?>'</span></td>

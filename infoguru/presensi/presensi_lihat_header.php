@@ -43,8 +43,8 @@ $bln = $_REQUEST['bln'];
 $thn = $_REQUEST['thn'];	
 
 if (isset($_REQUEST['tanggal'])) {
-	$bln = (int)substr($_REQUEST['tanggal'],3,2);
-	$thn = (int)substr($_REQUEST['tanggal'],6,4);	
+	$bln = (int)substr((string) $_REQUEST['tanggal'],3,2);
+	$thn = (int)substr((string) $_REQUEST['tanggal'],6,4);	
 }
 
 OpenDb();
@@ -182,7 +182,7 @@ function focusNext(elemName, evt) {
         if ($tingkat == "")
             $tingkat = $row['replid'];				
         ?>
-      <option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat) ?>>
+      <option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat) ?>>
         <?=$row['tingkat']?>
         </option>
       <?php
@@ -214,7 +214,7 @@ function focusNext(elemName, evt) {
 			if ($kelas =="") 
 				$kelas = $row['replid'];	
 		?>
-    	<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $kelas) ?>><?=$row['kelas']?></option>
+    	<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $kelas) ?>><?=$row['kelas']?></option>
              
     	<?php
 			} //while
@@ -234,7 +234,7 @@ function focusNext(elemName, evt) {
 			?>
 		<?php  //for($i=$th1-10;$i<=$th1;$i++){ ?>
           	<option value="<?=$i?>" <?=IntIsSelected($thn, $i)?>><?=$i?></option>	   
-       	<?php } ?>	
+<?php } ?>	
        	</select> 
  	</td> 
 </tr>
@@ -251,7 +251,7 @@ function focusNext(elemName, evt) {
 			if ($pelajaran == "") 				
 				$pelajaran = $row['replid'];	
 		?>
-       	<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $pelajaran)?> >
+       	<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $pelajaran)?> >
         <?=$row['nama']?>
         </option>
       <?php

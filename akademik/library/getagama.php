@@ -45,7 +45,7 @@ $agama_kiriman=$_REQUEST['agama'];
 	<!--
    
     -->
-	<?php
+<?php
     } 
 	CloseDb();
 	// Akhir Olah Data agama

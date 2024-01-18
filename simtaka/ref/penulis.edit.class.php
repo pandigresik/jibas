@@ -22,7 +22,7 @@
  **[N]**/ ?>
 <?php
 class CPenulisEdit{
-	var $kode, $nama, $replid, $keterangan;
+	public $kode, $nama, $replid, $keterangan;
 	function OnStart(){
 		if (isset($_REQUEST['simpan'])){
 			$sql = "SELECT kode FROM penulis WHERE kode='".CQ($_REQUEST['kode'])."' AND replid <> '".$_REQUEST['replid']."'";

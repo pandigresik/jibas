@@ -57,7 +57,7 @@ elseif ($op == "getlinknextlistpesan")
         $offsetListPesan = $_REQUEST['offsetListPesan'];
         
         OpenDb();
-        ShowLinkNextListPesan($minListPesanId, $offsetListPesan);
+        ShowLinkNextListPesan($minListPesanId);
         CloseDb();
         
         http_response_code(200);
@@ -76,7 +76,7 @@ elseif ($op == "getlinknextlistagenda")
         $offsetListAgenda = $_REQUEST['offsetListAgenda'];
         
         OpenDb();
-        ShowLinkNextListAgenda($maxListAgendaTs, $offsetListAgenda);
+        ShowLinkNextListAgenda($maxListAgendaTs);
         CloseDb();
         
         http_response_code(200);
@@ -91,9 +91,9 @@ elseif ($op == "showbirthdaylist")
 {
     try
     {
-        $yy = isset($_REQUEST['tahun']) ? $_REQUEST['tahun'] : date('Y');
-        $mm = isset($_REQUEST['bulan']) ? $_REQUEST['bulan'] : date('n');
-        $dd = isset($_REQUEST['tanggal']) ? $_REQUEST['tanggal'] : date('j');
+        $yy = $_REQUEST['tahun'] ?? date('Y');
+        $mm = $_REQUEST['bulan'] ?? date('n');
+        $dd = $_REQUEST['tanggal'] ?? date('j');
         
         OpenDb();
         ShowBirthdayList($dd, $mm, $yy);
@@ -114,7 +114,7 @@ elseif ($op == "changecbtanggal")
         $tahun = $_REQUEST['tahun'];
         $bulan = $_REQUEST['bulan'];
         
-        ShowCbTanggal($tahun, $bulan);
+        ShowCbTanggal();
         
         http_response_code(200);
     }

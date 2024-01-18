@@ -119,7 +119,7 @@ if ($kelompok <> -1) {
 
 <?=getHeader($departemen)?>
 
-<center><font size="4"><strong>LAPORAN TUNGGAKAN <?=strtoupper($namapenerimaan) ?><br />
+<center><font size="4"><strong>LAPORAN TUNGGAKAN <?=strtoupper((string) $namapenerimaan) ?><br />
 </strong></font><br /> </center><br />
 <table border="0">
 <tr>

@@ -63,7 +63,7 @@ while ($row = @mysqli_fetch_row($result))
 	<td align="center"><?=LongDateFormat($row[1])?></td>
 	<td align="left">
 	  <font style='font-size: 9px'><?=$row[0]?></font><br>
-	  <font style='font-size: 11px; font-weight: bold;'><?=GetMemberName($row[0], $row[2])?></font>
+	  <font style='font-size: 11px; font-weight: bold;'><?=GetMemberName($row[0])?></font>
 	  </td>
   </tr>
 <?php

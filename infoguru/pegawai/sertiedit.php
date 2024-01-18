@@ -104,7 +104,7 @@ function focusNext(elemName, evt)
 </tr>
 <tr>
 	<td width="100%" align="center">
-    
+
     <table border="0" cellpadding="0" cellspacing="5" width="100%">
     <tr>
     	<td width="22%" align="right"><strong>Sertifikat</strong> : </td>
@@ -138,7 +138,7 @@ function focusNext(elemName, evt)
         </td> 
     </tr>
     </table>
-    
+
     </td>
 </tr>
 </table>

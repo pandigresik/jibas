@@ -43,20 +43,20 @@ OpenDb();
 $i = 0;
 if ($iddasar!="12"){
 	if ($dasar == 'Golongan Darah') {
-		$row = array('','A','AB','B','O');
-		$judul = array(1=>'Tidak ada data','A','AB','B','O');	
+		$row = ['', 'A', 'AB', 'B', 'O'];
+		$judul = [1=>'Tidak ada data', 'A', 'AB', 'B', 'O'];	
 		$jum = count($row);	
 	} elseif ($dasar == 'Jenis Kelamin') {
-		$row = array('l','p');
-		$judul = array(1=>'Laki-laki','Perempuan');	
+		$row = ['l', 'p'];
+		$judul = [1=>'Laki-laki', 'Perempuan'];	
 		$jum = count($row);
 	} elseif ($dasar == 'Kewarganegaraan') {
-		$row = array('WNI','WNA');
-		$judul = array(1=>'WNI','WNA');	
+		$row = ['WNI', 'WNA'];
+		$judul = [1=>'WNI', 'WNA'];	
 		$jum = count($row);
 	} elseif ($dasar == 'Status Aktif') {
-		$row = array(1,0);
-		$judul = array(1 => 'Aktif','Tidak Aktif');
+		$row = [1, 0];
+		$judul = [1 => 'Aktif', 'Tidak Aktif'];
 		$jum = count($row);
 	} elseif ($dasar == 'Kondisi Siswa') {	
 		$query = "SELECT $tabel FROM jbsakad.kondisisiswa ORDER BY $tabel ";
@@ -79,7 +79,7 @@ if ($iddasar!="12"){
 		$judul = array(1 => '< Rp 1000000','Rp 1000000 - Rp 2500000','Rp 2500000 - Rp 5000000','> Rp 5000000');
 		$jum = count($judul);*/
 	} elseif ($dasar == 'Agama' || $dasar == 'Suku') {	
-		$str = strtolower($dasar);	
+		$str = strtolower((string) $dasar);	
 		$query = "SELECT $tabel FROM jbsumum.$tabel ORDER BY $str";
 		$result = QueryDb($query);
 		$jum = @mysqli_num_rows($result);	

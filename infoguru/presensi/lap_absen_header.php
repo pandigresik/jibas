@@ -307,7 +307,7 @@ function panggil(elem){
 			if ($tingkat == "")
 				$tingkat = $row['replid'];			
 			?>
-          <option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat) ?>><?=$row['tingkat']?>
+          <option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat) ?>><?=$row['tingkat']?>
             </option>
           <?php
 			} //while
@@ -338,7 +338,7 @@ function panggil(elem){
 				$ada = "(Aktif)";					
 			?>
             
-    		<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $tahunajaran)?> ><?=$row['tahunajaran'].' '.$ada?></option>
+    		<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $tahunajaran)?> ><?=$row['tahunajaran'].' '.$ada?></option>
                   
     		<?php
 			}
@@ -358,7 +358,7 @@ function panggil(elem){
 			if ($kelas == "")
 				$kelas = $row['replid'];				 
 			?>
-    		<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $kelas) ?>><?=$row['kelas']?></option>
+    		<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $kelas) ?>><?=$row['kelas']?></option>
              
     		<?php
 			} //while
@@ -382,7 +382,7 @@ function panggil(elem){
 				$ada = "(Aktif)";
 			?>
             
-    		<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $semester)?> ><?=$row['semester'].' '.$ada?></option>
+    		<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $semester)?> ><?=$row['semester'].' '.$ada?></option>
                  
     		<?php
 			}
@@ -425,7 +425,7 @@ function panggil(elem){
             <?php  for ($i = $tahun1; $i <= $tahun2; $i++) { ?>
             <?php  //for($i=$th1-10;$i<=$th1;$i++){ ?>
                 <option value="<?=$i?>" <?=IntIsSelected($th1, $i)?>><?=$i?></option>	   
-            <?php } ?>	
+<?php } ?>	
                 </select> 
                 s/d 
                 </td>
@@ -449,7 +449,7 @@ function panggil(elem){
             <?php  for ($i = $tahun1; $i <= $tahun2; $i++) { ?>
             <?php  //for($i=$th2-10;$i<=$th2;$i++){ ?>
                 <option value="<?=$i?>" <?=IntIsSelected($th2, $i)?>><?=$i?></option>	   
-            <?php } ?>	
+<?php } ?>	
                 </select>        
                 </td> 
        		</tr>

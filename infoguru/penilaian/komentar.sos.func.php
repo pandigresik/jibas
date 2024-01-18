@@ -74,7 +74,7 @@ function ShowUserInfo()
 
 function SafeText($text)
 {
-    $text = str_replace("'", "`", $text);
+    $text = str_replace("'", "`", (string) $text);
     return $text;
 }
 
@@ -85,8 +85,8 @@ function SimpanData()
 
     global $semester, $pelajaran, $kelas, $nis;
 
-    $arrjenis = array("SPI", "SOS");
-    $arrnmjenis = array("Spiritual", "Sosial");
+    $arrjenis = ["SPI", "SOS"];
+    $arrnmjenis = ["Spiritual", "Sosial"];
 
     $success = true;
     BeginTrans();
@@ -164,7 +164,7 @@ function GetListKomentar($idpelajaran, $idtingkat, $jenis)
         $replid = $row2[0];
         $komentar = $row2[1];
 
-        $komentar = strip_tags($komentar);
+        $komentar = strip_tags((string) $komentar);
         if (strlen($komentar) > 50)
             $komentar = substr($komentar, 0, 50) . " ..";
 

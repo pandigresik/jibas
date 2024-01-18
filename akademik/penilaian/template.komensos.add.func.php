@@ -37,7 +37,7 @@ function ReadParams()
     if (isset($_REQUEST['jenis']))
         $jenis = CQ($_REQUEST['jenis']);
 
-    $komentar = urldecode($komentar);
+    $komentar = urldecode((string) $komentar);
 }
 
 function SimpanData()

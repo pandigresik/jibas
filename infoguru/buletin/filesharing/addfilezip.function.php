@@ -38,7 +38,7 @@ $row = @mysqli_fetch_array($result);
 $dirfullpath = $row['dirfullpath'];
 CloseDb();
 
-$fullpath = str_replace($rootname, "", $dirfullpath);
+$fullpath = str_replace($rootname, "", (string) $dirfullpath);
 $cek = 0;
 $ERROR_MSG = "";
 
@@ -50,13 +50,13 @@ if (isset($_REQUEST['Simpan']))
 	$FileShareDir = "$FILESHARE_UPLOAD_DIR/fileshare/";
 	$FileShareDir = str_replace("//", "/", $FileShareDir);
 	
-	$destinationdir = str_replace($rootname, $FileShareDir, $dir);
+	$destinationdir = str_replace($rootname, $FileShareDir, (string) $dir);
 	$destinationdir = str_replace("//", "/", $destinationdir);
 	
 	$file = $_FILES["filezip"];
 	$uploadedfile = $file['tmp_name'];
 	$uploadedsizefile = (int)$file['size'];
-	$uploadedsizename = trim($file['name']);
+	$uploadedsizename = trim((string) $file['name']);
 	
 	$zip = zip_open($uploadedfile);
 	if (is_resource($zip))
@@ -73,7 +73,7 @@ if (isset($_REQUEST['Simpan']))
 			
             $folderpath = ""; $filename = "";
             GetFolderAndFileName($entry, $folderpath, $filename);
-            if (strlen($filename) == 0)
+            if (strlen((string) $filename) == 0)
                 continue;
         
             $folderid = GetIdFolder($folderpath, $success);
@@ -114,11 +114,11 @@ if (isset($_REQUEST['Simpan']))
 function GetFolderAndFileName($entry, &$folderpath, &$filename)
 {
     $lastpos = -1;
-    $pos = strpos($entry, "/");
+    $pos = strpos((string) $entry, "/");
     while($pos !== FALSE)
     {
        $lastpos = $pos;
-       $pos = strpos($entry, "/", $pos + 1);
+       $pos = strpos((string) $entry, "/", $pos + 1);
     }
     
     if ($lastpos == -1)
@@ -128,8 +128,8 @@ function GetFolderAndFileName($entry, &$folderpath, &$filename)
     }
     else
     {
-       $folderpath = trim(substr($entry, 0, $lastpos));
-       $filename = trim(substr($entry, $lastpos + 1));	
+       $folderpath = trim(substr((string) $entry, 0, $lastpos));
+       $filename = trim(substr((string) $entry, $lastpos + 1));	
     }
 }
 
@@ -190,13 +190,13 @@ function GetIdFolder($folderpath, &$success)
     
 	//echo "<br>=====================<br>FF: $folderpath<br>";
 	$startpos = 0;
-	$pos = strpos($folderpath, "/", $startpos);
+	$pos = strpos((string) $folderpath, "/", $startpos);
 	if ($pos !== FALSE)
 	{
 		$rootfolder = $dirfullpath;
 		while($pos !== FALSE)
 		{
-			$subfolder = substr($folderpath, $startpos, $pos - $startpos);
+			$subfolder = substr((string) $folderpath, $startpos, $pos - $startpos);
 			$lastid = SearchCreateIdFolder($rootfolder, $subfolder, $success);
 			//echo "lastid = $lastid<br>";
 			
@@ -206,10 +206,10 @@ function GetIdFolder($folderpath, &$success)
 			CheckCreateFolder($checkfolder);
 			
 			$startpos = $pos + 1;
-			$pos = strpos($folderpath, "/", $startpos);
+			$pos = strpos((string) $folderpath, "/", $startpos);
 		}
 		
-		$subfolder = trim(substr($folderpath, $startpos));
+		$subfolder = trim(substr((string) $folderpath, $startpos));
 		if (strlen($subfolder) > 0)
 		{
 			$lastid = SearchCreateIdFolder($rootfolder, $subfolder, $success);
@@ -269,7 +269,7 @@ function ExtractSaveFile($folderid, $targetfolder, $filename, $zip, $zip_entry, 
 
 function CheckCreateFolder($targetfolder)
 {
-   $targetfolder = str_replace("//", "/", $targetfolder);
+   $targetfolder = str_replace("//", "/", (string) $targetfolder);
    if (!file_exists($targetfolder))
       mkdir($targetfolder, 0750, true);
 	
@@ -287,18 +287,18 @@ function CheckCreateFolder($targetfolder)
 function SecurePhpExtension(&$filename)
 {
 	$lastpos = -1; $startpos = 0;
-	$pos = strpos($filename, ".", $startpos);
+	$pos = strpos((string) $filename, ".", $startpos);
 	while($pos !== FALSE)
 	{
 		$lastpos = $pos;
 		
 		$startpos = $pos + 1;
-		$pos = strpos($filename, ".", $startpos);
+		$pos = strpos((string) $filename, ".", $startpos);
 	}
 	
 	if ($lastpos != -1)
 	{
-		$ext = strtolower(trim(substr($filename, $lastpos)));
+		$ext = strtolower(trim(substr((string) $filename, $lastpos)));
 		if ($ext == ".php")
 			 $filename = $filename . ".txt";
 	}

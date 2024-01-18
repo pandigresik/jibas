@@ -20,7 +20,7 @@ elseif ($op == "showprevcomment")
     $idsurat = $_REQUEST['idsurat'];
     
     OpenDb();
-    ShowPrevComment($notesid);
+    ShowPrevComment();
     CloseDb();
 }
 elseif ($op == "shownewcomment")

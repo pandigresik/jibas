@@ -350,7 +350,7 @@ if ($tahun <> "" ) {
       	</select></td>
     </tr>
     </table>	
-	<?php 						
+<?php 						
 		} else {
 	?>
 	<table width="100%" border="0" align="center">          

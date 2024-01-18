@@ -146,7 +146,7 @@ function hapus(id){
     <td colspan="2">
     <textarea name="isi" id="isi" rows="30" cols="100">
 	<?php $isi = $row['isi'];
-       $isi = str_replace("#sq;", "'", $isi);
+       $isi = str_replace("#sq;", "'", (string) $isi);
 	   echo $isi;
 	?>
 	</textarea></td>

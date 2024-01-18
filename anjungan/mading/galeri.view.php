@@ -81,7 +81,7 @@ if ($nocount != 1)
     <table border='0' cellpadding='2' cellspacing='0' width='100%'>
     <tr>
         <td align='center' valign='top' width='14%'>
-            <img src='notes.list.gambar.php?r=<?= rand(1, 99999)?>&ownerid=<?=$ownerid?>&ownertype=<?=$ownertype?>' height='60'><br>
+            <img src='notes.list.gambar.php?r=<?= random_int(1, 99999)?>&ownerid=<?=$ownerid?>&ownertype=<?=$ownertype?>' height='60'><br>
             <strong><?=$ownername?></strong><br>
             <font class='GaleriViewAge'>
             <?= SecToAgeDate($row['secdiff'], $row['tglbuat']) ?>

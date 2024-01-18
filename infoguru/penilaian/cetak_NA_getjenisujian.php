@@ -51,10 +51,10 @@ $nip=$_REQUEST["nip"];
 				$result_jenisuji=QueryDb($sql_jenisuji);
 				$row_jenisuji=@mysqli_fetch_array($result_jenisuji);
 				?>
-    		    <option value="<?=urlencode($row_jenispengujian['replid'])?>" <?php //IntIsSelected($row['replid'], $kelas) ?>>
+    		    <option value="<?=urlencode((string) $row_jenispengujian['replid'])?>" <?php //IntIsSelected($row['replid'], $kelas) ?>>
    		        <?=$row_jenisuji['jenisujian']?>
    		        </option>
-				<?php
+<?php
 			  }
 				} else {
 			  echo "<option value='' > - - - </option>";

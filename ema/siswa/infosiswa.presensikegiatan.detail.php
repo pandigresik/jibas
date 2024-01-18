@@ -30,8 +30,8 @@ require_once('../lib/datearith.php');
 $nis = $_SESSION["infosiswa.nis"];
 
 $idkegiatan = $_REQUEST['idkegiatan'];
-$bulan = isset($_REQUEST['bulan']) ? $_REQUEST['bulan'] : date('n');
-$tahun = isset($_REQUEST['tahun']) ? $_REQUEST['tahun'] : date('Y');
+$bulan = $_REQUEST['bulan'] ?? date('n');
+$tahun = $_REQUEST['tahun'] ?? date('Y');
 $cnt = $_REQUEST['cnt'];
 
 OpenDb();
@@ -64,8 +64,8 @@ OpenDb();
     $res = QueryDb($sql);
     while($row = mysqli_fetch_array($res))
     {
-        $ti = trim($row["time_in"]);
-		$to = trim($row["time_out"]);
+        $ti = trim((string) $row["time_in"]);
+		$to = trim((string) $row["time_out"]);
 		$tomark = "";
         
         if ($row['time_out'] == "-")

@@ -23,12 +23,12 @@
 <?php
 class Debugger
 {
-    private $logFile = "";
+    private string $logFile = "";
     private $file;
 
     public function __construct()
     {
-        $this->logFile = realpath(dirname(__FILE__)) . "/../log/debugger.log";
+        $this->logFile = realpath(__DIR__) . "/../log/debugger.log";
 
         $this->file = fopen($this->logFile, "a");
         fwrite($this->file, "-------------------------------------------\r\n");

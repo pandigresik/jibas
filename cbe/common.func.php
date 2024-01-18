@@ -74,6 +74,6 @@ function sendConnectDbError($message)
 
 function nlToBr($string)
 {
-    return str_replace("\n",  "<br>", $string);
+    return str_replace("\n",  "<br>", (string) $string);
 }
 ?>

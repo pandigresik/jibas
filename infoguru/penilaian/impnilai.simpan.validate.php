@@ -21,10 +21,10 @@
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
 <?php
-$errmsg = array();
+$errmsg = [];
 
 // Validasi DEPARTEMEN -----------------------------
-$departemen = trim($_REQUEST['departemen']);
+$departemen = trim((string) $_REQUEST['departemen']);
 if (strlen($departemen) == 0)
 {
     $errmsg[] = "Departemen belum ditentukan!";
@@ -37,7 +37,7 @@ else
 }
 
 // Validasi Id Kelas -------------------------------
-$idkelas = trim($_REQUEST['idkelas']);
+$idkelas = trim((string) $_REQUEST['idkelas']);
 if (strlen($idkelas) == 0)
 {
     $errmsg[] = "Id Kelas belum ditentukan!";
@@ -50,7 +50,7 @@ else
 }
 
 // Validasi NIP ------------------------------------
-$nip = trim($_REQUEST['nip']);
+$nip = trim((string) $_REQUEST['nip']);
 if (strlen($nip) == 0)
 {
     $errmsg[] = "NIP Guru belum ditentukan!";
@@ -66,14 +66,14 @@ if ($nip != SI_USER_ID())
     $errmsg[] = "Hanya bisa mengimpor nilai dari guru dengan NIP " . SI_USER_ID() . "!";
 
 // Validasi Kode Ujian -------------------------------
-$kodeujian = trim($_REQUEST['kodeujian']);
+$kodeujian = trim((string) $_REQUEST['kodeujian']);
 if (strlen($kodeujian) == 0)
 {
     $errmsg[] = "Kode ujian belum ditentukan!";
 }
 
 // Validasi Tahun ------------------------------------
-$tahun = trim($_REQUEST['tahun']);
+$tahun = trim((string) $_REQUEST['tahun']);
 if (strlen($tahun) != 4)
 {
     $errmsg[] = "Tahun ujian belum ditentukan!";
@@ -85,7 +85,7 @@ else
 }
 
 // Validasi Bulan ------------------------------------
-$bulan = trim($_REQUEST['bulan']);
+$bulan = trim((string) $_REQUEST['bulan']);
 if (strlen($bulan) == 0 || strlen($bulan) > 2)
 {
     $errmsg[] = "Bulan ujian belum ditentukan!";
@@ -100,7 +100,7 @@ else
 }
 
 // Validasi Tanggal ----------------------------------
-$tanggal = trim($_REQUEST['tanggal']);
+$tanggal = trim((string) $_REQUEST['tanggal']);
 if (strlen($tanggal) == 0 || strlen($tanggal) > 2)
 {
     $errmsg[] = "Tanggal ujian belum ditentukan!";
@@ -115,14 +115,14 @@ else
         $errmsg[] = "Tanggal ujian harus antara 1 dan $nday!";
 }
 
-$nData = trim($_REQUEST['nnilai']);
+$nData = trim((string) $_REQUEST['nnilai']);
 if ($nData == 0)
     $errmsg[] = "Data nilai ujian siswa tidak ditemukan!";
 
 for($i = 1; $i <= $nData; $i++)
 {
     $param = "nis$i";
-    $nis = trim($_REQUEST[$param]);
+    $nis = trim((string) $_REQUEST[$param]);
     if (strlen($nis) == 0) {
         $errmsg[] = "NIS Siswa baris ke-$i belum ditentukan";
     }
@@ -143,7 +143,7 @@ for($i = 1; $i <= $nData; $i++)
     }
 
     $param = "nilai$i";
-    $nilai = trim($_REQUEST[$param]);
+    $nilai = trim((string) $_REQUEST[$param]);
     if (strlen($nilai) == 0)
         $errmsg[] = "Nilai siswa baris ke-$i belum ditentukan";
 

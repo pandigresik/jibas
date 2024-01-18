@@ -37,7 +37,7 @@ $bulan = "";
 if (isset($_REQUEST['bulan']))
 	$bulan = $_REQUEST['bulan'];
 	
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+$namabulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember"];
 
 OpenDb();
 
@@ -130,7 +130,7 @@ if ($op == "09vn4230984cn2048723n98423")
 <?php 	while ($row = @mysqli_fetch_array($result))
 		{
 			$bln = $row['bulan'];
-			$bln = strlen($bln) == 1 ? "0$bln" : $bln;
+			$bln = strlen((string) $bln) == 1 ? "0$bln" : $bln;
 			$thn = $row['tahun'];
 			$fn = $row['info1'];
 			

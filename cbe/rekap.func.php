@@ -38,7 +38,7 @@ require_once("common.func.php");
 
 function showSelectBulan()
 {
-    $arrBulan = array("Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember");
+    $arrBulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember"];
 
     $select = "<select id='rekap_cbBulan' class='inputbox' style='width: 120px' onchange='rekap_getPelajaran()'>";
     for($i = 0; $i < count($arrBulan); $i++)
@@ -102,7 +102,7 @@ function getPelajaran($bulan, $tahun, $jenisUjian)
         if ((int) $protocol->Status < 0)
             return sendCbeServerError($protocol->Data); // CBE Server Application send Error
 
-        $jsonPelajaran = trim($protocol->Data);
+        $jsonPelajaran = trim((string) $protocol->Data);
 
         $select = createSelectPelajaran($jsonPelajaran);
 
@@ -116,7 +116,7 @@ function getPelajaran($bulan, $tahun, $jenisUjian)
 
 function createSelectPelajaran($jsonPelajaran)
 {
-    $info = json_decode($jsonPelajaran);
+    $info = json_decode((string) $jsonPelajaran, null, 512, JSON_THROW_ON_ERROR);
 
     $select = "<select id='rekap_cbPelajaran' class='inputbox' style='width: 220px' onchange='rekap_changeCbPelajaran()'>";
     foreach($info as $key => $value)
@@ -154,7 +154,7 @@ function getRekapUjian($bulan, $tahun, $jenisUjian, $idPelajaran)
         if ((int) $protocol->Status < 0)
             return sendCbeServerError($protocol->Data); // CBE Server Application send Error
 
-        $jsonRekap = trim($protocol->Data);
+        $jsonRekap = trim((string) $protocol->Data);
 
         $table = createTableRekap($jsonRekap);
 
@@ -168,7 +168,7 @@ function getRekapUjian($bulan, $tahun, $jenisUjian, $idPelajaran)
 
 function createTableRekap($jsonRekap)
 {
-    $data = json_decode($jsonRekap);
+    $data = json_decode((string) $jsonRekap, null, 512, JSON_THROW_ON_ERROR);
 
     $table  = "<table border='1' cellpadding='2' cellspacing='0' style='border-color: #144da4; border-collapse: collapse'>";
     $table .= "<tr style='height: 30px'>";

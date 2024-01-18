@@ -63,7 +63,7 @@ if (mysqli_num_rows($res) == 0)
     exit();
 }
 
-$lsTanggal = array();
+$lsTanggal = [];
 while($row = mysqli_fetch_row($res))
 {
     $lsTanggal[] = $row[0];

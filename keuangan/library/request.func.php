@@ -1,7 +1,7 @@
 <?php
 function SafeValue($value)
 {
-    $value = str_replace("<", "&lt;", $value);
+    $value = str_replace("<", "&lt;", (string) $value);
     $value = str_replace(">", "&gt;", $value);
     $value = str_replace("'", "`", $value);
     return $value;
@@ -9,7 +9,7 @@ function SafeValue($value)
 
 function SafeValueHtml($value)
 {
-    $value = str_replace("<", "&lt;", $value);
+    $value = str_replace("<", "&lt;", (string) $value);
     $value = str_replace(">", "&gt;", $value);
     $value = str_replace("'", "`", $value);
     return $value;
@@ -17,7 +17,7 @@ function SafeValueHtml($value)
 
 function SafeValueSingleQuote($value)
 {
-    $value = str_replace("'", "`", $value);
+    $value = str_replace("'", "`", (string) $value);
     return $value;
 }
 

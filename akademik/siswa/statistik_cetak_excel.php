@@ -39,10 +39,10 @@ $departemen=$_REQUEST['departemen'];
 $dasar = $_REQUEST['dasar'];
 $judul = $_REQUEST['judul'];
 
-$str_search = array("'","+", "`");
-$str_replace = array("\'", "x123x", "'");
+$str_search = ["'", "+", "`"];
+$str_replace = ["\'", "x123x", "'"];
 
-$query1 = str_replace($str_search, $str_replace, $_REQUEST['sql']);
+$query1 = str_replace($str_search, $str_replace, (string) $_REQUEST['sql']);
 $result1 = QueryDb($query1);
 ?>
 

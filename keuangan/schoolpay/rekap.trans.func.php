@@ -151,7 +151,7 @@ function ShowRekapTransReport($showMenu)
              ORDER BY vu.tingkat, u.nama";
     $res = QueryDb($sql);
 
-    $lsUser = array();
+    $lsUser = [];
     while($row = mysqli_fetch_row($res))
     {
         $userId = $row[0];
@@ -159,7 +159,7 @@ function ShowRekapTransReport($showMenu)
         $nama = $row[2];
         if ($tingkat == 1) $nama .= " (M)";
 
-        $lsUser[] = array($userId, $nama, 0);
+        $lsUser[] = [$userId, $nama, 0];
     }
 
     if (count($lsUser) == 0)
@@ -175,10 +175,10 @@ function ShowRekapTransReport($showMenu)
              ORDER BY tanggal DESC";
     $res = QueryDb($sql);
 
-    $lsTanggal = array();
+    $lsTanggal = [];
     while($row = mysqli_fetch_row($res))
     {
-        $lsTanggal[] = array($row[0], $row[1]);
+        $lsTanggal[] = [$row[0], $row[1]];
     }
 
     if (count($lsTanggal) == 0)

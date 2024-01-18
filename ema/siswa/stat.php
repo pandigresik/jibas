@@ -27,7 +27,7 @@ require_once('../inc/getheader.php');
 require_once('../inc/common.php');
 require_once('../inc/db_functions.php');
 
-$krit = array('','Agama','Asal Sekolah','Golongan Darah','Jenis Kelamin','Kewarganegaraan','Kode Pos Siswa','Kondisi Siswa','Pekerjaan Ayah','Pekerjaan Ibu','Pendidikan Ayah','Pendidikan Ibu','Penghasilan Orang Tua','Status Aktif','Status Siswa','Suku','Tahun Kelahiran','Usia');
+$krit = ['', 'Agama', 'Asal Sekolah', 'Golongan Darah', 'Jenis Kelamin', 'Kewarganegaraan', 'Kode Pos Siswa', 'Kondisi Siswa', 'Pekerjaan Ayah', 'Pekerjaan Ibu', 'Pendidikan Ayah', 'Pendidikan Ibu', 'Penghasilan Orang Tua', 'Status Aktif', 'Status Siswa', 'Suku', 'Tahun Kelahiran', 'Usia'];
 $departemen = '-1';
 if (isset($_REQUEST['departemen']))
 	$departemen = $_REQUEST['departemen'];
@@ -105,8 +105,8 @@ function cetak(){
 						//$departemen = "-1";
 						//$departemen = $row['departemen'];
 			?>
-            	<option value="<?=urlencode($row['departemen'])?>" <?=StringIsSelected($row['departemen'], $departemen) ?>><?=$row['departemen']?></option>
-            <?php
+            	<option value="<?=urlencode((string) $row['departemen'])?>" <?=StringIsSelected($row['departemen'], $departemen) ?>><?=$row['departemen']?></option>
+<?php
 				} //while
 			?>
   		  </select></td>
@@ -121,8 +121,8 @@ function cetak(){
 					//if ($angkatan=="")
 						//$angkatan = $row['replid'];
 			?>
-        	<option value="<?=urlencode($row['replid'])?>" <?=StringIsSelected($row['replid'], $angkatan) ?>><?=$row['angkatan']?></option>
-        	<?php
+        	<option value="<?=urlencode((string) $row['replid'])?>" <?=StringIsSelected($row['replid'], $angkatan) ?>><?=$row['angkatan']?></option>
+<?php
   				} //while
 				CloseDb();
 			}

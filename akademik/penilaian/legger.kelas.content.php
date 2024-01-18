@@ -38,16 +38,16 @@ $pelajaran = $_REQUEST['pelajaran'];
 
 OpenDb();
 
-$arrSiswa = array();
+$arrSiswa = [];
 $nisStr = "";
 GetDataSiswa();
 
-$arrPel = array();
+$arrPel = [];
 $idPelStr = "";
 GetDataPelajaran();
 
-$arrAspekPel = array();
-$arrAspek = array();
+$arrAspekPel = [];
+$arrAspek = [];
 GetAspekPelajaran();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

@@ -76,7 +76,7 @@ function ShowDefaultMenu()
 
 function CheckLogin($login, $password)
 {
-    $login = str_replace("'", "\'", $login);
+    $login = str_replace("'", "\'", (string) $login);
     $login = str_replace("--", " ", $login);
     $loginValue = "'$login'";
 
@@ -95,9 +95,9 @@ function CheckLogin($login, $password)
         if ($aktif == 0)
             return GenericReturn::createJson(-1, "Status pengguna tidak aktif", "");
 
-        if (md5($password) != $passmd5)
+        if (md5((string) $password) != $passmd5)
         {
-            $info = md5($password) . " vs " . $passmd5;
+            $info = md5((string) $password) . " vs " . $passmd5;
             return GenericReturn::createJson(-1, $info, "");
         }
 
@@ -175,7 +175,7 @@ function ShowUserPict()
         }
         else
         {
-            $imgSrc = "data:image/png;base64," . base64_encode($row[1]);
+            $imgSrc = "data:image/png;base64," . base64_encode((string) $row[1]);
             echo "<img src='$imgSrc'>";
         }
     }

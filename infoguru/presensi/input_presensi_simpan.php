@@ -34,7 +34,7 @@ $bln = $_REQUEST['bln'];
 $th = $_REQUEST['th'];
 $tgl2 = $_REQUEST['tgl2'];
 $jum=$_REQUEST['jum'];
-$status = array("hadir","ijin","sakit","cuti","alpa");
+$status = ["hadir", "ijin", "sakit", "cuti", "alpa"];
 
 $tglawal = "$th-$bln-$tgl1";
 $tglakhir = "$th-$bln-$tgl2";
@@ -68,7 +68,7 @@ if (mysqli_num_rows($result_cek) > 0) {*/
 	if ($sum > 0) {
 	?>
 		<script language="javascript">
-			alert ('Ada presensi antara tanggal <?=LongDateFormat($row[tanggal1])." s/d ".LongDateFormat($row[tanggal2])?>!');		
+			alert ('Ada presensi antara tanggal <?=LongDateFormat($row[\TANGGAL1])." s/d ".LongDateFormat($row[\TANGGAL2])?>!');		
 			parent.isi.location.href = "blank_presensi.php?tipe='harian'";
 			//window.self.history.back();
 			//window.history.back();
@@ -113,7 +113,7 @@ if ($success) {
 	if ($sum > 0) {
 	?>
 		<script language="javascript">
-			alert ('Ada presensi antara tanggal <?=LongDateFormat($row[tanggal1])." s/d ".LongDateFormat($row[tanggal2])?>!');		
+			alert ('Ada presensi antara tanggal <?=LongDateFormat($row[\TANGGAL1])." s/d ".LongDateFormat($row[\TANGGAL2])?>!');		
 			parent.isi.location.href = "blank_presensi.php?tipe='harian'";
 			//window.self.history.back();
 			//window.history.back();

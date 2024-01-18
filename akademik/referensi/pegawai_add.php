@@ -81,8 +81,8 @@ if (isset($_REQUEST['telpon']))
 $handphone = "";
 if (isset($_REQUEST['handphone']))
 	$handphone = $_REQUEST['handphone'];
-	$handphone=trim($_REQUEST['handphone']);
-    $handphone=str_replace(' ','',CQ($handphone));
+	$handphone=trim((string) $_REQUEST['handphone']);
+    $handphone=str_replace(' ','',(string) CQ($handphone));
 $email = "";
 if (isset($_REQUEST['email']))
 	$email = CQ($_REQUEST['email']);
@@ -102,7 +102,7 @@ if (isset($_REQUEST['simpan']))
 	$uploadedtypefile = $foto['type'];
 	$uploadedsizefile = $foto['size'];
 	
-	if (strlen($uploadedfile) != 0)
+	if (strlen((string) $uploadedfile) != 0)
 	{
 		$tmp_path = realpath(".") . "/../../temp";
 		$tmp_exists = file_exists($tmp_path) && is_dir($tmp_path);
@@ -135,7 +135,7 @@ if (isset($_REQUEST['simpan']))
 	} 
 	else 
 	{
-		$nama = str_replace("'", "`", $nama);
+		$nama = str_replace("'", "`", (string) $nama);
 		$query = "INSERT INTO jbssdm.pegawai SET nip='$nip', nama='$nama', gelarawal='$gelarawal', gelarakhir='$gelarakhir', panggilan='$panggilan', 
 				  tmplahir='$tempatlahir', tgllahir='$lahir', agama='$agama', suku='$suku',nikah='$menikah', noid='$identitas',
 				  alamat='$alamat',telpon='$telpon',handphone='$handphone',email='$email', bagian='$bagian', keterangan='$keterangan', 
@@ -627,7 +627,7 @@ function cek() {
 				//	$suku = $row_suku['suku'] ;  
 			?>
               	<option value="<?=$row_suku['suku']?>"<?=StringIsSelected($row_suku['suku'],$suku)?>><?=$row_suku['suku']?></option>
-        	<?php
+<?php
     		} 
 			// Akhir Olah Data suku
 			?>

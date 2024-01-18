@@ -49,8 +49,8 @@ $calon = "";
 if (isset($_REQUEST['calon']))
 	$calon = $_REQUEST['calon'];
 	
-$tgl1 = explode(' ',$tanggal1);
-$tgl2 = explode(' ',$tanggal2);
+$tgl1 = explode(' ',(string) $tanggal1);
+$tgl2 = explode(' ',(string) $tanggal2);
 
 if ($calon == "calon")
 { 
@@ -69,11 +69,11 @@ header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>JIBAS KEU [Laporan Audit Perubahan Data Iuran Wajib <?=judul?>Siswa]</title>
+<title>JIBAS KEU [Laporan Audit Perubahan Data Iuran Wajib <?=\JUDUL?>Siswa]</title>
 </head>
 
 <body>
-<center><font size="4" face="Verdana"><strong>LAPORAN AUDIT PERUBAHAN DATA IURAN WAJIB <?=strtoupper($judul)?>SISWA</strong></font><br /> 
+<center><font size="4" face="Verdana"><strong>LAPORAN AUDIT PERUBAHAN DATA IURAN WAJIB <?=strtoupper((string) $judul)?>SISWA</strong></font><br /> 
 </center>
 <br /><br />
 

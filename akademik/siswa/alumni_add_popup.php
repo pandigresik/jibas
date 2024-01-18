@@ -34,7 +34,7 @@ OpenDb();
 $flag=0;
 if(isset($_REQUEST["simpan"])){
 	$tanggal=$_REQUEST["tanggal"];
-	$info = explode("-", $tanggal);
+	$info = explode("-", (string) $tanggal);
 	$tgl = $info[2] . "-" . $info[1] . "-" . $info[0];
 	OpenDb();
 	BeginTrans();

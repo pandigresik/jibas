@@ -196,7 +196,7 @@ function tampil2(tanggal,bulan,tahun) {
 Bulan :
 <input type="button" class="but" onclick="GoToLastMonth()" value="  <  ">
 <select id="bulan" name="bulan" onchange="ChangeCal()">
-<?php $namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+<?php $namabulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember"];
    for ($i = 1; $i <= 12; $i++) { ?>
 	<option value="<?=$i?>" <?=IntIsSelected($i, $bulan)?>><?=$namabulan[$i - 1]?></option>
 <?php } ?>

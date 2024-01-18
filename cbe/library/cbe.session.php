@@ -39,12 +39,12 @@ class CbeSession
 
     public function toJson()
     {
-        return json_encode($this);
+        return json_encode($this, JSON_THROW_ON_ERROR);
     }
 
     public static function fromJson($json)
     {
-        return json_decode($json);
+        return json_decode((string) $json, null, 512, JSON_THROW_ON_ERROR);
     }
 }
 ?>

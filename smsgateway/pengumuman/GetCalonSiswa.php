@@ -147,10 +147,10 @@ OpenDb();
 		$cnt = 1;
 		while ($row = @mysqli_fetch_array($res))
 		{
-			$hp = trim($row['hpsiswa']);
+			$hp = trim((string) $row['hpsiswa']);
 			if (strlen($hp) < 7)
 				continue;
-			if (substr($hp, 0, 1) == "#")
+			if (str_starts_with($hp, "#"))
 				continue;  ?>
             <tr>
                 <td align="center" class="td"><?=$cnt?></td>

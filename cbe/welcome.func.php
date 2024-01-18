@@ -52,33 +52,20 @@ function getCurrentMonthYear()
     $bulan = date('n');
     $tahun = date('Y');
 
-    switch($bulan)
-    {
-        case 1:
-            return "Januari $tahun";
-        case 2:
-            return "Februai $tahun";
-        case 3:
-            return "Maret $tahun";
-        case 4:
-            return "April $tahun";
-        case 5:
-            return "Mei $tahun";
-        case 6:
-            return "Juni $tahun";
-        case 7:
-            return "Juli $tahun";
-        case 8:
-            return "Agustus $tahun";
-        case 9:
-            return "September $tahun";
-        case 10:
-            return "Oktober $tahun";
-        case 11:
-            return "Nopember $tahun";
-        default:
-            return "Desember $tahun";
-    }
+    return match ($bulan) {
+        1 => "Januari $tahun",
+        2 => "Februai $tahun",
+        3 => "Maret $tahun",
+        4 => "April $tahun",
+        5 => "Mei $tahun",
+        6 => "Juni $tahun",
+        7 => "Juli $tahun",
+        8 => "Agustus $tahun",
+        9 => "September $tahun",
+        10 => "Oktober $tahun",
+        11 => "Nopember $tahun",
+        default => "Desember $tahun",
+    };
 }
 
 function getLastUjian($page)

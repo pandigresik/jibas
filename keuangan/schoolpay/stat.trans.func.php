@@ -154,10 +154,10 @@ function ShowStatTransReport($showMenu)
 
     $res = QueryDb($sql);
 
-    $lsTanggal = array();
+    $lsTanggal = [];
     while($row = mysqli_fetch_row($res))
     {
-        $lsTanggal[] = array($row[0], $row[1]);
+        $lsTanggal[] = [$row[0], $row[1]];
     }
 
     if (count($lsTanggal) == 0)
@@ -192,7 +192,7 @@ function ShowStatTransReport($showMenu)
     $sb->AppendLine("</tr>");
 
 
-    $arrSub = array(0, 0, 0, 0, 0, 0);
+    $arrSub = [0, 0, 0, 0, 0, 0];
 
     $no = 0;
     for($i = 0; $i < count($lsTanggal); $i++)

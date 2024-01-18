@@ -24,7 +24,7 @@
 require_once("beranda.session.php");
 require_once("beranda.security.php");
 
-$content = urldecode($_REQUEST['content']);
+$content = urldecode((string) $_REQUEST['content']);
 file_put_contents('beranda.content.php', $content);
 
 // Force Logout

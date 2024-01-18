@@ -92,7 +92,7 @@ function RefreshPage(idanchor) {
 function getIdDel($idroot) {
 	global $iddel;
 	
-	if (strlen($iddel) > 0) 
+	if (strlen((string) $iddel) > 0) 
 		$iddel = $iddel . ",";
 	$iddel = $iddel . $idroot;	
 	

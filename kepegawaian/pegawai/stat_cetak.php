@@ -85,12 +85,12 @@ switch ($stat)
 		$result = QueryDb($sql);
 		while($row = mysqli_fetch_row($result))
 		{
-			$data[] = array($row[1], $row[2]);
+			$data[] = [$row[1], $row[2]];
 			$legend_x[] = $row[0];
 		}
 		CloseDb();
 		
-		$legend_y = array("Sudah", "Belum");
+		$legend_y = ["Sudah", "Belum"];
 		$title = "<font face='Arial' size='-1' color='black'>Jumlah Pegawai Berdasarkan Diklat</font>"; // title for the diagram
 		
 		$graph = new CAsBarDiagram;
@@ -113,12 +113,12 @@ switch ($stat)
 		$result = QueryDb($sql);
 		while($row = mysqli_fetch_row($result))
 		{
-			$data[] = array($row[1], $row[2]);
+			$data[] = [$row[1], $row[2]];
 			$legend_x[] = $row[0];
 		}
 		CloseDb();
 		
-		$legend_y = array("Pria", "Wanita");
+		$legend_y = ["Pria", "Wanita"];
 		
 		$title = "<font face='Arial' size='-1' color='black'>Jumlah Pegawai Berdasarkan Jenis Kelamin</font>"; // title for the diagram
 		
@@ -143,12 +143,12 @@ switch ($stat)
 		$result = QueryDb($sql);
 		while($row = mysqli_fetch_row($result))
 		{
-			$data[] = array($row[1], $row[2]);
+			$data[] = [$row[1], $row[2]];
 			$legend_x[] = $row[0];
 		}
 		CloseDb();
 		
-		$legend_y = array("Nikah", "Belum");
+		$legend_y = ["Nikah", "Belum"];
 		
 		$title = "<font face='Arial' size='-1' color='black'>Jumlah Pegawai Berdasarkan Status Pernikahan</font>"; 
 		

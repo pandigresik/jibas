@@ -516,12 +516,12 @@ table.MsoTableGrid
 		OpenDb();
 		$result = QueryDb($sql);
 		while($row = mysqli_fetch_row($result)) {
-			$data[] = array($row[1], $row[2]);
+			$data[] = [$row[1], $row[2]];
 			$legend_x[] = $row[0];
 		}
 		CloseDb();
 		
-		$legend_y = array("Pria", "Wanita");
+		$legend_y = ["Pria", "Wanita"];
 		
 		$title = "<font face='Arial' size='-1' color='black'>Jumlah Pegawai Berdasarkan Jenis Kelamin</font>"; // title for the diagram
 		
@@ -543,12 +543,12 @@ table.MsoTableGrid
 		OpenDb();
 		$result = QueryDb($sql);
 		while($row = mysqli_fetch_row($result)) {
-			$data[] = array($row[1], $row[2]);
+			$data[] = [$row[1], $row[2]];
 			$legend_x[] = $row[0];
 		}
 		CloseDb();
 		
-		$legend_y = array("Nikah", "Belum");
+		$legend_y = ["Nikah", "Belum"];
 		
 		$title = "<font face='Arial' size='-1' color='black'>Jumlah Pegawai Berdasarkan Status Pernikahan</font>"; 
 		
@@ -569,12 +569,12 @@ table.MsoTableGrid
 		OpenDb();
 		$result = QueryDb($sql);
 		while($row = mysqli_fetch_row($result)) {
-			$data[] = array($row[1], $row[2]);
+			$data[] = [$row[1], $row[2]];
 			$legend_x[] = $row[0];
 		}
 		CloseDb();
 		
-		$legend_y = array("Sudah", "Belum");
+		$legend_y = ["Sudah", "Belum"];
 		
 		$title = "<font face='Arial' size='-1' color='black'>Jumlah Pejabat Struktural Berdasarkan Diklat</font>"; // title for the diagram
 		
@@ -903,7 +903,7 @@ while ($row = mysqli_fetch_array($result))
 	$data[$s][$g] = $row['cnt'];
 }
 
-$usia = array("<24", "24-29", "30-34", "35-39", "40-44", "45-49", "50-55", ">56");
+$usia = ["<24", "24-29", "30-34", "35-39", "40-44", "45-49", "50-55", ">56"];
 
 $sql = "SELECT satker FROM satker";
 $result = QueryDb($sql);
@@ -997,11 +997,11 @@ function traversediklat($idxgroup, $rootid) {
 	$result = QueryDb($sql);
 	if (mysqli_num_rows($result) > 0) {
 		while($row = mysqli_fetch_row($result)) {
-			if (strlen($iddiklat[$idxgroup]) > 0)
+			if (strlen((string) $iddiklat[$idxgroup]) > 0)
 				$iddiklat[$idxgroup] = $iddiklat[$idxgroup] . ",";
 			$iddiklat[$idxgroup] = $iddiklat[$idxgroup] . $row[0];
 			
-			if (strlen($namadiklat[$idxgroup]) > 0)
+			if (strlen((string) $namadiklat[$idxgroup]) > 0)
 				$namadiklat[$idxgroup] = "/ " . $namadiklat[$idxgroup];
 			$namadiklat[$idxgroup] = $row[1] . $namadiklat[$idxgroup];
 		
@@ -1023,11 +1023,11 @@ function traversediklatf($idxgroup, $rootid) {
 	$result = QueryDb($sql);
 	if (mysqli_num_rows($result) > 0) {
 		while($row = mysqli_fetch_row($result)) {
-			if (strlen($iddiklatf[$idxgroup]) > 0)
+			if (strlen((string) $iddiklatf[$idxgroup]) > 0)
 				$iddiklatf[$idxgroup] = $iddiklatf[$idxgroup] . ",";
 			$iddiklatf[$idxgroup] = $iddiklatf[$idxgroup] . $row[0];
 			
-			if (strlen($namadiklatf[$idxgroup]) > 0)
+			if (strlen((string) $namadiklatf[$idxgroup]) > 0)
 				$namadiklatf[$idxgroup] = "/ " . $namadiklatf[$idxgroup];
 			$namadiklatf[$idxgroup] = $row[1] . $namadiklatf[$idxgroup];
 		

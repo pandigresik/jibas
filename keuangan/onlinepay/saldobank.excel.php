@@ -64,11 +64,11 @@ if ($departemen != "ALL")
     $sql .= " AND bs.departemen = '".$departemen."'";
 $sql .= " ORDER BY b.bank";
 
-$lsBank = array();
+$lsBank = [];
 $res = QueryDb($sql);
 while($row = mysqli_fetch_row($res))
 {
-    $lsBank[] = array($row[0], $row[1]);
+    $lsBank[] = [$row[0], $row[1]];
 }
 
 $no = 0;

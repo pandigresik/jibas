@@ -36,14 +36,14 @@ if (isset($_REQUEST['btSimpan']))
 {
 	$eselon = $_REQUEST['cbEselon'];
 	$jabatan = $_REQUEST['txJabatan'];
-	$singkatan = strtoupper($_REQUEST['txSingkatan']);
+	$singkatan = strtoupper((string) $_REQUEST['txSingkatan']);
 	$satker = $_REQUEST['cbSatKer'];
 	if ($eselon != "Eselon I")
 		$sql = "UPDATE jabatan SET jabatan='$jabatan', singkatan='$singkatan', satker='$satker', eselon='$eselon' WHERE replid = $id";
 	else
 		$sql = "UPDATE jabatan SET jabatan='$jabatan', singkatan='$singkatan', satker=NULL, eselon='$eselon' WHERE replid = $id";
 	QueryDb($sql);
-	CloseDb($sql);
+	CloseDb();
 	?>
 	<script language="javascript">
 		opener.RefreshPage(<?=$id?>);

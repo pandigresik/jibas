@@ -24,7 +24,7 @@
 require_once("../include/config.php");
 require_once("../include/db_functions.php");
 
-$dept = isset($_REQUEST['dept']) ? $_REQUEST['dept'] : "";
+$dept = $_REQUEST['dept'] ?? "";
 $kalender = isset($_REQUEST['kalender']) ? (int)$_REQUEST['kalender'] : 0;
 
 OpenDb();

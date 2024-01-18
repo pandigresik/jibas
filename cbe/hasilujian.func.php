@@ -102,7 +102,7 @@ function getSoalPenjelasan($idSoal, $viewExp)
             $jenis = (int) $row[0];
             if ($jenis == 1)
             {
-                $jawaban = base64_encode($row[2]);
+                $jawaban = base64_encode((string) $row[2]);
                 $jenisJawaban = 2;
                 break;
             }

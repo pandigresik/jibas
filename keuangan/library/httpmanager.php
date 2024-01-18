@@ -3,15 +3,12 @@ require_once ("httprequest.php");
 
 class HttpManager
 {
-    private $timeout = 10000;
+    private int $timeout = 10000;
 
     private $data;
 
-    private $address;
-
-    function __construct($address)
+    function __construct(private $address)
     {
-        $this->address = $address;
     }
 
     function setTimeout($ms)

@@ -584,7 +584,7 @@ if (isset($_REQUEST['showpembayaran']))
    
     <?php  //} ?>        </td>
     </tr>
-    <?php
+<?php
     }
     CloseDb();
     ?>

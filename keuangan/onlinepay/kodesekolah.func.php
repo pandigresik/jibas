@@ -31,8 +31,8 @@ function GetPgAddr()
         if ($PG_ADDR != "")
             return "[1,\"$PG_ADDR\"]";
 
-        $schoolId = strtoupper($_REQUEST["schoolid"]);
-        $dbId = strtoupper($_REQUEST["dbid"]);
+        $schoolId = strtoupper((string) $_REQUEST["schoolid"]);
+        $dbId = strtoupper((string) $_REQUEST["dbid"]);
 
         $pgMainServiceAddr = "$PGMAIN_ADDR/jbsfina/getpgaddr.php";
 
@@ -47,7 +47,7 @@ function GetPgAddr()
         }
 
         $jsonInfo = $sendGr->Data;
-        $info = json_decode($jsonInfo);
+        $info = json_decode((string) $jsonInfo, null, 512, JSON_THROW_ON_ERROR);
         $valid = $info[0];
         $message = $info[1];
         $pgAddr = $info[2];
@@ -78,11 +78,11 @@ function GetServiceFee()
 {
     try
     {
-        $schoolId = strtoupper($_REQUEST["schoolid"]);
-        $dbId = strtoupper($_REQUEST["dbid"]);
+        $schoolId = strtoupper((string) $_REQUEST["schoolid"]);
+        $dbId = strtoupper((string) $_REQUEST["dbid"]);
 
         $jsonResult = GetPgAddr();
-        $lsResult = json_decode($jsonResult);
+        $lsResult = json_decode((string) $jsonResult, null, 512, JSON_THROW_ON_ERROR);
         if ($lsResult[0] != 1)
         {
             $message = $lsResult[1];
@@ -105,7 +105,7 @@ function GetServiceFee()
         }
 
         $jsonInfo = $sendGr->Data;
-        $info = json_decode($jsonInfo);
+        $info = json_decode((string) $jsonInfo, null, 512, JSON_THROW_ON_ERROR);
         $valid = $info[0];
         $message = $info[1];
         $serviceFee = $info[2];
@@ -143,7 +143,7 @@ function CheckSchoolId()
     try
     {
         $jsonResult = GetPgAddr();
-        $lsResult = json_decode($jsonResult);
+        $lsResult = json_decode((string) $jsonResult, null, 512, JSON_THROW_ON_ERROR);
         if ($lsResult[0] != 1)
         {
             $message = $lsResult[1];
@@ -151,8 +151,8 @@ function CheckSchoolId()
             return;
         }
 
-        $schoolId = strtoupper($_REQUEST["schoolid"]);
-        $dbId = strtoupper($_REQUEST["dbid"]);
+        $schoolId = strtoupper((string) $_REQUEST["schoolid"]);
+        $dbId = strtoupper((string) $_REQUEST["dbid"]);
 
         $pgAddr = $lsResult[1];
         $pgServiceAddr = "$pgAddr/jbsfina/cscid.php";
@@ -168,7 +168,7 @@ function CheckSchoolId()
         }
 
         $jsonInfo = $sendGr->Data;
-        $info = json_decode($jsonInfo);
+        $info = json_decode((string) $jsonInfo, null, 512, JSON_THROW_ON_ERROR);
 
         $valid = $info[0];
         $message = $info[1];

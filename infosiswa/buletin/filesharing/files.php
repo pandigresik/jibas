@@ -105,7 +105,7 @@ $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $idguru = $row[1];
 $dfullpath = $row[0];
-$fullpath = str_replace($rootname, "", $dfullpath);
+$fullpath = str_replace($rootname, "", (string) $dfullpath);
 ?>
 <font size="3" color="#000033">f i l e s</font>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">

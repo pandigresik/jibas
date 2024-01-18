@@ -30,7 +30,7 @@ $type = $_REQUEST['type'];
 $krit = $_REQUEST['krit']; //1 Statistik peminjam terbanyak 
 $key = $_REQUEST['key'];
 $Limit = $_REQUEST['Limit'];
-$key = explode(',', $key);
+$key = explode(',', (string) $key);
 if ($krit==2)
 {
 	require_once("../lib/chartfactory2.php");

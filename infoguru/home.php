@@ -258,7 +258,7 @@ OpenDb();
 			<div id='divSecInfo3' style='overflow: auto;'>
 				<input type='hidden' id='minListNotesId' value='0'>
 <?php 			echo "Departemen: ";
-				ShowCbDepartemen("departemen", "changeDepartemen()"); ?>					
+				ShowCbDepartemen(); ?>					
 				<table id='tabListNotes' width='100%' cellspacing='7' cellpadding='0'>
 				<tbody>
 					

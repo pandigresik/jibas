@@ -60,7 +60,7 @@ OpenDb();
         <tr>
             <td width="100">Departemen:</td>
             <td width="300">
-<?php           ShowCbDepartemen($departemen)  ?>
+<?php           ShowCbDepartemen()  ?>
             </td>
             <td rowspan="2" width="100">
                 <a href="#" onClick="tampil()">
@@ -72,7 +72,7 @@ OpenDb();
             <td width="100">Pelajaran:</td>
             <td width="300">
                 <div id="divPelajaran">
-<?php               ShowCbPelajaran($departemen, $idPelajaran) ?>
+<?php               ShowCbPelajaran($departemen) ?>
                 </div>
             </td>
         </tr>
@@ -80,7 +80,7 @@ OpenDb();
             <td width="100">Channel:</td>
             <td width="300">
                 <div id="divChannel">
-<?php               ShowCbChannel($idPelajaran, $idChannel) ?>
+<?php               ShowCbChannel($idPelajaran) ?>
                 </div>
             </td>
         </tr>

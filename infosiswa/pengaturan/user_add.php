@@ -189,7 +189,7 @@ else {
     $num_c = @mysqli_num_rows($result_c);
 	
 		
-	$pass=md5($_POST['password']);
+	$pass=md5((string) $_POST['password']);
 	$tingkat=1;
 	if ($tingkat==1){
 	//Kalo manajer

@@ -85,8 +85,8 @@ function getUserList()
         if ((int) $protocol->Status < 0)
             return $protocol->Data;
 
-        $jsonUserList = trim($protocol->Data);
-        $lsUser = json_decode($jsonUserList);
+        $jsonUserList = trim((string) $protocol->Data);
+        $lsUser = json_decode($jsonUserList, null, 512, JSON_THROW_ON_ERROR);
         $nUser = count($lsUser);
         ?>
 

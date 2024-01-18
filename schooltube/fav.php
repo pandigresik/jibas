@@ -61,7 +61,7 @@ $idMediaList = GetVideoLikedIdList(1, $nData);
 </div>
 <br>
 <?php
-if (strlen($idMediaList) > 0)
+if (strlen((string) $idMediaList) > 0)
     echo "<a style='cursor: pointer; font-weight: normal; color: blue' onclick='fav_nextVideoResult()'>next .. </a>";
 
 CloseDb();

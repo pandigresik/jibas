@@ -54,9 +54,9 @@ function AllowTestConn()
             return false; // CBE Server Application send Error
 
         $value = $protocol->Data;
-        return strtolower($value) == "true";
+        return strtolower((string) $value) == "true";
     }
-    catch (Exception $ex)
+    catch (Exception)
     {
         return false;
     }

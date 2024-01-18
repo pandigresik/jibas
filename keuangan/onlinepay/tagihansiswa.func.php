@@ -184,7 +184,7 @@ function GetInvoiceList()
         }
 
         // ----- penerimaan yg sudah Lunas atau Gratis
-        $lsIuranSiswa = array();
+        $lsIuranSiswa = [];
         $sql = "SELECT DISTINCT b.idpenerimaan
                   FROM jbsfina.besarjtt b, jbsfina.datapenerimaan dp
                  WHERE b.idpenerimaan = dp.replid
@@ -206,7 +206,7 @@ function GetInvoiceList()
         }
 
         // ----- penerimaan yg sudah Lunas atau Gratis
-        $lsFinished = array();
+        $lsFinished = [];
         $sql = "SELECT b.idpenerimaan
                   FROM jbsfina.besarjtt b 
                  WHERE b.nis = '$nis'
@@ -218,7 +218,7 @@ function GetInvoiceList()
         }
 
         // ----- penerimaan yg sudah dibayarkan cicilannya pada bulan tahun terpilih
-        $lsPaid = array();
+        $lsPaid = [];
         //echo "$skipAlreadyPaid<br>";
         if ($skipAlreadyPaid == 1)
         {
@@ -240,7 +240,7 @@ function GetInvoiceList()
 
         // ----- besar penerimaan sudah diset?
         // change on 2023-03-31
-        $lsBesarSet = array();
+        $lsBesarSet = [];
         $sql = "SELECT DISTINCT idpenerimaan
                   FROM jbsfina.besarjtt 
                  WHERE nis = '$nis'
@@ -252,7 +252,7 @@ function GetInvoiceList()
         }
 
         // ---- tagihan sudah dibuat
-        $lsPrepared = array();
+        $lsPrepared = [];
         $sql = "SELECT idpenerimaan
                   FROM jbsfina.tagihansiswadata
                  WHERE nis = '$nis'
@@ -266,7 +266,7 @@ function GetInvoiceList()
             $lsPrepared[] = $row[0];
         }
 
-        $lsIdInvoice = array();
+        $lsIdInvoice = [];
         $nIdIuran = count($lsIuranSiswa);
         for($i = 0; $i < $nIdIuran; $i++)
         {
@@ -310,7 +310,7 @@ function GetInvoiceList()
         echo "</tr>";
 
         // --- ambil data besar tagihan, besar cicilan
-        $stIdInvoice = json_encode($lsIdInvoice);
+        $stIdInvoice = json_encode($lsIdInvoice, JSON_THROW_ON_ERROR);
         $stIdInvoice = str_replace("[", "", $stIdInvoice);
         $stIdInvoice = str_replace("]", "", $stIdInvoice);
         $stIdInvoice = str_replace("\"", "", $stIdInvoice);
@@ -448,8 +448,8 @@ function CreateInvoice()
         $sendNotif = $_REQUEST["sendnotif"];
         $skipAlreadyPaid = $_REQUEST["skipalreadypaid"];
 
-        $bulanTahunTagihan  = str_pad($bulan, 2, '0', STR_PAD_LEFT);
-        $bulanTahunTagihan .= substr($tahun, 2, 2);
+        $bulanTahunTagihan  = str_pad((string) $bulan, 2, '0', STR_PAD_LEFT);
+        $bulanTahunTagihan .= substr((string) $tahun, 2, 2);
 
         // ----- ambil tahun buku
         $idTahunBuku = "0";
@@ -583,13 +583,13 @@ function CreateInvoice()
         // ----  idpenerimaan yg belum dibayar, dijadikan invoice
         $nInvoiceCreated = 0;
 
-        $lsTagihan = explode(",", $stTagihan);
-        $lsDiskon = explode(",", $stDiskon);
-        $lsIdIuran = explode(",", $stIdIuran);
+        $lsTagihan = explode(",", (string) $stTagihan);
+        $lsDiskon = explode(",", (string) $stDiskon);
+        $lsIdIuran = explode(",", (string) $stIdIuran);
         $nIdIuran = count($lsIdIuran);
 
         // ----- penerimaan yg sudah Lunas atau Gratis
-        $lsFinished = array();
+        $lsFinished = [];
         $sql = "SELECT b.idpenerimaan
                   FROM jbsfina.besarjtt b 
                  WHERE b.nis = '$nis'
@@ -601,7 +601,7 @@ function CreateInvoice()
         }
 
         // ----- penerimaan yg sudah dibayarkan cicilannya pada bulan tahun terpilih
-        $lsPaid = array();
+        $lsPaid = [];
         if ($skipAlreadyPaid == 1)
         {
             $sql = "SELECT DISTINCT b.idpenerimaan
@@ -621,7 +621,7 @@ function CreateInvoice()
 
         // ----- besar penerimaan sudah diset?
         // change on 2023-03-31
-        $lsBesarSet = array();
+        $lsBesarSet = [];
         $sql = "SELECT DISTINCT idpenerimaan
                   FROM jbsfina.besarjtt 
                  WHERE nis = '$nis'
@@ -633,7 +633,7 @@ function CreateInvoice()
         }
 
         // ---- tagihan sudah dibuat
-        $lsPrepared = array();
+        $lsPrepared = [];
         $sql = "SELECT idpenerimaan
                   FROM jbsfina.tagihansiswadata
                  WHERE nis = '$nis'
@@ -648,9 +648,9 @@ function CreateInvoice()
         }
 
         // ----- idinvoice berisi idpenerimaan yg belum lunas, belum gratis dan belum dibayarkan
-        $lsIdInvoice = array();
-        $lsTagihanInvoice = array();
-        $lsDiskonInvoice = array();
+        $lsIdInvoice = [];
+        $lsTagihanInvoice = [];
+        $lsDiskonInvoice = [];
         for($j = 0; $j < $nIdIuran; $j++)
         {
             $idIuran = $lsIdIuran[$j];
@@ -675,15 +675,15 @@ function CreateInvoice()
 
         $nInvoice = count($lsIdInvoice);
         if ($nInvoice == 0)
-            return createJsonReturn(0, "Tidak ada tagihan yang disiapkan, karena tagihannya sudah dibuat atau iurannya sudah dibayarkan / dilunasi", "");
+            return createJsonReturn(0, "Tidak ada tagihan yang disiapkan, karena tagihannya sudah dibuat atau iurannya sudah dibayarkan / dilunasi");
 
         // --- ambil data besar tagihan, besar cicilan
-        $stIdInvoice = json_encode($lsIdInvoice);
+        $stIdInvoice = json_encode($lsIdInvoice, JSON_THROW_ON_ERROR);
         $stIdInvoice = str_replace("[", "", $stIdInvoice);
         $stIdInvoice = str_replace("]", "", $stIdInvoice);
         $stIdInvoice = str_replace("\"", "", $stIdInvoice);
 
-        $lsIdBesarJtt = array();
+        $lsIdBesarJtt = [];
         $sql = "SELECT b.replid, b.besar, b.cicilan, b.idpenerimaan, dp.nama
                   FROM jbsfina.besarjtt b, jbsfina.datapenerimaan dp
                  WHERE b.idpenerimaan = dp.replid
@@ -697,7 +697,7 @@ function CreateInvoice()
             $tagihan = $lsTagihanInvoice[$idIuran];
             $diskon = $lsDiskonInvoice[$idIuran];
 
-            $lsIdBesarJtt[] = array($row[0], $row[1], $row[2], $row[3], $row[4], $tagihan, $diskon);
+            $lsIdBesarJtt[] = [$row[0], $row[1], $row[2], $row[3], $row[4], $tagihan, $diskon];
         }
 
         //$log->Log(json_encode($lsIdBesarJtt));
@@ -709,7 +709,7 @@ function CreateInvoice()
         //$log->Log("NO TAGIHAN $noTagihan");
 
         $nInvoiceCreated += 1;
-        $tandaTransaksi = rand(10, 99);
+        $tandaTransaksi = random_int(10, 99);
 
 
         // ---------------
@@ -776,7 +776,7 @@ function CreateInvoice()
         {
             $jumNotif = $totalTagihan + $PG_SERVICE_FEE;
 
-            $pesan = str_replace("{NAMA}", $nama, $pesanNotifikasiTagihan);
+            $pesan = str_replace("{NAMA}", $nama, (string) $pesanNotifikasiTagihan);
             $pesan = str_replace("{NIS}", $nis, $pesan);
             $pesan = str_replace("{JUMLAH}", FormatRupiah($jumNotif), $pesan);
             $pesan = str_replace("{IURAN}", $stIuran, $pesan);
@@ -793,7 +793,7 @@ function CreateInvoice()
         if ($nInvoiceCreated == 0)
         {
             RollbackTrans();
-            return createJsonReturn(0, "Tidak ada tagihan yang disiapkan, karena tagihannya sudah dibuat atau iurannya sudah dibayarkan / dilunasi", "");
+            return createJsonReturn(0, "Tidak ada tagihan yang disiapkan, karena tagihannya sudah dibuat atau iurannya sudah dibayarkan / dilunasi");
         }
 
         // -- update counter
@@ -805,7 +805,7 @@ function CreateInvoice()
         QueryDbEx($sql);
 
         CommitTrans();
-        return createJsonReturn(1, "Berhasil menyiapkan tagihan untuk $nama ($nis)", "");
+        return createJsonReturn(1, "Berhasil menyiapkan tagihan untuk $nama ($nis)");
     }
     catch (Exception $ex)
     {
@@ -814,7 +814,7 @@ function CreateInvoice()
         //$log->Log($ex->getCode() . " " . $ex->getMessage());
         //$log->Close();
 
-        return createJsonReturn(-1, "ERROR: " . $ex->getMessage(), "");
+        return createJsonReturn(-1, "ERROR: " . $ex->getMessage());
     }
     finally
     {
@@ -825,7 +825,7 @@ function CreateInvoice()
 
 function createJsonReturn($status, $message, $data)
 {
-    $ret = array($status, $message, $data);
-    return json_encode($ret);
+    $ret = [$status, $message, $data];
+    return json_encode($ret, JSON_THROW_ON_ERROR);
 }
 ?>

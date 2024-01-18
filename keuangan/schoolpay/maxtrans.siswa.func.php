@@ -101,11 +101,11 @@ function ShowDaftarBatasan($showMenu)
                AND s.aktif = 1
              ORDER BY s.nama";
 
-    $lsUser = array();
+    $lsUser = [];
     $res = QueryDb($sql);
     while($row = mysqli_fetch_row($res))
     {
-        $lsUser[] = array($row[0], $row[1]);
+        $lsUser[] = [$row[0], $row[1]];
     }
 
     $defaultMaxValue = 0;

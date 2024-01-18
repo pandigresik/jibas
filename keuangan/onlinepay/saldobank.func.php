@@ -61,10 +61,10 @@ function ShowBankSaldo($showMenu)
         return;
     }
 
-    $lsBank = array();
+    $lsBank = [];
     while($row = mysqli_fetch_row($res))
     {
-        $lsBank[] = array($row[0], $row[1]);
+        $lsBank[] = [$row[0], $row[1]];
     }
 
     echo "<a href='#' onclick='cetakSaldo()'><img src='../images/ico/print.png' border='0'>&nbsp;cetak</a>&nbsp;&nbsp;";

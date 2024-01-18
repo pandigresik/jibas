@@ -31,7 +31,7 @@ $jenis=$_REQUEST['jenis'];
 $departemen=$_REQUEST['departemen'];
 $cari=$_REQUEST['cari'];
 
-$tipe = array("nisn" => "N I S N","nis" => "NIS", "nama" => "Nama","panggilan" => "Nama Panggilan", "agama" =>"Agama", "suku" => "Suku", "status" => "Status", "kondisi"=>"Kondisi Siswa", "darah"=>"Golongan Darah", "alamatsiswa" => "Alamat Siswa", "asalsekolah" => "Asal Sekolah", "namaayah" => "Nama Ayah", "namaibu" => "Nama Ibu", "alamatortu" => "Alamat Orang Tua", "keterangan" => "Keterangan");
+$tipe = ["nisn" => "N I S N", "nis" => "NIS", "nama" => "Nama", "panggilan" => "Nama Panggilan", "agama" =>"Agama", "suku" => "Suku", "status" => "Status", "kondisi"=>"Kondisi Siswa", "darah"=>"Golongan Darah", "alamatsiswa" => "Alamat Siswa", "asalsekolah" => "Asal Sekolah", "namaayah" => "Nama Ayah", "namaibu" => "Nama Ibu", "alamatortu" => "Alamat Orang Tua", "keterangan" => "Keterangan"];
 
 $urut = $_REQUEST['urut'];
 $urutan = $_REQUEST['urutan'];

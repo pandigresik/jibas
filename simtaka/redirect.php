@@ -33,9 +33,9 @@ require_once('inc/db_functions.php');
 
 OpenDb();
    
-$username = trim($_POST['username']);
+$username = trim((string) $_POST['username']);
 if ($username=="jibas") $username="landlord";
-$password = trim($_POST['password']);
+$password = trim((string) $_POST['password']);
 
 $username = str_replace("'", "\'", $username);
 $username = str_replace("--", " ", $username);

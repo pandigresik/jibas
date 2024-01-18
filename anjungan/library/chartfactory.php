@@ -32,18 +32,18 @@ require_once("class/jpgraph_line.php");
 
 class ChartFactory
 {
-	var $bulan = array('Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agt','Sep','Okt','Nop','Des');
-	var $xdata;
-	var $ydata;
-	var $title;
-	var $xtitle;
-	var $ytitle;
+	public $bulan = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agt', 'Sep', 'Okt', 'Nop', 'Des'];
+	public $xdata;
+	public $ydata;
+	public $title;
+	public $xtitle;
+	public $ytitle;
 	
-	var $color;
+	public $color;
 	
-	function ChartFactory()
+	function __construct()
 	{
-		$this->color = array('#cd9b9b','#7d26cd','#8b1c62','#b03060','#faf0e6','#ff69b4','#d2d2d2','#7fff00','#00bfff','#ff1493','#6e8b3d','#b8860b','#00ffff','#dcdcdc','#00c5cd','#a52a2a');
+		$this->color = ['#cd9b9b', '#7d26cd', '#8b1c62', '#b03060', '#faf0e6', '#ff69b4', '#d2d2d2', '#7fff00', '#00bfff', '#ff1493', '#6e8b3d', '#b8860b', '#00ffff', '#dcdcdc', '#00c5cd', '#a52a2a'];
 		//$this->color = array(136,34,40,45,46,62,63,134,74,10,120,136,141,168,180,77,209,218,346,395,89,430);
 	}
 	

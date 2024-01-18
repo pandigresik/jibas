@@ -185,8 +185,8 @@ function ambil(tgl,elementid) {
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <tr><td width="70%" align="center"><input type="button" class="cmbfrm2" onclick="GoToLastMonth()" value="  <  ">
 <select name="bulan" class="cmbfrm" id="bulan" onchange="ChangeCal()">
-<?php $namabulan = array("Jan","Feb","Mar","Apr","Mei","Jun","Jul","Ags","Sep","Okt","Nov","Des");
-   $namabulanpjg = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember");
+<?php $namabulan = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Ags", "Sep", "Okt", "Nov", "Des"];
+   $namabulanpjg = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
    for ($i = 1; $i <= 12; $i++) { ?>
 	<option value="<?=$i?>" <?=IntIsSelected($i, $bulan)?>><?=$namabulanpjg[$i - 1]?></option>
 <?php } ?>

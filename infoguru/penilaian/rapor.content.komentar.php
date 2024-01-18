@@ -21,8 +21,8 @@
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
 <?php
-$arrjenis = array('SPI', 'SOS');
-$arrnmjenis = array('Spiritual', 'Sosial');
+$arrjenis = ['SPI', 'SOS'];
+$arrnmjenis = ['Spiritual', 'Sosial'];
 for($i = 0; $i < count($arrjenis); $i++)
 {
     $jenis = $arrjenis[$i];

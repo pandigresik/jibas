@@ -28,7 +28,7 @@ require_once('../include/config.php');
 require_once('../include/db_functions.php');
 require_once('../library/departemen.php');
 	
-$departemen = isset($_REQUEST['departemen']) ? $_REQUEST['departemen'] : "";
+$departemen = $_REQUEST['departemen'] ?? "";
 $tahunajaran = isset($_REQUEST['tahunajaran']) ? (int)$_REQUEST['tahunajaran'] : 0;		
 $tingkat = isset($_REQUEST['tingkat']) ? (int)$_REQUEST['tingkat'] : 0;		
 $kelas = isset($_REQUEST['kelas']) ? (int)$_REQUEST['kelas'] : 0;		

@@ -80,11 +80,11 @@ OpenDb();
 	
 if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) { 
 	OpenDb();    
-	if ((strlen($nama) > 0) && (strlen($no) > 0))
+	if ((strlen((string) $nama) > 0) && (strlen((string) $no) > 0))
 		$sql = "SELECT c.nopendaftaran, c.nama, k.kelompok, p.departemen, c.replid FROM jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k, jbsakad.prosespenerimaansiswa p, WHERE c.nama LIKE '%$nama%' AND c.nopendaftaran LIKE '%$no%' AND k.replid=c.idkelompok AND c.aktif=1 AND c.idproses = p.replid $filter ORDER BY k.kelompok, c.nama"; 	
-	else if (strlen($nama) > 0)
+	else if (strlen((string) $nama) > 0)
 		$sql = "SELECT c.nopendaftaran, c.nama, k.kelompok, p.departemen, c.replid FROM jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k, jbsakad.prosespenerimaansiswa p WHERE c.nama LIKE '%$nama%' AND k.replid=c.idkelompok AND c.aktif=1 AND c.idproses = p.replid $filter ORDER BY k.kelompok, c.nama"; 
-	else if (strlen($no) > 0)
+	else if (strlen((string) $no) > 0)
 		$sql = "SELECT c.nopendaftaran, c.nama, k.kelompok, p.departemen, c.replid FROM jbsakad.calonsiswa c, jbsakad.kelompokcalonsiswa k, jbsakad.prosespenerimaansiwa p WHERE k.replid=c.idkelompok AND c.nopendaftaran LIKE '%$no%' AND c.aktif=1 AND c.idproses = p.replid $filter ORDER BY k.kelompok, c.nama"; 	
 	$result = QueryDb($sql);
 	

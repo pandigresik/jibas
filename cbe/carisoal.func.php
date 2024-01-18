@@ -136,7 +136,7 @@ function showCariSoal($idSoal)
         $tag->TipeDataJawaban = 0;
 
         $jsonTag = $tag->toJson();
-        $jsonTag = str_replace("\"", "`", $jsonTag);
+        $jsonTag = str_replace("\"", "`", (string) $jsonTag);
         ?>
 
         <tr style='height: 100px;'>

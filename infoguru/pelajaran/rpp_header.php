@@ -152,7 +152,7 @@ function show() {
 				$ada = "(Aktif)";
 						 
 			?>            
-    			<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $semester)?> ><?=$row['semester']." ".$ada?></option>                 
+    			<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $semester)?> ><?=$row['semester']." ".$ada?></option>                 
     		<?php }	?>
     	</select>        </td> 
   	</tr>
@@ -169,7 +169,7 @@ function show() {
 			if ($tingkat == "")
 				$tingkat = $row['replid'];				
 			?>
-          <option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat) ?>>
+          <option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat) ?>>
             <?=$row['tingkat']?>
             </option>
           <?php
@@ -190,7 +190,7 @@ function show() {
 				$pelajaran = $row['replid'];			
 			?>
             
-    		<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $pelajaran)?> ><?=$row['nama']?></option>
+    		<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $pelajaran)?> ><?=$row['nama']?></option>
                   
     		<?php
 			}

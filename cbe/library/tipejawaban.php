@@ -23,8 +23,8 @@
 <?php
 class TipeDataJawaban
 {
-    const Teks = 0;
-    const TabelTeks = 1;
-    const TabelGambar = 2;
+    final public const Teks = 0;
+    final public const TabelTeks = 1;
+    final public const TabelGambar = 2;
 }
 ?>

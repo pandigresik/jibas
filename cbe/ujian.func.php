@@ -54,7 +54,7 @@ class SoalInfo
 
     public function toJson()
     {
-        return json_encode($this);
+        return json_encode($this, JSON_THROW_ON_ERROR);
     }
 }
 
@@ -119,7 +119,7 @@ function updateUjianData($json)
     $userId = $_SESSION["UserId"];
     $sessionId = getSessionId();
 
-    $json = str_replace("'", "`", $json);
+    $json = str_replace("'", "`", (string) $json);
 
     $sql = "UPDATE jbscbe.webuserintent
                SET intent = '$json' 
@@ -220,7 +220,7 @@ function getSoal($idSoal)
         if ((int) $info->Status < 0)
             return GenericReturn::createJson((int) $info->Status, $info->Data, ""); // Login gagal
 
-        $soalData = json_decode($info->Data);
+        $soalData = json_decode((string) $info->Data, null, 512, JSON_THROW_ON_ERROR);
 
         $soalInfo = new SoalInfo();
         $soalInfo->IdSoal = $idSoal;
@@ -231,7 +231,7 @@ function getSoal($idSoal)
         $soalInfo->SoalGabungJawaban = $soalData->SoalGabungJawaban;
 
         // -- Resize for Thumbnail
-        $imSoal = ImageResize::createFromString(base64_decode($soalData->Soal));
+        $imSoal = ImageResize::createFromString(base64_decode((string) $soalData->Soal));
         $imSoal->scale(25);
         $soalThumb = base64_encode($imSoal->getImageAsString());
 
@@ -285,9 +285,9 @@ function base64ToImage($base64)
 {
     try
     {
-        return base64_decode($base64);
+        return base64_decode((string) $base64);
     }
-    catch (Exception $ex)
+    catch (Exception)
     {
         try
         {
@@ -296,7 +296,7 @@ function base64ToImage($base64)
                 return file_get_contents($notRight);
             return "";
         }
-        catch (Exception $ex2)
+        catch (Exception)
         {
             return "";
         }
@@ -361,7 +361,7 @@ function finishUjian($ujianData)
     $userId = $_SESSION["UserId"];
     $sessionId = $_SESSION["SessionId"];
 
-    $ujianData = str_replace("\\\"", "\"", $ujianData);
+    $ujianData = str_replace("\\\"", "\"", (string) $ujianData);
 
     $finishInfo = new FinishUjianData();
     $finishInfo->IdUjianSerta = $idUjianSerta;
@@ -430,10 +430,10 @@ function checkDownloadSoal($idSoal)
         if ((int)$info->Status < 0)
             return GenericReturn::createJson((int)$info->Status, $info->Data, ""); // Login gagal
 
-        $soalData = json_decode($info->Data);
+        $soalData = json_decode((string) $info->Data, null, 512, JSON_THROW_ON_ERROR);
 
         // -- Resize for Thumbnail
-        $imSoal = ImageResize::createFromString(base64_decode($soalData->Soal));
+        $imSoal = ImageResize::createFromString(base64_decode((string) $soalData->Soal));
         $imSoal->scale(25);
         $soalThumb = base64_encode($imSoal->getImageAsString());
 

@@ -69,7 +69,7 @@ $row = mysqli_fetch_row($result);
 $namapengeluaran = $row[0];
 ?>
 
-<center><font size="4" face="Verdana"><strong>LAPORAN PENGELUARAN <?=strtoupper($namapengeluaran) ?></strong></font><br /> 
+<center><font size="4" face="Verdana"><strong>LAPORAN PENGELUARAN <?=strtoupper((string) $namapengeluaran) ?></strong></font><br /> 
 </center>
 <br /><br />
 

@@ -39,7 +39,7 @@ if ($key=="-1")
 	$kunci="AND p.replid='$key'";
 }
 
-$bulan = array('Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agt','Sep','Okt','Nop','Des');
+$bulan = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agt', 'Sep', 'Okt', 'Nop', 'Des'];
 
 //Untuk yang dari calon siswa
 if ($kode=="0"){

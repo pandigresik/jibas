@@ -124,7 +124,7 @@ $ndata = mysqli_num_rows($result);
 <?php
 for($i = 0; $i < $ndata; $i++) {
 	$idpeg = $arridpeg[$i];
-	if (strlen(trim($idpeg)) == 0)
+	if (strlen(trim((string) $idpeg)) == 0)
 		continue;
 	
 	$cnt = $i;

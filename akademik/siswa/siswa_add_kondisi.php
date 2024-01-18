@@ -44,7 +44,7 @@ if (isset($_REQUEST['hal']))
 $op = $_GET['op'];
 $nama_kondisi = $_GET['nama_kondisi'];
 $kondisi_kiriman=$_REQUEST['kondisi'];
-if (($op == "del") && (strlen($nama_kondisi) > 0)) {
+if (($op == "del") && (strlen((string) $nama_kondisi) > 0)) {
 	OpenDb();
 	$sql = "DELETE FROM jbsakad.kondisisiswa WHERE kondisi = '$nama_kondisi'";
 	$result = QueryDb($sql);

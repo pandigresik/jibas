@@ -248,7 +248,7 @@ function d(){
 				$tingkat = $row['replid'];				
 			$nama_tingkat = $row['tingkat'];
 			?>
-          <option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat) ?>>
+          <option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat) ?>>
             <?=$row['tingkat']?>
             </option>
           <?php
@@ -281,7 +281,7 @@ function d(){
 				$kelas = $row['replid'];
 			$nama_kelas = $row['kelas'];			 
 			?>
-    		<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $kelas) ?>><?=$row['kelas']?></option>
+    		<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $kelas) ?>><?=$row['kelas']?></option>
              
     		<?php
 			} //while
@@ -315,7 +315,7 @@ function d(){
 				$pelajaran = $row['replid'];			
 			$nama_pelajaran = $row['nama'];
 			?>
-         	<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $pelajaran)?> ><?=$row['nama']?></option>                  
+         	<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $pelajaran)?> ><?=$row['nama']?></option>                  
     		<?php
 			}
     		?>

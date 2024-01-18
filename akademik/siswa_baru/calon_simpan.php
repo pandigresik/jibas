@@ -37,7 +37,7 @@ $sql = "SELECT kodeawalan FROM jbsakad.prosespenerimaansiswa WHERE replid = '".$
 $res = QueryDb($sql);	
 $row = mysqli_fetch_row($res);	
 $kode_no = $row[0];
-$kodelen = strlen($kode_no);
+$kodelen = strlen((string) $kode_no);
 //echo "$kode_no<br>";
 
 $sql = "SELECT MAX(LPAD(nopendaftaran, " . ($kodelen + 20) . ",'*')) FROM jbsakad.calonsiswa WHERE idproses = '".$proses."'";
@@ -46,7 +46,7 @@ $row = mysqli_fetch_row($res);
 $nom = $row[0];
 //echo "$nom<br>";
 
-$nom = str_replace("*", "", $nom);
+$nom = str_replace("*", "", (string) $nom);
 //echo "$nom<br>";
 
 $counter = (int)substr($nom, $kodelen + 2);
@@ -78,20 +78,20 @@ $nama = $_REQUEST['nama'];
 $panggilan = $_REQUEST['panggilan'];
 $kelamin = $_REQUEST['kelamin'];
 $tmplahir = $_REQUEST['tmplahir'];
-$tgllahir = strlen($_REQUEST['tgllahir']) == 0 ? "1" : $_REQUEST['tgllahir']; 
-$blnlahir = strlen($_REQUEST['blnlahir']) == 0 ? "1" : $_REQUEST['blnlahir'];
-$thnlahir = strlen($_REQUEST['thnlahir']) == 0 ? "1970" : $_REQUEST['thnlahir'];
+$tgllahir = strlen((string) $_REQUEST['tgllahir']) == 0 ? "1" : $_REQUEST['tgllahir']; 
+$blnlahir = strlen((string) $_REQUEST['blnlahir']) == 0 ? "1" : $_REQUEST['blnlahir'];
+$thnlahir = strlen((string) $_REQUEST['thnlahir']) == 0 ? "1970" : $_REQUEST['thnlahir'];
 $lahir = $thnlahir . "-" . $blnlahir . "-" . $tgllahir;
-$suku = strlen($_REQUEST['suku']) == 0 ? "NULL" : "'" . $_REQUEST['suku'] . "'";
-$agama = strlen($_REQUEST['agama']) == 0 ? "NULL" : "'" . $_REQUEST['agama'] . "'";
-$status = strlen($_REQUEST['status']) == 0 ? "NULL" : "'" . $_REQUEST['status'] . "'";
-$kondisi = strlen($_REQUEST['kondisi']) == 0 ? "NULL" : "'" . $_REQUEST['kondisi'] . "'";
+$suku = strlen((string) $_REQUEST['suku']) == 0 ? "NULL" : "'" . $_REQUEST['suku'] . "'";
+$agama = strlen((string) $_REQUEST['agama']) == 0 ? "NULL" : "'" . $_REQUEST['agama'] . "'";
+$status = strlen((string) $_REQUEST['status']) == 0 ? "NULL" : "'" . $_REQUEST['status'] . "'";
+$kondisi = strlen((string) $_REQUEST['kondisi']) == 0 ? "NULL" : "'" . $_REQUEST['kondisi'] . "'";
 $warga = $_REQUEST['warga'];
-$urutananak = strlen($_REQUEST['urutananak']) == 0 ? 0 : $_REQUEST['urutananak'];
-$jumlahanak = strlen($_REQUEST['jumlahanak']) == 0 ? 0 : $_REQUEST['jumlahanak'];
+$urutananak = strlen((string) $_REQUEST['urutananak']) == 0 ? 0 : $_REQUEST['urutananak'];
+$jumlahanak = strlen((string) $_REQUEST['jumlahanak']) == 0 ? 0 : $_REQUEST['jumlahanak'];
 $statusanak = $_REQUEST['statusanak'];
-$jkandung = strlen($_REQUEST['jkandung']) == 0 ? 0 : $_REQUEST['jkandung'];
-$jtiri = strlen($_REQUEST['jtiri']) == 0 ? 0 : $_REQUEST['jtiri'];
+$jkandung = strlen((string) $_REQUEST['jkandung']) == 0 ? 0 : $_REQUEST['jkandung'];
+$jtiri = strlen((string) $_REQUEST['jtiri']) == 0 ? 0 : $_REQUEST['jtiri'];
 $bahasa = $_REQUEST['bahasa'];
 $alamatsiswa = $_REQUEST['alamatsiswa'];
 $kodepos = $_REQUEST['kodepos'];
@@ -100,8 +100,8 @@ if ($kodepos == "")
 	$kodepos_sql = "kodepossiswa = NULL";
 $jarak = (float)$_REQUEST['jarak'];
 $telponsiswa=CQ($_REQUEST['telponsiswa']);
-$hpsiswa=CQ(trim($_REQUEST['hpsiswa']));
-$hpsiswa=str_replace(' ','',$hpsiswa);
+$hpsiswa=CQ(trim((string) $_REQUEST['hpsiswa']));
+$hpsiswa=str_replace(' ','',(string) $hpsiswa);
 $emailsiswa=CQ($_REQUEST['emailsiswa']);
 $dep_asal=$_REQUEST['dep_asal'];
 $sekolah=$_REQUEST['sekolah'];
@@ -158,11 +158,11 @@ if ($_REQUEST['penghasilanibu']=="")
 $namawali=$_REQUEST['namawali'];
 $alamatortu=$_REQUEST['alamatortu'];
 $telponortu=$_REQUEST['telponortu'];
-$hportu=trim($_REQUEST['hportu']);
+$hportu=trim((string) $_REQUEST['hportu']);
 $hportu=str_replace(' ','',$hportu);
-$hportu2=trim($_REQUEST['hportu2']);
+$hportu2=trim((string) $_REQUEST['hportu2']);
 $hportu2=str_replace(' ','',$hportu2);
-$hportu3=trim($_REQUEST['hportu3']);
+$hportu3=trim((string) $_REQUEST['hportu3']);
 $hportu3=str_replace(' ','',$hportu3);
 $emailayah=$_REQUEST['emailayah'];
 $emailibu=$_REQUEST['emailibu'];
@@ -236,7 +236,7 @@ for($i = 1; $i <= 2; $i++)
 	if ($set != "")
 		$set .= ", ";
 	$fkd = "sum$i";
-	$kd = trim($_REQUEST[$fkd]);
+	$kd = trim((string) $_REQUEST[$fkd]);
 	$kd = (strlen($kd) == 0) ? "0" : $kd;
 	$kd = UnformatRupiah($kd);
 	$set .= "$fkd = '".$kd."'";
@@ -247,7 +247,7 @@ for($i = 1; $i <= 10; $i++)
 	if ($set != "")
 		$set .= ", ";
 	$fkd = "ujian$i";
-	$kd = trim($_REQUEST[$fkd]);
+	$kd = trim((string) $_REQUEST[$fkd]);
 	$kd = (strlen($kd) == 0) ? 0 : $kd;
 	$set .= "$fkd = '".$kd."'";
 }
@@ -308,12 +308,12 @@ if ($success)
     }
 }
 
-if ($success && strlen($idtambahan) > 0)
+if ($success && strlen((string) $idtambahan) > 0)
 {
-    if (strpos($idtambahan, ",") === false)
-        $arridtambahan = array($idtambahan);
+    if (!str_contains((string) $idtambahan, ","))
+        $arridtambahan = [$idtambahan];
     else
-        $arridtambahan = explode(",", $idtambahan);
+        $arridtambahan = explode(",", (string) $idtambahan);
 
     for($i = 0; $success && $i < count($arridtambahan); $i++)
     {
@@ -360,7 +360,7 @@ if ($success && strlen($idtambahan) > 0)
             $file = $_FILES[$param];
             $tmpfile = $file['tmp_name'];
 
-            if (strlen($tmpfile) != 0)
+            if (strlen((string) $tmpfile) != 0)
             {
                 if (filesize($tmpfile) <= 256000)
                 {

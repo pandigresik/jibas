@@ -43,7 +43,7 @@ if ($num>0){
 	$row=@mysqli_fetch_array($result);
 }
 CloseDb();
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");	
+$namabulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember"];	
 $tglberita=$row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -102,7 +102,7 @@ $tglberita=$row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
 					<font style="font-size:11px; line-height: 18px;">
 					<?php
 					$berita = $row['berita'];
-					$berita = str_replace("#sq;", "'", $berita);
+					$berita = str_replace("#sq;", "'", (string) $berita);
 					echo $berita;
 					?>
 					</font>

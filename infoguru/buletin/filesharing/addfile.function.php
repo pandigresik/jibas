@@ -36,7 +36,7 @@ $row = @mysqli_fetch_array($result);
 $dirfullpath = $row['dirfullpath'];
 CloseDb();
 
-$fullpath = str_replace($rootname, "", $dirfullpath);
+$fullpath = str_replace($rootname, "", (string) $dirfullpath);
 $cek = 0;
 $ERROR_MSG = "";
 
@@ -46,7 +46,7 @@ if (isset($_REQUEST['Simpan']))
     $iddir = $_REQUEST['iddir'];
 	
     $FileShareDir = "$FILESHARE_UPLOAD_DIR/fileshare/";
-    $destinationdir = str_replace($rootname, $FileShareDir, $dir);
+    $destinationdir = str_replace($rootname, $FileShareDir, (string) $dir);
 	
     OpenDb();
     
@@ -113,18 +113,18 @@ if (isset($_REQUEST['Simpan']))
 function SecurePhpExtension(&$filename)
 {
     $lastpos = -1; $startpos = 0;
-    $pos = strpos($filename, ".", $startpos);
+    $pos = strpos((string) $filename, ".", $startpos);
     while($pos !== FALSE)
     {
         $lastpos = $pos;
         
         $startpos = $pos + 1;
-        $pos = strpos($filename, ".", $startpos);
+        $pos = strpos((string) $filename, ".", $startpos);
     }
     
     if ($lastpos != -1)
     {
-        $ext = strtolower(trim(substr($filename, $lastpos)));
+        $ext = strtolower(trim(substr((string) $filename, $lastpos)));
         if ($ext == ".php")
             $filename = $filename . ".txt";
     }

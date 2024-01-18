@@ -112,8 +112,8 @@ $kegiatan = $row[0];
     $res = QueryDb($sql);
     while($row = mysqli_fetch_array($res))
     {
-        $ti = trim($row["time_in"]);
-		$to = trim($row["time_out"]);
+        $ti = trim((string) $row["time_in"]);
+		$to = trim((string) $row["time_out"]);
 		$tomark = "";
 		
         if ($row['time_out'] == "-")

@@ -22,7 +22,7 @@
  **[N]**/ ?>
 <span style="font-size: 24px">Search Result: <?= $searchKey ?></span><br><br>
 <?php
-$searchKey - str_replace("'", "`", $searchKey);
+$searchKey - str_replace("'", "`", (string) $searchKey);
 
 if ($searchDept == "ALLDEPT")
 {

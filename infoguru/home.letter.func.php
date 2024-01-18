@@ -22,7 +22,7 @@ function GetLetterListIn(&$letterList, $iduser, $limit2, $filterTs)
         if ($found)
             continue;
         
-        $letterList[] = array($row[0], $row[1]);
+        $letterList[] = [$row[0], $row[1]];
     }
     
     // Tujuan surat masuk AS CC
@@ -46,7 +46,7 @@ function GetLetterListIn(&$letterList, $iduser, $limit2, $filterTs)
         if ($found)
             continue;
         
-        $letterList[] = array($row[0], $row[1]);
+        $letterList[] = [$row[0], $row[1]];
     }
     
     // Tujuan surat masuk AS GROUP
@@ -71,7 +71,7 @@ function GetLetterListIn(&$letterList, $iduser, $limit2, $filterTs)
         if ($found)
             continue;
         
-        $letterList[] = array($row[0], $row[1]);
+        $letterList[] = [$row[0], $row[1]];
     }
 }
 
@@ -98,7 +98,7 @@ function GetLetterListOut(&$letterList, $iduser, $limit2, $filterTs)
         if ($found)
             continue;
         
-        $letterList[] = array($row[0], $row[1]);
+        $letterList[] = [$row[0], $row[1]];
     }
     
     // Sumber surat keluar AS USER
@@ -122,7 +122,7 @@ function GetLetterListOut(&$letterList, $iduser, $limit2, $filterTs)
         if ($found)
             continue;
         
-        $letterList[] = array($row[0], $row[1]);
+        $letterList[] = [$row[0], $row[1]];
     }
     
     // Tujuan surat masuk AS CC
@@ -146,7 +146,7 @@ function GetLetterListOut(&$letterList, $iduser, $limit2, $filterTs)
         if ($found)
             continue;
         
-        $letterList[] = array($row[0], $row[1]);
+        $letterList[] = [$row[0], $row[1]];
     }
     
     // Sumber surat keluar AS GROUP
@@ -171,7 +171,7 @@ function GetLetterListOut(&$letterList, $iduser, $limit2, $filterTs)
         if ($found)
             continue;
         
-        $letterList[] = array($row[0], $row[1]);
+        $letterList[] = [$row[0], $row[1]];
     }
 }
 
@@ -238,7 +238,7 @@ function ShowLastLetter($jenis, $minListSuratTs)
                 "" :
                 "AND CONCAT(UNIX_TIMESTAMP(s.lastactive), LPAD(s.replid, 7, '0')) < '$minListSuratTs'";
     
-    $letterList = array();
+    $letterList = [];
     
     if ($jenis == "ALL")
     {
@@ -320,7 +320,7 @@ function ShowLinkNextListSurat($jenis, $minListSuratTs)
                 "" :
                 "AND CONCAT(UNIX_TIMESTAMP(s.lastactive), LPAD(s.replid, 7, '0')) < '$minListSuratTs'";
     
-    $letterList = array();
+    $letterList = [];
     
     if ($jenis == "ALL")
     {

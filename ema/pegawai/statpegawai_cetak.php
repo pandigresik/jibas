@@ -28,7 +28,7 @@ require_once('../inc/getheader.php');
 require_once('../inc/db_functions.php');
 require_once('../inc/common.php');
 
-$krit = array('','Bagian','Agama','Gelar','Jenis Kelamin','Status Aktif','Status Menikah','Suku','Tahun Kelahiran','Usia');
+$krit = ['', 'Bagian', 'Agama', 'Gelar', 'Jenis Kelamin', 'Status Aktif', 'Status Menikah', 'Suku', 'Tahun Kelahiran', 'Usia'];
 $kriteria = '1';
 if (isset($_REQUEST['kriteria']))
 	$kriteria = $_REQUEST['kriteria'];

@@ -479,7 +479,7 @@ OpenDb();
 					</td>
 					<td align="center" height="25"><input type="text" name="bobot<?=$i ?>" size="1" maxlength="1"></td>
 				</tr>
-				<?php
+<?php
 				}
 				?>
 			</table>
@@ -571,7 +571,7 @@ if(isset($_POST['hitung'])){
 			//echo $query_nau;
 		}
 		
-		$inf = substr($info, 0, -1);		// buat ngilangin tanda ; diakhir string
+		$inf = substr((string) $info, 0, -1);		// buat ngilangin tanda ; diakhir string
 		//echo "num_cek".$num_cek;
 		if($num_cek == 0){
 				echo $query_inf = "INSERT INTO jbsakad.infobobotujian ".

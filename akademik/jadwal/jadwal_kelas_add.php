@@ -63,7 +63,7 @@ if (isset($_REQUEST['Simpan']))
 	$res = QueryDb($sql);
 	$num = mysqli_num_rows($res);
 	if ($num>0){
-		$dayname = array("", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu", "Minggu");
+		$dayname = ["", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu", "Minggu"];
 		
 		$sql = "SELECT replid FROM infojadwal WHERE aktif=1";
 		$res = QueryDb($sql);

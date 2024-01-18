@@ -68,7 +68,7 @@ try
 
         $ofilename = SafeFileName($file["name"]);
         $filename = SafeFileName($file["name"]);
-        $filename = str_pad($idMedia, 7, "0", STR_PAD_LEFT) . "." . $filename;
+        $filename = str_pad((string) $idMedia, 7, "0", STR_PAD_LEFT) . "." . $filename;
         $filetype = $file["type"];
         $filesize = $file["size"];
         $fileloc = $mediaUrl;

@@ -23,7 +23,7 @@
 <?php
 function GetPhoneList($jenis, $nis)
 {
-    $phonelist = array();
+    $phonelist = [];
     if ($jenis == 'SISPAY' || $jenis == 'SISTAB' || $jenis == 'SISTUNG')
         $sql = "SELECT IF(s.hportu IS NULL, '', TRIM(s.hportu)),
                        IF(s.info1 IS NULL, '', TRIM(s.info1)),
@@ -45,14 +45,14 @@ function GetPhoneList($jenis, $nis)
     if (mysqli_num_rows($res) > 0)
     {
         $row = mysqli_fetch_row($res);
-        $temp = array($row[0], $row[1], $row[2]);
+        $temp = [$row[0], $row[1], $row[2]];
         $j = 0;
         for($i = 0; $i < count($temp); $i++)
         {
-            $phone = trim($temp[$i]);
+            $phone = trim((string) $temp[$i]);
             if (strlen($phone) < 5)
                 continue;
-            if (substr($phone, 0, 1) == "#")
+            if (str_starts_with($phone, "#"))
                 continue;
 
             $phonelist[$j] = $phone;
@@ -65,7 +65,7 @@ function GetPhoneList($jenis, $nis)
 
 function GetChatIdList($jenis, $nis)
 {
-    $chatIdList = array();
+    $chatIdList = [];
 
     if ($jenis == 'SISPAY' || $jenis == 'SISTAB' || $jenis == 'SISTUNG')
         $sql = "SELECT chatid
@@ -92,7 +92,7 @@ function GetChatIdList($jenis, $nis)
 
 function GetFcmTokenList($jenis, $userId)
 {
-    $fcmTokenList = array();
+    $fcmTokenList = [];
 
     if ($jenis == 'SISPAY' || $jenis == 'SISTAB' || $jenis == 'SISTUNG')
         $sql = "SELECT token
@@ -163,7 +163,7 @@ function CreateSMSTunggakan($jenis, $departemen, $nis, $nama, $sms, &$success)
 
     if ($success && count($fcmTokenList) > 0)
     {
-        $jsonTokenList = json_encode($fcmTokenList);
+        $jsonTokenList = json_encode($fcmTokenList, JSON_THROW_ON_ERROR);
         $jsonTokenList = str_replace('"', '\"', $jsonTokenList);
 
         $sql = "INSERT INTO jbsjs.notif SET msgdate = NOW(), desttoken = '$jsonTokenList', topicid = '', msgtitle = 'Info Tunggakan', msgbody = '$sms', msgsource = '".$jenis."'";
@@ -268,7 +268,7 @@ function CreateSMSPaymentInfo($jenis, $departemen, $nis, $nama, $tanggal, $besar
              WHERE jenis = '$jenis'
                AND departemen = '".$departemen."'";
     $formatsms = FetchSingle($sql);
-    if (strlen(trim($formatsms)) == 0)
+    if (strlen(trim((string) $formatsms)) == 0)
     {
         $success = true; // Tidak ada pengiriman SMS
         return;
@@ -285,7 +285,7 @@ function CreateSMSPaymentInfo($jenis, $departemen, $nis, $nama, $tanggal, $besar
     }
 
     $sms = $formatsms;
-    $sms = str_replace("{NIS}", $nis, $sms);
+    $sms = str_replace("{NIS}", $nis, (string) $sms);
     $sms = str_replace("{NAMA}", $nama, $sms);
     $sms = str_replace("{TANGGAL}", $tanggal, $sms);
     $sms = str_replace("{BESAR}", $besar, $sms);
@@ -318,7 +318,7 @@ function CreateSMSPaymentInfo($jenis, $departemen, $nis, $nama, $tanggal, $besar
 
     if ($success && count($fcmTokenList) > 0)
     {
-        $jsonTokenList = json_encode($fcmTokenList);
+        $jsonTokenList = json_encode($fcmTokenList, JSON_THROW_ON_ERROR);
         $jsonTokenList = str_replace('"', '\"', $jsonTokenList);
 
         $sql = "INSERT INTO jbsjs.notif SET msgdate = NOW(), desttoken = '$jsonTokenList', topicid = '', msgtitle = 'Pembayaran', msgbody = '$sms', msgsource = '".$jenis."'";
@@ -427,7 +427,7 @@ function CreateSMSTabungan($jenis, $departemen, $nis, $nama, $tanggal, $besar, $
              WHERE jenis = '$jenis'
                AND departemen = '".$departemen."'";
     $formatsms = FetchSingle($sql);
-    if (strlen(trim($formatsms)) == 0)
+    if (strlen(trim((string) $formatsms)) == 0)
     {
         $success = true; // Tidak ada pengiriman Notifikasi
         return;
@@ -447,7 +447,7 @@ function CreateSMSTabungan($jenis, $departemen, $nis, $nama, $tanggal, $besar, $
     // Telegram Gateway
 
     $sms = $formatsms;
-    $sms = str_replace("{NIS}", $nis, $sms);
+    $sms = str_replace("{NIS}", $nis, (string) $sms);
     $sms = str_replace("{NAMA}", $nama, $sms);
     $sms = str_replace("{TANGGAL}", $tanggal, $sms);
     $sms = str_replace("{BESAR}", $besar, $sms);
@@ -480,7 +480,7 @@ function CreateSMSTabungan($jenis, $departemen, $nis, $nama, $tanggal, $besar, $
 
     if ($success && count($fcmTokenList) > 0)
     {
-        $jsonTokenList = json_encode($fcmTokenList);
+        $jsonTokenList = json_encode($fcmTokenList, JSON_THROW_ON_ERROR);
         $jsonTokenList = str_replace('"', '\"', $jsonTokenList);
 
         $sql = "INSERT INTO jbsjs.notif SET msgdate = NOW(), desttoken = '$jsonTokenList', topicid = '', msgtitle = 'Tabungan', msgbody = '$sms', msgsource = '".$jenis."'";

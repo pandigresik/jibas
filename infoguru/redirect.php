@@ -33,9 +33,9 @@ session_start();
 
 OpenDb();
 
-$username = trim($_REQUEST['username']);
+$username = trim((string) $_REQUEST['username']);
 if ($username == "jibas") $username = "landlord";
-$password = trim($_REQUEST['password']);
+$password = trim((string) $_REQUEST['password']);
 
 $username = str_replace("'", "\'", $username);
 $username = str_replace("--", " ", $username);

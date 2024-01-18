@@ -72,9 +72,9 @@ $title = "<tr><td width='20'>Periode</td><td>&nbsp;:&nbsp;$tglAwal s.d. $tglAkhi
 			  ?>
 			  <tr>
 				<td width="50" height="25" align="center"><?=++$cnt?></td>
-				<td width="150" height="25" align="left">&nbsp;<?=substr($row['tanggal'],8,2)."-".substr($row['tanggal'],5,2)."-".substr($row['tanggal'],0,4)." ".substr($row['tanggal'],11,8)?></td>
+				<td width="150" height="25" align="left">&nbsp;<?=substr((string) $row['tanggal'],8,2)."-".substr((string) $row['tanggal'],5,2)."-".substr((string) $row['tanggal'],0,4)." ".substr((string) $row['tanggal'],11,8)?></td>
 				<td height="25" align="left">
-			    <div align="justify"><?=chg_p_to_div(stripslashes($row['aktivitas']))?></div>                </td>
+			    <div align="justify"><?=chg_p_to_div(stripslashes((string) $row['aktivitas']))?></div>                </td>
 				<?php if (IsAdmin()) { ?>
 				<?php } ?>
 			  </tr>

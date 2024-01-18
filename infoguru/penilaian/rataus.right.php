@@ -84,7 +84,7 @@ function CetakRataUjianSiswa(pel,kls,sem,nis,tkt,dp){
 	$sql = "SELECT s.replid,s.semester FROM semester s, ujian u, nilaiujian n WHERE s.departemen='$dep' AND u.idpelajaran='$pel' AND  n.idujian=u.replid AND n.nis='$nis' AND u.idsemester=s.replid GROUP BY s.replid";
 	$res = QueryDb($sql);
 	while ($row = @mysqli_fetch_row($res)){
-		$semester[] = array($row[0],$row[1]);
+		$semester[] = [$row[0], $row[1]];
 	}
 	?>
 	<div id="TabbedPanels1" class="TabbedPanels">
@@ -141,7 +141,7 @@ function CetakRataUjianSiswa(pel,kls,sem,nis,tkt,dp){
 							$res2 = QueryDb($sql2);
 							$num2 = @mysqli_num_rows($res2);
 							$cnt3 = 0;
-							$content = array();
+							$content = [];
 							while ($row2 = @mysqli_fetch_row($res2))
 							{
 								$sql3 = "SELECT nilaiRK FROM ratauk 
@@ -153,7 +153,7 @@ function CetakRataUjianSiswa(pel,kls,sem,nis,tkt,dp){
 								//if ($prosen < 0)
 								//	$prosen = "-" . $prosen;	
 								$numnilai += $row2[2];
-								$content[] = array($row2[0], $row2[1], $row2[2], $row3[0], $prosen);	
+								$content[] = [$row2[0], $row2[1], $row2[2], $row3[0], $prosen];	
 								$cnt3++;
 							}
 							

@@ -31,7 +31,7 @@ $sql = "SELECT DISTINCT t.idtabungan, dt.nama
 $res = QueryDb($sql);
 while($row = mysqli_fetch_row($res))
 {
-   $lsTab[] = array($row[0], $row[1]);
+   $lsTab[] = [$row[0], $row[1]];
 }
 
 if (count($lsTab) == 0)
@@ -144,8 +144,7 @@ else
         </tr>
         </table>
         <br>
-        <?php
+<?php
     }
  }
  ?>
- 

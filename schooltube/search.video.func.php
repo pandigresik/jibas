@@ -34,7 +34,7 @@ function DisplayVideoSearchList($idMediaList, $page)
     $startIndex = $page * $G_ROW_PER_PAGE;
     $stopIndex = (($page + 1) * $G_ROW_PER_PAGE) - 1;
 
-    $idArr = explode(",", $idMediaList);
+    $idArr = explode(",", (string) $idMediaList);
     if ($stopIndex < 0) $stopIndex = count($idArr);
 
     for($i = 0; $i < count($idArr); $i++)

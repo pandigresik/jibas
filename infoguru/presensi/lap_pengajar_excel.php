@@ -122,8 +122,8 @@ $row = mysqli_fetch_array($result);
 	while ($row = mysqli_fetch_row($result)) { ?>
     <tr height="25" valign="middle">    	
     	<td align="center"><span class="style7"><?=++$cnt?></span></td>
-		<td align="center"><span class="style7"><?=$row[0].'-'.$row[1].'-'.substr($row[2],2,2)?></span></td>
-        <td align="center"><span class="style7"><?=substr($row[3],0,5)?></span></td>
+		<td align="center"><span class="style7"><?=$row[0].'-'.$row[1].'-'.substr((string) $row[2],2,2)?></span></td>
+        <td align="center"><span class="style7"><?=substr((string) $row[3],0,5)?></span></td>
         <td align="center"><span class="style7"><?=$row[4]?></span></td>
         <td><span class="style7"><?=$row[5]?></span></td>
         <td><span class="style7"><?=$row[6]?></span></td>

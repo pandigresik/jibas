@@ -78,17 +78,17 @@ if ($iddasar=="12"){
 			<font size='2' face='verdana'>Grafik Batang tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk Departemen <b>".$_REQUEST['departemen']."</b> dan Angkatan <b>".$row['angkatan']."</b></font></td></tr></table>";
 	} else {
 		//data group 1
-		$data1 = array($j1);
-		$data2 = array($j2);
-		$data3 = array($j3);
-		$data4 = array($j4);
-		$data5 = array($j5);
+		$data1 = [$j1];
+		$data2 = [$j2];
+		$data3 = [$j3];
+		$data4 = [$j4];
+		$data5 = [$j5];
 
 		//Buat grafik
 		$graph = new Graph(450,300,"auto");
 		$graph->SetScale("textlin");
 
-		$lab = array("Penghasilan");
+		$lab = ["Penghasilan"];
 
 		//setting kanvas
 		$graph->SetShadow();
@@ -145,7 +145,7 @@ if ($iddasar=="12"){
 		$b5plot->SetValuePos('center');
 
 		//Membuat group
-		$gbplot = new GroupBarPlot(array($b1plot,$b2plot,$b3plot,$b4plot,$b5plot));
+		$gbplot = new GroupBarPlot([$b1plot, $b2plot, $b3plot, $b4plot, $b5plot]);
 
 		//memasukkan kedalam grafik
 		$graph->Add($gbplot);
@@ -275,7 +275,7 @@ if ($iddasar=="12"){
 	}
 
 	
-	$color = array('red@0.5','green@0.5','yellow@0.5','blue@0.5','orange@0.5','darkblue@0.5','gold@0.5','navy@0.5','gray@0.5','darkred@0.5','darkgreen@0.5', 'pink@0.5','black@0.5');
+	$color = ['red@0.5', 'green@0.5', 'yellow@0.5', 'blue@0.5', 'orange@0.5', 'darkblue@0.5', 'gold@0.5', 'navy@0.5', 'gray@0.5', 'darkred@0.5', 'darkgreen@0.5', 'pink@0.5', 'black@0.5'];
 	if($num == 0) {
 	  echo "<table width='100%' height='100%'><tr><td align='center' valign='middle'>
 			<font size='2' face='verdana'>Grafik Batang tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk
@@ -290,7 +290,7 @@ if ($iddasar=="12"){
 			//setting kanvas
 			$graph->SetShadow();
 			$graph->img->SetMargin(50,40,50,40);
-			$graph->xaxis->SetTickLabels(array($xaxis));
+			$graph->xaxis->SetTickLabels([$xaxis]);
 			//$graph->xaxis->SetTickSide(SIDE_LEFT);
 		
 			//Create bar plots
@@ -308,7 +308,7 @@ if ($iddasar=="12"){
 			//Create bar plots
 			for ($i=0;$i<count($status);$i++) {
 				$vardata = "plot".$i;
-				$vardata = new BarPlot (array($data[$i]));
+				$vardata = new BarPlot ([$data[$i]]);
 				$vardata->SetLegend($status[$i]);
 				$vardata->SetShadow('darkgray@0.5');
 				$vardata->value->Show();

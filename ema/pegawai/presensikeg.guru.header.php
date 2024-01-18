@@ -31,9 +31,9 @@ require_once('../lib/departemen.php');
 require_once('../lib/datearith.php');
 require_once('presensikeg.guru.func.php');
 
-$bulan = isset($_REQUEST['bulan']) ? $_REQUEST['bulan'] : date('n');
-$tahun = isset($_REQUEST['tahun']) ? $_REQUEST['tahun'] : date('Y');
-$idkegiatan = isset($_REQUEST['idkegiatan']) ? $_REQUEST['idkegiatan'] : -1;
+$bulan = $_REQUEST['bulan'] ?? date('n');
+$tahun = $_REQUEST['tahun'] ?? date('Y');
+$idkegiatan = $_REQUEST['idkegiatan'] ?? -1;
 
 OpenDb();
 ?>

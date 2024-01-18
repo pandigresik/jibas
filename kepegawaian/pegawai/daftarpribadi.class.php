@@ -145,7 +145,7 @@ class DaftarPribadi
         $this->agama = $_REQUEST['cbAgama'];
           $this->suku = $_REQUEST['cbSuku'];
         $this->nikah = $_REQUEST['cbNikah'];
-        $this->kelamin = strtolower($_REQUEST['cbKelamin']);
+        $this->kelamin = strtolower((string) $_REQUEST['cbKelamin']);
         $this->alamat = CQ($_REQUEST['txAlamat']);
         $this->hp = $_REQUEST['txHP'];
         $this->telpon = $_REQUEST['txTelpon'];
@@ -177,7 +177,7 @@ class DaftarPribadi
             $sday = "$this->thnmulai-$this->blnmulai-$this->tglmulai";
             
 			$gantifoto = "";
-			if (strlen($this->foto['tmp_name']) != 0)
+			if (strlen((string) $this->foto['tmp_name']) != 0)
 			{
 				$output = "../temp/img.tmp";
 				ResizeImage($this->foto, 320, 240, 70, $output);
@@ -211,12 +211,12 @@ class DaftarPribadi
                 }
             }
 
-            if ($success && strlen($this->idtambahan) > 0)
+            if ($success && strlen((string) $this->idtambahan) > 0)
             {
-                if (strpos($this->idtambahan, ",") === false)
-                    $arridtambahan = array($this->idtambahan);
+                if (!str_contains((string) $this->idtambahan, ","))
+                    $arridtambahan = [$this->idtambahan];
                 else
-                    $arridtambahan = explode(",", $this->idtambahan);
+                    $arridtambahan = explode(",", (string) $this->idtambahan);
 
                 // READ WARNING IMAGE
                 $warnimg = "../images/warningimg.jpg";
@@ -263,7 +263,7 @@ class DaftarPribadi
                         $file = $_FILES[$param];
                         $tmpfile = $file['tmp_name'];
 
-                        if (strlen($tmpfile) != 0)
+                        if (strlen((string) $tmpfile) != 0)
                         {
                             if (filesize($tmpfile) <= 256000)
                             {
@@ -336,7 +336,7 @@ class DaftarPribadi
         $this->nikah = $row['nikah']; //
         $this->agama = $row['agama']; //
 		  $this->suku = $row['suku']; //
-        $this->kelamin = strtolower($row['kelamin']); //
+        $this->kelamin = strtolower((string) $row['kelamin']); //
         $this->alamat = $row['alamat']; //
         $this->hp = $row['handphone']; //
         $this->telpon = $row['telpon']; //

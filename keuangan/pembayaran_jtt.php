@@ -300,7 +300,7 @@ if ($op == "348328947234923")
 	
 	CloseDb();
 
-    $r = rand(10000, 99999);		
+    $r = random_int(10000, 99999);		
 	header("Location: pembayaran_jtt.php?r=$r&idkategori=$idkategori&idpenerimaan=$idpenerimaan&nis=$nis&idtahunbuku=$idtahunbuku&errmsg=$errmsg&besar=$besar&cicilan=$cicilan&keterangan={$_REQUEST['keterangan']}&lunas=$lunas");
 	
 	exit();
@@ -831,7 +831,7 @@ function panggil(elem)
         Tables('table', 1, 0);
         </script>
         </fieldset>
-   <?php } else { ?>
+<?php } else { ?>
    		<fieldset>
         <legend><font size="2" color="#003300"><strong>Pembayaran Pertama</strong></font></legend>
         <table width="100%" border="0" align="center">          
@@ -854,7 +854,7 @@ function panggil(elem)
 </tr>
 </table>
 
-<?php if (strlen($errmsg) > 0) { ?>
+<?php if (strlen((string) $errmsg) > 0) { ?>
 <script language="javascript">
 alert('<?=$errmsg ?>');
 </script>

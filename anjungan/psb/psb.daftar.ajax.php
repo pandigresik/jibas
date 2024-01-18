@@ -31,7 +31,7 @@ $op = $_REQUEST['op'];
 if ($op == "getDaftarPsb")
 {
     $idkelompok = $_REQUEST['idkelompok'];
-    $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : 1;
+    $page = $_REQUEST['page'] ?? 1;
         
     OpenDb();    
     ShowDaftarPsb($idkelompok, $page);
@@ -39,8 +39,8 @@ if ($op == "getDaftarPsb")
 }
 elseif ($op == "doChangeData")
 {
-    $nocalon = urldecode($_REQUEST['nocalon']);
-    $namacalon = urldecode($_REQUEST['namacalon']);
+    $nocalon = urldecode((string) $_REQUEST['nocalon']);
+    $namacalon = urldecode((string) $_REQUEST['namacalon']);
     $idkelompok = $_REQUEST['idkelompok'];
     $page = $_REQUEST['page'];
     $npage = $_REQUEST['npage'];
@@ -65,8 +65,8 @@ elseif ($op == "setKelompokPsb")
 }
 elseif ($op == "doCheckPin")
 {
-    $nocalon = urldecode($_REQUEST['nocalon']);
-    $namacalon = urldecode($_REQUEST['namacalon']);
+    $nocalon = urldecode((string) $_REQUEST['nocalon']);
+    $namacalon = urldecode((string) $_REQUEST['namacalon']);
     $idkelompok = $_REQUEST['idkelompok'];
     $page = $_REQUEST['page'];
     $npage = $_REQUEST['npage'];

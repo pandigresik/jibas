@@ -167,7 +167,7 @@ if ($_REQUEST["op"]  == "dw984j5hx3vbdc")
 		CloseDb(); ?>
 		<script language = "javascript" type = "text/javascript">
             alert ('Data telah dihapus');
-            document.location.href="penentuan_content.php?departemen=<?=$departemen?>&tingkat=<?=$tingkat?>&pelajaran=<?=$pelajaran?>&kelas=<?=$kelas?>&semester=<?=$semester?>&nip=<?=$nip?>&tahun=<?=$tahun?>&aspek=<?=urlencode($aspek)?>&aspekket=<?=urlencode($aspekket)?>";
+            document.location.href="penentuan_content.php?departemen=<?=$departemen?>&tingkat=<?=$tingkat?>&pelajaran=<?=$pelajaran?>&kelas=<?=$kelas?>&semester=<?=$semester?>&nip=<?=$nip?>&tahun=<?=$tahun?>&aspek=<?=urlencode((string) $aspek)?>&aspekket=<?=urlencode((string) $aspekket)?>";
         </script>
 <?php 	exit();
 	}
@@ -177,7 +177,7 @@ if ($_REQUEST["op"]  == "dw984j5hx3vbdc")
 		CloseDb(); ?>
 		<script language = "javascript" type = "text/javascript">
             alert ('Gagal menghapus data!');
-            document.location.href="penentuan_content.php?departemen=<?=$departemen?>&tingkat=<?=$tingkat?>&pelajaran=<?=$pelajaran?>&kelas=<?=$kelas?>&semester=<?=$semester?>&nip=<?=$nip?>&tahun=<?=$tahun?>&aspek=<?=urlencode($aspek)?>&aspekket=<?=urlencode($aspekket)?>";
+            document.location.href="penentuan_content.php?departemen=<?=$departemen?>&tingkat=<?=$tingkat?>&pelajaran=<?=$pelajaran?>&kelas=<?=$kelas?>&semester=<?=$semester?>&nip=<?=$nip?>&tahun=<?=$tahun?>&aspek=<?=urlencode((string) $aspek)?>&aspekket=<?=urlencode((string) $aspekket)?>";
         </script>
 <?php 	exit();
 	}
@@ -300,18 +300,18 @@ function cek()
 function hapus(replid)
 {
 	if (confirm('Anda yakin akan menghapus data nilai dan komentar siswa di kelas ini?'))
-		document.location.href="penentuan_content.php?op=dw984j5hx3vbdc&replid="+replid+"&pelajaran=<?=$pelajaran?>&departemen=<?=$departemen?>&kelas=<?=$kelas?>&nip=<?=$nip?>&semester=<?=$semester?>&tingkat=<?=$tingkat?>&tahun=<?=$tahun?>&aspek=<?=urlencode($aspek)?>&aspekket=<?=urlencode($aspekket)?>";
+		document.location.href="penentuan_content.php?op=dw984j5hx3vbdc&replid="+replid+"&pelajaran=<?=$pelajaran?>&departemen=<?=$departemen?>&kelas=<?=$kelas?>&nip=<?=$nip?>&semester=<?=$semester?>&tingkat=<?=$tingkat?>&tahun=<?=$tahun?>&aspek=<?=urlencode((string) $aspek)?>&aspekket=<?=urlencode((string) $aspekket)?>";
 }
 
 function recount()
 {
 	if (confirm('Anda yakin akan menghitung ulang nilai rapor siswa di kelas ini?'))
-		document.location.href="penentuan_content.php?op=b91c61e239xn8e3b61ce1&pelajaran=<?=$pelajaran?>&departemen=<?=$departemen?>&kelas=<?=$kelas?>&nip=<?=$nip?>&semester=<?=$semester?>&tingkat=<?=$tingkat?>&tahun=<?=$tahun?>&aspek=<?=urlencode($aspek)?>&aspekket=<?=urlencode($aspekket)?>";
+		document.location.href="penentuan_content.php?op=b91c61e239xn8e3b61ce1&pelajaran=<?=$pelajaran?>&departemen=<?=$departemen?>&kelas=<?=$kelas?>&nip=<?=$nip?>&semester=<?=$semester?>&tingkat=<?=$tingkat?>&tahun=<?=$tahun?>&aspek=<?=urlencode((string) $aspek)?>&aspekket=<?=urlencode((string) $aspekket)?>";
 }
 
 function cetak_excel()
 {
-	newWindow('penentuan_cetak_excel.php?pelajaran=<?=$pelajaran?>&departemen=<?=$departemen?>&kelas=<?=$kelas?>&nip=<?=$nip?>&semester=<?=$semester?>&tingkat=<?=$tingkat?>&tahun=<?=$tahun?>&aspek=<?=urlencode($aspek)?>&aspekket=<?=urlencode($aspekket)?>','CetakExcel','100','100','resizable=1,scrollbars=1,status=0,toolbar=0');
+	newWindow('penentuan_cetak_excel.php?pelajaran=<?=$pelajaran?>&departemen=<?=$departemen?>&kelas=<?=$kelas?>&nip=<?=$nip?>&semester=<?=$semester?>&tingkat=<?=$tingkat?>&tahun=<?=$tahun?>&aspek=<?=urlencode((string) $aspek)?>&aspekket=<?=urlencode((string) $aspekket)?>','CetakExcel','100','100','resizable=1,scrollbars=1,status=0,toolbar=0');
 }
 
 function detail(replid)
@@ -419,7 +419,7 @@ function panggil(elem, total)
 	<?php $i = 0;
 		while ($row_PK = @mysqli_fetch_array($result_get_aturan_PK)) 
 		{			
-            $ujian[$i++] = array($row_PK['replid'], $row_PK['bobot'], $row_PK['idjenisujian'], $aspek);  ?>
+            $ujian[$i++] = [$row_PK['replid'], $row_PK['bobot'], $row_PK['idjenisujian'], $aspek];  ?>
     		<td width="8%" class="headerlong">
             	<span class="style1"><?= $row_PK['jenisujian']." (".$row_PK['bobot'].")" ?></span>
             </td>

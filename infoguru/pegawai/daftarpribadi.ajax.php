@@ -34,7 +34,7 @@ if ($op == "changepin")
     $newPin = "";
     for($i = 0; $i < 5; $i++)
     {
-        $newPin .= rand(0, 9);
+        $newPin .= random_int(0, 9);
     }
 
     $sql = "UPDATE jbssdm.pegawai SET pinpegawai = '$newPin' WHERE nip = '".$nip."'";

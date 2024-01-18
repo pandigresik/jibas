@@ -86,7 +86,7 @@ if($jum_cek == 0) {
 if (isset($_REQUEST['simpan'])) {
 	OpenDb();
 	$tingkat = $_REQUEST['status_user'];
-	$pass=md5($_REQUEST['password']);
+	$pass=md5((string) $_REQUEST['password']);
 	
 	$sql_dep = "AND departemen = '".$_REQUEST['departemen']."'";
 	if ($_REQUEST['status_user'] == "" || $_REQUEST['status_user'] == 1) {

@@ -35,7 +35,7 @@ $uploadedfile = $logo['tmp_name'];
 $uploadedfile_name = $logo['name'];
 $OL='';
 $dis='';
-if (strlen($uploadedfile)!=0){
+if (strlen((string) $uploadedfile)!=0){
 	$filename='temp'.GetFileExt($uploadedfile_name);
 	ResizeImage($logo, 100, 80, 70, $filename);
 	$handle = fopen($filename, "r");

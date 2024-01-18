@@ -53,19 +53,19 @@ CloseDb();
 
 $op="";
 if (isset($_REQUEST['op']))
-	$op=trim($_REQUEST['op']);
+	$op=trim((string) $_REQUEST['op']);
 if (isset($_REQUEST['simpan'])){
 	
 	$foto=$_FILES["foto"];
 	$uploadedfile = $foto['tmp_name'];
 	$uploadedtypefile = $foto['type'];
 	$uploadedsizefile = $foto['size'];
-	if (strlen($uploadedfile)!=0){
+	if (strlen((string) $uploadedfile)!=0){
 		//$gantifoto=", foto='$foto_data'";
   	if($uploadedtypefile=='image/jpeg')
     $src = imagecreatefromjpeg($uploadedfile);
 	$filename = "tmpimage/x.jpg";
-	list($width,$height)=getimagesize($uploadedfile);
+	[$width, $height]=getimagesize($uploadedfile);
 	if ($width<$height){
 	$newheight=320;
    	$newwidth=240;
@@ -88,12 +88,12 @@ if (isset($_REQUEST['simpan'])){
 	$uploadedfile2 = $foto2['tmp_name'];
 	$uploadedtypefile2 = $foto2['type'];
 	$uploadedsizefile2 = $foto2['size'];
-	if (strlen($uploadedfile2)!=0){
+	if (strlen((string) $uploadedfile2)!=0){
 		//$gantifoto=", foto='$foto_data'";
   	if($uploadedtypefile2=='image/jpeg')
     $src2 = imagecreatefromjpeg($uploadedfile2);
 	$filename2 = "tmpimage/xxx.jpg";
-	list($width2,$height2)=getimagesize($uploadedfile2);
+	[$width2, $height2]=getimagesize($uploadedfile2);
 	if ($width2<$height2){
 	$newheight2=640;
    	//$newwidth=($width/$height)*480;

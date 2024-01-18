@@ -147,7 +147,7 @@ $class="liOpen";
 if (getNSubDir($row[0])==0)
 	$class="liClose";
 ?>
-<li class="liOpen" style="cursor:default">&nbsp;<img src='../images/ico/folder.gif' border='0'>&nbsp;<strong><?=stripslashes($row[1])?></strong>&nbsp;<a href="javascript:AddKelompok('<?=$row[0]?>')"><img src="../images/ico/tambah.png" border='0' title="Tambah Kelompok"></a><a href="javascript:EditGroup('<?=$row[0]?>')"><img src="../images/ico/ubah.png" border='0' title="Ubah Group"></a><a href="javascript:EraseGroup('<?=$row[0]?>')"><img src="../images/ico/hapus.png" border='0' title="Hapus Group"></a>
+<li class="liOpen" style="cursor:default">&nbsp;<img src='../images/ico/folder.gif' border='0'>&nbsp;<strong><?=stripslashes((string) $row[1])?></strong>&nbsp;<a href="javascript:AddKelompok('<?=$row[0]?>')"><img src="../images/ico/tambah.png" border='0' title="Tambah Kelompok"></a><a href="javascript:EditGroup('<?=$row[0]?>')"><img src="../images/ico/ubah.png" border='0' title="Ubah Group"></a><a href="javascript:EraseGroup('<?=$row[0]?>')"><img src="../images/ico/hapus.png" border='0' title="Hapus Group"></a>
 <?php
 $sql2 = "SELECT replid,kelompok FROM jbsfina.kelompokbarang WHERE idgroup='".$row[0]."'"; 
 $result2 = QueryDb($sql2);
@@ -158,7 +158,7 @@ while ($row2 = @mysqli_fetch_row($result2)){
 ?>
 <li class="liOpen" id="liOpen<?=$row2[0]?>" onMouseOver="Hover('liOpen<?=$row2[0]?>','1')" onMouseOut="Hover('liOpen<?=$row2[0]?>','0')" onClick="SelectKelompok('<?=$row2[0]?>')">
 <!--<span >-->
-<span ><img src='../images/ico/page.gif' border='0'>&nbsp;<?=stripslashes($row2[1])?></span>&nbsp;<img src="../images/ico/ubah.png" border='0' onClick="EditKelompok('<?=$row2[0]?>')" title="Ubah Kelompok" style="cursor:pointer"><img src="../images/ico/hapus.png" border='0' onClick="EraseKelompok('<?=$row2[0]?>')" title="Hapus Kelompok" style="cursor:pointer">
+<span ><img src='../images/ico/page.gif' border='0'>&nbsp;<?=stripslashes((string) $row2[1])?></span>&nbsp;<img src="../images/ico/ubah.png" border='0' onClick="EditKelompok('<?=$row2[0]?>')" title="Ubah Kelompok" style="cursor:pointer"><img src="../images/ico/hapus.png" border='0' onClick="EraseKelompok('<?=$row2[0]?>')" title="Hapus Kelompok" style="cursor:pointer">
 <!--</span>-->
 </li>
 <?php

@@ -23,12 +23,12 @@
 <?php
 require_once("sessionchecker.php");
 
-$kriteria = array(1 => 'Agama','Asal Sekolah','Golongan Darah','Jenis Kelamin','Kewarganegaraan','Kode Pos Siswa','Kondisi Siswa','Pekerjaan Ayah','Pekerjaan Ibu','Pendidikan Ayah','Pendidikan Ibu','Penghasilan Orang Tua','Status Aktif','Status Siswa','Suku','Tahun Kelahiran','Usia');
-$kriteria_judul = array(1 => 'AGAMA','ASAL SEKOLAH','GOLONGAN DARAH','JENIS KELAMIN','KEWARGANEGARAAN','KODE POS SISWA','KONDISI SISWA','PEKERJAAN AYAH','PEKERJAAN IBU','PENDIDIKAN AYAH','PENDIDIKAN IBU','PENGHASILAN ORANG TUA','STATUS AKTIF','STATUS SISWA','SUKU','TAHUN KELAHIRAN','USIA');
-$kriteria_tabel = array(1 => 'agama','asalsekolah','darah','kelamin','warga','kodepossiswa','kondisi','pekerjaanayah','pekerjaanibu','pendidikanayah','pendidikanibu','penghasilanayah','aktif','status','suku','tgllahir');
-$kriteria_file = array(1 => 'agama','asalsekolah','darah','kelamin','warga','kodepos','kondisi','pekerjaanayah','pekerjaanibu','pendidikanayah','pendidikanibu','penghasilan','aktif','status','suku','tahunlahir','usia');
-$bulan = array(1=>'Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agust','Sep','Okt','Nov','Des');
-$bulan_pjg = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+$kriteria = [1 => 'Agama', 'Asal Sekolah', 'Golongan Darah', 'Jenis Kelamin', 'Kewarganegaraan', 'Kode Pos Siswa', 'Kondisi Siswa', 'Pekerjaan Ayah', 'Pekerjaan Ibu', 'Pendidikan Ayah', 'Pendidikan Ibu', 'Penghasilan Orang Tua', 'Status Aktif', 'Status Siswa', 'Suku', 'Tahun Kelahiran', 'Usia'];
+$kriteria_judul = [1 => 'AGAMA', 'ASAL SEKOLAH', 'GOLONGAN DARAH', 'JENIS KELAMIN', 'KEWARGANEGARAAN', 'KODE POS SISWA', 'KONDISI SISWA', 'PEKERJAAN AYAH', 'PEKERJAAN IBU', 'PENDIDIKAN AYAH', 'PENDIDIKAN IBU', 'PENGHASILAN ORANG TUA', 'STATUS AKTIF', 'STATUS SISWA', 'SUKU', 'TAHUN KELAHIRAN', 'USIA'];
+$kriteria_tabel = [1 => 'agama', 'asalsekolah', 'darah', 'kelamin', 'warga', 'kodepossiswa', 'kondisi', 'pekerjaanayah', 'pekerjaanibu', 'pendidikanayah', 'pendidikanibu', 'penghasilanayah', 'aktif', 'status', 'suku', 'tgllahir'];
+$kriteria_file = [1 => 'agama', 'asalsekolah', 'darah', 'kelamin', 'warga', 'kodepos', 'kondisi', 'pekerjaanayah', 'pekerjaanibu', 'pendidikanayah', 'pendidikanibu', 'penghasilan', 'aktif', 'status', 'suku', 'tahunlahir', 'usia'];
+$bulan = [1=>'Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agust', 'Sep', 'Okt', 'Nov', 'Des'];
+$bulan_pjg = [1=>'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 
 function StringIsSelected($value, $comparer) 
 {
@@ -70,7 +70,7 @@ function RandStr($length)
 	$charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	$s = "";
 	while(strlen($s) < $length) 
-		$s .= substr($charset, rand(0, 61), 1);
+		$s .= substr($charset, random_int(0, 61), 1);
 	return $s;		
 }
 
@@ -132,23 +132,15 @@ function NamaBulanPdk($bln)
 
 function NamaHariMySql($hari)
 {
-	switch($hari)
-	{
-		case 0:
-			return "Senin";
-		case 1:
-			return "Selasa";
-		case 2:
-			return "Rabu";
-		case 3:
-			return "Kamis";
-		case 4:
-			return "Jum'at";
-		case 5:
-			return "Sabtu";
-		default:
-			return "Minggu";
-	}
+	return match ($hari) {
+     0 => "Senin",
+     1 => "Selasa",
+     2 => "Rabu",
+     3 => "Kamis",
+     4 => "Jum'at",
+     5 => "Sabtu",
+     default => "Minggu",
+ };
 }
 
 function NamaHari($hari) 
@@ -169,7 +161,7 @@ function NamaHari($hari)
 
 function rpad($string, $padchar, $length) 
 {
-	$result = trim($string);
+	$result = trim((string) $string);
 	if (strlen($result) < $length) {
 		$nzero = $length - strlen($result);
 		$zero = "";
@@ -182,80 +174,80 @@ function rpad($string, $padchar, $length)
 
 function MySqlDateFormat($date) 
 {
-	list($d, $m, $y) = explode('[/.-]', $date); 
+	[$d, $m, $y] = explode('[/.-]', (string) $date); 
 	return "$y-$m-$d";
 }
 
 function RegularDateFormat($mysqldate) 
 {
-	list($y, $m, $d) = explode('[/.-]', $mysqldate); 
+	[$y, $m, $d] = explode('[/.-]', (string) $mysqldate); 
 	return "$d-$m-$y";
 }
 
 function LongDateFormat($mysqldate) 
 {
-	list($y, $m, $d) = explode('[/.-]', $mysqldate); 
+	[$y, $m, $d] = explode('[/.-]', (string) $mysqldate); 
 	return "$d ". NamaBulan($m) ." $y";
 }
 
 function ShortDateFormat($mysqldate) 
 {
-	list($y, $m, $d) = explode('[/.-]', $mysqldate); 
+	[$y, $m, $d] = explode('[/.-]', (string) $mysqldate); 
 	return "$d ". NamaBulanPdk($m) ." $y";
 }
 
 function TglDb($value) 
 {
-	$tanggal = substr($value,0,2);
-	$bulan = substr($value,3,2);
-	$tahun = substr($value,6,4);
+	$tanggal = substr((string) $value,0,2);
+	$bulan = substr((string) $value,3,2);
+	$tahun = substr((string) $value,6,4);
 	$tgl=$tahun."-".$bulan."-".$tanggal;
 	return $tgl;
 }
 
 function TglText($value) 
 {
-	$tahun = substr($value,0,4);
-	$bulan = substr($value,5,2);
-	$tanggal = substr($value,8,2);
+	$tahun = substr((string) $value,0,4);
+	$bulan = substr((string) $value,5,2);
+	$tanggal = substr((string) $value,8,2);
 	$tgl=$tanggal."-".$bulan."-".$tahun;
 	return $tgl;
 }
 
 function TglTextLong($value) 
 {
-	$value=trim($value);
+	$value=trim((string) $value);
 	$tahun = substr($value,0,4);
 	$bulan = substr($value,5,2);
 	$tanggal = substr($value,8,2);
 	
 	switch ($bulan)
 	{
-		case 01:
+		case '01':
 			$nama_bulan="Januari";
 			break;
-		case 02:
+		case '02':
 			$nama_bulan="Februari";
 			break;
-		case 03:
+		case '03':
 			$nama_bulan="Maret";
 			break;
-		case 04:
+		case '04':
 			$nama_bulan="April";
 			break;
-		case 05:
+		case '05':
 			$nama_bulan="Mei";
 			break;
-		case 06:
+		case '06':
 			$nama_bulan="Juni";
 			break;
-		case 07:
+		case '07':
 			$nama_bulan="Juli";
 			break;
-		case 08:
+		case '08':
 			$nama_bulan="Agustus";
 			break;
-		case 09:
+		case '09':
 			$nama_bulan="September";
 			break;
 		case 10:
@@ -279,45 +271,45 @@ function TglTextLong($value)
 
 function TglTextShort($value) 
 {
-	$xxx = explode("-",$value);
+	$xxx = explode("-",(string) $value);
 	$tahun = $xxx[0];
 	$bulan = $xxx[1];
 	$tanggal = $xxx[2];
 	switch ($bulan){
-		case 01:
+		case '01':
 			$nama_bulan="Jan";
 			break;
-		case 02:
+		case '02':
 			$nama_bulan="Feb";
 			break;
-		case 03:
+		case '03':
 			$nama_bulan="Mar";
 			break;
-		case 04:
+		case '04':
 			$nama_bulan="Apr";
 			break;
-		case 05:
+		case '05':
 			$nama_bulan="Mei";
 			break;
-		case 06:
+		case '06':
 			$nama_bulan="Jun";
 			break;
-		case 07:
+		case '07':
 			$nama_bulan="Jul";
 			break;
-		case 08:
+		case '08':
 			$nama_bulan="Agust";
 			break;
-		case 09:
+		case '09':
 			$nama_bulan="Sep";
 			break;
-		case 10:
+		case '10':
 			$nama_bulan="Okt";
 			break;
-		case 11:
+		case '11':
 			$nama_bulan="Nov";
 			break;
-		case 12:
+		case '12':
 			$nama_bulan="Des";
 			break;
 	}
@@ -327,7 +319,7 @@ function TglTextShort($value)
 
 function format_tgl($tanggal)
 {
-	$mdy = explode('-',$tanggal);
+	$mdy = explode('-',(string) $tanggal);
 	$hasil = $mdy[2].' '.NamaBulan($mdy[1]).' '.$mdy[0];
 	
 	return $hasil;
@@ -335,7 +327,7 @@ function format_tgl($tanggal)
 
 function format_tgl_blnnmr($tanggal)
 {
-	$mdy = explode('-',$tanggal);
+	$mdy = explode('-',(string) $tanggal);
 	$hasil = $mdy[2].'-'.$mdy[1].'-'.$mdy[0];
 	
 	return $hasil;
@@ -343,7 +335,7 @@ function format_tgl_blnnmr($tanggal)
 
 function unformat_tgl($tanggal)
 {
-	$mdy = explode('-',$tanggal);
+	$mdy = explode('-',(string) $tanggal);
 	$hasil = $mdy[2].'-'.$mdy[1].'-'.$mdy[0];
 	
 	return $hasil;
@@ -365,10 +357,10 @@ function removetag($input,$length)
 {
 	$output = "";
 	$ambil = 0;
-	$charlength = strLen($input);
+	$charlength = strLen((string) $input);
 	for ($i = 0; $i <= $length; $i++)
 	{
-		$karakter=substr($input,$i,1);
+		$karakter=substr((string) $input,$i,1);
 		if ($ambil==1)
 			$ambil=2;
 		if ($karakter=="<" || $karakter=="&")
@@ -410,7 +402,7 @@ function is_empty_dir($dir)
     else return false; // whatever the reason is : no such dir, not a dir, not readable
 }
 function chg_p_to_div($string){
-	$content = str_replace('<p','<div',$string);
+	$content = str_replace('<p','<div',(string) $string);
 	$content = str_replace('</p>','</div>',$content);
 	return $content;
 }
@@ -429,8 +421,8 @@ function CQ($string)
 
 function GetDatePart($value, $part)
 {
-	$inf = explode("-", $value);
-	$part = strtolower($part);
+	$inf = explode("-", (string) $value);
+	$part = strtolower((string) $part);
 	
 	if (count($inf) == 3)
 	{
@@ -454,7 +446,7 @@ function RandomString($length)
     $result = "";
     for($i = 0; $i < $length; $i++)
     {
-        $ix = rand(0, strlen($set) - 1);
+        $ix = random_int(0, strlen($set) - 1);
         $result .= substr($set, $ix, 1);
     }
     

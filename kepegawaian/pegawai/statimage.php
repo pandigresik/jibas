@@ -33,8 +33,8 @@ $dotype = "";
 if (isset($_REQUEST['dotype']))
 	$dotype = $_REQUEST['dotype'];
 
-if (strlen($dotype) > 0) {
-	$s = explode("-", $dotype);
+if (strlen((string) $dotype) > 0) {
+	$s = explode("-", (string) $dotype);
 	$type = $s[0];
 	$stat = $s[1];
 }

@@ -147,7 +147,7 @@ $tglakhir = $row_ta['tglakhir'];
 	$i = 0;
 	while($row = mysqli_fetch_row($res))
 	{
-		$pelarr[$i++] = array($row[0], $row[1]);
+		$pelarr[$i++] = [$row[0], $row[1]];
 	}
 	
 	for($i = 0; $i < count($pelarr); $i++)
@@ -173,7 +173,7 @@ $tglakhir = $row_ta['tglakhir'];
 			     AND n.idaturan = a.replid  	   
 			     AND a.dasarpenilaian = d.dasarpenilaian";	
 		$res = QueryDb($sql);				 
-		$aspekarr = array();				 
+		$aspekarr = [];				 
 		$j = 0;
 		while($row = mysqli_fetch_row($res))
 		{
@@ -198,7 +198,7 @@ $tglakhir = $row_ta['tglakhir'];
 				$nh = $row2[1];
 			}
 			
-			$aspekarr[$j++] = array($row[0], $row[1], $na, $nh);
+			$aspekarr[$j++] = [$row[0], $row[1], $na, $nh];
 		} 
 		$naspek = count($aspekarr);
 		
@@ -573,7 +573,7 @@ $tglakhir = $row_ta['tglakhir'];
 </script>
     </fieldset></td>
   </tr>
-  <?php } ?>
+<?php } ?>
 </table>
 
 </BODY>

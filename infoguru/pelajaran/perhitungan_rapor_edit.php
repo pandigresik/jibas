@@ -82,10 +82,10 @@ if (isset($_REQUEST['Simpan']))
 						 	idtingkat='$id_tingkat', idpelajaran='$id_pelajaran',
 						 	dasarpenilaian='$aspek', idjenisujian='$jenis', bobot='$bobot'";	
 			
-			QueryDb($sql1,$success);
+			QueryDb($sql1);
 		} 
 		if ($cek == 0)
-			QueryDb("DELETE FROM aturannhb WHERE replid='$id'",$success);
+			QueryDb("DELETE FROM aturannhb WHERE replid='$id'");
 	}
 	
 	if ($result) 

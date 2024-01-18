@@ -98,7 +98,7 @@ $pel = $row[0];
 </table>
 <br>
 <?php
-$info = array();
+$info = [];
 $sql = "SELECT DISTINCT u.idjenis, j.jenisujian
           FROM ujian u, jenisujian j
          WHERE u.idjenis = j.replid
@@ -165,7 +165,7 @@ else
              ORDER BY nama";
              
 $res = QueryDb($sql);
-$siswa = array();
+$siswa = [];
 $nsiswa = 0;
 while($row = mysqli_fetch_row($res))
 {

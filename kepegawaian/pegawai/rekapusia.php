@@ -92,7 +92,7 @@ while ($row = mysqli_fetch_array($result))
 	$data[$s][$g] = $row['cnt'];
 }
 
-$usia = array("<24", "24-29", "30-34", "35-39", "40-44", "45-49", "50-55", ">56");
+$usia = ["<24", "24-29", "30-34", "35-39", "40-44", "45-49", "50-55", ">56"];
 
 $sql = "SELECT satker FROM satker";
 $result = QueryDb($sql);

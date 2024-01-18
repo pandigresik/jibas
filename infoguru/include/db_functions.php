@@ -156,12 +156,12 @@ function LogError($sql, $errno, $error)
 	if (!$G_ENABLE_QUERY_ERROR_LOG)
 		return;
 		
-	$logPath = @realpath(@dirname(__FILE__)) . "/../../log";
+	$logPath = @realpath(@__DIR__) . "/../../log";
 	$logExists = @file_exists($logPath) && @is_dir($logPath);
 	if (!$logExists)
 		@mkdir($logPath, 0740, true);
 	
-	$logFile = @realpath(@dirname(__FILE__)) . "/../../log/infoguru-error.log";
+	$logFile = @realpath(@__DIR__) . "/../../log/infoguru-error.log";
 	$modeFile = (@file_exists($logFile) && @filesize($logFile) > 1024 * 1024) ? "w" : "a";
 	
 	$fp = @fopen($logFile, $modeFile);
@@ -265,12 +265,12 @@ function LogQuery($sql)
 	if (!$G_ENABLE_QUERY_LOG)
 		return;
 		
-	$logPath = @realpath(@dirname(__FILE__)) . "/../../log";
+	$logPath = @realpath(@__DIR__) . "/../../log";
 	$logExists = @file_exists($logPath) && @is_dir($logPath);
 	if (!$logExists)
 		@mkdir($logPath, 0644);
 	
-	$logFile = @realpath(@dirname(__FILE__)) . "/../../log/" . $G_FILE_LOG_QUERY;
+	$logFile = @realpath(@__DIR__) . "/../../log/" . $G_FILE_LOG_QUERY;
 	$modeFile = (@file_exists($logFile) && @filesize($logFile) > 1024 * 1024) ? "w" : "a";
 	
 	$fp = @fopen($logFile, $modeFile);

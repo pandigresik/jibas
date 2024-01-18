@@ -78,7 +78,7 @@ OpenDb();
 					$ada = '';			 
 			?>
             
-    		<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $proses)?> ><?=$row['proses'].' '.$ada?></option>
+    		<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $proses)?> ><?=$row['proses'].' '.$ada?></option>
     		<?php
 			}
     		?>

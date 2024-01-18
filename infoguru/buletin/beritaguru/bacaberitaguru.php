@@ -40,7 +40,7 @@ $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
 CloseDb();
 
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");
+$namabulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember"];
 
 $tglberita = $row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
 ?>
@@ -102,7 +102,7 @@ $tglberita = $row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
 					<font style="font-size:11px; line-height: 18px;">
 					<?php
 					$berita = $row['berita'];
-					$berita = str_replace("#sq;", "'", $berita);
+					$berita = str_replace("#sq;", "'", (string) $berita);
 					echo $berita;
 					?>
 					</font>

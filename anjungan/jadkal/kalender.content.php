@@ -78,7 +78,7 @@ if ($bln == $bulan1 && $thn == $tahun1)
 			
 		
 
-$color = array(array("#FD0000","#FFCCCC"),array("#339900","#DFEFDF"),array("#5E5CB5","#C7C6EA"),array("#FF7200","#FCCAA0"),array("#F100C1","#f2ade4"),array("#009F79","#9DD7CB"),array("#8900FE","#DDC1F4"),array("#0080B0","#9CC2D1"),array("#FF9933","#FFFF99"),array("#007F00","#C1E6AC"),array("#990000","#FF8e8e"),array("#0057B9","#8aaed6"));
+$color = [["#FD0000", "#FFCCCC"], ["#339900", "#DFEFDF"], ["#5E5CB5", "#C7C6EA"], ["#FF7200", "#FCCAA0"], ["#F100C1", "#f2ade4"], ["#009F79", "#9DD7CB"], ["#8900FE", "#DDC1F4"], ["#0080B0", "#9CC2D1"], ["#FF9933", "#FFFF99"], ["#007F00", "#C1E6AC"], ["#990000", "#FF8e8e"], ["#0057B9", "#8aaed6"]];
 
 function loadKalender1($kalender)
 {
@@ -92,8 +92,8 @@ function loadKalender1($kalender)
 	$i = 0;	
 	while($row = mysqli_fetch_row($result))
    {		
-		$tgl1 = explode('-',$row[2]);
-		$tgl2 = explode('-',$row[3]);
+		$tgl1 = explode('-',(string) $row[2]);
+		$tgl2 = explode('-',(string) $row[3]);
 		$awal = $tgl1[2].'/'.$tgl1[1].'/'.substr($tgl1[0],2,2).' - '.$tgl2[2].'/'.$tgl2[1].'/'.substr($tgl2[0],2,2);
 		
 		$GLOBALS['keg']['row'][$i]['id'] = $row[0];				
@@ -193,7 +193,7 @@ function loadKalender2($kalender, $bulan1, $tahun1, $bulan2, $tahun2)
 		//echo "<br><br> kolom: (blnawal-bulan1) x 4 + awal";
 		//echo '<br> blnawal '.$blnawal. ' bulan1 '.$bulan1.' awal '.$awal.' kolom '.$kolom.' selisih '.$selisih;
 		//echo '<br>'.(($blnakhir-$blnawal)*4+$akhir).' - '.$kolom;
-		$tanggal = $row[6].'/'.$row[4].'/'.substr($row[8],2,2).' - '.$row[7].'/'.$row[5].'/'.substr($row[9],2,2);
+		$tanggal = $row[6].'/'.$row[4].'/'.substr((string) $row[8],2,2).' - '.$row[7].'/'.$row[5].'/'.substr((string) $row[9],2,2);
 		//$tanggal = $row[6].'/'.$row[4].' - '.$row[7].'/'.$row[5];
 		if ($selisih == 0) {
 			$selisih = 1;			
@@ -226,7 +226,7 @@ function getCell1($r, $c, $id, $m)
         
 			$mask[$c+1] = $jadwal['row'][$id][$r][$c]['njam'] - 1;
 			
-			$dt=explode("-",$jadwal['row'][$id][$r][$c]['awal']);
+			$dt=explode("-",(string) $jadwal['row'][$id][$r][$c]['awal']);
 			$dt1=explode("/",$dt[0]);
 			$dt2=explode("/",$dt[1]);
 								
@@ -329,7 +329,7 @@ function getCell1($r, $c, $id, $m)
                 } 
         ?>
         <td width="*" align="center" style="background-color:#3366CC; color:#FFFFFF" colspan="4">
-            <b><?=NamaBulan($n)."'".substr($batasthn,2,2)?></b>
+            <b><?=NamaBulan($n)."'".substr((string) $batasthn,2,2)?></b>
         <!--&nbsp;<a href="JavaScript:lihat()"><img src="../images/ico/lihat.png" border="0" /></a>-->
         </td>
         <?php 	} 
@@ -400,7 +400,7 @@ function getCell1($r, $c, $id, $m)
             ?>
         
     </tr>
-	<?php 	} ?>
+<?php 	} ?>
 <?php } ?> 
 	 </table>
 	<?php

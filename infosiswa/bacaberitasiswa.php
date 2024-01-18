@@ -40,7 +40,7 @@ $result=QueryDb($sql);
 $row=@mysqli_fetch_array($result);
 }
 CloseDb();
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");	
+$namabulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember"];	
 $tglberita=$row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -102,7 +102,7 @@ $tglberita=$row['tgl']." ".$namabulan[$row['bln']-1]." ".$row['thn'];
                 <td align="left" valign="top" scope="row"><strong>Berita </strong></td>
                 <td align="left" valign="top" scope="row"><strong>:</strong></td>
                 <td scope="row" align="left" style="background-image:url(images/box_hr1.gif); background-repeat:repeat-x"><?php
-                    $brt = str_replace("../../","",$row['berita']);
+                    $brt = str_replace("../../","",(string) $row['berita']);
                     echo($brt);
                 //$row['berita']
                 ?><br></td>

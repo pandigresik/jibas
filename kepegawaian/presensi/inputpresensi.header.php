@@ -27,9 +27,9 @@ require_once("../include/config.php");
 require_once("../include/common.php");
 require_once("../library/datearith.php");
 
-$tahun = isset($_REQUEST['tahun']) ? $_REQUEST['tahun'] : date('Y');
-$bulan = isset($_REQUEST['bulan']) ? $_REQUEST['bulan'] : date('n');
-$tanggal = isset($_REQUEST['tanggal']) ? $_REQUEST['tanggal'] : date('j');
+$tahun = $_REQUEST['tahun'] ?? date('Y');
+$bulan = $_REQUEST['bulan'] ?? date('n');
+$tanggal = $_REQUEST['tanggal'] ?? date('j');
 
 $maxDay = DateArith::DaysInMonth($bulan, $tahun);
 ?>

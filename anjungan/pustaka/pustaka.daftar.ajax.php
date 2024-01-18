@@ -63,7 +63,7 @@ elseif ($op == "showlist")
         $perpus = $_REQUEST['perpus'];
         $pilih = $_REQUEST['pilih'];
         $kriteria = $_REQUEST['kriteria'];
-        $halaman = isset($_REQUEST['halaman']) ? $_REQUEST['halaman'] : 1;
+        $halaman = $_REQUEST['halaman'] ?? 1;
         
         ShowList($perpus, $pilih, $kriteria, $halaman);
         CloseDb();

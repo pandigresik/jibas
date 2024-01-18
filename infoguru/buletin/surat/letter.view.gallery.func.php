@@ -34,9 +34,9 @@ function ShowImage()
     $n = 1;
     while($row = mysqli_fetch_row($res))
     {
-        $deskripsi = str_replace("'", '"', $row[1]);
+        $deskripsi = str_replace("'", '"', (string) $row[1]);
         
-        echo "<img id='img$n' style='position: absolute; top: 0px; left: 0px; visibility: hidden;' src='data:image/jpeg;base64," . base64_encode($row[0]) . "'>\r\n";
+        echo "<img id='img$n' style='position: absolute; top: 0px; left: 0px; visibility: hidden;' src='data:image/jpeg;base64," . base64_encode((string) $row[0]) . "'>\r\n";
         echo "<input type='hidden' id='info$n' value='$deskripsi'>\r\n";
         $n += 1;
     }

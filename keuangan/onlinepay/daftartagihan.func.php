@@ -233,8 +233,8 @@ function DaftarTagihanInfo()
         $nSiswa += 1;
 
         $idTagihanInfo = $row["replid"];
-        $nis = urlencode($row["nis"]);
-        $nama = urlencode($row["nama"]);
+        $nis = urlencode((string) $row["nis"]);
+        $nama = urlencode((string) $row["nama"]);
         $noTagihan = $row["notagihan"];
 
         $jumlah = $row["jumlah"];
@@ -324,7 +324,7 @@ function SendBatchNotif()
     try
     {
         $stNis = $_REQUEST["stnis"];
-        $stNis = str_replace("`", "'", $stNis);
+        $stNis = str_replace("`", "'", (string) $stNis);
         $idTagihanSet = $_REQUEST["idtagihanset"];
         $dept = $_REQUEST["dept"];
         $pesanNotifikasiTagihan = $_REQUEST["pesan"];
@@ -354,7 +354,7 @@ function SendBatchNotif()
             $bulan = $row["bulan"];
             $tahun = $row["tahun"];
 
-            $pesan = str_replace("{NAMA}", $nama, $pesanNotifikasiTagihan);
+            $pesan = str_replace("{NAMA}", $nama, (string) $pesanNotifikasiTagihan);
             $pesan = str_replace("{NIS}", $nis, $pesan);
             $pesan = str_replace("{JUMLAH}", FormatRupiah($totalTagihan), $pesan);
             $pesan = str_replace("{IURAN}", $stIuran, $pesan);
@@ -450,7 +450,7 @@ function DaftarTagihanData()
     else
     {
         echo "<td align='left' style='font-size: 12px;'><span style='font-weight: bold; color: #0000ff;'>SUDAH</span> <i>tanggal '".$row['fckdate']."'</i>";
-        if (strlen($row["ckdesc"]) > 0)
+        if (strlen((string) $row["ckdesc"]) > 0)
             echo "<br><i>".$row['ckdesc']."</i>";
         echo "</td>";
     }
@@ -549,7 +549,7 @@ function DaftarTagihanData()
         QueryDb($sql);
     }
 
-    $pesan = str_replace("{NAMA}", $nama, $pesanNotifikasiTagihan);
+    $pesan = str_replace("{NAMA}", $nama, (string) $pesanNotifikasiTagihan);
     $pesan = str_replace("{NIS}", $nis, $pesan);
     $pesan = str_replace("{JUMLAH}", FormatRupiah($totJumlah), $pesan);
     $pesan = str_replace("{IURAN}", $stIuran, $pesan);

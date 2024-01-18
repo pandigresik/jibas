@@ -205,7 +205,7 @@ function ShowDailyReport($showMenu)
 
         $keterangan = "";
         $ket = $row["keterangan"];
-        if (strlen($ket) != 0)
+        if (strlen((string) $ket) != 0)
             $keterangan = "Ket: " . $ket . "<br>";
         $keterangan .= "Id Trans: " . $row["transactionid"] . "<br>";
         if ($jenisTrans == 0)

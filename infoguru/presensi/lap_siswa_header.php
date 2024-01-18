@@ -275,7 +275,7 @@ function panggil(elem){
                   <option value="<?=$i?>" <?=IntIsSelected($th1, $i)?>>
                     <?=$i?>
                     </option>
-                  <?php } ?>
+<?php } ?>
                 </select></td>
                 <td width="20"> s/d </td>
                 <td><div id="InfoTgl2">
@@ -301,7 +301,7 @@ function panggil(elem){
                   <option value="<?=$i?>" <?=IntIsSelected($th2, $i)?>>
                     <?=$i?>
                     </option>
-                  <?php } ?>
+<?php } ?>
                 </select></td>
               </tr>
             </table>        </td>

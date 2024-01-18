@@ -37,7 +37,7 @@ function RemoveChannel($idChannel)
         CommitTrans();
         return GenericReturn::createJson(1, "OK", "");
     }
-    catch(Exception $e)
+    catch(Exception)
     {
         RollbackTrans();
         return GenericReturn::createJson(-1, "ERROR", "");

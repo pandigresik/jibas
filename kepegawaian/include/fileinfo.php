@@ -23,13 +23,13 @@
 <?php
 function GetFileExt($filename) 
 {
-	$part = explode(".", $filename);
+	$part = explode(".", (string) $filename);
 	return "." . $part[count($part) - 1];
 }
 
 function GetFileName($filename)
 {
-	$part = explode(".", $filename);
+	$part = explode(".", (string) $filename);
 	$ndot = count($part);
 	
 	$name = "";

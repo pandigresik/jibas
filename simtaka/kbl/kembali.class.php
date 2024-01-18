@@ -33,7 +33,7 @@ class CKembali
 	
 	function OnStart()
 	{
-		$this->kodepustaka = trim($_REQUEST['kodepustaka']);
+		$this->kodepustaka = trim((string) $_REQUEST['kodepustaka']);
 		
 		$sql = "SELECT DATE_FORMAT(now(), '%Y-%m-%d')";
 		$result = QueryDb($sql);

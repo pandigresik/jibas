@@ -23,28 +23,20 @@
 <?php
 function DayName($weekday)
 {
-    switch($weekday)
-    {
-        case 1:
-            return "Mgu";
-        case 2:
-            return "Sen";
-        case 3:
-            return "Sel";
-        case 4:
-            return "Rab";
-        case 5:
-            return "Kam";
-        case 6:
-            return "Jum";
-        default:
-            return "Sab";
-    }
+    return match ($weekday) {
+        1 => "Mgu",
+        2 => "Sen",
+        3 => "Sel",
+        4 => "Rab",
+        5 => "Kam",
+        6 => "Jum",
+        default => "Sab",
+    };
 }
 
 function SafeInput($text)
 {
-    $text = str_replace("'", "`", $text);
+    $text = str_replace("'", "`", (string) $text);
     $text = str_replace("<", "&lt;", $text);
     $text = str_replace(">", "^gt;", $text);
     

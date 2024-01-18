@@ -25,18 +25,18 @@
 /**
  * PHP class to resize and scale images
  */
-class ImageResize
+class ImageResize implements \Stringable
 {
-    const CROPTOP = 1;
-    const CROPCENTRE = 2;
-    const CROPCENTER = 2;
-    const CROPBOTTOM = 3;
-    const CROPLEFT = 4;
-    const CROPRIGHT = 5;
-    const CROPTOPCENTER = 6;
-    const IMG_FLIP_HORIZONTAL = 0;
-    const IMG_FLIP_VERTICAL = 1;
-    const IMG_FLIP_BOTH = 2;
+    final public const CROPTOP = 1;
+    final public const CROPCENTRE = 2;
+    final public const CROPCENTER = 2;
+    final public const CROPBOTTOM = 3;
+    final public const CROPLEFT = 4;
+    final public const CROPRIGHT = 5;
+    final public const CROPTOPCENTER = 6;
+    final public const IMG_FLIP_HORIZONTAL = 0;
+    final public const IMG_FLIP_VERTICAL = 1;
+    final public const IMG_FLIP_BOTH = 2;
 
     public $quality_jpg = 85;
     public $quality_webp = 85;
@@ -89,7 +89,6 @@ class ImageResize
     /**
      * Add filter function for use right before save image to file.
      *
-     * @param callable $filter
      * @return $this
      */
     public function addFilter(callable $filter)
@@ -123,7 +122,7 @@ class ImageResize
         if (!defined('IMAGETYPE_WEBP')) {
             define('IMAGETYPE_WEBP', 18);
         }
-        if ($filename === null || empty($filename) || (substr($filename, 0, 5) !== 'data:' && !is_file($filename))) {
+        if ($filename === null || empty($filename) || (!str_starts_with($filename, 'data:') && !is_file($filename))) {
             throw new Exception('File does not exist');
         }
 
@@ -143,11 +142,7 @@ class ImageResize
             throw new Exception('Could not read file');
         }
 
-        list(
-            $this->original_w,
-            $this->original_h,
-            $this->source_type
-        ) = $image_info;
+        [$this->original_w, $this->original_h, $this->source_type] = $image_info;
 
         switch ($this->source_type) {
         case IMAGETYPE_GIF:
@@ -190,13 +185,13 @@ class ImageResize
     {
         $img = imagecreatefromjpeg($filename);
 
-        if (!function_exists('exif_read_data') || !isset($this->source_info['APP1'])  || strpos($this->source_info['APP1'], 'Exif') !== 0) {
+        if (!function_exists('exif_read_data') || !isset($this->source_info['APP1'])  || !str_starts_with((string) $this->source_info['APP1'], 'Exif')) {
             return $img;
         }
 
         try {
             $exif = @exif_read_data($filename);
-        } catch (Exception $e) {
+        } catch (Exception) {
             $exif = null;
         }
 
@@ -283,9 +278,9 @@ class ImageResize
         }
 
         imageinterlace($dest_image, $this->interlace);
-        
+
         imagegammacorrect($this->source_image, 2.2, 1.0);
-        
+
         imagecopyresampled(
             $dest_image,
             $this->source_image,
@@ -298,7 +293,7 @@ class ImageResize
             $this->source_w,
             $this->source_h
         );
-        
+
         imagegammacorrect($dest_image, 1.0, 2.2);
 
 
@@ -371,7 +366,7 @@ class ImageResize
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->getImageAsString();
     }
@@ -681,19 +676,12 @@ class ImageResize
     protected function getCropPosition($expectedSize, $position = self::CROPCENTER)
     {
         $size = 0;
-        switch ($position) {
-        case self::CROPBOTTOM:
-        case self::CROPRIGHT:
-            $size = $expectedSize;
-            break;
-        case self::CROPCENTER:
-        case self::CROPCENTRE:
-            $size = $expectedSize / 2;
-            break;
-        case self::CROPTOPCENTER:
-            $size = $expectedSize / 4;
-            break;
-        }
+        $size = match ($position) {
+            self::CROPBOTTOM, self::CROPRIGHT => $expectedSize,
+            self::CROPCENTER, self::CROPCENTRE => $expectedSize / 2,
+            self::CROPTOPCENTER => $expectedSize / 4,
+            default => $size,
+        };
         return $size;
     }
 

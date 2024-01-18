@@ -39,7 +39,7 @@ class PengumumanListAjax{
 		$this->OutboxID = $OutboxID;
 		
 		$DestNumb = $_REQUEST['DestNumb'];
-		$this->DestNumb = str_replace(' 62','0',$DestNumb);
+		$this->DestNumb = str_replace(' 62','0',(string) $DestNumb);
 		
 		$Txt = CQ($_REQUEST['Txt']);
 		$this->Txt = $Txt;

@@ -45,7 +45,7 @@ if ($op == "34983xihxf084bzux834hx8x7x93")
    $numdel = (int)$_REQUEST['numdel']-1;
    $fileall = $_REQUEST["listdel"];
    $x = 0;
-   $file = explode("|", $fileall);
+   $file = explode("|", (string) $fileall);
 
    $FileShareDir = "$FILESHARE_UPLOAD_DIR/fileshare/";
    while ($x <= $numdel)
@@ -60,7 +60,7 @@ if ($op == "34983xihxf084bzux834hx8x7x93")
 		   $row = @mysqli_fetch_row($result);
 		   
 		   $dir_real = $row[0];
-		   $dir_real = str_replace($rootname, $FileShareDir, $dir_real);
+		   $dir_real = str_replace($rootname, $FileShareDir, (string) $dir_real);
 		   $file_path = "$dir_real/$row[1]";
 		   
 		   if (file_exists($file_path))
@@ -202,7 +202,7 @@ $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $idguru = $row[1];
 $dfullpath = $row[0];
-$fullpath = str_replace($rootname, "", $dfullpath);
+$fullpath = str_replace($rootname, "", (string) $dfullpath);
 ?>
 <font size="3" color="#000033">f i l e s</font>
 <table border="0" cellpadding="0" cellspacing="0" width="100%">

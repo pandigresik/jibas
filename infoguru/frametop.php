@@ -131,7 +131,7 @@ function ganti()
 </div>
 <form name="top">
 <input type="hidden" value="<?=$theme?>" id="theme" name="theme">
-<input type="hidden" id="login" value="<?=trim(SI_USER_NAME())?>">
+<input type="hidden" id="login" value="<?=trim((string) SI_USER_NAME())?>">
 </form>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tr>

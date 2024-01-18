@@ -101,7 +101,7 @@ if ($num > 0)
         <div align="left">
             Jumlah: <?=$jumlah?>&nbsp;<?=$satuan?>&nbsp;@<?=FormatRupiah($harga)?><br />
             Total: <?=FormatRupiah($total)?><br>
-            Tanggal: <?=substr($row['tglperolehan'],8,2)."-".substr($row['tglperolehan'],5,2)."-".substr($row['tglperolehan'],0,4)?><br />
+            Tanggal: <?=substr((string) $row['tglperolehan'],8,2)."-".substr((string) $row['tglperolehan'],5,2)."-".substr((string) $row['tglperolehan'],0,4)?><br />
         </div>
         </div>
     </td>
@@ -130,7 +130,7 @@ if ($num > 0)
 else
 {
     ?>
-    <div align="center"><span style="font-family:verdana; font-size:12px; font-style:italic; color:#666666">Tidak ada Data Barang Untuk Kelompok <?=stripslashes($namakelompok)?></span></div>
+    <div align="center"><span style="font-family:verdana; font-size:12px; font-style:italic; color:#666666">Tidak ada Data Barang Untuk Kelompok <?=stripslashes((string) $namakelompok)?></span></div>
 <?php
 }
 ?>

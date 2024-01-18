@@ -49,8 +49,8 @@ $calon = "";
 if (isset($_REQUEST['calon']))
 	$calon = $_REQUEST['calon'];
 	
-$tgl1 = explode(' ',$tanggal1);
-$tgl2 = explode(' ',$tanggal2);
+$tgl1 = explode(' ',(string) $tanggal1);
+$tgl2 = explode(' ',(string) $tanggal2);
 
 if ($calon == "calon") 
 	$judul = "Calon ";

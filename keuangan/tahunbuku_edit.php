@@ -68,7 +68,7 @@ if (isset($_REQUEST['simpan']))
 			$sql = "SELECT info1 FROM tahunbuku WHERE replid='$id'";
 			$idjurnal = FetchSingle($sql);
 			
-			if (strlen($idjurnal) > 0)
+			if (strlen((string) $idjurnal) > 0)
 			{
 				$sql = "UPDATE jurnal SET tanggal = '$tanggalmulai' WHERE replid = '".$idjurnal."'";
 				QueryDbTrans($sql, $success);
@@ -230,7 +230,7 @@ function panggil(elem){
     <td width="28" background="<?=GetThemeDir() ?>bgpop_09.jpg">&nbsp;</td>
 </tr>
 </table>
-<?php if (strlen($mysqli_ERROR_MSG) > 0) { ?>
+<?php if (strlen((string) $mysqli_ERROR_MSG) > 0) { ?>
 <script language="javascript">
 	alert('<?=$mysqli_ERROR_MSG?>');		
 </script>

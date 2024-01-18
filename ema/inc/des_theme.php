@@ -23,8 +23,8 @@
 <?php
 class nama
 {
- var $namafile ="";
- var $i ="";
+ public $namafile ="";
+ public $i ="";
   //$namafile="../jibitheme/theme/black/ket.txt";
   function buk_file()
   { 
@@ -42,7 +42,7 @@ class nama
  function title()
  {
    $arr = $this->buk_file();
-	 $pieces = explode(": ", $arr[$this->i]);
+	 $pieces = explode(": ", (string) $arr[$this->i]);
 	 $title = $pieces[1];
 	 if($title =="")
 	  {

@@ -67,7 +67,7 @@ function DelTabungan($id)
 	QueryDb($sql);
 }
 
-function SetAktif($id, $newaktif)
+function SetAktif($id, $newaktif): never
 {
     global $idkategori, $departemen, $varbaris, $page, $hal;
     

@@ -43,7 +43,7 @@ $sql = "SELECT dirfullpath FROM jbsvcr.dirshare WHERE replid = '".$iddir."'";
 $result = QueryDb($sql);
 $row = mysqli_fetch_row($result);
 $dfullpath = $row[0];
-$fullpath = str_replace($rootname, "", $dfullpath);
+$fullpath = str_replace($rootname, "", (string) $dfullpath);
 
 CloseDb();
 
@@ -52,7 +52,7 @@ $ERROR_MSG = "";
 $FileShareDir = "$FILESHARE_UPLOAD_DIR/fileshare/";
 if (isset($_REQUEST['Simpan']))
 {
-	$rootfolder_db = trim($_REQUEST['fullpath']);
+	$rootfolder_db = trim((string) $_REQUEST['fullpath']);
 	$dir_db = $rootfolder_db . $_REQUEST['folder'] . "/";
 	$dir_real = str_replace($rootname, $FileShareDir, $dir_db);
 		

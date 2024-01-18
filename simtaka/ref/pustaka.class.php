@@ -69,7 +69,7 @@ class CPustaka{
 		  	  $cnt=1;	
 			  while ($row=@mysqli_fetch_array($result))
 			  {
-					$dep = (strlen(trim($row['departemen'])) == 0) ? "Semua Departemen" : $row['departemen'];
+					$dep = (strlen(trim((string) $row['departemen'])) == 0) ? "Semua Departemen" : $row['departemen'];
 					
 					$num_judul = @mysqli_num_rows(QueryDb("SELECT * FROM pustaka p, daftarpustaka d WHERE d.perpustakaan='".$row['replid']."' AND p.replid=d.pustaka GROUP BY d.pustaka"));
 					$num_pustaka = @mysqli_fetch_row(QueryDb("SELECT COUNT(d.replid) FROM pustaka p, daftarpustaka d WHERE d.pustaka=p.replid AND d.perpustakaan='".$row['replid']."'"));

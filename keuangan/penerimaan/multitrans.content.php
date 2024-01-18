@@ -41,9 +41,9 @@ $nama = $_REQUEST['nama'];
 $kelas = $_REQUEST['kelas'];
 
 if ($kelompok == "siswa")
-    $jenisp = array("JTT" => "Iuran Wajib Siswa", "SKR" => "Iuran Sukarela Siswa");
+    $jenisp = ["JTT" => "Iuran Wajib Siswa", "SKR" => "Iuran Sukarela Siswa"];
 else
-    $jenisp = array("CSWJB" => "Iuran Wajib Calon Siswa", "CSSKR" => "Iuran Sukarela Calon Siswa");
+    $jenisp = ["CSWJB" => "Iuran Wajib Calon Siswa", "CSSKR" => "Iuran Sukarela Calon Siswa"];
 
 OpenDb();    
 ?>

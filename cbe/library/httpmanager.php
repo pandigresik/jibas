@@ -25,8 +25,7 @@ require_once ("httprequest.php");
 
 class HttpManager
 {
-    private $callback;
-    private $timeout = 10000;
+    private int $timeout = 10000;
 
     private $execCode;
     private $state;
@@ -34,9 +33,8 @@ class HttpManager
     private $session;
     private $data;
 
-    function __construct($callback = "")
+    function __construct(private $callback = "")
     {
-        $this->callback = $callback;
     }
 
     function setTimeout($ms)
@@ -55,10 +53,10 @@ class HttpManager
 
     function buildParam()
     {
-        $param  = "State=" . urlencode($this->state) . "&";
-        $param .= "Status=" . urlencode($this->status) . "&";
-        $param .= "Session=" . urlencode($this->session) . "&";
-        $param .= "Data=" . urlencode($this->data);
+        $param  = "State=" . urlencode((string) $this->state) . "&";
+        $param .= "Status=" . urlencode((string) $this->status) . "&";
+        $param .= "Session=" . urlencode((string) $this->session) . "&";
+        $param .= "Data=" . urlencode((string) $this->data);
 
         return $param;
     }
@@ -89,7 +87,7 @@ class HttpManager
 
         try
         {
-            $dataPort = isset($_SESSION["DataPort"]) ? $_SESSION["DataPort"] : 8104;
+            $dataPort = $_SESSION["DataPort"] ?? 8104;
             $httpRequest = new HttpRequest($CBE_SERVER, $dataPort, "/", "POST");
             $httpRequest->setTimeout($this->timeout);
             $httpRequest->setQueryString($this->buildParam());

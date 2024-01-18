@@ -65,7 +65,7 @@ $Source = $_REQUEST['Source'];
     <td class="td">(<?=$row['nip']?>) <?=$row['nama']?></td>
     <td class="td"><?=$row['handphone']?></td>
     <td class="td" align="center">
-    <?php if (strlen($row['handphone'])>0){ ?>
+    <?php if (strlen((string) $row['handphone'])>0){ ?>
     <span style="cursor:pointer" class="Link" onclick="InsertNewReceipt('<?=$row['handphone']?>','<?=$row['nama']?>','<?=$row['nip']?>')" align="center"  />Pilih</span>
     <?php } ?>
     </td>

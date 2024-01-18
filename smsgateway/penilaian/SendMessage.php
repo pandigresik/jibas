@@ -81,7 +81,7 @@ if ($op=='SavePenilaian')
 	}
 	
 	$smsgeninfo = "";
-	$x = explode(' ',$SendDate);
+	$x = explode(' ',(string) $SendDate);
 	$dt = explode('-',$x[0]);
 	$smsgeninfo .= $dt[2].'-'.$SMonth[$dt[1]-1].'-'.$dt[0]."<br>";
 	if ($Type=='0'){
@@ -123,7 +123,7 @@ if ($op=='SavePenilaian')
 	$res = QueryDb($sql);
 	
 	$NIS2 = "";
-	$ALLNIS	= explode(',',$NIS);
+	$ALLNIS	= explode(',',(string) $NIS);
 	for ($i=0;$i<count($ALLNIS);$i++){
 		if ($NIS2 == "")
 			$NIS2 = "'".trim($ALLNIS[$i])."'";
@@ -132,12 +132,12 @@ if ($op=='SavePenilaian')
 	}
 	//echo "Jumlah".count($ALLNIS);
 	//exit;
-	$x	= explode('-',$Date1);
+	$x	= explode('-',(string) $Date1);
 	$Tgl1 = (int)$x[2];
 	$Bln1 = (int)$x[1];
 	$Thn1 = $x[0];
 	
-	$x	= explode('-',$Date2);
+	$x	= explode('-',(string) $Date2);
 	$Tgl2 = (int)$x[2];
 	$Bln2 = (int)$x[1];
 	$Thn2 = $x[0];
@@ -245,7 +245,7 @@ if ($op=='SavePenilaian')
 				}
 			}
 
-			$newformat = str_replace('[SISWA]', $namasiswa, $format);
+			$newformat = str_replace('[SISWA]', $namasiswa, (string) $format);
 			$newformat = str_replace('[TANGGAL1]', $Tgl1, $newformat);
 			$newformat = str_replace('[BULAN1]', $Bln1, $newformat);
 			$newformat = str_replace('[TANGGAL2]', $Tgl2, $newformat);
@@ -269,10 +269,10 @@ if ($op=='SavePenilaian')
 			{
 				for($j = 3; $j <= 5; $j++)
 				{
-					$hportu = trim($data[$j]);
+					$hportu = trim((string) $data[$j]);
 					if (strlen($hportu) < 7)
 						continue;
-					if (substr($hportu, 0, 1) == "#")
+					if (str_starts_with($hportu, "#"))
 						continue;
 					
 					$nohp = $hportu;
@@ -295,8 +295,8 @@ if ($op=='SavePenilaian')
 			
 			if ($KeSiswa == 1)
 			{
-				$hpsiswa = trim($data[1]);
-				if (strlen($hpsiswa) >= 7 && substr($hpsiswa, 0, 1) != "#")
+				$hpsiswa = trim((string) $data[1]);
+				if (strlen($hpsiswa) >= 7 && !str_starts_with($hpsiswa, "#"))
 				{
 					$nohp = $hpsiswa;
 					$nohp = str_replace(" 62","0",$nohp);

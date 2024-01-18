@@ -109,7 +109,7 @@ CloseDb();
                 <td valign="top"><span class="style5">Pesan</span></td>
                 <td valign="top"><span class="style5">:</span></td>
                 <td><font style="font-size: 11px; line-height: 18px">
-                  <?= str_replace("`", "'", $row2['pesan'])  ?>
+                  <?= str_replace("`", "'", (string) $row2['pesan'])  ?>
                 </span></td>
               </tr>
             </table>

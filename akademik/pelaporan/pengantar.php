@@ -30,7 +30,7 @@ require_once('../library/departemen.php');
 require_once('../cek.php');
 require_once('pengantar.func.php');
 
-$departemen = isset($_REQUEST['departemen']) ? $_REQUEST['departemen'] : "";
+$departemen = $_REQUEST['departemen'] ?? "";
 $status = isset($_REQUEST['status']) ? (int)$_REQUEST['status'] : 2;
 $op = $_REQUEST['op'];
 

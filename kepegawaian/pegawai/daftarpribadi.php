@@ -84,7 +84,7 @@ $DP = new DaftarPribadi();
 <tr><td>
 
 <table border="0" cellpadding="5" cellspacing="0" width="100%">
-<?php if (strlen($DP->ERRMSG) > 0) { ?>
+<?php if (strlen((string) $DP->ERRMSG) > 0) { ?>
 <tr>
 	<td colspan="2" align="center">
         <table border="1" style="border-style:dashed; border-color:#CC0000; background-color:#FFFFCC" width="300">
@@ -369,7 +369,7 @@ $DP = new DaftarPribadi();
                      ORDER BY urutan";
             $res2 = QueryDb($sql);
 
-            $arrList = array();
+            $arrList = [];
             if (mysqli_num_rows($res2) == 0)
                 $arrList[] = "-";
 

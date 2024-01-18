@@ -40,7 +40,7 @@ $kondisi_kiriman=$_REQUEST['kondisi'];
 	?>
 	<option value="<?=$row_kondisi['kondisi']?>"<?=StringIsSelected($row_kondisi['kondisi'],$kondisi_kiriman)?> >
 	<?=$row_kondisi['kondisi']?></option>
-	<?php
+<?php
     } 
 	CloseDb();
 	// Akhir Olah Data kondisi

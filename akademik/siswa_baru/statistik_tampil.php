@@ -144,9 +144,9 @@ function change_urut(urut,urutan) {
 <body topmargin="0" leftmargin="0">
 <div align="right">
 <?php 	
-	$str = array("'","+");
-	$str_replace = array("\'","x123x");	
-  	$sql = str_replace($str, $str_replace, $query1); 
+	$str = ["'", "+"];
+	$str_replace = ["\'", "x123x"];	
+  	$sql = str_replace($str, $str_replace, (string) $query1); 
 	
 ?>
 

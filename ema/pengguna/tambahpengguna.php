@@ -28,7 +28,7 @@ require_once('../inc/getheader.php');
 if (isset($_REQUEST['simpan'])) {
 	OpenDb();
 	$tingkat = $_REQUEST['status_user'];
-	$pass=md5($_REQUEST['password']);
+	$pass=md5((string) $_REQUEST['password']);
 	
 	
   	//cek apakah sudah ada account yang sama di SIMAKA

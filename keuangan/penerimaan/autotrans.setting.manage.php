@@ -169,7 +169,7 @@ if ($idAutoTrans != 0)
         $ix += 1;
     }
 
-    $json = json_encode($lsAutoTransData);
+    $json = json_encode($lsAutoTransData, JSON_THROW_ON_ERROR);
     echo "<input type='hidden' id='jsonData' value='$json'>";
 }
 ?>

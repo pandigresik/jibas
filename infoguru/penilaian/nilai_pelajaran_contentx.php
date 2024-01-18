@@ -392,7 +392,7 @@ function hapus_nau(){
             <td><strong>: <?=$namajenis?></strong></td>            
            	<td align="right">
             <a href="JavaScript:cetak_excel()"><img src="../images/ico/excel.png" border="0" onMouseOver="showhint('Cetak Excel!', this, event, '50px')"/>&nbsp;Cetak Excel</a>&nbsp;&nbsp;           
-            <a href="#" style="cursor:pointer" onClick="<?php if (perubahan==1) { ?> segarkan_ada(); <?php } else { ?>segarkan() <?php } ?>"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '120px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
+            <a href="#" style="cursor:pointer" onClick="<?php if (\PERUBAHAN==1) { ?> segarkan_ada(); <?php } else { ?>segarkan() <?php } ?>"><img src="../images/ico/refresh.png" border="0" onMouseOver="showhint('Refresh', this, event, '120px')"/>&nbsp;Refresh</a>&nbsp;&nbsp;
 	  		<?php if (SI_USER_LEVEL() != $SI_USER_STAFF) {  ?>
 	  		<a href="#" style="cursor:pointer" onClick="tambah();" ><img src="../images/ico/tambah.png" border="0" onMouseOver="showhint('Tambah Jenis Ujian Baru', this, event, '120px')"/>&nbsp;Tambah</a>&nbsp;
 	  		<?php  }  ?>
@@ -417,7 +417,7 @@ function hapus_nau(){
 	$i=1;
 	while ($row_cek_ujian=@mysqli_fetch_array($result_cek_ujian)){
 		$idujian[$i] = $row_cek_ujian['replid'];
-		$tgl = explode("-",$row_cek_ujian['tanggal']);
+		$tgl = explode("-",(string) $row_cek_ujian['tanggal']);
 	?>
 	   <td height="30" width="30" class="headerlong" align="center" onMouseOver="showhint('Deskripsi :\n <?=$row_cek_ujian['deskripsi']?>', this, event, '120px')"><?=$namajenis."-".$i?>
 		<br /><?=$tgl[2]."/".$tgl[1]."/".substr($tgl[0],2)?><br />

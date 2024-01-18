@@ -30,21 +30,21 @@ class CAnggotaAdd{
 			if ($num>0){
 				$this->exist();
 			} else {
-				$nama = trim(addslashes($_REQUEST['nama']));
-				$alamat = trim(addslashes($_REQUEST['alamat']));
-				$kodepos = trim(addslashes($_REQUEST['kodepos']));
-				$email = trim(addslashes($_REQUEST['email']));
-				$telpon = trim(addslashes($_REQUEST['telpon']));
-				$hp = trim(addslashes($_REQUEST['hp']));
-				$kerja = trim(addslashes($_REQUEST['kerja']));
-				$institusi = trim(addslashes($_REQUEST['institusi']));
-				$keterangan = trim(addslashes($_REQUEST['keterangan']));
+				$nama = trim(addslashes((string) $_REQUEST['nama']));
+				$alamat = trim(addslashes((string) $_REQUEST['alamat']));
+				$kodepos = trim(addslashes((string) $_REQUEST['kodepos']));
+				$email = trim(addslashes((string) $_REQUEST['email']));
+				$telpon = trim(addslashes((string) $_REQUEST['telpon']));
+				$hp = trim(addslashes((string) $_REQUEST['hp']));
+				$kerja = trim(addslashes((string) $_REQUEST['kerja']));
+				$institusi = trim(addslashes((string) $_REQUEST['institusi']));
+				$keterangan = trim(addslashes((string) $_REQUEST['keterangan']));
 				$foto = $_FILES['foto'];
 				$uploadedfile = $foto['tmp_name'];
 				$uploadedfile_name = $foto['name'];
 				//echo $uploadedfile; exit;
-				if (strlen($uploadedfile)!=0){
-					$filename=str_replace(GetFileName($uploadedfile_name),'temp',GetFileName($uploadedfile_name)).GetFileExt($uploadedfile_name);
+				if (strlen((string) $uploadedfile)!=0){
+					$filename=str_replace(GetFileName($uploadedfile_name),'temp',(string) GetFileName($uploadedfile_name)).GetFileExt($uploadedfile_name);
 					ResizeImage($foto, 100, 80, 100, $filename);
 					$handle = fopen($filename, "r");
 					$foto_binary = addslashes(fread(fopen($filename,"r"),filesize($filename)));

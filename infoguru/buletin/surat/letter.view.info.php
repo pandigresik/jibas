@@ -59,7 +59,7 @@ $row = mysqli_fetch_array($res);
     <td valign='top' align='left' colspan="2">
 <?php
         $jsonFile = $row["idfile"];
-        $lsFile = json_decode($jsonFile);
+        $lsFile = json_decode((string) $jsonFile, null, 512, JSON_THROW_ON_ERROR);
 
         for($i = 0; $i < count($lsFile); $i++)
         {
@@ -70,14 +70,14 @@ $row = mysqli_fetch_array($res);
             $nDot = 0;
             do
             {
-                $pos = strpos($dtFile, ".", $pos + 1);
+                $pos = strpos((string) $dtFile, ".", $pos + 1);
                 if ($pos !== FALSE) $nDot += 1;
             }
             while($pos !== FALSE && $nDot < 3);
 
             if ($pos !== FALSE && $nDot == 3)
             {
-                $nmFile = substr($dtFile,$pos + 1);
+                $nmFile = substr((string) $dtFile,$pos + 1);
                 $lnFile = "$FILESHARE_ADDR/jibasls/$dtFile";
                 echo "&bull;&nbsp;<a style='color: blue; font-weight: normal; text-decoration: underline' href='$lnFile' target='_blank'>$nmFile</a><br>";
             }

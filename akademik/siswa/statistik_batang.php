@@ -30,7 +30,7 @@ include("../library/class/jpgraph.php");
 include("../library/class/jpgraph_bar.php");
 include("../library/class/jpgraph_line.php");
 //echo "Masuk"; exit;
-$color = array('red','green','yellow','blue','orange','darkblue','gold','navy','gray','darkred','darkgreen', 'pink','black');
+$color = ['red', 'green', 'yellow', 'blue', 'orange', 'darkblue', 'gold', 'navy', 'gray', 'darkred', 'darkgreen', 'pink', 'black'];
 
 $idangkatan=(int)$_REQUEST['idangkatan'];
 $departemen=$_REQUEST['departemen'];
@@ -84,17 +84,17 @@ if ($iddasar=="12"){
 			<font size='2' face='verdana'>Grafik Batang tidak dapat ditampilkan<br> karena belum ada data siswa<br> untuk Departemen <b>".$_REQUEST['departemen']."</b> dan Angkatan <b>".$row['angkatan']."</b></font></td></tr></table>";
 	} else {
 		//data group 1
-		$data1 = array($j1);
-		$data2 = array($j2);
-		$data3 = array($j3);
-		$data4 = array($j4);
-		$data5 = array($j5);
+		$data1 = [$j1];
+		$data2 = [$j2];
+		$data3 = [$j3];
+		$data4 = [$j4];
+		$data5 = [$j5];
 
 		//Buat grafik
 		$graph = new Graph(450,300,"auto");
 		$graph->SetScale("textlin");
 
-		$lab = array("Penghasilan");
+		$lab = ["Penghasilan"];
 
 		//setting kanvas
 		$graph->SetShadow();
@@ -159,7 +159,7 @@ if ($iddasar=="12"){
 		$b5plot->SetValuePos('center');
 
 		//Membuat group
-		$gbplot = new GroupBarPlot(array($b1plot,$b2plot,$b3plot,$b4plot,$b5plot));
+		$gbplot = new GroupBarPlot([$b1plot, $b2plot, $b3plot, $b4plot, $b5plot]);
 
 		//memasukkan kedalam grafik
 		$graph->Add($gbplot);
@@ -303,7 +303,7 @@ if ($iddasar=="12"){
 			//setting kanvas
 			$graph->SetShadow();
 			$graph->img->SetMargin(50,40,50,40);
-			$graph->xaxis->SetTickLabels(array($xaxis));
+			$graph->xaxis->SetTickLabels([$xaxis]);
 			//$graph->xaxis->SetTickSide(SIDE_LEFT);
 		
 			//Create bar plots
@@ -321,7 +321,7 @@ if ($iddasar=="12"){
 			//Create bar plots
 			for ($i=count($status);$i>=0;$i--) {
 				$vardata = "plot".$i;
-				$vardata = new BarPlot (array($data[$i]));
+				$vardata = new BarPlot ([$data[$i]]);
 				$vardata->SetLegend($status[$i]);
 				$vardata->SetShadow('darkgray@0.5');
 				$vardata->value->Show();

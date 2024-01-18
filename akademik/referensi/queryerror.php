@@ -58,14 +58,14 @@ require_once('../cek.php');
     </tr>
 	</table>
 
-<?php $logFile = realpath(dirname(__FILE__)) . "/../../log/akademik-error.log";
+<?php $logFile = realpath(__DIR__) . "/../../log/akademik-error.log";
 	$logFile = str_replace("\\", "/", $logFile);
 	if (!file_exists($logFile))
 		$logFile = ""; 
 	
 	if ($logFile != "")
 	{
-		$r = rand(1, 30000);
+		$r = random_int(1, 30000);
 		$docRoot = $_SERVER['DOCUMENT_ROOT'];
 		$logFile = "http://" . $_SERVER['SERVER_ADDR'] . str_replace($docRoot, "", $logFile) . "?$r";
 	} ?>

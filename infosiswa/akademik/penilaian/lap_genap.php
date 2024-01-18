@@ -40,7 +40,7 @@ $result = QueryDb($sql);
 
 $i = 0;
 while ($row = @mysqli_fetch_row($result)) {
-	$sem[$i]= array($row[0],$row[1]);
+	$sem[$i]= [$row[0], $row[1]];
 	$pel = $row[2];
 	$i++;
 }

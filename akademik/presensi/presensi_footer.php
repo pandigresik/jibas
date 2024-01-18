@@ -30,7 +30,7 @@ require_once('../cek.php');
 
 $id = 0;
 $status = 0;
-$st = array('Hadir', 'Ijin', 'Sakit', 'Alpa', 'Cuti', '(Belum ada data)');
+$st = ['Hadir', 'Ijin', 'Sakit', 'Alpa', 'Cuti', '(Belum ada data)'];
 if (isset($_REQUEST['departemen']))
 	$departemen = $_REQUEST['departemen'];
 if (isset($_REQUEST['semester']))
@@ -124,8 +124,8 @@ if ($jml > 0) {
 	$semester = $row['idsemester'];
 	$pelajaran = $row['idpelajaran'];
 	$tanggal = $row['tanggal'];	
-	$jam=substr($row['jam'],0,2);
-	$menit=substr($row['jam'],3,2);
+	$jam=substr((string) $row['jam'],0,2);
+	$menit=substr((string) $row['jam'],3,2);
 	
 }	
 

@@ -41,21 +41,21 @@ $sql = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '$n
 //echo "1.".$sql;
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
-$dep[0] = array($row['departemen'], $nis_awal);
+$dep[0] = [$row['departemen'], $nis_awal];
 //$no[1] = $row['nislama'];
 if ($row['nislama'] <> "") {
 	$sql1 = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '".$row['nislama']."'";
 	//echo "2.".$sql1;
 	$result1 = QueryDb($sql1);
 	$row1 = @mysqli_fetch_array($result1);	
-	$dep[1] = array($row1['departemen'], $row['nislama']);
+	$dep[1] = [$row1['departemen'], $row['nislama']];
 	//$no[2] = $row1['nislama'];	
 	if ($row1['nislama'] <> "") {				
 		$sql2 = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '".$row1['nislama']."'";
 		//echo "3.".$sql2;
 		$result2 = QueryDb($sql2);
 		$row2 = @mysqli_fetch_array($result2);					
-		$dep[2] = array($row2['departemen'],$row1['nislama']) ;
+		$dep[2] = [$row2['departemen'], $row1['nislama']] ;
 	}	
 }		
 
@@ -67,7 +67,7 @@ $sql_ajaran = "SELECT DISTINCT(t.replid), t.tahunajaran FROM riwayatkelassiswa r
 $result_ajaran = QueryDb($sql_ajaran);
 $k = 0;
 while ($row_ajaran = @mysqli_fetch_array($result_ajaran)) {
-	$ajaran[$k] = array($row_ajaran['replid'],$row_ajaran['tahunajaran']);
+	$ajaran[$k] = [$row_ajaran['replid'], $row_ajaran['tahunajaran']];
 	$k++;
 }
 
@@ -79,7 +79,7 @@ $sql_kls = "SELECT DISTINCT(r.idkelas), k.kelas, t.tingkat, k.idtahunajaran FROM
 $result_kls = QueryDb($sql_kls);
 $j = 0;
 while ($row_kls = @mysqli_fetch_array($result_kls)) {
-	$kls[$j] = array($row_kls['idkelas'],$row_kls['kelas'],$row_kls['tingkat'],$row_kls['idtahunajaran']);
+	$kls[$j] = [$row_kls['idkelas'], $row_kls['kelas'], $row_kls['tingkat'], $row_kls['idtahunajaran']];
 	if ($row_kls['idtahunajaran']==$tahunajaran)
 		$kelas = $row_kls['idkelas'];
 	$j++;
@@ -255,8 +255,8 @@ if (isset($_REQUEST['pelajaran']))
 							</fieldset>
 							</td>	
 						</tr>
-						<?php } //1 ?>
-						<?php } else { //2?>
+<?php } //1 ?>
+<?php } else { //2?>
 					<tr>
 						<td align="center" valign="middle" height="50">
 						<table border="0" width="100%" id="table1" cellpadding="0" cellspacing="0">
@@ -267,14 +267,14 @@ if (isset($_REQUEST['pelajaran']))
 						</table>
 						</td>
 					</tr>
-					<?php } //2?>
+<?php } //2?>
 				</table>
-				<?php } //if $i = 1?>
+<?php } //if $i = 1?>
 				</div>
-				<?php } //for next jumlah div TabbedPanelsContent?>
+<?php } //for next jumlah div TabbedPanelsContent?>
 			</div>
 		</div>
-	<?php } else { ?>
+<?php } else { ?>
 		<table border="0" width="100%" id="table1" cellpadding="0" cellspacing="0">
 			<tr align="center" valign="middle" >
 				<td><font size = "2" color ="red"><b><span class="err">Tidak ditemukan adanya data.</span><br />

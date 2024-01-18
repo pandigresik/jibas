@@ -30,16 +30,16 @@ require_once("../library/class/jpgraph_bar.php");
 require_once("../library/class/jpgraph_line.php");
 
 class ChartFactory {
-	var $xdata;
-	var $ydata;
-	var $title;
-	var $xtitle;
-	var $ytitle;
+	public $xdata;
+	public $ydata;
+	public $title;
+	public $xtitle;
+	public $ytitle;
 	
-	var $color;
+	public $color;
 	
-	function ChartFactory() {
-		$this->color = array('red','black','green','blue','gray','darkblue','gold','yellow','navy','orange','darkred','darkgreen', 'pink');
+	function __construct() {
+		$this->color = ['red', 'black', 'green', 'blue', 'gray', 'darkblue', 'gold', 'yellow', 'navy', 'orange', 'darkred', 'darkgreen', 'pink'];
 	}
 	
 	function ArrayData($xda, $yda, $tit, $xti, $yti) {

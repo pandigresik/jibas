@@ -17,7 +17,7 @@ function LoadValue()
         $passLen = $row["passlength"];
 
         $origPass = $row["password"];
-        $origPass = substr($origPass, 0, $passLen);
+        $origPass = substr((string) $origPass, 0, $passLen);
 
         $keterangan = $row["keterangan"];
     }
@@ -81,8 +81,8 @@ function SimpanPetugas()
 
 function createJsonReturn($status, $message)
 {
-    $ret = array($status, $message);
-    return json_encode($ret);
+    $ret = [$status, $message];
+    return json_encode($ret, JSON_THROW_ON_ERROR);
 }
 
 ?>

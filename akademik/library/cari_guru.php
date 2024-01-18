@@ -58,11 +58,11 @@ $nip = $_REQUEST['nip'];
 if (isset($_REQUEST['submit']) || $_REQUEST['submit'] == 1) { 
 	OpenDb();
 		
-	if ((strlen($nama) > 0) && (strlen($nip) > 0))
+	if ((strlen((string) $nama) > 0) && (strlen((string) $nip) > 0))
 		$sql = "SELECT p.nip, p.nama, pel.nama, pel.departemen FROM jbssdm.pegawai p, jbsakad.guru g, jbsakad.pelajaran pel, jbsakad.departemen d WHERE p.nama LIKE '%$nama%' AND p.nip LIKE '%$nip%' AND pel.replid=g.idpelajaran AND g.nip=p.nip AND pel.departemen = d.departemen GROUP BY p.nip ORDER BY d.urutan, p.nama"; 
-	else if (strlen($nama) > 0)
+	else if (strlen((string) $nama) > 0)
 		$sql = "SELECT p.nip, p.nama, pel.nama, pel.departemen FROM jbssdm.pegawai p, jbsakad.guru g, jbsakad.pelajaran pel, jbsakad.departemen d WHERE p.nama LIKE '%$nama%' AND pel.replid=g.idpelajaran AND g.nip=p.nip AND pel.departemen = d.departemen GROUP BY p.nip ORDER BY d.urutan, p.nama"; 
-	else if (strlen($nip) > 0)
+	else if (strlen((string) $nip) > 0)
 		$sql = "SELECT p.nip, p.nama, pel.nama, pel.departemen FROM jbssdm.pegawai p, jbsakad.guru g, jbsakad.pelajaran pel, jbsakad.departemen d WHERE p.nip LIKE '%$nip%' AND pel.replid=g.idpelajaran AND g.nip=p.nip AND pel.departemen = d.departemen GROUP BY p.nip ORDER BY p.nama"; 
 	//echo $sql;	
 	//else if ((strlen($nama) == 0) || (strlen($nip) == 0))

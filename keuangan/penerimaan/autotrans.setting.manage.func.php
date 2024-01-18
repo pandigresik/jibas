@@ -32,7 +32,7 @@ class AutoTransData
     public $Keterangan = "";
 }
 
-$lsAutoTransData = array();
+$lsAutoTransData = [];
 
 function AddAutoTransData($idData, $idPenerimaan, $aktif, $besar, $urutan, $keterangan)
 {

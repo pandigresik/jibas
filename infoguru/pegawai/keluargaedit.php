@@ -36,13 +36,13 @@ $tgllahir = $_REQUEST['txTglLahir'];
 $hp = CQ($_REQUEST['txHp']);
 $email = CQ($_REQUEST['txEmail']);
 $alm = CQ($_REQUEST['ckAlm']);
-$isalm = strtolower($alm) == "on" ? "checked" : ""; 
+$isalm = strtolower((string) $alm) == "on" ? "checked" : ""; 
 $keterangan = CQ($_REQUEST['txKeterangan']);
 
 if (isset($_REQUEST['btSubmit']))
 {
 	OpenDb();
-	$alm = strtolower($alm) == "on" ? "1" : "0"; 
+	$alm = strtolower((string) $alm) == "on" ? "1" : "0"; 
 	$sql = "UPDATE jbssdm.pegkeluarga
                SET nama='$nama', alm='$alm', hubungan='$hubungan', tgllahir='$tgllahir',
 				   hp='$hp', email='$email', keterangan='$keterangan'
@@ -113,7 +113,7 @@ function focusNext(elemName, evt)
 </tr>
 <tr>
 	<td width="100%" align="center">
-    
+
     <table border="0" cellpadding="0" cellspacing="5" width="100%">
     <tr>
     	<td width="25%" align="right"><strong>Nama</strong> : </td>
@@ -160,7 +160,7 @@ function focusNext(elemName, evt)
         </td> 
     </tr>
     </table>
-    
+
     </td>
 </tr>
 </table>

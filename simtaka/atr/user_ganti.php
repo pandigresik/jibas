@@ -30,8 +30,8 @@ require_once('../inc/theme.php');
 $login = SI_USER_ID();
 
 if (isset($_REQUEST['simpan'])) {
-	$nip=trim($_REQUEST['nip']);
-	$login=trim($_REQUEST['login']);
+	$nip=trim((string) $_REQUEST['nip']);
+	$login=trim((string) $_REQUEST['login']);
 	if ($login=='landlord' || $login=='LANDLORD'){
 		OpenDb();
 		$sql = "SELECT password FROM jbsuser.landlord WHERE password=md5('".$_REQUEST['passlama']."')";
@@ -188,7 +188,7 @@ function panggil(elem){
     </tr>
     </table>
     </form>
-<?php if (strlen($mysqli_ERROR_MSG) > 0) { ?>
+<?php if (strlen((string) $mysqli_ERROR_MSG) > 0) { ?>
 <script language="javascript">
     alert('<?=$mysqli_ERROR_MSG ?>');
 </script>

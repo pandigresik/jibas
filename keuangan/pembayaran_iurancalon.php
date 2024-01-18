@@ -78,8 +78,8 @@ if (1 == (int)$_REQUEST['issubmit'])
 	}
 	
 	// rek kas from selected value
-	if (isset($_REQUEST['rekkas']) && strlen(trim($_REQUEST['rekkas'])) > 0)
-		$rekkas = trim($_REQUEST['rekkas']);
+	if (isset($_REQUEST['rekkas']) && strlen(trim((string) $_REQUEST['rekkas'])) > 0)
+		$rekkas = trim((string) $_REQUEST['rekkas']);
 	
 	//Ambil nama siswa
 	$namasiswa = "";
@@ -159,7 +159,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 
 	CloseDb();
 	
-	$r = rand(10000, 99999);
+	$r = random_int(10000, 99999);
 	header("Location: pembayaran_iurancalon.php?r=$r&idkategori=$idkategori&idpenerimaan=$idpenerimaan&replid=$replid&idtahunbuku=$idtahunbuku");
 	
 	exit();

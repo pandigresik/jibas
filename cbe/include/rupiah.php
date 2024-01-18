@@ -48,7 +48,7 @@ function FormatRupiah($value) {
 	}
 		
 	$duit = (string)$value;
-	$value = trim(duit);
+	$value = trim((string) \DUIT);
 	if (strlen($duit) == 0) return "";
 	$len = strlen($duit);
 	$nPoint = (int)($len / 3);
@@ -81,13 +81,13 @@ function FormatRupiah($value) {
 }
 
 function UnformatRupiah($value) {
-	$pos = strpos($value, "(");
+	$pos = strpos((string) $value, "(");
 
 	$negatif = true;
 	if ($pos === false) 
 		$negatif = false;
 
-	$value = str_replace("Rp","",$value);
+	$value = str_replace("Rp","",(string) $value);
 	$value = str_replace(".","",$value);
 	$value = str_replace(" ","",$value);
 	$value = str_replace("(","",$value);

@@ -35,7 +35,7 @@ $noid = $_REQUEST['noid'];
 $jenis = $_REQUEST['jenis'];
 $jumlah = $_REQUEST['jumlah'];
 $ktransaksi = $_REQUEST['ktransaksi'];
-$ktransaksi = str_replace("<", "&lt;", $ktransaksi);
+$ktransaksi = str_replace("<", "&lt;", (string) $ktransaksi);
 $ktransaksi = str_replace(">", "&gt;", $ktransaksi);
 $petugas = getUserName();
 

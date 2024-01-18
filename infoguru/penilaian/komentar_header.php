@@ -230,7 +230,7 @@ function lihat() {
 			if ($tingkat == "")
 				$tingkat = $row2['replid'];				
 			?>
-            <option value="<?=urlencode($row2['replid'])?>" <?=IntIsSelected($row2['replid'], $tingkat) ?>>
+            <option value="<?=urlencode((string) $row2['replid'])?>" <?=IntIsSelected($row2['replid'], $tingkat) ?>>
             <?=$row2['tingkat']?>
             </option>
             <?php
@@ -263,7 +263,7 @@ function lihat() {
 			if ($kelas == "")
 				$kelas = $row4['replid'];				 
 			?>
-            <option value="<?=urlencode($row4['replid'])?>" <?=IntIsSelected($row4['replid'], $kelas) ?>>
+            <option value="<?=urlencode((string) $row4['replid'])?>" <?=IntIsSelected($row4['replid'], $kelas) ?>>
             <?=$row4['kelas']?>
             </option>
             <?php
@@ -283,7 +283,7 @@ function lihat() {
 				if ($pelajaran == "") 				
 					$pelajaran = $row['replid'];			
 				$nama_pelajaran = $row['nama']; ?>
-         	<option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $pelajaran)?> ><?=$row['nama']?></option>                  
+         	<option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $pelajaran)?> ><?=$row['nama']?></option>                  
 <?php 		} ?>
    		</select>        
         </td>
@@ -314,7 +314,7 @@ function lihat() {
 				$semester = $row6['replid'];
 						 
 			?>
-            <option value="<?=urlencode($row6['replid'])?>" <?=IntIsSelected($row6['replid'], $semester)?> >
+            <option value="<?=urlencode((string) $row6['replid'])?>" <?=IntIsSelected($row6['replid'], $semester)?> >
             <?=$row6['semester']?>
             </option>
             <?php

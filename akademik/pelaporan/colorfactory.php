@@ -23,8 +23,8 @@
 <?php
 class ColorFactory
 {
-    private $baseMinColor;
-    private $baseMaxColor;
+    private array $baseMinColor;
+    private array $baseMaxColor;
 
     private array $zeroColor = [209, 209, 209];  // gray
 

@@ -132,7 +132,7 @@ if ($idtingkat <> -1) {
 }
 ?>
 
-<center><font size="4" face="Verdana"><strong>LAPORAN TUNGGAKAN <?=strtoupper($namapenerimaan) ?><br />
+<center><font size="4" face="Verdana"><strong>LAPORAN TUNGGAKAN <?=strtoupper((string) $namapenerimaan) ?><br />
 </strong></font><br /> 
 </center>
 <br />

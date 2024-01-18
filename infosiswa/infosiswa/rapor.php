@@ -39,19 +39,19 @@ $sql = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '$n
 
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
-$dep[0] = array($row['departemen'], $nis_awal);
+$dep[0] = [$row['departemen'], $nis_awal];
 
 if ($row['nislama'] <> "") {
 	$sql1 = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '".$row['nislama']."'";
 	$result1 = QueryDb($sql1);
 	$row1 = @mysqli_fetch_array($result1);	
-	$dep[1] = array($row1['departemen'], $row['nislama']);
+	$dep[1] = [$row1['departemen'], $row['nislama']];
 	//$no[2] = $row1['nislama'];	
 	if ($row1['nislama'] <> "") {				
 		$sql2 = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '".$row1['nislama']."'";
 		$result2 = QueryDb($sql2);
 		$row2 = @mysqli_fetch_array($result2);					
-		$dep[2] = array($row2['departemen'],$row1['nislama']) ;
+		$dep[2] = [$row2['departemen'], $row1['nislama']] ;
 	}	
 }
 		
@@ -63,7 +63,7 @@ $sql_ajaran = "SELECT DISTINCT(t.replid), t.tahunajaran FROM riwayatkelassiswa r
 $result_ajaran = QueryDb($sql_ajaran);
 $k = 0;
 while ($row_ajaran = @mysqli_fetch_array($result_ajaran)) {
-	$ajaran[$k] = array($row_ajaran['replid'],$row_ajaran['tahunajaran']);
+	$ajaran[$k] = [$row_ajaran['replid'], $row_ajaran['tahunajaran']];
 	$k++;
 }
 
@@ -71,7 +71,7 @@ $sql_kls = "SELECT DISTINCT(r.idkelas), k.kelas, t.tingkat, k.idtahunajaran FROM
 $result_kls = QueryDb($sql_kls);
 $j = 0;
 while ($row_kls = @mysqli_fetch_array($result_kls)) {
-	$kls[$j] = array($row_kls['idkelas'],$row_kls['kelas'],$row_kls['tingkat'],$row_kls['idtahunajaran']);
+	$kls[$j] = [$row_kls['idkelas'], $row_kls['kelas'], $row_kls['tingkat'], $row_kls['idtahunajaran']];
 	$j++;
 }
 
@@ -221,8 +221,8 @@ function ShowKomentar()
 {
 	global $semester, $kelas, $nis;
 
-    $arrjenis = array('SPI', 'SOS');
-    $arrnmjenis = array('Spiritual', 'Sosial');
+    $arrjenis = ['SPI', 'SOS'];
+    $arrnmjenis = ['Spiritual', 'Sosial'];
     for($i = 0; $i < count($arrjenis); $i++)
     {
         $jenis = $arrjenis[$i];
@@ -313,7 +313,7 @@ $res = QueryDb($sql);
 $i = 0;
 while($row = mysqli_fetch_row($res))
 {
-    $aspekarr[$i++] = array($row[0], $row[1]);
+    $aspekarr[$i++] = [$row[0], $row[1]];
 }
 $naspek = count($aspekarr);
 $colwidth = $naspek == 0 ? "*" : round(55 / count($aspekarr)) . "%"; ?>
@@ -411,7 +411,7 @@ $colwidth = $naspek == 0 ? "*" : round(55 / count($aspekarr)) . "%"; ?>
         $i = 0;
         while($row = mysqli_fetch_row($res))
         {
-            $aspekarr[$i++] = array($row[0], $row[1]);
+            $aspekarr[$i++] = [$row[0], $row[1]];
         }
         $naspek = count($aspekarr);
         $colwidth = $naspek == 0 ? "*" : round(50 / count($aspekarr)) . "%";
@@ -542,7 +542,7 @@ function ShowRaporRow()
     $i = 0;
     while($row = mysqli_fetch_row($res))
     {
-        $pelarr[$i++] = array($row[0], $row[1]);
+        $pelarr[$i++] = [$row[0], $row[1]];
     }
     
     for($i = 0; $i < count($pelarr); $i++)
@@ -569,7 +569,7 @@ function ShowRaporRow()
                  AND a.dasarpenilaian = d.dasarpenilaian
                  AND d.aktif = 1";
         $res = QueryDb($sql);				 
-        $aspekarr = array();				 
+        $aspekarr = [];				 
         $j = 0;
         while($row = mysqli_fetch_row($res))
         {
@@ -594,7 +594,7 @@ function ShowRaporRow()
                 $nh = $row2[1];
             }
             
-            $aspekarr[$j++] = array($row[0], $row[1], $na, $nh);
+            $aspekarr[$j++] = [$row[0], $row[1], $na, $nh];
         } 
         $naspek = count($aspekarr);
         

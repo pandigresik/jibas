@@ -27,7 +27,7 @@ function GenerateBarcode($length = 6)
     $barcode = "";
     for($i = 0; $i < $length; $i++)
     {
-        $pos = rand(0, strlen($dict) - 1);
+        $pos = random_int(0, strlen($dict) - 1);
         $barcode .= substr($dict, $pos, 1);
     }
     
@@ -63,13 +63,13 @@ function GenKodePustaka($katalog, $penulis, $judul, $format, $counter)
     $result = QueryDb($sql);
     $pnls = @mysqli_fetch_row($result);
     
-    $jdl = substr($judul, 0, 1);
+    $jdl = substr((string) $judul, 0, 1);
 
     $sql = "SELECT kode FROM format WHERE replid='$format'";
     $result = QueryDb($sql);
     $frmt = @mysqli_fetch_row($result);
     
-    $cnt = str_pad($counter, 5, "0", STR_PAD_LEFT);
+    $cnt = str_pad((string) $counter, 5, "0", STR_PAD_LEFT);
 
     $unique = true;
     $addcnt = 0;

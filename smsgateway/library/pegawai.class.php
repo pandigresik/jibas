@@ -5,10 +5,10 @@ require_once('../include/common.php');
 new Pegawai();
 class Pegawai{
 	public function __construct(){
-		$op = (isset($_REQUEST['op']))?$_REQUEST['op']:'';
-		$this->bag = (isset($_REQUEST['bagian']))?$_REQUEST['bagian']:"";
-		$this->nip = (isset($_REQUEST['nip']))?$_REQUEST['nip']:"";
-		$this->nama = (isset($_REQUEST['nama']))?$_REQUEST['nama']:"";
+		$op = $_REQUEST['op'] ?? '';
+		$this->bag = $_REQUEST['bagian'] ?? "";
+		$this->nip = $_REQUEST['nip'] ?? "";
+		$this->nama = $_REQUEST['nama'] ?? "";
 		$this->filter = ""; 
 		switch($op){
 			case 'pilih':$this->headerPilih();break;
@@ -22,7 +22,7 @@ class Pegawai{
 			OpenDb();
 			$sql = "SELECT replid,bagian FROM $db_name_sdm.bagianpegawai ORDER BY urutan ASC";
 			$res = QueryDb($sql);
-			$bag = array();
+			$bag = [];
 			while($row = @mysqli_fetch_row($res))
 				array_push($bag,$row[1]);
 			?>

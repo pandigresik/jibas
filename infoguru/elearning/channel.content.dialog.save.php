@@ -37,7 +37,7 @@ $dept = $_REQUEST["dept"];
 $idpel = $_REQUEST["idpel"];
 
 $judul = SafeInputText($_REQUEST["judul"]);
-$urutan = trim($_REQUEST["urutan"]);
+$urutan = trim((string) $_REQUEST["urutan"]);
 $deskripsi = SafeInputText($_REQUEST["deskripsi"]);
 
 if ($idchannel == 0)

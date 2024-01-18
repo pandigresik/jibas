@@ -75,7 +75,7 @@ try
     $video = $_FILES["fileVideo"];
     $ovideoname = SafeFileName($video["name"]);
     $videoname = SafeFileName($video["name"]);
-    $videoname = str_pad($idMedia, 7, "0", STR_PAD_LEFT) . "." . $videoname;
+    $videoname = str_pad((string) $idMedia, 7, "0", STR_PAD_LEFT) . "." . $videoname;
     $videotype = $video["type"];
     $videosize = $video["size"];
     $videoloc = $mediaUrl;

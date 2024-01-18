@@ -113,7 +113,7 @@ function Excel(idkelompok)
 
 <body>
 <fieldset style="border:#336699 1px solid; background-color:#FFFFFF" >
-<legend style="background-color:#336699; color:#FFFFFF; font-size:10px; font-weight:bold; padding:5px">&nbsp;Kelompok&nbsp;<?=stripslashes($namakelompok)?>&nbsp;</legend>
+<legend style="background-color:#336699; color:#FFFFFF; font-size:10px; font-weight:bold; padding:5px">&nbsp;Kelompok&nbsp;<?=stripslashes((string) $namakelompok)?>&nbsp;</legend>
 <div align="right">
   <a href="javascript:TambahBarang('<?=$idkelompok?>')"><img src="../images/ico/tambah.png" border="0" />&nbsp;Tambah Barang</a>&nbsp;&nbsp;|&nbsp;
   <a href="javascript:Cetak('<?=$idkelompok?>')"><img src="../images/ico/print.png" border="0" />&nbsp;Cetak</a>&nbsp;&nbsp;|&nbsp;
@@ -150,7 +150,7 @@ while ($row = @mysqli_fetch_array($result))
 <div align="left">
 Jumlah: <?=$jumlah?>&nbsp;<?=$satuan?>&nbsp;@<?=FormatRupiah($harga)?><br />
 Total: <?=FormatRupiah($total)?><br>
-Tanggal: <?=substr($row['tglperolehan'],8,2)."-".substr($row['tglperolehan'],5,2)."-".substr($row['tglperolehan'],0,4)?><br />
+Tanggal: <?=substr((string) $row['tglperolehan'],8,2)."-".substr((string) $row['tglperolehan'],5,2)."-".substr((string) $row['tglperolehan'],0,4)?><br />
 <img src="../images/ico/ubah.png" border="0" onclick="ubah('<?=$row['replid']?>', event)" title="Ubah" style="cursor:pointer; z-index:100" />&nbsp;<img src="../images/ico/hapus.png" border="0" onclick="hapus('<?=$row['replid']?>', event)" title="Hapus" style="cursor:pointer; z-index:100" />
 </div>
 </div>
@@ -174,7 +174,7 @@ $cnt++;
 ?>
 </table>
 <?php } else { ?>
-<div align="center"><span style="font-family:verdana; font-size:12px; font-style:italic; color:#666666">Tidak ada Data Barang Untuk Kelompok <?=stripslashes($namakelompok)?></span></div>
+<div align="center"><span style="font-family:verdana; font-size:12px; font-style:italic; color:#666666">Tidak ada Data Barang Untuk Kelompok <?=stripslashes((string) $namakelompok)?></span></div>
 <?php } ?>
 </fieldset>
 </body>

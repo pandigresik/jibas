@@ -119,7 +119,7 @@ if ($kelompok <> -1) {
 ?>
 
 <center><font size="4"><strong><font face="Verdana">LAPORAN TUNGGAKAN 
-      <?=strtoupper($namapenerimaan) ?>
+      <?=strtoupper((string) $namapenerimaan) ?>
 </font><br />
 </strong></font><br />
  </center><br />

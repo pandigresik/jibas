@@ -41,5 +41,5 @@ $pendidikan_kiriman = $_REQUEST['pendidikan'];
 		?>
      	 <option value="<?=$row['pendidikan']?>"<?=StringIsSelected($row['pendidikan'],$pendidikan_kiriman)?> >
 		 <?=$row['pendidikan']?></option>
-   	<?php } ?> 
+<?php } ?> 
 	</select>

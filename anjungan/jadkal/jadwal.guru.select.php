@@ -24,9 +24,9 @@
 require_once("../include/config.php");
 require_once("../include/db_functions.php");
 
-$dept = isset($_REQUEST['dept']) ? $_REQUEST['dept'] : "";
+$dept = $_REQUEST['dept'] ?? "";
 $jadwal = isset($_REQUEST['jadwal']) ? (int)$_REQUEST['jadwal'] : 0;
-$guru = isset($_REQUEST['guru']) ? $_REQUEST['guru'] : "";
+$guru = $_REQUEST['guru'] ?? "";
 
 OpenDb();
 ?>

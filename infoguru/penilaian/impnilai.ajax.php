@@ -41,8 +41,8 @@ if ($op == "getselectaspek")
     $select = SelectAspek();
     CloseDb();
 
-    $result = array('idaspek' => $idaspek, 'select' => urlencode($select));
-    echo json_encode($result);
+    $result = ['idaspek' => $idaspek, 'select' => urlencode((string) $select)];
+    echo json_encode($result, JSON_THROW_ON_ERROR);
     http_response_code(200);
 }
 else if ($op == "getselectjenisujian")
@@ -57,7 +57,7 @@ else if ($op == "getselectjenisujian")
     $select = SelectJenisUjian();
     CloseDb();
 
-    echo urlencode($select);
+    echo urlencode((string) $select);
     http_response_code(200);
 }
 else if ($op == "getselectrpp")
@@ -70,7 +70,7 @@ else if ($op == "getselectrpp")
     $select = SelectRpp();
     CloseDb();
 
-    echo urlencode($select);
+    echo urlencode((string) $select);
     http_response_code(200);
 }
 ?>

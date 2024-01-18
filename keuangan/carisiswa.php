@@ -117,11 +117,11 @@ OpenDb();
 $nama = $_REQUEST['nama'];
 $nis = $_REQUEST['nis'];
 
-if ((strlen($nama) > 0) && (strlen($nis) > 0))
+if ((strlen((string) $nama) > 0) && (strlen((string) $nis) > 0))
 	$sql = "SELECT nis, nama FROM jbsakad.siswa WHERE nama LIKE '%$nama%' AND nis LIKE '%$nis%' AND aktif = 1 ORDER BY nama"; 
-else if (strlen($nama) > 0)
+else if (strlen((string) $nama) > 0)
 	$sql = "SELECT nis, nama FROM jbsakad.siswa WHERE nama LIKE '%$nama%' AND aktif = 1 ORDER BY nama"; 
-else if (strlen($nis) > 0)
+else if (strlen((string) $nis) > 0)
 	$sql = "SELECT nis, nama FROM jbsakad.siswa WHERE nis LIKE '%$nis%' AND aktif = 1 ORDER BY nama"; 
 $result = QueryDb($sql);
 $cnt = 0;

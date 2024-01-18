@@ -31,19 +31,19 @@ require_once('../include/db_functions.php');
 OpenDb();
 
 $sisformatsms = $_REQUEST['sisformatsms'];
-$sisformatsms = str_replace("'", "`", $sisformatsms);
+$sisformatsms = str_replace("'", "`", (string) $sisformatsms);
 
 $csisformatsms = $_REQUEST['csisformatsms'];
-$csisformatsms = str_replace("'", "`", $csisformatsms);
+$csisformatsms = str_replace("'", "`", (string) $csisformatsms);
 
 $tabunganformatsms = $_REQUEST['tabunganformatsms'];
-$tabunganformatsms = str_replace("'", "`", $tabunganformatsms);
+$tabunganformatsms = str_replace("'", "`", (string) $tabunganformatsms);
 
 $tungformatsms = $_REQUEST['tungformatsms'];
-$tungformatsms = str_replace("'", "`", $tungformatsms);
+$tungformatsms = str_replace("'", "`", (string) $tungformatsms);
 
 $paymentformatsms = $_REQUEST['paymentformatsms'];
-$paymentformatsms = str_replace("'", "`", $paymentformatsms);
+$paymentformatsms = str_replace("'", "`", (string) $paymentformatsms);
 
 $departemen = $_REQUEST['departemen'];
 

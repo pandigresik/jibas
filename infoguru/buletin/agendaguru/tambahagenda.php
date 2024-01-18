@@ -33,8 +33,8 @@ if (isset($_REQUEST['simpan']))
 	OpenDb();
 	$judul = CQ($_REQUEST['judul']);
 	$komentar = $_REQUEST['komentar'];
-	$komentar = str_replace("'", "#sq;", $komentar);
-	$tgl = explode("-",$_REQUEST['tanggal']);
+	$komentar = str_replace("'", "#sq;", (string) $komentar);
+	$tgl = explode("-",(string) $_REQUEST['tanggal']);
 	$tanggal=$tgl[2]."-".$tgl[1]."-".$tgl[0];
 	$idguru=SI_USER_ID();
 	$sql="INSERT INTO jbsvcr.agenda

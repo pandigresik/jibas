@@ -22,8 +22,8 @@
  **[N]**/ ?>
 <?php
 function GetDatePart($value, $part) {
-	$inf = explode("-", $value);
-	$part = strtolower($part);
+	$inf = explode("-", (string) $value);
+	$part = strtolower((string) $part);
 	
 	/*
 	echo $value . "<br>";
@@ -78,7 +78,7 @@ function RandStr($length) {
 	$charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 	$s = "";
 	while(strlen($s) < $length) 
-		$s .= substr($charset, rand(0, 61), 1);
+		$s .= substr($charset, random_int(0, 61), 1);
 	return $s;		
 }
 
@@ -190,7 +190,7 @@ function nilaibulan($bln) {
 }
 
 function rpad($string, $padchar, $length) {
-	$result = trim($string);
+	$result = trim((string) $string);
 	if (strlen($result) < $length) {
 		$nzero = $length - strlen($result);
 		$zero = "";
@@ -202,21 +202,21 @@ function rpad($string, $padchar, $length) {
 }
 
 function MySqlDateFormat($date) {
-	list($d, $m, $y) = explode('[/.-]', $date); 
+	[$d, $m, $y] = explode('[/.-]', (string) $date); 
 	return "$y-$m-$d";
 }
 
 function RegularDateFormat($mysqldate) {
-	list($y, $m, $d) = explode('[/.-]', $mysqldate); 
+	[$y, $m, $d] = explode('[/.-]', (string) $mysqldate); 
 	return "$d-$m-$y";
 }
 
 function LongDateFormat($mysqldate) {
-	list($y, $m, $d) = explode('[/.-]', $mysqldate); 
+	[$y, $m, $d] = explode('[/.-]', (string) $mysqldate); 
 	return "$d ". NamaBulan($m) ." $y";
 }
 function ShortDateFormat($mysqldate) {
-	list($y, $m, $d) = explode('[/.-]', $mysqldate); 
+	[$y, $m, $d] = explode('[/.-]', (string) $mysqldate); 
 	return "$d ". NamaBulanPdk($m) ." $y";
 }
 function change_urut($a, $b, $c) {	
@@ -230,10 +230,10 @@ function change_urut($a, $b, $c) {
 	return $s;
 }
 function FormatMysqlDateBaru($f_x){
- $cek = strstr($f_x,"-");
+ $cek = strstr((string) $f_x,"-");
  if( strlen($cek) == 0)
   {
-   $f_y1= explode(' ', $f_x);
+   $f_y1= explode(' ', (string) $f_x);
    $f_y =  $f_y1[1];
    $bulan = nilaibulan($f_y );
    $lengkap = $f_y1[2]."-".$bulan."-".$f_y1[0] ;
@@ -270,8 +270,7 @@ function bulan($bulan)
  if($bulan==""){
   $bulan=date("m");
  }
-  $bulan_a= array("01"=>"januari","02"=>"Februari","03"=>"maret","04"=>"april",
-  "05"=>"mei","06"=>"juni","07"=>"juli","08"=>"Agustus","09"=>"september","10"=>"oktober","11"=>"November","11"=>"desember");
+  $bulan_a= ["01"=>"januari", "02"=>"Februari", "03"=>"maret", "04"=>"april", "05"=>"mei", "06"=>"juni", "07"=>"juli", "08"=>"Agustus", "09"=>"september", "10"=>"oktober", "11"=>"November", "11"=>"desember"];
 
     foreach ($bulan_a as $key => $val) {
  
@@ -308,7 +307,7 @@ function bulan($bulan)
 	$src = imagecreatefromjpeg($file); 
 
 	$filename = $name;
-	list($width,$height)=getimagesize($file);
+	[$width, $height]=getimagesize($file);
 	if ($width<$height){
 		$newheight=170;
 		$newwidth=113;
@@ -323,7 +322,7 @@ function bulan($bulan)
 	imagedestroy($tmp);
 }
 function LowRomeNumber($int){
-$r=array(i,ii,iii,iv,v,vi,vii,viii,ix,x,xi,xii,xiii,xiv,xv,xvi,xvii,xviii,xix,xx,xxi,xxii,xxiii,xxiv,xxv,xxvi,xxvii,xxviii,xxix,xxx);
+$r=['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI', 'XXVII', 'XXVIII', 'XXIX', 'XXX'];
 $int=(int)$int;
 	if ($int>0 && $int<=30){
 		return $r[$int-1];
@@ -332,7 +331,7 @@ $int=(int)$int;
 	}
 }
 function Number2Alphabet($int){
-$r=array(a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z);
+$r=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 $int=(int)$int;
 	if ($int>0 && $int<=30){
 		return $r[$int-1];
@@ -350,7 +349,7 @@ function Debug($name, $variable)
 
 function format_tgl($tanggal)
 {
-	$mdy = explode('-',$tanggal);
+	$mdy = explode('-',(string) $tanggal);
 	$hasil = $mdy[2].' '.NamaBulan($mdy[1]).' '.$mdy[0];
 	
 	return $hasil;
@@ -363,26 +362,22 @@ function CQ($string)
 
 function MaxDayInMonth($month, $year)
 {
-	switch($month)
-	{
-		case 1: case 3: case 5: case 7:
-		case 8: case 10: case 12:
-			return 31;
-		case 4: case 6: case 9: case 11:
-			return 30;
-		default:
-			return $year % 4 == 0 ? 29 : 28; 
-	}
+	return match ($month) {
+     1, 3, 5, 7, 8, 10, 12 => 31,
+     4, 6, 9, 11 => 30,
+     default => $year % 4 == 0 ? 29 : 28,
+ };
 }
 
 function random($number) 
 {
 	if ($number)
 	{
+		$total = '';
     	for($i=1;$i<=$number;$i++)
 		{
-       		$nr=rand(0,9);
-       		$total=$total.$nr;
+       		$nr=random_int(0,9);
+       		$total .= $nr;
        	}
     	return $total;
 	}

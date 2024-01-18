@@ -216,7 +216,7 @@ while($row = mysqli_fetch_array($res))
     $totalj += $jumlah;
     $totald += $row['diskon'];
     
-    $keterangan = trim($row['keterangan']);
+    $keterangan = trim((string) $row['keterangan']);
     if (strlen($keterangan) > 0)
         $keterangan = "<br><strong>Keterangan:</strong> $keterangan";
     ?>

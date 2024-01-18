@@ -29,7 +29,7 @@ require_once("../include/compatibility.php");
 
 function Safe($string)
 {
-    $string = str_replace("'", "`", $string);
+    $string = str_replace("'", "`", (string) $string);
     $string = str_replace("\"", "`", $string);
     $string = str_replace("<", "&lt;", $string);
     $string = str_replace(">", "&gt;", $string);
@@ -71,7 +71,7 @@ $alamatsiswa = $_REQUEST['is_alamatsiswa'];
 $kodepos = $_REQUEST['is_kodepos'];
 $jarak = (float)$_REQUEST['is_jarak'];
 $telponsiswa = $_REQUEST['is_telponsiswa'];
-$hpsiswa = trim($_REQUEST['is_hpsiswa']);
+$hpsiswa = trim((string) $_REQUEST['is_hpsiswa']);
 $emailsiswa= $_REQUEST['is_emailsiswa'] ;
 $dep_asal = $_REQUEST['is_dep_asal'];
 $inputsekolah = (int)$_REQUEST['is_inputsekolah']; // 0-> Sekolah Baru, 1-> Sekolah Yg Sudah Ada
@@ -153,12 +153,12 @@ try
     //echo "$sql<br>";
     QueryDbEx($sql);
 
-    if (strlen($idtambahan) > 0)
+    if (strlen((string) $idtambahan) > 0)
     {
-        if (strpos($idtambahan, ",") === false)
-            $arridtambahan = array($idtambahan);
+        if (!str_contains((string) $idtambahan, ","))
+            $arridtambahan = [$idtambahan];
         else
-            $arridtambahan = explode(",", $idtambahan);
+            $arridtambahan = explode(",", (string) $idtambahan);
 
         for($i = 0; $i < count($arridtambahan); $i++)
         {

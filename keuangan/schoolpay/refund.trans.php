@@ -59,9 +59,9 @@ $sql = "SELECT p.replid, p.tanggal
 $res = QueryDb($sql);
 
 $allIdPayment = "";
-$lsIdPaymentTanggal = array();
+$lsIdPaymentTanggal = [];
 $keyTanggal = "";
-$lsTanggal = array();
+$lsTanggal = [];
 while($row = mysqli_fetch_row($res))
 {
     $replid = $row[0];
@@ -71,7 +71,7 @@ while($row = mysqli_fetch_row($res))
     $allIdPayment .= $replid;
 
     $key = "#$tanggal@";
-    if (strpos($keyTanggal, $key) === false)
+    if (!str_contains($keyTanggal, $key))
     {
         $lsTanggal[] = $tanggal;
         $keyTanggal .= $key;
@@ -105,7 +105,7 @@ if ($departemen == $deptPeg)
         $allIdPayment .= $replid;
 
         $key = "#$tanggal@";
-        if (strpos($keyTanggal, $key) === false)
+        if (!str_contains($keyTanggal, $key))
         {
             $lsTanggal[] = $tanggal;
             $keyTanggal .= $key;
@@ -119,7 +119,7 @@ if ($departemen == $deptPeg)
 }
 
 // Tanggal dan tagihan transaksi siswa
-$lsTagihan = array();
+$lsTagihan = [];
 $sql = "SELECT p.tanggal, IFNULL(SUM(p.jumlah), 0) AS jumlah
           FROM jbsfina.paymenttrans p
          WHERE p.replid IN ($allIdPayment)

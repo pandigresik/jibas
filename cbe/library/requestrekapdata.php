@@ -31,7 +31,7 @@ class RequestRekapData
 
     public function toJson()
     {
-        return json_encode($this);
+        return json_encode($this, JSON_THROW_ON_ERROR);
     }
 }
 ?>

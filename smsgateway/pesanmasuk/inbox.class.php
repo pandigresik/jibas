@@ -87,7 +87,7 @@ class Inbox{
 		  $bg = "";
 		  //if ($cnt%2==0)
 		  	//	$bg = "background-color:#cfddd1;";		
-		  $nohp  = str_replace("+62","",$row['SenderNumber']);	
+		  $nohp  = str_replace("+62","",(string) $row['SenderNumber']);	
           $sqlph = "SELECT nama FROM phonebook WHERE nohp LIKE '%$nohp'";
 		  $resph = QueryDb($sqlph);
 		  $rowph = @mysqli_fetch_row($resph);
@@ -99,8 +99,8 @@ class Inbox{
             <td class="td" onclick="ReadMessage('<?=$row['ID']?>');"><?=FullDateFormat($row['ReceivingDateTime'])?></td>
             <td class="td" onclick="ReadMessage('<?=$row['ID']?>');">
 			<?php
-			if (strlen($row['Text'])>50)
-				echo substr($row['Text'],0,50)."...";
+			if (strlen((string) $row['Text'])>50)
+				echo substr((string) $row['Text'],0,50)."...";
 			else
 				echo $row['Text'];
 			?>

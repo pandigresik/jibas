@@ -42,7 +42,7 @@ for ($i = 1; $i <= 3; $i++)
 	$origfile = $foto['name'];
 	$ext = GetFileExt($origfile);
 	$fn = GetFileName($origfile);
-	$fn = str_replace(" ", "", $fn);
+	$fn = str_replace(" ", "", (string) $fn);
 	$fn = date('ymdHis') . "-" . $iduser . "-" . $salt . "-" . $fn;
 	$fn = md5($fn) . $ext;
 	$output1 = "$FILESHARE_UPLOAD_DIR/galerisiswa/photos/";
@@ -91,7 +91,7 @@ for ($i = 1; $i <= 3; $i++)
 		if (!$result)
 		{ ?>
 		<script language="javascript">
-			alert ('Gagal menyimpan Gambar <?=$foto[name]?>');
+			alert ('Gagal menyimpan Gambar <?=$foto[\NAME]?>');
 			opener.ubah_profil();
 			window.close()
 		</script>

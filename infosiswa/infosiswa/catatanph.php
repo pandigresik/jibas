@@ -27,7 +27,7 @@ require_once('../include/common.php');
 require_once('../include/config.php');
 require_once('../include/db_functions.php');
 $nis=$_REQUEST['nis'];
-$bulan_pjg = array(1=>'Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+$bulan_pjg = [1=>'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 OpenDb();
 $sql_thn="SELECT ph.tanggal1,ph.tanggal2,phsiswa.keterangan FROM jbsakad.phsiswa phsiswa, jbsakad.presensiharian ph WHERE phsiswa.nis='$nis' AND phsiswa.idpresensi=ph.replid GROUP BY YEAR(tanggal1)";
 $res_thn=QueryDb($sql_thn);
@@ -35,14 +35,14 @@ $res_thn=QueryDb($sql_thn);
 $s="SELECT DATE(now())";
 $re=QueryDb($s);
 $r=@mysqli_fetch_row($re);
-$d=explode("-",$r[0]);
+$d=explode("-",(string) $r[0]);
 $now=$d[2]."-".$d[1]."-".$d[0];
 if ($d[1]==1){
 	$y=12;
 	} else {
 	$y=$d[1]-1;
 }
-if (strlen($y)==1)
+if (strlen((string) $y)==1)
 	$y="0".$y;
 $ytd=$d[2]."-".$y."-".$d[0];
 ?>

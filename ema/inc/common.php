@@ -167,31 +167,31 @@ function TglTextLong($value) {
 	$bulan = substr($value,5,2);
 	$tanggal = substr($value,8,2);
 	switch ($bulan){
-		case 01:
+		case '01':
 			$nama_bulan="Januari";
 			break;
-		case 02:
+		case '02':
 			$nama_bulan="Februari";
 			break;
-		case 03:
+		case '03':
 			$nama_bulan="Maret";
 			break;
-		case 04:
+		case '04':
 			$nama_bulan="April";
 			break;
-		case 05:
+		case '05':
 			$nama_bulan="Mei";
 			break;
-		case 06:
+		case '06':
 			$nama_bulan="Juni";
 			break;
-		case 07:
+		case '07':
 			$nama_bulan="Juli";
 			break;
-		case 08:
+		case '08':
 			$nama_bulan="Agustus";
 			break;
-		case 09:
+		case '09':
 			$nama_bulan="September";
 			break;
 		case 10:
@@ -217,31 +217,31 @@ function TglTextShort($value) {
 	$bulan = substr($value,5,2);
 	$tanggal = substr($value,8,2);
 	switch ($bulan){
-		case 01:
+		case '01':
 			$nama_bulan="Jan";
 			break;
-		case 02:
+		case '02':
 			$nama_bulan="Feb";
 			break;
-		case 03:
+		case '03':
 			$nama_bulan="Mar";
 			break;
-		case 04:
+		case '04':
 			$nama_bulan="Apr";
 			break;
-		case 05:
+		case '05':
 			$nama_bulan="Mei";
 			break;
-		case 06:
+		case '06':
 			$nama_bulan="Jun";
 			break;
-		case 07:
+		case '07':
 			$nama_bulan="Jul";
 			break;
-		case 08:
+		case '08':
 			$nama_bulan="Agust";
 			break;
-		case 09:
+		case '09':
 			$nama_bulan="Sep";
 			break;
 		case 10:
@@ -309,9 +309,10 @@ function emailcheck($intext) {
 
 function random($number) {
 	if($number){
+		$total = '';
     	for($i=1;$i<=$number;$i++){
        		$nr=rand(0,9);
-       		$total=$total.$nr;
+       		$total .= $nr;
        	}
     	return $total;
 	}

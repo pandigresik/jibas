@@ -107,8 +107,8 @@ class Kritik{
             <td class="td" onclick="ReadMessage('<?=$row[0]?>');">
 			<?php
 			//echo ucfirst($row[4])." : <br>";
-			if (strlen($row[5])>50)
-				echo substr($row[5],0,50)."...";
+			if (strlen((string) $row[5])>50)
+				echo substr((string) $row[5],0,50)."...";
 			else
 				echo $row[5];
 			?>

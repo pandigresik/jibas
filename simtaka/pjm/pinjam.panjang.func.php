@@ -39,7 +39,7 @@ function GetReturnDate()
                
 }
 
-function SimpanData()
+function SimpanData(): never
 {
     $kodepustaka = $_REQUEST['kodepustaka'];
     $tglkembali = MySqlDateFormat($_REQUEST['tglkembali']);

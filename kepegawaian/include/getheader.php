@@ -48,7 +48,7 @@ function getHeader($dep){
 	$head =	"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">";
 	$head .="	<tr>";
 	$head .="		<td width=\"20%\" align=\"center\">";
-	$head .="		<img src=\"".$full_url."library/gambar.php?replid=".$replid."&table=jbsumum.identitas&" . rand(1, 5000) . "\" />";
+	$head .="		<img src=\"".$full_url."library/gambar.php?replid=".$replid."&table=jbsumum.identitas&" . random_int(1, 5000) . "\" />";
 	$head .="		</td>";
 	$head .="		<td valign=\"top\" align='left'>";
 						if ($num >  0) {	

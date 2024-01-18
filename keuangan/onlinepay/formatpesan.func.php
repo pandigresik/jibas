@@ -38,11 +38,11 @@ function SimpanPesanTagihan()
             QueryDbEx($sql);
         }
 
-        return createJsonReturn(1, "OK", "");
+        return createJsonReturn(1, "OK");
     }
     catch (Exception $ex)
     {
-        return createJsonReturn(-1, $ex->getMessage(), "");
+        return createJsonReturn(-1, $ex->getMessage());
     }
 }
 
@@ -63,18 +63,18 @@ function SimpanPesanPembayaran()
             QueryDb($sql);
         }
 
-        return createJsonReturn(1, "OK", "");
+        return createJsonReturn(1, "OK");
     }
     catch (Exception $ex)
     {
-        return createJsonReturn(-1, $ex->getMessage(), "");
+        return createJsonReturn(-1, $ex->getMessage());
     }
 
 }
 
 function createJsonReturn($status, $message, $data)
 {
-    $ret = array($status, $message, $data);
-    return json_encode($ret);
+    $ret = [$status, $message, $data];
+    return json_encode($ret, JSON_THROW_ON_ERROR);
 }
 ?>

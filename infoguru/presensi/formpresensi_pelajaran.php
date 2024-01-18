@@ -242,7 +242,7 @@ function openwin(kelas)
                 if ($tingkat == "")
                     $tingkat = $row['replid'];				
                 ?>
-                <option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat) ?>><?=$row['tingkat']?></option>
+                <option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $tingkat) ?>><?=$row['tingkat']?></option>
                 <?php
                 } //while
                 ?>
@@ -262,7 +262,7 @@ function openwin(kelas)
                     $kelas = $row['replid'];
                 $kls = $row['kelas'];			 
                 ?>
-                <option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $kelas) ?>><?=$row['kelas']?></option>
+                <option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $kelas) ?>><?=$row['kelas']?></option>
                  
                 <?php
                 } //while
@@ -281,7 +281,7 @@ function openwin(kelas)
                 if ($pelajaran == "") 				
                     $pelajaran = $row['replid'];			
                 ?>
-              <option value="<?=urlencode($row['replid'])?>" <?=IntIsSelected($row['replid'], $pelajaran)?> >
+              <option value="<?=urlencode((string) $row['replid'])?>" <?=IntIsSelected($row['replid'], $pelajaran)?> >
                 <?=$row['nama']?>
                 </option>
               <?php

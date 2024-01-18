@@ -24,7 +24,7 @@
 require_once("beranda.session.php");
 require_once("beranda.security.php");
 
-$bgList = array();
+$bgList = [];
 $delay = $_REQUEST['delay'];
 
 $nkeep = $_REQUEST['nkeep'];

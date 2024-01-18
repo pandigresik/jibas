@@ -97,7 +97,7 @@ $pelajaran = $_REQUEST['pelajaran'];
         }
         ?>
   </select>
-    <?php if ($pelajaran == -1 || strlen($pelajaran) == 0)  {
+    <?php if ($pelajaran == -1 || strlen((string) $pelajaran) == 0)  {
             $sql_tambahpel = "";					
         } else	{			
             $sql_tambahpel = "AND pel.replid = $pelajaran "; 					
@@ -168,7 +168,7 @@ $pelajaran = $_REQUEST['pelajaran'];
         	<td>
         <br /><br />	
 		<font size = "2" color ="red"><b>Tidak ditemukan adanya data. <br /><br />
-        <?php 	if ($pelajaran == -1 || strlen($pelajaran) == 0) { ?>
+        <?php 	if ($pelajaran == -1 || strlen((string) $pelajaran) == 0) { ?>
         
 			Tambah data guru pada departemen <?=$departemen?> di menu Pendataan Guru pada bagian Guru & Pelajaran. </b></font>	
 		

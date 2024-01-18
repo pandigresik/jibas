@@ -129,10 +129,10 @@ while($rowaspek = mysqli_fetch_row($resaspek))
     </tr>
     <tr height="15" class="header" align="center">
 	<?php $i = 0;
-		$ujian = array();
+		$ujian = [];
 		while ($row_PK = @mysqli_fetch_array($result_get_aturan_PK)) 
 		{			
-            $ujian[$i++] = array($row_PK['replid'], $row_PK['bobot'], $row_PK['idjenisujian'], $aspek);  ?>
+            $ujian[$i++] = [$row_PK['replid'], $row_PK['bobot'], $row_PK['idjenisujian'], $aspek];  ?>
     		<td width="8%" class="headerlong">
             	<span class="style1"><?= $row_PK['jenisujian']." (".$row_PK['bobot'].")" ?></span>
             </td>

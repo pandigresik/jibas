@@ -1077,7 +1077,7 @@ function focusNext(elemName, evt) {
       		<option value="<?=$row_sekolah['sekolah']?>" <?=StringIsSelected($row_sekolah['sekolah'], $sekolah)?>>
         	<?=$row_sekolah['sekolah']?>
         	</option>
-      		<?php } 
+<?php } 
 			CloseDb();
 			// Akhir Olah Data sekolah
 			?>

@@ -45,13 +45,11 @@ if (isset($_REQUEST['pilihan']))
 if (isset($_REQUEST['jenis']))
 	$jenis = $_REQUEST['jenis'];
 
-switch ($jenis) {
-	case 'combo' : $input_awal = "onload=\"document.getElementById('kelas').focus()\"";
-		break;
-	case 'text' : $input_awal = "onload=\"document.getElementById('nis').focus()\"";
-		break;
-	default	: $input_awal = "onload=\"document.getElementById('kelas').focus()\"";
-}	
+$input_awal = match ($jenis) {
+    'combo' => "onload=\"document.getElementById('kelas').focus()\"",
+    'text' => "onload=\"document.getElementById('nis').focus()\"",
+    default => "onload=\"document.getElementById('kelas').focus()\"",
+};	
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

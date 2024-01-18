@@ -70,7 +70,7 @@ class CPustaka
 		$result = QueryDb($sql);
 		while ($row = @mysqli_fetch_row($result))
 		{
-			$len = strlen(trim($row[1]));
+			$len = strlen(trim((string) $row[1]));
 			$space = $this->GetSpace($maxlen, $len);
 			
 			if ($this->katalog=="")
@@ -101,7 +101,7 @@ class CPustaka
 		$result = QueryDb($sql);
 		while ($row = @mysqli_fetch_row($result))
 		{
-			$len = strlen(trim($row[1]));
+			$len = strlen(trim((string) $row[1]));
 			$space = $this->GetSpace($maxlen, $len);
 			
 			if ($this->penulis=="")
@@ -134,7 +134,7 @@ class CPustaka
 		$result = QueryDb($sql);
 		while ($row = @mysqli_fetch_row($result))
 		{
-			$len = strlen(trim($row[1]));
+			$len = strlen(trim((string) $row[1]));
 			$space = $this->GetSpace($maxlen, $len);
 			if ($this->penerbit=="")
 				$this->penerbit = $row[0];	?>
@@ -165,7 +165,7 @@ class CPustaka
 		
 		while ($row = @mysqli_fetch_row($result))
 		{
-			$len = strlen(trim($row[1]));
+			$len = strlen(trim((string) $row[1]));
 			$space = $this->GetSpace($maxlen, $len);
 			
 			if ($this->format == "")
@@ -368,7 +368,7 @@ class CPustaka
 		$barcode = "";
 		for($i = 0; $i < $length; $i++)
 		{
-			$pos = rand(0, strlen($dict) - 1);
+			$pos = random_int(0, strlen($dict) - 1);
 			$barcode .= substr($dict, $pos, 1);
 		}
 		
@@ -396,22 +396,22 @@ class CPustaka
 	
 	function save()
 	{
-		$judul = trim(addslashes($_REQUEST['judul']));
-		$abstraksi = trim(addslashes($_REQUEST['abstraksi']));
-		$keyword = trim(addslashes($_REQUEST['keyword']));
-		$harga = UnformatRupiah(trim(addslashes($_REQUEST['harga'])));
-		$tahun = trim(addslashes($_REQUEST['tahun']));
-		$keteranganfisik = trim(addslashes($_REQUEST['keteranganfisik']));
-		$penulis = trim(addslashes($_REQUEST['penulis']));
-		$penerbit = trim(addslashes($_REQUEST['penerbit']));
-		$format = trim(addslashes($_REQUEST['format']));
-		$katalog = trim(addslashes($_REQUEST['katalog']));
-		$keterangan = trim(addslashes($_REQUEST['keterangan']));
+		$judul = trim(addslashes((string) $_REQUEST['judul']));
+		$abstraksi = trim(addslashes((string) $_REQUEST['abstraksi']));
+		$keyword = trim(addslashes((string) $_REQUEST['keyword']));
+		$harga = UnformatRupiah(trim(addslashes((string) $_REQUEST['harga'])));
+		$tahun = trim(addslashes((string) $_REQUEST['tahun']));
+		$keteranganfisik = trim(addslashes((string) $_REQUEST['keteranganfisik']));
+		$penulis = trim(addslashes((string) $_REQUEST['penulis']));
+		$penerbit = trim(addslashes((string) $_REQUEST['penerbit']));
+		$format = trim(addslashes((string) $_REQUEST['format']));
+		$katalog = trim(addslashes((string) $_REQUEST['katalog']));
+		$keterangan = trim(addslashes((string) $_REQUEST['keterangan']));
 		$cover = $_FILES['cover'];
 		$uploadedfile = $cover['tmp_name'];
 		$uploadedfile_name = $cover['name'];
 
-		if (strlen($uploadedfile) != 0)
+		if (strlen((string) $uploadedfile) != 0)
 		{
 			$tmp_path = realpath(".") . "/../../temp";
 			$tmp_exists = file_exists($tmp_path) && is_dir($tmp_path);
@@ -550,13 +550,13 @@ class CPustaka
 		$result = QueryDb($sql);
 		$pnls = @mysqli_fetch_row($result);
 		
-		$jdl = substr($judul, 0, 1);
+		$jdl = substr((string) $judul, 0, 1);
 	
 		$sql = "SELECT kode FROM format WHERE replid='$format'";
 		$result = QueryDb($sql);
 		$frmt = @mysqli_fetch_row($result);
 		
-		$cnt = str_pad($counter, 5, "0", STR_PAD_LEFT);
+		$cnt = str_pad((string) $counter, 5, "0", STR_PAD_LEFT);
 
 		$unique = true;
 		$addcnt = 0;

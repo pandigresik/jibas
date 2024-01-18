@@ -43,7 +43,7 @@ $sql = "SELECT replid, kode, nama
 $result = QueryDb($sql);
 while ($row = @mysqli_fetch_row($result))
 {
-	$len = strlen(trim($row[1]));
+	$len = strlen(trim((string) $row[1]));
 	$space = GetSpace($maxlen, $len);
 	
 	if ($penulis=="")

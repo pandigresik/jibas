@@ -39,19 +39,19 @@ OpenDb();
 $sql = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '$nis_awal'";
 $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
-$dep[0] = array($row['departemen'], $nis_awal);
+$dep[0] = [$row['departemen'], $nis_awal];
 //$no[1] = $row['nislama'];
 if ($row['nislama'] <> "") {
 	$sql1 = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '".$row['nislama']."'";
 	$result1 = QueryDb($sql1);
 	$row1 = @mysqli_fetch_array($result1);	
-	$dep[1] = array($row1['departemen'], $row['nislama']);
+	$dep[1] = [$row1['departemen'], $row['nislama']];
 	//$no[2] = $row1['nislama'];	
 	if ($row1['nislama'] <> "") {				
 		$sql2 = "SELECT replid, departemen, nislama FROM riwayatdeptsiswa WHERE nis = '".$row1['nislama']."'";
 		$result2 = QueryDb($sql2);
 		$row2 = @mysqli_fetch_array($result2);					
-		$dep[2] = array($row2['departemen'],$row1['nislama']) ;
+		$dep[2] = [$row2['departemen'], $row1['nislama']] ;
 	}	
 }		
 
@@ -62,7 +62,7 @@ $sql_ajaran = "SELECT DISTINCT(t.replid), t.tahunajaran FROM riwayatkelassiswa r
 $result_ajaran = QueryDb($sql_ajaran);
 $k = 0;
 while ($row_ajaran = @mysqli_fetch_array($result_ajaran)) {
-	$ajaran[$k] = array($row_ajaran['replid'],$row_ajaran['tahunajaran']);
+	$ajaran[$k] = [$row_ajaran['replid'], $row_ajaran['tahunajaran']];
 	$k++;
 }
 
@@ -75,7 +75,7 @@ $sql_kls = "SELECT DISTINCT(r.idkelas), k.kelas, t.tingkat, k.idtahunajaran FROM
 $result_kls = QueryDb($sql_kls);
 $j = 0;
 while ($row_kls = @mysqli_fetch_array($result_kls)) {
-	$kls[$j] = array($row_kls['idkelas'],$row_kls['kelas'],$row_kls['tingkat'],$row_kls['idtahunajaran']);
+	$kls[$j] = [$row_kls['idkelas'], $row_kls['kelas'], $row_kls['tingkat'], $row_kls['idtahunajaran']];
 	if ($row_kls['idtahunajaran']==$tahunajaran)
 		$kelas = $row_kls['idkelas'];	
 	$j++;

@@ -35,7 +35,7 @@ $bln = $_REQUEST['bln'];
 $th = $_REQUEST['th'];
 $tgl2 = $_REQUEST['tgl2'];
 $jum=$_REQUEST['jum'];
-$status = array("hadir","ijin","sakit","cuti","alpa");
+$status = ["hadir", "ijin", "sakit", "cuti", "alpa"];
 
 $tglawal = "$th-$bln-$tgl1";
 $tglakhir = "$th-$bln-$tgl2";

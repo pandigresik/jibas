@@ -58,7 +58,7 @@ try
         
         $index = "keterangan$no";
         $keterangan = $_REQUEST[$index];
-        $keterangan = str_replace("'", "`", $keterangan);
+        $keterangan = str_replace("'", "`", (string) $keterangan);
         
         $index = "status$no";
         $status = $_REQUEST[$index];

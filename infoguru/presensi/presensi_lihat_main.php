@@ -25,8 +25,8 @@ $departemen = $_REQUEST['departemen'];
 $semester = $_REQUEST['semester'];	
 $tingkat = $_REQUEST['tingkat'];
 $kelas = $_REQUEST['kelas'];
-$bln =  (int)substr($_REQUEST['tanggal'],3,2);
-$thn =  (int)substr($_REQUEST['tanggal'],6,4);
+$bln =  (int)substr((string) $_REQUEST['tanggal'],3,2);
+$thn =  (int)substr((string) $_REQUEST['tanggal'],6,4);
 
 
 ?>

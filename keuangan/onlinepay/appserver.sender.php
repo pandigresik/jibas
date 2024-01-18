@@ -31,7 +31,7 @@ $qs = "";
 foreach($_REQUEST as $k => $v)
 {
     if ($qs != "") $qs .= "&";
-    $qs .= $k . "=" . urlencode($v);
+    $qs .= $k . "=" . urlencode((string) $v);
 }
 
 //$log = new Logger();

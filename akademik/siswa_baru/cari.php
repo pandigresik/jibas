@@ -29,7 +29,7 @@ OpenDb();
 $jenis=$_REQUEST['jenis'];
 	if ($jenis == 'darah' || $jenis == 'kondisi' || $jenis == 'status' || $jenis == 'agama' || $jenis == 'suku') {	
 		if ($jenis == 'darah') {
-			$row = array('A','0','B','AB');
+			$row = ['A', '0', 'B', 'AB'];
 			$jum = 4;
 ?>				
 			<select name="cari" id="cari" onchange="change_cari()" style="width:150px;">

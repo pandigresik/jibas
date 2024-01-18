@@ -277,11 +277,11 @@ if($num_cek > 0) {
 		$idpraktek = "#";
 		$idkonsep = "#";
         while($row_nhb = @mysqli_fetch_array($result_nhb)) {
-            $plit = explode(";", $row_nhb['bobot']);
+            $plit = explode(";", (string) $row_nhb['bobot']);
             if($plit != "") {
                 foreach($plit as $pl) {
                     $r++;
-                    list($ujian, $bobot) = explode(":", $pl);
+                    [$ujian, $bobot] = explode(":", $pl);
                     if($bobot != "") {
 						$cnt = 0;
 						$found = false;
@@ -383,11 +383,11 @@ if($num_cek > 0) {
 				$result_nhb = QueryDb($query_nhb) or die(mysqli_error($mysqlconnection));
 				
 				while($row_nhb = @mysqli_fetch_array($result_nhb)) {
-					$plit = explode(";", $row_nhb['bobot']);
+					$plit = explode(";", (string) $row_nhb['bobot']);
 					if($plit != "") {
 						foreach($plit as $pl) {
 							$r++;
-							list($ujian, $bobot) = explode(":", $pl);
+							[$ujian, $bobot] = explode(":", $pl);
 							if($bobot != "") {
 								$as[$r] = $bobot;
 							}

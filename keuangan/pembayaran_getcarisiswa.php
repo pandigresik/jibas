@@ -71,8 +71,8 @@ if (isset($_REQUEST['nama']))
 </tr>
 <?php
 
-$nis = trim($nis);
-$nama = trim($nama);
+$nis = trim((string) $nis);
+$nama = trim((string) $nama);
 	
 if ((strlen($nis) > 0) && (strlen($nama) > 0))
 	$sql = "SELECT s.nis as nis, s.nama as nama FROM jbsakad.siswa s,jbsakad.kelas k, jbsakad.tahunajaran t, jbsakad.tingkat ti WHERE s.nis LIKE '%$nis%' AND s.nama LIKE '%$nama%' AND ti.departemen='$departemen' AND t.departemen='$departemen' AND k.idtingkat=ti.replid AND k.idtahunajaran=t.replid AND k.replid=s.idkelas ORDER BY s.nama";

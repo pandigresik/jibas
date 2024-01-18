@@ -43,8 +43,8 @@ $idPenerima = $_REQUEST["idpenerima"];
 $keterangan = $_REQUEST["keterangan"];
 $nTanggal = $_REQUEST["ntanggal"];
 
-$lsTanggal = array();
-$lsTagihan = array();
+$lsTanggal = [];
+$lsTagihan = [];
 $stTanggal = "";
 $totalTagihan = 0;
 $stAllIdPayment = "";
@@ -233,7 +233,7 @@ try
     echo $idRefund;
     http_response_code(200);
 }
-catch (Exception $exception)
+catch (Exception)
 {
     RollbackTrans();
     CloseDb();

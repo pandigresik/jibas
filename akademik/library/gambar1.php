@@ -36,8 +36,8 @@ $query = "SELECT foto_sem FROM jbsumum.identitas WHERE replid = 16";
 $result = QueryDb($query);
 $num = @mysqli_num_rows($result);
 if ($row = mysqli_fetch_array($result)) {
-    if($row[foto_sem]) {
-        echo $row[foto_sem];
+    if($row[\FOTO_SEM]) {
+        echo $row[\FOTO_SEM];
     }else {
     	$filename = "../images/ico/no_image.png";
         $handle = fopen($filename, "r");

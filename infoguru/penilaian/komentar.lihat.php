@@ -67,7 +67,7 @@ ReadParams();
 <br>
 
 <?php
-$aspekarr = array();
+$aspekarr = [];
 
 $sql = "SELECT DISTINCT a.dasarpenilaian, d.keterangan
           FROM infonap i, nap n, aturannhb a, dasarpenilaian d
@@ -81,14 +81,14 @@ $res = QueryDb($sql);
 $i = 0;
 while($row = mysqli_fetch_row($res))
 {
-    $aspekarr[$i++] = array($row[0], $row[1]);
+    $aspekarr[$i++] = [$row[0], $row[1]];
 }
 $naspek = count($aspekarr);
 $ncolumn = $naspek + 2;
 $colwidth = round(75 / $ncolumn) . "%";
 
-$arrjenis = array('SPI', 'SOS');
-$arrnmjenis = array("Spiritual", "Sosial");
+$arrjenis = ['SPI', 'SOS'];
+$arrnmjenis = ["Spiritual", "Sosial"];
 ?>
 <table width="100%" border="1" cellspacing="0" cellpadding="2" class="tab" id="table" style="border-width: 1px; border-collapse: collapse;">
 <tr style="height: 26px;">

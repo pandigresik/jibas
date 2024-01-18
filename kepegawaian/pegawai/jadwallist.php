@@ -77,7 +77,7 @@ if ($op == "0c967123b863486x873n01789b123") {
 <script language="javascript" src="../script/tools.js"></script>
 <script language="javascript">
 function TambahAgenda() {
-<?php if (strlen($tgl) > 0) { ?>
+<?php if (strlen((string) $tgl) > 0) { ?>
 	var addr = "agendaadd.php?tgl=<?=$tgl?>&bln=<?=$bln?>&thn=<?=$thn?>";
     newWindow(addr, 'TambahAgenda','480','350','resizable=1,scrollbars=1,status=0,toolbar=0');
 <?php } ?>

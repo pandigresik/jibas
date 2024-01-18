@@ -23,7 +23,7 @@
 <?php
 class CPustakaEdit
 {
-	var $rak, $replid, $keterangan;
+	public $rak, $replid, $keterangan;
 	
 	function OnStart()
 	{

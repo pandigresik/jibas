@@ -45,7 +45,7 @@ $gelarakhir = $row_pegawai['gelarakhir'];
 $panggilan = $row_pegawai['panggilan'];
 $kelamin = $row_pegawai['kelamin'];
 $tempatlahir = $row_pegawai['tmplahir'];
-$lahir = explode("-",$row_pegawai['tgllahir']);
+$lahir = explode("-",(string) $row_pegawai['tgllahir']);
 $tgllahir = $lahir[2];
 $blnlahir = $lahir[1];
 $thnlahir = $lahir[0];
@@ -108,7 +108,7 @@ if (isset($_REQUEST['simpan']))
 	$uploadedtypefile = $foto['type'];
 	$uploadedsizefile = $foto['size'];
 		
-	if (strlen($uploadedfile) != 0)
+	if (strlen((string) $uploadedfile) != 0)
 	{
 		$tmp_path = realpath(".") . "/../../temp";
 		$tmp_exists = file_exists($tmp_path) && is_dir($tmp_path);
@@ -140,7 +140,7 @@ if (isset($_REQUEST['simpan']))
 	} 
 	else 
 	{
-		$nama = str_replace("'", "`", $nama);
+		$nama = str_replace("'", "`", (string) $nama);
 		$query = "UPDATE jbssdm.pegawai 
 					 SET nip='$nip', nama='$nama', gelarawal='$gelarawal', gelarakhir='$gelarakhir', panggilan='$panggilan', tmplahir='$tempatlahir', 
 					 	 tgllahir='$lahir', agama='$agama', suku='$suku',nikah='$menikah', noid='$identitas',alamat='$alamat',

@@ -63,8 +63,8 @@ $j4 = $row4['Jum'];
 
 
 $sum = $j1 + $j2 +$j3 + $j4;
-$data = array($j1,$j2,$j3,$j4);
-$leg = array("< Rp 1.000.000", "Rp 1.000.000 s/d Rp 2.500.000", "Rp 2.500.000 s/d Rp 5.000.000", "> Rp 5.000.000");
+$data = [$j1, $j2, $j3, $j4];
+$leg = ["< Rp 1.000.000", "Rp 1.000.000 s/d Rp 2.500.000", "Rp 2.500.000 s/d Rp 5.000.000", "> Rp 5.000.000"];
 }
 if ($iddasar=="1"){
 $titlenya="Statistik Calon Siswa Aktif Berdasarkan Agama";
@@ -154,7 +154,7 @@ $query1 = "SELECT COUNT(s.replid) As Jum, YEAR(now())-YEAR(s.tgllahir) As usia F
 	while ($row1 = @mysqli_fetch_row($result1)) {
 	$data[] = $row1[0];
 	$leg[] = $row1[1];
-    $color = array('red','black','green','blue','gray','white');
+    $color = ['red', 'black', 'green', 'blue', 'gray', 'white'];
 	}
 	}
 //=====================================================

@@ -45,7 +45,7 @@ $op = $_GET['op'];
 $nama_status = $_GET['nama_status'];
 $status_kiriman=$_REQUEST['status']; //ini pengambilan status yang dikirim dari siswa_add_status_tambah.php, Setelah ini buat input hidden untuk menampung hasil kiriman.
 
-if (($op == "del") && (strlen($nama_status) > 0)) {
+if (($op == "del") && (strlen((string) $nama_status) > 0)) {
 	OpenDb();
 	$sql = "DELETE FROM jbsakad.statussiswa WHERE status = '$nama_status'";
 	$result = QueryDb($sql);

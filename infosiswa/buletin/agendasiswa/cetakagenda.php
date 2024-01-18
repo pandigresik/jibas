@@ -34,7 +34,7 @@ $tahun = "";
 if (isset($_REQUEST['tahun']))
 	$tahun = $_REQUEST['tahun'];
 	
-$namabulan = array("Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","Nopember","Desember");	
+$namabulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "Nopember", "Desember"];	
 OpenDb();
 $sql = "SELECT departemen FROM tahunajaran t, kelas k, siswa s WHERE s.nis='".SI_USER_ID()."' AND s.idkelas=k.replid AND k.idtahunajaran=t.replid";
 $result = QueryDb($sql);

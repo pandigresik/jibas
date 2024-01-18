@@ -29,7 +29,7 @@ require_once('../include/config.php');
 require_once('../include/db_functions.php');
 
 OpenDb();
-$seldept = isset($_REQUEST['departemen']) ? $_REQUEST['departemen'] : "";
+$seldept = $_REQUEST['departemen'] ?? "";
 
 ?>
 <link rel="stylesheet" type="text/css" href="../style/style.css">

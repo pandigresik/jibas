@@ -64,7 +64,7 @@ OpenDb();
                 <strong>Departemen :</strong>
             </td>
             <td align='left'>
-        <?php      $json = json_decode(GetCbDepartemen(""));
+        <?php      $json = json_decode((string) GetCbDepartemen(""), null, 512, JSON_THROW_ON_ERROR);
                 $departemen = $json->value;
                 echo $json->selection;  ?>
             </td>
@@ -75,7 +75,7 @@ OpenDb();
             </td>
             <td align='left'>
                 <span id='divCbTingkat'>
-        <?php      $json = json_decode(GetCbTingkat($departemen, 0));
+        <?php      $json = json_decode((string) GetCbTingkat($departemen, 0), null, 512, JSON_THROW_ON_ERROR);
                 $idtingkat = $json->value;
                 echo $json->selection;   ?>
                 </span>
@@ -87,7 +87,7 @@ OpenDb();
             </td>
             <td align='left'>
                 <span id='divCbKelas'>
-        <?php      $json = json_decode(GetCbKelas($idtingkat, 0));
+        <?php      $json = json_decode((string) GetCbKelas($idtingkat, 0), null, 512, JSON_THROW_ON_ERROR);
                 $idkelas = $json->value;
                 echo $json->selection; ?>
                 </span>
@@ -109,7 +109,7 @@ OpenDb();
                 <strong>Departemen :</strong>
             </td>
             <td align='left'>
-        <?php      $json = json_decode(GetCbDepartemen($departemen, "cbDepartemen2"));
+        <?php      $json = json_decode((string) GetCbDepartemen($departemen, "cbDepartemen2"), null, 512, JSON_THROW_ON_ERROR);
                 $departemen = $json->value;
                 echo $json->selection;  ?>
             </td>

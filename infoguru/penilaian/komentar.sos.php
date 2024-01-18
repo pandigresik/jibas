@@ -150,8 +150,8 @@ echo "<input type='hidden' id='nis' name='nis' value='$nis'>";
 echo "<input type='hidden' id='idpelajaran' name='idpelajaran' value='$pelajaran'>";
 echo "<input type='hidden' id='idtingkat' name='idtingkat' value='$tingkat'>";
 
-$arrjenis = array("SPI", "SOS");
-$arrnmjenis = array("Spiritual", "Sosial");
+$arrjenis = ["SPI", "SOS"];
+$arrnmjenis = ["Spiritual", "Sosial"];
 
 for($i = 0; $i < count($arrjenis); $i++)
 {

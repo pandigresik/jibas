@@ -118,7 +118,7 @@ if ($Source=='' || $Source=='Pilih'){
 		<td class="td"><?=$row['nama']?></td>
         <td class="td"><?=$row['handphone']?></td>
         <td class="td" align="center">
-        <?php if (strlen($row['handphone'])>0){ ?>
+        <?php if (strlen((string) $row['handphone'])>0){ ?>
         <!--<span style="cursor:pointer" class="Link" onclick="InsertNewReceipt('<?=$row['handphone']?>','<?=$row['nama']?>','<?=$row['nip']?>')" align="center" />Pilih</span>-->
 		<input type="checkbox" class="checkboxpegawai" hp="<?=$row['handphone']?>" nama="<?=$row['nama']?>" nip="<?=$row['nip']?>" pin="<?=$row['pinpegawai']?>">
         <?php } ?>

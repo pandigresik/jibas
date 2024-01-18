@@ -57,7 +57,7 @@ function ShowAdminLogin()
 
 function AdminLogin($password)
 {
-    $password = str_replace("'", "`", $password);
+    $password = str_replace("'", "`", (string) $password);
 
     $sql = "SELECT COUNT(*)
               FROM jbsuser.landlord
@@ -119,7 +119,7 @@ function ShowAdminMenu()
 function SaveSetting($allow, $info)
 {
     $info = SafeInputText($info);
-    $info = str_replace("\"", "\\\"", $info);
+    $info = str_replace("\"", "\\\"", (string) $info);
 
     $content  = "<?php\r\n";
     $content .= '$G_VIEW_MEDIA_ALLOW = ' . $allow . ';';

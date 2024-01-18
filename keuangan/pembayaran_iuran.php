@@ -78,8 +78,8 @@ if (1 == (int)$_REQUEST['issubmit'])
 	}
 	
 	// rek kas from selected value
-	if (isset($_REQUEST['rekkas']) && strlen(trim($_REQUEST['rekkas'])) > 0)
-		$rekkas = trim($_REQUEST['rekkas']);
+	if (isset($_REQUEST['rekkas']) && strlen(trim((string) $_REQUEST['rekkas'])) > 0)
+		$rekkas = trim((string) $_REQUEST['rekkas']);
 	
 	//Ambil nama siswa
 	$namasiswa = "";
@@ -167,7 +167,7 @@ if (1 == (int)$_REQUEST['issubmit'])
 		RollbackTrans();
 	CloseDb();
 ?>	<script language="javascript">
-		document.location.href="pembayaran_iuran.php?r=<?=rand(10000, 99999)?>&idkategori=<?=$idkategori?>&idpenerimaan=<?=$idpenerimaan?>&nis=<?=$nis?>&idtahunbuku=<?=$idtahunbuku?>";
+		document.location.href="pembayaran_iuran.php?r=<?=random_int(10000, 99999)?>&idkategori=<?=$idkategori?>&idpenerimaan=<?=$idpenerimaan?>&nis=<?=$nis?>&idtahunbuku=<?=$idtahunbuku?>";
 	</script>
 <?php exit();
 }

@@ -38,10 +38,10 @@ $keterangan = CQ($_REQUEST['txKeterangan']);
 if (isset($_REQUEST['btSubmit']))
 {
 	OpenDb();
-	
+
 	$success = true;
 	BeginTrans();
-	
+
 	$sql = "SELECT COUNT(nip) FROM peglastdata WHERE nip='$nip'";
 	$ndata = FetchSingle($sql);
 	if ($ndata == 0)
@@ -49,32 +49,32 @@ if (isset($_REQUEST['btSubmit']))
 		$sql = "INSERT INTO peglastdata SET nip='$nip'";
 		QueryDbTrans($sql, $success);
 	}
-	
+
 	if ($success)
 	{
 		$sql = "UPDATE pegserti SET terakhir=0 WHERE nip='$nip'";
 		QueryDbTrans($sql, $success);	
 	}
-	
+
 	if ($success)
 	{
 		$sql = "INSERT INTO pegserti SET nip='$nip', sertifikat='$sertifikat', lembaga='$lembaga', tahun=$tahun, terakhir='1', keterangan='$keterangan'";
 		QueryDbTrans($sql, $success);	
 	}
-	
+
 	$idpegserti = 0;
 	if ($success)
 	{
 		$sql = "SELECT LAST_INSERT_ID()";
 		$idpegserti = (int)FetchSingle($sql);
 	}
-	
+
 	if ($success)
 	{
 		$sql = "UPDATE peglastdata SET idpegserti=$idpegserti WHERE nip='$nip'";
 		QueryDbTrans($sql, $success);	
 	}
-	
+
 	if ($success)
 	{
 		CommitTrans();
@@ -132,7 +132,7 @@ function focusNext(elemName, evt)
 </tr>
 <tr>
 	<td width="100%" align="center">
-    
+
     <table border="0" cellpadding="0" cellspacing="5" width="100%">
     <tr>
     	<td width="22%" align="right"><strong>Sertifikat</strong> : </td>

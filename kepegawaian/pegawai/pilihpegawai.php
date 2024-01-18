@@ -78,7 +78,7 @@ function Cari()
     </td>
 </tr>
 <?php
-if (strlen($nip) > 0 || strlen($nama) > 0 || $all == 1)
+if (strlen((string) $nip) > 0 || strlen((string) $nama) > 0 || $all == 1)
 { 
 ?>
 <tr>
@@ -98,13 +98,13 @@ if (strlen($nip) > 0 || strlen($nama) > 0 || $all == 1)
 				 WHERE aktif = 1 
 				 ORDER BY nama";
 	else
-		if (strlen($nama) > 0)
+		if (strlen((string) $nama) > 0)
 			$sql = "SELECT nip, TRIM(CONCAT(IFNULL(gelarawal, ''), ' ' , nama, ' ', IFNULL(gelarakhir,''))) AS fnama
 					  FROM pegawai
 					 WHERE nama LIKE '%$nama%'
 					   AND aktif = 1
 					 ORDER BY nama";
-		elseif (strlen($nip) > 0)
+		elseif (strlen((string) $nip) > 0)
 			$sql = "SELECT nip, TRIM(CONCAT(IFNULL(gelarawal, ''), ' ' , nama, ' ', IFNULL(gelarakhir,''))) AS fnama
 					  FROM pegawai
 					 WHERE nip LIKE '%$nip%'

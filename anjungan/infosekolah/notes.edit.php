@@ -130,7 +130,7 @@ $row = mysqli_fetch_array($res);
         while($row2 = mysqli_fetch_array($res2))
         {
             $file = $row2['location'] . "/" . $row2['filename'];
-            $info = str_replace("'", "`", $row2['fileinfo']);
+            $info = str_replace("'", "`", (string) $row2['fileinfo']);
             
             $n += 1; ?>
             <input type='hidden' id='not_edit_gambar_replid<?=$n?>' name='not_edit_gambar_replid<?=$n?>' value="<?=$row2['replid']?>">

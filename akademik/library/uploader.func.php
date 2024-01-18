@@ -78,7 +78,7 @@ function ShowList()
         echo "<img src='$pict' width='200'><br>";
         echo $row['nama'];
         
-        $deskripsi = trim($row['deskripsi']);
+        $deskripsi = trim((string) $row['deskripsi']);
         $deskripsi = strlen($deskripsi) == 0 ? "&nbsp;": $deskripsi;
         echo "<br><font style='color: #666'>";
         echo $deskripsi;

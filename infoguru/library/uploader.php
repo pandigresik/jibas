@@ -42,7 +42,7 @@ if (isset($_REQUEST['simpan']) && isset($_FILES['foto']))
 		$origfile = $foto['name'];
 		$ext = GetFileExt($origfile);
 		$fn = GetFileName($origfile);
-		$fn = str_replace(" ", "", $fn);
+		$fn = str_replace(" ", "", (string) $fn);
 		$fn = date('ymdHis') . "-" . $pengguna . "-" . $salt . "-" . $fn;
 		$fn = md5($fn) . $ext;
 		

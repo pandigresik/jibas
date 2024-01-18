@@ -249,7 +249,7 @@ function panggil(elem)
     <td width="28" background="<?=GetThemeDir() ?>bgpop_09.jpg">&nbsp;</td>
 </tr>
 </table>
-<?php if (strlen($mysqli_ERROR_MSG) > 0) { ?>
+<?php if (strlen((string) $mysqli_ERROR_MSG) > 0) { ?>
 <script language="javascript">
 	alert('<?=$mysqli_ERROR_MSG?>');		
 </script>

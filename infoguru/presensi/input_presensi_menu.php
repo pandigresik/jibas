@@ -53,8 +53,8 @@ $sql = "SELECT t.tahunajaran, t.tglmulai, t.tglakhir FROM tahunajaran t, kelas k
 $result = QueryDb($sql);
 $row = mysqli_fetch_array($result);
 
-$jgk1 = explode('-',$row['tglmulai']);
-$jgk2 = explode('-',$row['tglakhir']); 
+$jgk1 = explode('-',(string) $row['tglmulai']);
+$jgk2 = explode('-',(string) $row['tglakhir']); 
 
 $tahunajaran = $row['tahunajaran'];
 $awal = $row['tglmulai'];
@@ -160,7 +160,7 @@ function change() {
 			///for($i=$thn-10;$i<=$thn;$i++){ ?>
         <?php  //for($i=$thn;$i>=$thn-10;$i--){ ?>
           	<option value="<?=$i?>" <?=IntIsSelected($th, $i)?>><?=$i?></option>	   
-       	<?php } ?>	
+<?php } ?>	
         	</select>            
  		</td>
  	</tr>

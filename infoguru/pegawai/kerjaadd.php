@@ -39,10 +39,10 @@ $keterangan = $_REQUEST['txKeterangan'];
 if (isset($_REQUEST['btSubmit']))
 {
 	OpenDb();
-	
+
 	$success = true;
 	BeginTrans();
-	
+
 	$sql = "SELECT COUNT(nip) FROM jbssdm.peglastdata WHERE nip='$nip'";
 	$ndata = FetchSingle($sql);
 	if ($ndata == 0)
@@ -50,13 +50,13 @@ if (isset($_REQUEST['btSubmit']))
 		$sql = "INSERT INTO jbssdm.peglastdata SET nip='$nip'";
 		QueryDbTrans($sql, $success);
 	}
-	
+
 	if ($success)
 	{
 		$sql = "UPDATE jbssdm.pegkerja SET terakhir=0 WHERE nip='$nip'";
 		QueryDbTrans($sql, $success);	
 	}
-	
+
 	if ($success)
 	{
 		$sql = "INSERT INTO jbssdm.pegkerja
@@ -64,20 +64,20 @@ if (isset($_REQUEST['btSubmit']))
                        thnakhir='$thnakhir', terakhir='1', keterangan='".CQ($keterangan)."'";
 		QueryDbTrans($sql, $success);	
 	}
-	
+
 	$idpegkerja = 0;
 	if ($success)
 	{
 		$sql = "SELECT LAST_INSERT_ID()";
 		$idpegkerja = (int)FetchSingle($sql);
 	}
-	
+
 	if ($success)
 	{
 		$sql = "UPDATE jbssdm.peglastdata SET idpegkerja=$idpegkerja WHERE nip='$nip'";
 		QueryDbTrans($sql, $success);	
 	}
-	
+
 	if ($success)
 	{
 		CommitTrans();
@@ -136,7 +136,7 @@ function focusNext(elemName, evt)
 </tr>
 <tr>
 	<td width="100%" align="center">
-    
+
     <table border="0" cellpadding="0" cellspacing="5" width="100%">
     <tr>
     	<td width="22%" align="right"><strong>Tempat</strong> : </td>
@@ -171,7 +171,7 @@ function focusNext(elemName, evt)
         </td> 
     </tr>
     </table>
-    
+
     </td>
 </tr>
 </table>

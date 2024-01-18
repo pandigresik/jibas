@@ -30,82 +30,82 @@ $idtahunajaran=$_REQUEST['tahunajaran'];
 $departemen=$_REQUEST['departemen'];
 $cek = 0;
 
-$nis = trim($_REQUEST['nis']);
-$nik = trim($_REQUEST['nik']);
-$noun = trim($_REQUEST['noun']);
-$nisn = trim($_REQUEST['nisn']);
+$nis = trim((string) $_REQUEST['nis']);
+$nik = trim((string) $_REQUEST['nik']);
+$noun = trim((string) $_REQUEST['noun']);
+$nisn = trim((string) $_REQUEST['nisn']);
 $idangkatan = $_REQUEST['idangkatan'];
 $tahunmasuk = $_REQUEST['tahunmasuk'];
-$nama = trim($_REQUEST['nama']);
-$panggilan = trim($_REQUEST['panggilan']);
+$nama = trim((string) $_REQUEST['nama']);
+$panggilan = trim((string) $_REQUEST['panggilan']);
 $kelamin = $_REQUEST['kelamin'];
-$tmplahir = trim($_REQUEST['tmplahir']);
-$tgllahir = strlen($_REQUEST['tgllahir']) == 0 ? "1" : $_REQUEST['tgllahir']; 
-$blnlahir = strlen($_REQUEST['blnlahir']) == 0 ? "1" : $_REQUEST['blnlahir'];
-$thnlahir = strlen($_REQUEST['thnlahir']) == 0 ? "1970" : $_REQUEST['thnlahir'];
+$tmplahir = trim((string) $_REQUEST['tmplahir']);
+$tgllahir = strlen((string) $_REQUEST['tgllahir']) == 0 ? "1" : $_REQUEST['tgllahir']; 
+$blnlahir = strlen((string) $_REQUEST['blnlahir']) == 0 ? "1" : $_REQUEST['blnlahir'];
+$thnlahir = strlen((string) $_REQUEST['thnlahir']) == 0 ? "1970" : $_REQUEST['thnlahir'];
 $lahir = $thnlahir . "-" . $blnlahir . "-" . $tgllahir;
 $suku = $_REQUEST['suku'];
 $agama = $_REQUEST['agama'];
 $status = $_REQUEST['status'];
 $kondisi = $_REQUEST['kondisi'];
-$warga = isset($_REQUEST['warga']) ? $_REQUEST['warga'] : "WNI";
-$urutananak = strlen($_REQUEST['urutananak']) == 0 ? 0 : $_REQUEST['urutananak'];
-$jumlahanak = strlen($_REQUEST['jumlahanak']) == 0 ? 0 : $_REQUEST['jumlahanak'];
+$warga = $_REQUEST['warga'] ?? "WNI";
+$urutananak = strlen((string) $_REQUEST['urutananak']) == 0 ? 0 : $_REQUEST['urutananak'];
+$jumlahanak = strlen((string) $_REQUEST['jumlahanak']) == 0 ? 0 : $_REQUEST['jumlahanak'];
 $statusanak = $_REQUEST['statusanak'];
-$jkandung = strlen($_REQUEST['jkandung']) == 0 ? 0 : $_REQUEST['jkandung'];
-$jtiri = strlen($_REQUEST['jtiri']) == 0 ? 0 : $_REQUEST['jtiri'];
+$jkandung = strlen((string) $_REQUEST['jkandung']) == 0 ? 0 : $_REQUEST['jkandung'];
+$jtiri = strlen((string) $_REQUEST['jtiri']) == 0 ? 0 : $_REQUEST['jtiri'];
 
-$bahasa = trim($_REQUEST['bahasa']);
-$alamatsiswa = trim($_REQUEST['alamatsiswa']);
-$kodepos = trim($_REQUEST['kodepos']);
+$bahasa = trim((string) $_REQUEST['bahasa']);
+$alamatsiswa = trim((string) $_REQUEST['alamatsiswa']);
+$kodepos = trim((string) $_REQUEST['kodepos']);
 $jarak = (float)$_REQUEST['jarak'];
-$telponsiswa = trim($_REQUEST['telponsiswa']);
-$hpsiswa = trim(($_REQUEST['hpsiswa']));
+$telponsiswa = trim((string) $_REQUEST['telponsiswa']);
+$hpsiswa = trim(((string) $_REQUEST['hpsiswa']));
 $hpsiswa = str_replace(' ','',$hpsiswa);
-$emailsiswa = trim($_REQUEST['emailsiswa']);
+$emailsiswa = trim((string) $_REQUEST['emailsiswa']);
 $dep_asal = $_REQUEST['dep_asal'];
 
 $sekolah = $_REQUEST['sekolah'];
-$noijasah = trim($_REQUEST['noijasah']);
-$tglijasah = trim($_REQUEST['tglijasah']);
-$ketsekolah = trim($_REQUEST['ketsekolah']);
+$noijasah = trim((string) $_REQUEST['noijasah']);
+$tglijasah = trim((string) $_REQUEST['tglijasah']);
+$ketsekolah = trim((string) $_REQUEST['ketsekolah']);
 
 $gol = $_REQUEST['gol'];
-$berat = isset($_REQUEST['berat']) ? $_REQUEST['berat'] : "0";
-$tinggi = isset($_REQUEST['tinggi']) ? $_REQUEST['tinggi'] : "0";
-$kesehatan=trim($_REQUEST['kesehatan']);
+$berat = $_REQUEST['berat'] ?? "0";
+$tinggi = $_REQUEST['tinggi'] ?? "0";
+$kesehatan=trim((string) $_REQUEST['kesehatan']);
 
-$namaayah = trim($_REQUEST['namaayah']);
-$namaibu = trim($_REQUEST['namaibu']);
+$namaayah = trim((string) $_REQUEST['namaayah']);
+$namaibu = trim((string) $_REQUEST['namaibu']);
 $statusayah = $_REQUEST['statusayah'];
 $statusibu = $_REQUEST['statusibu'];
-$tmplahirayah = trim($_REQUEST['tmplahirayah']);
-$tmplahiribu = trim($_REQUEST['tmplahiribu']);
-$tgllahirayah = trim($_REQUEST['tgllahirayah']);
-$tgllahiribu = trim($_REQUEST['tgllahiribu']);
+$tmplahirayah = trim((string) $_REQUEST['tmplahirayah']);
+$tmplahiribu = trim((string) $_REQUEST['tmplahiribu']);
+$tgllahirayah = trim((string) $_REQUEST['tgllahirayah']);
+$tgllahiribu = trim((string) $_REQUEST['tgllahiribu']);
 $pendidikanayah = $_REQUEST['pendidikanayah'];
 $pendidikanibu = $_REQUEST['pendidikanibu'];
 $pekerjaanayah = $_REQUEST['pekerjaanayah'];
 $pekerjaanibu = $_REQUEST['pekerjaanibu'];
-$penghasilanayah = (isset($_REQUEST['penghasilanayah']))?$_REQUEST['penghasilanayah']:"0";
-$penghasilanibu = (isset($_REQUEST['penghasilanibu']))?$_REQUEST['penghasilanibu']:"0";
+$penghasilanayah = $_REQUEST['penghasilanayah'] ?? "0";
+$penghasilanibu = $_REQUEST['penghasilanibu'] ?? "0";
 
-$namawali=trim($_REQUEST['namawali']);
-$alamatortu=trim($_REQUEST['alamatortu']);
-$telponortu=trim($_REQUEST['telponortu']);
-$hportu=trim($_REQUEST['hportu']);
+$namawali=trim((string) $_REQUEST['namawali']);
+$alamatortu=trim((string) $_REQUEST['alamatortu']);
+$telponortu=trim((string) $_REQUEST['telponortu']);
+$hportu=trim((string) $_REQUEST['hportu']);
 $hportu=str_replace(' ','',$hportu);
-$hportu2=trim($_REQUEST['hportu2']);
+$hportu2=trim((string) $_REQUEST['hportu2']);
 $hportu2=str_replace(' ','',$hportu2);
-$hportu3=trim($_REQUEST['hportu3']);
+$hportu3=trim((string) $_REQUEST['hportu3']);
 $hportu3=str_replace(' ','',$hportu3);
-$emailayah=trim($_REQUEST['emailayah']);
-$emailibu=trim($_REQUEST['emailibu']);
-$alamatsurat=trim($_REQUEST['alamatsurat']);
-$keterangan=trim($_REQUEST['keterangan']);
-$hobi=trim($_REQUEST['hobi']);
-$almayah = (isset($_REQUEST['almayah']))?$_REQUEST['almayah']:"0";
-$almibu = (isset($_REQUEST['almibu']))?$_REQUEST['almibu']:"0";
+$emailayah=trim((string) $_REQUEST['emailayah']);
+$emailibu=trim((string) $_REQUEST['emailibu']);
+$alamatsurat=trim((string) $_REQUEST['alamatsurat']);
+$keterangan=trim((string) $_REQUEST['keterangan']);
+$hobi=trim((string) $_REQUEST['hobi']);
+$almayah = $_REQUEST['almayah'] ?? "0";
+$almibu = $_REQUEST['almibu'] ?? "0";
 $idtambahan = $_REQUEST['idtambahan'];
 
 $ERROR_MSG = "";
@@ -141,7 +141,7 @@ if (isset($_REQUEST['Simpan']))
 		$uploadedfile = $foto['tmp_name'];
 		$uploadedtypefile = $foto['type'];
 		$uploadedsizefile = $foto['size'];
-		if (strlen($uploadedfile)!=0)
+		if (strlen((string) $uploadedfile)!=0)
 		{
 			$tmp_path = realpath(".") . "/../../temp";
 			$tmp_exists = file_exists($tmp_path) && is_dir($tmp_path);
@@ -203,12 +203,12 @@ if (isset($_REQUEST['Simpan']))
             }
         }
 
-		if ($success && strlen($idtambahan) > 0)
+		if ($success && strlen((string) $idtambahan) > 0)
         {
-            if (strpos($idtambahan, ",") === false)
-                $arridtambahan = array($idtambahan);
+            if (!str_contains((string) $idtambahan, ","))
+                $arridtambahan = [$idtambahan];
             else
-                $arridtambahan = explode(",", $idtambahan);
+                $arridtambahan = explode(",", (string) $idtambahan);
 
             // READ WARNING IMAGE
             $warnimg = "../images/warningimg.jpg";
@@ -250,7 +250,7 @@ if (isset($_REQUEST['Simpan']))
                     $file = $_FILES[$param];
                     $tmpfile = $file['tmp_name'];
 
-                    if (strlen($tmpfile) != 0)
+                    if (strlen((string) $tmpfile) != 0)
                     {
                         if (filesize($tmpfile) <= 256000)
                         {

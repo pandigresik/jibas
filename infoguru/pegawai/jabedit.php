@@ -45,7 +45,7 @@ $alasan = $_REQUEST['txAlasan'];
 if (isset($_REQUEST['btSubmit']))
 {
 	OpenDb();	
-	if (strlen(trim($idjabatan)) == "")
+	if (strlen(trim((string) $idjabatan)) == 0)
 		$sql = "UPDATE jbssdm.pegjab SET tmt='$tmt', namajab='$jabatan', sk='$sk', keterangan='$keterangan', jenis='$jenis', doaudit = 1 WHERE replid=$id";
 	else
 		$sql = "UPDATE jbssdm.pegjab SET idjabatan=$idjabatan, namajab='$jabatan', tmt='$tmt', sk='$sk', keterangan='$keterangan', jenis='$jenis', doaudit = 1 WHERE replid=$id";

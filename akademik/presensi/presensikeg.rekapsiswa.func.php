@@ -51,9 +51,9 @@ function GetCbDepartemen($default, $elmName = "cbDepartemen")
     }
     $selection .= "</select>\r\n";
     
-    $json_array = array('selection' => $selection, 'value' => $selectedValue, 'text' => $selectedText);
+    $json_array = ['selection' => $selection, 'value' => $selectedValue, 'text' => $selectedText];
     
-    return json_encode($json_array);
+    return json_encode($json_array, JSON_THROW_ON_ERROR);
 }
 
 function GetCbTingkat($departemen, $default)
@@ -84,9 +84,9 @@ function GetCbTingkat($departemen, $default)
     }
     $selection .= "</select>";
     
-    $json_array = array('selection' => $selection, 'value' => $selectedValue, 'text' => $selectedText);
+    $json_array = ['selection' => $selection, 'value' => $selectedValue, 'text' => $selectedText];
     
-    return json_encode($json_array);
+    return json_encode($json_array, JSON_THROW_ON_ERROR);
 }
 
 function GetCbKelas($idtingkat, $default)
@@ -118,9 +118,9 @@ function GetCbKelas($idtingkat, $default)
     }
     $selection .= "</select>";
     
-    $json_array = array('selection' => $selection, 'value' => $selectedValue, 'text' => $selectedText);
+    $json_array = ['selection' => $selection, 'value' => $selectedValue, 'text' => $selectedText];
     
-    return json_encode($json_array);
+    return json_encode($json_array, JSON_THROW_ON_ERROR);
 }
 
 function GetSiswa($bulan, $tahun, $idkelas)

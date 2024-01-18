@@ -116,7 +116,7 @@ class PegawaiInput
         $bday = "$this->thnlahir-$this->blnlahir-$this->tgllahir";
         $sday = "$this->thnmulai-$this->blnmulai-$this->tglmulai";
     
-        if (strlen($this->foto['tmp_name']) != 0)
+        if (strlen((string) $this->foto['tmp_name']) != 0)
         {
             $output = "../temp/img.tmp";
             ResizeImage($this->foto, 320, 240, 75, $output);
@@ -179,12 +179,12 @@ class PegawaiInput
             }
         }
 
-        if ($success && strlen($this->idtambahan) > 0)
+        if ($success && strlen((string) $this->idtambahan) > 0)
         {
-            if (strpos($this->idtambahan, ",") === false)
-                $arridtambahan = array($this->idtambahan);
+            if (!str_contains((string) $this->idtambahan, ","))
+                $arridtambahan = [$this->idtambahan];
             else
-                $arridtambahan = explode(",", $this->idtambahan);
+                $arridtambahan = explode(",", (string) $this->idtambahan);
 
             // READ WARNING IMAGE
             $warnimg = "../images/warningimg.jpg";
@@ -226,7 +226,7 @@ class PegawaiInput
                     $file = $_FILES[$param];
                     $tmpfile = $file['tmp_name'];
 
-                    if (strlen($tmpfile) != 0)
+                    if (strlen((string) $tmpfile) != 0)
                     {
                         if (filesize($tmpfile) <= 256000)
                         {

@@ -30,7 +30,7 @@ $foto1 = $_FILES['foto'];
 $uploadedfile = $foto1['tmp_name'];
 $uploadedtypefile = $foto1['type'];
 $uploadedsizefile = $foto1['size'];
-if (strlen($uploadedfile) != 0)
+if (strlen((string) $uploadedfile) != 0)
 {
 	$tmp_path = realpath(".") . "/../../temp";
 	$tmp_exists = file_exists($tmp_path) && is_dir($tmp_path);

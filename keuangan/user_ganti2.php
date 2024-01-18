@@ -32,15 +32,15 @@ require_once('library/departemen.php');
 $login = getIdUser();
 
 if (isset($_REQUEST['simpan'])) {
-	$nip=trim($_REQUEST['nip']);
+	$nip=trim((string) $_REQUEST['nip']);
 	OpenDb();
-	$sql = "SELECT login FROM jbsuser.login WHERE password='".md5($_REQUEST['passlama'])."' AND login='$nip'";
+	$sql = "SELECT login FROM jbsuser.login WHERE password='".md5((string) $_REQUEST['passlama'])."' AND login='$nip'";
 	$result = QueryDb($sql);
 	if (mysqli_num_rows($result) == 0) {
 		CloseDb(); 
 		$mysqli_ERROR_MSG = "Password lama anda tidak cocok!";
 	} else {
-		$sql = "UPDATE jbsuser.login SET password='".md5($_REQUEST['pass1'])."' WHERE login='".trim($_REQUEST['nip'])."'";
+		$sql = "UPDATE jbsuser.login SET password='".md5((string) $_REQUEST['pass1'])."' WHERE login='".trim((string) $_REQUEST['nip'])."'";
 		$result = QueryDb($sql);
 		CloseDb();
 	
@@ -133,7 +133,7 @@ function validasi() {
 	</td>
 </tr>
 </table>
-<?php if (strlen($mysqli_ERROR_MSG) > 0) { ?>
+<?php if (strlen((string) $mysqli_ERROR_MSG) > 0) { ?>
 <script language="javascript">
     alert('<?=$mysqli_ERROR_MSG ?>');
 </script>

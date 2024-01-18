@@ -83,7 +83,7 @@ function sendLogin($login, $password)
     if ((int) $info->Status < 0)
         return new GenericReturn((int) $info->Status, $info->Data, ""); // Login gagal
 
-    $data = json_decode($result->Data);
+    $data = json_decode((string) $result->Data, null, 512, JSON_THROW_ON_ERROR);
     processLogin($data->Session, $data->Data);
 
     return new GenericReturn(1, "Login Success", "");
@@ -165,13 +165,13 @@ function processLogin($jsonSession, $jsonData)
 
     CloseDb();
 
-    $jsonData = str_replace("\r\n", "<br>", $jsonData);
+    $jsonData = str_replace("\r\n", "<br>", (string) $jsonData);
     saveUserInfo($session->UserId, $session->SessionId, $jsonData);
 }
 
 function safeText($text)
 {
-    $text = str_replace("'", "`", $text);
+    $text = str_replace("'", "`", (string) $text);
     //$text = str_replace("<", "&lt;", $text);
     //$text = str_replace(">", "&gt;", $text);
 
@@ -180,7 +180,7 @@ function safeText($text)
 
 function saveUserInfo($userid, $sessionid, $jsonData)
 {
-    $login = json_decode($jsonData);
+    $login = json_decode((string) $jsonData, null, 512, JSON_THROW_ON_ERROR);
 
     $userpict = $login->UserPict;
     $welcome = safeText($login->Welcome);

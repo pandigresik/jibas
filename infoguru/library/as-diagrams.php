@@ -32,29 +32,29 @@
 $asbarchart_csshown = 0;
 class CAsBarDiagram
 { // bar diagram class
-  var $imgpath = '../script/img/'; // place all 'diagram' images in this "folder";
-  var $bt_lgtitle = '';
-  var $graf_height = 240;
-  var $bwidth = 0;
-  var $precision  = 2;
-  var $bt_total   = 'Totals';
-  var $showtotals = 1;
-  var $btilemode = 0;
-  var $showdigits = 1; // in the bottom show digits by default
-  var $autoshrink = 1024; // auto-adjust graph width to not greater than this value (pixels)
-  var $legendx_url = ''; // URL with {ID} macro. If not empty, legend texts on X-axis become "hrefs"
-  var $legendx_onClick = ''; // onClick event string, for the URL above, (with {ID} macro)
-  var $legendy_url = ''; // URL with {ID} macro. If not empty, legend texts on Y-axis become "hrefs"
-  var $legendy_onClick = ''; // onClick event string, for the URL above, (with {ID} macro)
-  var $cell_url = ''; // tamplate for cell-URLs : {X}, {Y} will be subst-ed with current x,y "legend" values
-  var $legendx_id = 0; // here must be an array of ID values for all x URL's. If not set, titles will be used
-  var $data = array();
-  var $legendx = array(); // for auto-making legend from SQL query
-  var $legendy = array();
-  var $ShowPercents = array(); // one element: showPercents['legend_y'] = "title" - as percent after [n2] row
-  var $debug = 0; // show debug info
-  var $drawempty_x = 1; // if 0, don't draw zero columns
-  var $drawempty_y = 1; // if 0, don't draw zero bars and "rows" in digit part
+  public $imgpath = '../script/img/'; // place all 'diagram' images in this "folder";
+  public $bt_lgtitle = '';
+  public $graf_height = 240;
+  public $bwidth = 0;
+  public $precision  = 2;
+  public $bt_total   = 'Totals';
+  public $showtotals = 1;
+  public $btilemode = 0;
+  public $showdigits = 1; // in the bottom show digits by default
+  public $autoshrink = 1024; // auto-adjust graph width to not greater than this value (pixels)
+  public $legendx_url = ''; // URL with {ID} macro. If not empty, legend texts on X-axis become "hrefs"
+  public $legendx_onClick = ''; // onClick event string, for the URL above, (with {ID} macro)
+  public $legendy_url = ''; // URL with {ID} macro. If not empty, legend texts on Y-axis become "hrefs"
+  public $legendy_onClick = ''; // onClick event string, for the URL above, (with {ID} macro)
+  public $cell_url = ''; // tamplate for cell-URLs : {X}, {Y} will be subst-ed with current x,y "legend" values
+  public $legendx_id = 0; // here must be an array of ID values for all x URL's. If not set, titles will be used
+  public $data = [];
+  public $legendx = []; // for auto-making legend from SQL query
+  public $legendy = [];
+  public $ShowPercents = []; // one element: showPercents['legend_y'] = "title" - as percent after [n2] row
+  public $debug = 0; // show debug info
+  public $drawempty_x = 1; // if 0, don't draw zero columns
+  public $drawempty_y = 1; // if 0, don't draw zero bars and "rows" in digit part
 
   function HideEmptyXY($val=true) {
     $this->drawempty_x = $this->drawempty_y = !$val;
@@ -64,11 +64,11 @@ class CAsBarDiagram
 
   function InitData($legend_x=0, $legend_y=0)
   { // clears all gathered data. If legends passed, fills (X x Y) with 0 values
-    $this->data = array();
+    $this->data = [];
     if(!is_array($legend_x) || !is_array($legend_y)) return;
     $lenx = count($legend_x);
     $leny = count($legend_y);
-    $onecol = array();
+    $onecol = [];
     for($kk=0; $kk<$leny; $kk++) {
         $onecol[] = 0;
     }
@@ -88,9 +88,7 @@ class CAsBarDiagram
     if(!is_array($legend_y)) $legend_y = $this->legendy;
     if(count($this->ShowPercents)>0)
         $this->showdigits |= 1;
-    $bar = array('bar-v01.png', 'bar-v02.png', 'bar-v03.png', 'bar-v04.png', 'bar-v05.png',
-                 'bar-v06.png', 'bar-v07.png', 'bar-v08.png', 'bar-v09.png', 'bar-v10.png',
-                 'bar-v11.png', 'bar-v12.png');
+    $bar = ['bar-v01.png', 'bar-v02.png', 'bar-v03.png', 'bar-v04.png', 'bar-v05.png', 'bar-v06.png', 'bar-v07.png', 'bar-v08.png', 'bar-v09.png', 'bar-v10.png', 'bar-v11.png', 'bar-v12.png'];
     if(empty($asbarchart_csshown))
     { //<2>
          $asbarchart_csshown = 1;
@@ -154,7 +152,7 @@ td.barhead  { background-color: #3fa64b; color:#000000;
   if($pos_part)
   { //<1-1>
     $maxfound = false;
-    $decbase = array(0.01, 0.016, 0.02, 0.024, 0.032, 0.04, 0.08);
+    $decbase = [0.01, 0.016, 0.02, 0.024, 0.032, 0.04, 0.08];
     for($tt=0; ($tt < 15) && (!$maxfound); $tt++)
     { //<2>
      for($ii=0; $ii < count($decbase); $ii++) { //<3>
@@ -172,7 +170,7 @@ td.barhead  { background-color: #3fa64b; color:#000000;
 
   if($neg_part)
   { //<1-1>
-    $decbase = array(0.01, 0.016, 0.02, 0.024, 0.032, 0.04, 0.08);
+    $decbase = [0.01, 0.016, 0.02, 0.024, 0.032, 0.04, 0.08];
     $maxfound = false;
     for($tt=0; ($tt < 15) && (!$maxfound); $tt++)
     { //<2>
@@ -217,8 +215,8 @@ td.barhead  { background-color: #3fa64b; color:#000000;
   // so, we have $pos_part(true), $neg_part(true), $Ystep, $steps_pos, $steps_neg
 
   // I need to know what columns/rows must be skipped because of empty...
-  $draw_cx = count($legend_x)? array_fill(0,count($legend_x),1) : array('');
-  $draw_cy = count($legend_y)? array_fill(0,count($legend_y),1) : array('');
+  $draw_cx = count($legend_x)? array_fill(0,count($legend_x),1) : [''];
+  $draw_cy = count($legend_y)? array_fill(0,count($legend_y),1) : [''];
   $cnt_x = count($legend_x);
   $cnt_y = count($legend_y);
 
@@ -313,8 +311,8 @@ td.barhead  { background-color: #3fa64b; color:#000000;
         {
           $l_x = AsGetRowKey($legend_x[$ix]);
           $l_y = AsGetRowKey($legend_y[$iy]);
-          $ato = array( $l_x, $l_y);
-          $onebar = "<a href='".(str_replace(array('{X}','{Y}'),$ato, $this->cell_url))."'>$onebar</a>";
+          $ato = [$l_x, $l_y];
+          $onebar = "<a href='".(str_replace(['{X}', '{Y}'],$ato, (string) $this->cell_url))."'>$onebar</a>";
         }
         if($hght>0) {
           echo empty($this->btilemode)? "<td>$onebar</td>" : "<table cellspacing=0 border=0 cellpadding=0><tr><td class='tbar$iy'>$onebar</td></tr></table>";
@@ -430,8 +428,8 @@ td.barhead  { background-color: #3fa64b; color:#000000;
 
     if(!empty($this->legendx_url)) { //<3>
        if($id_x !== $ltext) $idval = $id_x;
-       else $idval = isset($this->legendx_id[$ix]) ? $this->legendx_id[$ix] : $legend_x[$ix];
-       $lurl = str_replace('{ID}',$idval, $this->legendx_url);
+       else $idval = $this->legendx_id[$ix] ?? $legend_x[$ix];
+       $lurl = str_replace('{ID}',$idval, (string) $this->legendx_url);
        $onClick = empty($this->legendx_onClick) ? '' : str_replace('{ID}',$idval, 'onClick="'.$this->legendx_onClick.'"');
        $ltext = "<a href='$lurl' $onClick>$ltext</a>";
     } //<3>
@@ -450,8 +448,8 @@ td.barhead  { background-color: #3fa64b; color:#000000;
       $y_id = AsGetRowKey($legend_y[$iy]);
       $lgd = AsGetRowValue($legend_y[$iy]);
       if(!empty($this->legendy_url)) { //<3>
-         $idval = isset($this->legendy_id[$iy]) ? $this->legendy_id[$iy] : $y_id;
-         $lurl = str_replace('{ID}',$idval, $this->legendy_url);
+         $idval = $this->legendy_id[$iy] ?? $y_id;
+         $lurl = str_replace('{ID}',$idval, (string) $this->legendy_url);
          $onClick = empty($this->legendy_onClick) ? '' : str_replace('{ID}',$idval, 'onClick="'.$this->legendy_onClick.'"');
          $lgd = "<a href='$lurl' $onClick>$lgd</a>";
       } //<3>
@@ -476,7 +474,7 @@ td.barhead  { background-color: #3fa64b; color:#000000;
         $y1 = $iy-1; // row before last
         $ytxt1 = AsGetRowValue($legend_y[$y1]);
         $ytxt2 = AsGetRowValue($legend_y[$y2]);
-        $prcttl = strlen($this->ShowPercents[$lgd]) ? $this->ShowPercents[$lgd] : "{$ytxt1}/{$ytxt1},%";
+        $prcttl = strlen((string) $this->ShowPercents[$lgd]) ? $this->ShowPercents[$lgd] : "{$ytxt1}/{$ytxt1},%";
         $cls = ($cls=='bareven') ? 'barodd' : 'bareven';
         echo "   <tr class='$cls'><td nowrap>$prcttl</td>\n"; // title "percents"
         $sum1 = 0;
@@ -531,7 +529,7 @@ td.barhead  { background-color: #3fa64b; color:#000000;
   { // runs sql query and places all needed data into array for drawing
     // if legend_* array not passed, SQL query will be used to make them
 //    echo "GatherData: $sqlquery<br>"; // debug
-    $onecol = array();
+    $onecol = [];
     $lenx = is_array($legend_x) ? count($legend_x) : 0;
     $leny = is_array($legend_y) ? count($legend_y) : 0;
     for($kk=0; $kk<max($leny,1); $kk++) {

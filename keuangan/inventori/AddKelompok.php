@@ -26,7 +26,7 @@ require_once('../include/db_functions.php');
 OpenDb();
 $idgroup = $_REQUEST['idgroup'];
 if (isset($_REQUEST['Simpan'])){
-	$sql = "SELECT * FROM jbsfina.kelompokbarang WHERE kelompok='".addslashes(trim($_REQUEST['kelompokname']))."' AND idgroup='".$_REQUEST['idgroup']."'";
+	$sql = "SELECT * FROM jbsfina.kelompokbarang WHERE kelompok='".addslashes(trim((string) $_REQUEST['kelompokname']))."' AND idgroup='".$_REQUEST['idgroup']."'";
 	if (@mysqli_num_rows(QueryDb($sql))>0){
 		?>
         <script language="javascript">
@@ -34,7 +34,7 @@ if (isset($_REQUEST['Simpan'])){
         </script>
         <?php
 	} else {
-		QueryDb("INSERT INTO jbsfina.kelompokbarang SET kelompok='".addslashes(trim($_REQUEST['kelompokname']))."', keterangan='".addslashes(trim($_REQUEST['keterangan']))."',idgroup='".$_REQUEST['idgroup']."'");
+		QueryDb("INSERT INTO jbsfina.kelompokbarang SET kelompok='".addslashes(trim((string) $_REQUEST['kelompokname']))."', keterangan='".addslashes(trim((string) $_REQUEST['keterangan']))."',idgroup='".$_REQUEST['idgroup']."'");
 		?>
         <script language="javascript">
 			parent.opener.GetFresh();
@@ -70,11 +70,11 @@ function validate(){
 <table width="100%" border="0" cellspacing="2" cellpadding="2">
   <tr>
     <td>Nama Kelompok</td>
-    <td><input name="kelompokname" id="kelompokname" type="text" maxlength="45" style="width:100%" value="<?=stripslashes($_REQUEST['kelompokname'])?>" /></td>
+    <td><input name="kelompokname" id="kelompokname" type="text" maxlength="45" style="width:100%" value="<?=stripslashes((string) $_REQUEST['kelompokname'])?>" /></td>
   </tr>
   <tr>
     <td>Keterangan</td>
-    <td><textarea name="keterangan" id="keterangan" style="width:100%" rows="5"><?=stripslashes($_REQUEST['keterangan'])?></textarea></td>
+    <td><textarea name="keterangan" id="keterangan" style="width:100%" rows="5"><?=stripslashes((string) $_REQUEST['keterangan'])?></textarea></td>
   </tr>
   <tr>
     <td colspan="2" align="center"><input class="but" type="submit" name="Simpan" value="Simpan" />&nbsp;&nbsp;<input type="button" value="Batal" onClick="window.close()" class="but" /></td>

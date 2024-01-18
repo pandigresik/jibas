@@ -200,7 +200,7 @@ class CPustaka
 			  <tr height='25'>
 				<td align="center"><?=$cnt?></td>
 				<td align="left"><?=$kode . " - " . $katalog?></td>
-				<td ><div class="tab_content"><?=stripslashes($row[1])?></div></td>
+				<td ><div class="tab_content"><?=stripslashes((string) $row[1])?></div></td>
 				<td align="center"><?=$rtersedia?></td>
 				<td align="center"><?=$rdipinjam?></td>
 				<td align="center">

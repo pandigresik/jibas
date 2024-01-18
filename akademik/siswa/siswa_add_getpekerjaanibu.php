@@ -40,7 +40,7 @@ $pekerjaan_kiriman=$_REQUEST['pekerjaan'];
 	//$pekerjaan_kiriman=$row_kerja_ibu['pekerjaan'];
 	?>
       <option value="<?=$row_kerja_ibu['pekerjaan']?>"<?=StringIsSelected($row_kerja_ibu['pekerjaan'],$pekerjaan_kiriman)?>><?=$row_kerja_ibu['pekerjaan']?></option>
-      <?php
+<?php
     } 
 	CloseDb();
 	// Akhir Olah Data sekolah

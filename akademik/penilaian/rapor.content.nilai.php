@@ -34,7 +34,7 @@
     $i = 0;
     while($row = mysqli_fetch_row($res))
     {
-        $aspekarr[$i++] = array($row[0], $row[1]);
+        $aspekarr[$i++] = [$row[0], $row[1]];
     }
     $naspek = count($aspekarr);
     $colwidth = $naspek == 0 ? "*" : round(50 / $naspek) . "%";

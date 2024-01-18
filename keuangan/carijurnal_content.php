@@ -91,7 +91,7 @@ function edit(id) {
 }
 
 function refresh() {
-	document.location.href = "carijurnal_content.php?departemen=<?=$departemen?>&idtahunbuku=<?=$idtahunbuku?>&tanggal1=<?=$tanggal1?>&tanggal2=<?=$tanggal2?>&keyword=<?=urlencode($keyword)?>";
+	document.location.href = "carijurnal_content.php?departemen=<?=$departemen?>&idtahunbuku=<?=$idtahunbuku?>&tanggal1=<?=$tanggal1?>&tanggal2=<?=$tanggal2?>&keyword=<?=urlencode((string) $keyword)?>";
 }
 
 function cetak() {
@@ -102,7 +102,7 @@ function cetak() {
 	if (keyword.length == 0)
 		kriteria = "all"
 			
-	var addr = "carijurnal_cetak.php?departemen=<?=$departemen?>&idtahunbuku=<?=$idtahunbuku ?>&tanggal1=<?=$tanggal1?>&tanggal2=<?=$tanggal2?>&kriteria="+kriteria+"&keyword=<?=urlencode($keyword)?>&varbaris=<?=$varbaris?>&page=<?=$page?>&total="+total+"&urut=<?=$urut?>&urutan=<?=$urutan?>";
+	var addr = "carijurnal_cetak.php?departemen=<?=$departemen?>&idtahunbuku=<?=$idtahunbuku ?>&tanggal1=<?=$tanggal1?>&tanggal2=<?=$tanggal2?>&kriteria="+kriteria+"&keyword=<?=urlencode((string) $keyword)?>&varbaris=<?=$varbaris?>&page=<?=$page?>&total="+total+"&urut=<?=$urut?>&urutan=<?=$urutan?>";
 	newWindow(addr, 'CetakCariJurnalUmum','780','580','resizable=1,scrollbars=1,status=0,toolbar=0');
 }
 
@@ -114,7 +114,7 @@ function excel() {
 	if (keyword.length == 0)
 		kriteria = "all"
 			
-	var addr = "carijurnal_excel.php?departemen=<?=$departemen?>&idtahunbuku=<?=$idtahunbuku ?>&tanggal1=<?=$tanggal1?>&tanggal2=<?=$tanggal2?>&kriteria="+kriteria+"&keyword=<?=urlencode($keyword)?>&varbaris=<?=$varbaris?>&page=<?=$page?>&total="+total;
+	var addr = "carijurnal_excel.php?departemen=<?=$departemen?>&idtahunbuku=<?=$idtahunbuku ?>&tanggal1=<?=$tanggal1?>&tanggal2=<?=$tanggal2?>&kriteria="+kriteria+"&keyword=<?=urlencode((string) $keyword)?>&varbaris=<?=$varbaris?>&page=<?=$page?>&total="+total;
 	newWindow(addr, 'ExcelCariJurnalUmum','780','580','resizable=1,scrollbars=1,status=0,toolbar=0');
 }
 
@@ -245,7 +245,7 @@ function change_urut(urut,urutan) {
         <td align="center" rowspan="2" bgcolor="<?=$bgcolor ?>"><font size="4"><strong><?=$cnt ?></strong></font></td>
         <td align="center" bgcolor="<?=$bgcolor ?>"><strong><?=$row['nokas']?></strong><br /><em><?=LongDateFormat($row['tanggal'])?></em></td>
         <td valign="top" bgcolor="<?=$bgcolor ?>"><?=$row['transaksi'] ?>
-    <?php if (strlen($row['keterangan']) > 0 )  { ?>
+    <?php if (strlen((string) $row['keterangan']) > 0 )  { ?>
             <br /><strong>Keterangan:</strong><?=$row['keterangan'] ?> 
     <?php } ?>    
         </td>
@@ -271,7 +271,7 @@ function change_urut(urut,urutan) {
     	<?php if ($row['sumber'] == "jurnalumum") { ?>
             <a href="JavaScript:edit(<?=$idjurnal ?>)"><img src="images/ico/ubah.png" border="0" onMouseOver="showhint('Ubah Jurnal Umum!', this, event, '80px')"/></a>
     	<?php } else {?>
-    		<img src="images/ico/ubah_x.png" border="0" onMouseOver="showhint('Ubah Jurnal pada Jurnal <?=substr($jurnal,0,11)?>!', this, event, '120px')"/>
+    		<img src="images/ico/ubah_x.png" border="0" onMouseOver="showhint('Ubah Jurnal pada Jurnal <?=substr((string) $jurnal,0,11)?>!', this, event, '120px')"/>
     	<?php 	} ?>
         </td>
     <?php } ?>
