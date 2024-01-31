@@ -1,4 +1,4 @@
-Daftar modul support PHP 8.2 :
+## Daftar modul support PHP 8.2 :
 - [x] Akademik
 - [ ] Keuangan
 - [ ] Perpustakaan
@@ -10,6 +10,10 @@ Daftar modul support PHP 8.2 :
 - [ ] SMS Gateway
 - [ ] Anjungan
 - [ ] School Tube
+
+## Default user
+username : jibas
+password : password
 
 Jika ada yang perlu didiskusikan, bisa hubungi saya di wa.me/6285733659400
 

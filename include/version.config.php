@@ -23,12 +23,12 @@
 <?php
 
 /* Versi SISFO JIBAS */
-$G_VERSION="29.0";
+$G_VERSION="30.0";
 
 /* Build date SISFO JIBAS */
-$G_BUILDDATE='20 September 2023';
+$G_BUILDDATE='25 Januari 2024';
 
 /* Hak Cipta SISFO JIBAS */
-$G_COPYRIGHT='Copyright &copy; 2009 Yayasan Indonesia Membaca';
+$G_COPYRIGHT='';
 
 ?>

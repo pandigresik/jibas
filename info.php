@@ -20,21 +20,3 @@
  * 
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
-<div id="dvCopy" style="color:#ddd; z-index:5; width:110px; font-size:10px; font-family:Tahoma; background-image:url(../images/bgdiv_black.png)">
-<table border="0" cellpadding="2" cellspacing="0">
-<tr>
-<td>
-	<a href="images/infojibas.jpg" target="_blank">
-	<img src="images/info.png" border="0" title="Alur Interaksi" height="32">
-	</a>	
-</td>	    
-<td align="right" valign="middle">
-<a href="interaksi.php" target="_blank">    
-<font style="font-size: 10px; font-family:Tahoma; text-decoration: none; color: white;">	
-    Alur Interaksi    
-</font>
-</a>
-</td>
-</tr>	
-</table>
-</div>

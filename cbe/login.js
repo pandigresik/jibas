@@ -18,7 +18,7 @@ login_initView = function ()
 login_loadBackground = function ()
 {
     $(document).bgStretcher({
-        images: ['../images/background07.jpg'], imageWidth: 1680, imageHeight: 1050
+        images: ['../images/background15.jpg'], imageWidth: 1680, imageHeight: 1050
     });
 };
 

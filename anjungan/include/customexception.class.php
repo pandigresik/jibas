@@ -6,8 +6,8 @@ abstract class CustomException extends Exception implements IException
     protected $message = 'Unknown exception';     // Exception message
     private   $string;                            // Unknown
     protected $code    = 0;                       // User-defined exception code
-    protected $file;                              // Source filename of exception
-    protected $line;                              // Source line of exception
+    protected string $file = '';                              // Source filename of exception
+    protected int  $line;                               // Source line of exception
     private   $trace;                             // Unknown
 
     public function __construct($message = null, $code = 0)
@@ -20,7 +20,7 @@ abstract class CustomException extends Exception implements IException
    
     public function __toString(): string
     {
-        return static::class . " '{$this->message}' in {$this->file}({$this->line})<br>"
+        return static::class . " '{$this->message}' in ({$this->line})<br>"
                                 . "{$this->getTraceAsString()}";
     }
 }

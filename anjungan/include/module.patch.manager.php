@@ -25,6 +25,7 @@
 
 function ApplyModulePatch() 
 {
+	$relPath = __DIR__;
 	if (file_exists("$relPath/include/module.patch.install.php"))
 	{
 		require_once("$relPath/include/module.patch.install.php");

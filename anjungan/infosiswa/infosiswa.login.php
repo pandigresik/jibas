@@ -62,7 +62,7 @@
 </tr>
 <tr>
     <td colspan="2" align="center">
-        <font style='color: red; font-size: 12px;'><?=$ERRMSG?></font>
+        <font style='color: red; font-size: 12px;'><?=$ERRMSG ?? ''?></font>
     </td>
 </tr>
 </table>

@@ -41,6 +41,14 @@ if ($op == "invoicelist")
     GetInvoiceList();
     CloseDb();
 }
+else if ($op == "fetchtahunbuku")
+{
+    $departemen = $_REQUEST["dept"];
+
+    OpenDb();
+    ShowSelectTahunBuku();
+    CloseDb();
+}
 else if ($op == "createinvoice")
 {
     echo CreateInvoice();

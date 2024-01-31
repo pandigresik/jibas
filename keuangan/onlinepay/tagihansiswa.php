@@ -111,7 +111,13 @@ OpenDb();
                         <strong>Tahun Buku&nbsp;</strong>
                     </td>
                     <td align="left" valign="middle">
-<?php                   ShowAccYear();    ?>
+                        <span id="divtahunbuku">
+<?php
+                        $idTahunBuku = "";
+                        $tahunBuku = "";
+                        ShowSelectTahunBuku();
+?>
+                        </span>
                     </td>
                 </tr>
                 <tr style="height: 55px">
@@ -133,8 +139,8 @@ OpenDb();
                     <td align="right" valign="middle"><strong>Siswa:</strong>&nbsp;</td>
                     <td  align="left" valign="middle">
                         <input type="hidden" name="kelompok" id="kelompok">
-                        <input type="text" name="noid" id="noid" size="15" readonly class='inputbox' style="background-color:#daefff; font-size: 14px;">
-                        <input type="text" name="nama" id="nama" size="30" readonly class='inputbox' style="background-color:#daefff; font-size: 14px;">
+                        <input type="text" name="noid" id="noid" size="15" readonly class='inputbox' style="background-color:#daefff; font-size: 14px;" onclick="SearchUser()">
+                        <input type="text" name="nama" id="nama" size="30" readonly class='inputbox' style="background-color:#daefff; font-size: 14px;" onclick="SearchUser()">
                         <input type="hidden" name="kelas" id="kelas">
                         <input type="button" class="but" value="..." style="width: 40px; height: 23px;" onclick="SearchUser()">
                         &nbsp;&nbsp;&nbsp;

@@ -36,6 +36,31 @@ function ShowSelectDepartemen()
     echo "</select>";
 }
 
+function ShowSelectTahunBuku()
+{
+    global $departemen;
+    global $idTahunBuku, $tahunBuku;
+
+    echo "<select id='tahunbuku' name='tahunbuku' class='inputbox' style='width: 250px'>";
+    $sql = "SELECT replid, tahunbuku, aktif FROM jbsfina.tahunbuku WHERE departemen = '$departemen' ORDER BY aktif DESC, replid DESC";
+    $res = QueryDb($sql);
+    while($row = mysql_fetch_row($res))
+    {
+        if ($idTahunBuku == "")
+        {
+            $idTahunBuku = $row[0];
+            $tahunBuku = $row[1];
+        }
+
+        $aktif = "";
+        if ($row[2] == "1")
+            $aktif = " (A)";
+
+        echo "<option value='$row[0]'>$row[1] $aktif</option>";
+    }
+    echo "</select>";
+}
+
 function ShowSelectTingkat()
 {
     global $departemen;
@@ -44,14 +69,14 @@ function ShowSelectTingkat()
     echo "<select id='tingkat' name='tingkat' class='inputbox' style='width: 250px' onchange='changeTingkat()'>";
     $sql = "SELECT replid, tingkat FROM jbsakad.tingkat WHERE departemen = '$departemen' AND aktif = 1 ORDER BY urutan";
     $res = QueryDb($sql);
-    while($row = mysqli_fetch_row($res))
+    while($row = mysql_fetch_row($res))
     {
         if ($idTingkat == "")
         {
             $idTingkat = $row[0];
             $tingkat = $row[1];
         }
-        echo "<option value='".$row[0]."'>".$row[1]."</option>";
+        echo "<option value='$row[0]'>$row[1]</option>";
     }
     echo "</select>";
 }
@@ -72,7 +97,7 @@ function ShowTableKelas()
     $no = 0;
 
     echo "<table border='0' cellpadding='5' cellspacing='0'>";
-    while($row = mysqli_fetch_row($res))
+    while($row = mysql_fetch_row($res))
     {
         $no += 1;
 
@@ -82,8 +107,8 @@ function ShowTableKelas()
         echo "</td>";
         echo "<td width='450' align='left'>";
         echo $row[1];
-        echo "<input type='hidden' id='idkelas$no' name='idkelas$no' value='".$row[0]."'>";
-        echo "<input type='hidden' id='kelas$no' name='kelas$no' value='".$row[1]."'>";
+        echo "<input type='hidden' id='idkelas$no' name='idkelas$no' value='$row[0]'>";
+        echo "<input type='hidden' id='kelas$no' name='kelas$no' value='$row[1]'>";
         echo "</td>";
         echo "</tr>";
     }
@@ -111,7 +136,7 @@ function ShowTableIuran()
     echo "<td width='250' align='left' class='header'>Iuran</td>";
     echo "<td width='250' align='left' class='header'>Diskon</td>";
     echo "</tr>";
-    while($row = mysqli_fetch_row($res))
+    while($row = mysql_fetch_row($res))
     {
         $no += 1;
 
@@ -121,8 +146,8 @@ function ShowTableIuran()
         echo "</td>";
         echo "<td align='left'>";
         echo $row[1];
-        echo "<input type='hidden' id='idiuran$no' name='idiuran$no' value='".$row[0]."'>";
-        echo "<input type='hidden' id='iuran$no' name='iuran$no' value='".$row[1]."'";
+        echo "<input type='hidden' id='idiuran$no' name='idiuran$no' value='$row[0]'>";
+        echo "<input type='hidden' id='iuran$no' name='iuran$no' value='$row[1]'";
         echo "</td>";
         echo "<td align='left'>";
         $elDiskon = "diskon$no";
@@ -161,13 +186,14 @@ function ShowSelectTahun()
 
 function createJsonReturn($status, $message, $data)
 {
-    $ret = [$status, $message, $data];
-    return json_encode($ret, JSON_THROW_ON_ERROR);
+    $ret = array($status, $message, $data);
+    return json_encode($ret);
 }
 
 function CreateInvoice()
 {
     global $PG_SERVICE_FEE;
+    //$log = new Logger();
 
     try
     {
@@ -176,6 +202,8 @@ function CreateInvoice()
         BeginTrans();
 
         $dept = $_REQUEST["dept"];
+        $idTahunBuku = $_REQUEST["idtahunbuku"];
+        $tahunBuku = $_REQUEST["tahunbuku"];
         $idTingkat = $_REQUEST["idtingkat"];
         $tingkat = $_REQUEST["tingkat"];
         $stIdKelas = $_REQUEST["idkelas"];
@@ -191,9 +219,10 @@ function CreateInvoice()
         $sendNotif = $_REQUEST["sendnotif"];
         $skipAlreadyPaid = $_REQUEST["skipalreadypaid"];
 
-        $bulanTahunTagihan  = str_pad((string) $bulan, 2, '0', STR_PAD_LEFT);
-        $bulanTahunTagihan .= substr((string) $tahun, 2, 2);
+        $bulanTahunTagihan  = str_pad($bulan, 2, '0', STR_PAD_LEFT);
+        $bulanTahunTagihan .= substr($tahun, 2, 2);
 
+        /*
         // ----- ambil tahun buku
         $idTahunBuku = "0";
         $tahunBuku = "";
@@ -202,19 +231,20 @@ function CreateInvoice()
                  WHERE departemen = '$dept'
                    AND aktif = 1";
         $res = QueryDbEx($sql);
-        if ($row = mysqli_fetch_row($res))
+        if ($row = mysql_fetch_row($res))
         {
             $idTahunBuku = $row[0];
             $tahunBuku = $row[1];
         }
+        */
 
         // ----- ambil format nomor tagihan
         $awalanNoTagihan = "";
         $sql = "SELECT awalan 
                   FROM jbsfina.formatnomortagihan
-                 WHERE departemen = '".$dept."'";
+                 WHERE departemen = '$dept'";
         $res = QueryDbEx($sql);
-        if ($row = mysqli_fetch_row($res))
+        if ($row = mysql_fetch_row($res))
         {
             $awalanNoTagihan = $row[0];
         }
@@ -222,9 +252,9 @@ function CreateInvoice()
         {
             $sql = "SELECT replid
                       FROM jbsakad.departemen 
-                     WHERE departemen = '".$dept."'";
+                     WHERE departemen = '$dept'";
             $res = QueryDbEx($sql);
-            if ($row = mysqli_fetch_row($res))
+            if ($row = mysql_fetch_row($res))
             {
                 $awalanNoTagihan = $row[0];
 
@@ -241,7 +271,7 @@ function CreateInvoice()
                  WHERE departemen = '$dept'
                    AND kelompok = 'TAGIHAN'";
         $res = QueryDbEx($sql);
-        if ($row = mysqli_fetch_row($res))
+        if ($row = mysql_fetch_row($res))
         {
             $pesanNotifikasiTagihan = $row[0];
         }
@@ -262,7 +292,7 @@ function CreateInvoice()
                    AND bulan = $bulan
                    AND tahun = $tahun";
         $res = QueryDbEx($sql);
-        if ($row = mysqli_fetch_row($res))
+        if ($row = mysql_fetch_row($res))
         {
             $counterTagihan = $row[0];
         }
@@ -281,7 +311,7 @@ function CreateInvoice()
                    AND bulan = $bulan
                    AND tahun = $tahun";
         $res = QueryDbEx($sql);
-        if ($row = mysqli_fetch_row($res))
+        if ($row = mysql_fetch_row($res))
         {
             $counterTagihanSet = $row[0];
         }
@@ -293,16 +323,16 @@ function CreateInvoice()
         }
 
         // ---- ambil data siswa
-        $lsSiswa = [];
+        $lsSiswa = array();
         $sql = "SELECT nis, nama 
                   FROM jbsakad.siswa
                  WHERE idkelas IN ($stIdKelas)
                    AND aktif = 1
                  ORDER BY nama";
         $res = QueryDbEx($sql);
-        while($row = mysqli_fetch_row($res))
+        while($row = mysql_fetch_row($res))
         {
-            $lsSiswa[] = [$row[0], $row[1]];
+            $lsSiswa[] = array($row[0], $row[1]);
         }
         $nSiswa = count($lsSiswa);
         //$log->Log("NSiswa $nSiswa");
@@ -310,7 +340,7 @@ function CreateInvoice()
         if ($nSiswa == 0)
         {
             RollbackTrans();
-            return createJsonReturn(0, "Tidak ditemukan data siswa");
+            return createJsonReturn(0, "Tidak ditemukan data siswa", "");
         }
 
         // --- buat tagihan set
@@ -333,7 +363,7 @@ function CreateInvoice()
         $idTagihanSet = 0;
         $sql = "SELECT LAST_INSERT_ID()";
         $res = QueryDbEx($sql);
-        if ($row = mysqli_fetch_row($res))
+        if ($row = mysql_fetch_row($res))
             $idTagihanSet = $row[0];
 
         // -- update counterset
@@ -347,8 +377,8 @@ function CreateInvoice()
         // ----  idpenerimaan yg belum dibayar, dijadikan invoice
         $nInvoiceCreated = 0;
 
-        $lsSkipSiswa = [];
-        $lsTemp = explode(",", (string) $stSkipSiswa);
+        $lsSkipSiswa = array();
+        $lsTemp = explode(",", $stSkipSiswa);
         for($i = 0; $i < count($lsTemp); $i++)
         {
             $temp = trim($lsTemp[$i]);
@@ -356,9 +386,9 @@ function CreateInvoice()
             $lsSkipSiswa[] = $temp;
         }
 
-        $lsDiskon = explode(",", (string) $stDiskon);
+        $lsDiskon = explode(",", $stDiskon);
 
-        $lsIdIuran = explode(",", (string) $stIdIuran);
+        $lsIdIuran = explode(",", $stIdIuran);
         $nIdIuran = count($lsIdIuran);
         for($i = 0; $i < $nSiswa; $i++)
         {
@@ -372,19 +402,20 @@ function CreateInvoice()
             }
 
             // ----- penerimaan yg sudah Lunas atau Gratis
-            $lsFinished = [];
+            $lsFinished = array();
             $sql = "SELECT b.idpenerimaan
                       FROM jbsfina.besarjtt b 
                      WHERE b.nis = '$nis'
+                       AND b.info2 = '$idTahunBuku'
                        AND b.lunas IN (1,2)";
             $res = QueryDbEx($sql);
-            while($row = mysqli_fetch_row($res))
+            while($row = mysql_fetch_row($res))
             {
                 $lsFinished[] = $row[0];
             }
 
             // ----- penerimaan yg sudah dibayarkan cicilannya pada bulan tahun terpilih
-            $lsPaid = [];
+            $lsPaid = array();
             if ($skipAlreadyPaid == 1)
             {
                 $sql = "SELECT DISTINCT b.idpenerimaan
@@ -392,11 +423,12 @@ function CreateInvoice()
                          WHERE p.idbesarjtt  = b.replid
                            AND b.nis = '$nis'
                            AND b.lunas = 0
+                           AND b.info2 = '$idTahunBuku'
                            AND p.jumlah > 0
                            AND MONTH(p.tanggal) = $bulan
                            AND YEAR(p.tanggal) = $tahun";
                 $res = QueryDbEx($sql);
-                while($row = mysqli_fetch_row($res))
+                while($row = mysql_fetch_row($res))
                 {
                     $lsPaid[] = $row[0];
                 }
@@ -404,35 +436,37 @@ function CreateInvoice()
 
             // ----- besar penerimaan sudah diset?
             // change on 2023-03-31
-            $lsBesarSet = [];
+            $lsBesarSet = array();
             $sql = "SELECT DISTINCT idpenerimaan
                       FROM jbsfina.besarjtt 
                      WHERE nis = '$nis'
-                       AND info2 = '".$idTahunBuku."'";
+                       AND info2 = '$idTahunBuku'";
             $res = QueryDbEx($sql);
-            while($row = mysqli_fetch_row($res))
+            while($row = mysql_fetch_row($res))
             {
                 $lsBesarSet[] = $row[0];
             }
 
             // ---- tagihan sudah dibuat
-            $lsPrepared = [];
-            $sql = "SELECT idpenerimaan
-                      FROM jbsfina.tagihansiswadata
-                     WHERE nis = '$nis'
-                       AND bulan = $bulan
-                       AND tahun = $tahun
-                       AND status = 0
-                       AND aktif = 1";
+            $lsPrepared = array();
+            $sql = "SELECT t.idpenerimaan
+                      FROM jbsfina.tagihansiswadata t, jbsfina.besarjtt b
+                     WHERE t.idbesarjtt = b.replid
+                       AND b.info2 = '$idTahunBuku'
+                       AND t.nis = '$nis'
+                       AND t.bulan = $bulan
+                       AND t.tahun = $tahun
+                       AND t.status = 0
+                       AND t.aktif = 1";
             $res = QueryDbEx($sql);
-            while($row = mysqli_fetch_row($res))
+            while($row = mysql_fetch_row($res))
             {
                 $lsPrepared[] = $row[0];
             }
 
             // ----- idinvoice berisi idpenerimaan yg belum lunas, belum gratis dan belum dibayarkan
-            $lsIdInvoice = [];
-            $lsDiskonInvoice = [];
+            $lsIdInvoice = array();
+            $lsDiskonInvoice = array();
             for($j = 0; $j < $nIdIuran; $j++)
             {
                 $idIuran = $lsIdIuran[$j];
@@ -459,25 +493,25 @@ function CreateInvoice()
                 continue; // tidak ada tagihan utk siswa ybs
 
             // --- ambil data besar tagihan, besar cicilan
-            $stIdInvoice = json_encode($lsIdInvoice, JSON_THROW_ON_ERROR);
+            $stIdInvoice = json_encode($lsIdInvoice);
             $stIdInvoice = str_replace("[", "", $stIdInvoice);
             $stIdInvoice = str_replace("]", "", $stIdInvoice);
             $stIdInvoice = str_replace("\"", "", $stIdInvoice);
 
-            $lsIdBesarJtt = [];
+            $lsIdBesarJtt = array();
             $sql = "SELECT b.replid, b.besar, b.cicilan, b.idpenerimaan, dp.nama
                       FROM jbsfina.besarjtt b, jbsfina.datapenerimaan dp
                      WHERE b.idpenerimaan = dp.replid
                        AND b.idpenerimaan IN ($stIdInvoice)
                        AND b.nis = '$nis'
-                       AND b.info2 = '".$idTahunBuku."'";  // change on 2023-03-31
+                       AND b.info2 = '$idTahunBuku'";  // change on 2023-03-31
             $res = QueryDbEx($sql);
-            while($row = mysqli_fetch_row($res))
+            while($row = mysql_fetch_row($res))
             {
                 $idIuran = $row[3];
                 $diskon = $lsDiskonInvoice[$idIuran];
 
-                $lsIdBesarJtt[] = [$row[0], $row[1], $row[2], $row[3], $row[4], $diskon];
+                $lsIdBesarJtt[] = array($row[0], $row[1], $row[2], $row[3], $row[4], $diskon);
             }
 
             //$log->Log(json_encode($lsIdBesarJtt));
@@ -489,7 +523,7 @@ function CreateInvoice()
             //$log->Log("NO TAGIHAN $noTagihan");
 
             $nInvoiceCreated += 1;
-            $tandaTransaksi = random_int(10, 99);
+            $tandaTransaksi = rand(10, 99);
 
             // ---------------
             $totalTagihan = 0;
@@ -512,7 +546,7 @@ function CreateInvoice()
                          WHERE idbesarjtt = $idBesarJtt";
                 //Logger::LogOnce($sql);
                 $res = QueryDbEx($sql);
-                if ($row = mysqli_fetch_row($res))
+                if ($row = mysql_fetch_row($res))
                 {
                     $jumlahBayar = $row[0];
                     $jumlahSisa = $besarJtt - $jumlahBayar;
@@ -527,7 +561,6 @@ function CreateInvoice()
                                idbesarjtt = $idBesarJtt, idpenerimaan = $idPenerimaan, penerimaan = '$namaPenerimaan', jtagihan = $cicilanJtt, 
                                jdiskon = $diskon, jbesar = $besarJtt, jbayar = $jumlahBayar, jsisa = $jumlahSisa, status = 0, aktif = 1,
                                issync = 0, token = ROUND((RAND() * (99999 - 10000)) + 10000)";
-
                 //Logger::LogOnce($sql);
                 //$log->Log($sql);
                 QueryDbEx($sql);
@@ -557,7 +590,7 @@ function CreateInvoice()
             {
                 $jumNotif = $totalTagihan + $PG_SERVICE_FEE;
 
-                $pesan = str_replace("{NAMA}", $nama, (string) $pesanNotifikasiTagihan);
+                $pesan = str_replace("{NAMA}", $nama, $pesanNotifikasiTagihan);
                 $pesan = str_replace("{NIS}", $nis, $pesan);
                 $pesan = str_replace("{JUMLAH}", FormatRupiah($jumNotif), $pesan);
                 $pesan = str_replace("{IURAN}", $stIuran, $pesan);
@@ -575,7 +608,7 @@ function CreateInvoice()
         if ($nInvoiceCreated == 0)
         {
             RollbackTrans();
-            return createJsonReturn(0, "Tidak ada tagihan yang disiapkan, karena tagihannya sudah dibuat atau iurannya sudah dibayarkan / dilunasi");
+            return createJsonReturn(0, "Tidak ada tagihan yang disiapkan, karena tagihannya sudah dibuat atau iurannya sudah dibayarkan / dilunasi", "");
         }
 
         // -- update counter
@@ -587,8 +620,9 @@ function CreateInvoice()
         QueryDbEx($sql);
 
         CommitTrans();
+        //RollbackTrans();
 
-        return createJsonReturn(1, "Berhasil menyiapkan $nInvoiceCreated tagihan");
+        return createJsonReturn(1, "Berhasil menyiapkan $nInvoiceCreated tagihan", "");
     }
     catch (Exception $ex)
     {
@@ -598,7 +632,7 @@ function CreateInvoice()
         //$log->Close();
         Logger::LogErrorOnce($ex, "k86e4");
 
-        return createJsonReturn(-1, "ERROR: " . $ex->getMessage());
+        return createJsonReturn(-1, "ERROR: " . $ex->getMessage(), "");
     }
     finally
     {

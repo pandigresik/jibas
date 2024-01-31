@@ -31,7 +31,7 @@
 <script type="text/javascript" language="javascript" src='../script/jquery.min.js'></script>
 <script type="text/javascript" language="javascript" src="../script/footer.js"></script>
 <script language="javascript" src="../script/bgstretcher.js"></script>
-<script language = "javascript" type = "text/javascript">
+<script language="JavaScript">
 function cek_form() 
 {
 	var user,pass;
@@ -106,7 +106,7 @@ function ChgInputPass(s,d,status){
 
 $(document).ready(function () {
     $(document).bgStretcher({
-        images: ['../images/background07.jpg'], imageWidth: 1680, imageHeight: 1050
+        images: ['../images/background15.jpg'], imageWidth: 1680, imageHeight: 1050
     });
 });
 </script>
@@ -173,7 +173,7 @@ $(document).ready(function () {
     </div> <!-- Main -->
 	<div id="Partner">
     <?php
-		$_REQUEST = [];
+		$_REQUEST = array();
 		$_REQUEST['relpath'] = "..";
 		include('../partner.php');
 	?>

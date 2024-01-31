@@ -9,10 +9,34 @@ $(document).ready(function() {
     });
 });
 
-change_dep = function ()
+changeDep = function ()
 {
-    var dep = $("#departemen").val();
-    document.location.href = "tagihansiswa.php?departemen=" + dep;
+    $("#divContent").html("");
+
+    var dept = $("#departemen").val();
+    fetchTahunBuku(dept);
+};
+
+changeTahunBuku = function ()
+{
+    $("#divContent").html("");
+};
+
+fetchTahunBuku = function (dept)
+{
+    $.ajax({
+        url: "tagihansiswa.ajax.php",
+        method: "POST",
+        data: "op=fetchtahunbuku&dept=" + dept,
+        success: function (data)
+        {
+            $("#divtahunbuku").html(data);
+        },
+        error: function(xhr)
+        {
+            alert(xhr.responseText);
+        }
+    })
 };
 
 scanBarcode = function (e)
@@ -81,9 +105,8 @@ AcceptSearch = function(data, noid, nama, kelas)
 
 showInvoiceList = function()
 {
-    var departemen = $('#departemen').val();
-    if (departemen.length === 0)
-        return;
+    if (!$("#departemen").length) return;
+    if (!$("#tahunbuku").length) return;
 
     var nis = $.trim($("#noid").val());
     if (nis.length === 0)
@@ -93,6 +116,9 @@ showInvoiceList = function()
 
     var request = new RequestFactory();
     request.add("op", "invoicelist");
+    request.add("dept", $("#departemen").val());
+    request.add("idtahunbuku", $("#tahunbuku").val());
+    request.add("tahunbuku", $("#tahunbuku option:selected").text());
     request.add("dept", $("#departemen").val());
     request.add("bulan", $("#bulan").val());
     request.add("tahun", $("#tahun").val());
@@ -319,6 +345,7 @@ createInvoice = function ()
     var request = new RequestFactory();
     request.add("op", "createinvoice");
     request.add("dept", $("#departemen").val());
+    request.add("idtahunbuku", $("#tahunbuku").val());
     request.add("nis", $("#noid").val());
     request.add("nama", $("#nama").val());
     request.add("idiuran", stIdIuran);

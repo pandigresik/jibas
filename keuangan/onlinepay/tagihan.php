@@ -108,6 +108,20 @@ OpenDb();
             </tr>
             <tr style="height: 35px">
                 <td width="120" align="left" valign="top">
+                    <strong>Tahun Buku:</strong>
+                </td>
+                <td align="left" valign="top">
+                    <span id="divtahunbuku">
+<?php
+                    $idTahunBuku = "";
+                    $tahunBuku = "";
+                    ShowSelectTahunBuku()
+?>
+                    </span>
+                </td>
+            </tr>
+            <tr style="height: 35px">
+                <td width="120" align="left" valign="top">
                     <strong>Tingkat:</strong>
                 </td>
                 <td align="left" valign="top">

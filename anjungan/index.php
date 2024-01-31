@@ -53,7 +53,7 @@ require_once('../include/mainconfig.php');
 <script type="text/javascript" language="javascript" src="../script/bgstretcher.js"></script>
 <script type="text/javascript" language="javascript" src="../script/footer.js"></script>
 <script type="text/javascript" language="javascript" src="beranda/beranda.js"></script>
-<script type="text/javascript" language="javascript" src="beranda/beranda.listbg.js"></script>
+<script type="text/javascript" language="javascript" src="beranda/beranda.listbg.js?r="<?php filemtime("beranda/beranda.listbg.js") ?>></script>
 <script type="text/javascript" language="javascript" src="berita/berita.js"></script>
 <script type="text/javascript" language="javascript" src="infosiswa/infosiswa.js"></script>
 <script type="text/javascript" language="javascript" src="infosiswa/infosiswa.cbe.js"></script>
@@ -103,14 +103,14 @@ require_once('../include/mainconfig.php');
 </tr>
 <tr>
 	<td align="center">
-<?php include('index.tab.php'); ?>		
+<?php	include('index.tab.php'); ?>		
 	</td>
 </tr>
 </table>
 
 <div id="Partner">
 <?php
-$_REQUEST = [];
+$_REQUEST = array();
 $_REQUEST['relpath'] = "..";
 include('../partner.php');
 ?>

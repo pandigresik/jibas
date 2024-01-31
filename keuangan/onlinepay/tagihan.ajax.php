@@ -43,6 +43,14 @@ if ($op == "fetchtingkat")
     ShowSelectTingkat();
     CloseDb();
 }
+else if ($op == "fetchtahunbuku")
+{
+    $departemen = $_REQUEST["dept"];
+
+    OpenDb();
+    ShowSelectTahunBuku();
+    CloseDb();
+}
 else if ($op == "fetchkelas")
 {
     $departemen = $_REQUEST["dept"];
