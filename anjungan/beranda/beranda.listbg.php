@@ -1,4 +1,4 @@
-<?php
+<?
 $bgDelay = 15;
-$bgList = ['jibas.jpg'];
+$bgList = array('jibas.jpg', 'Screenshot from 2024-01-31 19-56-04.png');
 ?>

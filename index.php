@@ -124,7 +124,7 @@ if ($dbconnect)
             </a	>
         </td>
         <td align="center" width="140">
-            <a href="http://www.jibas.net/content/jsema/jsema.php" target="_blank">
+            <a href="ema/index.php" target="_blank">
                 <img id="btJsEma" src="images/btnmenu_green_p_32.png" onMouseOver="changeImage('btJsEma','images/btnmenu_green_a_32.png')"
                      onMouseOut="changeImage('btJsEma','images/btnmenu_green_p_32.png')" border="0"
                      title="Jendela Informasi Sekolah e-Management bagi Eksekutif dan Staf Sekolah">
