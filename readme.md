@@ -1,15 +1,16 @@
 ## Daftar modul support PHP 8.2 :
 - [x] Akademik
 - [ ] Keuangan
-- [ ] Perpustakaan
+- [x] EMA
+- [x] Perpustakaan
 - [ ] Kepegawaian
 - [ ] Pelaporan
 - [ ] CBE
 - [ ] Info Guru
 - [ ] Info Siswa
 - [ ] SMS Gateway
-- [ ] Anjungan
-- [ ] School Tube
+- [x] Anjungan
+- [x] School Tube
 
 ## Default user
 username : jibas

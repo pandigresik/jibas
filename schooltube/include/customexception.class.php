@@ -28,8 +28,8 @@ abstract class CustomException extends Exception implements IException
     protected $message = 'Unknown exception';     // Exception message
     private   $string;                            // Unknown
     protected $code    = 0;                       // User-defined exception code
-    protected $file;                              // Source filename of exception
-    protected $line;                              // Source line of exception
+    protected string $file;                              // Source filename of exception
+    protected int $line;                              // Source line of exception
     private   $trace;                             // Unknown
 
     public function __construct($message = null, $code = 0)
