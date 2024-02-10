@@ -23,10 +23,6 @@
 <?php
 require_once('../include/config.php');
 require_once('../include/db_functions.php');
-//include("../library/class/jpgraph.php");
-//include("../library/class/jpgraph_bar.php");
-//include("../library/class/jpgraph_line.php");
-//require_once("../include/chartfactory.php");
 
 
 OpenDb();

@@ -21,14 +21,13 @@
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
 <?php
-//require_once('../inc/sessioninfo.php');
+include_once '../../vendor/autoload.php';
 require_once('../inc/common.php');
 require_once('../inc/config.php');
 require_once('../inc/db_functions.php');
-include_once('../lib/barcode/html/include/function.php');
 
 define('IN_CB', true);
-registerImageKey('code', 'BCGcode39');
+// registerImageKey('code', 'BCGcode39');
 
 OpenDb();
 
@@ -60,6 +59,7 @@ $sql = "SELECT kodepustaka, info1
          WHERE replid IN ($iddplist)";
 $result = QueryDb($sql);
 $jum = @mysqli_num_rows($result);
+$generator = new Picqer\Barcode\BarcodeGeneratorPNG();
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -117,7 +117,7 @@ $jum = @mysqli_num_rows($result);
 					<tr style='border-width: 1px; border-style: dashed; border-collapse: collapse'>
 						<td align='center'>
 							<font style='font-size: 12px;'><?= $row[0] ?></font><br>
-								<img width='160' src="../lib/barcode/html/image.php?code=BCGcode39&filetype=JPEG&dpi=96&thickness=30&scale=2&rotation=0&font_family=Arial.ttf&font_size=8&text=<?= $barcode ?>">
+								<img width='160' src="data:image/png;base64,<?php echo base64_encode($generator->getBarcode($barcode, $generator::TYPE_CODE_39)) ?>">								
 							<br><br>								
 						</td>
 					</tr>		

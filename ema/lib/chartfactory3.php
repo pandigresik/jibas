@@ -21,14 +21,10 @@
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
 <?php
+include_once '../../vendor/autoload.php';
 require_once("../../inc/config.php");
 require_once("../../inc/rupiah.php");
 require_once("../../inc/db_functions.php");
-require_once("class/jpgraph.php");
-require_once("class/jpgraph_pie.php");
-require_once("class/jpgraph_pie3d.php");
-require_once("class/jpgraph_bar.php");
-require_once("class/jpgraph_line.php");
 
 class ChartFactory {
 	public $bulan = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agt', 'Sep', 'Okt', 'Nop', 'Des'];

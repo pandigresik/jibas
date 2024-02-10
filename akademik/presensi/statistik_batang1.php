@@ -21,11 +21,10 @@
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
 <?php
+include_once '../../vendor/autoload.php';
 require_once('../include/config.php');
 require_once('../include/db_functions.php');
-include("../library/class/jpgraph.php");
-include("../library/class/jpgraph_bar.php");
-include("../library/class/jpgraph_line.php");
+
 
 OpenDb();
 $sql = "SELECT hadir, ijin, sakit, cuti, alpa FROM phsiswa WHERE replid = '".$_REQUEST['replid']."' ";

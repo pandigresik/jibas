@@ -341,7 +341,7 @@ else
 </body>
 </html>
 
-<?php if (!$_SESSION['lugetstatus'] || $_SESSION['lugetlid'] != $lid) { ?>
+<?php if (!$_SESSION['lugetstatus'] ?? false || $_SESSION['lugetlid'] != $lid) { ?>
 <script type="text/javascript" language="javascript">
 getLuStatus(<?=$lid?>);
 </script>

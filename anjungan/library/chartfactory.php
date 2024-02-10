@@ -21,14 +21,10 @@
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
 <?php
+include_once '../../vendor/autoload.php';
 require_once("../include/config.php");
 require_once("../include/rupiah.php");
 require_once("../include/db_functions.php");
-require_once("class/jpgraph.php");
-require_once("class/jpgraph_pie.php");
-require_once("class/jpgraph_pie3d.php");
-require_once("class/jpgraph_bar.php");
-require_once("class/jpgraph_line.php");
 
 class ChartFactory
 {

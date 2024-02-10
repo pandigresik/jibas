@@ -22,13 +22,11 @@
  **[N]**/ ?>
 <?php
 // start include file =============================================================================
+include_once '../../vendor/autoload.php';
 require_once('../inc/sessionchecker.php');
 require_once('../inc/config.php');
 require_once('../inc/getheader.php');
 require_once('../inc/db_functions.php');
-require_once('../lib/class/jpgraph.php');
-require_once('../lib/class/jpgraph_bar.php');
-require_once('../lib/class/jpgraph_line.php');
 
 $departemen = $_REQUEST['departemen'];
 $tahunajaran = $_REQUEST['tahunajaran'];
