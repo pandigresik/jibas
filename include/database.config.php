@@ -32,6 +32,6 @@ $db_user='root';
 $db_pass='rahasia';
 
 /* Basis data default JIBAS */
-$db_name='jibas';
+$db_name='jbsumum';
 
 ?>

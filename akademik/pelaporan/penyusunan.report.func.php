@@ -174,16 +174,15 @@ function GetNisList(&$ndata)
     return $nisList;
 }
 
-function SetDocHeader($ndata, $title)
-{
-    ?>
+function SetDocHeader($ndata, $title){
+echo <<<HTML
 <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
 <head>
 <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
 <meta name=ProgId content=Word.Document>
 <meta name=Generator content="Microsoft Word 9">
 <meta name=Originator content="Microsoft Word 9">
-<title><?=$title?></title>
+<title>$title</title>
 <!--[if gte mso 9]><xml>
  <o:DocumentProperties>
   <o:Author>JIBAS</o:Author>
@@ -206,7 +205,7 @@ p.MsoNormal, li.MsoNormal, div.MsoNormal
 	font-size:12.0pt;
 	font-family:"Verdana";
 	mso-fareast-font-family:"Verdana";}
-<?php
+HTML;
 $showLampiran = isset($_REQUEST['chLampiran']);
 $showInfo = isset($_REQUEST['chNilai']) ||
             isset($_REQUEST['chKeuangan']) ||
@@ -215,62 +214,67 @@ $showInfo = isset($_REQUEST['chNilai']) ||
             
 for($i = 1; $i <= $ndata; $i++)
 {
-?>
-@page Section<?=$i?>
+echo <<<HTML
+@page Section$i
 	{size:595.3pt 841.9pt;
 	margin:35.45pt 72.0pt 35.45pt 72.0pt;
 	mso-header-margin:35.4pt;
 	mso-footer-margin:35.4pt;
 	mso-paper-source:0;}
-div.Section<?=$i?>
-	{page:Section<?=$i?>;}
-<?php if ($showLampiran) { ?>    
-@page SectionLampiran<?=$i?>
+div.Section$i
+	{page:Section$i;}
+HTML;    
+if ($showLampiran) {
+echo <<<HTML
+@page SectionLampiran$i
 	{size:595.3pt 841.9pt;
 	margin:35.45pt 72.0pt 35.45pt 72.0pt;
 	mso-header-margin:35.4pt;
 	mso-footer-margin:35.4pt;
 	mso-paper-source:0;}
-div.SectionLampiran<?=$i?>
-	{page:SectionLampiran<?=$i?>;}
-<?php } // end if?>
-<?php if ($showInfo) { ?> 
-@page SectionInfo<?=$i?>
+div.SectionLampiran$i
+	{page:SectionLampiran$i;}
+HTML;
+}
+if ($showInfo) {
+echo <<<HTML
+@page SectionInfo$i
 	{size:595.3pt 841.9pt;
 	margin:35.45pt 72.0pt 35.45pt 72.0pt;
 	mso-header-margin:35.4pt;
 	mso-footer-margin:35.4pt;
 	mso-paper-source:0;}
-div.SectionInfo<?=$i?>
-	{page:SectionInfo<?=$i?>;}
-<?php } // end if ?>    
-<?php
+div.SectionInfo$i
+	{page:SectionInfo$i;}
+HTML;
+}
+
 } // end for
-?>
+echo <<<HTML
 </style>
 </head>
 
 <body lang=EN-US style='tab-interval:.5in'>
-<?php
+HTML;
 }
 
 function SetDocFooter()
 {
-    ?>
+echo '
 </body>
 </html>
-<?php    
+';   
 }
 
 function SectionBreak()
 {
-    ?>
+echo <<<HTML
 <span style='font-size:12.0pt;font-family:"Times New Roman";mso-fareast-font-family:
 "Times New Roman";mso-ansi-language:EN-US;mso-fareast-language:EN-US;
 mso-bidi-language:AR-SA'><br clear=all style='page-break-before:always;
 mso-break-type:section-break'>
 </span>    
-<?php    
+HTML;
 }
 
 function SetAddress()
@@ -830,8 +834,8 @@ function SetInfoPresensi()
             echo "<tr height='24'>\r\n";
             echo "<td align='center'>$no</td>\r\n";
             echo "<td align='center'>".$row['xtanggal']."</td>\r\n";
-            echo "<td align='center'>".$row[\TIME_IN]."</td>\r\n";
-            echo "<td align='center'>".$row[\TIME_OUT]."</td>\r\n";
+            echo "<td align='center'>".$row['TIME_IN']."</td>\r\n";
+            echo "<td align='center'>".$row['TIME_OUT']."</td>\r\n";
             echo "<td align='center'>$telat</td>\r\n";
             echo "<td align='left'>".$row['keterangan']."</td>\r\n";
             echo "</tr>\r\n";
@@ -904,8 +908,8 @@ function SetInfoKegiatan()
             echo "<td align='center'>$no</td>\r\n";
             echo "<td align='center'>".$row['xtanggal']."</td>\r\n";
             echo "<td align='left'>".$row['kegiatan']."</td>\r\n";
-            echo "<td align='center'>".$row[\TIME_IN]."</td>\r\n";
-            echo "<td align='center'>".$row[\TIME_OUT]."</td>\r\n";
+            echo "<td align='center'>".$row['TIME_IN']."</td>\r\n";
+            echo "<td align='center'>".$row['TIME_OUT']."</td>\r\n";
             echo "<td align='center'>$telat</td>\r\n";
             echo "<td align='left'>".$row['keterangan']."</td>\r\n";
             echo "</tr>\r\n";

@@ -33,10 +33,10 @@ require_once("impnilai.process.func.php");
 OpenDb();
 
 /** READ EXCEL */
-set_include_path('../library/excel/');
-include 'PHPExcel/IOFactory.php';
+include_once '../../vendor/autoload.php';
+
 $fexcel = $_REQUEST['fexcel'];
-$objReader = new PHPExcel_Reader_Excel2007();
+$objReader = new PhpOffice\PhpSpreadsheet\Reader\Xlsx();
 $objPHPExcel = $objReader->load($fexcel);
 $sheetData = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
 unlink($fexcel);

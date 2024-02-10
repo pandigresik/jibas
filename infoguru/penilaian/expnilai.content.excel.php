@@ -21,13 +21,13 @@
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
 <?php
+include_once '../../vendor/autoload.php';
 require_once('../include/errorhandler.php');
 require_once('../include/sessioninfo.php');
 require_once('../include/common.php');
 require_once('../include/config.php');
 require_once('../include/db_functions.php');
 require_once('../library/departemen.php');
-require_once('../library/excel/PHPExcel.php');
 require_once('../sessionchecker.php');
 require_once('expnilai.content.func.php');
 
@@ -36,7 +36,7 @@ OpenDb();
 ReadParam();
 
 // Create new PHPExcel object
-$objPHPExcel = new PHPExcel();
+$objPHPExcel = new PhpOffice\PhpSpreadsheet\Spreadsheet();
 
 // Set document properties
 $objPHPExcel->getProperties()->setCreator("JIBAS Akademik")
