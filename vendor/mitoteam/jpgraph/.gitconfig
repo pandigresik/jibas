@@ -1,0 +1,4 @@
+[pull]
+	ff = only
+[branch "main"]
+	ff = only

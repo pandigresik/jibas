@@ -1,0 +1,8 @@
+{
+    "require": {
+        "phpoffice/phpspreadsheet": "^2.0",
+        "mitoteam/jpgraph": "^10.4",
+        "rospdf/pdf-php": "^0.12.67",
+        "milon/barcode": "^10.0"
+    }
+}

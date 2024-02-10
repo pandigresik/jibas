@@ -1,0 +1,25 @@
+{
+  "name": "mitoteam/jpgraph",
+  "type": "library",
+  "description": "JpGraph library composer package with PHP 8.3 support",
+  "keywords": ["jpgraph"],
+  "homepage": "https://github.com/mitoteam/jpgraph",
+  "license": "QPL-1.0",
+  "authors": [
+    {
+      "name": "JpGraph team"
+    }
+  ],
+  "require": {
+    "php": ">=5.5"
+  },
+  "replace": {
+    "jpgraph/jpgraph": "4.0.2",
+    "rulin132/jpgraph": "4.3.5"
+  },
+  "autoload": {
+    "classmap": [
+      "src/MtJpGraph.php"
+    ]
+  }
+}
