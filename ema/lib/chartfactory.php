@@ -68,7 +68,8 @@ class ChartFactory {
 		if ( (count($this->xdata) == 0) || (count($this->ydata) == 0) ) return;
 		
 		//Buat grafik
-		$graph = new Graph(550,280,"auto");
+		mitoteam\jpgraph\MtJpGraph::load(['bar']);
+$graph = new Graph(550,280,"auto");
 		$graph->SetScale("textlin");
 		
 		//setting kanvas

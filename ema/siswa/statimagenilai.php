@@ -108,7 +108,8 @@ else
 $color = ['#cd9b9b', '#7d26cd', '#8b1c62', '#b03060', '#faf0e6', '#ff69b4', '#d2d2d2', '#7fff00', '#00bfff', '#ff1493', '#6e8b3d', '#b8860b', '#00ffff', '#dcdcdc', '#00c5cd', '#a52a2a'];
 
 	//=====================================================
-	$graph = new Graph(550,275,"auto");
+	mitoteam\jpgraph\MtJpGraph::load(['bar']);
+$graph = new Graph(550,275,"auto");
 	$graph->SetScale("textlin");
 	
 	//setting kanvas

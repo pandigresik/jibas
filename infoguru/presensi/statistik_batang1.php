@@ -47,6 +47,7 @@ $color = ['green@0.5', 'red@0.5', 'yellow@0.5', 'blue@0.5', 'orange@0.5', 'gold@
 
 
 //Buat grafik
+mitoteam\jpgraph\MtJpGraph::load(['bar']);
 $graph = new Graph(500,280,"auto");
 $graph->SetScale("textlin");
 

@@ -19,7 +19,9 @@
  * GNU General Public License for more details.
  * 
  * You should have received a copy of the GNU General Public License
- **[N]**/ ?>
+ **[N]**/
+
+?>
 <?php
 include_once '../../vendor/autoload.php';
 require_once('../include/config.php');
@@ -80,6 +82,7 @@ $judul = ['Hadir', 'Ijin', 'Sakit', 'Alpa', 'Cuti'];
 $color = ['green@0.5', 'red@0.5', 'yellow@0.5', 'blue@0.5', 'orange@0.5', 'gold@0.5', 'navy@0.5', 'darkblue@0.5', 'darkred@0.5', 'darkgreen@0.5', 'pink@0.5', 'black@0.5', 'gray@0.5'];
 
 //Buat grafik
+mitoteam\jpgraph\MtJpGraph::load(['bar']);
 $graph = new Graph(300,200,"auto");
 $graph->SetScale("textlin");
 

@@ -84,7 +84,7 @@ $result = QueryDb($sql);
 $row = @mysqli_fetch_array($result);
 $idHeader = $row['replid'];
 $namaHeader = $row['nama'];
-$alamatHeader = $row[\ALAMAT1];
+$alamatHeader = $row['ALAMAT1'];
 
 CloseDb();
 ?>

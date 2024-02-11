@@ -183,6 +183,7 @@ $row2 = @mysqli_fetch_array($result2);
 
 
 //Buat grafik
+mitoteam\jpgraph\MtJpGraph::load(['bar']);
 $graph = new Graph(450,300,"auto");
 $graph->SetScale("textlin");
 

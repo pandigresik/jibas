@@ -48,6 +48,7 @@ if($num == 0) {
 }else {
 
 //Buat grafik
+mitoteam\jpgraph\MtJpGraph::load(['bar']);
 $graph = new Graph(450,300,"auto");
 $graph->SetScale("textlin");
 

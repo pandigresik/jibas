@@ -38,6 +38,7 @@ MtJpGraph::load(['bar', 'line']); # load with several modules
 MtJpGraph::load(['bar', 'line'], true); # load with several modules in Extended Mode (see below)
 
 //using original JpGraph classes
+mitoteam\jpgraph\MtJpGraph::load(['bar']);
 $graph = new Graph(200, 300);
 ```
 
