@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '1e897004100b86ee43404a305f6ff3c293eb9c15',
+        'reference' => '4519a04b717f1ff17d7e6a37ce68db9faf1cd886',
         'name' => '__root__',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '1e897004100b86ee43404a305f6ff3c293eb9c15',
+            'reference' => '4519a04b717f1ff17d7e6a37ce68db9faf1cd886',
             'dev_requirement' => false,
         ),
         'jpgraph/jpgraph' => array(
@@ -113,15 +113,6 @@
             'install_path' => __DIR__ . '/../psr/simple-cache',
             'aliases' => array(),
             'reference' => '764e0b3939f5ca87cb904f570ef9be2d78a07865',
-            'dev_requirement' => false,
-        ),
-        'rospdf/pdf-php' => array(
-            'pretty_version' => '0.12.67',
-            'version' => '0.12.67.0',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../rospdf/pdf-php',
-            'aliases' => array(),
-            'reference' => 'fce993f08f99305569bb238644c5c35c0db0f85a',
             'dev_requirement' => false,
         ),
         'rulin132/jpgraph' => array(

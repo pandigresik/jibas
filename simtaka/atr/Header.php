@@ -139,23 +139,23 @@ function Cetak(){
             </span>
             <br />
             <strong>
-			<?=$row[\ALAMAT1]?>
+			<?=$row['ALAMAT1']?>
             <?php
-			if ($row[\TELP1]!='' || $row[\TELP2]!=''){
+			if ($row['TELP1']!='' || $row['TELP2']!=''){
 				echo " <br>Telp : ";
-				if ($row[\TELP1]!='' && $row[\TELP2]=='')
-					echo $row[\TELP1];
-				elseif ($row[\TELP2]!='' && $row[\TELP1]=='')
-					echo $row[\TELP2];
-				elseif ($row[\TELP2]!='' && $row[\TELP1]!='')
-					echo $row[\TELP1]." , ".$row[\TELP2];		
+				if ($row['TELP1']!='' && $row['TELP2']=='')
+					echo $row['TELP1'];
+				elseif ($row['TELP2']!='' && $row['TELP1']=='')
+					echo $row['TELP2'];
+				elseif ($row['TELP2']!='' && $row['TELP1']!='')
+					echo $row['TELP1']." , ".$row['TELP2'];		
 			}
-			if ($row[\TELP1]!='' || $row[\TELP2]!=''){
-				if ($row[\FAX1]!='')
-					echo " Fax : ".$row[\FAX1];
+			if ($row['TELP1']!='' || $row['TELP2']!=''){
+				if ($row['FAX1']!='')
+					echo " Fax : ".$row['FAX1'];
 			} else {
-				if ($row[\FAX1]!='')
-					echo " Fax : ".$row[\FAX1];
+				if ($row['FAX1']!='')
+					echo " Fax : ".$row['FAX1'];
 			}
 			
 			?>

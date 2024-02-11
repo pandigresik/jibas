@@ -80,7 +80,8 @@ class ChartFactory {
 		//$months = $gDateLocale->GetShortMonth();
 
 		// Create the graph. 
-		$graph = new Graph(400,225);	
+		mitoteam\jpgraph\MtJpGraph::load(['bar']);
+$graph = new Graph(400,225);	
 		$graph->SetScale("textlin");
 		$graph->SetMarginColor('white');
 

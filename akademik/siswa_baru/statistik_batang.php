@@ -83,7 +83,8 @@ if ($iddasar=="12"){
 		$data5 = [$j5];
 
 		//Buat grafik
-		$graph = new Graph(450,300,"auto");
+		mitoteam\jpgraph\MtJpGraph::load(['bar']);
+$graph = new Graph(450,300,"auto");
 		$graph->SetScale("textlin");
 
 		$lab = ["Penghasilan"];
@@ -282,7 +283,8 @@ if ($iddasar=="12"){
 		if ($iddasar == "2" || $iddasar=="6" ) { 
 			
 			//Buat grafik
-			$graph = new Graph(450,300,"auto");
+			mitoteam\jpgraph\MtJpGraph::load(['bar']);
+$graph = new Graph(450,300,"auto");
 			$graph->SetScale("textlin");
 		
 			//setting kanvas
@@ -338,7 +340,8 @@ if ($iddasar=="12"){
 		} else {
 		
 			//Buat grafik
-			$graph = new Graph(450,300,"auto");
+			mitoteam\jpgraph\MtJpGraph::load(['bar']);
+$graph = new Graph(450,300,"auto");
 			$graph->SetScale("textlin");
 		
 			//setting kanvas

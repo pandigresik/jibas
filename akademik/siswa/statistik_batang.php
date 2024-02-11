@@ -19,12 +19,15 @@
  * GNU General Public License for more details.
  * 
  * You should have received a copy of the GNU General Public License
- **[N]**/ ?>
+ **[N]**/
+
+?>
 <?php
 include_once '../../vendor/autoload.php';
 require_once('../include/config.php');
 require_once('../include/db_functions.php');
 
+mitoteam\jpgraph\MtJpGraph::load();
 //echo "Masuk"; exit;
 $color = ['red', 'green', 'yellow', 'blue', 'orange', 'darkblue', 'gold', 'navy', 'gray', 'darkred', 'darkgreen', 'pink', 'black'];
 
@@ -87,7 +90,8 @@ if ($iddasar=="12"){
 		$data5 = [$j5];
 
 		//Buat grafik
-		$graph = new Graph(450,300,"auto");
+		mitoteam\jpgraph\MtJpGraph::load(['bar']);
+$graph = new Graph(450,300,"auto");
 		$graph->SetScale("textlin");
 
 		$lab = ["Penghasilan"];
@@ -293,7 +297,8 @@ if ($iddasar=="12"){
 		if ($iddasar == "2" || $iddasar=="6" ) { 
 			
 			//Buat grafik
-			$graph = new Graph(450,300,"auto");
+			mitoteam\jpgraph\MtJpGraph::load(['bar']);
+$graph = new Graph(450,300,"auto");
 			$graph->SetScale("textlin");
 		
 			//setting kanvas
@@ -348,7 +353,8 @@ if ($iddasar=="12"){
 			$graph->Stroke();
 		} else {
 			//Buat grafik
-			$graph = new Graph(450,300,"auto");
+			mitoteam\jpgraph\MtJpGraph::load(['bar']);
+$graph = new Graph(450,300,"auto");
 			$graph->SetScale("textlin");
 		
 			//setting kanvas

@@ -20,7 +20,7 @@
  * 
  * You should have received a copy of the GNU General Public License
  **[N]**/ ?>
-<?php
+<?
 function GetPhoneList($jenis, $nis)
 {
     $phonelist = array();
@@ -42,9 +42,9 @@ function GetPhoneList($jenis, $nis)
                  WHERE nopendaftaran = '$nis'";
     //echo "$sql<br>";
     $res = QueryDb($sql);
-    if (mysql_num_rows($res) > 0)
+    if (mysqli_num_rows($res) > 0)
     {
-        $row = mysql_fetch_row($res);
+        $row = mysqli_fetch_row($res);
         $temp = array($row[0], $row[1], $row[2]);
         $j = 0;
         for($i = 0; $i < count($temp); $i++)
@@ -83,7 +83,7 @@ function GetChatIdList($jenis, $nis)
                  WHERE nic = '$nis'
                    AND aktif = 1";
     $res = QueryDb($sql);
-    while($row = mysql_fetch_row($res))
+    while($row = mysqli_fetch_row($res))
     {
         $chatIdList[] = $row[0];
     }
@@ -114,7 +114,7 @@ function GetFcmTokenList($jenis, $userId)
 				   AND loggedin = 1";
 
     $res = QueryDb($sql);
-    while($row = mysql_fetch_row($res))
+    while($row = mysqli_fetch_row($res))
     {
         $fcmTokenList[] = $row[0];
     }
