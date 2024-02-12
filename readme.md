@@ -1,14 +1,14 @@
 ## Daftar modul support PHP 8.2 :
 - [x] Akademik
-- [ ] Keuangan
+- [x] Keuangan
 - [x] EMA
 - [x] Perpustakaan
-- [ ] Kepegawaian
-- [ ] Pelaporan
-- [ ] CBE
-- [ ] Info Guru
-- [ ] Info Siswa
-- [ ] SMS Gateway
+- [x] Kepegawaian
+- [x] Pelaporan
+- [x] CBE
+- [x] Info Guru
+- [x] Info Siswa
+- [x] SMS Gateway
 - [x] Anjungan
 - [x] School Tube
 
