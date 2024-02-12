@@ -63,14 +63,14 @@ class ChartFactory {
 		$this->ptitle = $ptit;
 		$this->xtitle = $xti;
 		$this->ytitle = $yti;
-		$xdatacount = count($this->xdata);
+		$xdatacount = count($this->xdata ?? []);
 		for ($i=1; $i <= $xdatacount; $i++) {
 			$this->xdata2[]=$i;
 		}
 	}
 
 	function DrawBarChart() {
-		if ( (count($this->xdata) == 0) || (count($this->ydata) == 0) ) return;
+		if ( (count($this->xdata ?? []) == 0) || (count($this->ydata ?? []) == 0) ) return;
 		
 		// Some "random" data
 		$ydata  = $this->ydata;//array(10,120,80,190,260,170,60,40,20,230);
@@ -133,11 +133,12 @@ $graph = new Graph(400,225);
 	}
 	
 	function DrawPieChart() {
-		if ( (count($this->xdata) == 0) || (count($this->ydata) == 0) ) return;
+		if ( (count($this->xdata ?? []) == 0) || (count($this->ydata ?? []) == 0) ) return;
 		
 		$data = $this->ydata;//array(40,60,21,33);
 
 		// Setup graph
+		mitoteam\jpgraph\MtJpGraph::load(['pie','pie3d']);
 		$graph = new PieGraph(400,200,"auto");
 		$graph->SetShadow();
 
@@ -153,7 +154,7 @@ $graph = new Graph(400,225);
 		$p1->SetCenter(0.3);
 		$p1->SetLegends($this->xdata2);
 		//$p1->SetStartAngle(M_PI/8);
-		//$p1->ExplodeSlice(count($this->xdata));
+		//$p1->ExplodeSlice(count($this->xdata ?? []));
 
 		$graph->Add($p1);
 

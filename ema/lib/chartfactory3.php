@@ -65,7 +65,7 @@ class ChartFactory {
 	}
 
 	function DrawBarChart() {
-		if ( (count($this->xdata) == 0) || (count($this->ydata) == 0) ) return;
+		if ( (count($this->xdata ?? []) == 0) || (count($this->ydata ?? []) == 0) ) return;
 		
 		// Some "random" data
 		$ydata  = $this->ydata;//array(10,120,80,190,260,170,60,40,20,230);
@@ -129,11 +129,12 @@ $graph = new Graph(400,300);
 	}
 	
 	function DrawPieChart() {
-		if ( (count($this->xdata) == 0) || (count($this->ydata) == 0) ) return;
+		if ( (count($this->xdata ?? []) == 0) || (count($this->ydata ?? []) == 0) ) return;
 		
 		$data = $this->ydata;//array(40,60,21,33);
 
 		// Setup graph
+		mitoteam\jpgraph\MtJpGraph::load(['pie','pie3d']);
 		$graph = new PieGraph(400,200,"auto");
 		$graph->SetShadow();
 

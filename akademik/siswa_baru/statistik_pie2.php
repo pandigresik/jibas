@@ -171,7 +171,8 @@ $row2 = @mysqli_fetch_array($result2);
 //$data = array($data[1],$data[2],$data[3],$data[4],$data[5]);
 //$leg = array(" O ", " A ", " B ", " AB ", " Tidak ada data ");
 //Buat grafik
-$graph = new PieGraph(450,300,"auto");
+mitoteam\jpgraph\MtJpGraph::load(['pie','pie3d']);
+		$graph = new PieGraph(450,300,"auto");
 $graph->img->SetAntiAliasing();
 $graph->SetShadow();
 

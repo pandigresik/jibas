@@ -155,6 +155,7 @@ if ($iddasar=="12"){
 		//data
 
 		//Buat grafik
+		mitoteam\jpgraph\MtJpGraph::load(['pie','pie3d']);
 		$graph = new PieGraph(450,300,"auto");
 		$graph->img->SetAntiAliasing();
 
@@ -188,6 +189,7 @@ if ($iddasar=="12"){
 	} else {
 
 		//Buat grafik
+		mitoteam\jpgraph\MtJpGraph::load(['pie','pie3d']);
 		$graph = new PieGraph(450,300,"auto");
 		$graph->img->SetAntiAliasing();
 		$graph->SetShadow();

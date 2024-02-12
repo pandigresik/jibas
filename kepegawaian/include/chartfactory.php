@@ -65,11 +65,11 @@ class ChartFactory {
 	}
 
 	function DrawBarChart() {
-		if ( (count($this->xdata) == 0) || (count($this->ydata) == 0) ) return;
+		if ( (count($this->xdata ?? []) == 0) || (count($this->ydata ?? []) == 0) ) return;
 		
 		//Buat grafik
-		mitoteam\jpgraph\MtJpGraph::load(['bar']);
-$graph = new Graph(550,300,"auto");
+		mitoteam\jpgraph\MtJpGraph::load(['bar', 'pie', 'pie3d']);
+		$graph = new Graph(550,300,"auto");
 		$graph->SetScale("textlin");
 		
 		//setting kanvas
@@ -110,9 +110,10 @@ $graph = new Graph(550,300,"auto");
 	
 	function DrawPieChart() {
 		
-		if ( (count($this->xdata) == 0) || (count($this->ydata) == 0) ) return;
+		if ( (count($this->xdata ?? []) == 0) || (count($this->ydata ?? []) == 0) ) return;
 		
 		//Buat grafik
+		mitoteam\jpgraph\MtJpGraph::load(['pie','pie3d']);
 		$graph = new PieGraph(550,350,"auto");
 		$graph->img->SetAntiAliasing();
 		$graph->SetShadow();
@@ -134,6 +135,7 @@ $graph = new Graph(550,300,"auto");
 		
 		/*
 		//Buat grafik
+		mitoteam\jpgraph\MtJpGraph::load(['pie','pie3d']);
 		$graph = new PieGraph(500,300,"auto");
 		$graph->img->SetAntiAliasing();
 		$graph->SetShadow();

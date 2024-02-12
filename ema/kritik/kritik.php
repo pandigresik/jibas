@@ -35,7 +35,7 @@ if (isset($_REQUEST['ac'])){
 }
 $Year  = $_REQUEST['Year'] ?? date('Y');
 
-$Month = $_REQUEST['Month'] ?? date(\N);
+$Month = $_REQUEST['Month'] ?? date('N');
 
 $Type  = $_REQUEST['Type'];
 ?>
