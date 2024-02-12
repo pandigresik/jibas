@@ -69,7 +69,7 @@ class ChartFactory {
 		
 		//Buat grafik
 		mitoteam\jpgraph\MtJpGraph::load(['bar']);
-$graph = new Graph(550,280,"auto");
+		$graph = new Graph(550,280,"auto");
 		$graph->SetScale("textlin");
 		
 		//setting kanvas
@@ -113,6 +113,7 @@ $graph = new Graph(550,280,"auto");
 		if ( (count($this->xdata) == 0) || (count($this->ydata) == 0) ) return;
 		
 		//Buat grafik
+		mitoteam\jpgraph\MtJpGraph::load(['pie','pie3d']);		
 		$graph = new PieGraph(550,280,"auto");
 		$graph->img->SetAntiAliasing();
 		$graph->SetShadow();
@@ -134,6 +135,7 @@ $graph = new Graph(550,280,"auto");
 		
 		/*
 		//Buat grafik
+		mitoteam\jpgraph\MtJpGraph::load(['pie','pie3d']);
 		$graph = new PieGraph(500,300,"auto");
 		$graph->img->SetAntiAliasing();
 		$graph->SetShadow();

@@ -165,7 +165,8 @@ if($sum == 0) {
 //data
 
 //Buat grafik
-$graph = new PieGraph(450,300,"auto");
+mitoteam\jpgraph\MtJpGraph::load(['pie','pie3d']);
+		$graph = new PieGraph(450,300,"auto");
 $graph->img->SetAntiAliasing();
 
 $graph->SetShadow();
@@ -196,7 +197,8 @@ if($num == 0) {
 }else {
 
 //Buat grafik
-$graph = new PieGraph(450,300,"auto");
+mitoteam\jpgraph\MtJpGraph::load(['pie','pie3d']);
+		$graph = new PieGraph(450,300,"auto");
 $graph->img->SetAntiAliasing();
 $graph->SetShadow();
 

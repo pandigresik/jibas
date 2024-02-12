@@ -184,7 +184,7 @@ if($my_data != "") {
     	$i++;
 		
 		$disp_nis = $ns;
-		$disp_nama = $d[\NAMA];
+		$disp_nama = $d['NAMA'];
 				
 		if($r_aturan != 0){            
 			$id_aturan = null;

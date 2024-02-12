@@ -108,6 +108,7 @@ $graph = new Graph(450,300,"auto");
 		if ( (count($this->xdata) == 0) || (count($this->ydata) == 0) ) return;
 		
 		//Buat grafik
+		mitoteam\jpgraph\MtJpGraph::load(['pie','pie3d']);
 		$graph = new PieGraph(500,300,"auto");
 		$graph->img->SetAntiAliasing();
 		$graph->SetShadow();
@@ -129,6 +130,7 @@ $graph = new Graph(450,300,"auto");
 		
 		/*
 		//Buat grafik
+		mitoteam\jpgraph\MtJpGraph::load(['pie','pie3d']);
 		$graph = new PieGraph(500,300,"auto");
 		$graph->img->SetAntiAliasing();
 		$graph->SetShadow();

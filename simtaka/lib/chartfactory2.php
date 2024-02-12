@@ -137,6 +137,7 @@ $graph = new Graph(400,225);
 		$data = $this->ydata;//array(40,60,21,33);
 
 		// Setup graph
+		mitoteam\jpgraph\MtJpGraph::load(['pie','pie3d']);
 		$graph = new PieGraph(400,200,"auto");
 		$graph->SetShadow();
 

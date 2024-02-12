@@ -92,7 +92,7 @@ OpenDb();
 			
 				$lab=[">=90", ">=80", ">=70", ">=60", ">=50", ">=40", ">=30", ">=20", ">=10"];
 				while($fetch=@mysqli_fetch_array($result)){			
-					$data = [$fetch[\J1], $fetch[\J2], $fetch[\J3], $fetch[\J4], $fetch[\J5], $fetch[\J6], $fetch[\J7], $fetch[\J8], $fetch[\J9]];
+					$data = [$fetch['J1'], $fetch['J2'], $fetch['J3'], $fetch['J4'], $fetch['J5'], $fetch['J6'], $fetch['J7'], $fetch['J8'], $fetch['J9']];
 				}
 			
 		}
